@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<plugin>
+   <extension-point id="com.ibm.ws.st.core.tests.TestBase" name="TestBase" schema="schema/com.ibm.ws.st.core.tests.TestBase.exsd"/>
+   <extension
+         point="org.eclipse.jst.server.core.serverProfilers">
+         <serverProfiler
+	        id="org.eclipse.tptp.platform.profile.server.wst.serverProfiler"
+	        name="Profiler extension test"
+	        class="com.ibm.ws.st.core.tests.profiling.ProfileExtension">
+	    </serverProfiler>
+   </extension>
+   <extension
+         id="testPreStart"
+         name="testPreStart"
+         point="com.ibm.ws.st.core.serverPreStart">
+         <preStart
+	        id="com.ibm.ws.st.core.serverPreStartTest"
+	        class="com.ibm.ws.st.core.tests.profiling.CodeCoverageExtension">
+	    </preStart>
+   </extension>
+   
+   <extension point="com.ibm.ws.st.core.tests.TestBase">
+      <TestBase
+         id="com.ibm.ws.st.core.tests.TestServerType"
+         typeId="LibertyDocker"
+         testBaseClass="com.ibm.ws.st.core.tests.docker.LibertyDockerTestExt"
+         />
+   </extension> 
+    
+</plugin>

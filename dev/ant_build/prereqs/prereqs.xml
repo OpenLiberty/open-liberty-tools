@@ -1,0 +1,159 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="prereqs" default="preparePrereqsIvy" xmlns:contrib="antlib:net.sf.antcontrib" xmlns:ivy="antlib:org.apache.ivy.ant" >
+    <!-- Open Liberty builds publish artifacts. They may be consumed from the local maven repository or Artifactory.
+        This build script uses Ivy to resolve artifacts and copies a resolved image to build.image/wlp.
+        The use of this design (and the prereq.published project) will cease once builds transition to using Gradle. 
+        -->
+	
+    <dirname property="prereqs.basedir" file="${ant.file.prereqs}"/>
+	
+	<property name="artifactory.props.location" value="${prereqs.basedir}${file.separator}artifactory.properties"/>
+	
+	<contrib:if>
+		<available file="${artifactory.props.location}"/>
+		<then>
+			<loadproperties srcfile="${artifactory.props.location}"/>
+		</then>
+	</contrib:if>
+
+	<!--  Load the same properties from the environment variables if they are set 
+		- these DO take precedence over the above file -->
+	<property environment="env"/>
+
+	<contrib:if>
+		<isset property="env.artifactory_download_server"/>
+		<then>
+			<contrib:propertycopy name="artifactory_download_server" from="env.artifactory_download_server" override="true"/>
+		</then>
+	</contrib:if>
+	<contrib:if>
+		<isset property="env.artifactory_download_user"/>
+		<then>
+			<contrib:propertycopy name="artifactory_download_user" from="env.artifactory_download_user" override="true"/>
+		</then>
+	</contrib:if>
+	<contrib:if>
+		<isset property="env.artifactory_download_apikey"/>
+		<then>
+			<contrib:propertycopy name="artifactory_download_apikey" from="env.artifactory_download_apikey" override="true"/>
+		</then>
+	</contrib:if>
+
+	<contrib:if>
+		<or>
+			<not><isset property="artifactory_download_server"/></not>
+			<equals arg1="" arg2="${artifactory_download_server}"/>
+			<not><isset property="artifactory_download_user"/></not>
+			<equals arg1="" arg2="${artifactory_download_user}"/>
+			<not><isset property="artifactory_download_apikey"/></not>
+			<equals arg1="" arg2="${artifactory_download_apikey}"/>
+		</or>
+		<then>
+			<fail message="
+At least one of artifactory_download_server, artifactory_download_user, or artifactory_download_apikey is not set, or is empty.${line.separator}
+All 3 of these must be set either as environment variables, or in ${prereqs.basedir}/artifactory.properties"/>
+		</then>
+	</contrib:if>
+	
+    <ivy:settings id="ivy.remote.settings" file="${prereqs.basedir}/ivysettings-remote.xml" />
+
+    <!-- Primary user target -->
+    <target name="preparePrereqsIvy" description="Consume artifacts with Ivy"
+                       depends="resolve, populate, cleanDownloads" />
+
+	<property name="prereqs.lib.dir" value="${prereqs.basedir}/lib"/>
+	
+    <!-- Internal targets below -->
+    <target name="cleanCache" description="Clean Ivy's Maven cache">
+        <delete dir="${prereqs.lib.dir}"/>
+        <ivy:cleancache />
+        <mkdir dir="${prereqs.lib.dir}" />
+    </target>
+
+    <target name="resolve" description="Resolve artifacts with Ivy">
+    	<!-- Resolve artifacts with ivy and download them into ${prereqs.lib.dir} -->
+        <mkdir dir="${prereqs.lib.dir}" />
+        
+        <!-- pattern attribute removes version info from artifacts, but it's still available in jar manifests -->
+        <ivy:retrieve file="${prereqs.basedir}/product-prereqs.xml" settingsRef="ivy.remote.settings" pattern="${prereqs.lib.dir}/[artifact].[ext]"/>
+    </target>
+
+	<!-- The goal of populate is to copy each resolved prereq into the plugin that requires it's lib/ dir -->
+    <target name="populate" description="Extract dependencies to their dependant plugins">
+    	<ivy:retrieve inline="true" organisation="dev" module="openliberty" settingsRef="ivy.remote.settings"/>
+
+    	<!-- Unlike the others, this file goes into ant_build/lib. It contains tasks used by some build scripts in public_imports --> 
+    	<copy todir="${prereqs.basedir}/../lib" verbose="true">
+    		<fileset dir="${prereqs.lib.dir}" includes="infra-buildtasks*.jar"/>
+    	</copy>
+    	
+    	<!-- First load the prereqs.properties which maps plugins to prereq jars -->
+    	<echo message="Getting prereqs mappings from ${prereqs.basedir}/prereqs.properties"/>
+		<loadproperties srcfile="${prereqs.basedir}/prereqs.properties"/>
+    	
+    	<!-- Load the list of dependencies into plugins.list, and loop over each plugin -->
+		<contrib:propertyselector property="plugins.list" match="depends\.com\.ibm\..*"/>
+    	
+		<contrib:foreach list="${plugins.list}" param="plugin" target="testNeedCopyPrereqs" inheritall="true"/>
+    </target>
+    
+	<target name="testNeedCopyPrereqs">
+		<!-- Test if the plugin declares any prereqs. If it does, call copyPrereqIntoLib -->
+		<contrib:propertycopy name="prereqs" from="${plugin}" override="true"/>
+		
+		<contrib:if>
+			<not><equals arg1="" arg2="${prereqs}"/></not>
+			<then>
+				<!-- Call copyPrereqIntoLib for each one of this plugin's prereqs -->
+				<contrib:foreach list="${prereqs}" param="prereq" target="copyPrereqIntoLib" inheritall="true"/>
+			</then>
+			<else>
+				<!--  Remove the "depends." from the plugin name to get just the plugin name -->
+				<contrib:propertyregex property="plugin" override="true"
+						input="${plugin}" regexp="depends\."
+						replace=""/>
+				<echo message="${plugin} does not declare any prereqs."/>
+			</else>
+		</contrib:if>
+	</target>
+	
+	<target name="copyPrereqIntoLib">
+		<!-- For each prereq, copy into this plugin's lib/ dir -->
+		
+		<!--  Remove the "depends." from the plugin name to get just the plugin name -->
+		<contrib:propertyregex property="plugin" override="true"
+				input="${plugin}" regexp="depends\."
+				replace=""/>
+		
+		<echo message="Plugin ${plugin} requires ${prereq}"/>
+		
+		<fileset dir="${prereqs.lib.dir}" includes="${prereq}" id="prereq.to.copy"/>
+		
+		<contrib:if>
+			<resourcecount refid="prereq.to.copy" when="equal" count="0"/>
+			<then>
+				<echo message="*** ERROR: Could not find a jar in ${prereqs.basedir}/lib matching ${prereq}"/>
+			</then>
+			<else>
+				<!-- The plugins are located two directories up from this script -->
+				<copy todir="${prereqs.basedir}/../../${plugin}/lib/" verbose="true">
+					<fileset refid="prereq.to.copy"/>
+				</copy>
+			</else>
+		</contrib:if>
+	</target>
+	
+	<target name="cleanDownloads">
+		<!--delete dir="${prereqs.basedir}/lib"/-->
+	</target>
+</project>

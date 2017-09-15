@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee web-app_3_0.xsd"
+    id="WebApp_ID">
+
+  <display-name>JMSSample</display-name>
+
+  <!-- SERVLET DEFINITIONS -->
+  <servlet id="Point2Point">
+    <servlet-name>JMS Sample P2P Servlet</servlet-name>
+    <display-name>JMS Sample P2P Servlet</display-name>
+    <servlet-class>wasdev.sample.jms.web.JMSSampleP2P</servlet-class>
+    <load-on-startup></load-on-startup>
+  </servlet>
+  
+  <servlet id="PubSub">
+    <servlet-name>JMS Sample Pub Sub Servlet</servlet-name>
+    <display-name>JMS Sample Pub Sub Servlet</display-name>
+    <servlet-class>wasdev.sample.jms.web.JMSSamplePubSub</servlet-class>
+    <load-on-startup></load-on-startup>
+  </servlet>  
+
+  <!-- SERVLET MAPPINGS -->        
+  <servlet-mapping id="ServletMapping_Default">
+    <servlet-name>JMS Sample P2P Servlet</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+
+<!-- RESOURCE REFERENCES -->
+
+   <resource-ref>
+    <res-ref-name>jmsTCF</res-ref-name>
+    <res-type>javax.jms.TopicConnectionFactory</res-type>
+    <lookup-name>jmsTCF</lookup-name>
+  </resource-ref>
+
+   <resource-env-ref>
+    <resource-env-ref-name>jmsTopic</resource-env-ref-name>
+    <resource-env-ref-type>javax.jms.Topic</resource-env-ref-type>
+  </resource-env-ref>   
+
+   <resource-ref>
+    <res-ref-name>jndi_JMS_BASE_QCF</res-ref-name>
+    <res-type>javax.jms.QueueConnectionFactory</res-type>
+    <lookup-name>jndi_JMS_BASE_QCF</lookup-name>
+  </resource-ref>  
+
+  <resource-env-ref>
+    <resource-env-ref-name>jndi_INPUT_Q</resource-env-ref-name>
+    <resource-env-ref-type>javax.jms.Queue</resource-env-ref-type>
+  </resource-env-ref>  
+
+  <resource-env-ref>
+    <resource-env-ref-name>jndi/MDBQ</resource-env-ref-name>
+    <resource-env-ref-type>javax.jms.Queue</resource-env-ref-type>
+  </resource-env-ref>  
+
+  <resource-env-ref>
+    <resource-env-ref-name>jndi/MDBREPLYQ</resource-env-ref-name>
+    <resource-env-ref-type>javax.jms.Queue</resource-env-ref-type>
+  </resource-env-ref>   
+</web-app>

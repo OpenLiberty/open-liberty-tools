@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+	xmlns:tns="http://jaxws.service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ImageServiceImplService"
+	targetNamespace="http://jaxws.service/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://jaxws.service/" elementFormDefault="unqualified"
+			targetNamespace="http://jaxws.service/" version="1.0">
+			<xs:element name="uploadImage" type="tns:uploadImage"></xs:element>
+			<xs:element name="uploadImageResponse" type="tns:uploadImageResponse"></xs:element>
+			<xs:complexType name="uploadImage">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+					<xs:element minOccurs="0" name="arg1" type="xs:base64Binary"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="uploadImageResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:base64Binary"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="uploadImageResponse">
+		<wsdl:part element="tns:uploadImageResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="uploadImage">
+		<wsdl:part element="tns:uploadImage" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="ImageServiceImpl">
+		<wsdl:operation name="uploadImage">
+			<wsdl:input message="tns:uploadImage" name="uploadImage"
+				wsam:Action="http://jaxws.service/ImageServiceImpl/uploadImageRequest"
+				wsaw:Action="http://jaxws.service/ImageServiceImpl/uploadImageRequest">
+			</wsdl:input>
+			<wsdl:output message="tns:uploadImageResponse" name="uploadImageResponse"
+				wsam:Action="http://jaxws.service/ImageServiceImpl/uploadImageResponse"
+				wsaw:Action="http://jaxws.service/ImageServiceImpl/uploadImageResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ImageServiceImplServiceSoapBinding"
+		type="tns:ImageServiceImpl">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+		<wsaw:UsingAddressing wsdl:required="false"></wsaw:UsingAddressing>
+		<wsp:PolicyReference
+			URI="#ImageServiceImplServiceSoapBinding_WSAM_Addressing_Policy"></wsp:PolicyReference>
+		<wsdl:operation name="uploadImage">
+			<soap:operation soapAction="" style="document"></soap:operation>
+			<wsdl:input name="uploadImage">
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output name="uploadImageResponse">
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ImageServiceImplService">
+		<wsdl:port binding="tns:ImageServiceImplServiceSoapBinding"
+			name="ImageServiceImplPort">
+			<soap:address
+				location="http://localhost:9080/JaxWsLibertyDemo/ImageServiceImplService"></soap:address>
+		</wsdl:port>
+	</wsdl:service>
+	<wsp:Policy
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		wsu:Id="ImageServiceImplServiceSoapBinding_WSAM_Addressing_Policy">
+		<wsam:Addressing wsp:Optional="true">
+			<wsp:Policy></wsp:Policy>
+		</wsam:Addressing>
+	</wsp:Policy>
+</wsdl:definitions>

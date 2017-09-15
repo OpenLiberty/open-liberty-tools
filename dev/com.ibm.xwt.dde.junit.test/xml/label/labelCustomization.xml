@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<!--
+******************************************************************************************* 
+*                     Deployment Descriptor Editor Customization File                     *
+*******************************************************************************************
+-->     
+<customization globalDetectSchemaLabel="true" addButtonClass="com.ibm.xwt.dde.test.CustomizedAddExtendor" customizationNamespace="http://java.sun.com/xml/ns/javaee" customizationSchemaLocation="" xmlns="http://com.ibm.xwt.dde/CustomizationFile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://com.ibm.xwt.dde/CustomizationFile ../../com.ibm.xwt.dde/schema/CustomizationFile.xsd ">
+  
+	<!-- Web Application customization -->
+ 	<node path="/web-app" label="%WEB_APP" icon="icons/web_app.gif" sectionHeaderText="Set the properties for the selected item. Required fields are denoted by '*'." detailSectionTitle="Detailed Properties">
+		<item path="display-name" helpContextId="com.ibm.xwt.dde.test.displayName" label="Customized Display name Label" style="text"/>
+		<item path="@version" hoverHelp="VERSION_HOVER_HELP" label="CustomizedVersion" />
+		<item path="distributable" label="Distributable" checkBoxText="(Application is Distributable)" hideLabel="true" style="checkBox" />
+		<item path="@metadata-complete" label="Metadata complete" />
+		<item path="icon" inheritCustomization="true" />
+		<node path="session-config" label="Session Configuration" icon="icons/session_config.gif" singleOccurrence="true" hideSectionTitle="true">
+    	   	<item path="session-timeout" style="text" label="Session timeout"/>
+		</node>
+		
+		<item path="description" deleteIfEmpty="true" inheritCustomization="true" />
+		<node path="welcome-file-list" label="Welcome File List" singleOccurrence="true">
+			<item path="welcome-file" label="Welcome File" tableIcon="icons/welcome_file.gif" hideLabel="true" helpContextId="com.ibm.xwt.dde.test.welcomePage" defaultValue="default.html" />
+		</node>
+	</node>
+
+ 
+	<!-- Servlet customization -->
+	<node path="/web-app/servlet" helpContextId="com.ibm.xwt.dde.test.servlet" label="Servlet" treeLabel="Servlet ({0})" treeLabelData="servlet-name" icon="icons/servlet.gif" >
+		<node path="servlet-class" icon="icons/java_class.gif" label="Servlet class" treeLabel="Servlet Class: $.$">
+			<item path="." buttonLabel="Browse..." labelLinkToolTip="Click to open" buttonToolTip="Click here to change the Servlet class" />
+		</node>
+		<item path="display-name" label="Display name" style="text" />
+		<item path="servlet-name" label="Servlet name" style="text" triggerNodeValidationPath="/web-app/servlet-mapping" triggerNodeValidationRecurse="false" />
+		<node path="jsp-file" label="JSP file" icon="icons/jsp_file.gif" />    
+		<item path="load-on-startup" label="Load on startup" style="text" />
+		
+		<!-- Security role reference customization -->
+		<node path="security-role-ref" label="Security Role Reference" icon="icons/secur_role_ref.gif">
+			<item path="role-link" label="Role link" />
+			<item path="role-name" label="Role name" />
+		</node>
+		
+		<!-- Run as customization -->
+		<node path="run-as" label="Run as" style="treeNode" icon="icons/start.gif">
+			<item path="role-name" label="Role name" />
+		</node>
+	</node> 
+ 
+
+	<!-- Servlet mapping customization -->
+	<node path="/web-app/servlet-mapping" label="Servlet Mapping" icon="icons/servlet_mapping.gif">
+		<item path="servlet-name" label="Servlet name" />
+		<item path="url-pattern" label="URL pattern"/>
+	</node>
+
+
+
+  
+	<!-- Context parameter customization -->
+	<node path="/web-app/context-param" label="Context Parameter" icon="icons/context_parameter.gif">  
+		<item path="param-name" label="Name" style="text" />
+		<item path="param-value" label="Value" style="text" />
+	</node>
+    
+
+	<!-- Filter customization -->
+	<node path="/web-app/filter" label="Filter" icon="icons/filter.gif">
+		<item path="filter-class" label="Filter class" buttonLabel="Browse..." labelLinkToolTip="Click to open" buttonToolTip="Click here to change the Servlet class" />
+		<item path="filter-name" xmlns:Q1="http://www.ibm.com/xmlns/dde/schema/annotation/ext"/> <!-- Should use the label from the schema File-->
+		<item path="display-name" label="Display name" style="text" />
+	</node>
+  
+
+	<!-- Listener customization -->
+	<node path="/web-app/listener" label="Listener" icon="icons/listener.gif">
+		<item path="display-name" style="text" />
+		<item path="listener-class" label="Listener class" buttonLabel="Browse..." labelLinkToolTip="Click to open" buttonToolTip="Click here to change the class" />
+	</node>
+  
+  
+	<!-- EJB local reference customization -->
+	<node path="/web-app/ejb-local-ref" label="EJB Local Reference" icon="icons/ejb_local_ref.gif">
+		<item path="ejb-link" label="Link" />
+		<item path="ejb-ref-name" label="Reference name" />
+		<item path="ejb-ref-type" label="Reference type" />
+		<item path="local" label="Local" />
+		<item path="local-home" label="Local home" />
+	</node>
+
+
+	<!-- EJB reference customization -->
+	<node path="/web-app/ejb-ref" label="EJB Reference" icon="icons/ejb_ref.gif">
+		<item path="ejb-link" label="Link" />
+		<item path="ejb-ref-name" label="Reference name" />
+		<item path="ejb-ref-type" label="Reference type" />
+		<item path="home" label="Home" />
+		<item path="remote" label="Remote" />
+	</node>
+	
+	
+	<!-- Enviroment entry customization -->
+	<node path="/web-app/env-entry" label="Enviroment Entry" icon="icons/environment.gif">
+		<item path="env-entry-name" label="Name" />
+		<item path="env-entry-type" label="Type" />
+		<item path="env-entry-value" label="Value" />
+	</node>
+	
+	
+	<!-- Error page customization -->
+	<node path="/web-app/error-page" label="Error Page" icon="icons/error_page.gif">
+		<item path="location" label="Location" />
+		<item path="error-code" label="Error code" style="text" />
+		<item path="exception-type" label="Exception type" style="text" />
+	</node>
+	
+	<!-- Locale encoding mapping list customization -->
+	<node path="/web-app/locale-encoding-mapping-list" label="Locale Encoding Mapping List" icon="icons/local_encoding_mapping.gif">
+		<node path="locale-encoding-mapping" label="Locale Encoding Mapping" treeLabel="Locale Encoding Mapping ($locale$)" icon="icons/local_encoding_mapping.gif">
+			<item path="encoding" label="Encoding" />
+			<item path="locale" label="Locale" triggerNodeValidationPath="/web-app/locale-encoding-mapping-list" />
+		</node>
+	</node>
+	
+
+
+	<!-- Login configuration customization -->
+	<node path="/web-app/login-config" label="Login Configuration" icon="icons/login_config.gif" detailSectionTitle="Properties for the login configuration">
+		<item path="auth-method" label="Authentication method" />
+		<item path="realm-name" label="Realm name" />
+		<node path="form-login-config" label="Form login configuration">
+			<item path="form-error-page" label="Form error page" />
+			<item path="form-login-page" label="Form login page" />
+		</node>
+	</node>
+
+
+	<!-- Filter Mapping customization -->
+	<node path="/web-app/filter-mapping" label="Filter Mapping" icon="icons/filter_mapping.gif">
+		<item path="dispatcher" label="Dispatcher" />
+		<item path="filter-name" label="Filter name" />
+		<node path="url-pattern" label="URL Pattern" icon="icons/url.gif" />
+		<node path="servlet-name" label="Servlet Name" icon="icons/servlet.gif" />
+	</node>
+
+
+	<!-- JSP Configuration customization -->
+	<node path="/web-app/jsp-config" label="JSP Configuration" icon="icons/jsp_file.gif" sectionHeaderText="Welcome to the JSP Configuration section. Use the tree context menu to add a Resource Collertion or a Tag Library.">
+		<node path="jsp-property-group" label="Property group" icon="icons/property_group.gif" canDelete="false">
+			<item path="display-name" label="Display name" style="text" />
+			<item path="deferred-syntax-allowed-as-literal" label="Deferred syntax allows as literal" />
+			<item path="el-ignored" label="EL ignored" />
+			<item path="include-coda" label="Include coda" />
+			<item path="include-prelude" label="Include prelude" />
+			<item path="is-xml" label="Is XML" />
+			<item path="page-encoding" label="Page encoding">
+				<!-- Include a set of predefined possible values for the page encoding -->
+				<suggestedValues>
+					<suggest value="ISO-8859-1"/>
+					<suggest value="UTF-8"/>
+					<suggest value="UTF-16"/>
+					<suggest value="Unicode"/>
+				</suggestedValues>
+			</item>
+			<item path="scripting-invalid" label="Scripting invalid" />
+			<item path="trim-directive-whitespaces" label="White space trim directive" />
+			<item path="url-pattern" label="URL Pattern" />
+		</node>
+		<node path="taglib" label="TagLib" icon="icons/taglib.gif">
+			<item path="taglib-location" label="Location" />
+			<item path="taglib-uri" label="URI" />
+		</node>
+	</node>
+
+
+	<!-- Message Destination customization -->
+	<node path="/web-app/message-destination" label="Message Destination" icon="icons/message.gif">
+		<item path="display-name" label="Display name" style="text" />
+		<item path="message-destination-name" label="Message destination name" />
+		<item path="mapped-name" label="Mapped Name" />
+	</node>
+	
+	
+	<!-- Message Destination Reference customization -->
+	<node path="/web-app/message-destination-ref" label="Message Destination Reference" icon="icons/message_ref.gif">
+		<item path="message-destination-link" label="Link" />
+		<item path="message-destination-ref-name" label="Reference name" />
+		<item path="message-destination-type" label="Type" />
+		<item path="message-destination-usage" label="Usage" />
+	</node>
+
+
+	<!-- MIME Mapping customization -->
+	<node path="/web-app/mime-mapping" label="MIME Mapping" icon="icons/mime_mapping.gif">
+		<item path="extension" label="Extension" />
+		<item path="mime-type" label="MIME type" />
+	</node>
+
+
+	<!-- Persistence Context Reference customization -->
+	<node path="/web-app/persistence-context-ref" label="Persistent Context Reference" icon="icons/context_ref.gif">
+		<item path="persistence-context-ref-name" label="Reference name" />
+		<item path="persistence-context-type" label="Context type" />
+		<item path="persistence-unit-name" label="Unit name" />
+		<node path="persistence-property" label="Persistence Property" icon="icons/property.gif">
+			<item path="name" label="Name" />
+			<item path="value" label="Value" />
+		</node>
+	</node>
+	
+	
+	<!-- Persistant Unit Reference customization -->
+	<node path="/web-app/persistence-unit-ref" label="Persistent Unit Reference" icon="icons/unit_ref.gif">
+		<item path="persistence-unit-name" label="Unit name" />
+		<item path="persistence-unit-ref-name" label="Unit reference name" />
+	</node>
+
+
+	<!-- Post Construct customization -->
+	<node path="/web-app/post-construct" label="Post-Construct" icon="icons/start.gif">
+		<item path="lifecycle-callback-class" label="Lifecycle callback class" buttonLabel="Browse..." labelLinkToolTip="Click to open" buttonToolTip="Click here to change the class" />
+		<item path="lifecycle-callback-method" label="Lifecycle callback method" />
+	</node>
+		
+	
+	<!-- Pre Destroy customization -->
+	<node path="/web-app/pre-destroy" label="Pre-Destroy" icon="icons/stop.gif">
+		<item path="lifecycle-callback-class" label="Lifecycle callback class" buttonLabel="Browse..." labelLinkToolTip="Click to open" buttonToolTip="Click here to change the class" />
+		<item path="lifecycle-callback-method" label="Lifecycle callback method" />
+	</node>
+	
+	
+	<!-- Resource Enviroment customization -->
+	<node path="/web-app/resource-env-ref" label="Resource Enviroment Rerefence" icon="icons/env_ref.gif">
+		<item path="resource-env-ref-name" label="Reference name" />
+		<item path="resource-env-ref-type" label="Reference type" />
+	</node>
+	
+	
+	<!-- Resource Reference customization -->
+	<node path="/web-app/resource-ref" label="Resource Reference" icon="icons/resource_ref.gif">
+		<item path="res-auth" label="Author" />
+		<item path="res-ref-name" label="Reference name" />
+		<item path="res-sharing-scope" label="Sharing scope" />
+		<item path="res-type" label="Type" />
+	</node>
+
+
+	<!-- Security Constraint customization -->
+	<node path="/web-app/security-constraint" label="Security Constraint" icon="icons/security_constraint.gif">
+		<item path="display-name" label="Display name" style="text" />
+		<node path="auth-constraint" label="Author Constraint">
+			<item path="role-name" label="Role Name" />
+		</node>
+		<node path="user-data-constraint" label="User Data Constraint">
+			<item path="transport-guarantee" label="Transport guarantee" />
+		</node>
+		<node path="web-resource-collection" label="Web Resource Collection" icon="icons/web_resource_collection.gif">
+			<item path="http-method" label="HTTP method" />
+			<item path="url-pattern" label="URL pattern" />
+			<item path="web-resource-name" label="Web resource name" />
+		</node>
+	</node>
+	
+	 
+	<!-- Security Role customization -->
+	<node path="/web-app/security-role" treeLabel="SECURITY_ROLE" treeLabelData="role-name" icon="icons/security_role.gif">
+		<item path="role-name" label="Role name" />
+	</node>
+	
+	
+	<!-- Service Reference customization -->
+	<node path="/web-app/service-ref" label="Service Reference" icon="icons/service_ref.gif">
+		<item path="display-name" label="Display name" style="text" />
+		<item path="jaxrpc-mapping-file" label="JAX-RPC mapping file" />
+		<item path="service-interface" label="Service interface" />
+		<item path="service-qname" label="Qualified name" />
+		<item path="service-ref-name" label="Reference name" />
+		<item path="service-ref-type" label="Reference type" />
+		<item path="wsdl-file" label="WSDL file" />
+		<node path="port-component-ref" label="Port Component Reference" icon="icons/component_ref.gif">
+			<item path="enable-mtom" label="Enable MTOM" />
+			<item path="port-component-link" label="Port component link" />
+			<item path="service-endpoint-interface" label="service endpoint interface" />
+		</node>
+		<node path="handler-chains" label="Handler Chains" icon="icons/chain_folder.gif">
+			<node path="handler-chain" label="Chain" icon="icons/chain.gif">
+				<item path="port-name-pattern" label="Port name pattern" />
+				<item path="protocol-bindings" label="Protocol bindings" />
+				<item path="service-name-pattern" label="Service name pattern" />
+			</node>
+		</node>
+	</node>
+
+</customization>

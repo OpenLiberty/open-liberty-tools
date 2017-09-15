@@ -1,0 +1,100 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="standard_macros">
+
+  <!-- 
+    NOTE: All macros defined here must work with all versions of ant (1.7.1, 1.8.4, ...)
+    Avoid use of scope and local.
+    
+    var can be used to unset ant properties
+   -->
+
+  <dirname property="imports.dir" file="${ant.file.standard_macros}" />
+
+  <macrodef name="wlpJavac">
+    <attribute name="srcdir" />
+    <attribute name="destdir" />
+    <attribute name="classpath" default="" />
+    <attribute name="classpathref" default="project.class.path" />
+  	<attribute name="bootclasspath" default="" />
+  	<attribute name="bootclasspathref" default="boot.classpath" />
+    <attribute name="endorseddirs" default="${component.endorsed}" />
+    <attribute name="buildWithJavaLevel" />
+    <attribute name="debug" default="true"/>
+    <attribute name="debuglevel" default="${javac.debug.level}"/>
+    <attribute name="includeAntRuntime" default="no"/>
+    <attribute name="encoding" default="${javac.source.file.encoding}"/>
+  	
+    <sequential>
+      <!-- path id="boot.classpath">
+    	<fileset dir="${basedir}/../prereq.java.${javac.boot.classpath}/lib" includes="*.jar" />
+      </path -->
+      <local name="javac.compile.error" />
+
+      <local name="javacLogPath" />
+      <local name="ecjLogPath" />
+      <property name="javacLogPath" value="${build.dir}/javac-${ant.project.name}.log" />
+      <property name="ecjLogPath" value="${build.dir}/ecj-${ant.project.name}.log" />
+
+      <!-- Note that we set compiler="modern", which stops
+           error like class def not found javac1.8. To
+           really fix this we should move to Ant 1.9 -->
+      <javac srcdir="@{srcdir}" 
+             destdir="@{destdir}"
+             classpath="@{classpath}"
+             classpathref="@{classpathref}"
+             debuglevel="@{debuglevel}" 
+             includeAntRuntime="@{includeAntRuntime}" 
+             debug="@{debug}"
+             encoding="@{encoding}"
+             source="@{buildWithJavaLevel}"
+             target="@{buildWithJavaLevel}"
+             failonerror="false"
+             errorProperty="javac.compile.error"
+             createMissingPackageInfoClass="false"
+      >
+        <compilerarg value="-Djava.endorsed.dirs=@{endorseddirs}"/>
+        <compilerarg value="-Xstdout" />
+        <compilerarg value="${javacLogPath}" />
+      </javac>
+
+      <iff iff="javac.compile.error">
+        <then>
+          <loadfile property="compileError" srcFile="${javacLogPath}"/> 
+          <echo>${compileError}</echo>
+          <fail message="Encounter compiler error, see above." />
+        </then>
+      </iff>
+    </sequential>
+  </macrodef>
+   
+  <macrodef name="availableAndNonEmpty">
+    <attribute name="property" />
+    <element name="resourcecollection" />
+    <sequential>
+      <!-- This try/catch is ugly, but necessary - if the directory for the fileset doesn't exist that just
+             means there's nothing there NOT that we should blow up! -->
+      <try>
+        <sequential>
+          <condition property="@{property}" value="true">
+            <resourcecount when="greater" count="0">
+              <resourcecollection />
+            </resourcecount>
+          </condition>
+        </sequential>
+        <catch>
+          <!-- Deliberate no-op -->
+        </catch>
+      </try>
+    </sequential>
+  </macrodef>
+</project>

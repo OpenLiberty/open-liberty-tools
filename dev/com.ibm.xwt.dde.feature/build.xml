@@ -1,0 +1,4 @@
+<project name="com.ibm.xwt.dde.feature" default="build">
+	<property name="image.write.dir" value="update/features"/>
+	<import file="../ant_build/public_imports/internal_imports/feature_build.xml"/>
+</project>

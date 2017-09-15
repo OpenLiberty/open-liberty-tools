@@ -1,0 +1,8 @@
+.gradle/
+*/build/
+about.mappings
+tests.jar
+ddetest.jar
+target_platform/
+**/tools.pii.package/*
+tools.image/

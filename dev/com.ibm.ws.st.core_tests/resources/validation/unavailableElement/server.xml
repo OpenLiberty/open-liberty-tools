@@ -1,0 +1,49 @@
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<server>
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.3</feature>
+        <feature>appSecurity-2.0</feature>
+    </featureManager>
+    
+    <keyStore id="defaultKeyStore" password="{xor}NDomLz4sLA=="/>
+
+     <basicRegistry>
+        <group name="USER">
+            <member name="user1" />
+            <member name="user2" />
+        </group>
+        <group name="ADMIN">
+        	<member name="admin1"/>
+        </group>
+        <user password="{xor}Lyg7" name="john" />
+        <user password="{xor}Lyg7bQ==" name="jane" />
+    </basicRegistry>
+    
+    <application id="Sample" location="${server.config.dir}/myAppDir/Sample2.war" name="Sample2" type="war"/>
+
+    <dataSource jndiName="jdbc/exampleDS" id="ds1">
+        <jdbcDriver>
+            <library>
+                <fileset dir="C:\db-derby-10.8.2.2-bin\lib" includes="derby.jar"></fileset>
+            </library>
+        </jdbcDriver>
+        <properties.derby.embedded createDatabase="create" databaseName="${shared.resource.dir}/data/exampleDB"/>
+    </dataSource>
+    
+    
+    <jdbcDriver id="jdbcDriver">
+        <library>
+            <fileset dir="D:\derby\lib" includes="derby.jar"></fileset>
+        </library>
+    </jdbcDriver>
+</server>

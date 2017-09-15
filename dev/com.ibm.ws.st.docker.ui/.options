@@ -1,0 +1,7 @@
+# Debugging options for the com.ibm.ws.st.docker.ui
+
+# Turn on general debugging
+com.ibm.ws.st.docker.ui/debug=false
+com.ibm.ws.st.docker.ui/debug/error=true
+com.ibm.ws.st.docker.ui/debug/warning=true
+com.ibm.ws.st.docker.ui/debug/info=true

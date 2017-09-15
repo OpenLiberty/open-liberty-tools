@@ -1,0 +1,39 @@
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<server description="test implicit local variables">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.3</feature>
+    </featureManager>
+
+    <!-- message for variable of incorrect type -->
+    <httpEndpoint id="defaultHttpEndpoint"
+                  host="localhost"
+                  httpPort="9080"
+                  httpsPort="9443" />
+                  
+    <applicationMonitor updateTrigger="mbean" dropinsEnabled="${updateTrigger}"/>             
+
+	<library id="libA" filesetRef="filesetA" name="${id}"/>
+    <fileset id="filesetA" dir="${shared.resource.dir}/lib" includes="a.jar"/>
+
+    <library id="libB" filesetRef="filesetB" name="${filesetRef}"/>
+    <fileset id="filesetB" dir="${shared.resource.dir}/lib" includes="b.jar"/>
+
+    <library id="libC" filesetRef="filesetC" name="${apiTypeVisibility}"/>
+    <fileset id="filesetC" dir="${shared.resource.dir}/lib" includes="c.jar"/>
+
+    <!-- message for undefined variable -->
+    <library id="libD" filesetRef="filesetD" name="${noexist}"/>
+    <fileset id="filesetD" dir="${shared.resource.dir}/lib" includes="d.jar"/>
+
+</server>

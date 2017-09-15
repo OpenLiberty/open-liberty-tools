@@ -1,0 +1,900 @@
+CWWKZ0001I: Application 
+ started in 
+ seconds.
+CWWKZ0001I: Aplikace 
+ byla spu\u0161t\u011bna za 
+ sekund.
+CWWKZ0001I: Die Anwendung 
+ ist nach 
+ Sekunden gestartet.
+CWWKZ0001I: La aplicaci\u00f3n 
+ se ha iniciado en 
+ segundos.
+CWWKZ0001I: Application 
+ d\u00e9marr\u00e9e en 
+ secondes.
+CWWKZ0001I: A(z) 
+ alkalmaz\u00e1s 
+ m\u00e1sodperc alatt elindult.
+CWWKZ0001I: Applicazione 
+ avviata in 
+ secondi.
+CWWKZ0001I: \u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3 
+ \u304c 
+ \u79d2\u3067\u958b\u59cb\u3057\u307e\u3057\u305f\u3002
+CWWKZ0001I: \ucd08 \ud6c4\uc5d0 \uc560\ud50c\ub9ac\ucf00\uc774\uc158 
+
+\uc774(\uac00) \uc2dc\uc791\ub429\ub2c8\ub2e4.
+CWWKZ0001I: Aplikacja 
+ zosta\u0142a uruchomiona w ci\u0105gu 
+ sek.
+CWWKZ0001I: O aplicativo 
+ foi iniciado em 
+ segundos.
+CWWKZ0001I: Aplica\u0163ia 
+ a pornit \u00een 
+ secunde.
+CWWKZ0001I: \u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 
+ \u0437\u0430\u043f\u0443\u0449\u0435\u043d\u043e \u0437\u0430 
+ \u0441\u0435\u043a.
+CWWKZ0001I: \u5e94\u7528\u7a0b\u5e8f 
+ \u5df2\u5728 
+ \u79d2\u5185\u542f\u52a8\u3002
+CWWKZ0001I: \u61c9\u7528\u7a0b\u5f0f 
+ \u5df2\u5728 
+ \u79d2\u5167\u555f\u52d5\u3002
+CWWKZ0003I: The application 
+ updated in 
+ seconds.
+CWWKZ0003I: Aplikace 
+ byla aktualizov\u00e1na za 
+ sekund.
+CWWKZ0003I: Die Anwendung 
+ wurde nach 
+ Sekunden aktualisiert.
+CWWKZ0003I: La aplicaci\u00f3n 
+ se ha actualizado en 
+ segundos.
+CWWKZ0003I: Application 
+ mise \u00e0 jour en 
+ secondes.
+CWWKZ0003I: A(z) 
+ alkalmaz\u00e1s 
+ m\u00e1sodperc alatt friss\u00fclt.
+CWWKZ0003I: L''applicazione 
+ \u00e8 stata aggiornata in 
+ secondi.
+CWWKZ0003I: \u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3 
+ \u304c 
+ \u79d2\u3067\u66f4\u65b0\u3055\u308c\u307e\u3057\u305f\u3002
+CWWKZ0003I: \ucd08 \ud6c4\uc5d0 \uc560\ud50c\ub9ac\ucf00\uc774\uc158 
+
+\uc774(\uac00) \uc5c5\ub370\uc774\ud2b8\ub429\ub2c8\ub2e4.
+CWWKZ0003I: Aplikacja 
+ zosta\u0142a zaktualizowana w ci\u0105gu 
+ sek.
+CWWKZ0003I: O aplicativo 
+ foi atualizado em 
+ segundos.
+CWWKZ0003I: Aplica\u0163ia 
+ a fost actualizat\u0103 \u00een 
+ secunde.
+CWWKZ0003I: \u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 
+ \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u043e \u0437\u0430 
+ \u0441\u0435\u043a.
+CWWKZ0003I: \u5e94\u7528\u7a0b\u5e8f 
+ \u5df2\u5728 
+ \u79d2\u5185\u66f4\u65b0\u3002
+CWWKZ0003I: \u61c9\u7528\u7a0b\u5f0f 
+ \u5df2\u5728 
+ \u79d2\u5167\u66f4\u65b0\u3002
+CWWKZ0062I: The 
+
+ application has been updated, but not restarted.
+CWWKZ0062I: Aplikace 
+
+ byla aktualizov\u00E1na, ale nebyla restartov\u00E1na.
+CWWKZ0062I: Die Anwendung 
+
+ wurde aktualisiert, jedoch nicht erneut gestartet.
+CWWKZ0062I: La aplicaci\u00F3n 
+
+ se ha actualizado, pero no se ha reiniciado.
+CWWKZ0062I: L''application 
+
+ a \u00E9t\u00E9 mise \u00E0 jour mais n''a pas \u00E9t\u00E9 red\u00E9marr\u00E9e.
+CWWKZ0062I: A(z) 
+
+ alkalmaz\u00E1s friss\u00EDt\u00E9sre ker\u00FClt, de nem lett \u00FAjraind\u00EDtva.
+CWWKZ0062I: L''applicazione 
+
+ \u00E8 stata aggiornata, ma non riavviata.
+CWWKZ0062I: 
+
+ \u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3\u304C\u66F4\u65B0\u3055\u308C\u307E\u3057\u305F\u304C\u3001\u518D\u59CB\u52D5\u3055\u308C\u307E\u305B\u3093\u3067\u3057\u305F\u3002
+CWWKZ0062I: 
+
+ \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC774 \uC5C5\uB370\uC774\uD2B8\uB418\uC5C8\uC9C0\uB9CC \uB2E4\uC2DC \uC2DC\uC791\uD558\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.
+CWWKZ0062I: Aplikacja 
+
+ zosta\u0142a zaktualizowana, ale nie zosta\u0142a zrestartowana.
+CWWKZ0062I: O aplicativo 
+
+ foi atualizado, mas n\u00E3o foi reiniciado.
+CWWKZ0062I: Aplica\u0163ia 
+
+ a fost actualizat\u0103, dar nu a fost repornit\u0103.
+CWWKZ0062I: \u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 
+
+ \u043E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u043E, \u043D\u043E \u043D\u0435 \u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0449\u0435\u043D\u043E.
+CWWKZ0062I: 
+
+ \u5E94\u7528\u7A0B\u5E8F\u5DF2\u66F4\u65B0\uFF0C\u4F46\u672A\u91CD\u65B0\u542F\u52A8\u3002
+CWWKZ0062I: 
+
+ \u61C9\u7528\u7A0B\u5F0F\u5DF2\u66F4\u65B0\uFF0C\u4F46\u672A\u91CD\u65B0\u555F\u52D5\u3002
+CWWKZ0005E\: The application 
+ cannot start because the server is not configured to handle applications of type 
+.
+CWWKZ0005E\: Aplikaci 
+ nelze spustit, proto\u017Ee server nen\u00ED nakonfigurov\u00E1n ke zpracov\u00E1n\u00ED aplikac\u00ED typu 
+.
+CWWKZ0005E\: Die Anwendung 
+ kann nicht gestartet werden, da der Server f\u00FCr die Abwicklung von Anwendungen des Typs 
+ nicht konfiguriert wurde.
+CWWKZ0005E\: La aplicaci\u00F3n 
+ no puede iniciarse porque el servidor no est\u00E1 configurado para manejar aplicaciones de tipo 
+.
+CWWKZ0005E\: L''application 
+ ne peut pas d\u00E9marrer car le serveur n''est pas configur\u00E9 pour g\u00E9rer les applications de type 
+.
+CWWKZ0005E\: A(z) 
+ alkalmaz\u00E1s nem k\u00E9pes elindulni, mert a kiszolg\u00E1l\u00F3 nincs be\u00E1ll\u00EDtva a(z) 
+ t\u00EDpus\u00FA alkalmaz\u00E1sok kezel\u00E9s\u00E9re.
+CWWKZ0005E\: L''applicazione 
+ non pu\u00F2 essere avviata perch\u00E9 il server non \u00E8 configurato per gestire le applicazioni di tipo 
+.
+CWWKZ0005E\: \u30B5\u30FC\u30D0\u30FC\u304C\u30BF\u30A4\u30D7 {1} \u306E\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3\u3092\u6271\u3046\u3088\u3046\u306B\u69CB\u6210\u3055\u308C\u3066\u3044\u306A\u3044\u306E\u3067\u3001\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3 
+
+ \u3092\u958B\u59CB\u3067\u304D\u307E\u305B\u3093\u3002
+CWWKZ0005E\: \uC11C\uBC84\uAC00 \uC560\uD50C\uB9AC\uCF00\uC774\uC158 \uC720\uD615 {1}\uC744(\uB97C) \uCC98\uB9AC\uD558\uB3C4\uB85D \uAD6C\uC131\uB418\uC9C0 \uC54A\uC558\uAE30 \uB54C\uBB38\uC5D0 \uC560\uD50C\uB9AC\uCF00\uC774\uC158 
+
+\uC744(\uB97C) \uC2DC\uC791\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+CWWKZ0005E\: Nie mo\u017Cna uruchomi\u0107 aplikacji 
+, poniewa\u017C w konfiguracji serwera nie uwzgl\u0119dniono obs\u0142ugi aplikacji typu 
+.
+CWWKZ0005E\: O aplicativo 
+ n\u00E3o pode iniciar porque o servidor n\u00E3o foi configurado para manipular aplicativos do tipo 
+.
+CWWKZ0005E\: Aplica\u0163ia 
+ nu poate porni deoarece serverul nu este configurat pentru a manipul aplica\u0163ii de tipul 
+.
+CWWKZ0005E\: \u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 
+ \u043D\u0435 \u0443\u0434\u0430\u0435\u0442\u0441\u044F \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C, \u0442\u0430\u043A \u043A\u0430\u043A \u0441\u0435\u0440\u0432\u0435\u0440 \u043D\u0435 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043D \u043D\u0430 \u0440\u0430\u0431\u043E\u0442\u0443 \u0441 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F\u043C\u0438 \u0442\u0438\u043F\u0430 
+.
+CWWKZ0005E\: \u5E94\u7528\u7A0B\u5E8F 
+ \u65E0\u6CD5\u542F\u52A8\uFF0C\u8FD9\u662F\u56E0\u4E3A\u670D\u52A1\u5668\u672A\u914D\u7F6E\u4E3A\u5904\u7406\u7C7B\u578B\u662F 
+ \u7684\u5E94\u7528\u7A0B\u5E8F\u3002
+CWWKZ0005E\: \u61C9\u7528\u7A0B\u5F0F 
+ \u7121\u6CD5\u555F\u52D5\uFF0C\u56E0\u70BA\u4F3A\u670D\u5668\u672A\u914D\u7F6E\u6210\u8655\u7406 
+ \u985E\u578B\u7684\u61C9\u7528\u7A0B\u5F0F\u3002
+CWWKZ0009I: The application 
+
+ has stopped successfully.
+CWWKZ0009I: Aplikace 
+
+ byla \u00fasp\u011b\u0161n\u011b zastavena.
+CWWKZ0009I: Die Anwendung 
+
+ wurde erfolgreich gestoppt.
+CWWKZ0009I: La aplicaci\u00f3n 
+
+ se ha detenido correctamente.
+CWWKZ0009I: L''application 
+
+ s''est arr\u00eat\u00e9e correctement.
+CWWKZ0009I: A(z) 
+
+ alkalmaz\u00e1s sikeresen le\u00e1llt.
+CWWKZ0009I: Applicazione 
+
+ arrestata correttamente.
+CWWKZ0009I: \u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3 
+
+ \u306f\u6b63\u5e38\u306b\u505c\u6b62\u3057\u307e\u3057\u305f\u3002
+CWWKZ0009I: 
+
+ \uc560\ud50c\ub9ac\ucf00\uc774\uc158\uc774 \uc911\uc9c0\ub418\uc5c8\uc2b5\ub2c8\ub2e4.
+CWWKZ0009I: Aplikacja 
+
+ zosta\u0142a zatrzymana pomy\u015blnie.
+CWWKZ0009I: O aplicativo 
+
+ foi interrompido com sucesso.
+CWWKZ0009I: Aplica\u0163ia 
+
+ s-a oprit cu succes.
+CWWKZ0009I: \u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 
+
+ \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u043e.
+CWWKZ0009I: \u5e94\u7528\u7a0b\u5e8f 
+
+ \u5df2\u6210\u529f\u505c\u6b62\u3002
+CWWKZ0009I: \u61c9\u7528\u7a0b\u5f0f 
+
+ \u5df2\u9806\u5229\u505c\u6b62\u3002
+CWWKZ0002E: An exception occurred while starting the application 
+. The exception message was: 
+
+CWWKZ0002E: P\u0159i spu\u0161t\u011Bn\u00ED aplikace do\u0161lo k v\u00FDjimce 
+. Zpr\u00E1va v\u00FDjimky: 
+
+CWWKZ0002E: Beim Starten der Anwendung 
+ ist eine Ausnahme eingetreten. Ausnahmenachricht: 
+
+CWWKZ0002E: Se ha producido una excepci\u00F3n al iniciar la aplicaci\u00F3n 
+. El mensaje de la excepci\u00F3n es: 
+
+CWWKZ0002E: Une exception s''est produite lors du d\u00E9marrage de l''application 
+. Le message d''exception \u00E9tait : 
+
+CWWKZ0002E: Kiv\u00E9tel t\u00F6rt\u00E9nt a(z) 
+ alkalmaz\u00E1s ind\u00EDt\u00E1sa sor\u00E1n. A kiv\u00E9tel \u00FCzenet: 
+
+CWWKZ0002E: Si \u00E8 verificata un''eccezione durante l''avvio dell''applicazione 
+. Il messaggio dell''eccezione era: 
+
+CWWKZ0002E: \u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3 
+ \u3092\u958B\u59CB\u4E2D\u306B\u4F8B\u5916\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002 \u4F8B\u5916\u30E1\u30C3\u30BB\u30FC\u30B8: 
+
+CWWKZ0002E: 
+ \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC744 \uC2DC\uC791\uD558\uB294 \uC911\uC5D0 \uC608\uC678\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4. \uC608\uC678 \uBA54\uC2DC\uC9C0: 
+
+CWWKZ0002E: Wyst\u0105pi\u0142 wyj\u0105tek podczas uruchamiania aplikacji 
+. Komunikat o wyj\u0105tku to: 
+
+CWWKZ0002E: Ocorreu uma exce\u00E7\u00E3o ao iniciar o aplicativo 
+. A mensagem de exce\u00E7\u00E3o foi: 
+
+CWWKZ0002E: A ap\u0103rut o excep\u0163ie la pornirea aplica\u0163iei 
+. Mesajul excep\u0163iei a fost: 
+
+CWWKZ0002E: \u0418\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F \u043F\u0440\u0438 \u0437\u0430\u043F\u0443\u0441\u043A\u0435 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F 
+. \u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u043E\u0431 \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438: 
+
+CWWKZ0002E: \u542F\u52A8\u5E94\u7528\u7A0B\u5E8F 
+ \u65F6\u53D1\u751F\u5F02\u5E38\u3002\u5F02\u5E38\u6D88\u606F\u4E3A\uFF1A
+
+CWWKZ0002E: \u555F\u52D5\u61C9\u7528\u7A0B\u5F0F 
+ \u6642\u767C\u751F\u7570\u5E38\u72C0\u6CC1\u3002\u7570\u5E38\u72C0\u6CC1\u8A0A\u606F\u70BA\uFF1A
+
+CWWKZ0012I: The application 
+
+ was not started.
+CWWKZ0012I: Aplikace 
+
+ nebyla spu\u0161t\u011Bna.
+CWWKZ0012I: Die Anwendung 
+
+ wurde nicht gestartet.
+CWWKZ0012I: No se ha iniciado la aplicaci\u00F3n 
+
+.
+CWWKZ0012I: L''application 
+
+ n''a pas \u00E9t\u00E9 d\u00E9marr\u00E9e.
+CWWKZ0012I: A(z) 
+
+ alkalmaz\u00E1s nincs elind\u00EDtva.
+CWWKZ0012I: L''applicazione 
+
+ non \u00E8 stata avviata.
+CWWKZ0012I: \u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3 
+
+ \u306F\u958B\u59CB\u3055\u308C\u307E\u305B\u3093\u3067\u3057\u305F\u3002
+CWWKZ0012I: 
+
+ \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC774 \uC2DC\uC791\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.
+CWWKZ0012I: Aplikacja 
+
+ nie zosta\u0142a uruchomiona.
+CWWKZ0012I: O aplicativo 
+
+ n\u00E3o foi iniciado.
+CWWKZ0012I: Aplica\u0163ia 
+
+ nu a fost pornit\u0103.
+CWWKZ0012I: \u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 
+
+ \u043D\u0435 \u0437\u0430\u043F\u0443\u0449\u0435\u043D\u043E.
+CWWKZ0012I: \u672A\u542F\u52A8\u5E94\u7528\u7A0B\u5E8F 
+
+\u3002
+CWWKZ0012I: \u61C9\u7528\u7A0B\u5F0F 
+
+ \u672A\u555F\u52D5\u3002
+CWWKZ0004E: An exception occurred while starting the application 
+. The exception message was: 
+
+CWWKZ0004E: P\u0159i spu\u0161t\u011Bn\u00ED aplikace do\u0161lo k v\u00FDjimce 
+. Zpr\u00E1va v\u00FDjimky: 
+
+CWWKZ0004E: Beim Starten der Anwendung 
+ ist eine Ausnahme eingetreten. Ausnahmenachricht: 
+
+CWWKZ0004E: Se ha producido una excepci\u00F3n al iniciar la aplicaci\u00F3n 
+. El mensaje de la excepci\u00F3n es: 
+
+CWWKZ0004E: Une exception s''est produite lors du d\u00E9marrage de l''application 
+. Le message d''exception \u00E9tait : 
+
+CWWKZ0004E: Kiv\u00E9tel t\u00F6rt\u00E9nt a(z) 
+ alkalmaz\u00E1s ind\u00EDt\u00E1sa sor\u00E1n. A kiv\u00E9tel \u00FCzenet: 
+
+CWWKZ0004E: Si \u00E8 verificata un''eccezione durante l''avvio dell''applicazione 
+. Il messaggio dell''eccezione era: 
+
+CWWKZ0004E: \u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3 
+ \u3092\u958B\u59CB\u4E2D\u306B\u4F8B\u5916\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002 \u4F8B\u5916\u30E1\u30C3\u30BB\u30FC\u30B8: 
+
+CWWKZ0004E: 
+ \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC744 \uC2DC\uC791\uD558\uB294 \uC911\uC5D0 \uC608\uC678\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4. \uC608\uC678 \uBA54\uC2DC\uC9C0: 
+
+CWWKZ0004E: Wyst\u0105pi\u0142 wyj\u0105tek podczas uruchamiania aplikacji 
+. Komunikat o wyj\u0105tku to: 
+
+CWWKZ0004E: Ocorreu uma exce\u00E7\u00E3o ao iniciar o aplicativo 
+. A mensagem de exce\u00E7\u00E3o foi: 
+
+CWWKZ0004E: A ap\u0103rut o excep\u0163ie la pornirea aplica\u0163iei 
+. Mesajul excep\u0163iei a fost: 
+
+CWWKZ0004E: \u0418\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F \u043F\u0440\u0438 \u0437\u0430\u043F\u0443\u0441\u043A\u0435 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F 
+. \u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u043E\u0431 \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438: 
+
+CWWKZ0004E: \u542F\u52A8\u5E94\u7528\u7A0B\u5E8F 
+ \u65F6\u53D1\u751F\u5F02\u5E38\u3002\u5F02\u5E38\u6D88\u606F\u4E3A\uFF1A
+
+CWWKZ0004E: \u555F\u52D5\u61C9\u7528\u7A0B\u5F0F 
+ \u6642\u767C\u751F\u7570\u5E38\u72C0\u6CC1\u3002\u7570\u5E38\u72C0\u6CC1\u8A0A\u606F\u70BA\uFF1A
+
+CWWKZ0020I: Application 
+
+ not updated.
+CWWKZ0020I: Aplikace 
+
+ nebyla aktualizov\u00E1na.
+CWWKZ0020I: Die Anwendung 
+
+ konnte nicht aktualisiert werden.
+CWWKZ0020I: La aplicaci\u00F3n 
+
+ no se ha actualizado.
+CWWKZ0020I: Application 
+
+ non mise \u00E0 jour.
+CWWKZ0020I: A(z) 
+
+ alkalmaz\u00E1s nem friss\u00FClt.
+CWWKZ0020I: Applicazione 
+
+ non aggiornata.
+CWWKZ0020I: \u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3 
+
+ \u304C\u66F4\u65B0\u3055\u308C\u3066\u3044\u307E\u305B\u3093\u3002
+CWWKZ0020I: \uC560\uD50C\uB9AC\uCF00\uC774\uC158 
+
+\uC774(\uAC00) \uC5C5\uB370\uC774\uD2B8\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.
+CWWKZ0020I: Aplikacja 
+
+ nie zosta\u0142a zaktualizowana.
+CWWKZ0020I: Aplicativo 
+
+ n\u00E3o atualizado.
+CWWKZ0020I: Aplica\u0163ia 
+
+ nu a fost actualizat\u0103.
+CWWKZ0020I: \u041F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 
+
+ \u043D\u0435 \u043E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u043E.
+CWWKZ0020I: \u672A\u66F4\u65B0\u5E94\u7528\u7A0B\u5E8F 
+
+\u3002
+CWWKZ0020I: \u672A\u66F4\u65B0\u61C9\u7528\u7A0B\u5F0F 
+
+\u3002
+CWWKZ0010E: An exception occurred while stopping the application 
+. The exception message was: 
+
+CWWKZ0010E: P\u0159i zastaven\u00ED aplikace do\u0161lo k v\u00FDjimce 
+. Zpr\u00E1va v\u00FDjimky: 
+
+CWWKZ0010E:  Beim Stoppen der Anwendung 
+ ist eine Ausnahme eingetreten. Ausnahmenachricht: 
+
+CWWKZ0010E: Se ha producido una excepci\u00F3n al detener la aplicaci\u00F3n 
+. El mensaje de la excepci\u00F3n es: 
+
+CWWKZ0010E: Une exception s''est produite lors de l''arr\u00EAt de l''application 
+. Le message d''exception \u00E9tait : 
+
+CWWKZ0010E: Kiv\u00E9tel t\u00F6rt\u00E9nt a(z) 
+ alkalmaz\u00E1s le\u00E1ll\u00EDt\u00E1sa sor\u00E1n. A kiv\u00E9tel \u00FCzenet: 
+
+CWWKZ0010E: Si \u00E8 verificata un''eccezione durante l''arresto dell''applicazione 
+. Il messaggio dell''eccezione era: 
+
+CWWKZ0010E: \u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3 
+ \u3092\u505C\u6B62\u4E2D\u306B\u4F8B\u5916\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002 \u4F8B\u5916\u30E1\u30C3\u30BB\u30FC\u30B8: 
+
+CWWKZ0010E: 
+ \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC744 \uC911\uC9C0\uD558\uB824\uB294 \uC911\uC5D0 \uC608\uC678\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4. \uC608\uC678 \uBA54\uC2DC\uC9C0: 
+
+CWWKZ0010E: Wyst\u0105pi\u0142 wyj\u0105tek podczas zatrzymywania aplikacji 
+. Komunikat o wyj\u0105tku to: 
+
+CWWKZ0010E: Ocorreu uma exce\u00E7\u00E3o ao parar o aplicativo 
+. A mensagem de exce\u00E7\u00E3o foi: 
+
+CWWKZ0010E: A ap\u0103rut o excep\u0163ie \u00EEn timp ce se oprea aplica\u0163ia 
+. Mesajul excep\u0163iei a fost: 
+
+CWWKZ0010E: \u0418\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F \u043F\u0440\u0438 \u043F\u043E\u043F\u044B\u0442\u043A\u0435 \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 
+. \u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u043E\u0431 \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438: 
+
+CWWKZ0010E: \u505C\u6B62\u5E94\u7528\u7A0B\u5E8F 
+ \u65F6\u53D1\u751F\u5F02\u5E38\u3002\u5F02\u5E38\u6D88\u606F\u4E3A\uFF1A
+
+CWWKZ0010E: \u505C\u6B62\u61C9\u7528\u7A0B\u5F0F 
+ \u6642\u767C\u751F\u7570\u5E38\u72C0\u6CC1\u3002\u7570\u5E38\u72C0\u6CC1\u8A0A\u606F\u70BA\uFF1A
+
+CWWKZ0014W: The application 
+ could not be started as it could not be found at location 
+.
+CWWKZ0014W: Aplikaci 
+ nelze spustit, proto\u017Ee ji nebylo mo\u017En\u00E9 nal\u00E9zt v um\u00EDst\u011Bn\u00ED 
+.
+CWWKZ0014W: Die Anwendung 
+ konnte nicht gestartet werden, weil sie nicht an der Position 
+ gefunden wurde.
+CWWKZ0014W: No se ha podido iniciar la aplicaci\u00F3n 
+ ya que no se encuentra en la ubicaci\u00F3n 
+.
+CWWKZ0014W: L''application 
+ n''a pas pu \u00EAtre d\u00E9marr\u00E9e car elle n''a pas \u00E9t\u00E9 trouv\u00E9e \u00E0 l''emplacement 
+.
+CWWKZ0014W: A(z) 
+ alkalmaz\u00E1s nem ind\u00EDthat\u00F3, mert nem tal\u00E1lhat\u00F3 a k\u00F6vetkez\u0151 helyen\: 
+.
+CWWKZ0014W: Non \u00E8 stato possibile avviare l''applicazione 
+, perch\u00E9 non \u00E8 stata trovata nell''ubicazione 
+.
+CWWKZ0014W: \u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3 
+ \u306F\u3001\u30ED\u30B1\u30FC\u30B7\u30E7\u30F3 
+ \u306B\u898B\u3064\u304B\u3089\u306A\u304B\u3063\u305F\u306E\u3067\u958B\u59CB\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002
+CWWKZ0014W: \uC560\uD50C\uB9AC\uCF00\uC774\uC158 
+\uC744(\uB97C) \uC704\uCE58 
+\uC5D0\uC11C \uCC3E\uC744 \uC218 \uC5C6\uC73C\uBBC0\uB85C \uC2DC\uC791\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+CWWKZ0014W: Nie mo\u017Cna uruchomi\u0107 aplikacji 
+, poniewa\u017C nie mo\u017Cna jej znale\u017A\u0107 w po\u0142o\u017Ceniu 
+.
+CWWKZ0014W: O aplicativo 
+ n\u00E3o p\u00F4de ser iniciado pois ele n\u00E3o poder\u00E1 ser localizado no local 
+.
+CWWKZ0014W: Aplica\u0163ia 
+ nu poate fi pornit\u0103 deoarece ea nu poate fi g\u0103sit\u0103 la loca\u0163ia 
+.
+CWWKZ0014W: \u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0435 
+, \u043F\u043E\u0441\u043A\u043E\u043B\u044C\u043A\u0443 \u043E\u043D\u043E \u043E\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0432 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0438 
+.
+CWWKZ0014W: \u7531\u4E8E\u5728\u4F4D\u7F6E 
+ \u5904\u627E\u4E0D\u5230\u5E94\u7528\u7A0B\u5E8F 
+ \uFF0C\u56E0\u6B64\u672A\u80FD\u542F\u52A8\u8BE5\u5E94\u7528\u7A0B\u5E8F\u3002
+CWWKZ0014W: \u7121\u6CD5\u555F\u52D5 
+ \u61C9\u7528\u7A0B\u5F0F\uFF0C\u56E0\u70BA\u5728\u4F4D\u7F6E 
+ \u627E\u4E0D\u5230\u8A72\u61C9\u7528\u7A0B\u5F0F\u3002
+CWWKZ0013E\: It is not possible to start two applications called 
+
+.
+CWWKZ0013E\: Nen\u00ED mo\u017En\u00E9 spustit dv\u011B aplikace s n\u00E1zvem 
+
+.
+CWWKZ0013E\: Es ist nicht m\u00F6glich, zwei Anwendungen mit dem Namen 
+
+ zu starten.
+CWWKZ0013E\: No es posible iniciar dos aplicaciones llamadas 
+
+.
+CWWKZ0013E\: Il n''est pas possible de d\u00E9marrer deux applications nomm\u00E9es 
+
+.
+CWWKZ0013E\: K\u00E9t 
+
+ nev\u0171 alkalmaz\u00E1s nem ind\u00EDthat\u00F3 el.
+CWWKZ0013E\: Impossibile avviare due applicazioni denominate 
+
+.
+CWWKZ0013E\: 
+
+ \u3068\u3044\u3046 2 \u3064\u306E\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3\u3092\u958B\u59CB\u3059\u308B\u3053\u3068\u306F\u3067\u304D\u307E\u305B\u3093\u3002
+CWWKZ0013E\: 
+
+(\uC774)\uB77C\uB294 \uC560\uD50C\uB9AC\uCF00\uC774\uC158\uC744 \uC2DC\uC791\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+CWWKZ0013E\: Nie mo\u017Cna uruchomi\u0107 dw\u00F3ch aplikacji o nazwie 
+
+.
+CWWKZ0013E\: N\u00E3o \u00E9 poss\u00EDvel iniciar dois aplicativos chamados 
+
+.
+CWWKZ0013E\: Nu se pot porni dou\u0103 aplica\u0163ii numite 
+
+.
+CWWKZ0013E\: \u041D\u0435\u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u0437\u0430\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0434\u0432\u0430 \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0441 \u0438\u043C\u0435\u043D\u0435\u043C 
+
+.
+CWWKZ0013E\: \u65E0\u6CD5\u542F\u52A8\u540D\u4E3A 
+
+ \u7684\u4E24\u4E2A\u5E94\u7528\u7A0B\u5E8F\u3002
+CWWKZ0013E\: \u7121\u6CD5\u555F\u52D5\u5169\u500B\u540D\u7A31\u70BA 
+
+ \u7684\u61C9\u7528\u7A0B\u5F0F\u3002
+J2CA7001I: Resource adapter 
+ installed in 
+ seconds.
+J2CA7001I: Adapt\u00E9r prost\u0159edku 
+ nainstalov\u00E1n za 
+ sekund/y.
+J2CA7001I: Der Ressourcenadapter 
+ wurde innerhalb von 
+ Sekunden installiert.
+J2CA7001I: El adaptador de recursos 
+ se ha instalado en 
+ segundos.
+J2CA7001I: Adaptateur de ressources 
+ install\u00E9 en 
+ secondes.
+J2CA7001I: A(z) 
+ er\u0151forr\u00E1s-illeszt\u0151 
+ m\u00E1sodperc alatt telep\u00EDt\u00E9sre ker\u00FClt.
+J2CA7001I: L''adattatore di risorse 
+ \u00E8 stato installato in 
+ secondi.
+J2CA7001I: \u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC 
+ \u304C 
+ \u79D2\u3067\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u3055\u308C\u307E\u3057\u305F\u3002
+J2CA7001I: 
+ \uC790\uC6D0 \uC5B4\uB311\uD130\uAC00 
+\uCD08 \uD6C4\uC5D0 \uC124\uCE58\uB429\uB2C8\uB2E4.
+J2CA7001I: Adapter zasob\u00F3w 
+ zosta\u0142 zainstalowany w ci\u0105gu 
+ sek.
+J2CA7001I: Adaptador de recursos 
+ instalado em 
+ segundos.
+J2CA7001I: Adaptorul de resurse 
+ a fost instalat \u00EEn 
+ secunde.
+J2CA7001I: \u0410\u0434\u0430\u043F\u0442\u0435\u0440 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 
+ \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D \u0437\u0430 
+ \u0441.
+J2CA7001I: \u8D44\u6E90\u9002\u914D\u5668 
+ \u5DF2\u5728 
+ \u79D2\u5185\u5B89\u88C5\u3002
+J2CA7001I: \u5DF2\u5728 
+ \u79D2\u5167\u5B89\u88DD\u4E86\u8CC7\u6E90\u914D\u63A5\u5668 
+\u3002
+J2CA7002E: An exception occurred while installing the resource adapter 
+. The exception message is\: 
+
+J2CA7002E: P\u0159i instalaci adapt\u00E9ru prost\u0159edku 
+ do\u0161lo k v\u00FDjimce. Zpr\u00E1va v\u00FDjimky\: 
+
+J2CA7002E: Beim Installieren des Ressourcenadapters 
+ ist eine Ausnahme eingetreten. Ausnahmenachricht\: 
+
+J2CA7002E: Se ha producido una excepci\u00F3n al instalar el adaptador de recursos 
+. El mensaje de excepci\u00F3n es\: 
+
+J2CA7002E: Une exception s''est produite lors de l''installation de l''adaptateur de ressources 
+. Message de l''exception \: 
+
+J2CA7002E: Kiv\u00E9tel t\u00F6rt\u00E9nt a(z) 
+ er\u0151forr\u00E1s-illeszt\u0151 telep\u00EDt\u00E9se k\u00F6zben. A kiv\u00E9tel\u00FCzenet\: 
+
+J2CA7002E: Si \u00E8 verificata un''eccezione durante l''installazione dell''adattatore di risorse 
+. Il messaggio di eccezione \u00E8\: 
+
+J2CA7002E: \u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC 
+ \u306E\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u4E2D\u306B\u4F8B\u5916\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002 \u4F8B\u5916\u30E1\u30C3\u30BB\u30FC\u30B8\: 
+
+J2CA7002E: 
+ \uC790\uC6D0 \uC5B4\uB311\uD130\uB97C \uC124\uCE58\uD558\uB294 \uB3D9\uC548 \uC608\uC678\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4. \uC608\uC678 \uBA54\uC2DC\uC9C0\: 
+
+J2CA7002E: Wyst\u0105pi\u0142 wyj\u0105tek podczas instalowania adaptera zasob\u00F3w 
+. Komunikat o wyj\u0105tku\: 
+
+J2CA7002E: Ocorreu uma exce\u00E7\u00E3o ao instalar o adaptador de recursos 
+. A mensagem de exce\u00E7\u00E3o \u00E9\: 
+
+J2CA7002E: A ap\u0103rut o excep\u0163ie \u00EEn timpul instal\u0103rii adaptorului de resurse 
+. Mesajul excep\u0163iei este\: 
+
+J2CA7002E: \u041F\u0440\u0438 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0435 \u0430\u0434\u0430\u043F\u0442\u0435\u0440\u0430 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 
+ \u0432\u043E\u0437\u043D\u0438\u043A\u043B\u0430 \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F. \u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438\: 
+
+J2CA7002E: \u5B89\u88C5\u8D44\u6E90\u9002\u914D\u5668 
+ \u65F6\u53D1\u751F\u5F02\u5E38\u3002\u5F02\u5E38\u6D88\u606F\uFF1A
+
+J2CA7002E: \u5B89\u88DD\u8CC7\u6E90\u914D\u63A5\u5668 
+ \u6642\uFF0C\u767C\u751F\u7570\u5E38\u72C0\u6CC1\u3002\u7570\u5E38\u72C0\u6CC1\u8A0A\u606F\u70BA\uFF1A
+
+J2CA7009I: The resource adapter 
+
+ has uninstalled successfully.
+J2CA7009I: Adapt\u00E9r prost\u0159edku 
+
+ byl \u00FAsp\u011B\u0161n\u011B odinstalov\u00E1n.
+J2CA7009I: Der Ressourcenadapter 
+
+ wurde erfolgreich deinstalliert.
+J2CA7009I: El adaptador de recursos 
+
+ se ha desinstalado satisfactoriamente.
+J2CA7009I: La d\u00E9sinstallation de l''adaptateur de ressources 
+
+ a abouti.
+J2CA7009I: A(z) 
+
+ er\u0151forr\u00E1s-illeszt\u0151 sikeresen elt\u00E1vol\u00EDt\u00E1sra ker\u00FClt.
+J2CA7009I: L''adattatore di risorse 
+
+ \u00E8 stato disinstallato correttamente.
+J2CA7009I: \u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC 
+
+ \u304C\u6B63\u5E38\u306B\u30A2\u30F3\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u3055\u308C\u307E\u3057\u305F\u3002
+J2CA7009I: 
+
+ \uC790\uC6D0 \uC5B4\uB311\uD130\uB97C \uC124\uCE58 \uC81C\uAC70\uD588\uC2B5\uB2C8\uB2E4.
+J2CA7009I: Adapter zasob\u00F3w 
+
+ zosta\u0142 pomy\u015Blnie zdeinstalowany.
+J2CA7009I: O adaptador de recursos 
+
+ foi desinstalado com \u00EAxito.
+J2CA7009I: Adaptorul de resurse 
+
+ s-a dezinstalat cu succes.
+J2CA7009I: \u0410\u0434\u0430\u043F\u0442\u0435\u0440 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 
+
+ \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0443\u0434\u0430\u043B\u0435\u043D.
+J2CA7009I: \u8D44\u6E90\u9002\u914D\u5668 
+
+ \u5DF2\u6210\u529F\u5378\u8F7D\u3002
+J2CA7009I: \u5DF2\u9806\u5229\u89E3\u9664\u5B89\u88DD\u8CC7\u6E90\u914D\u63A5\u5668 
+
+\u3002
+J2CA7010E: An exception occurred while uninstalling the resource adapter 
+. The exception message is\: 
+
+J2CA7010E: P\u0159i odinstalov\u00E1n\u00ED adapt\u00E9ru prost\u0159edku 
+ do\u0161lo k v\u00FDjimce. Zpr\u00E1va v\u00FDjimky\: 
+
+J2CA7010E: Beim Deinstallieren des Ressourcenadapters 
+ ist eine Ausnahme eingetreten. Ausnahmenachricht\: 
+
+J2CA7010E: Se ha producido una excepci\u00F3n al desinstalar el adaptador de recursos 
+. El mensaje de excepci\u00F3n es\: 
+.
+J2CA7010E: Une exception s''est produite lors de la d\u00E9sinstallation de l''adaptateur de ressources 
+. Message de l''exception \: 
+
+J2CA7010E: Kiv\u00E9tel t\u00F6rt\u00E9nt a(z) 
+ er\u0151forr\u00E1s-illeszt\u0151 elt\u00E1vol\u00EDt\u00E1sa k\u00F6zben. A kiv\u00E9tel\u00FCzenet\: 
+
+J2CA7010E: Si \u00E8 verificata un''eccezione durante la disinstallazione dell''adattatore di risorse 
+. Il messaggio di eccezione \u00E8\: 
+
+J2CA7010E: \u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC 
+ \u306E\u30A2\u30F3\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u4E2D\u306B\u4F8B\u5916\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002 \u4F8B\u5916\u30E1\u30C3\u30BB\u30FC\u30B8\: 
+
+J2CA7010E: 
+ \uC790\uC6D0 \uC5B4\uB311\uD130\uB97C \uC124\uCE58 \uC81C\uAC70\uD558\uB294 \uC911\uC5D0 \uC608\uC678\uAC00 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4. \uC608\uC678 \uBA54\uC2DC\uC9C0\: 
+
+J2CA7010E: Wyst\u0105pi\u0142 wyj\u0105tek podczas deinstalowania adaptera zasob\u00F3w 
+. Komunikat o wyj\u0105tku\: 
+
+J2CA7010E: Ocorreu uma exce\u00E7\u00E3o ao desinstalar o adaptador de recursos 
+. A mensagem de exce\u00E7\u00E3o \u00E9\: 
+
+J2CA7010E: A ap\u0103rut o excep\u0163ie \u00EEn timpul dezinstal\u0103rii adaptorului de resurse 
+. Mesajul excep\u0163iei este\: 
+
+J2CA7010E: \u041F\u0440\u0438 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0438 \u0430\u0434\u0430\u043F\u0442\u0435\u0440\u0430 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 
+ \u0432\u043E\u0437\u043D\u0438\u043A\u043B\u0430 \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F. \u0421\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435 \u0438\u0441\u043A\u043B\u044E\u0447\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438\: 
+
+J2CA7010E: \u5378\u8F7D\u8D44\u6E90\u9002\u914D\u5668 
+ \u65F6\u53D1\u751F\u5F02\u5E38\u3002\u5F02\u5E38\u6D88\u606F\uFF1A
+
+J2CA7010E: \u89E3\u9664\u5B89\u88DD\u8CC7\u6E90\u914D\u63A5\u5668 
+ \u6642\uFF0C\u767C\u751F\u7570\u5E38\u72C0\u6CC1\u3002\u7570\u5E38\u72C0\u6CC1\u8A0A\u606F\u70BA\uFF1A
+
+J2CA7012I: The resource adapter 
+
+ was not installed.
+J2CA7012I: Adapt\u00E9r prost\u0159edku 
+
+ nebyl nainstalov\u00E1n.
+J2CA7012I: Der Ressourcenadapter 
+
+ wurde nicht installiert.
+J2CA7012I: El adaptador de recursos 
+
+ no estaba instalado.
+J2CA7012I: L''adaptateur de ressources 
+
+ n''a pas \u00E9t\u00E9 d\u00E9sinstall\u00E9.
+J2CA7012I: A(z) 
+
+ er\u0151forr\u00E1s-illeszt\u0151 nem lett telep\u00EDtve.
+J2CA7012I: L''adattatore di risorse 
+
+ non \u00E8 stato installato.
+J2CA7012I: \u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC 
+
+ \u306F\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u3055\u308C\u307E\u305B\u3093\u3067\u3057\u305F\u3002
+J2CA7012I: 
+
+ \uC790\uC6D0 \uC5B4\uB311\uD130\uAC00 \uC124\uCE58\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.
+J2CA7012I: Adapter zasob\u00F3w 
+
+ nie zosta\u0142 zainstalowany.
+J2CA7012I: O adaptador de recursos 
+
+ n\u00E3o foi instalado.
+J2CA7012I: Adaptorul de resurse 
+
+ nu a fost instalat.
+J2CA7012I: \u0410\u0434\u0430\u043F\u0442\u0435\u0440 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 
+
+ \u043D\u0435 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D.
+J2CA7012I: \u672A\u5B89\u88C5\u8D44\u6E90\u9002\u914D\u5668 
+
+\u3002
+J2CA7012I: \u672A\u5B89\u88DD\u8CC7\u6E90\u914D\u63A5\u5668 
+
+\u3002
+J2CA7013E: It is not possible to install multiple resource adapters or other artifacts called 
+
+.
+J2CA7013E: Nelze nainstalovat v\u00EDce adapt\u00E9r\u016F prost\u0159edk\u016F \u010Di jin\u00FDch artefakt\u016F s n\u00E1zvem 
+
+.
+J2CA7013E: Es ist nicht m\u00F6glich, mehrere Ressourcenadapter oder andere Artefakte mit dem Namen 
+
+ zu installieren.
+J2CA7013E: No es posible instalar varios adaptadores de recursos u otros artefactos denominados 
+
+.
+J2CA7013E: Il n''est pas possible d''installer plusieurs adaptateurs de ressources ou d''autres artefacts appel\u00E9s 
+
+.
+J2CA7013E: Nem lehet t\u00F6bb 
+
+ nev\u0171 er\u0151forr\u00E1s-illeszt\u0151t vagy egy\u00E9b m\u0171term\u00E9keket elt\u00E1vol\u00EDtani.
+J2CA7013E: Non \u00E8 possibile installare pi\u00F9 adattatori di risorse o altre risorse con il nome 
+
+.
+J2CA7013E: \u8907\u6570\u306E\u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC\u307E\u305F\u306F 
+
+ \u3068\u547C\u3070\u308C\u308B\u4ED6\u306E\u6210\u679C\u7269\u3092\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u3067\u304D\u307E\u305B\u3093\u3002
+J2CA7013E: \uB2E4\uC911 \uC790\uC6D0 \uC5B4\uB311\uD130 \uB610\uB294 \uB2E4\uB978 
+
+ \uC544\uD2F0\uD329\uD2B8\uB97C \uC124\uCE58\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+J2CA7013E: Nie mo\u017Cna zainstalowa\u0107 wielu adapter\u00F3w zasob\u00F3w lub innych artefakt\u00F3w o nazwie 
+
+.
+J2CA7013E: N\u00E3o \u00E9 poss\u00EDvel instalar v\u00E1rios adaptadores de recursos ou outros artefatos chamados 
+
+.
+J2CA7013E: Nu este posibil\u0103 instalarea adaptoarelor multiple de resurse sau a altor artefacte numite 
+
+.
+J2CA7013E: \u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0430\u0434\u0430\u043F\u0442\u0435\u0440\u043E\u0432 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 \u0438\u043B\u0438 \u0438\u043D\u044B\u0445 \u0430\u0440\u0442\u0435\u0444\u0430\u043A\u0442\u043E\u0432 \u0441 \u0438\u043C\u0435\u043D\u0435\u043C 
+
+.
+J2CA7013E: \u65E0\u6CD5\u5B89\u88C5\u591A\u4E2A\u5177\u6709\u540D\u79F0 
+
+ \u7684\u8D44\u6E90\u9002\u914D\u5668\u6216\u5176\u4ED6\u5DE5\u4EF6\u3002
+J2CA7013E: \u7121\u6CD5\u5B89\u88DD\u7A31\u70BA 
+
+ \u7684\u591A\u500B\u8CC7\u6E90\u914D\u63A5\u5668\u6216\u5176\u4ED6\u69CB\u4EF6\u3002
+J2CA7014W: The resource adapter 
+ could not be installed as it could not be found at location 
+.
+J2CA7014W: Adapt\u00E9r prost\u0159edku 
+ nelze nainstalovat, proto\u017Ee se nenach\u00E1z\u00ED v um\u00EDst\u011Bn\u00ED 
+.
+J2CA7014W: Der Ressourcenadapter 
+ konnte nicht installiert werden, weil er nicht an der Position 
+ gefunden wurde.
+J2CA7014W: El adaptador de recursos 
+ no se ha podido instalar porque no se ha encontrado en la ubicaci\u00F3n 
+.
+J2CA7014W: L''adaptateur de ressources 
+ n''a pas pu \u00EAtre install\u00E9 car il est introuvable \u00E0 l''emplacement 
+.
+J2CA7014W: A(z) 
+ er\u0151forr\u00E1s-illeszt\u0151 nem telep\u00EDthet\u0151, mert nem tal\u00E1lhat\u00F3 a k\u00F6vetkez\u0151 helyen\: 
+.
+J2CA7014W: Non \u00E8 stato possibile installare l''adattatore di risorse 
+ perch\u00E9 non \u00E8 stato trovato nell''ubicazione 
+.
+J2CA7014W: \u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC 
+ \u306F\u3001\u30ED\u30B1\u30FC\u30B7\u30E7\u30F3 
+ \u306B\u898B\u3064\u304B\u3089\u306A\u304B\u3063\u305F\u306E\u3067\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002
+J2CA7014W: 
+ \uC790\uC6D0 \uC5B4\uB311\uD130\uB97C 
+ \uC704\uCE58\uC5D0\uC11C \uCC3E\uC744 \uC218 \uC5C6\uC73C\uBBC0\uB85C \uC790\uC6D0 \uC5B4\uB311\uD130\uB97C \uC124\uCE58\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.
+J2CA7014W: Nie mo\u017Cna zainstalowa\u0107 adaptera zasob\u00F3w 
+, poniewa\u017C nie mo\u017Cna go znale\u017A\u0107 w po\u0142o\u017Ceni 
+.
+J2CA7014W: O adaptador de recursos 
+ n\u00E3o p\u00F4de ser instalado, pois ele n\u00E3o p\u00F4de ser encontrado no local 
+.
+J2CA7014W: Adaptorul de resurse 
+ nu a putut fi instalat deoarece nu a putut fi g\u0103sit la loca\u0163ia 
+.
+J2CA7014W: \u0410\u0434\u0430\u043F\u0442\u0435\u0440 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 
+ \u043D\u0435 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D, \u0442\u0430\u043A \u043A\u0430\u043A \u043E\u043D \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D \u0432 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0438 
+.
+J2CA7014W: \u7531\u4E8E\u5728\u4F4D\u7F6E 
+ \u5904\u627E\u4E0D\u5230\u8D44\u6E90\u9002\u914D\u5668 
+\uFF0C\u56E0\u6B64\u672A\u80FD\u5B89\u88C5\u8BE5\u8D44\u6E90\u9002\u914D\u5668\u3002
+J2CA7014W: \u7121\u6CD5\u5B89\u88DD\u8CC7\u6E90\u914D\u63A5\u5668 
+\uFF0C\u56E0\u70BA\u5728\u4F4D\u7F6E 
+ \u627E\u4E0D\u5230\u5B83\u3002
+J2CA7020I: Resource adapter 
+
+ is not updated.
+J2CA7020I: Adapt\u00E9r prost\u0159edku 
+
+ nebyl aktualizov\u00E1n.
+J2CA7020I: Der Ressourcenadapter 
+
+ wurde nicht aktualisiert.
+J2CA7020I: El adaptador de recursos 
+
+ no se ha actualizado.
+J2CA7020I: L''adaptateur de ressources 
+
+ n''est pas mis \u00E0 jour.
+J2CA7020I: A(z) 
+
+ er\u0151forr\u00E1s-illeszt\u0151 nem lett friss\u00EDtve.
+J2CA7020I: L''adattatore di risorse 
+
+ non \u00E8 aggiornato.
+J2CA7020I: \u30EA\u30BD\u30FC\u30B9\u30FB\u30A2\u30C0\u30D7\u30BF\u30FC 
+
+ \u304C\u66F4\u65B0\u3055\u308C\u3066\u3044\u307E\u305B\u3093\u3002
+J2CA7020I: 
+
+ \uC790\uC6D0 \uC5B4\uB311\uD130\uAC00 \uC5C5\uB370\uC774\uD2B8\uB418\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.
+J2CA7020I: Adapter zasob\u00F3w 
+
+ nie zosta\u0142 zaktualizowany.
+J2CA7020I: O adaptador de recursos 
+
+ n\u00E3o est\u00E1 atualizado.
+J2CA7020I: Adaptorul de resurse 
+
+ nu este actualizat.
+J2CA7020I: \u0410\u0434\u0430\u043F\u0442\u0435\u0440 \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432 
+
+ \u043D\u0435 \u043E\u0431\u043D\u043E\u0432\u043B\u0435\u043D.
+J2CA7020I: \u8D44\u6E90\u9002\u914D\u5668 
+
+ \u672A\u66F4\u65B0\u3002
+J2CA7020I: \u672A\u66F4\u65B0\u8CC7\u6E90\u914D\u63A5\u5668 
+
+\u3002

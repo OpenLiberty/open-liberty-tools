@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<application xmlns="http://java.sun.com/xml/ns/javaee" id="Application_ID" version="6" xmlns:application="http://java.sun.com/xml/ns/javaee/application_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd">
+    <display-name>JAXWSEJBSampleEAR</display-name>
+  <module id="Module_1426275523538">
+    <ejb>AnEJBWebServices.jar</ejb>
+  </module>
+  <module id="Module_1426275523553">
+  	<ejb>AnEJBWebServicesWithHandler.jar</ejb>
+  </module>
+  <module id="Module_1426275523507">
+  	<web>
+  		<web-uri>JAXWSEJBSample.war</web-uri>
+  		<context-root>JAXWSEJBSample</context-root>
+  	</web>
+  </module>
+</application>

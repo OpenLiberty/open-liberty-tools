@@ -1,0 +1,60 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="begin">
+  <dirname property="imports.dir" file="${ant.file.begin}" />
+  <import file="${imports.dir}/buildtasks.xml" />
+  <import file="${imports.dir}/standard_properties.xml" />
+
+  <property name="thePluginDirs" value="${pluginDirs}" />
+
+  <!-- validating that the build.xml name matches the project name is the right
+       thing to do most of the time, but if you have multiple build*.xml's in the
+       project, it's also good to allow the names to vary (so you can tell the
+       difference between them in the ant view, for example). -->
+  <if if="skip.validate.project">
+    <else>
+      <validateProject />
+    </else>
+  </if>
+
+  <!--
+    The build type used by generateClassPath:
+      - "skip" do nothing.
+      - "build" - generate project.class.path
+      - "unittest" - generate unittest.class.path
+      - otherwise, generate both project.class.path and unittest.class.path,
+        but if "fattest", "zfattest", "zunittest", or "testexecution" are specified, then we
+        disable .classpath validation because asynchronous FAT runs are subsets
+        of builds.
+  -->
+  <property name="build.type" value="" />
+  <condition property="generateClassPath.validate" value="false" else="true">
+    <or>
+      <equals arg1="${build.type}" arg2="testexecution"/>
+      <equals arg1="${build.type}" arg2="fattest"/>
+      <equals arg1="${build.type}" arg2="zfattest"/>
+      <equals arg1="${build.type}" arg2="zunittest"/>
+    </or>
+  </condition>
+
+  <!-- Generate project.class.path, unittest.class.path, or nothing depending on ${build.type}. -->
+  <generateClassPath validate="${generateClassPath.validate}" type="${build.type}" pluginDirs="${thePluginDirs}" javaLevelProperty="java.level">
+    <!-- Jar excludes only apply in the unittest build phase -->
+    <exclude jar="com.ibm.org.objectweb.asm_2.2.2.jar" />
+    <osscExcludeProject name="com.ibm.websphere.wlp.maven.prereq" />
+    <osscExcludeProject name="prereq.java.1.6" />
+    <osscExcludeProject name="prereq.java.1.7" />
+    <osscExcludeProject name="prereq.java.1.8" />
+    <javaContainer path="org.eclipse.jdt.launching.JRE_CONTAINER" />
+    <javaContainer path="org.eclipse.jdt.launching.JRE_CONTAINER" level="1.7" />
+  </generateClassPath>
+</project>

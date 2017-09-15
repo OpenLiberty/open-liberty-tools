@@ -1,0 +1,6 @@
+/bin/
+/build/
+/generated/
+/eclipse*
+/eclipse*/
+artifacts/

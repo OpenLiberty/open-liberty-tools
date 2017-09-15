@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.ws.st.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.ws.st.ui" id="Server Type UI Enablement Extension" name="Server Type UI Enablement Extension"/>
+      </appinfo>
+      <documentation>
+         This extension point provides a way for extenders to determine if UI enablement should be enabled for a particular server type
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="serverUtilityUIEnablement" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified identifier of the target extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  an optional identifier of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  an optional name of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="serverUtilityUIEnablement">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="name"/>
+         </appinfo>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a unique identifier for this extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the server type id
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="typeLabel" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the server type label
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="serverUtilityUIEnablementClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example of the serverUtilityUIEnablementExtension extension point:
+
+&lt;pre&gt;
+   &lt;extension point=&quot;com.ibm.ws.st.ui.serverUtilityUIEnablementExtension&quot;&gt;
+      &lt;serverUtilityUIEnablement
+         id=&quot;com.ibm.ws.st.ui.serverUtilityUIEnablementExtension&quot;
+         typeId=&quot;LibertyDocker&quot;
+         typeLabel=&quot;%libertyDockerLabel&quot;
+         serverUtilityUIEnablementClass=&quot;com.ibm.ws.st.docker.ui.internal.LibertyLocalDockerUtilityUIEnablement&quot;/&gt;
+   &lt;/extension&gt; 
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2016 IBM Corporation and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBM Corporation - initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

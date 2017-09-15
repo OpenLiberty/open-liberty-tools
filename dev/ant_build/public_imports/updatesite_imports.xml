@@ -1,0 +1,74 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="updatesite_imports">
+	
+	<property name="eclipse.workspace" value="eclipse_workspace"/>
+
+	<dirname property="updatesite_imports.basedir" file="${ant.file.updatesite_imports}" />
+
+	<taskdef file="${updatesite_imports.basedir}/../resources/wdt_updatesite-properties/GenerateUpdateSite.properties">
+		<classpath path="${updatesite_imports.basedir}/../lib/wdt-updatesite_0.0.2_v.20131018_1700.jar" />
+	</taskdef>
+	
+	<import file="internal_imports/standard_macros.xml" />
+	<target name="pde-setup" >
+	</target>
+
+		
+	  <target name="generateP2Metadata">
+	  	<property name="wdt-updatesite-label" value="WDT Update Site"/>
+	  	<java classname="org.eclipse.equinox.launcher.Main" dir="../../"
+	  		  fork="true" jvm="${target.jvm}" spawn="false" failonerror="true">
+	  		<arg value="-clean"/>
+	  		<arg value="-noupdate"/>
+	  		<arg value="-application"/>
+	  		<arg value="org.eclipse.ant.core.antRunner"/>
+	  		<arg value="-data"/>
+	  		<arg file="${eclipse.workspace}"/>
+	  		<arg value="-DstagingDir=${target.updatesite.repository}"/>
+	  		<arg value="-DupdateSiteDir=${updateSiteDir}"/>
+	  		<arg value="-file"/>
+	  		<arg file="${gen.updatesite.file}"/>
+	  		<classpath>
+	  			<fileset dir="eclipse_sdk/eclipse/plugins/">
+	  		    	<include name="org.eclipse.equinox.launcher_*.jar"/>
+	  			</fileset>
+	  		</classpath>
+	  	</java>
+      </target>	
+
+	<target name="generateSuppliersP2Metadata">
+		<property name="suppliersUpdateSiteDir" value="${sourceDir}/suppliers/update-site" />
+		<echo message="Suppliers target at ${suppliersUpdateSiteDir}" />
+		<property name="suppliersSourceDir" value="${sourceDir}/suppliers" />
+		<echo message="Suppliers source at ${suppliersSourceDir}" />
+		  	
+		<java classname="org.eclipse.equinox.launcher.Main" dir="../../"
+			  fork="true" jvm="${target.jvm}" spawn="false" failonerror="true">
+			<arg value="-clean"/>
+			<arg value="-noupdate"/>
+			<arg value="-application"/>
+			<arg value="org.eclipse.ant.core.antRunner"/>
+			<arg value="-data"/>
+			<arg file="${eclipse.workspace}"/>
+			<arg value="-DstagingDir=${suppliersUpdateSiteDir}"/>
+			<arg value="-DupdateSiteDir=${suppliersSourceDir}"/>
+			<arg value="-file"/>
+			<arg file="${gen.suppliers.updatesite.file}"/>
+			<classpath>
+				<fileset dir="eclipse_sdk/eclipse/plugins/">
+			    	<include name="org.eclipse.equinox.launcher_*.jar"/>
+				</fileset>
+			</classpath>
+		</java>  	
+	</target>
+</project>

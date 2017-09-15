@@ -1,0 +1,20 @@
+# Debugging options for the com.ibm.ws.st.core plugin
+
+# Turn on general debugging - core
+com.ibm.ws.st.core/debug=false
+com.ibm.ws.st.core/debug/info=true
+com.ibm.ws.st.core/debug/warning=true
+com.ibm.ws.st.core/debug/resource=true
+com.ibm.ws.st.core/debug/perf=true
+com.ibm.ws.st.core/debug/extension=true
+com.ibm.ws.st.core/debug/jmx=true
+com.ibm.ws.st.core/debug/details=false
+com.ibm.ws.st.core/debug/ssm=false
+com.ibm.ws.st.core/debug/security=false
+
+# Turn on general debugging - ui
+com.ibm.ws.st.ui/debug=false
+com.ibm.ws.st.ui/debug/info=true
+com.ibm.ws.st.ui/debug/warning=true
+com.ibm.ws.st.ui/debug/perf=true
+com.ibm.ws.st.ui/debug/error=true

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EAR_Modify_ModuleEAR">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="EAR_Modify_Web1.war" deploy-path="/" handle="module:/resource/EAR_Modify_Web1/EAR_Modify_Web1">
+            <dependent-object>Module_1352740159066</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EAR_Modify_Web3.war" deploy-path="/" handle="module:/resource/EAR_Modify_Web3/EAR_Modify_Web3">
+            <dependent-object>Module_1352744042910</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EAR_Modify_Util.jar" deploy-path="/lib" handle="module:/resource/EAR_Modify_Util/EAR_Modify_Util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

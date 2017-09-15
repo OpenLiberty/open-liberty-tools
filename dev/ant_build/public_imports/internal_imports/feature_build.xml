@@ -1,0 +1,127 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="feature.build" default="build" >
+	<import file="../tooling_imports.xml"/>
+
+	  <target name="package" depends="generateProperties, addLicenseToFeatureProperties">
+	    <mkdir dir="${lib.dir}"/>
+	    <mkdir dir="${build.dir}/tmp"/>
+
+		<iff>
+			<isset property="newVersion"/>
+			<then>
+				<var name="feature.version" unset="true"/>
+				<property name="feature.version" value="${newVersion}"/>
+				<qualifierManager featureVersion="${newVersion}" file="feature.xml" metaInf="${basedir}/../Meta-inf.zip" operation="replaceFeatureQualifiers" propertyName="feature.version"/>
+			</then>
+			<else>
+				<qualifierManager file="feature.xml" metaInf="${basedir}/../Meta-inf.zip" operation="replaceFeatureQualifiers" propertyName="feature.version"/>
+			</else>
+		</iff>
+	  	
+	  	<var name="feature.jar" unset="true"/>
+	    <property name="feature.jar" value="${ant.project.name}_${feature.version}.jar"/>
+	    
+	    <jar compress="true" destfile="${lib.dir}/${feature.jar}" keepcompression="true" update="false">
+	      <!-- This bit here basically processes the pde build.properties file to add extra stuff in -->
+	      <fileset dir="${basedir}" excludes="feature.xml" includes="**/*">
+	        <custom classname="com.ibm.aries.buildtasks.selectors.PDEBuildPropertiesSelector" classpathref="buildtasks">
+	          <param name="file" value="${basedir}/build.properties"/>
+	        </custom>
+	      </fileset>
+	      <fileset dir="${build.dir}" includes="feature.xml"/>
+	    </jar>
+	    <jar compress="false" destfile="${lib.dir}/${feature.jar}" keepcompression="true" update="true">
+	      <fileset dir="${copyright.file.basedir}" includes="${copyright.file.dir}/${copyright.file.name}"/>
+	    </jar>
+	    	
+	  	
+	  	<antcall inheritall="true" target="validateFeatureVersion"/>
+	  </target>
+	  
+	  <property name="image.common" value="${liberty.image.common.dir}/lafiles/tools"/>
+	  
+	  <macrodef name="loadfilefixingcrlf">
+	    <attribute name="property"/>
+	    <attribute name="srcFile"/>
+	    <attribute name="encoding"/>
+	    <sequential>
+	      <loadfile encoding="@{encoding}" property="@{property}" srcFile="@{srcFile}">
+	        <filterchain>
+	          <deletecharacters chars="\r"/> <!-- delete carriage returns if they were added by the extract -->
+	        </filterchain>
+	      </loadfile>
+	    </sequential>
+	  </macrodef>
+	  
+	  <target name="addLicenseToFeatureProperties" depends="addLicenseToEnglishFeatureProperties, addLicenseToAllOtherFeatureProperties"/>
+	  
+	  <target name="addLicenseToEnglishFeatureProperties">
+	    <!-- Load the basic properties and prefixing the property names with findbugs.old. -->
+	    <property file="basic.feature.properties" prefix="feature.properties."/>
+
+	    <!-- Read in the license files for english license -->
+	    <loadfilefixingcrlf encoding="UTF-16" property="english.LI" srcFile="${image.common}/LI_en"/>
+	    <loadfilefixingcrlf encoding="UTF-16" property="english.LA" srcFile="${image.common}/LA_en"/>
+	    <property name="feature.properties.license" value="${english.LA}\n${english.LI}"/>
+	    
+	    
+	    <!-- Write out the imtermediate form of the feature.properties file -->
+	    <mkdir dir="${build.dir}/tmp"/>
+	    <echopropertiesStrippingPrefix destFile="${build.dir}/tmp/feature.properties" prefix="feature.properties"/>
+	    
+	    <!-- Nearly there, we want the resulting file we're going to use to actually have a reasonable header and footer
+	         so we need to reread the file and write out the actual version we want to have included in the
+	         outputs -->
+	    <loadfile encoding="ISO-8859-1" property="english.feature.properties" srcFile="${build.dir}/tmp/feature.properties">
+	      <filterchain>
+	        <striplinecomments>
+	          <comment value="#"/>
+	        </striplinecomments>
+	      </filterchain>
+	    </loadfile>
+	  	
+	  	<!-- Lets avoid the modification of the properties files for the moment-->
+	  
+	    <!--echo file="feature.properties"># IBM Confidential
+	# OCO Source Materials
+	# Copyright IBM Corp. 2011
+	# The source code for this program is not published or otherwise divested of its trade
+	# secrets, irrespective of what has been deposited with the U.S. Copyright Office.
+	#
+	# NLS_ENCODING=UNICODE
+	# NLS_MESSAGEFORMAT_NONE
+
+	${english.feature.properties}</echo-->
+	    
+	</target>
+	  
+	<target name="addLicenseToAllOtherFeatureProperties">
+	</target>
+		
+	<target name="validateFeatureVersion">
+		<qualifierManager file="${lib.dir}/${feature.jar}" metaInf="${basedir}/../Meta-inf.zip" operation="getCurrentVersion" propertyName="newVersion"/>
+		<iff>
+			<not>
+				<equals arg1="${newVersion}" arg2="${feature.version}"/>
+			</not>
+			<then>
+				<delete>
+					<fileset dir="${build.dir}" includes="feature.xml"/>
+					<fileset dir="${lib.dir}/" includes="*.jar"/>
+				</delete>
+				<antcall target="package" inheritall="true"/>
+			</then>
+		</iff>
+	</target>
+	
+</project>

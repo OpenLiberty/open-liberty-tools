@@ -1,0 +1,354 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="publish" default="publish" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+  <import file="standard_properties.xml" />
+  <import file="copypii.xml" />
+
+  <property name="maven_home" value="${basedir}/../com.ibm.websphere.wlp.maven.prereq/apache-maven-2.2.1"/>
+  <property name="repo_home" value="${basedir}/../com.ibm.websphere.wlp.maven.prereq/liberty_repo"/>
+
+  <target name="publish" depends="publishToImage" />
+  <target name="publishExtra" />
+
+  <!-- Determine if the name of the buildfile indicates that the outputs from
+       this build are actually going to be shipped. If they are not, we will
+       complain if we then attempt to copy any files
+       NOTE: This will also pick up the tooling build as well -->
+  <basename property="buildfile.basename" file="${ant.file}" />
+  <condition property="build.outputs.are.shipped" value="true">
+    <equals arg1="${buildfile.basename}" arg2="build.xml" />
+  </condition>
+
+    <!-- Determine if the output from this project are going anywhere that is shipped -->
+    <target name="detectIfImage">
+      <!-- Determine if the file should be published to build.image or tools.image
+           (or neither, but not both)
+           
+           If both are set, build.image will win
+      -->
+      <condition property="image.name" value="build.image">
+        <equals arg1="true" arg2="${build.image}" />
+      </condition>
+      <condition property="image.name" value="tools.image">
+        <equals arg1="true" arg2="${tools.image}" />
+      </condition>
+    </target>
+
+  <!-- Automatically detect if the project goes to an image and copy it there.
+       We do this by looking for a property that ends '.image' and if we find
+       it we assume the property name is an image project copy the jar to the 
+       lib directory of the project.
+       
+       We also copy the nls source (into nlssrc on the build.pii.package project)
+       and the outputs (into nls.genxml.dir of the image)
+       
+       If we do decide that this project goes to an image we also copy the src
+       directory into the build.code.scan project ready for a copyright
+       code scan
+  -->
+  <target name="publishToImage" depends="detectIfImage, determineWhatToDo, publishBundles, publishDev, publishDirs, workOnMFFiles, publishTools, publishExtra, setBinExecutable, copyPiiFiles">  
+      <condition property="skipUpload">
+        <not>
+          <isset property="publish.jar" />
+        </not>
+      </condition>
+  </target>
+
+  <target name="determineWhatToDo" depends="detectIfImage, copypii.determineWhatToDo" if="image.name">
+    <property name="image.write.dir" value="${install.name}/lib" />
+    <property name="image.write.dev.dir" value="${install.name}/dev" />
+    <property name="image.write.dev.api.dir" value="${install.name}/dev/api" />
+    <property name="image.write.dev.api.spec.dir" value="${install.name}/dev/api/spec" />            
+    <property name="image.write.dev.api.ibm.dir" value="${install.name}/dev/api/ibm" />        
+    <property name="image.write.dev.api.thirdparty.dir" value="${install.name}/dev/api/third-party" />                
+    <property name="image.write.dev.spi.dir" value="${install.name}/dev/schema" />
+    <property name="image.write.dev.spi.spec.dir" value="${install.name}/dev/spi/spec" />            
+    <property name="image.write.dev.spi.ibm.dir" value="${install.name}/dev/spi/ibm" />        
+    <property name="image.write.dev.spi.thirdparty.dir" value="${install.name}/dev/spi/third-party" />        
+    <property name="image.write.dev.tools.dir" value="${install.name}/dev/tools" />
+
+    <property name="image.write.bin.tools.dir" value="${install.name}/bin/tools" />        
+
+    <property name="publish.image.dir" value="../${image.name}" />
+    <property name="publish.image.install.dir" value="../${image.name}/${install.name}"/>
+
+    <available file="${lib.dir}" property="publish.bundles.need.copying" />
+    <available file="${dev.dir}" property="publish.dev.needs.copying" />
+  </target>
+	
+  <target name="publishBundles" if="image.name">
+    <if if="publish.bundles.need.copying">
+      <try>
+        <sequential>
+          <copy todir="../${image.name}/${image.write.dir}">
+            <fileset dir="${lib.dir}">
+              <patternset refid="publish.bundles" />
+              <exclude name="**/fattest.simplicity.jar" />
+              <exclude name="**/*_fat/**/*" />
+            </fileset>
+          </copy>
+
+          <iff>
+            <and>
+              <istrue value="${run.fixlist}"/>
+              <isset property="is.running.rtc.build" />
+            </and>
+            <then>
+              <mkdir dir="${fixlist.dir}" />
+              <pathconvert property="FixList-Bundles">
+                <path path="${lib.dir}" />
+                <regexpmapper from="^${user.dir}/(.*)/build/lib$$" to="\1" handledirsep="yes"/>
+              </pathconvert>
+              <echo file="${fixlist.build.projects.file}" message="${FixList-Bundles}${line.separator}" append="true" />
+            </then>
+          </iff>
+
+        </sequential>
+      </try>
+    </if>
+  </target>
+
+  <target name="publishDev" if="publish.dev.needs.copying">
+    <copy todir="../${image.name}/${image.write.dev.dir}">
+      <fileset dir="${dev.dir}">
+        <exclude name="**/*-javadoc.jar"/>
+        <exclude name="**/*.pom"/>
+      </fileset>
+    </copy>
+
+    <iff>
+      <and>
+        <istrue value="${run.fixlist}"/>
+        <isset property="is.running.rtc.build" />
+      </and>
+      <then>
+        <mkdir dir="${fixlist.dir}" />
+        <pathconvert property="FixList-Dev">
+          <path path="${dev.dir}" />
+          <regexpmapper from="^${user.dir}/(.*)/build/dev$$" to="\1" handledirsep="yes"/>
+        </pathconvert>
+        <echo file="${fixlist.build.projects.file}" message="${FixList-Dev}${line.separator}" append="true" />
+      </then>
+    </iff>
+
+    <available file="${maven_home}" property="maven.available"/>
+    <if if="maven.available">
+    <fileset dir="${dev.dir}" includes="**/*.pom" id="pomFiles"/>
+    <foreach param="filePath" in="pomFiles">
+      <sequential>
+        <local name="dirName"/>
+        <local name="fileName"/>
+        <dirname file="${filePath}" property="dirName"/>
+        <basename file="${filePath}" property="fileName"/>
+        <regexp pattern="(.*)\.pom" string="${fileName}"/>
+        <iff>
+          <available file="${dirName}/javadoc/${group1}-javadoc.jar"/>
+          <then>
+            <installFile pom="${filePath}" jar="${dirName}/${group1}.jar">
+              <args>
+                <arg value="-Djavadoc=${dirName}/javadoc/${group1}-javadoc.jar"/>
+              </args>
+            </installFile>
+          </then>
+          <else>
+            <installFile pom="${filePath}" jar="${dirName}/${group1}.jar"/>
+          </else>
+        </iff>
+      </sequential>
+    </foreach>
+    </if>
+  </target>
+
+  <target name="publishDirs" if="image.name">
+    <foreach param="thing.to.copy" in="${publish.dirs}">
+      <with key="from.dir" value="to.dir" in="${thing.to.copy}">
+        <local name="dir.exists" />
+        <available property="dir.exists" file="publish/${from.dir}" />
+        <if if="dir.exists">
+          <copy todir="../${image.name}/${install.name}/${to.dir}" overwrite="true">
+            <fileset dir="publish/${from.dir}">
+              <include name="**/*" />
+            </fileset>
+          </copy>
+
+          <iff>
+            <and>
+              <istrue value="${run.fixlist}"/>
+              <isset property="is.running.rtc.build" />
+            </and>
+            <then>
+              <mkdir dir="${fixlist.dir}" />
+              <pathconvert property="FixList-Dirs">
+                <path path="${lib.dir}/publish/${from.dir}" />
+                <regexpmapper from="^${user.dir}/(.*)/build/lib/publish/${from.dir}$$" to="\1" handledirsep="yes"/>
+              </pathconvert>	
+              <echo file="${fixlist.build.projects.file}" message="${FixList-Dirs}${line.separator}" append="true" />
+            </then>
+          </iff>
+
+        </if>
+      </with>
+    </foreach>
+  </target>
+  
+  <target name="workOnMFFiles" if="image.name">
+    <foreach param="thing.to.workOn" in="features=lib/features,platform=lib/platform">
+      <with key="from.dir" value="to.dir" in="${thing.to.workOn}">
+        <local name="dir.exists" />
+        <available property="dir.exists" file="publish/${from.dir}" />
+        <if if="dir.exists">
+          <!-- work on mf file by workOnMFFile -->
+      	  <fileset id="mf.from.files" dir="publish/${from.dir}">
+      	    <include name="**/*.mf"/>
+          </fileset>
+      	  <foreach in="mf.from.files" param="mf.from.file">
+      	    <regexp string="${mf.from.file}" pattern="(.*)(\\|/)(.*)"/>
+      	    <local name="mf.to.file"/>
+      	  	<property name="mf.to.file" value="../${image.name}/${install.name}/${to.dir}/${group3}"/>
+      	  	<echo message="Working on ${mf.to.file}"/>
+      	  	<!-- append IBM-ProductID attribute to the mf file --> 
+      	    <concat destfile="${mf.to.file}" append="true">${line.separator}IBM-ProductID: com.ibm.websphere.appserver${line.separator}</concat>
+      	  	<!-- remove empty lines -->
+      	  	<replaceregexp file="${mf.to.file}"
+      	  	               match="(\r?\n)\s*\r?\n" 
+      	  	               flags="g"
+      	  	               replace="\1" />
+      	  	<!-- here is a possible place to rename shortName.mf to symbolicName.mf --> 
+          </foreach>
+        </if>
+      </with>
+    </foreach>
+  </target>	
+	
+  <target name="publishTools" if="image.name">
+    <if if="publish.tools">
+      <foreach param="tool" in="${publish.tools},">
+        <with key="tool.script" value="tool.jar" in="${tool}">
+          <local name="tool.script.subdir.matches"/>
+          <regexp string="${tool.script}" pattern="(.*)/(.*)" property="tool.script.subdir.matches"/>
+          <local name="tool.script.subdir"/>
+          <local name="tool.script.dir.length"/>
+          <local name="tool.script.relative"/>
+          <if if="tool.script.subdir.matches">
+            <property name="tool.script.subdir" value="${group1}/"/>
+            <length property="tool.script.dir.length" string="/bin/${tool.script.subdir}"/>
+            <echo file="${build.dir}/publish.tools.properties">${group1}</echo>
+            <replaceregexp file="${build.dir}/publish.tools.properties" match="[^/]+" replace=".." flags="g"/>
+            <replaceregexp file="${build.dir}/publish.tools.properties" match="^" replace="tool.script.relative="/>
+            <property file="${build.dir}/publish.tools.properties"/>
+            <delete file="${build.dir}/publish.tools.properties"/>
+            <else>
+              <property name="tool.script.subdir" value=""/>
+              <!-- Length of "/bin/" -->
+              <property name="tool.script.dir.length" value="5"/>
+              <property name="tool.script.relative" value=""/>
+            </else>
+          </if>
+
+          <echo>Publishing ${tool.jar} to ../${image.name}/${install.name}/bin/${tool.script.subdir}tools</echo>
+          <mkdir dir="../${image.name}/${install.name}/bin/${tool.script.subdir}tools" />
+          <copy todir="../${image.name}/${install.name}/bin/${tool.script.subdir}tools" file="${lib.dir}/${tool.jar}" />
+
+          <iff>
+            <and>
+              <istrue value="${run.fixlist}"/>
+              <isset property="is.running.rtc.build" />
+            </and>
+            <then>
+              <mkdir dir="${fixlist.dir}" />
+              <pathconvert property="FixList-Tools1">
+                <path path="${lib.dir}/${tool.jar}" />
+                <regexpmapper from="^${user.dir}/(.*)/build/lib/${tool.jar}$$" to="\1" handledirsep="yes"/>
+              </pathconvert>
+          	
+              <echo file="${fixlist.build.projects.file}" message="${FixList-Tools1}${line.separator}" append="true" />
+            </then>
+          </iff>
+
+          <echo>Publishing ${tool.script} scripts to ../${image.name}/${install.name}bin/${tool.script.subdir}</echo>
+          <copy todir="../${image.name}/${install.name}/bin" overwrite="true">
+            <fileset dir="../ant_build/resources/bin" includes="tool, tool.bat" />
+            <globmapper from="tool*" to="${tool.script}*"/>
+            <filterset>
+              <!-- The name of the jar relative to wlp/bin/ (e.g., "ws-schemagen.jar"). -->
+              <filter token="TOOL_JAR" value="${tool.script.subdir}tools/${tool.jar}"/>
+              <!-- The name of the script relative to wlp/bin/ (e.g., "schemagen"). -->
+              <filter token="TOOL_SCRIPT" value="${tool.script}"/>
+              <!-- The length of "/bin/" (5) or "/bin/subdir/" (e.g., 12). -->
+              <filter token="TOOL_SCRIPT_DIR_LENGTH" value="${tool.script.dir.length}"/>
+              <!-- The relative path from the script directory to wlp/bin/ (e.g., "" or ".." or "../.."). -->
+              <filter token="TOOL_SCRIPT_RELATIVE" value="${tool.script.relative}"/>
+            </filterset>
+          </copy>
+
+          <iff>
+            <and>
+              <istrue value="${run.fixlist}"/>
+              <isset property="is.running.rtc.build" />
+            </and>
+            <then>
+              <mkdir dir="${fixlist.dir}" />
+              <echo file="${fixlist.build.projects.file}" message="ant_build${line.separator}" append="true" />
+            </then>
+          </iff>
+
+        </with>
+      </foreach>
+    </if>
+  </target>
+
+  <target name="setBinExecutable" if="image.name">
+    <!-- make sure scripts are executable -->
+    <available property="bin.exists" file="../${image.name}/${install.name}/bin" />
+    <if if="bin.exists">
+      <chmod dir="../${image.name}/${install.name}/bin" perm="ugo+x" includes="*" />
+    </if>
+  </target>
+
+  <macrodef name="installFile">
+      <attribute name="pom" />
+      <attribute name="jar"/>
+      <element name="args" optional="true"/>
+      <sequential>
+          <iff>
+            <available file="@{pom}"/>
+            <then>
+              <iff>
+                <not>
+                    <typefound name="remoteRepository" uri="antlib:org.apache.maven.artifact.ant"/>
+                </not>
+                <then>
+                   <!-- A path gets stored in memory every time ant sees it, so only do it when needed, and with a guard -->
+                   <path id="maven-ant-tasks.classpath" path="${basedir}/../ant_build/lib/maven-ant-tasks-2.1.3.jar" />
+                   <typedef resource="org/apache/maven/artifact/ant/antlib.xml"
+                    uri="antlib:org.apache.maven.artifact.ant"
+                    classpathref="maven-ant-tasks.classpath" />
+              </then>
+            </iff>
+
+              <artifact:mvn mavenHome="${maven_home}" fork="true" failonerror="true">
+                  <arg value="org.apache.maven.plugins:maven-install-plugin:2.4:install-file"/>
+                  <arg value="-fae"/>
+                  <arg value="-e"/>
+                  <arg value="-Dmaven.repo.local=${repo_home}"/>
+                  <arg value="-DcreateChecksum=true"/>
+                  <arg value="-Dfile=@{jar}"/>
+                  <arg value="-DpomFile=@{pom}"/>
+                  <arg value="-o"/>
+                  <args/>
+                  <jvmarg value="-Xmx512m"/>                
+              </artifact:mvn>
+            </then>
+          </iff>
+      </sequential>
+  </macrodef>
+</project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CircularEAR">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="CircularWebA.war" deploy-path="/" handle="module:/resource/CircularWebA/CircularWebA">
+            <dependent-object>Module_1445612151540</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CircularWebB.war" deploy-path="/" handle="module:/resource/CircularWebB/CircularWebB">
+            <dependent-object>Module_1445612257524</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

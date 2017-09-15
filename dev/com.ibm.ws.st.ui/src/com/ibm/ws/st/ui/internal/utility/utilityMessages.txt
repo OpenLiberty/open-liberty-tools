@@ -1,0 +1,90 @@
+Server 
+ package complete in 
+.
+Bal\u00edk serveru 
+ je dokon\u010den v 
+.
+Das Packen des Servers 
+ in 
+ ist abgeschlossen.
+Paquete de servidor 
+ completo en 
+.
+L''empaquetage du serveur 
+ est termin\u00e9 dans 
+.
+A(z) 
+ kiszolg\u00e1l\u00f3 csomag k\u00e9sz: 
+.
+Package del server 
+ completo in 
+.
+\u30b5\u30fc\u30d0\u30fc 
+ \u306e\u30d1\u30c3\u30b1\u30fc\u30b8\u304c 
+ \u3067\u5b8c\u4e86\u3057\u307e\u3057\u305f\u3002
+\uc11c\ubc84 
+ \ud328\ud0a4\uc9c0\uac00 
+\uc5d0\uc11c \uc644\ub8cc\ub429\ub2c8\ub2e4.
+Zako\u0144czono tworzenie \
+
+
+Pacote do \
+
+
+Pachetul de server 
+ complet \u00een 
+.
+\u041f\u0430\u043a\u0435\u0442 \u0441\u0435\u0440\u0432\u0435\u0440\u0430 
+ \u0441\u043e\u0437\u0434\u0430\u043d \u0432 
+.
+\u670d\u52a1\u5668 
+ \u5c01\u88c5\u5c06\u5728 
+ \u540e\u5b8c\u6210\u3002
+\u4f3a\u670d\u5668 
+ \u5728 
+ \u5167\u5305\u88dd\u5b8c\u6210\u3002
+Server 
+ dump complete in 
+.
+V\u00fdpis pam\u011bti serveru 
+ je dokon\u010den v 
+.
+Der Speicherauszug des Servers 
+ in 
+ ist abgeschlossen.
+Volcado de servidor 
+ completo en 
+.
+La prise de clich\u00e9 (dump) du serveur 
+ est termin\u00e9e dans 
+.
+A(z) 
+ kiszolg\u00e1l\u00f3 ki\u00edrat\u00e1sa k\u00e9sz: 
+.
+Dump del server 
+ completo in 
+.
+\u30b5\u30fc\u30d0\u30fc 
+ \u306e\u30c0\u30f3\u30d7\u304c 
+ \u3067\u5b8c\u4e86\u3057\u307e\u3057\u305f\u3002
+\uc11c\ubc84 
+ \ub364\ud504\uac00 
+\uc5d0\uc11c \uc644\ub8cc\ub429\ub2c8\ub2e4.
+Zako\u0144czono tworzenie \
+
+
+Dump do servidor 
+
+ \
+Dump-ul de server 
+ complet \u00een 
+.
+\u0414\u0430\u043c\u043f \u0441\u0435\u0440\u0432\u0435\u0440\u0430 
+ \u0441\u043e\u0437\u0434\u0430\u043d \u0432 
+.
+\u670d\u52a1\u5668 
+ \u8f6c\u50a8\u5c06\u5728 
+ \u540e\u5b8c\u6210\u3002
+\u4f3a\u670d\u5668 
+ \u5728 
+ \u5167\u50be\u51fa\u5b8c\u6210\u3002

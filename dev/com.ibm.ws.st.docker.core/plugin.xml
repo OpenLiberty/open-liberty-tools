@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.6"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<plugin>
+   <extension-point id="libertyDockerHandlers" name="%extensionPointLibertyDockerHandlers"/>
+    
+   <extension point="com.ibm.ws.st.common.core.ext.serverTypeExtension">
+      <serverTypeExtension
+         id="com.ibm.ws.st.libertyDockerServerType"
+         typeId="LibertyDocker"
+         serverLaunchConfigurationClass="com.ibm.ws.st.docker.core.internal.launch.LibertyDockerLaunchConfiguration"
+         serverBehaviourClass="com.ibm.ws.st.docker.core.internal.launch.LibertyDockerServerBehaviour"
+         serverClass="com.ibm.ws.st.docker.core.internal.launch.LibertyDockerServer"
+         />
+   </extension>
+
+   <extension point="com.ibm.ws.st.core.utilityLaunchExtension">
+      <utilityLaunchExtension
+         id="com.ibm.ws.st.libertyDockerServerType"
+         serverTypeId="LibertyDocker"
+         launchConfigTypeId="com.ibm.ws.st.docker.core.internal.launch.LibertyLocalDockerUtilityLaunchConfiguration"
+         />
+   </extension>      
+   
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+    	<launchConfigurationType
+      		id="com.ibm.ws.st.docker.core.internal.launch.LibertyLocalDockerUtilityLaunchConfiguration"
+      		name="%libertyLocalDockerUtilityLaunchConfigurationType"
+      		delegate="com.ibm.ws.st.docker.core.internal.launch.LibertyLocalDockerUtilityLaunchConfigurationDelegate"
+      		public="false"
+      		modes="run"/>
+   </extension>    
+</plugin>

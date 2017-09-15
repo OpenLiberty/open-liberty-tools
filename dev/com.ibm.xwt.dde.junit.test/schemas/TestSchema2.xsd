@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.example.org/TestSchema/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/TestSchema/"
+	xmlns:ext="http://www.ibm.com/xmlns/dde/schema/annotation/ext">
+	<xsd:element name="testRoot">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+				<xsd:element name="include" type="tns:includeType" />
+			</xsd:sequence>
+
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="DatesType">
+		<xsd:sequence>
+			<xsd:element name="date" type="xsd:date"></xsd:element>
+			<xsd:element name="dateTime" type="xsd:dateTime"></xsd:element>
+			<xsd:element name="gYear" type="xsd:gYear"></xsd:element>
+			<xsd:element name="gMonth" type="xsd:gMonth"></xsd:element>
+			<xsd:element name="gDay" type="xsd:gDay"></xsd:element>
+			<xsd:element name="gMonthDay" type="xsd:gMonthDay"></xsd:element>
+			<xsd:element name="gYearMonth" type="xsd:gYearMonth"></xsd:element>
+			<xsd:element name="time" type="xsd:time"></xsd:element>
+			<xsd:element name="Bounded" type="tns:BoundedType"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BoundedType">
+		<xsd:sequence>
+			<xsd:element name="date">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:date">
+						<xsd:maxInclusive value="2001-01-01" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="dateTime">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:dateTime">
+						<xsd:maxInclusive value="2001-01-01T12:00:00" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gYear">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:gYear">
+						<xsd:minInclusive value="1997"></xsd:minInclusive>
+						<xsd:maxExclusive value="2001"></xsd:maxExclusive>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gMonth">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:gMonth">
+						<xsd:minInclusive value="--06" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gDay">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:gDay">
+						<xsd:maxInclusive value="---15" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gMonthDay">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:gMonthDay">
+						<xsd:maxInclusive value="--06-15" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="gYearMonth">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:gYearMonth">
+						<xsd:maxInclusive value="2001-06" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="time">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:time">
+						<xsd:maxInclusive value="12:30:30" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+		</xsd:sequence>
+
+	</xsd:complexType>
+
+	<xsd:complexType name="StringsType">
+		<xsd:sequence>
+			<xsd:element name="string" type="xsd:string"></xsd:element>
+			<xsd:element name="Bounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="maxLength5">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="2"></xsd:minLength>
+									<xsd:maxLength value="5"></xsd:maxLength>
+									<xsd:whiteSpace value="collapse"></xsd:whiteSpace>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="length5">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:length value="5" />
+									<xsd:whiteSpace value="collapse"></xsd:whiteSpace>
+								</xsd:restriction>
+							</xsd:simpleType>
+
+						</xsd:element>
+						<xsd:element name="enumeration">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="A"></xsd:enumeration>
+									<xsd:enumeration value="B"></xsd:enumeration>
+									<xsd:enumeration value="C"></xsd:enumeration>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="pattern">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:pattern value="[a-z] [a-z]"></xsd:pattern>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+
+
+
+	<xsd:complexType name="ListsType">
+		<xsd:sequence>
+			<xsd:element name="length3" type="tns:length3Type"></xsd:element>
+			<xsd:element name="minLength3" type="tns:minLength3Type"></xsd:element>
+			<xsd:element name="maxLength3" type="tns:maxLength3Type"></xsd:element>
+			<xsd:element name="enumeration" type="tns:enumerationType"></xsd:element>
+			<xsd:element name="pattern" type="tns:patternType"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="intListType">
+		<xsd:list itemType="xsd:int"></xsd:list>
+
+	</xsd:simpleType>
+
+	<xsd:simpleType name="minLength3Type">
+		<xsd:restriction base="tns:intListType">
+			<xsd:minLength value="3"></xsd:minLength>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="maxLength3Type">
+		<xsd:restriction base="tns:intListType">
+			<xsd:maxLength value="3"></xsd:maxLength>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="length3Type">
+		<xsd:restriction base="tns:intListType">
+			<xsd:length value="3"></xsd:length>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="enumerationType">
+		<xsd:restriction base="tns:intListType">
+			<xsd:enumeration value="1 2  3"></xsd:enumeration>
+			<xsd:enumeration value="3 2    1"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="patternType">
+		<xsd:restriction base="tns:intListType">
+			<xsd:pattern value="[0-9] [0-9][0-9]"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="UnionsType">
+		<xsd:sequence>
+			<xsd:element name="intString" type="tns:intStringUnionType"></xsd:element>
+			<xsd:element name="Restricted" type="tns:RestrictedType"></xsd:element>
+			<xsd:element name="booleanInt" type="tns:booleanIntType"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RestrictedType">
+		<xsd:sequence>
+			<xsd:element name="pattern" type="tns:patternType1"></xsd:element>
+			<xsd:element name="enumeration" type="tns:enumerationType1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="patternType1">
+		<xsd:restriction base="tns:intStringUnionType">
+			<xsd:pattern value="[0-9][0-9]"></xsd:pattern>
+		</xsd:restriction>
+
+	</xsd:simpleType>
+
+	<xsd:simpleType name="intStringUnionType">
+		<xsd:union memberTypes="xsd:string xsd:int"></xsd:union>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="booleanIntType">
+		<xsd:union memberTypes="xsd:boolean xsd:int"></xsd:union>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="enumerationType1">
+		<xsd:restriction base="tns:booleanIntType">
+			<xsd:enumeration value="true"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+	<xsd:complexType name="includeType">
+		<xsd:annotation>
+			<xsd:documentation>Set the properties for an included configuration
+				file.</xsd:documentation>
+			<xsd:appinfo>
+				<ext:label>Include Label from Schema</ext:label>
+			</xsd:appinfo>
+		</xsd:annotation>
+		<xsd:attribute name="optional" type="xsd:boolean" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Allow the include file to be skipped if it cannot
+					be found.</xsd:documentation>
+				<xsd:appinfo>
+					<ext:label>Include file is optional (Label from schema)</ext:label>
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="location" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>The location of the file to be included.
+				</xsd:documentation>
+				<xsd:appinfo>
+					<ext:label>Location (Label from Schema)</ext:label>
+				</xsd:appinfo>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="driverType" use="optional" default="4">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">  <!-- tns:intType" -->
+                    <xsd:enumeration value="2">
+                    </xsd:enumeration>
+                    <xsd:enumeration value="4">
+                    </xsd:enumeration>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="myTime" type="xsd:date">
+		</xsd:attribute>
+        <xsd:attribute name="lenTest">
+			<xsd:simpleType>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="3"></xsd:length>
+		</xsd:restriction>
+	          </xsd:simpleType>
+			</xsd:attribute>
+	
+	</xsd:complexType>
+	
+    <xsd:complexType name="testType">
+        <xsd:annotation>
+            <xsd:documentation>The JAAS login context entry configuration.</xsd:documentation>
+            <xsd:appinfo>
+                <ext:label>JAAS Login Context Entry</ext:label>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="loginModuleRef" minOccurs="1" maxOccurs="unbounded" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>A reference to the ID of a JAAS login module.</xsd:documentation>
+                    <xsd:appinfo>
+                        <ext:label>Login module reference</ext:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="name" use="required" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation>Name of a JAAS configuration entry.</xsd:documentation>
+                <xsd:appinfo>
+                    <ext:label>Entry name</ext:label>
+                </xsd:appinfo>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:anyAttribute processContents="skip">
+        </xsd:anyAttribute>
+    </xsd:complexType>
+
+    <xsd:simpleType name="variableType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="$\{[^\s\}]*\}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="intType">
+        <xsd:union memberTypes="xsd:int tns:variableType"/>
+    </xsd:simpleType>
+    
+</xsd:schema>

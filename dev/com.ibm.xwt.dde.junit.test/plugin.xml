@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<plugin>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * Editors * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+	<!-- Editor for Test Editor -->
+	<extension point="org.eclipse.ui.editors">
+		<editor
+			name="Deployment Descriptor Test Editor"
+			icon="icons/start.gif"
+			class="com.ibm.xwt.dde.editor.DDEMultiPageEditorPart"
+			id="com.ibm.ddeTest">
+			<contentTypeBinding
+				contentTypeId="com.ibm.xwt.dde.testFile" />
+		</editor>
+ 
+	</extension>
+
+	<extension point="org.eclipse.ui.editors">
+		<editor
+			name="Checkbox Test Editor"
+			icon="icons/start.gif"
+			class="com.ibm.xwt.dde.editor.DDEMultiPageEditorPart"
+			id="com.ibm.xwt.dde.test.checkboxtest">
+			<contentTypeBinding
+				contentTypeId="com.ibm.xwt.dde.test.checkbox" />
+		</editor>		
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor
+			name="Non-Customized Multi-page Editor"
+			icon="icons/start.gif"
+			class="com.ibm.xwt.dde.editor.DDEMultiPageEditorPart"
+			id="com.ibm.xwt.dde.test.nocustomizationtest">
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor
+			name="Label Test Editor"
+			icon="icons/start.gif"
+			class="com.ibm.xwt.dde.editor.DDEMultiPageEditorPart"
+			id="com.ibm.xwt.dde.test.labelcustomizationtest">
+		</editor>
+	</extension>
+	
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * Customizations * * * * * * * * * * * * * * * * * * * * * * * * -->
+		
+
+ 	<!-- Customization for Deployment Descriptor Test example -->
+    <extension point="com.ibm.xwt.dde.customization">
+		<customization
+			id="com.ibm.ddeTest"
+			customizationFile="xml/TestCustomization/TestCustomizationFile.xml"
+			translations="$nl$/xml/TestCustomization/TestCustomizationFile.properties"
+			debugMode="true"
+			/>
+ 	</extension>
+
+    <extension point="com.ibm.xwt.dde.customization">
+		<customization
+			id="com.ibm.xwt.dde.test.checkboxtest"
+			customizationFile="xml/checkboxStyle/checkboxStyleCustomization.xml"
+			debugMode="true"
+			/>
+ 	</extension>
+ 	
+ 	    <extension point="com.ibm.xwt.dde.customization">
+		<customization
+			id="com.ibm.xwt.dde.test.labelcustomizationtest"
+			customizationFile="xml/label/labelCustomization.xml"
+			translations="xml/label/label.properties"
+			debugMode="true"
+			/>
+ 	</extension>
+
+   <!-- Catalog entry for DDE Test Editor -->
+	<extension point="org.eclipse.wst.xml.core.catalogContributions">
+		<catalogContribution id="default">
+			<system
+      			systemId="http://www.example.org/TestSchema/"
+      			uri="schemas/TestSchema2.xsd">
+			</system>
+			<public
+                publicId="http://www.example.org/TestSchema/"
+                uri="schemas/TestSchema2.xsd">
+            </public>
+		</catalogContribution>
+   </extension>
+	<extension point="org.eclipse.help.contexts"> 
+		<contexts file="help/contexts.xml" /> 
+	</extension>   
+
+	<!-- * * * * * * * * * * * * * * * * * * * * * * * * Content Types * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+	<!-- Content type for DDE example -->
+    <extension point="org.eclipse.core.runtime.contentTypes">
+		<content-type
+			file-names="dde.xml"
+			priority="low"
+			name="Deployment Descriptor Test Editor"
+			id="com.ibm.xwt.dde.testFile"
+			base-type="org.eclipse.core.runtime.xml">
+		</content-type>
+	</extension>
+
+    <extension point="org.eclipse.core.runtime.contentTypes">
+		<content-type
+			file-names="checkboxStyle.xml"
+			priority="low"
+			name="Checkbox Test Editor"
+			id="com.ibm.xwt.dde.test.checkbox"
+			base-type="org.eclipse.core.runtime.xml">
+		</content-type>
+	</extension>
+
+</plugin>

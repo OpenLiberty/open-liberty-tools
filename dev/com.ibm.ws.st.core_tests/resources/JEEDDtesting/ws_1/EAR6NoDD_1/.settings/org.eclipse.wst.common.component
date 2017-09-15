@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EAR6NoDD_1">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="Web30NoDD1.war" deploy-path="/" handle="module:/resource/Web30NoDD1/Web30NoDD1">
+            <dependent-object>Module_1352492102339</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Web30NoDD_2.war" deploy-path="/" handle="module:/resource/Web30NoDD_2/Web30NoDD_2">
+            <dependent-object>Module_1352492781699</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Web30NoDD_3.war" deploy-path="/" handle="module:/resource/Web30NoDD_3/Web30NoDD_3">
+            <dependent-object>Module_1352493075438</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Utility1.jar" deploy-path="/lib" handle="module:/resource/Utility1/Utility1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.4
+Created-By: pxi3270sr6fp1ifx-20140220_01 (SR6 FP1+IX90136+IX90137) (IB
+ M Corporation)
+Specification-Title: SecureEJBSample.ear
+Specification-Version: 1.0
+Specification-Vendor: IBM Corp.
+Implementation-Title: SecureEJBSample.ear
+Implementation-Version: 1.0
+Implementation-Vendor: IBM Corp.
+Class-Path: 
+

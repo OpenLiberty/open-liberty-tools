@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.ws.st.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.ws.st.core" id="requiredFeatures" name="Required Features"/>
+      </appinfo>
+      <documentation>
+         This extension point provides a way for extenders to declare that features are required to be configured on the server in order to support a given module.
+Extenders are triggered by supplying module type ids or facet ids. They must either provide the static feature that is required by the given ids, *or* provide a class attribute if Java code is required.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="requiredFeatures" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified identifier of the target extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  an optional identifier of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  an optional name of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="requiredFeatures">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="name"/>
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="module" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="facet" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="content" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a unique identifier for this extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="int" use="optional">
+            <annotation>
+               <documentation>
+                  Specifies a priority for this extension point between 0 (highest)
+                  and 100 (lowest).  The default is 50.
+                  Priority for resolving features by facets is 10 (should usually be
+                  the highest) and for resolving features by imports is 90 (should
+                  usually be the lowest)
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string">
+            <annotation>
+               <documentation>
+                  specifies the fully qualified name of the Java class that extends &lt;samp&gt;FeatureExtension&lt;/samp&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.ibm.ws.st.core.internal.FeatureResolver:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="type" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="features" type="string">
+            <annotation>
+               <documentation>
+                  The feature to enable in the Liberty configuration
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="module">
+      <annotation>
+         <documentation>
+            Module type trigger, allows a required feature to be set based on module type
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="type" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="facet">
+      <annotation>
+         <documentation>
+            Project facet trigger, allows a required feature to be set based on a project facet
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="version" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="content">
+      <annotation>
+         <documentation>
+            Project content trigger, allows a required feature to be set based on the existence of a file within the module.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="path" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A module-relative path within the module (e.g. WEB-INF/web.xml).
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         Value of the attribute &lt;b&gt;class&lt;/b&gt; must be a fully qualified name of a Java class that extends &lt;code&gt;com.ibm.ws.st.core.internal.FeatureResolver&lt;/code&gt; and contains a public 0-arg constructor.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example of the serverExtension extension point:
+
+&lt;pre&gt;
+   &lt;extension point=&quot;com.ibm.ws.st.core.requiredFeatures&quot;&gt;
+      &lt;requiredFeatures
+         id=&quot;com.ibm.ws.st.core.servletExample&quot;
+         features=&quot;servlet&quot;&gt;
+         &lt;module type=&quot;jst.web&quot;/&gt;
+      &lt;/requiredFeatures&gt;
+      &lt;requiredFeatures
+         id=&quot;com.ibm.ws.st.core.jsfExample&quot;
+         features=&quot;jsf-2.0&quot;&gt;
+         &lt;facet id=&quot;jst.jsf&quot; version=&quot;2.0&quot;/&gt;
+      &lt;/requiredFeatures&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2011 IBM Corporation and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBM Corporation - initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

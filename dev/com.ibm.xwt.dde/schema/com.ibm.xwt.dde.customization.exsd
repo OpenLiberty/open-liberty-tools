@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.xwt.dde" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="com.ibm.xwt.dde" id="com.ibm.xwt.dde.customization" name="Customizations"/>
+      </appInfo>
+      <documentation>
+         This extension point allows users to customize the look of the DD Editor.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="1" maxOccurs="unbounded">
+            <element ref="customization"/>
+            <element ref="customization-add-on"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="customization">
+      <complexType>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  Identifier for the customization. It must match the identifier of the editor to which the customization must be applied.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="customizationFile" type="string">
+            <annotation>
+               <documentation>
+                  Path to the XML file that contains the customization content. The file should conform to the XML Schema &quot;CustomizationFile.xsd&quot;.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="translations" type="string">
+            <annotation>
+               <documentation>
+                  Path to the properties file with translatable strings. Use $nl$/ before the path to indicate the resource must be set according to the locale.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="debugMode" type="boolean">
+            <annotation>
+               <documentation>
+                  Enables automatic real time editor updates triggered by customization or translation resource changes.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="overrideCustomizationNamespace" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="overrideCustomizationSchemaLocation" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="customization-add-on">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Identifier for the customization. It must match the identifier of the editor to which the customization must be applied.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="customizationFile" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Path to the XML file that contains the customization content. The file should conform to the XML Schema &quot;CustomizationFile.xsd&quot;.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="translations" type="string">
+            <annotation>
+               <documentation>
+                  Path to the properties file with translatable strings. Use $nl$/ before the path to indicate the resource must be set according to the locale.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="debugMode" type="boolean">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string">
+            <annotation>
+               <documentation>
+                  Enables automatic real time editor updates triggered by customization or translation resource changes.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

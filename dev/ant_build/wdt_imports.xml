@@ -1,0 +1,164 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="wdt_imports">
+
+    <dirname property="wdt_imports.basedir" file="${ant.file.wdt_imports}" />
+
+    <import file="${wdt_imports.basedir}/public_imports/internal_imports/buildtasks.xml" />
+    <import file="${wdt_imports.basedir}/public_imports/updatesite_imports.xml"/>
+	<import file="wdt_suppliers_updatesite.xml"/>
+
+	<target name="generateOpenLTUpdateSite">
+		
+		<echo>Open WDT generate updateSite call</echo>
+
+	    <condition property="java.executable" value="java" else="java.exe">
+	      <not>
+	        <os family="windows" />
+	      </not>
+	    </condition>
+
+		<property name="local.workspace" location="${wdt_imports.basedir}/.."/>
+	    <property name="target.jvm" location="${java.home}/bin/${java.executable}" />
+	    <property name="equinox.launcher" value="org.eclipse.equinox.app_1.3.100.v20120522-1841.jar" />	
+		<property name="delegate.build.dir" location = "${local.workspace}"/>
+
+		<property name="nativeDirectory" value="${local.workspace}/tools.image/update" />
+		<property name="sourceDir" value="${nativeDirectory}/staging" />
+	  	<property name="tempDir" value="${sourceDir}/temp" />
+	  	<property name="updateSiteDir" value="${sourceDir}/update-site" />
+	  	<property name="updateSiteDirFull" value="${sourceDir}/update-sitefull" />
+		<property name="version" value="${level_tag}" />
+		<property name="fileNameVersion" value="${level_tag}" />
+		
+		<echo>SourceDir is ${sourceDir}</echo>
+		
+		<loadresource property="newVersion">
+			<propertyresource name="fileNameVersion" />
+			<filterchain>
+				<tokenfilter>
+					<filetokenizer />
+					<replacestring from=" " to="_" />
+				</tokenfilter>
+			</filterchain>
+		</loadresource>
+		
+		<var name="fileNameVersion" unset="true" />
+		<property name="fileNameVersion" value="${newVersion}" />
+		<property name="qualifier" value="${buildLabel}"/>
+		<property name="updatesite-name" value="open-wdt-update-site_${fileNameVersion}.v${qualifier}" />
+		<property name="metadata-updatesite-name" value="open-wdt-update-site-metadata_${fileNameVersion}.v${qualifier}" />	    	
+		<echo message="Target jvm location at ${target.jvm}" />
+		  	
+	  	<property name="gen.updatesite.file" location="${wdt_imports.basedir}/resources/wdt_updatesite-properties/generateP2Metadata.xml" />
+	  	<echo message="Script location at ${gen.updatesite.file}" />
+		
+	  	<property name="target.updatesite.repository" location="${updateSiteDir}/repository" />
+	  	<mkdir dir="${target.updatesite.repository}"/>
+	  	<echo message="Source location at ${updateSiteDir}" />
+	  	<echo message="Updatesite location at ${target.updatesite.repository}" />
+		
+		<antcall target="generateSuppliersUpdateSite"/>
+
+		<!-- Copy build result content -->
+		<copy todir="${sourceDir}/features" overwrite="true" verbose="true">
+			<fileset dir="${local.workspace}/tools.image/update/features">
+				<include name="**/*.jar"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
+	  		<fileset dir="${local.workspace}/tools.image/update/plugins">
+	  			<include name="**/*.jar"/>
+	  		</fileset>
+	  	</copy>
+		  			  	
+		<property name="wdt.product.toplevelfeatures.list" 
+			location="wdt_product_updatesite_toplevel_features.properties" />
+		<property name="wdt.product.features.list" 
+			location="wdt_product_updatesite_features.properties" />
+		
+		<!-- Step 1 -->
+		<!-- Create site.xml with top level feature(s) -->
+		<generateUpdateSite 
+			tempDir="${tempDir}" 
+			sourceDir="${sourceDir}" 
+			outputDir="${updateSiteDir}"
+			addIncludedFeatures="false">
+		  				
+		<!-- Add Main feature here -->
+			<category name="was4d"  
+				label="Open Liberty Tools for Eclipse" 
+				description="Open Liberty Tools for Eclipse">
+				
+				<!-- Features list file -->
+				<featuresFile id="Open WDT product updatesite toplevel features" 
+					file="${wdt.product.toplevelfeatures.list}" />
+				
+		  	</category>
+		</generateUpdateSite>
+		  	
+		<!-- Step 2 -->
+		<!-- Include features -->
+		<generateUpdateSite 
+			tempDir="${tempDir}" 
+			sourceDir="${sourceDir}" 
+			outputDir="${updateSiteDirFull}"
+			addIncludedFeatures="true">
+			
+			<!-- Features list file -->
+			<featuresFile id="Open WDT product updatesite features" 
+								file="${wdt.product.features.list}" />
+			
+			
+	  	</generateUpdateSite>
+		
+	  	<!-- Step 3 -->
+	  	<!-- Generate P2 metadata -->
+	  	<copy todir="${updateSiteDir}/features" overwrite="true" verbose="true">
+	  		<fileset dir="${updateSiteDirFull}/features">
+	  			<include name="**/*.jar"/>
+	  		</fileset>
+	  	</copy>  
+		  			
+	  	<copy todir="${updateSiteDir}/plugins" overwrite="true" verbose="true">
+	  		<fileset dir="${updateSiteDirFull}/plugins">
+	  			<include name="**/*.jar"/>
+	  		</fileset>
+	  	</copy>
+
+		<ant antfile="${delegate.build.dir}/ant_build/public_imports/updatesite_imports.xml" 
+							 target="pde-setup"
+							 inheritall="true"
+							 inheritrefs="true"/>
+		
+		<ant antfile="${delegate.build.dir}/ant_build/public_imports/updatesite_imports.xml" 
+									 target="generateP2Metadata"
+									 inheritall="true"
+									 inheritrefs="true"/>
+	  	
+	  	<!-- Step 4 -->
+		<!-- Copy site.xml into staging directory for WTP installation compatibility-->
+		<copy file="${updateSiteDir}/site.xml" todir="${target.updatesite.repository}" overwrite="true" verbose="true" />
+		  
+
+        <property name="artifact.location" value="${nativeDirectory}/${updatesite-name}.zip"/>
+
+	  	<!-- Step 5 -->
+	    <!-- Create final zip -->
+		<zip destfile="${artifact.location}" basedir="${target.updatesite.repository}"/>
+
+        <copy file="${artifact.location}" todir="${artifacts.dir}"/>
+
+        <echo>***** Build artifact available at ${artifacts.dir}/${updatesite-name}.zip</echo>
+	</target>
+</project>

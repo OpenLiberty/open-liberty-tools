@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/TestSchema/"
+	targetNamespace="http://www.example.org/TestSchema/">
+	<element name="testRoot">
+		<complexType>
+			<sequence>
+
+
+
+
+
+
+
+
+
+
+
+
+				<element name="Dates" type="tns:DatesType"></element>
+				<element name="Strings" type="tns:StringsType"></element>
+
+
+				<element name="Lists" type="tns:ListsType"></element>
+				<element name="Unions" type="tns:UnionsType"></element>
+			</sequence>
+
+		</complexType>
+	</element>
+
+
+
+
+
+
+
+
+
+
+	<complexType name="DatesType">
+		<sequence>
+			<element name="date" type="date"></element>
+			<element name="dateTime" type="dateTime"></element>
+			<element name="gYear" type="gYear"></element>
+			<element name="gMonth" type="gMonth"></element>
+			<element name="gDay" type="gDay"></element>
+			<element name="gMonthDay" type="gMonthDay"></element>
+			<element name="gYearMonth" type="gYearMonth"></element>
+			<element name="time" type="time"></element>
+			<element name="Bounded" type="tns:BoundedType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="BoundedType">
+		<sequence>
+			<element name="date">
+				<simpleType>
+					<restriction base="date">
+						<maxInclusive value="2001-01-01" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="dateTime">
+				<simpleType>
+					<restriction base="dateTime">
+						<maxInclusive value="2001-01-01T12:00:00" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="gYear">
+				<simpleType>
+					<restriction base="gYear">
+						<minInclusive value="1997"></minInclusive>
+						<maxExclusive value="2001"></maxExclusive>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="gMonth">
+				<simpleType>
+					<restriction base="gMonth">
+						<minInclusive value="--06" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="gDay">
+				<simpleType>
+					<restriction base="gDay">
+						<maxInclusive value="---15" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="gMonthDay">
+				<simpleType>
+					<restriction base="gMonthDay">
+						<maxInclusive value="--06-15" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="gYearMonth">
+				<simpleType>
+					<restriction base="gYearMonth">
+						<maxInclusive value="2001-06" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="time">
+				<simpleType>
+					<restriction base="time">
+						<maxInclusive value="12:30:30" />
+					</restriction>
+				</simpleType>
+			</element>
+
+		</sequence>
+
+	</complexType>
+
+	<complexType name="StringsType">
+		<sequence>
+			<element name="string" type="string"></element>
+			<element name="Bounded">
+				<complexType>
+					<sequence>
+						<element name="maxLength5">
+							<simpleType>
+								<restriction base="string">
+									<minLength value="2"></minLength>
+									<maxLength value="5"></maxLength>
+									<whiteSpace value="collapse"></whiteSpace>
+								</restriction>
+							</simpleType>
+						</element>
+						<element name="length5">
+							<simpleType>
+								<restriction base="string">
+									<length value="5" />
+									<whiteSpace value="collapse"></whiteSpace>
+								</restriction>
+							</simpleType>
+
+						</element>
+						<element name="enumeration">
+							<simpleType>
+								<restriction base="string">
+									<enumeration value="A"></enumeration>
+									<enumeration value="B"></enumeration>
+									<enumeration value="C"></enumeration>
+								</restriction>
+							</simpleType>
+						</element>
+						<element name="pattern">
+							<simpleType>
+								<restriction base="string">
+									<pattern value="[a-z] [a-z]"></pattern>
+								</restriction>
+							</simpleType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+
+
+
+
+
+	<complexType name="ListsType">
+		<sequence>
+			<element name="length3" type="tns:length3Type"></element>
+			<element name="minLength3" type="tns:minLength3Type"></element>
+			<element name="maxLength3" type="tns:maxLength3Type"></element>
+			<element name="enumeration" type="tns:enumerationType"></element>
+			<element name="pattern" type="tns:patternType"></element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="intListType">
+		<list itemType="int"></list>
+
+	</simpleType>
+
+	<simpleType name="minLength3Type">
+		<restriction base="tns:intListType">
+			<minLength value="3"></minLength>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="maxLength3Type">
+		<restriction base="tns:intListType">
+			<maxLength value="3"></maxLength>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="length3Type">
+		<restriction base="tns:intListType">
+			<length value="3"></length>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="enumerationType">
+		<restriction base="tns:intListType">
+			<enumeration value="1 2  3"></enumeration>
+			<enumeration value="3 2    1"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="patternType">
+		<restriction base="tns:intListType">
+			<pattern value="[0-9] [0-9][0-9]"></pattern>
+		</restriction>
+	</simpleType>
+
+	<complexType name="UnionsType">
+		<sequence>
+			<element name="intString" type="tns:intStringUnionType"></element>
+			<element name="Restricted" type="tns:RestrictedType"></element>
+			<element name="booleanInt" type="tns:booleanIntType"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="RestrictedType">
+		<sequence>
+			<element name="pattern" type="tns:patternType1"></element>
+			<element name="enumeration" type="tns:enumerationType1"></element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="patternType1">
+		<restriction base="tns:intStringUnionType">
+		<pattern value="[0-9][0-9]"></pattern>
+		</restriction>
+		
+		</simpleType>
+
+	<simpleType name="intStringUnionType">
+		<union memberTypes="string int"></union></simpleType>
+
+	<simpleType name="booleanIntType">
+		<union memberTypes="boolean int"></union></simpleType>
+
+	<simpleType name="enumerationType1">
+		<restriction base="tns:booleanIntType">
+		<enumeration value="true"></enumeration>
+		<enumeration value="3"></enumeration>
+		</restriction>
+	</simpleType>
+</schema>

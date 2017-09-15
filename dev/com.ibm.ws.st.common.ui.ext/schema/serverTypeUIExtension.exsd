@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.ws.st.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.ws.st.ui" id="serverTypeUIExtension" name="Server Type UI Extension"/>
+      </appinfo>
+      <documentation>
+         This extension point provides a way for extenders to provide UI support for new Liberty server types (e.g. remote)
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="serverTypeUIExtension" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified identifier of the target extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  an optional identifier of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  an optional name of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="serverTypeUIExtension">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="name"/>
+         </appinfo>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a unique identifier for this extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the server type id
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="typeLabel" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the server type label
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="mnemonic" type="string">
+            <annotation>
+               <documentation>
+                  A  character to denote the keyboard mnemonic.  The character must exist in the typeLabel string.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="serverWizardClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the fully qualified name of the Java class that extends &lt;samp&gt;WizardFragmentProvider&lt;/samp&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.ibm.ws.st.ui.internal.WizardFragmentProvider:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example of the serverTypeUIExtension extension point:
+
+&lt;pre&gt;
+   &lt;extension point=&quot;com.ibm.ws.st.ui.serverTypeUIExtension&quot;&gt;
+      &lt;serverTypeUIExtension
+         id=&quot;com.example.remote.remoteServerType&quot;
+         typeId=&quot;remoteServer&quot;
+         typeLabel=&quot;Server running on remote host&quot;
+         serverWizardClass=&quot;com.example.RemoteWizardFragmentProvider&quot;
+    &lt;/serverTypeUIExtension&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         The value of the attribute &lt;b&gt;serverWizardClass&lt;/b&gt; must be a fully qualified name of a Java class that extends &lt;code&gt;com.ibm.ws.st.ui.internal.WizardFragmentProvider&lt;/code&gt; and contains a public 0-arg constructor.
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2015 IBM Corporation and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBM Corporation - initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

@@ -1,0 +1,5 @@
+# Turn on general debugging - jee core
+com.ibm.ws.st.jee.core/debug=false
+com.ibm.ws.st.jee.core/debug/info=true
+com.ibm.ws.st.jee.core/debug/warning=true
+com.ibm.ws.st.jee.core/debug/perf=true

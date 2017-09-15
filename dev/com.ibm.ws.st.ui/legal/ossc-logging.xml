@@ -1,0 +1,22 @@
+<?xml charset="UTF-8" version="1.0"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<ossc project="Apache Commons Logging" 
+      projectURL="http://commons.apache.org/logging/" 
+      version="1.1.1" revision="" 
+      license-type="ASL2" 
+      contact="not@us.ibm.com" 
+      encryption="no"
+      downloadLocation="https://w3-03.ibm.com/tools/cm/iram/artifact/%7BEC1B1341-C415-CBCD-DA91-E20EEC747F31%7D/1.1.1">
+   
+   <clearencehistory>This is AUA.</clearencehistory>
+</ossc>

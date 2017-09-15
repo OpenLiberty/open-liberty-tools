@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="JAXWSEJBSample">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="JAXWSEJBSample.war" deploy-path="/" handle="module:/resource/JAXWSEJBSample_WEB/JAXWSEJBSample_WEB">
+            <dependent-object>Module_1426275523507</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AnEJBWebServices.jar" deploy-path="/" handle="module:/resource/AnEJBWebServices/AnEJBWebServices">
+            <dependent-object>Module_1426275523538</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AnEJBWebServicesWithHandler.jar" deploy-path="/" handle="module:/resource/AnEJBWebServicesWithHandler/AnEJBWebServicesWithHandler">
+            <dependent-object>Module_1426275523553</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

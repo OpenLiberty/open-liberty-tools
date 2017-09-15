@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EAR_Bin_Module">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="Web_Not_Bin_1.war" deploy-path="/" handle="module:/resource/Web_Not_Bin_1/Web_Not_Bin_1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Web_Bin_1.war" deploy-path="/" handle="module:/resource/Web_Bin_1/Web_Bin_1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

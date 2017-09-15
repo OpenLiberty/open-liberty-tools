@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.ws.st.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.ws.st.core" id="libertyX509CertPathValidator" name="Liberty X.509 Certificate Path Validator"/>
+      </appinfo>
+      <documentation>
+         This extension point provides a way to contribute to the validation
+of X.509 certificate paths. When the Liberty tools attempt to connect
+over HTTPS to the endpoint of a supposed Liberty server, the
+endpoint will respond with an X.509 certificate path. If the tools do not
+automatically recognize the issuer of the root certificate of the path as a
+trusted certificate authority, then the tools will make a second attempt at
+validating the certificate path by invoking LibertyX509CertPathValidator objects
+plugged into this extension point until either one of them accepts the
+certificate path as trusted, or until all the extensions have been exhausted and
+the certificate path is judged as untrusted.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="libertyX509CertPathValidator"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The value &quot;com.ibm.ws.st.core.libertyX509CertPathValidator&quot;.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  Not required or used by this extension point.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  Not required or used by this extension point.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="libertyX509CertPathValidator">
+      <annotation>
+         <documentation>
+            This element defines a single LibertyX509CertPathValidator extension.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A class that extends LibertyX509CertPathValidator and performs validation
+of X.509 certificate path chains.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.ibm.ws.st.core.internal.security.LibertyX509CertPathValidator:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="autonomous" type="boolean">
+            <annotation>
+               <documentation>
+                  An indication of whether the extension validates autonomously (without
+interactive human intervention) or not. If omitted, it is equivalent to false.
+The validation framework executes all autonomous validators before executing
+interactive validators. Within each of these two groups of validators the order
+in which they are executed is undefined. Validators are executed until a validator
+returns a result with a lifetime of other than ABSTAIN, or until no more validators
+are left. If all validators ABSTAIN, the certificate path is considered to be invalid.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         8.5
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following example shows four validators plugged into the extension point.
+Two of them are autonomous as indicated by the &quot;autonomous&quot; attribute being
+set to &quot;true&quot;. The other two are, by omission of the attribute, interactive.
+The validation framework guarantees it will run the two autonomous validators
+before the interactive validators. No other ordering should be assumed.
+
+&lt;extension point=&quot;com.ibm.ws.st.core.libertyX509CertPathValidator&quot;&gt;
+   &lt;libertyX509CertPathValidator class=&quot;com.ibm.MyInteractiveValidator&quot;/&gt;
+   &lt;libertyX509CertPathValidator class=&quot;com.ibm.MyOtherInteractiveValidator&quot;/&gt;
+   &lt;libertyX509CertPathValidator class=&quot;com.ibm.MyAutonomousValidator&quot; autonomous=&quot;true&quot;/&gt;
+   &lt;libertyX509CertPathValidator class=&quot;com.ibm.MyOtherAutonomousValidator&quot; autonomous=&quot;true&quot;/&gt;
+&lt;/extension&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         See class LibertyX509CertPathValidator.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         There is no default implementation of the extension point.
+Extenders must subclass LibertyX509CertPathValidator.
+      </documentation>
+   </annotation>
+
+
+</schema>

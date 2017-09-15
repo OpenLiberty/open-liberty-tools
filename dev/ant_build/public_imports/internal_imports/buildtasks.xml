@@ -1,0 +1,47 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="buildtasks">
+  <local name="buildtasks_resource" />
+  <condition property="buildtasks_resource" value="garbage.properties" else="com/ibm/aries/buildtasks/buildtasks.properties">
+    <typefound name="iff" />
+  </condition>
+
+  <local name="buildtasks_onerror" />
+  <condition property="buildtasks_onerror" value="ignore" else="fail">
+    <typefound name="iff" />
+  </condition>
+
+  <dirname property="imports.dir" file="${ant.file.buildtasks}" />
+
+  <patternset id="buildtasks.jars">
+  	<include name="infra-buildtasks-core.jar" />
+    <include name="asm-all-5.0.3.jar" />
+    <include name="org.apache.aries.util-*.jar" />
+    <include name="osgi.core.jar" />
+  </patternset>
+	
+  <path id="buildtasks">
+    <fileset dir="${imports.dir}/../../lib/">
+      <patternset refid="buildtasks.jars" />
+    </fileset>
+  </path>
+
+  <path id="wlptasks">
+    <fileset dir="${imports.dir}/../../lib/">
+      <include name="org.apache.aries.util-*.jar" />
+      <include name="osgi.core.jar"/>
+    </fileset>
+  </path>
+
+  <taskdef resource="${buildtasks_resource}" classpathref="buildtasks" loaderref="buildtasks_ldr" onerror="${buildtasks_onerror}" />
+  <typedef resource="com/ibm/aries/buildtasks/conditions/types.properties" classpathref="buildtasks" loaderref="buildtasks_ldr" onerror="${buildtasks_onerror}" />
+</project>

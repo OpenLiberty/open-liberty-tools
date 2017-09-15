@@ -1,0 +1,108 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="tooling_imports">
+  <property name="build.with.java.level" value="1.8"/>
+  <!-- Make sure we don't output the tools to the runtime image -->
+  <property name="build.image" value="false"/>
+  <!-- Make sure we do output the tools to the tools image -->
+  <property name="tools.image" value="true"/>
+  <!-- Where to put the tools jars in the tools image -->
+  <property name="image.write.dir" value="update/plugins"/>
+  <!-- The tools fail the import validation, not sure if this is a problem but just ignore for now -->
+  <property name="skip.import.validation" value="true"/>
+  <property name="javac.source.file.encoding" value="Cp1252" />
+
+  <!-- Skip findbugs and chkpii for all WDT builds for the moment -->
+  <property name="skip.findbugs" value="true"/>
+  <var name="skip.chkpii" value="false"/>
+  <var name="translation.needed" value="true"/>
+	
+  <property name="project.compile.monitor.all.projects" value="true"/>
+	
+  <!-- Some of our projects have source folders with names other than src, so we have to use the .classpath and build.properties to instruct the build which are those -->
+  <property name="project.compile.use.classpath.source" value="true"/>
+	 
+  <property name="pluginDirs" value="../target_platform/prereqs"/>
+  
+  <property name="no.trace.instrumentation" value="true"/>
+	
+  <property name="nls.gathering" value="${basedir}/tools.pii.package/nlsgathering"/>
+  
+  <available property="dir.exists" file="${nls.gathering}"/>
+  <if if="dir.exists">
+  	<delete dir="${nls.gathering}"  />
+   	<mkdir dir="${nls.gathering}" />
+    <else>
+  	 	<mkdir dir="${nls.gathering}" />
+  	</else>
+  </if>
+  
+  <import file="standard_imports.xml" />
+  
+  <patternset id="publish.bundles">
+    <include name="${ant.project.name}*.jar" />
+  </patternset>
+  
+  <basename property="pluginName" file="${ant.project.name}"/>	
+	
+	<!--NL gathering is done here-->
+  <taskdef name="wdtnlsfilter" classname="com.ibm.wdt.ant.tasks.filters.WdtNLSFileFilter" >
+	<classpath>
+		<pathelement location="../ant_build/lib/wdt-updatesite_0.0.2_v.20131018_1700.jar"/>
+	</classpath>
+   </taskdef>
+	
+  <target name="package" depends="prepackage, package.package">
+  	
+    <property file="${build.dir}/META-INF/MANIFEST.MF" prefix="bundle."/>
+
+    <copy file="${lib.dir}/${output.jar}" tofile="${lib.dir}/${ant.project.name}_${bundle.Bundle-Version}.jar"/>
+    <delete file="${lib.dir}/${output.jar}"/>
+  	
+  	<iff>
+  	 <not>
+  	 	<or>
+  	 		<contains string="${pluginName}" substring="test"/>
+	 		<contains string="${pluginName}" substring="junit"/>
+	 		<contains string="${pluginName}" substring="auto"/>
+  	 	</or>
+  	 </not>
+  	<then>	
+	  	<!--<copy file="${lib.dir}/${ant.project.name}_${bundle.Bundle-Version}.jar" todir="${nls.gathering}" />-->
+  		<copy todir="${nls.gathering}" >
+  			<fileset dir="${lib.dir}" includes="${ant.project.name}_${bundle.Bundle-Version}.jar"/>
+			<mapper type="regexp" from="^(.*)_(\d+.\d+.\d+.\w*\S\d+).jar" to="\1.jar"/>
+  		</copy>
+
+	  	<!--unzip files, convert to UTF8 for NL gathering-->
+		<ant antfile="${basedir}/../ant_build/public_imports/tooling_nlGathering.xml" 
+			 target="generate"
+			 inheritall="true"
+			 inheritrefs="true"
+			 dir="${nls.gathering}"/>
+	     <delete file="${lib.dir}/${output.jar}"/>
+  		
+	     <wdtnlsfilter filesetRefName="pii.files"
+	     	defaultExcludes="**/*.jar,**/*.class,**/*.gif,**/nls.xml,**/*nl1*,**/*nl2*,**/.metadata,**/bin,**/build.properties,**/buildcontrol.properties,
+	     	**/ccpackage.properties,**/build.xml,**/buildZip.xml,**/component.xml,**/feature.xml,**/fragment.xml,**/plugin.xml,**/package.xml,**/trust.p12,**/*.css"
+	     	defaultIncludes="**/*.properties,**/*.xml,**/*.htm*"
+	     	 rulesFile="${basedir}/build.properties" baseDir="${nls.gathering}/${pluginName}" />
+  	</then>	
+  	</iff>
+  	
+  </target>
+	
+  <target name="prepackage">
+    <delete dir="${lib.dir}"/>
+    <mkdir dir="${lib.dir}"/>
+  </target>
+</project>

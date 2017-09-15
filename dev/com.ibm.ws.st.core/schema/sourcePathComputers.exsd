@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.ws.st.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.ws.st.core" id="websphereSourcePathComputers" name="%extensionPointSourcePathComputers"/>
+      </appinfo>
+      <documentation>
+         Source path computers describe a default source lookup path for a launch configuration. The org.eclipse.debug.core.sourcePathComputers extension point does not allow multiple computers to be used for a given launch configuration type.
+
+The current default source path computer for the &quot;com.ibm.ws.st.core.launchConfigurationType&quot; launch configuration type is com.ibm.ws.st.core.internal.WebSphereSourcePathComputerDelegate
+
+This extension point provides a way to extend the default source path computer when necessary. An example for when it is necessary is with Liberty Feature development. WebSphereSourcePathComputerDelegate only adds projects that are associated with modules that are published to the server. This does not include Liberty Features present in the workspace that may have been installed by the user.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="sourcePathComputer" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="sourcePathComputer">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a unique identifier for this extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the fully qualified name of the Java class that implements &lt;samp&gt;ISourcePathComputerDelegate&lt;/samp&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.debug.core.sourcelookup.ISourcePathComputerDelegate"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following example shows a websphereSourcePathComputers extension point that provides a computer for Liberty features:
+
+&lt;pre&gt;
+	&lt;extension point=&quot;com.ibm.ws.st.core.websphereSourcePathComputers&quot;&gt;
+    	&lt;sourcePathComputer
+      		id=&quot;com.example.sourcePathComputer&quot;
+      		class=&quot;com.example.MySourcePathComputerDelegate&quot;/&gt;
+	&lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         The value of the attribute &lt;b&gt;class&lt;/b&gt; must be a fully qualified name of a Java class that implements &lt;code&gt;org.eclipse.debug.core.sourcelookup.ISourcePathComputerDelegate&lt;/code&gt; and contains a public 0-arg constructor.
+
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2014 IBM Corporation and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBM Corporation - initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

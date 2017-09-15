@@ -1,0 +1,31 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="liberty-all">
+  <!-- Call the build target on all the projects -->
+  <target name="compile">
+    <buildActivity label="Building liberty source" id="compile" prefix="Building">
+      <preBuildSteps>
+        <!-- It looks like 'local' properties don't get passed through the ant task
+                     invocation thats hiding in this buildActivity macro invocation. So we need
+                     to set the skip properties to true and then unset them again -->
+        <property name="skip.findbugs" value="true" />
+        <property name="skip.chkpii" value="true" />
+        <property name="translation.needed" value="true" />
+      </preBuildSteps>
+      <postBuildSteps>
+        <var name="skip.findbugs" unset="true" />
+        <var name="skip.chkpii" unset="true" />
+        <var name="translation.needed" unset="true" />
+      </postBuildSteps>
+    </buildActivity>
+  </target>
+</project>

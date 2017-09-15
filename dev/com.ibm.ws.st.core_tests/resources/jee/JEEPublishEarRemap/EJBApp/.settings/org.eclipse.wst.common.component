@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EJBApp">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="EJBApp.jar" deploy-path="/" handle="module:/resource/EJBApp_EJB/EJBApp_EJB">
+            <dependent-object>Module_1390836892548</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJBApp.war" deploy-path="/" handle="module:/resource/EJBApp_WEB/EJBApp_WEB">
+            <dependent-object>Module_1390836893777</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<!--
+******************************************************************************************* 
+*                     Deployment Descriptor Editor Customization File                     *
+*******************************************************************************************
+-->     
+<customization customizationNamespace="http://www.example.org/TestSchema/" customizationSchemaLocation="" xmlns="http://com.ibm.xwt.dde/CustomizationFile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://com.ibm.xwt.dde/CustomizationFile ../../com.ibm.xwt.dde/schema/CustomizationFile.xsd "
+globalDetectSchemaLabel="true">
+
+	<node path="/testRoot">
+	<item path="a">
+	<possibleValues>
+	<value label="2001" value="2001" />
+	<value label="2002" value="2002" />
+	<value label="2003" value="2003" />
+	<value label="2004" value="2004" />
+	</possibleValues>
+	</item>
+
+	</node>
+
+  <node detailSectionTitle="%include_title" icon="icons/XSDElement.gif" path="/testRoot/include" sectionHeaderText="%include_description" treeLabel="%include_treeLabel" treeLabelData="@location" detectSchemaLabel="false">
+    <item hideLabel="true" path="@optional" style="checkBox" detectSchemaLabel="true"/>
+    <item labelLinkClass="com.ibm.xwt.dde.test.TestAdvancedCustomizationObjectClass" labelLinkToolTip="%include_location_linktooltip" path="@location" detectSchemaLabel="true"/>
+    <item label="Driver Type" path="@driverType" validationClass="com.ibm.xwt.dde.test.ElementListValidation"/>
+    <item label="Length Test" path="@lenTest" validationClass="com.ibm.xwt.dde.test.AttributeListValidation"/>
+  </node>
+
+</customization>

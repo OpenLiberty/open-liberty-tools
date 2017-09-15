@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<!--WARNING: THIS FILE IS GENERATED - DO NOT EDIT DIRECTLY--><!--WebSphere Server Configuration Editor Customization File--><customization globalDetectSchemaLabel="true" customizationNamespace="" customizationSchemaLocation="" headerIcon="/icons/obj16/serverConfiguration.gif" headerLabel="%serverLabel" headerLabelClass="com.ibm.ws.st.ui.internal.config.HeaderLabelObject" helpContextId="com.ibm.ws.st.ui.xyz" overviewSectionHeaderText="%overviewDescription" overviewSectionTitle="%overviewTitle" preSelectedTreeElementClass="com.ibm.ws.st.ui.internal.config.PreSelectedTreeObject" treeSortingPreference="unsorted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://com.ibm.xwt.dde/CustomizationFile CustomizationFile.xsd " xmlns="http//com.ibm.xwt.dde/CustomizationFile">
+  <node detailSectionTitle="%serverTitle" icon="icons/obj16/serverConfiguration.gif" label="Server label in customization" path="/server" sectionHeaderText="%serverDescription">
+    <item label="%serverDescriptionText" path="@description" textLines="3"/>
+  </node>
+  <node detailSectionTitle="%include_title" icon="icons/obj16/includeElement.gif" label="%include_label" path="/server/include" sectionHeaderText="%include_description" treeLabel="%include_treeLabel" treeLabelData="@location">
+    <item checkBoxText="%include_optional_label" hideLabel="true" path="@optional" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%include_location_label" labelLinkClass="com.ibm.ws.st.ui.internal.config.IncludeLink" labelLinkToolTip="%include_location_linktooltip" path="@location"/>
+  </node>
+  <node detailSectionTitle="%variable_title" icon="icons/obj16/variable.gif" label="%variable_label" path="/server/variable" treeLabel="%variable_treeLabel" treeLabelData="@name">
+    <item label="%variable_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%variable_value_label" path="@value"/>
+  </node>
+  <node detailSectionTitle="%safAuthorization_title" icon="icons/obj16/securityElement.gif" label="%safAuthorization_label" path="/server/safAuthorization">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%safAuthorization_roleMapper_label" path="@roleMapper"/>
+  </node>
+  <node detailSectionTitle="%pluginConfiguration_title" icon="icons/obj16/configElement.gif" label="%pluginConfiguration_label" path="/server/pluginConfiguration">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%pluginConfiguration_pluginInstallRoot_label" path="@pluginInstallRoot"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%pluginConfiguration_webserverPort_label" path="@webserverPort"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%pluginConfiguration_webserverSecurePort_label" path="@webserverSecurePort"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%pluginConfiguration_sslKeyringLocation_label" path="@sslKeyringLocation"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%pluginConfiguration_sslStashfileLocation_label" path="@sslStashfileLocation"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%pluginConfiguration_sslCertlabel_label" path="@sslCertlabel"/>
+  </node>
+  <node detailSectionTitle="%jdbcDriver_title" icon="icons/obj16/datasourceElement.gif" label="%jdbcDriver_label" path="/server/jdbcDriver">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%jdbcDriver_libraryRef_label" path="@libraryRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jdbcDriver_javax.sql.XADataSource_label" path="@javax.sql.XADataSource"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jdbcDriver_javax.sql.ConnectionPoolDataSource_label" path="@javax.sql.ConnectionPoolDataSource"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jdbcDriver_javax.sql.DataSource_label" path="@javax.sql.DataSource"/>
+  </node>
+  <node detailSectionTitle="%jdbcDriver_library_title" icon="icons/obj16/configElement.gif" label="%jdbcDriver_library_label" path="/server/jdbcDriver/library">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jdbcDriver_library_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jdbcDriver_library_description_label" path="@description"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%jdbcDriver_library_filesetRef_label" path="@filesetRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jdbcDriver_library_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%jdbcDriver_library_fileset_title" icon="icons/obj16/configElement.gif" label="%jdbcDriver_library_fileset_label" path="/server/jdbcDriver/library/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%jdbcDriver_library_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%jdbcDriver_library_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%jdbcDriver_library_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%jdbcDriver_library_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jdbcDriver_library_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%safCredentials_title" icon="icons/obj16/securityElement.gif" label="%safCredentials_label" path="/server/safCredentials">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%safCredentials_unauthenticatedUser_label" path="@unauthenticatedUser"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%safCredentials_profilePrefix_label" path="@profilePrefix"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_label" path="/server/ldapRegistry">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_host_label" path="@host"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_port_label" path="@port"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_baseDN_label" path="@baseDN"/>
+    <item label="%ldapRegistry_ldapType_label" path="@ldapType"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_realm_label" path="@realm"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_bindDN_label" path="@bindDN"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%ldapRegistry_bindPassword_label" path="@bindPassword"/>
+    <item checkBoxText="%ldapRegistry_ignoreCase_label" hideLabel="true" path="@ignoreCase" style="checkBox"/>
+    <item checkBoxText="%ldapRegistry_recursiveSearch_label" hideLabel="true" path="@recursiveSearch" style="checkBox"/>
+    <item checkBoxText="%ldapRegistry_reuseConnection_label" hideLabel="true" path="@reuseConnection" style="checkBox"/>
+    <item checkBoxText="%ldapRegistry_sslEnabled_label" hideLabel="true" path="@sslEnabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_sslRef_label" path="@sslRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_searchTimeout_label" path="@searchTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_activedFiltersRef_label" path="@activedFiltersRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_customFiltersRef_label" path="@customFiltersRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_domino50FiltersRef_label" path="@domino50FiltersRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_edirectoryFiltersRef_label" path="@edirectoryFiltersRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_idsFiltersRef_label" path="@idsFiltersRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_iplanetFiltersRef_label" path="@iplanetFiltersRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_netscapeFiltersRef_label" path="@netscapeFiltersRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%ldapRegistry_securewayFiltersRef_label" path="@securewayFiltersRef"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_failoverServers_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_failoverServers_label" path="/server/ldapRegistry/failoverServers">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_failoverServers_name_label" path="@name"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_failoverServers_server_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_failoverServers_server_label" path="/server/ldapRegistry/failoverServers/server">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_failoverServers_server_host_label" path="@host"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_failoverServers_server_port_label" path="@port"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_iplanetFilters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_iplanetFilters_label" path="/server/ldapRegistry/iplanetFilters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_iplanetFilters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_iplanetFilters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_iplanetFilters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_iplanetFilters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_iplanetFilters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_netscapeFilters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_netscapeFilters_label" path="/server/ldapRegistry/netscapeFilters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_netscapeFilters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_netscapeFilters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_netscapeFilters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_netscapeFilters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_netscapeFilters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_activedFilters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_activedFilters_label" path="/server/ldapRegistry/activedFilters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_activedFilters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_activedFilters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_activedFilters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_activedFilters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_activedFilters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_edirectoryFilters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_edirectoryFilters_label" path="/server/ldapRegistry/edirectoryFilters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_edirectoryFilters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_edirectoryFilters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_edirectoryFilters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_edirectoryFilters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_edirectoryFilters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_domino50Filters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_domino50Filters_label" path="/server/ldapRegistry/domino50Filters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_domino50Filters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_domino50Filters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_domino50Filters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_domino50Filters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_domino50Filters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_idsFilters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_idsFilters_label" path="/server/ldapRegistry/idsFilters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_idsFilters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_idsFilters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_idsFilters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_idsFilters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_idsFilters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_securewayFilters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_securewayFilters_label" path="/server/ldapRegistry/securewayFilters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_securewayFilters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_securewayFilters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_securewayFilters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_securewayFilters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_securewayFilters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%ldapRegistry_customFilters_title" icon="icons/obj16/securityElement.gif" label="%ldapRegistry_customFilters_label" path="/server/ldapRegistry/customFilters">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_customFilters_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_customFilters_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_customFilters_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_customFilters_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ldapRegistry_customFilters_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%httpSessionDatabase_title" icon="icons/obj16/httpElement.gif" label="%httpSessionDatabase_label" path="/server/httpSessionDatabase">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSessionDatabase_dataSourceRef_label" path="@dataSourceRef"/>
+    <item checkBoxText="%httpSessionDatabase_useMultiRowSchema_label" hideLabel="true" path="@useMultiRowSchema" style="checkBox"/>
+    <item label="%httpSessionDatabase_db2RowSize_label" path="@db2RowSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSessionDatabase_tableSpaceName_label" path="@tableSpaceName"/>
+    <item checkBoxText="%httpSessionDatabase_scheduleInvalidation_label" hideLabel="true" path="@scheduleInvalidation" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSessionDatabase_scheduleInvalidationFirstHour_label" path="@scheduleInvalidationFirstHour"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSessionDatabase_scheduleInvalidationSecondHour_label" path="@scheduleInvalidationSecondHour"/>
+    <item label="%httpSessionDatabase_writeFrequency_label" path="@writeFrequency"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSessionDatabase_writeInterval_label" path="@writeInterval"/>
+    <item label="%httpSessionDatabase_writeContents_label" path="@writeContents"/>
+    <item checkBoxText="%httpSessionDatabase_noAffinitySwitchBack_label" hideLabel="true" path="@noAffinitySwitchBack" style="checkBox"/>
+    <item checkBoxText="%httpSessionDatabase_onlyCheckInCacheDuringPreInvoke_label" hideLabel="true" path="@onlyCheckInCacheDuringPreInvoke" style="checkBox"/>
+    <item checkBoxText="%httpSessionDatabase_optimizeCacheIdIncrements_label" hideLabel="true" path="@optimizeCacheIdIncrements" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSessionDatabase_tableName_label" path="@tableName"/>
+    <item checkBoxText="%httpSessionDatabase_useInvalidatedId_label" hideLabel="true" path="@useInvalidatedId" style="checkBox"/>
+    <item checkBoxText="%httpSessionDatabase_useOracleBlob_label" hideLabel="true" path="@useOracleBlob" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%trustAssociation_title" icon="icons/obj16/securityElement.gif" label="%trustAssociation_label" path="/server/trustAssociation">
+    <item label="%instanceId" path="@id"/>
+    <item checkBoxText="%trustAssociation_invokeForUnprotectedURI_label" hideLabel="true" path="@invokeForUnprotectedURI" style="checkBox"/>
+    <item checkBoxText="%trustAssociation_failOverToAppAuthType_label" hideLabel="true" path="@failOverToAppAuthType" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%trustAssociation_interceptors_title" icon="icons/obj16/securityElement.gif" label="%trustAssociation_interceptors_label" path="/server/trustAssociation/interceptors">
+    <item label="%instanceId" path="@id"/>
+    <item checkBoxText="%trustAssociation_interceptors_enabled_label" hideLabel="true" path="@enabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%trustAssociation_interceptors_className_label" path="@className"/>
+    <item checkBoxText="%trustAssociation_interceptors_invokeBeforeSSO_label" hideLabel="true" path="@invokeBeforeSSO" style="checkBox"/>
+    <item checkBoxText="%trustAssociation_interceptors_invokeAfterSSO_label" hideLabel="true" path="@invokeAfterSSO" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%trustAssociation_interceptors_libraryRef_label" path="@libraryRef"/>
+  </node>
+  <node detailSectionTitle="%trustAssociation_interceptors_library_title" icon="icons/obj16/configElement.gif" label="%trustAssociation_interceptors_library_label" path="/server/trustAssociation/interceptors/library">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%trustAssociation_interceptors_library_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%trustAssociation_interceptors_library_description_label" path="@description"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%trustAssociation_interceptors_library_filesetRef_label" path="@filesetRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%trustAssociation_interceptors_library_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%trustAssociation_interceptors_library_fileset_title" icon="icons/obj16/configElement.gif" label="%trustAssociation_interceptors_library_fileset_label" path="/server/trustAssociation/interceptors/library/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%trustAssociation_interceptors_library_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%trustAssociation_interceptors_library_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%trustAssociation_interceptors_library_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%trustAssociation_interceptors_library_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%trustAssociation_interceptors_library_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%trustAssociation_interceptors_properties_title" icon="icons/obj16/securityElement.gif" label="%trustAssociation_interceptors_properties_label" path="/server/trustAssociation/interceptors/properties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%trustAssociation_interceptors_properties_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%basicRegistry_title" icon="icons/obj16/securityElement.gif" label="%basicRegistry_label" path="/server/basicRegistry">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%basicRegistry_realm_label" path="@realm"/>
+  </node>
+  <node detailSectionTitle="%basicRegistry_group_title" icon="icons/obj16/securityElement.gif" label="%basicRegistry_group_label" path="/server/basicRegistry/group" treeLabel="%basicRegistry_group_treeLabel" treeLabelData="@name">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%basicRegistry_group_name_label" path="@name"/>
+  </node>
+  <node detailSectionTitle="%basicRegistry_group_member_title" icon="icons/obj16/securityElement.gif" label="%basicRegistry_group_member_label" path="/server/basicRegistry/group/member" treeLabel="%basicRegistry_group_member_treeLabel" treeLabelData="@name">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%basicRegistry_group_member_name_label" path="@name"/>
+  </node>
+  <node detailSectionTitle="%basicRegistry_user_title" icon="icons/obj16/securityElement.gif" label="%basicRegistry_user_label" path="/server/basicRegistry/user" treeLabel="%basicRegistry_user_treeLabel" treeLabelData="@name">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%basicRegistry_user_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%basicRegistry_user_password_label" path="@password"/>
+  </node>
+  <node detailSectionTitle="%ssl_title" icon="icons/obj16/sslElement.gif" label="%ssl_label" path="/server/ssl">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ssl_keyStoreRef_label" path="@keyStoreRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ssl_trustStoreRef_label" path="@trustStoreRef"/>
+  </node>
+  <node detailSectionTitle="%webContainer_title" icon="icons/obj16/configElement.gif" label="%webContainer_label" path="/server/webContainer">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_listeners_label" path="@listeners"/>
+    <item checkBoxText="%webContainer_decodeUrlAsUtf8_label" hideLabel="true" path="@decodeUrlAsUtf8" style="checkBox"/>
+    <item checkBoxText="%webContainer_fileServingEnabled_label" hideLabel="true" path="@fileServingEnabled" style="checkBox"/>
+    <item checkBoxText="%webContainer_disallowAllFileServing_label" hideLabel="true" path="@disallowAllFileServing" style="checkBox"/>
+    <item checkBoxText="%webContainer_directoryBrowsingEnabled_label" hideLabel="true" path="@directoryBrowsingEnabled" style="checkBox"/>
+    <item checkBoxText="%webContainer_serveServletsByClassnameEnabled_label" hideLabel="true" path="@serveServletsByClassnameEnabled" style="checkBox"/>
+    <item checkBoxText="%webContainer_disallowServeServletsByClassName_label" hideLabel="true" path="@disallowServeServletsByClassName" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_doNotServeByClassName_label" path="@doNotServeByClassName"/>
+    <item checkBoxText="%webContainer_trustHostHeaderPort_label" hideLabel="true" path="@trustHostHeaderPort" style="checkBox"/>
+    <item checkBoxText="%webContainer_trusted_label" hideLabel="true" path="@trusted" style="checkBox"/>
+    <item checkBoxText="%webContainer_extractHostHeaderPort_label" hideLabel="true" path="@extractHostHeaderPort" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_httpsIndicatorHeader_label" path="@httpsIndicatorHeader"/>
+    <item checkBoxText="%webContainer_exposeWebInfOnDispatch_label" hideLabel="true" path="@exposeWebInfOnDispatch" style="checkBox"/>
+    <item checkBoxText="%webContainer_decodeUrlPlusSign_label" hideLabel="true" path="@decodeUrlPlusSign" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_channelWriteType_label" path="@channelWriteType"/>
+    <item checkBoxText="%webContainer_suppressHtmlRecursiveErrorOutput_label" hideLabel="true" path="@suppressHtmlRecursiveErrorOutput" style="checkBox"/>
+    <item checkBoxText="%webContainer_fileWrapperEvents_label" hideLabel="true" path="@fileWrapperEvents" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_webGroupVhostNotFound_label" path="@webGroupVhostNotFound"/>
+    <item checkBoxText="%webContainer_defaultTraceRequestBehavior_label" hideLabel="true" path="@defaultTraceRequestBehavior" style="checkBox"/>
+    <item checkBoxText="%webContainer_defaultHeadRequestBehavior_label" hideLabel="true" path="@defaultHeadRequestBehavior" style="checkBox"/>
+    <item checkBoxText="%webContainer_tolerateSymbolicLinks_label" hideLabel="true" path="@tolerateSymbolicLinks" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_symbolicLinksCacheSize_label" path="@symbolicLinksCacheSize"/>
+    <item checkBoxText="%webContainer_enableErrorExceptionTypeFirst_label" hideLabel="true" path="@enableErrorExceptionTypeFirst" style="checkBox"/>
+    <item checkBoxText="%webContainer_enableMultiReadOfPostData_label" hideLabel="true" path="@enableMultiReadOfPostData" style="checkBox"/>
+    <item checkBoxText="%webContainer_copyAttributesKeySet_label" hideLabel="true" path="@copyAttributesKeySet" style="checkBox"/>
+    <item checkBoxText="%webContainer_dispatcherRethrowsEr_label" hideLabel="true" path="@dispatcherRethrowsEr" style="checkBox"/>
+    <item checkBoxText="%webContainer_ignoreSessiononStaticFileRequest_label" hideLabel="true" path="@ignoreSessiononStaticFileRequest" style="checkBox"/>
+    <item checkBoxText="%webContainer_invokeFilterInitAtStartup_label" hideLabel="true" path="@invokeFilterInitAtStartup" style="checkBox"/>
+    <item checkBoxText="%webContainer_enableJspMappingOverride_label" hideLabel="true" path="@enableJspMappingOverride" style="checkBox"/>
+    <item checkBoxText="%webContainer_enableDefaultIsElIgnoredInTag_label" hideLabel="true" path="@enableDefaultIsElIgnoredInTag" style="checkBox"/>
+    <item checkBoxText="%webContainer_parseUtf8PostData_label" hideLabel="true" path="@parseUtf8PostData" style="checkBox"/>
+    <item checkBoxText="%webContainer_logServletContainerInitializerClassLoadingErrors_label" hideLabel="true" path="@logServletContainerInitializerClassLoadingErrors" style="checkBox"/>
+    <item checkBoxText="%webContainer_allowIncludeSendError_label" hideLabel="true" path="@allowIncludeSendError" style="checkBox"/>
+    <item checkBoxText="%webContainer_skipMetaInfResourcesProcessing_label" hideLabel="true" path="@skipMetaInfResourcesProcessing" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_metaInfResourcesCacheSize_label" path="@metaInfResourcesCacheSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_xPoweredBy_label" path="@xPoweredBy"/>
+    <item checkBoxText="%webContainer_disableXPoweredBy_label" hideLabel="true" path="@disableXPoweredBy" style="checkBox"/>
+    <item checkBoxText="%webContainer_deferServletLoad_label" hideLabel="true" path="@deferServletLoad" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_asyncMaxSizeTaskPool_label" path="@asyncMaxSizeTaskPool"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_asyncPurgeInterval_label" path="@asyncPurgeInterval"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_asyncTimeoutDefault_label" path="@asyncTimeoutDefault"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webContainer_asyncTimerThreads_label" path="@asyncTimerThreads"/>
+  </node>
+  <node detailSectionTitle="%webAppSecurity_title" icon="icons/obj16/securityElement.gif" label="%webAppSecurity_label" path="/server/webAppSecurity">
+    <item checkBoxText="%webAppSecurity_allowFailOverToBasicAuth_label" hideLabel="true" path="@allowFailOverToBasicAuth" style="checkBox"/>
+    <item checkBoxText="%webAppSecurity_allowLogoutPageRedirectToAnyHost_label" hideLabel="true" path="@allowLogoutPageRedirectToAnyHost" style="checkBox"/>
+    <item checkBoxText="%webAppSecurity_displayAuthenticationRealm_label" hideLabel="true" path="@displayAuthenticationRealm" style="checkBox"/>
+    <item checkBoxText="%webAppSecurity_httpOnlyCookies_label" hideLabel="true" path="@httpOnlyCookies" style="checkBox"/>
+    <item checkBoxText="%webAppSecurity_logoutOnHttpSessionExpire_label" hideLabel="true" path="@logoutOnHttpSessionExpire" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webAppSecurity_logoutPageRedirectDomainNames_label" path="@logoutPageRedirectDomainNames"/>
+    <item checkBoxText="%webAppSecurity_singleSignonEnabled_label" hideLabel="true" path="@singleSignonEnabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webAppSecurity_ssoDomainNames_label" path="@ssoDomainNames"/>
+    <item checkBoxText="%webAppSecurity_ssoUseDomainFromURL_label" hideLabel="true" path="@ssoUseDomainFromURL" style="checkBox"/>
+    <item checkBoxText="%webAppSecurity_ssoRequiresSSL_label" hideLabel="true" path="@ssoRequiresSSL" style="checkBox"/>
+    <item checkBoxText="%webAppSecurity_preserveFullyQualifiedReferrerUrl_label" hideLabel="true" path="@preserveFullyQualifiedReferrerUrl" style="checkBox"/>
+    <item label="%webAppSecurity_postParamSaveMethod_label" path="@postParamSaveMethod"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webAppSecurity_postParamCookieSize_label" path="@postParamCookieSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%webAppSecurity_ssoCookieName_label" path="@ssoCookieName"/>
+    <item checkBoxText="%webAppSecurity_webAlwaysLogin_label" hideLabel="true" path="@webAlwaysLogin" style="checkBox"/>
+    <item checkBoxText="%webAppSecurity_useAuthenticationDataForUnprotectedResource_label" hideLabel="true" path="@useAuthenticationDataForUnprotectedResource" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%channelfw_title" icon="icons/obj16/configElement.gif" label="%channelfw_label" path="/server/channelfw">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%channelfw_chainStartRetryInterval_label" path="@chainStartRetryInterval"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%channelfw_chainStartRetryAttempts_label" path="@chainStartRetryAttempts"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%channelfw_chainQuiesceTimeout_label" path="@chainQuiesceTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%channelfw_warningWaitTime_label" path="@warningWaitTime"/>
+  </node>
+  <node detailSectionTitle="%sslDefault_title" icon="icons/obj16/sslElement.gif" label="%sslDefault_label" path="/server/sslDefault">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%sslDefault_sslRef_label" path="@sslRef"/>
+  </node>
+  <node detailSectionTitle="%customLdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%customLdapFilterProperties_label" path="/server/customLdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%customLdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%customLdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%customLdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%customLdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%customLdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%mimeTypes_title" icon="icons/obj16/httpElement.gif" label="%mimeTypes_label" path="/server/mimeTypes">
+    <item label="%mimeTypes_type_label" path="type"/>
+  </node>
+  <node detailSectionTitle="%jndiEntry_title" icon="icons/obj16/datasourceElement.gif" label="%jndiEntry_label" path="/server/jndiEntry">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jndiEntry_jndiName_label" path="@jndiName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jndiEntry_value_label" path="@value"/>
+  </node>
+  <node detailSectionTitle="%safRegistry_title" icon="icons/obj16/securityElement.gif" label="%safRegistry_label" path="/server/safRegistry">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%safRegistry_realm_label" path="@realm"/>
+  </node>
+  <node detailSectionTitle="%domino50LdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%domino50LdapFilterProperties_label" path="/server/domino50LdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%domino50LdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%domino50LdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%domino50LdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%domino50LdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%domino50LdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%authCache_title" icon="icons/obj16/securityElement.gif" label="%authCache_label" path="/server/authCache">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%authCache_initialSize_label" path="@initialSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%authCache_maxSize_label" path="@maxSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%authCache_timeout_label" path="@timeout"/>
+    <item checkBoxText="%authCache_allowBasicAuthLookup_label" hideLabel="true" path="@allowBasicAuthLookup" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%library_title" icon="icons/obj16/configElement.gif" label="%library_label" path="/server/library">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%library_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%library_description_label" path="@description"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%library_filesetRef_label" path="@filesetRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%library_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%library_fileset_title" icon="icons/obj16/configElement.gif" label="%library_fileset_label" path="/server/library/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%library_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%library_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%library_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%library_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%library_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%httpEndpoint_title" icon="icons/obj16/httpElement.gif" label="%httpEndpoint_label" path="/server/httpEndpoint">
+    <item label="%instanceId" path="@id"/>
+    <item checkBoxText="%httpEndpoint_enabled_label" hideLabel="true" path="@enabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_host_label" path="@host"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_httpPort_label" path="@httpPort"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_httpsPort_label" path="@httpsPort"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_virtualHost_label" path="@virtualHost"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%httpEndpoint_httpOptionsRef_label" path="@httpOptionsRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%httpEndpoint_sslOptionsRef_label" path="@sslOptionsRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%httpEndpoint_tcpOptionsRef_label" path="@tcpOptionsRef"/>
+  </node>
+  <node detailSectionTitle="%httpEndpoint_httpOptions_title" icon="icons/obj16/httpElement.gif" label="%httpEndpoint_httpOptions_label" path="/server/httpEndpoint/httpOptions">
+    <item label="%instanceId" path="@id"/>
+    <item checkBoxText="%httpEndpoint_httpOptions_keepAliveEnabled_label" hideLabel="true" path="@keepAliveEnabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_httpOptions_maxKeepAliveRequests_label" path="@maxKeepAliveRequests"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_httpOptions_persistTimeout_label" path="@persistTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_httpOptions_readTimeout_label" path="@readTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_httpOptions_writeTimeout_label" path="@writeTimeout"/>
+  </node>
+  <node detailSectionTitle="%httpEndpoint_sslOptions_title" icon="icons/obj16/sslElement.gif" label="%httpEndpoint_sslOptions_label" path="/server/httpEndpoint/sslOptions">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_sslOptions_sessionTimeout_label" path="@sessionTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_sslOptions_sslRef_label" path="@sslRef"/>
+  </node>
+  <node detailSectionTitle="%httpEndpoint_tcpOptions_title" icon="icons/obj16/configElement.gif" label="%httpEndpoint_tcpOptions_label" path="/server/httpEndpoint/tcpOptions">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEndpoint_tcpOptions_inactivityTimeout_label" path="@inactivityTimeout"/>
+    <item checkBoxText="%httpEndpoint_tcpOptions_soReuseAddr_label" hideLabel="true" path="@soReuseAddr" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%wlmClassification_title" icon="icons/obj16/configElement.gif" label="%wlmClassification_label" path="/server/wlmClassification">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%wlmClassification_classificationName_label" path="@classificationName"/>
+  </node>
+  <node detailSectionTitle="%wlmClassification_httpClassification_title" icon="icons/obj16/configElement.gif" label="%wlmClassification_httpClassification_label" path="/server/wlmClassification/httpClassification">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%wlmClassification_httpClassification_transactionClass_label" path="@transactionClass"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%wlmClassification_httpClassification_host_label" path="@host"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%wlmClassification_httpClassification_port_label" path="@port"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%wlmClassification_httpClassification_resource_label" path="@resource"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%wlmClassification_httpClassification_method_label" path="@method"/>
+  </node>
+  <node detailSectionTitle="%keyStore_title" icon="icons/obj16/sslElement.gif" label="%keyStore_label" path="/server/keyStore">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%keyStore_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%keyStore_location_label" path="@location"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%keyStore_type_label" path="@type"/>
+  </node>
+  <node detailSectionTitle="%config_title" icon="icons/obj16/configElement.gif" label="%config_label" path="/server/config">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%config_monitorInterval_label" path="@monitorInterval"/>
+    <item label="%config_updateTrigger_label" path="@updateTrigger"/>
+    <item label="%config_onError_label" path="@onError"/>
+  </node>
+  <node detailSectionTitle="%securewayLdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%securewayLdapFilterProperties_label" path="/server/securewayLdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%securewayLdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%securewayLdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%securewayLdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%securewayLdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%securewayLdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%jaasLoginModule_title" icon="icons/obj16/securityElement.gif" label="%jaasLoginModule_label" path="/server/jaasLoginModule">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jaasLoginModule_className_label" path="@className"/>
+    <item label="%jaasLoginModule_controlFlag_label" path="@controlFlag"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%jaasLoginModule_libraryRef_label" path="@libraryRef"/>
+  </node>
+  <node detailSectionTitle="%jaasLoginModule_library_title" icon="icons/obj16/configElement.gif" label="%jaasLoginModule_library_label" path="/server/jaasLoginModule/library">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jaasLoginModule_library_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jaasLoginModule_library_description_label" path="@description"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%jaasLoginModule_library_filesetRef_label" path="@filesetRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jaasLoginModule_library_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%jaasLoginModule_library_fileset_title" icon="icons/obj16/configElement.gif" label="%jaasLoginModule_library_fileset_label" path="/server/jaasLoginModule/library/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%jaasLoginModule_library_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%jaasLoginModule_library_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%jaasLoginModule_library_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%jaasLoginModule_library_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jaasLoginModule_library_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%jaasLoginModule_options_title" icon="icons/obj16/securityElement.gif" label="%jaasLoginModule_options_label" path="/server/jaasLoginModule/options">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%jaasLoginModule_options_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%safRoleMapper_title" icon="icons/obj16/securityElement.gif" label="%safRoleMapper_label" path="/server/safRoleMapper">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%safRoleMapper_profilePattern_label" path="@profilePattern"/>
+    <item checkBoxText="%safRoleMapper_toUpperCase_label" hideLabel="true" path="@toUpperCase" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%application_title" icon="icons/obj16/applicationElement.gif" label="%application_label" path="/server/application" validationClass="com.ibm.xwt.dde.test.ListValidation" treeLabel="%application_treeLabel" treeLabelData="@name">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%application_location_label" path="@location"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_name_label" path="@name"/>
+    <item label="%application_type_label" path="@type">
+      <suggestedValues>
+        <suggest value="war"/>
+        <suggest value="ear"/>
+        <suggest value="eba"/>
+      </suggestedValues>
+    </item>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_context-root_label" path="@context-root"/>
+    <item checkBoxText="%application_autoStart_label" hideLabel="true" path="@autoStart" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%application_application-bnd_title" icon="icons/obj16/configElement.gif" label="%application_application-bnd_label" path="/server/application/application-bnd">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_application-bnd_version_label" path="@version"/>
+  </node>
+  <node detailSectionTitle="%application_application-bnd_security-role_title" icon="icons/obj16/securityElement.gif" label="%application_application-bnd_security-role_label" path="/server/application/application-bnd/security-role">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_application-bnd_security-role_name_label" path="@name"/>
+  </node>
+  <node detailSectionTitle="%application_application-bnd_security-role_group_title" icon="icons/obj16/configElement.gif" label="%application_application-bnd_security-role_group_label" path="/server/application/application-bnd/security-role/group" treeLabel="%application_application-bnd_security-role_group_treeLabel" treeLabelData="@name">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_application-bnd_security-role_group_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_application-bnd_security-role_group_access-id_label" path="@access-id"/>
+  </node>
+  <node detailSectionTitle="%application_application-bnd_security-role_run-as_title" icon="icons/obj16/configElement.gif" label="%application_application-bnd_security-role_run-as_label" path="/server/application/application-bnd/security-role/run-as">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_application-bnd_security-role_run-as_userid_label" path="@userid"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%application_application-bnd_security-role_run-as_password_label" path="@password"/>
+  </node>
+  <node detailSectionTitle="%application_application-bnd_security-role_special-subject_title" icon="icons/obj16/configElement.gif" label="%application_application-bnd_security-role_special-subject_label" path="/server/application/application-bnd/security-role/special-subject">
+    <item label="%instanceId" path="@id"/>
+    <item label="%application_application-bnd_security-role_special-subject_type_label" path="@type"/>
+  </node>
+  <node detailSectionTitle="%application_application-bnd_security-role_user_title" icon="icons/obj16/configElement.gif" label="%application_application-bnd_security-role_user_label" path="/server/application/application-bnd/security-role/user" treeLabel="%application_application-bnd_security-role_user_treeLabel" treeLabelData="@name">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_application-bnd_security-role_user_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_application-bnd_security-role_user_access-id_label" path="@access-id"/>
+  </node>
+  <node detailSectionTitle="%application_classloader_title" icon="icons/obj16/configElement.gif" label="%application_classloader_label" path="/server/application/classloader">
+    <item label="%instanceRef" path="@ref"/>
+    <item label="%application_classloader_delegation_label" path="@delegation"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%application_classloader_privateLibraryRef_label" path="@privateLibraryRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%application_classloader_commonLibraryRef_label" path="@commonLibraryRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%application_classloader_privateLibrary_title" icon="icons/obj16/configElement.gif" label="%application_classloader_privateLibrary_label" path="/server/application/classloader/privateLibrary">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_privateLibrary_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_privateLibrary_description_label" path="@description"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%application_classloader_privateLibrary_filesetRef_label" path="@filesetRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_privateLibrary_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%application_classloader_privateLibrary_fileset_title" icon="icons/obj16/configElement.gif" label="%application_classloader_privateLibrary_fileset_label" path="/server/application/classloader/privateLibrary/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%application_classloader_privateLibrary_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%application_classloader_privateLibrary_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%application_classloader_privateLibrary_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%application_classloader_privateLibrary_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_privateLibrary_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%application_classloader_commonLibrary_title" icon="icons/obj16/configElement.gif" label="%application_classloader_commonLibrary_label" path="/server/application/classloader/commonLibrary">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_commonLibrary_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_commonLibrary_description_label" path="@description"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%application_classloader_commonLibrary_filesetRef_label" path="@filesetRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_commonLibrary_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%application_classloader_commonLibrary_fileset_title" icon="icons/obj16/configElement.gif" label="%application_classloader_commonLibrary_fileset_label" path="/server/application/classloader/commonLibrary/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%application_classloader_commonLibrary_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%application_classloader_commonLibrary_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%application_classloader_commonLibrary_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%application_classloader_commonLibrary_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%application_classloader_commonLibrary_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%activedLdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%activedLdapFilterProperties_label" path="/server/activedLdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%activedLdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%activedLdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%activedLdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%activedLdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%activedLdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%virtualHost_title" icon="icons/obj16/httpElement.gif" label="%virtualHost_label" path="/server/virtualHost">
+    <item label="%instanceId" path="@id"/>
+    <item checkBoxText="%virtualHost_enabled_label" hideLabel="true" path="@enabled" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%executor_title" icon="icons/obj16/configElement.gif" label="%executor_label" path="/server/executor">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%executor_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%executor_maxThreads_label" path="@maxThreads"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%executor_coreThreads_label" path="@coreThreads"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%executor_keepAlive_label" path="@keepAlive"/>
+    <item label="%executor_stealPolicy_label" path="@stealPolicy"/>
+    <item label="%executor_rejectedWorkPolicy_label" path="@rejectedWorkPolicy"/>
+  </node>
+  <node detailSectionTitle="%quickStartSecurity_title" icon="icons/obj16/securityElement.gif" label="%quickStartSecurity_label" path="/server/quickStartSecurity">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%quickStartSecurity_userName_label" path="@userName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%quickStartSecurity_userPassword_label" path="@userPassword"/>
+  </node>
+  <node detailSectionTitle="%featureManager_title" icon="icons/obj16/featuresElement.gif" label="%featureManager_label" path="/server/featureManager" sectionHeaderText="%featureManager_description">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FeatureCustomObject" label="%featureManager_feature_label" path="feature"/>
+    <item label="%featureManager_onError_label" path="@onError"/>
+  </node>
+  <node detailSectionTitle="%monitor_title" icon="icons/obj16/configElement.gif" label="%monitor_label" path="/server/monitor">
+    <item checkBoxText="%monitor_enableTraditionalPMI_label" hideLabel="true" path="@enableTraditionalPMI" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%edirectoryLdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%edirectoryLdapFilterProperties_label" path="/server/edirectoryLdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%edirectoryLdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%edirectoryLdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%edirectoryLdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%edirectoryLdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%edirectoryLdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%jpa_title" icon="icons/obj16/configElement.gif" label="%jpa_label" path="/server/jpa">
+    <item label="%jpa_excludedApplication_label" path="excludedApplication"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jpa_defaultJtaDataSourceJndiName_label" path="@defaultJtaDataSourceJndiName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jpa_defaultNonJtaDataSourceJndiName_label" path="@defaultNonJtaDataSourceJndiName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jpa_defaultPersistenceProvider_label" path="@defaultPersistenceProvider"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jpa_entityManagerPoolCapacity_label" path="@entityManagerPoolCapacity"/>
+  </node>
+  <node detailSectionTitle="%transaction_title" icon="icons/obj16/configElement.gif" label="%transaction_label" path="/server/transaction">
+    <item checkBoxText="%transaction_recoverOnStartup_label" hideLabel="true" path="@recoverOnStartup" style="checkBox"/>
+    <item checkBoxText="%transaction_waitForRecovery_label" hideLabel="true" path="@waitForRecovery" style="checkBox"/>
+    <item checkBoxText="%transaction_acceptHeuristicHazard_label" hideLabel="true" path="@acceptHeuristicHazard" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%transaction_clientInactivityTimeout_label" path="@clientInactivityTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%transaction_heuristicRetryInterval_label" path="@heuristicRetryInterval"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%transaction_heuristicRetryWait_label" path="@heuristicRetryWait"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%transaction_propogatedOrBMTTranLifetimeTimeout_label" path="@propogatedOrBMTTranLifetimeTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%transaction_totalTranLifetimeTimeout_label" path="@totalTranLifetimeTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%transaction_transactionLogDirectory_label" path="@transactionLogDirectory"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%transaction_transactionLogSize_label" path="@transactionLogSize"/>
+    <item checkBoxText="%transaction_enableLoggingForHeuristicReporting_label" hideLabel="true" path="@enableLoggingForHeuristicReporting" style="checkBox"/>
+    <item checkBoxText="%transaction_timeoutGracePeriodEnabled_label" hideLabel="true" path="@timeoutGracePeriodEnabled" style="checkBox"/>
+    <item label="%transaction_lpsHeuristicCompletion_label" path="@lpsHeuristicCompletion"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%transaction_defaultMaxShutdownDelay_label" path="@defaultMaxShutdownDelay"/>
+  </node>
+  <node detailSectionTitle="%logging_title" icon="icons/obj16/trace.gif" label="%logging_label" path="/server/logging">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%logging_maxFileSize_label" path="@maxFileSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%logging_maxFiles_label" path="@maxFiles"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%logging_logDirectory_label" path="@logDirectory"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%logging_messageFileName_label" path="@messageFileName"/>
+    <section label="%logging_section1">
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%logging_traceFileName_label" path="@traceFileName"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%logging_traceSpecification_label" path="@traceSpecification"/>
+      <item label="%logging_traceFormat_label" path="@traceFormat"/>
+    </section>
+    <section label="%logging_section2">
+      <item label="%logging_consoleLogLevel_label" path="@consoleLogLevel"/>
+    </section>
+    <section label="%logging_section3"/>
+  </node>
+  <node detailSectionTitle="%jaasLoginContextEntry_title" icon="icons/obj16/securityElement.gif" label="%jaasLoginContextEntry_label" path="/server/jaasLoginContextEntry">
+    <item label="%instanceId" path="@id"/>
+    <item path="loginModuleRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jaasLoginContextEntry_name_label" path="@name"/>
+  </node>
+  <node detailSectionTitle="%dataSource_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_label" path="/server/dataSource" treeLabel="%dataSource_treeLabel" treeLabelData="@jndiName">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jndiName_label" path="@jndiName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%dataSource_jdbcDriverRef_label" path="@jdbcDriverRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%dataSource_connectionManagerRef_label" path="@connectionManagerRef"/>
+    <item label="%dataSource_type_label" path="@type"/>
+    <item label="%dataSource_connectionSharing_label" path="@connectionSharing"/>
+    <item label="%dataSource_isolationLevel_label" path="@isolationLevel"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_statementCacheSize_label" path="@statementCacheSize"/>
+    <item checkBoxText="%dataSource_transactional_label" hideLabel="true" path="@transactional" style="checkBox"/>
+    <item checkBoxText="%dataSource_beginTranForResultSetScrollingAPIs_label" hideLabel="true" path="@beginTranForResultSetScrollingAPIs" style="checkBox"/>
+    <item checkBoxText="%dataSource_beginTranForVendorAPIs_label" hideLabel="true" path="@beginTranForVendorAPIs" style="checkBox"/>
+    <item label="%dataSource_commitOrRollbackOnCleanup_label" path="@commitOrRollbackOnCleanup"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_queryTimeout_label" path="@queryTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%dataSource_recoveryAuthDataRef_label" path="@recoveryAuthDataRef"/>
+    <item checkBoxText="%dataSource_syncQueryTimeoutWithTransactionTimeout_label" hideLabel="true" path="@syncQueryTimeoutWithTransactionTimeout" style="checkBox"/>
+    <item checkBoxText="%dataSource_supplementalJDBCTrace_label" hideLabel="true" path="@supplementalJDBCTrace" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.microsoft.sqlserver_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.microsoft.sqlserver_label" path="/server/dataSource/properties.microsoft.sqlserver">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_instanceName_label" path="@instanceName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_password_label" path="@password"/>
+    <item label="%dataSource_properties.microsoft.sqlserver_applicationIntent_label" path="@applicationIntent"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_applicationName_label" path="@applicationName"/>
+    <item label="%dataSource_properties.microsoft.sqlserver_authenticationScheme_label" path="@authenticationScheme"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_encrypt_label" hideLabel="true" path="@encrypt" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_failoverPartner_label" path="@failoverPartner"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_hostNameInCertificate_label" path="@hostNameInCertificate"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_integratedSecurity_label" hideLabel="true" path="@integratedSecurity" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_lastUpdateCount_label" hideLabel="true" path="@lastUpdateCount" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_lockTimeout_label" path="@lockTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_loginTimeout_label" path="@loginTimeout"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_multiSubnetFailover_label" hideLabel="true" path="@multiSubnetFailover" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_packetSize_label" path="@packetSize"/>
+    <item label="%dataSource_properties.microsoft.sqlserver_responseBuffering_label" path="@responseBuffering"/>
+    <item label="%dataSource_properties.microsoft.sqlserver_selectMethod_label" path="@selectMethod"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_sendStringParametersAsUnicode_label" hideLabel="true" path="@sendStringParametersAsUnicode" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_sendTimeAsDatetime_label" hideLabel="true" path="@sendTimeAsDatetime" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_trustServerCertificate_label" hideLabel="true" path="@trustServerCertificate" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_trustStore_label" path="@trustStore"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_trustStorePassword_label" path="@trustStorePassword"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_URL_label" path="@URL"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.microsoft.sqlserver_workstationID_label" path="@workstationID"/>
+    <item checkBoxText="%dataSource_properties.microsoft.sqlserver_xopenStates_label" hideLabel="true" path="@xopenStates" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.microsoft.sqlserver_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.derby.embedded_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.derby.embedded_label" path="/server/dataSource/properties.derby.embedded">
+    <item label="%instanceRef" path="@ref"/>
+    <item label="%dataSource_properties.derby.embedded_createDatabase_label" path="@createDatabase"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.embedded_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.embedded_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.derby.embedded_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.embedded_connectionAttributes_label" path="@connectionAttributes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.embedded_loginTimeout_label" path="@loginTimeout"/>
+    <item label="%dataSource_properties.derby.embedded_shutdownDatabase_label" path="@shutdownDatabase"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.derby.embedded_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.derby.client_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.derby.client_label" path="/server/dataSource/properties.derby.client">
+    <item label="%instanceRef" path="@ref"/>
+    <item label="%dataSource_properties.derby.client_createDatabase_label" path="@createDatabase"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.derby.client_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_connectionAttributes_label" path="@connectionAttributes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_loginTimeout_label" path="@loginTimeout"/>
+    <item checkBoxText="%dataSource_properties.derby.client_retrieveMessageText_label" hideLabel="true" path="@retrieveMessageText" style="checkBox"/>
+    <item label="%dataSource_properties.derby.client_securityMechanism_label" path="@securityMechanism"/>
+    <item label="%dataSource_properties.derby.client_shutdownDatabase_label" path="@shutdownDatabase"/>
+    <item label="%dataSource_properties.derby.client_ssl_label" path="@ssl"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_traceDirectory_label" path="@traceDirectory"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_traceFile_label" path="@traceFile"/>
+    <item checkBoxText="%dataSource_properties.derby.client_traceFileAppend_label" hideLabel="true" path="@traceFileAppend" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.derby.client_traceLevel_label" path="@traceLevel"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.derby.client_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.db2.i.toolbox_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.db2.i.toolbox_label" path="/server/dataSource/properties.db2.i.toolbox">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.db2.i.toolbox_password_label" path="@password"/>
+    <item label="%dataSource_properties.db2.i.toolbox_access_label" path="@access"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_behaviorOverride_label" path="@behaviorOverride"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_bidiImplicitReordering_label" hideLabel="true" path="@bidiImplicitReordering" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_bidiNumericOrdering_label" hideLabel="true" path="@bidiNumericOrdering" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_bidiStringType_label" path="@bidiStringType"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_bigDecimal_label" hideLabel="true" path="@bigDecimal" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.toolbox_blockCriteria_label" path="@blockCriteria"/>
+    <item label="%dataSource_properties.db2.i.toolbox_blockSize_label" path="@blockSize"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_cursorHold_label" hideLabel="true" path="@cursorHold" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.toolbox_cursorSensitivity_label" path="@cursorSensitivity"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_dataCompression_label" hideLabel="true" path="@dataCompression" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_dataTruncation_label" hideLabel="true" path="@dataTruncation" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.toolbox_dateFormat_label" path="@dateFormat"/>
+    <item label="%dataSource_properties.db2.i.toolbox_dateSeparator_label" path="@dateSeparator"/>
+    <item label="%dataSource_properties.db2.i.toolbox_decimalSeparator_label" path="@decimalSeparator"/>
+    <item label="%dataSource_properties.db2.i.toolbox_driver_label" path="@driver"/>
+    <item label="%dataSource_properties.db2.i.toolbox_errors_label" path="@errors"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_extendedDynamic_label" hideLabel="true" path="@extendedDynamic" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_extendedMetaData_label" hideLabel="true" path="@extendedMetaData" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_fullOpen_label" hideLabel="true" path="@fullOpen" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_holdInputLocators_label" hideLabel="true" path="@holdInputLocators" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_holdStatements_label" hideLabel="true" path="@holdStatements" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_isolationLevelSwitchingSupport_label" hideLabel="true" path="@isolationLevelSwitchingSupport" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_keepAlive_label" hideLabel="true" path="@keepAlive" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_lazyClose_label" hideLabel="true" path="@lazyClose" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_libraries_label" path="@libraries"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_lobThreshold_label" path="@lobThreshold"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_loginTimeout_label" path="@loginTimeout"/>
+    <item label="%dataSource_properties.db2.i.toolbox_maximumPrecision_label" path="@maximumPrecision"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_maximumScale_label" path="@maximumScale"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_metaDataSource_label" path="@metaDataSource"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_minimumDivideScale_label" path="@minimumDivideScale"/>
+    <item label="%dataSource_properties.db2.i.toolbox_naming_label" path="@naming"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_package_label" path="@package"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_packageAdd_label" hideLabel="true" path="@packageAdd" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.toolbox_packageCCSID_label" path="@packageCCSID"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_packageCache_label" hideLabel="true" path="@packageCache" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.toolbox_packageCriteria_label" path="@packageCriteria"/>
+    <item label="%dataSource_properties.db2.i.toolbox_packageError_label" path="@packageError"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_packageLibrary_label" path="@packageLibrary"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_prefetch_label" hideLabel="true" path="@prefetch" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_prompt_label" hideLabel="true" path="@prompt" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_proxyServer_label" path="@proxyServer"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_qaqqiniLibrary_label" path="@qaqqiniLibrary"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_queryOptimizeGoal_label" path="@queryOptimizeGoal"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_receiveBufferSize_label" path="@receiveBufferSize"/>
+    <item label="%dataSource_properties.db2.i.toolbox_remarks_label" path="@remarks"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_rollbackCursorHold_label" hideLabel="true" path="@rollbackCursorHold" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_savePasswordWhenSerialized_label" hideLabel="true" path="@savePasswordWhenSerialized" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_secondaryUrl_label" path="@secondaryUrl"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_secure_label" hideLabel="true" path="@secure" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_sendBufferSize_label" path="@sendBufferSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_serverTraceCategories_label" path="@serverTraceCategories"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_soLinger_label" path="@soLinger"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_soTimeout_label" path="@soTimeout"/>
+    <item label="%dataSource_properties.db2.i.toolbox_sort_label" path="@sort"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_sortLanguage_label" path="@sortLanguage"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_sortTable_label" path="@sortTable"/>
+    <item label="%dataSource_properties.db2.i.toolbox_sortWeight_label" path="@sortWeight"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_tcpNoDelay_label" hideLabel="true" path="@tcpNoDelay" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_threadUsed_label" hideLabel="true" path="@threadUsed" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.toolbox_timeFormat_label" path="@timeFormat"/>
+    <item label="%dataSource_properties.db2.i.toolbox_timeSeparator_label" path="@timeSeparator"/>
+    <item label="%dataSource_properties.db2.i.toolbox_toolboxTrace_label" path="@toolboxTrace"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_trace_label" hideLabel="true" path="@trace" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_translateBinary_label" hideLabel="true" path="@translateBinary" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_translateBoolean_label" hideLabel="true" path="@translateBoolean" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.toolbox_translateHex_label" path="@translateHex"/>
+    <item checkBoxText="%dataSource_properties.db2.i.toolbox_trueAutoCommit_label" hideLabel="true" path="@trueAutoCommit" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.toolbox_xaLooselyCoupledSupport_label" path="@xaLooselyCoupledSupport"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.db2.i.toolbox_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.informix.jcc_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.informix.jcc_label" path="/server/dataSource/properties.informix.jcc">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.informix.jcc_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_currentLockTimeout_label" path="@currentLockTimeout"/>
+    <item checkBoxText="%dataSource_properties.informix.jcc_DBANSIWARN_label" hideLabel="true" path="@DBANSIWARN" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_DBDATE_label" path="@DBDATE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_DBPATH_label" path="@DBPATH"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_DBSPACETEMP_label" path="@DBSPACETEMP"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_DBTEMP_label" path="@DBTEMP"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_DBUPSPACE_label" path="@DBUPSPACE"/>
+    <item checkBoxText="%dataSource_properties.informix.jcc_DELIMIDENT_label" hideLabel="true" path="@DELIMIDENT" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.informix.jcc_deferPrepares_label" hideLabel="true" path="@deferPrepares" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_driverType_label" path="@driverType"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_enableNamedParameterMarkers_label" path="@enableNamedParameterMarkers"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_enableSeamlessFailover_label" path="@enableSeamlessFailover"/>
+    <item checkBoxText="%dataSource_properties.informix.jcc_enableSysplexWLB_label" hideLabel="true" path="@enableSysplexWLB" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_fetchSize_label" path="@fetchSize"/>
+    <item checkBoxText="%dataSource_properties.informix.jcc_fullyMaterializeLobData_label" hideLabel="true" path="@fullyMaterializeLobData" style="checkBox"/>
+    <item label="%dataSource_properties.informix.jcc_IFX_DIRECTIVES_label" path="@IFX_DIRECTIVES"/>
+    <item label="%dataSource_properties.informix.jcc_IFX_EXTDIRECTIVES_label" path="@IFX_EXTDIRECTIVES"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_IFX_UPDDESC_label" path="@IFX_UPDDESC"/>
+    <item label="%dataSource_properties.informix.jcc_IFX_XASTDCOMPLIANCE_XAEND_label" path="@IFX_XASTDCOMPLIANCE_XAEND"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_INFORMIXOPCACHE_label" path="@INFORMIXOPCACHE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_INFORMIXSTACKSIZE_label" path="@INFORMIXSTACKSIZE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_keepDynamic_label" path="@keepDynamic"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_loginTimeout_label" path="@loginTimeout"/>
+    <item label="%dataSource_properties.informix.jcc_NODEFDAC_label" path="@NODEFDAC"/>
+    <item label="%dataSource_properties.informix.jcc_OPTCOMPIND_label" path="@OPTCOMPIND"/>
+    <item label="%dataSource_properties.informix.jcc_OPTOFC_label" path="@OPTOFC"/>
+    <item label="%dataSource_properties.informix.jcc_PDQPRIORITY_label" path="@PDQPRIORITY"/>
+    <item label="%dataSource_properties.informix.jcc_progressiveStreaming_label" path="@progressiveStreaming"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_PSORT_DBTEMP_label" path="@PSORT_DBTEMP"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_PSORT_NPROCS_label" path="@PSORT_NPROCS"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_queryDataSize_label" path="@queryDataSize"/>
+    <item label="%dataSource_properties.informix.jcc_resultSetHoldability_label" path="@resultSetHoldability"/>
+    <item label="%dataSource_properties.informix.jcc_resultSetHoldabilityForCatalogQueries_label" path="@resultSetHoldabilityForCatalogQueries"/>
+    <item checkBoxText="%dataSource_properties.informix.jcc_retrieveMessagesFromServerOnGetMessage_label" hideLabel="true" path="@retrieveMessagesFromServerOnGetMessage" style="checkBox"/>
+    <item label="%dataSource_properties.informix.jcc_securityMechanism_label" path="@securityMechanism"/>
+    <item label="%dataSource_properties.informix.jcc_STMT_CACHE_label" path="@STMT_CACHE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_traceDirectory_label" path="@traceDirectory"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_traceFile_label" path="@traceFile"/>
+    <item checkBoxText="%dataSource_properties.informix.jcc_traceFileAppend_label" hideLabel="true" path="@traceFileAppend" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_traceLevel_label" path="@traceLevel"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix.jcc_useJDBC4ColumnNameAndLabelSemantics_label" path="@useJDBC4ColumnNameAndLabelSemantics"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.informix.jcc_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_connectionManager_title" icon="icons/obj16/configElement.gif" label="%dataSource_connectionManager_label" path="/server/dataSource/connectionManager">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_agedTimeout_label" path="@agedTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_connectionTimeout_label" path="@connectionTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_maxIdleTime_label" path="@maxIdleTime"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_maxPoolSize_label" path="@maxPoolSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_minPoolSize_label" path="@minPoolSize"/>
+    <item label="%dataSource_connectionManager_purgePolicy_label" path="@purgePolicy"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_reapTime_label" path="@reapTime"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_maxConnectionsPerThread_label" path="@maxConnectionsPerThread"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_connectionManager_numConnectionsPerThreadLocal_label" path="@numConnectionsPerThreadLocal"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.datadirect.sqlserver_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.datadirect.sqlserver_label" path="/server/dataSource/properties.datadirect.sqlserver">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_accountingInfo_label" path="@accountingInfo"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_alternateServers_label" path="@alternateServers"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_alwaysReportTriggerResults_label" hideLabel="true" path="@alwaysReportTriggerResults" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_applicationName_label" path="@applicationName"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_authenticationMethod_label" path="@authenticationMethod"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_bulkLoadBatchSize_label" path="@bulkLoadBatchSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_bulkLoadOptions_label" path="@bulkLoadOptions"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_clientHostName_label" path="@clientHostName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_clientUser_label" path="@clientUser"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_codePageOverride_label" path="@codePageOverride"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_connectionRetryCount_label" path="@connectionRetryCount"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_connectionRetryDelay_label" path="@connectionRetryDelay"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_convertNull_label" path="@convertNull"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_dateTimeInputParameterType_label" path="@dateTimeInputParameterType"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_dateTimeOutputParameterType_label" path="@dateTimeOutputParameterType"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_describeInputParameters_label" path="@describeInputParameters"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_describeOutputParameters_label" path="@describeOutputParameters"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_enableBulkLoad_label" hideLabel="true" path="@enableBulkLoad" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_enableCancelTimeout_label" hideLabel="true" path="@enableCancelTimeout" style="checkBox"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_encryptionMethod_label" path="@encryptionMethod"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_failoverGranularity_label" path="@failoverGranularity"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_failoverMode_label" path="@failoverMode"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_failoverPreconnect_label" hideLabel="true" path="@failoverPreconnect" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_hostNameInCertificate_label" path="@hostNameInCertificate"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_initializationString_label" path="@initializationString"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_insensitiveResultSetBufferSize_label" path="@insensitiveResultSetBufferSize"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_javaDoubleToString_label" hideLabel="true" path="@javaDoubleToString" style="checkBox"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_JDBCBehavior_label" path="@JDBCBehavior"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_loadBalancing_label" hideLabel="true" path="@loadBalancing" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_loginTimeout_label" path="@loginTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_longDataCacheSize_label" path="@longDataCacheSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_netAddress_label" path="@netAddress"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_packetSize_label" path="@packetSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_queryTimeout_label" path="@queryTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_resultsetMetaDataOptions_label" path="@resultsetMetaDataOptions"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_selectMethod_label" path="@selectMethod"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_snapshotSerializable_label" hideLabel="true" path="@snapshotSerializable" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_spyAttributes_label" path="@spyAttributes"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_stringInputParameterType_label" path="@stringInputParameterType"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_stringOutputParameterType_label" path="@stringOutputParameterType"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_suppressConnectionWarnings_label" hideLabel="true" path="@suppressConnectionWarnings" style="checkBox"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_transactionMode_label" path="@transactionMode"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_truncateFractionalSeconds_label" hideLabel="true" path="@truncateFractionalSeconds" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_trustStore_label" path="@trustStore"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_trustStorePassword_label" path="@trustStorePassword"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_useServerSideUpdatableCursors_label" hideLabel="true" path="@useServerSideUpdatableCursors" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.datadirect.sqlserver_validateServerCertificate_label" hideLabel="true" path="@validateServerCertificate" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.datadirect.sqlserver_XATransactionGroup_label" path="@XATransactionGroup"/>
+    <item label="%dataSource_properties.datadirect.sqlserver_XMLDescribeType_label" path="@XMLDescribeType"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.datadirect.sqlserver_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.db2.i.native_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.db2.i.native_label" path="/server/dataSource/properties.db2.i.native">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.db2.i.native_password_label" path="@password"/>
+    <item label="%dataSource_properties.db2.i.native_access_label" path="@access"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_autoCommit_label" hideLabel="true" path="@autoCommit" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.native_batchStyle_label" path="@batchStyle"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_behaviorOverride_label" path="@behaviorOverride"/>
+    <item label="%dataSource_properties.db2.i.native_blockSize_label" path="@blockSize"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_cursorHold_label" hideLabel="true" path="@cursorHold" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.native_cursorSensitivity_label" path="@cursorSensitivity"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_dataTruncation_label" path="@dataTruncation"/>
+    <item label="%dataSource_properties.db2.i.native_dateFormat_label" path="@dateFormat"/>
+    <item label="%dataSource_properties.db2.i.native_dateSeparator_label" path="@dateSeparator"/>
+    <item label="%dataSource_properties.db2.i.native_decimalSeparator_label" path="@decimalSeparator"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_directMap_label" hideLabel="true" path="@directMap" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_doEscapeProcessing_label" hideLabel="true" path="@doEscapeProcessing" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_fullErrors_label" hideLabel="true" path="@fullErrors" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_libraries_label" path="@libraries"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_lobThreshold_label" path="@lobThreshold"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_lockTimeout_label" path="@lockTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_loginTimeout_label" path="@loginTimeout"/>
+    <item label="%dataSource_properties.db2.i.native_maximumPrecision_label" path="@maximumPrecision"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_maximumScale_label" path="@maximumScale"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_minimumDivideScale_label" path="@minimumDivideScale"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_networkProtocol_label" path="@networkProtocol"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_portNumber_label" path="@portNumber"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_prefetch_label" hideLabel="true" path="@prefetch" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.native_queryOptimizeGoal_label" path="@queryOptimizeGoal"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_reuseObjects_label" hideLabel="true" path="@reuseObjects" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_serverTraceCategories_label" path="@serverTraceCategories"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_systemNaming_label" hideLabel="true" path="@systemNaming" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.native_timeFormat_label" path="@timeFormat"/>
+    <item label="%dataSource_properties.db2.i.native_timeSeparator_label" path="@timeSeparator"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_trace_label" hideLabel="true" path="@trace" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.i.native_transactionTimeout_label" path="@transactionTimeout"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_translateBinary_label" hideLabel="true" path="@translateBinary" style="checkBox"/>
+    <item label="%dataSource_properties.db2.i.native_translateHex_label" path="@translateHex"/>
+    <item checkBoxText="%dataSource_properties.db2.i.native_useBlockInsert_label" hideLabel="true" path="@useBlockInsert" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.db2.i.native_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.sybase_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.sybase_label" path="/server/dataSource/properties.sybase">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.sybase_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_connectionProperties_label" path="@connectionProperties"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_loginTimeout_label" path="@loginTimeout"/>
+    <item label="%dataSource_properties.sybase_networkProtocol_label" path="@networkProtocol"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_resourceManagerName_label" path="@resourceManagerName"/>
+    <item label="%dataSource_properties.sybase_SERVER_INITIATED_TRANSACTIONS_label" path="@SERVER_INITIATED_TRANSACTIONS"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.sybase_version_label" path="@version"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.sybase_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.informix_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.informix_label" path="/server/dataSource/properties.informix">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxIFXHOST_label" path="@ifxIFXHOST"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.informix_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCLIENT_LOCALE_label" path="@ifxCLIENT_LOCALE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCPMAgeLimit_label" path="@ifxCPMAgeLimit"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCPMInitPoolSize_label" path="@ifxCPMInitPoolSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCPMMaxConnections_label" path="@ifxCPMMaxConnections"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCPMMaxPoolSize_label" path="@ifxCPMMaxPoolSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCPMMinAgeLimit_label" path="@ifxCPMMinAgeLimit"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCPMMinPoolSize_label" path="@ifxCPMMinPoolSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxCPMServiceInterval_label" path="@ifxCPMServiceInterval"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxDBANSIWARN_label" hideLabel="true" path="@ifxDBANSIWARN" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxDBCENTURY_label" path="@ifxDBCENTURY"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxDBDATE_label" path="@ifxDBDATE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxDBSPACETEMP_label" path="@ifxDBSPACETEMP"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxDBTEMP_label" path="@ifxDBTEMP"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxDBTIME_label" path="@ifxDBTIME"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxDBUPSPACE_label" path="@ifxDBUPSPACE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxDB_LOCALE_label" path="@ifxDB_LOCALE"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxDELIMIDENT_label" hideLabel="true" path="@ifxDELIMIDENT" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxENABLE_TYPE_CACHE_label" hideLabel="true" path="@ifxENABLE_TYPE_CACHE" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxFET_BUF_SIZE_label" path="@ifxFET_BUF_SIZE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxGL_DATE_label" path="@ifxGL_DATE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxGL_DATETIME_label" path="@ifxGL_DATETIME"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxIFX_AUTOFREE_label" hideLabel="true" path="@ifxIFX_AUTOFREE" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxIFX_DIRECTIVES_label" path="@ifxIFX_DIRECTIVES"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxIFX_LOCK_MODE_WAIT_label" path="@ifxIFX_LOCK_MODE_WAIT"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxIFX_SOC_TIMEOUT_label" path="@ifxIFX_SOC_TIMEOUT"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxIFX_USEPUT_label" hideLabel="true" path="@ifxIFX_USEPUT" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxIFX_USE_STRENC_label" hideLabel="true" path="@ifxIFX_USE_STRENC" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxIFX_XASPEC_label" path="@ifxIFX_XASPEC"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxINFORMIXCONRETRY_label" path="@ifxINFORMIXCONRETRY"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxINFORMIXCONTIME_label" path="@ifxINFORMIXCONTIME"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxINFORMIXOPCACHE_label" path="@ifxINFORMIXOPCACHE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxINFORMIXSTACKSIZE_label" path="@ifxINFORMIXSTACKSIZE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxJDBCTEMP_label" path="@ifxJDBCTEMP"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxLDAP_IFXBASE_label" path="@ifxLDAP_IFXBASE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxLDAP_PASSWD_label" path="@ifxLDAP_PASSWD"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxLDAP_URL_label" path="@ifxLDAP_URL"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxLDAP_USER_label" path="@ifxLDAP_USER"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxLOBCACHE_label" path="@ifxLOBCACHE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxNEWCODESET_label" path="@ifxNEWCODESET"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxNEWLOCALE_label" path="@ifxNEWLOCALE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxNODEFDAC_label" path="@ifxNODEFDAC"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxOPTCOMPIND_label" path="@ifxOPTCOMPIND"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxOPTOFC_label" path="@ifxOPTOFC"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxOPT_GOAL_label" path="@ifxOPT_GOAL"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPATH_label" path="@ifxPATH"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPDQPRIORITY_label" path="@ifxPDQPRIORITY"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPLCONFIG_label" path="@ifxPLCONFIG"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPLOAD_LO_PATH_label" path="@ifxPLOAD_LO_PATH"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPROTOCOLTRACE_label" path="@ifxPROTOCOLTRACE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPROTOCOLTRACEFILE_label" path="@ifxPROTOCOLTRACEFILE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPROXY_label" path="@ifxPROXY"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxPSORT_DBTEMP_label" path="@ifxPSORT_DBTEMP"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxPSORT_NPROCS_label" hideLabel="true" path="@ifxPSORT_NPROCS" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxSECURITY_label" path="@ifxSECURITY"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxSQLH_FILE_label" path="@ifxSQLH_FILE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxSQLH_LOC_label" path="@ifxSQLH_LOC"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxSQLH_TYPE_label" path="@ifxSQLH_TYPE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxSSLCONNECTION_label" path="@ifxSSLCONNECTION"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxSTMT_CACHE_label" path="@ifxSTMT_CACHE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxTRACE_label" path="@ifxTRACE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxTRACEFILE_label" path="@ifxTRACEFILE"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_ifxTRUSTED_CONTEXT_label" path="@ifxTRUSTED_CONTEXT"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxUSEV5SERVER_label" hideLabel="true" path="@ifxUSEV5SERVER" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.informix_ifxUSE_DTENV_label" hideLabel="true" path="@ifxUSE_DTENV" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_loginTimeout_label" path="@loginTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.informix_roleName_label" path="@roleName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.informix_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_jdbcDriver_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_jdbcDriver_label" path="/server/dataSource/jdbcDriver">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceSingleCustomObject" label="%dataSource_jdbcDriver_libraryRef_label" path="@libraryRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jdbcDriver_javax.sql.XADataSource_label" path="@javax.sql.XADataSource"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jdbcDriver_javax.sql.ConnectionPoolDataSource_label" path="@javax.sql.ConnectionPoolDataSource"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jdbcDriver_javax.sql.DataSource_label" path="@javax.sql.DataSource"/>
+  </node>
+  <node detailSectionTitle="%dataSource_jdbcDriver_library_title" icon="icons/obj16/configElement.gif" label="%dataSource_jdbcDriver_library_label" path="/server/dataSource/jdbcDriver/library">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jdbcDriver_library_name_label" path="@name"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jdbcDriver_library_description_label" path="@description"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%dataSource_jdbcDriver_library_filesetRef_label" path="@filesetRef"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jdbcDriver_library_apiTypeVisibility_label" path="@apiTypeVisibility"/>
+  </node>
+  <node detailSectionTitle="%dataSource_jdbcDriver_library_fileset_title" icon="icons/obj16/configElement.gif" label="%dataSource_jdbcDriver_library_fileset_label" path="/server/dataSource/jdbcDriver/library/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%dataSource_jdbcDriver_library_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%dataSource_jdbcDriver_library_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%dataSource_jdbcDriver_library_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%dataSource_jdbcDriver_library_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_jdbcDriver_library_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.oracle_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.oracle_label" path="/server/dataSource/properties.oracle">
+    <item label="%instanceRef" path="@ref"/>
+    <item label="%dataSource_properties.oracle_driverType_label" path="@driverType"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_URL_label" path="@URL"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.oracle_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_connectionProperties_label" path="@connectionProperties"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_loginTimeout_label" path="@loginTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_networkProtocol_label" path="@networkProtocol"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_ONSConfiguration_label" path="@ONSConfiguration"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_serviceName_label" path="@serviceName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.oracle_TNSEntryName_label" path="@TNSEntryName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.oracle_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_recoveryAuthData_title" icon="icons/obj16/securityElement.gif" label="%dataSource_recoveryAuthData_label" path="/server/dataSource/recoveryAuthData">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_recoveryAuthData_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_recoveryAuthData_password_label" path="@password"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties_label" path="/server/dataSource/properties">
+    <item label="%instanceRef" path="@ref"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties_URL_label" path="@URL"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%dataSource_properties.db2.jcc_title" icon="icons/obj16/datasourceElement.gif" label="%dataSource_properties.db2.jcc_label" path="/server/dataSource/properties.db2.jcc">
+    <item label="%instanceRef" path="@ref"/>
+    <item label="%dataSource_properties.db2.jcc_driverType_label" path="@driverType" style="combo"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_databaseName_label" path="@databaseName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_serverName_label" path="@serverName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_portNumber_label" path="@portNumber"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%dataSource_properties.db2.jcc_password_label" path="@password"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_blockingReadConnectionTimeout_label" path="@blockingReadConnectionTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_clientAccountingInformation_label" path="@clientAccountingInformation"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_clientApplicationInformation_label" path="@clientApplicationInformation"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_clientRerouteServerListJNDIName_label" path="@clientRerouteServerListJNDIName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_clientUser_label" path="@clientUser"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_clientWorkstation_label" path="@clientWorkstation"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_currentFunctionPath_label" path="@currentFunctionPath"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_currentLockTimeout_label" path="@currentLockTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_currentPackagePath_label" path="@currentPackagePath"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_currentPackageSet_label" path="@currentPackageSet"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_currentSQLID_label" path="@currentSQLID"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_currentSchema_label" path="@currentSchema"/>
+    <item label="%dataSource_properties.db2.jcc_cursorSensitivity_label" path="@cursorSensitivity"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_deferPrepares_label" hideLabel="true" path="@deferPrepares" style="checkBox"/>
+    <item label="%dataSource_properties.db2.jcc_enableClientAffinitiesList_label" path="@enableClientAffinitiesList"/>
+    <item label="%dataSource_properties.db2.jcc_enableNamedParameterMarkers_label" path="@enableNamedParameterMarkers"/>
+    <item label="%dataSource_properties.db2.jcc_enableSeamlessFailover_label" path="@enableSeamlessFailover"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_enableSysplexWLB_label" hideLabel="true" path="@enableSysplexWLB" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_fetchSize_label" path="@fetchSize"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_fullyMaterializeInputStreams_label" hideLabel="true" path="@fullyMaterializeInputStreams" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_fullyMaterializeLobData_label" hideLabel="true" path="@fullyMaterializeLobData" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_keepDynamic_label" path="@keepDynamic"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_kerberosServerPrincipal_label" path="@kerberosServerPrincipal"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_loginTimeout_label" path="@loginTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_maxRetriesForClientReroute_label" path="@maxRetriesForClientReroute"/>
+    <item label="%dataSource_properties.db2.jcc_queryCloseImplicit_label" path="@queryCloseImplicit"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_queryDataSize_label" path="@queryDataSize"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_readOnly_label" hideLabel="true" path="@readOnly" style="checkBox"/>
+    <item label="%dataSource_properties.db2.jcc_resultSetHoldability_label" path="@resultSetHoldability"/>
+    <item label="%dataSource_properties.db2.jcc_resultSetHoldabilityForCatalogQueries_label" path="@resultSetHoldabilityForCatalogQueries"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_retrieveMessagesFromServerOnGetMessage_label" hideLabel="true" path="@retrieveMessagesFromServerOnGetMessage" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_retryIntervalForClientReroute_label" path="@retryIntervalForClientReroute"/>
+    <item label="%dataSource_properties.db2.jcc_securityMechanism_label" path="@securityMechanism"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_sendDataAsIs_label" hideLabel="true" path="@sendDataAsIs" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_sqljEnableClassLoaderSpecificProfiles_label" hideLabel="true" path="@sqljEnableClassLoaderSpecificProfiles" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_sslConnection_label" hideLabel="true" path="@sslConnection" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_streamBufferSize_label" path="@streamBufferSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_sysSchema_label" path="@sysSchema"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_traceDirectory_label" path="@traceDirectory"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_traceFile_label" path="@traceFile"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_traceFileAppend_label" hideLabel="true" path="@traceFileAppend" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%dataSource_properties.db2.jcc_traceLevel_label" path="@traceLevel"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_useCachedCursor_label" hideLabel="true" path="@useCachedCursor" style="checkBox"/>
+    <item label="%dataSource_properties.db2.jcc_useJDBC4ColumnNameAndLabelSemantics_label" path="@useJDBC4ColumnNameAndLabelSemantics"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_useTransactionRedirect_label" hideLabel="true" path="@useTransactionRedirect" style="checkBox"/>
+    <item checkBoxText="%dataSource_properties.db2.jcc_xaNetworkOptimization_label" hideLabel="true" path="@xaNetworkOptimization" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.AdditionalPropertiesCustomObject" label="%dataSource_properties.db2.jcc_internal.properties_label" path="@internal.properties"/>
+  </node>
+  <node detailSectionTitle="%nativeTransactionManager_title" icon="icons/obj16/configElement.gif" label="%nativeTransactionManager_label" path="/server/nativeTransactionManager">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%nativeTransactionManager_shutdownTimeout_label" path="@shutdownTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%nativeTransactionManager_resourceManagerNamePrefix_label" path="@resourceManagerNamePrefix"/>
+  </node>
+  <node detailSectionTitle="%fileset_title" icon="icons/obj16/configElement.gif" label="%fileset_label" path="/server/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%jspEngine_title" icon="icons/obj16/configElement.gif" label="%jspEngine_label" path="/server/jspEngine">
+    <item checkBoxText="%jspEngine_disableJspRuntimeCompilation_label" hideLabel="true" path="@disableJspRuntimeCompilation" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%jspEngine_extendedDocumentRoot_label" path="@extendedDocumentRoot"/>
+    <item label="%jspEngine_jdkSourceLevel_label" path="@jdkSourceLevel"/>
+    <item checkBoxText="%jspEngine_keepGenerated_label" hideLabel="true" path="@keepGenerated" style="checkBox"/>
+    <item checkBoxText="%jspEngine_useInMemory_label" hideLabel="true" path="@useInMemory" style="checkBox"/>
+    <item checkBoxText="%jspEngine_recompileJspOnRestart_label" hideLabel="true" path="@recompileJspOnRestart" style="checkBox"/>
+    <item checkBoxText="%jspEngine_useImplicitTagLibs_label" hideLabel="true" path="@useImplicitTagLibs" style="checkBox"/>
+    <item checkBoxText="%jspEngine_disableResourceInjection_label" hideLabel="true" path="@disableResourceInjection" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%idsLdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%idsLdapFilterProperties_label" path="/server/idsLdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%idsLdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%idsLdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%idsLdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%idsLdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%idsLdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%applicationMonitor_title" icon="icons/obj16/appMonitorElement.gif" label="%applicationMonitor_label" path="/server/applicationMonitor">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%applicationMonitor_pollingRate_label" path="@pollingRate"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%applicationMonitor_dropins_label" path="@dropins"/>
+    <item checkBoxText="%applicationMonitor_dropinsEnabled_label" hideLabel="true" path="@dropinsEnabled" style="checkBox"/>
+    <section label="%applicationMonitor_section1"/>
+    <section label="%applicationMonitor_section2">
+      <item label="%applicationMonitor_updateTrigger_label" path="@updateTrigger"/>
+    </section>
+  </node>
+  <node detailSectionTitle="%bundleRepository_title" icon="icons/obj16/configElement.gif" label="%bundleRepository_label" path="/server/bundleRepository">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.ReferenceListCustomObject" label="%bundleRepository_filesetRef_label" path="@filesetRef"/>
+  </node>
+  <node detailSectionTitle="%bundleRepository_fileset_title" icon="icons/obj16/configElement.gif" label="%bundleRepository_fileset_label" path="/server/bundleRepository/fileset">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" label="%bundleRepository_fileset_dir_label" path="@dir"/>
+    <item checkBoxText="%bundleRepository_fileset_caseSensitive_label" hideLabel="true" path="@caseSensitive" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" label="%bundleRepository_fileset_includes_label" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" label="%bundleRepository_fileset_excludes_label" path="@excludes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%bundleRepository_fileset_scanInterval_label" path="@scanInterval"/>
+  </node>
+  <node detailSectionTitle="%httpSession_title" icon="icons/obj16/httpElement.gif" label="%httpSession_label" path="/server/httpSession">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_storageRef_label" path="@storageRef"/>
+    <item checkBoxText="%httpSession_sslTrackingEnabled_label" hideLabel="true" path="@sslTrackingEnabled" style="checkBox"/>
+    <item checkBoxText="%httpSession_urlRewritingEnabled_label" hideLabel="true" path="@urlRewritingEnabled" style="checkBox"/>
+    <item checkBoxText="%httpSession_protocolSwitchRewritingEnabled_label" hideLabel="true" path="@protocolSwitchRewritingEnabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_maxInMemorySessionCount_label" path="@maxInMemorySessionCount"/>
+    <item checkBoxText="%httpSession_allowOverflow_label" hideLabel="true" path="@allowOverflow" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_invalidationTimeout_label" path="@invalidationTimeout"/>
+    <item checkBoxText="%httpSession_securityIntegrationEnabled_label" hideLabel="true" path="@securityIntegrationEnabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_idLength_label" path="@idLength"/>
+    <item checkBoxText="%httpSession_useContextRootAsCookiePath_label" hideLabel="true" path="@useContextRootAsCookiePath" style="checkBox"/>
+    <item checkBoxText="%httpSession_alwaysEncodeUrl_label" hideLabel="true" path="@alwaysEncodeUrl" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_cloneId_label" path="@cloneId"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_cloneSeparator_label" path="@cloneSeparator"/>
+    <item checkBoxText="%httpSession_debugCrossover_label" hideLabel="true" path="@debugCrossover" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_forceInvalidationMultiple_label" path="@forceInvalidationMultiple"/>
+    <item checkBoxText="%httpSession_idReuse_label" hideLabel="true" path="@idReuse" style="checkBox"/>
+    <item checkBoxText="%httpSession_noAdditionalInfo_label" hideLabel="true" path="@noAdditionalInfo" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_reaperPollInterval_label" path="@reaperPollInterval"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_rewriteId_label" path="@rewriteId"/>
+    <item checkBoxText="%httpSession_securityUserIgnoreCase_label" hideLabel="true" path="@securityUserIgnoreCase" style="checkBox"/>
+    <section label="%httpSession_section1">
+      <item checkBoxText="%httpSession_cookiesEnabled_label" hideLabel="true" path="@cookiesEnabled" style="checkBox"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_cookieName_label" path="@cookieName"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_cookieDomain_label" path="@cookieDomain"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_cookieMaxAge_label" path="@cookieMaxAge"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpSession_cookiePath_label" path="@cookiePath"/>
+      <item checkBoxText="%httpSession_cookieSecure_label" hideLabel="true" path="@cookieSecure" style="checkBox"/>
+      <item checkBoxText="%httpSession_cookieHttpOnly_label" hideLabel="true" path="@cookieHttpOnly" style="checkBox"/>
+    </section>
+  </node>
+  <node detailSectionTitle="%connectionManager_title" icon="icons/obj16/configElement.gif" label="%connectionManager_label" path="/server/connectionManager">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_agedTimeout_label" path="@agedTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_connectionTimeout_label" path="@connectionTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_maxIdleTime_label" path="@maxIdleTime"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_maxPoolSize_label" path="@maxPoolSize"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_minPoolSize_label" path="@minPoolSize"/>
+    <item label="%connectionManager_purgePolicy_label" path="@purgePolicy"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_reapTime_label" path="@reapTime"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_maxConnectionsPerThread_label" path="@maxConnectionsPerThread"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%connectionManager_numConnectionsPerThreadLocal_label" path="@numConnectionsPerThreadLocal"/>
+  </node>
+  <node detailSectionTitle="%sslOptions_title" icon="icons/obj16/sslElement.gif" label="%sslOptions_label" path="/server/sslOptions">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%sslOptions_sessionTimeout_label" path="@sessionTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%sslOptions_sslRef_label" path="@sslRef"/>
+  </node>
+  <node detailSectionTitle="%authData_title" icon="icons/obj16/securityElement.gif" label="%authData_label" path="/server/authData">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%authData_user_label" path="@user"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%authData_password_label" path="@password"/>
+  </node>
+  <node detailSectionTitle="%iplanetLdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%iplanetLdapFilterProperties_label" path="/server/iplanetLdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%iplanetLdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%iplanetLdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%iplanetLdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%iplanetLdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%iplanetLdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%httpOptions_title" icon="icons/obj16/httpElement.gif" label="%httpOptions_label" path="/server/httpOptions">
+    <item label="%instanceId" path="@id"/>
+    <item checkBoxText="%httpOptions_keepAliveEnabled_label" hideLabel="true" path="@keepAliveEnabled" style="checkBox"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpOptions_maxKeepAliveRequests_label" path="@maxKeepAliveRequests"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpOptions_persistTimeout_label" path="@persistTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpOptions_readTimeout_label" path="@readTimeout"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpOptions_writeTimeout_label" path="@writeTimeout"/>
+  </node>
+  <node detailSectionTitle="%administrator-role_title" icon="icons/obj16/securityElement.gif" label="%administrator-role_label" path="/server/administrator-role"/>
+  <node detailSectionTitle="%zosWorkloadManager_title" icon="icons/obj16/configElement.gif" label="%zosWorkloadManager_label" path="/server/zosWorkloadManager">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%zosWorkloadManager_collectionName_label" path="@collectionName"/>
+  </node>
+  <node detailSectionTitle="%authentication_title" icon="icons/obj16/securityElement.gif" label="%authentication_label" path="/server/authentication">
+    <item label="%instanceId" path="@id"/>
+    <item checkBoxText="%authentication_cacheEnabled_label" hideLabel="true" path="@cacheEnabled" style="checkBox"/>
+    <item checkBoxText="%authentication_allowHashtableLoginWithIdOnly_label" hideLabel="true" path="@allowHashtableLoginWithIdOnly" style="checkBox"/>
+  </node>
+  <node detailSectionTitle="%ltpa_title" icon="icons/obj16/securityElement.gif" label="%ltpa_label" path="/server/ltpa">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ltpa_keysFileName_label" path="@keysFileName"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.PasswordTextCustomObject" label="%ltpa_keysPassword_label" path="@keysPassword"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%ltpa_expiration_label" path="@expiration"/>
+  </node>
+  <node detailSectionTitle="%httpEncoding_title" icon="icons/obj16/httpElement.gif" label="%httpEncoding_label" path="/server/httpEncoding">
+    <section label="%httpEncoding_section1">
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.Shift_JIS_label" path="@converter.Shift_JIS"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.EUC-JP_label" path="@converter.EUC-JP"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.EUC-KR_label" path="@converter.EUC-KR"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.EUC_KR_label" path="@converter.EUC_KR"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.EUC-TW_label" path="@converter.EUC-TW"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.Big5_label" path="@converter.Big5"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.GB2312_label" path="@converter.GB2312"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_converter.ISO-2022-KR_label" path="@converter.ISO-2022-KR"/>
+    </section>
+    <section label="%httpEncoding_section2">
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.en_label" path="@encoding.en"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.fr_label" path="@encoding.fr"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.de_label" path="@encoding.de"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.es_label" path="@encoding.es"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.pt_label" path="@encoding.pt"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.da_label" path="@encoding.da"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ca_label" path="@encoding.ca"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.fi_label" path="@encoding.fi"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.it_label" path="@encoding.it"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.nl_label" path="@encoding.nl"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.no_label" path="@encoding.no"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.sv_label" path="@encoding.sv"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.is_label" path="@encoding.is"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.eu_label" path="@encoding.eu"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.cs_label" path="@encoding.cs"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.hr_label" path="@encoding.hr"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.hu_label" path="@encoding.hu"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.lt_label" path="@encoding.lt"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.pl_label" path="@encoding.pl"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.sh_label" path="@encoding.sh"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.sk_label" path="@encoding.sk"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.sl_label" path="@encoding.sl"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.sq_label" path="@encoding.sq"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.fo_label" path="@encoding.fo"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ro_label" path="@encoding.ro"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.mt_label" path="@encoding.mt"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.et_label" path="@encoding.et"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.lv_label" path="@encoding.lv"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.be_label" path="@encoding.be"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.bg_label" path="@encoding.bg"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.mk_label" path="@encoding.mk"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ru_label" path="@encoding.ru"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.sr_label" path="@encoding.sr"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.uk_label" path="@encoding.uk"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ar_label" path="@encoding.ar"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.fa_label" path="@encoding.fa"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ms_label" path="@encoding.ms"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.el_label" path="@encoding.el"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.iw_label" path="@encoding.iw"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.he_label" path="@encoding.he"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ji_label" path="@encoding.ji"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.yi_label" path="@encoding.yi"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.tr_label" path="@encoding.tr"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.th_label" path="@encoding.th"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.vi_label" path="@encoding.vi"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ja_label" path="@encoding.ja"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ko_label" path="@encoding.ko"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.zh_label" path="@encoding.zh"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.zh_TW_label" path="@encoding.zh_TW"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.hy_label" path="@encoding.hy"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ka_label" path="@encoding.ka"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.hi_label" path="@encoding.hi"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.mr_label" path="@encoding.mr"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.sa_label" path="@encoding.sa"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.ta_label" path="@encoding.ta"/>
+      <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%httpEncoding_encoding.bn_label" path="@encoding.bn"/>
+    </section>
+  </node>
+  <node detailSectionTitle="%netscapeLdapFilterProperties_title" icon="icons/obj16/securityElement.gif" label="%netscapeLdapFilterProperties_label" path="/server/netscapeLdapFilterProperties">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%netscapeLdapFilterProperties_userFilter_label" path="@userFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%netscapeLdapFilterProperties_groupFilter_label" path="@groupFilter"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%netscapeLdapFilterProperties_userIdMap_label" path="@userIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%netscapeLdapFilterProperties_groupIdMap_label" path="@groupIdMap"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%netscapeLdapFilterProperties_groupMemberIdMap_label" path="@groupMemberIdMap"/>
+  </node>
+  <node detailSectionTitle="%tcpOptions_title" icon="icons/obj16/configElement.gif" label="%tcpOptions_label" path="/server/tcpOptions">
+    <item label="%instanceId" path="@id"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" label="%tcpOptions_inactivityTimeout_label" path="@inactivityTimeout"/>
+    <item checkBoxText="%tcpOptions_soReuseAddr_label" hideLabel="true" path="@soReuseAddr" style="checkBox"/>
+  </node>
+</customization>

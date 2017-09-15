@@ -1,0 +1,116 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="nl gathering" default="generate">
+	
+	<!--<path id="projectPath">
+		<fileset dir="/build/bin/tools/ant-contrib">
+			<include name="*.jar" />
+		</fileset>
+	</path>-->	
+	
+	<!--<taskdef classpathref="projectPath" resource="net/sf/antcontrib/antlib.xml" />-->
+	
+	
+	<target name="generate">
+		<echo message="Generating nl content..." />
+		<antcall target="extract" />
+		<antcall target="convertToUTF8"/>
+		<antcall target="fixctrlf"/>
+		
+	</target>
+
+	<target name="extract">
+		<echo message="nls gathering = ${basedir}"/>
+		<!--This section expands the jars (and the jars inside if they exists) copied from the component build
+		 or expanded from the above zip content.-->
+		<fileset dir="${basedir}" includes="**/*.jar" id="basedir" />
+		<foreach param="jarFile" in="basedir">
+				<!--<replaceregexp file="${jarFile}" match="_(\d+.\d+.\d+.\w*\S\d+)" replace=""/>-->
+				<!--<move todir="${basedir}">
+					<fileset dir="${basedir}" includes="**/*.jar"/>
+					<mapper type="regexp" from="^(.*)_(\d+.\d+.\d+.\w*\S\d+).jar" to="\1.jar"/>
+				</move>-->
+				<echo message="jarFile = ${jarFile}"/>
+				<echo message="unzip....."/>
+				<!--<propertyregex property="@{jarFile}.jar.dirname" input="@{jarFile}" regexp="\.jar" replace=""/>-->
+				<basename property="jarFolder" file="${jarFile}" suffix=".jar"/>
+				<unzip dest="${jarFolder}" src="${jarFile}" />
+				<delete file = "${jarFile}"/>
+		</foreach>
+		
+
+	</target>
+	
+	
+	<target name="convertToUTF8">
+		
+		<mkdir dir="${basedir}/toUTF8"/>
+		<!--reverse encoding to UTF-8 for properties files.  Files will be copied in a new directory called toUTF8 (UTF-8 encoding is only applicable for *.properties files) -->
+		
+		<native2ascii reverse="true" encoding="UTF-8" src="${basedir}" includes="**/*.properties" dest="${basedir}/toUTF8"  />
+		
+		<!--replace existing encoding statements with NLS_ENCODING=UTF-8-->
+		<fileset dir="${basedir}/toUTF8" includes="**/*.properties" id="filesToUTF8" />
+		<foreach param="utf8EncodedFiles" in="filesToUTF8">
+
+			<sequential>
+				<local name="noNLS"/>
+				<loadfile srcFile="${utf8EncodedFiles}" property="noNLS" >
+					 <filterchain>
+						<linecontainsregexp >
+							<regexp pattern="NLS_ENCODING=(.*)"/>
+						</linecontainsregexp>
+					 </filterchain>
+				</loadfile>
+	
+				
+				<iff>
+					<contains string="${noNLS}" substring="NLS_ENCODING"/>
+					<then>
+			  			<replaceregexp  file="${utf8EncodedFiles}" encoding="UTF-8" match="NLS_ENCODING=(.*)" byline="true" replace="NLS_ENCODING=UTF-8" >
+						</replaceregexp>
+					</then>
+					<!--if encoding statement does not exist, then add a new NLS_ENCODING statement-->
+					<else>
+						<echo message="inserting encoding ${utf8EncodedFiles}"/>
+						<propertyfile file="${utf8EncodedFiles}" comment="NLS_ENCODING=UTF-8">
+						</propertyfile>
+						<replaceregexp file="${utf8EncodedFiles}" match="^#[MTWFS].*" byline="true" replace=""/>
+					</else>
+				</iff>
+			
+
+			</sequential>
+		</foreach>
+		
+		
+		<!--move converted files back to plugins directory-->
+		<move toDir="${basedir}" includeemptydirs="no">
+			<fileset dir="${basedir}/toUTF8"/>
+		</move>
+		
+		<delete dir="toUTF8"/>
+		
+	</target>
+	
+	<!--this addresses potential CHKPII warnings where UNIX newlines need to be converted to DOS newlines-->
+	<target name="fixctrlf">
+		<fileset dir="${basedir}" includes="**/*.properties, **/*.xml, **/*.html"  id="files"/>
+		<foreach param="translatableFiles" in="files">
+			<sequential>
+	             <fixcrlf file="${translatableFiles}" eol="dos" eof="remove" />
+			</sequential>
+		</foreach>
+	</target>
+	
+
+</project>

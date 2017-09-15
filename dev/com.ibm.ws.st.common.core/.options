@@ -1,0 +1,7 @@
+# Debugging options for the com.ibm.ws.st.common.core plugin
+
+# Turn on general debugging - common core
+com.ibm.ws.st.common.core/debug=false
+com.ibm.ws.st.common.core/debug/info=true
+com.ibm.ws.st.common.core/debug/warning=true
+com.ibm.ws.st.common.core/debug/perf=false

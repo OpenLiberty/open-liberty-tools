@@ -1,0 +1,124 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="compile" xmlns:nls="antlib:mantis-nls">
+  <import file="compile_libraries.xml"/>
+  <target name="check.run.compile">
+    <!-- only compile if we have source dirs, and we haven't been 
+         instructed via property to skip the project -->
+    
+    <!-- This is required by the tWAS FAT suites as we don't need to compile them and
+         they set their own src.dirs which can alter the outcome of the yes.run.compile 
+         condition property-->
+    <iff if="project.compile.not.required">
+      <then>
+        <echo>project.compile.not.required has been set so won't compile this project</echo>
+      </then>
+      <else>
+        <condition property="yes.run.compile">
+          <or>
+          	<and>
+          		<isfalse value="${project.compile.use.classpath.source}"/>
+            	<resourcecount refid="src.dirs" when="greater" count="0" />
+          	</and>	
+            <and>
+            	<istrue value="${project.compile.use.classpath.source}"/>
+              	<isreference refid="project.source.path"/>
+            </and>
+          </or>
+        </condition>
+      </else>
+    </iff>
+  	
+    <!-- other things still expect these dirs/vars to exist (even though they may be empty) -->
+    <mkdir dir="${build.dir}" />
+    <mkdir dir="${classes.dir}" />
+    
+    <iff>
+      <isreference refid="bnd.jars" />
+    <then>
+      <path id="bnd.classpath">
+        <path location="${classes.dir}" />
+        <path refid="project.class.path" />
+        <path refid="bnd.jars" />
+      </path>
+    </then>
+    <else>
+      <path id="bnd.classpath">
+        <path location="${classes.dir}" />
+        <path refid="project.class.path" />
+      </path>
+    </else>
+    </iff>
+  </target>
+
+  <target name="compile" depends="libraries.compile, check.run.compile" if="yes.run.compile">    
+    <iff if="project.compile.monitor.all.projects">
+    	<then>
+			<echo message="Started compilation of ${project.to.build}" />
+      	</then>
+    </iff>
+
+    <property name="sourcePath" value="${src.dir}"/>
+    <iff if="project.compile.use.classpath.source">
+    	<then>
+    		<var name="sourcePath" unset="true"/>
+    	  	<pathconvert property="sourcePath" refid="project.source.path"/>
+    	</then>
+    </iff>
+
+    <validateOutputDir srcDir="${src.dir}" buildDir="${classes.dir}"/>
+
+    <wlpJavac srcdir="${sourcePath}" destdir="${classes.dir}" buildWithJavaLevel="${build.with.java.level}" />
+
+    <packageInfoVersion srcDir="${sourcePath}" classesDir="${classes.dir}" />
+
+    <iff nif="skip.import.validation">
+      <then>
+        <validateImports excludes="${package.import.excludes}"/>
+      </then>
+    </iff>
+  </target>
+
+  <target name="post-compile">
+    <!-- Allow individual projects to do post-compile processing by overriding this target.
+         We will instrument for trace and ffdc by default. 
+         A project can disable just ffdc instrumentation of the classes.dir by setting
+         the instrument.ffdc property to false. All instrumentation can be disabled
+         by setting no.trace.instrumentation to true. -->
+    <iff>
+      <and>
+        <or>
+          <not>
+            <isset property="no.trace.instrumentation" />
+          </not>
+          <isfalse value="${no.trace.instrumentation}" />
+        </or>
+        <available file="${classes.dir}"/>
+        <resourcecount refid="classes" when="greater" count="0" />
+      </and>
+      <then>
+        <property name="instrument.ffdc" value="true" />
+        <echo>Trace/FFDC instrumentation for ${ant.project.name}: instrument.ffdc=${instrument.ffdc}</echo>
+        <instrument.trace ffdc="${instrument.ffdc}">
+          <fileset dir="${classes.dir}"/>
+        </instrument.trace>
+      </then>
+    </iff>
+  </target>
+  
+  <target name="touch-package-info" description="touch all package-info.java files to force them to be rebuilt">
+    <touch><!-- Ant 1.7.1 bad behavior with annotations -->
+      <fileset dir="${sourcePath}" includes="**/package-info.java"/>
+    </touch>
+  </target>
+  
+</project>

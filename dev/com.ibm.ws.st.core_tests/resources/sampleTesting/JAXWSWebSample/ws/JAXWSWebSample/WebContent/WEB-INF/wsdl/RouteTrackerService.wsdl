@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://web.jaxws.sample.wasdev/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+	name="RouteTrackerService" targetNamespace="http://web.jaxws.sample.wasdev/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://web.jaxws.sample.wasdev/" elementFormDefault="unqualified"
+			targetNamespace="http://web.jaxws.sample.wasdev/" version="1.0">
+			<xs:element name="track" type="tns:track"></xs:element>
+			<xs:element name="trackResponse" type="tns:trackResponse"></xs:element>
+			<xs:complexType name="track">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="trackResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="track">
+		<wsdl:part element="tns:track" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="trackResponse">
+		<wsdl:part element="tns:trackResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="RouteTracker">
+		<wsdl:operation name="track">
+			<wsdl:input message="tns:track" name="track">
+			</wsdl:input>
+			<wsdl:output message="tns:trackResponse" name="trackResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="RouteTrackerServiceSoapBinding" type="tns:RouteTracker">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+		<wsdl:operation name="track">
+			<soap:operation soapAction="" style="document"></soap:operation>
+			<wsdl:input name="track">
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output name="trackResponse">
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="RouteTrackerService">
+		<wsdl:port binding="tns:RouteTrackerServiceSoapBinding"
+			name="RouteTrackerPort">
+			<soap:address
+				location="http://localhost:9080/JaxWsLibertyDemo/RouteTrackerService"></soap:address>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

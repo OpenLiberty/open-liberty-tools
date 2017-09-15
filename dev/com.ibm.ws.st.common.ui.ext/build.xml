@@ -1,0 +1,36 @@
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<project name="com.ibm.ws.st.common.ui.ext" default="build">
+	<property name="build.with.java.level" value="1.8"/>
+	<import file="../ant_build/public_imports/tooling_imports.xml"/>
+	<target name="build" depends="standard_targets.build"/>
+	<property name="version" value="${level_tag}" />
+	<property name="build_id" value="${buildLabel}"/>
+
+	<echo file="about.mappings"># about.mappings
+# contains fill-ins for about.properties
+# java.io.Properties file (ISO 8859-1 with "\" escapes)
+# This file is generated and does not need to be translated.
+0=${version}
+1=${build_id}
+	</echo>
+	
+</project>

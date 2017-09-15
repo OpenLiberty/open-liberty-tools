@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.6"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<plugin>
+
+  <extension-point id="serverUtilityUIEnablementExtension" name="%extensionPointServerUtilityUIEnablementExtension" schema="schema/serverUtilityUIEnablementExtension.exsd"/>
+  <extension-point id="customServerConfig" name="Custom Server Configuration" schema="schema/customServerConfig.exsd"/>
+  <extension-point id="siteManager" name="%extensionSiteManagerExtension" schema="schema/siteManager.exsd"/>
+
+
+  <extension point="org.eclipse.wst.server.ui.serverImages">
+    <image
+      id="com.ibm.ws.st.runtime.image"
+      icon="icons/obj16/liberty-was-lp-16.png"
+      typeIds="com.ibm.ws.st.runtime.v85.was,com.ibm.ws.st.runtime.wlp"/>
+    <image
+      id="com.ibm.ws.st.server.image"
+      icon="icons/obj16/liberty-was-lp-16.png"
+      typeIds="com.ibm.ws.st.server.v85.was,com.ibm.ws.st.server.wlp"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.common.project.facet.ui.images">
+    <image
+      runtime-component-type="com.ibm.ws.st.runtime"
+      path="icons/obj16/liberty-was-lp-16.png"/>
+    <image
+      runtime-component-type="com.ibm.ws.st.runtime.serviceVersion"
+      path="icons/obj16/liberty-was-lp-16.png"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.server.ui.wizardFragments">
+    <fragment
+       id="com.ibm.ws.st.runtime"
+       typeIds="com.ibm.ws.st.runtime.v85.was,com.ibm.ws.st.runtime.wlp"
+       class="com.ibm.ws.st.ui.internal.wizard.WebSphereRuntimeWizardFragment"/>
+    <fragment
+       id="com.ibm.ws.st.server"
+       typeIds="com.ibm.ws.st.server.v85.was,com.ibm.ws.st.server.wlp"
+       class="com.ibm.ws.st.ui.internal.wizard.WebSphereServerWizardContainer"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.server.ui.editorPageSections">
+      <section
+         id="com.ibm.ws.st.editor.general"
+         order="5"
+         insertionId="org.eclipse.wst.server.editor.overview.left"
+         typeIds="com.ibm.ws.st.server.*"
+         class="com.ibm.ws.st.ui.internal.ServerGeneralEditorSection"/>
+      <section
+            id="com.ibm.ws.st.editor.connectionSettings"
+            insertionId="org.eclipse.wst.server.editor.overview.right"
+            order="10"
+            typeIds="com.ibm.ws.st.server.wlp,com.ibm.ws.st.server.wlp.*"
+            class="com.ibm.ws.st.ui.internal.ServerEditorConnectionSettingsSection"/>
+      
+  </extension>
+
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes"> 
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+        <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.serviceVersion"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+  </extension>
+
+  <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+    <launchConfigurationTypeImage
+      id="com.ibm.ws.st.ui.launchConfigurationTypeImage"
+      configTypeID="com.ibm.ws.st.core.launchConfigurationType"
+      icon="icons/obj16/liberty-was-lp-16.png"/>
+    <launchConfigurationTypeImage
+      id="com.ibm.ws.st.ui.launchConfigurationTypeImage"
+      configTypeID="com.ibm.ws.st.core.utilityLaunchConfiguration"
+      icon="icons/obj16/liberty-was-lp-16.png"/>
+  </extension>
+
+  <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+    <launchConfigurationTabGroup
+      id="com.ibm.ws.st.ui.launchConfigurationTabGroup"
+      type="com.ibm.ws.st.core.launchConfigurationType"
+      class="com.ibm.ws.st.ui.internal.WebSphereLaunchConfigurationTabGroup"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.decorators">
+    <decorator
+       id="com.ibm.ws.st.ui.decorator"
+       label="%decoratorLabel"
+       icon="icons/obj16/liberty-was-lp-16.png"
+       lightweight="true"
+       location="BOTTOM_RIGHT"
+       state="true"
+       class="com.ibm.ws.st.ui.internal.ServerDecorator">
+      <description>%decoratorDescription</description>
+      <enablement>
+        <or>
+          <objectClass name="org.eclipse.wst.server.core.IServer"/>
+          <and>
+            <objectClass name="org.eclipse.core.resources.IFile"/>
+            <or>
+              <objectState
+                name="contentTypeId"
+                value="bootstrap.properties"/>
+              <objectState
+                name="contentTypeId"
+                value="jvm.options"/>
+              <objectState
+                name="contentTypeId"
+                value="server.env"/>
+            </or>
+          </and>
+        </or>
+      </enablement>
+    </decorator>
+  </extension>
+
+  <extension point="org.eclipse.ui.popupMenus">
+    <objectContribution
+      id="com.ibm.ws.st.ui.popupMenu"
+      objectClass="org.eclipse.wst.server.core.IServer">
+      <visibility>
+        <objectState name="serverType" value="com.ibm.ws.st.server.*"/>
+      </visibility>
+      <action
+        id="com.ibm.ws.st.ui.popupMenu.show.in.runtime.view"
+        enablesFor="1"
+        label="%viewRuntimes"
+        icon="icons/obj16/liberty-was-lp-16.png"
+        menubarPath="org.eclipse.ui.navigate.showInQuickMenu/additions"
+        class="com.ibm.ws.st.ui.internal.actions.ShowInRuntimeExplorerAction"/>
+      <action
+        id="com.ibm.ws.st.ui.popupMenu.clean"
+        enablesFor="1"
+        style="toggle"
+        label="%actionClean"
+        class="com.ibm.ws.st.ui.internal.actions.CleanAction"/>
+    </objectContribution>
+  </extension>
+
+  <extension point="org.eclipse.ui.viewActions">
+    <viewContribution
+      id="com.ibm.ws.st.ui.viewContribution"
+      targetID="org.eclipse.wst.server.ui.ServersView">
+      <action
+        id="com.ibm.ws.st.ui.view.action"
+        label="%pausePublishing"
+        icon="icons/obj16/pause_publish.gif"
+        toolbarPath="additions"
+        tooltip="%pausePublishing"
+        style="toggle"
+        state="false"
+        class="com.ibm.ws.st.ui.internal.actions.TogglePublishAction">
+        <enablement>
+          <and>
+            <objectClass name="org.eclipse.wst.server.core.IServer"/>
+            <objectState name="serverType" value="com.ibm.ws.st.server.*"/>
+          </and>
+        </enablement>
+      </action>
+    </viewContribution>
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.navigatorContent">
+    <navigatorContent
+       id="com.ibm.ws.st.ui.servers.content"
+       name="%navigatorContentProvider"
+       icon="icons/obj16/liberty-was-lp-16.png"
+       activeByDefault="true"
+       contentProvider="com.ibm.ws.st.ui.internal.DDETreeContentProvider"
+       labelProvider="com.ibm.ws.st.ui.internal.DDETreeLabelProvider">
+       <triggerPoints>
+         <adapt type="org.eclipse.wst.server.core.IServer"> 
+           <test
+             forcePluginActivation="true"
+             property="org.eclipse.wst.server.ui.serverType"
+             value="com.ibm.ws.st.server.*"/>
+         </adapt>
+       </triggerPoints>
+       <possibleChildren>
+         <or>
+           <instanceof value="org.w3c.dom.Node"/>
+           <instanceof value="org.eclipse.core.resources.IFile"/>
+           <instanceof value="com.ibm.ws.st.core.internal.config.ConfigurationFile"/>
+           <instanceof value="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+           <instanceof value="com.ibm.ws.st.core.internal.config.ExtendedConfigFile"/>
+         </or>
+       </possibleChildren>
+       <commonSorter class="com.ibm.ws.st.ui.internal.WebSphereViewerSorter">
+         <parentExpression>
+           <or>
+             <instanceof value="org.w3c.dom.Node"/>
+             <instanceof value="org.eclipse.wst.server.core.IServer"/>
+             <instanceof value="com.ibm.ws.st.ui.internal.CustomServerConfigTreeNode"/>
+           </or>
+         </parentExpression>
+       </commonSorter>
+       <actionProvider class="com.ibm.ws.st.ui.internal.actions.WebSphereActionProvider">
+         <enablement>
+           <or>
+             <instanceof value="org.w3c.dom.Element"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.IConfigurationElement"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.ExtendedConfigFile"/>
+             <adapt type="org.eclipse.wst.server.core.IServer">
+               <test
+                 forcePluginActivation="true"
+                 property="org.eclipse.wst.server.ui.serverType"
+                 value="com.ibm.ws.st.server.*"/>
+             </adapt>
+           </or>
+         </enablement>
+       </actionProvider>
+       <actionProvider
+         dependsOn="org.eclipse.wst.server.ui.ServersView.ServerActionProvider"
+         class="com.ibm.ws.st.ui.internal.actions.UtilityActionProvider">
+         <enablement>
+           <adapt type="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+         </enablement>
+       </actionProvider>
+       <actionProvider
+         dependsOn="org.eclipse.wst.server.ui.ServersView.ServerActionProvider"
+         class="com.ibm.ws.st.ui.internal.actions.LogActionProvider">
+         <enablement>
+           <adapt type="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+         </enablement>
+       </actionProvider>
+       <dropAssistant
+         id="com.ibm.ws.st.ui.dropAssistant2"
+         class="com.ibm.ws.st.ui.internal.ServerDropAdapter">
+         <possibleDropTargets>
+           <instanceof value="java.lang.Object"/>
+         </possibleDropTargets>
+       </dropAssistant>
+       <dropAssistant
+         id="com.ibm.ws.st.ui.dropAssistant"
+         class="com.ibm.ws.st.ui.internal.NavigatorDropAdapter">
+         <possibleDropTargets>
+           <or>
+             <instanceof value="org.w3c.dom.Element"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.ConfigurationFile"/>
+             <adapt type="org.eclipse.wst.server.core.IServer">
+               <test
+                 forcePluginActivation="true"
+                 property="org.eclipse.wst.server.ui.serverType"
+                 value="com.ibm.ws.st.server.*"/>
+             </adapt>
+           </or>
+         </possibleDropTargets>
+       </dropAssistant>
+    </navigatorContent>
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding
+      viewerId="org.eclipse.wst.server.ui.ServersView">
+      <includes>
+        <contentExtension pattern="com.ibm.ws.st.ui.servers.content"/>
+      </includes>
+    </viewerContentBinding>
+  </extension>
+
+  <extension point="org.eclipse.wst.server.ui.serverToolTip">
+    <serverToolTip
+      id="com.ibm.ws.st.ui.serverToolTip"
+      class="com.ibm.ws.st.ui.internal.WebSphereServerToolTip"
+      serverTypes="com.ibm.ws.st.server.*"/>
+  </extension>
+
+  <extension point="org.eclipse.core.runtime.adapters">
+    <factory
+      class="com.ibm.ws.st.ui.internal.ResourceAdapterFactory"
+      adaptableType="com.ibm.ws.st.core.internal.config.ConfigurationFile">
+      <adapter type="org.eclipse.ui.IActionFilter"/>
+    </factory>
+    <factory
+      adaptableType="org.w3c.dom.Element"
+      class="com.ibm.ws.st.ui.internal.DocumentServerAdapter">
+      <adapter type="org.eclipse.wst.server.core.IServer"/>
+    </factory>
+    <factory
+      adaptableType="org.eclipse.wst.server.core.IServer"
+      class="com.ibm.ws.st.ui.internal.DocumentServerAdapter">
+      <adapter type="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+    </factory>
+    <factory
+      adaptableType="org.w3c.dom.Element"
+      class="com.ibm.ws.st.ui.internal.DocumentServerAdapter">
+      <adapter type="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+    </factory>
+    <factory
+      class="com.ibm.ws.st.ui.internal.ResourceAdapterFactory"
+      adaptableType="org.eclipse.wst.server.core.IRuntime">
+      <adapter type="org.eclipse.ui.model.IWorkbenchAdapter"/>
+    </factory>
+  </extension>
+
+  <extension point="org.eclipse.ui.views"> 
+    <view
+      id="com.ibm.ws.st.ui.runtime.view"
+      name="%viewRuntimes"
+      category="org.eclipse.wst.server.ui"
+      allowMultiple="false"
+      icon="icons/obj16/liberty-was-lp-16.png"
+      class="com.ibm.ws.st.ui.internal.RuntimeExplorerView"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.navigatorContent">
+    <navigatorContent
+       id="com.ibm.ws.st.ui.runtime.content"
+       name="%navigatorContentProviderRuntime"
+       icon="icons/obj16/liberty-was-lp-16.png"
+       activeByDefault="true"
+       contentProvider="com.ibm.ws.st.ui.internal.RuntimeContentProvider"
+       labelProvider="com.ibm.ws.st.ui.internal.DDETreeLabelProvider">
+       <triggerPoints>
+       </triggerPoints>
+       <possibleChildren>
+         <or>
+           <instanceof value="org.w3c.dom.Node"/>
+           <instanceof value="org.eclipse.core.resources.IFile"/>
+           <instanceof value="com.ibm.ws.st.core.internal.config.IConfigurationElement"/>
+           <instanceof value="java.lang.Object"/>
+         </or>
+       </possibleChildren>
+       <commonSorter
+         class="com.ibm.ws.st.ui.internal.WebSphereViewerSorter">
+         <parentExpression>
+           <or>
+             <instanceof value="org.w3c.dom.Node"/>
+             <instanceof value="org.eclipse.wst.server.core.IRuntime"/>
+             <instanceof value="com.ibm.ws.st.core.internal.UserDirectory"/>
+             <instanceof value="com.ibm.ws.st.ui.internal.RuntimeExplorer$Node"/>
+             <instanceof value="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.IConfigurationElement"/>
+           </or>
+         </parentExpression>
+       </commonSorter>
+       <actionProvider
+         id="com.ibm.ws.st.ui.runtime.actionProvider"
+         class="com.ibm.ws.st.ui.internal.actions.RuntimeExplorerViewActionProvider">
+         <enablement>
+           <or>
+             <instanceof value="org.w3c.dom.Element"/>
+             <instanceof value="org.eclipse.wst.server.core.IRuntime"/>
+             <instanceof value="com.ibm.ws.st.core.internal.UserDirectory"/>
+             <instanceof value="com.ibm.ws.st.ui.internal.RuntimeExplorer$Node"/>
+             <instanceof value="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.IConfigurationElement"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.ExtendedConfigFile"/>
+             <adapt type="java.util.Collection">
+               <count value="0"/>
+             </adapt>
+           </or>
+         </enablement>
+       </actionProvider>
+       <actionProvider
+         dependsOn="com.ibm.ws.st.ui.runtime.actionProvider"
+         class="com.ibm.ws.st.ui.internal.actions.UtilityActionProvider">
+         <enablement>
+           <adapt type="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+         </enablement>
+       </actionProvider>
+        <actionProvider
+         dependsOn="com.ibm.ws.st.ui.runtime.actionProvider"
+         class="com.ibm.ws.st.ui.internal.actions.LogActionProvider">
+         <enablement>
+           <adapt type="com.ibm.ws.st.core.internal.WebSphereServerInfo"/>
+         </enablement>
+       </actionProvider>
+       <dropAssistant
+         id="com.ibm.ws.st.server.ui.dropAssistant3"
+         class="com.ibm.ws.st.ui.internal.RuntimeDropAdapter">
+         <possibleDropTargets>
+           <or>
+             <instanceof value="java.lang.Object"/>
+           </or>
+         </possibleDropTargets>
+       </dropAssistant>
+       <dropAssistant
+         id="com.ibm.ws.st.server.ui.dropAssistant2"
+         class="com.ibm.ws.st.ui.internal.NavigatorDropAdapter">
+         <possibleDropTargets>
+           <or>
+             <instanceof value="org.w3c.dom.Element"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.ConfigurationFolder"/>
+             <instanceof value="com.ibm.ws.st.ui.internal.RuntimeExplorer$Node"/>
+             <instanceof value="com.ibm.ws.st.core.internal.config.ConfigurationFile"/>
+           </or>
+         </possibleDropTargets>
+       </dropAssistant>
+    </navigatorContent>
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding
+      viewerId="com.ibm.ws.st.ui.runtime.view">
+      <includes>
+        <contentExtension isRoot="true" pattern="com.ibm.ws.st.ui.runtime.content"/>
+      </includes>
+    </viewerContentBinding>
+  </extension>
+
+  <extension point="org.eclipse.debug.ui.consoleLineTrackers">
+    <consoleLineTracker
+      id="com.ibm.ws.st.ui.consoleLineTracker"
+      processType="java"
+      class="com.ibm.ws.st.ui.internal.ConsoleLineTracker"/>
+    <consoleLineTracker
+      id="com.ibm.ws.st.ui.package.consoleLineTracker"
+      processType="websphere.utility"
+      class="com.ibm.ws.st.ui.internal.utility.UtilityConsoleLineTracker"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.workbench.texteditor.hyperlinkDetectors">
+    <hyperlinkDetector
+      id="com.ibm.ws.st.ui.configHyperlinkDetector"
+      name="%configHyperlinkDetector"
+      targetId="org.eclipse.core.runtime.xml"
+      class="com.ibm.ws.st.ui.internal.ConfigHyperlinkDetector">
+    </hyperlinkDetector>
+  </extension>
+
+  <extension point="org.eclipse.ui.editors">
+    <editor
+      id="com.ibm.ws.st.ui.configuration.editor"
+      icon="icons/obj16/configurationFile.gif"
+      name="%editorConfiguration"
+      class="com.ibm.xwt.dde.editor.DDEMultiPageEditorPart">
+      <contentTypeBinding contentTypeId="com.ibm.ws.st.configuration"/>
+    </editor>
+  </extension>
+
+  <extension point="com.ibm.xwt.dde.customization">
+    <customization
+      id="com.ibm.ws.st.ui.configuration.editor"
+      customizationFile="xml/CustomizationFile.xml"
+      translations="/xml/Customization.properties"
+      debugMode="false"/>
+  </extension>
+  
+  <extension point="org.eclipse.wst.sse.ui.editorConfiguration">
+    <provisionalConfiguration
+      type="org.eclipse.jface.text.quickassist.IQuickAssistProcessor"
+      target="org.eclipse.wst.xml.XML_DEFAULT"
+      class="com.ibm.ws.st.ui.internal.marker.QuickFixProcessor"/>
+  </extension>
+  
+  <!-- Disable spell checking in elements e.g. <feature>jsp-2.2</feature> -->
+  <extension point="org.eclipse.wst.sse.ui.editorConfiguration">
+	<provisionalDefinition
+		type="spellingregions"
+		value="XML_COMMENT_TEXT"
+		target="com.ibm.ws.st.configuration" />
+	<provisionalDefinition
+		type="ignorebasetypes"
+		value="spellingregions"
+		target="com.ibm.ws.st.configuration" />
+  </extension>
+
+  <extension point="org.eclipse.ui.editors">
+    <editor
+      id="com.ibm.ws.st.ui.merge.editor"
+      name="%editorMergedConfiguration"
+      icon="/icons/obj16/configurationFile.gif"
+      class="com.ibm.ws.st.ui.internal.merge.MergedConfigurationEditor"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.elementFactories">
+    <factory
+      id="com.ibm.ws.st.ui.merge.elementFactory"
+      class="com.ibm.ws.st.ui.internal.merge.MergedConfigurationEditorInput"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.propertyPages">
+    <page
+      id="com.ibm.ws.st.ui.properties.productInfo"
+      name="%propertiesProductInfo"
+      class="com.ibm.ws.st.ui.internal.ProductInfoPropertyPage">
+       <enabledWhen>
+         <or>
+           <and>
+             <adapt type="org.eclipse.wst.server.core.IRuntime"/>
+             <test
+               forcePluginActivation="true"
+               property="com.ibm.ws.st.runtimeType"
+               value="com.ibm.ws.st.runtime.*"/>
+           </and>
+           <and>
+             <adapt type="org.eclipse.wst.server.core.IServer"/>
+             <test
+               forcePluginActivation="true"
+               property="org.eclipse.wst.server.ui.serverType"
+               value="com.ibm.ws.st.server.*"/>
+           </and>
+         </or>
+       </enabledWhen>
+    </page>
+    <page
+      id="com.ibm.ws.st.ui.config.valIgnorePage"
+      class="com.ibm.ws.st.ui.internal.config.IgnoreFilterPropertyPage"
+      name="%valIgnoreFilterPageName"
+      category="ValidationPropertiesPage">
+      <enabledWhen>
+        <and>
+   		  <adapt type="org.eclipse.core.resources.IProject"/>
+   		  <test forcePluginActivation="false" property="com.ibm.ws.st.runtimeResource"/>
+        </and>
+      </enabledWhen>
+    </page>
+    <page
+      id="com.ibm.ws.st.ui.classpath"
+      class="com.ibm.ws.st.ui.internal.ClasspathPropertyPage"
+      name="%rootPropertyPage">
+      <enabledWhen>
+        <and>
+   		  <adapt type="org.eclipse.core.resources.IProject"/>
+   		  <test forcePluginActivation="false" property="com.ibm.ws.st.runtimeTarget"/>
+        </and>
+      </enabledWhen>
+    </page>
+    <page
+      id="com.ibm.ws.st.ui.requiredFeatures"
+      class="com.ibm.ws.st.ui.internal.RequiredFeaturesPropertyPage"
+      name="%featurePropertyPage"
+      category="com.ibm.ws.st.ui.classpath">
+      <enabledWhen>
+        <and>
+   		  <adapt type="org.eclipse.core.resources.IProject"/>
+   		  <test forcePluginActivation="false" property="com.ibm.ws.st.runtimeTarget"/>
+        </and>
+      </enabledWhen>
+    </page>
+  </extension>
+
+  <extension point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+      id="com.ibm.ws.st.ui.property.runtimeType"
+      namespace="com.ibm.ws.st"
+      properties="runtimeType"
+      type="java.lang.Object"
+      class="com.ibm.ws.st.ui.internal.RuntimePropertyTester"/>
+    <propertyTester
+      id="com.ibm.ws.st.ui.property.runtimeResource"
+      namespace="com.ibm.ws.st"
+      properties="runtimeResource"
+      type="java.lang.Object"
+      class="com.ibm.ws.st.ui.internal.plugin.RuntimeResourcePropertyTester"/>
+    <propertyTester
+      id="com.ibm.ws.st.ui.property.runtimeTarget"
+      namespace="com.ibm.ws.st"
+      properties="runtimeTarget"
+      type="java.lang.Object"
+      class="com.ibm.ws.st.ui.internal.plugin.RuntimeResourcePropertyTester"/>
+    <propertyTester
+      id="com.ibm.ws.st.ui.property.serverType"
+      namespace="com.ibm.ws.st"
+      properties="serverType"
+      type="java.lang.Object"
+      class="com.ibm.ws.st.ui.internal.plugin.ServerPropertyTester"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.ide.markerResolution">
+    <markerResolutionGenerator
+      markerType="com.ibm.ws.st.core.configmarker"
+      class="com.ibm.ws.st.ui.internal.marker.MarkerResolutionGenerator"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.server.ui.serverImages">
+    <image
+      id="com.ibm.ws.st.external.module.app"
+      typeIds="was.external"
+      icon="icons/obj16/externalApp.gif"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.newWizards">
+ 	 <wizard
+	   id="com.ibm.ws.st.ui.wizards.newConfigFile"
+      name="%newConfigFileWizardName"
+	   class="com.ibm.ws.st.ui.internal.NewConfigFileWizard"
+	   category="org.eclipse.wst.server.ui"
+	   icon="icons/obj16/configurationFile.gif">
+      <description>%newConfigFileWizardDesc</description>
+	   <selection class="org.eclipse.core.resources.IResource"/>
+	 </wizard>
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.navigatorContent">
+    <commonWizard
+      type="new"
+      wizardId="com.ibm.ws.st.ui.wizards.newConfigFile">
+      <enablement>
+		  <or>
+		    <adapt type="org.eclipse.core.resources.IResource">
+            <test
+              forcePluginActivation="false"
+              property="com.ibm.ws.st.runtimeResource"/>
+          </adapt>
+		  </or>
+	   </enablement>
+    </commonWizard>
+  </extension>
+
+  <extension point="org.eclipse.jst.jsp.ui.classPatternProvider">
+    <classPatternProvider
+      contentType="org.eclipse.jst.jsp.core.jspsource"
+      pattern="com.ibm._jsp.*,_ibmjsp.*,com.ibm.ws.jsp.tagfile.*"/>
+    <classPatternProvider
+      contentType="org.eclipse.jst.jsp.core.tagsource"
+      pattern="com.ibm._jsp.*,_ibmjsp.*,com.ibm.ws.jsp.tagfile.*"/>
+    <classPatternProvider
+      contentType="org.eclipse.jst.jsp.core.cssjspsource"
+      pattern="com.ibm._jsp.*,_ibmjsp.*,com.ibm.ws.jsp.tagfile.*"/>
+    <classPatternProvider
+      contentType="org.eclipse.jst.jsp.core.jspfragmentsource"
+      pattern="com.ibm._jsp.*,_ibmjsp.*,com.ibm.ws.jsp.tagfile.*"/>
+    <classPatternProvider
+      contentType="org.eclipse.jst.jsp.core.cssjspfragmentsource"
+      pattern="com.ibm._jsp.*,_ibmjsp.*,com.ibm.ws.jsp.tagfile.*"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.sse.ui.completionProposal">
+    <proposalCategory
+      id="com.ibm.ws.st.ui.config.proposalCategory"
+      name="%sourceEditorContentAssistName">
+    </proposalCategory>
+    <proposalComputer
+      activate="false"
+      categoryId="com.ibm.ws.st.ui.config.proposalCategory"
+      class="com.ibm.ws.st.ui.internal.config.ConfigCompletionProposalComputer"
+      id="com.ibm.ws.st.ui.config.proposalComputer">
+      <contentType
+        id="com.ibm.ws.st.configuration">
+        <partitionType
+          id="org.eclipse.wst.xml.XML_DEFAULT">
+        </partitionType>
+      </contentType>
+    </proposalComputer>
+  </extension>
+  
+  <extension point="org.eclipse.core.expressions.propertyTesters">
+    <propertyTester
+      id="com.ibm.ws.st.ui.property.configFile"
+      namespace="com.ibm.ws.st"
+      properties="isConfigFile"
+      type="org.eclipse.core.resources.IFile"
+      class="com.ibm.ws.st.ui.internal.ConfigurationFileTester"/>
+  </extension>
+  
+  <extension point="org.eclipse.ui.navigator.navigatorContent">
+    <navigatorContent
+       id="com.ibm.ws.st.ui.config.content"
+       name="%configNavigatorContent"
+       icon="icons/obj16/configFile.gif"
+       activeByDefault="true"
+       contentProvider="com.ibm.ws.st.ui.internal.ConfigurationResourceContentProvider"
+       labelProvider="com.ibm.ws.st.ui.internal.DDETreeLabelProvider">
+       <triggerPoints>
+         <and>
+           <instanceof value="org.eclipse.core.resources.IFile"/>
+           <test forcePluginActivation="false" property="com.ibm.ws.st.isConfigFile"/>
+         </and>
+       </triggerPoints>
+       <possibleChildren>
+         <instanceof value="org.w3c.dom.Node"/>
+       </possibleChildren>
+       <actionProvider
+         class="com.ibm.ws.st.ui.internal.ConfigurationResourceActionProvider">
+         <enablement>
+           <instanceof value="org.w3c.dom.Element"/>
+         </enablement>
+       </actionProvider>
+    </navigatorContent>
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding
+      viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+      <includes>
+        <contentExtension pattern="com.ibm.ws.st.ui.config.content"/>
+      </includes>
+    </viewerContentBinding>
+  </extension>
+  
+  <extension point="org.eclipse.ui.popupMenus"> 
+    <objectContribution 
+      id="com.ibm.ws.st.ui.config.resource.openActions"
+      objectClass="org.eclipse.core.resources.IFile"
+      nameFilter="*.xml">
+      <visibility>
+        <objectState name="contentTypeId" value="com.ibm.ws.st.configuration" />
+      </visibility>
+      <menu
+         label="%libertyMenu"
+         path="additions"
+         id="libertyProfileTools">
+         <separator name="config"/>
+      </menu>
+      <action
+         id="com.ibm.ws.st.ui.config.resource.openMergedView" 
+         label="%openMergedViewMenuItem"
+         enablesFor="1"
+         menubarPath="libertyProfileTools/config"
+         class="com.ibm.ws.st.ui.internal.actions.OpenMergedConfigObjectActionDelegate"> 
+      </action> 
+      <action
+         id="com.ibm.ws.st.ui.config.resource.openSchemaReference" 
+         label="%openSchemaRefMenuItem"
+         enablesFor="1"
+         menubarPath="libertyProfileTools/config"
+         class="com.ibm.ws.st.ui.internal.actions.OpenSchemaBrowserObjectActionDelegate"> 
+      </action> 
+    </objectContribution> 
+  </extension>
+  
+  <extension point="com.ibm.ws.st.core.libertyX509CertPathValidator">
+      <libertyX509CertPathValidator class="com.ibm.ws.st.ui.internal.security.LibertyX509CertPathValidatorRunner"/>
+   </extension>
+   
+   <extension point="com.ibm.ws.st.core.libertyConfigConflictHandler">
+      <libertyConfigConflictHandler class="com.ibm.ws.st.ui.internal.LibertyUIConfigConflictHandler"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.preferencePages">
+	  <page id="com.ibm.ws.st.ui.preferences.liberty.server"
+		 class="com.ibm.ws.st.ui.internal.preferences.LibertyServerPreferencesPage" name="%libertyServerPreferencesPageLabel"
+		 category="org.eclipse.wst.server.ui.preferencePage">
+	  </page>
+   </extension>
+
+</plugin>

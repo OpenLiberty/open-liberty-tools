@@ -1,0 +1,7 @@
+# Debugging options for the com.ibm.ws.st.jee.ui plugin
+
+# Turn on general debugging - jee ui
+com.ibm.ws.st.jee.ui/debug=false
+com.ibm.ws.st.jee.ui/debug/info=true
+com.ibm.ws.st.jee.ui/debug/warning=true
+

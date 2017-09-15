@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="WebFrag_Web">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="WebFrag_Frag1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WebFrag_Frag1/WebFrag_Frag1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="WebFrag_Frag2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/WebFrag_Frag2/WebFrag_Frag2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="WebFrag_Web"/>
+        <property name="java-output-path" value="/WebFrag_Web/build/classes"/>
+    </wb-module>
+</project-modules>

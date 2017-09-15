@@ -1,0 +1,239 @@
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<FindBugsFilter>
+   <!-- See http://findbugs.sourceforge.net/manual/filter.html for details of the syntax of this file -->
+   
+   <!-- IDEs do not support multiple users -->
+   <Match>
+     <Bug pattern="DJV_CONSTRUCT_INSIDE_DO_PRIVILEGED, DJV_DO_INSIDE_DO_PRIVILEGED"/>
+   </Match>
+   
+   <!-- OK to ignore return value since install directory must be empty, we do validation in install wizard -->
+   <Match>
+     <Bug pattern="RV_RETURN_VALUE_IGNORED_BAD_PRACTICE"/>
+     <Class name="com.ibm.ws.st.ui.internal.download.DownloadHelper"/>
+     <Method name="install"/>
+   </Match>
+
+   <!-- Eclipse tracing pattern uses sysout, syserr, and printstacktrace.
+        Implementation uses a static field, written from the Activator -->
+   <!-- Not expecting the SimpleDateFormat static instance to be used by multiple threads -->
+   <Match>
+     <Bug pattern="SYSTEM_ERR_USED, SYSTEM_OUT_USED, THROWABLE_PRINT_STACK_TRACE_CALLED, MS_PKGPROTECT, MS_CANNOT_BE_FINAL, MS_SHOULD_BE_FINAL, STCAL_INVOKE_ON_STATIC_DATE_FORMAT_INSTANCE"/>
+     <Class name="com.ibm.ws.st.ui.internal.Trace"/>
+   </Match>
+   <Match>
+     <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD"/>
+     <Or>
+       <Class name="com.ibm.ws.st.ui.internal.Activator"/>
+       <Class name="com.ibm.ws.st.ui.internal.Trace$1"/>
+     </Or>
+   </Match>
+
+   <!-- Error page listener requires a thread to monitor a port -->
+   <Match>
+     <Bug pattern="THREAD_START_CALLED"/>
+     <Class name="com.ibm.ws.st.ui.internal.ErrorPageListener"/>
+   </Match>
+
+   <!-- Ok for UI elements to directly return children -->
+   <Match>
+     <Bug pattern="EI_EXPOSE_REP"/>
+     <Class name="com.ibm.ws.st.ui.internal.RuntimeExplorer$Node"/>
+   </Match>
+
+   <!-- Exceptions for download wizard -->
+   <Match>
+     <Bug pattern="THREAD_START_CALLED"/>
+     <Class name="com.ibm.ws.st.ui.internal.download.DownloaderWizardPage"/>
+   </Match>
+   <Match>
+     <Bug pattern="MS_EXPOSE_REP"/>
+     <Class name="com.ibm.ws.st.ui.internal.download.DownloadHelper"/>
+   </Match>
+   <Match>
+     <Bug pattern="DMI_HARDCODED_ABSOLUTE_FILENAME"/>
+     <Class name="com.ibm.ws.st.ui.internal.download.LocalRuntimeDownloader"/>
+   </Match>
+   
+     <!-- Excluding these presuming that nobody will run equals on an object of this class -->
+   <Match>
+     <Bug pattern="EQ_DOESNT_OVERRIDE_EQUALS"/>
+     <Class name="com.ibm.ws.st.ui.internal.config.FileConfigEditorInput"/>
+   </Match>
+   <Match>
+     <Bug pattern="EQ_DOESNT_OVERRIDE_EQUALS"/>
+     <Class name="com.ibm.ws.st.ui.internal.config.FileStoreConfigEditorInput"/>
+   </Match>
+
+   <!-- Exceptions for PromptDialog -->
+   <Match>
+     <Bug pattern="EI_EXPOSE_REP"/>
+     <Class name="com.ibm.ws.st.ui.internal.PromptDialog"/>
+   </Match>
+   <Match>
+     <Bug pattern="EI_EXPOSE_REP2"/>
+     <Class name="com.ibm.ws.st.ui.internal.PromptDialog"/>
+   </Match>
+   
+   <!-- The runtime field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_NULL_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.DeleteAction"/>
+   </Match>
+   
+   <!-- The runtime field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.EditRuntimeAction"/>
+   </Match>
+   
+   <!-- The runtime field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.NewServerAction"/>
+   </Match>
+   
+   <!-- The runtime field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.NewWebSphereServerAction"/>
+   </Match>
+   
+   <!-- The uri, file, xpath fields are being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD, UWF_NULL_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.OpenConfigFileAction"/>
+   </Match>
+   
+   <!-- The file field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_NULL_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.OpenFolderAction"/>
+   </Match>
+   
+   <!-- The uri field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.OpenMergedConfigAction"/>
+   </Match>
+   
+   <!-- The uri field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.OpenSchemaBrowserAction"/>
+   </Match>
+   
+   <!-- The objectToRefresh field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.RefreshAction"/>
+   </Match>
+   
+   <!-- The refreshServer field is being set in selectionChanged inside the while loop -->
+   <Match>
+     <Bug pattern="UWF_NULL_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.RefreshConfigFileAction"/>
+   </Match>
+   
+   <!-- The server field is being set in selectionChanged -->
+   <Match>
+     <Bug pattern="UWF_UNWRITTEN_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.actions.ShowInServersAction"/>
+   </Match>
+   
+   <!-- The lastUpdate field is being read/set in updateContent -->
+   <Match>
+     <Bug pattern="URF_UNREAD_FIELD"/>
+     <Class name="com.ibm.ws.st.ui.internal.merge.MergedConfigurationEditor"/>
+   </Match>
+   
+   <!-- The loop will exist when getParent() is null or c is an instance of Section -->
+   <Match>
+     <Bug pattern="IL_INFINITE_LOOP"/>
+     <Class name="com.ibm.ws.st.ui.internal.merge.SchemaViewer"/>
+     <Method name="getFormParent"/>
+   </Match>
+   
+   <!-- OK to use default encoding -->
+   <Match>
+     <Bug pattern="DM_DEFAULT_ENCODING"/>
+     <Or>
+       <Class name="com.ibm.ws.st.ui.internal.HTTPHandler"/>
+       <Class name="com.ibm.ws.st.ui.internal.NewConfigFileWizard$NewConfigFilePage"/>
+       <Class name="com.ibm.ws.st.ui.internal.config.IncludeBrowser"/>
+       <Class name="com.ibm.ws.st.ui.internal.download.iwm.PageUtils"/>
+       <Class name="com.ibm.ws.st.ui.internal.utility.UtilityMessageHelper"/>
+     </Or>
+   </Match>
+   
+   <!-- Ok for label provider to return internal array -->
+   <Match>
+     <Bug pattern="EI_EXPOSE_REP"/>
+     <Class name="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+   </Match>
+
+   <!-- Exclude all packages on crytpo.jar -->
+   <Match>
+     <Package name="~com\.ibm\.ISecurityUtilityImpl"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.websphere\.crypto"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.websphere\.ssl"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.ws\.crypto\.config"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.ws\.security\.util"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.ws\.ssl"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.ws\.ssl\..*"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.wsspi\.security\.crypto"/>
+   </Match>
+   
+   <Match>
+     <Package name="~com\.ibm\.wsspi\.ssl"/>
+   </Match>
+   
+   <!-- OK to ignore return value since install directory must be empty, we do validation in install wizard -->
+   <Match>
+     <Bug pattern="RV"/>
+     <Or>
+       <Class name="com.ibm.ws.st.ui.internal.download.DownloadHelper"/>
+       <Method name="install"/>
+     </Or>
+   </Match>
+</FindBugsFilter>

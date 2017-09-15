@@ -1,0 +1,343 @@
+/***********************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+************************************************************************/
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.ajoberstar:grgit:1.7.2'
+    }
+}
+
+// Declare ant deps and classpath separately
+repositories {
+    mavenCentral()
+}
+configurations {
+    antcp
+    antScp
+}
+dependencies {
+    antcp 'org.apache.ivy:ivy:2.4.0'
+    antcp 'ant-contrib:ant-contrib:1.0b3'
+    antcp 'org.osgi:org.osgi.core:4.3.0'
+    antcp 'asm:asm-all:3.3.1'
+    antcp 'org.apache.aries:org.apache.aries.util:1.1.3'
+
+    antScp 'org.apache.ant:ant-jsch:1.7.1', 'jsch:jsch:0.1.29'
+}
+
+defaultTasks 'build'
+
+task importAnt {
+    ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
+    configurations.antcp.each { 
+    		File f ->
+            antClassLoader.addURL(f.toURI().toURL())
+    }
+
+    // The below taskdefs are only used in prereqs.xml. build-wdt.xml has its taskdefs loaded in the ant code.
+    ant.taskdef(resource:'net/sf/antcontrib/antlib.xml',classpath:configurations.antcp.asPath)
+    ant.taskdef(uri:'antlib:org.apache.ivy.ant', resource:'org/apache/ivy/ant/antlib.xml',classpath: configurations.antcp.asPath)
+
+    // prereqs uses ivy to resolve and download our runtime dependencies and some open source libs
+    // and move them into /lib/ folders of dependant plugins
+    ant.importBuild('ant_build/prereqs/prereqs.xml')
+    // build-wdt contains the generateOpenLTUpdateSite target, which is the entry point
+    // for the compilation and assembling of updatesites
+    ant.importBuild('ant_build/build-wdt.xml')
+}
+
+def projDir = projectDir.getAbsolutePath()
+def antBuildFolderPath = projDir + project.properties['ant.build.folder']
+def targetPlatformFolder = file(projDir + project.properties['target.platform.folder'])
+
+import org.ajoberstar.grgit.Grgit;
+
+// Download our current target platform. This contains our eclipse dependencies,
+// which we must compile against.
+task cloneTargetPlatform {
+    doLast{
+        def targetPlatformGitURL = project.properties['target.platform.url']
+
+        if (!targetPlatformFolder.exists() || targetPlatformFolder.listFiles().length == 0) {
+            println 'Clone target platform from ' + targetPlatformGitURL
+            Grgit.clone(dir: targetPlatformFolder, uri: targetPlatformGitURL)
+            println 'Cloning of target platform completed into ' + targetPlatformFolder
+        } else {
+            println 'Target platform already exists at ' + targetPlatformFolder
+        }
+    }
+}
+
+// file to download the sdk archive into
+def eclipseSdkArchive = file(projDir + project.properties['eclipse.sdk.archive.location'])
+// folder to extract the sdk archive into
+def eclipseSdkFolder  = file(projDir + project.properties['eclipse.sdk.folder'])
+
+// Download an Eclipse install archive. This provides APIs used to assemble the updatesites.
+task downloadEclipseSDK {
+    doLast {
+        def eclipseSdkArchiveURL = new URL(project.properties['eclipse.sdk.url'])
+
+        if(!eclipseSdkFolder.exists() || targetPlatformFolder.listFiles().length == 0) {
+            eclipseSdkFolder.mkdir()
+            println 'Downloading Eclipse SDK into ' + eclipseSdkArchive.getAbsolutePath()
+            eclipseSdkArchiveURL.withInputStream{ i -> eclipseSdkArchive.withOutputStream{ it << i }}
+            println 'Finished downloading Eclipse SDK'
+
+            println 'Untar into ' + eclipseSdkFolder
+            copy {
+                from tarTree(eclipseSdkArchive)
+                into eclipseSdkFolder
+            }
+        }
+        else {
+            println eclipseSdkFolder.getAbsolutePath() + ' already exists.'
+        }
+    }
+}
+
+// Download all prereqs required to compile and build OpenLT
+task preparePrereqs {
+    preparePrereqsIvy.dependsOn importAnt
+    preparePrereqs.dependsOn preparePrereqsIvy
+    preparePrereqs.dependsOn cloneTargetPlatform
+    preparePrereqs.dependsOn downloadEclipseSDK
+}
+
+// Main task for this file - prepare prereqs, compile, and generate updatesites into artifacts/
+task build { }
+compile.dependsOn preparePrereqs
+generateOpenLTUpdateSite.dependsOn preparePrereqs
+build.dependsOn generateOpenLTUpdateSite
+
+//// build version from the artifacts to avoid version mismatch
+import static groovy.io.FileType.FILES
+
+def getBuildLabelFromArtifact() {
+	def filePrefix = System.getenv("FILE_PREFIX")
+	def buildLabel = ""
+
+	def files = ant.path {
+        	fileset(dir: 'ant_build/artifacts/', includes: "${filePrefix}*.zip")
+    }
+
+    files.list().each { file ->
+
+    	File aFile = new File(file)
+    	String fileName = aFile.getName()
+
+    	buildLabel = (fileName =~ "${filePrefix}(.*).zip")[0][1]
+
+		if (buildLabel.isEmpty()) {
+			buildLabel = ant.properties['buildLabel']
+			println "Unable to grab build label - ant buildLabel is used instead."
+		}
+    }
+	return buildLabel
+}
+
+import groovy.json.*
+
+//// This method generates '${infoJson}' file in each build
+def createJSONForBuild(version) {
+        def infoJson = System.getenv("INFO_JSON")
+        def filePrefix = System.getenv("FILE_PREFIX")
+        def buildLog = System.getenv("BUILD_LOG")
+    
+        println "Creating ${infoJson} for ${version}."
+
+        // Create JSON descriptor
+        File infoJsonFile = new File("${rootDir}/${version}/${infoJson}")
+        infoJsonFile.createNewFile()
+
+        infoJsonFile.text = JsonOutput.prettyPrint(JsonOutput.toJson([
+                                            build_log: "${buildLog}",
+                                            driver_location: "${filePrefix}${version}.zip"
+                                            ]))
+}
+
+// deploy build to DHE
+task deployDHE {
+
+    doLast {
+        def packageName
+        def version = getBuildLabelFromArtifact()
+        def travisType = System.getenv("TRAVIS_EVENT_TYPE")
+
+        boolean skipDeploy = false;
+
+        if (travisType == "cron") {
+            packageName = "nightly"
+        }
+        else if (travisType == "release") {
+            packageName = "release"
+        }
+        else {
+            println "Skipping deploy; this is not a travis build or a release build"
+            skipDeploy = true;
+        }
+
+        if(!skipDeploy) {
+            println "Publishing ${packageName} build: ${version}"
+            
+            def infoJson = System.getenv("INFO_JSON")
+            
+            def toPublishDir = "${rootDir}/${version}"
+            mkdir(toPublishDir)
+
+			if (packageName != "nightly") {
+            		createJSONForBuild("${version}")
+            }
+
+            // Put all files to be published into a directory
+            def toPublish = ant.path {
+                fileset(dir: 'ant_build/artifacts/', includes: "*.zip")
+                fileset(dir: "${rootDir}", includes: System.getenv("BUILD_LOG"))
+            }
+
+            toPublish.list().each { file ->
+                println "Publishing " + file
+                copy {
+                    from file
+                    into toPublishDir
+                }
+            }
+
+            def user = System.getenv("gsaid")
+            def host = System.getenv("dhe_server")
+            def pw = System.getenv("gsapw")
+
+            if(user == null || user.isEmpty()) {
+                throw new GradleException("gsaid is not set!")
+            }
+            if(pw == null || pw.isEmpty()) {
+                throw new GradleException("gsapw is not set!")
+            }
+            if(host == null || host.isEmpty()) {
+                throw new GradleException("dhe_server is not set!")
+            }
+
+            def userAtHost = user + "@" + host
+            def dir = "/www/stage/export/pub/software/openliberty/tools"
+            def destDHEStaging = userAtHost + ':' + dir
+
+            println "Publishing build: ${version}"
+
+            ant.taskdef(name: 'scp', classname: 'org.apache.tools.ant.taskdefs.optional.ssh.Scp',
+                classpath: configurations.antScp.asPath)
+
+            ant.scp(todir: "${destDHEStaging}/${packageName}/",
+                    password: "${pw}",
+                    trust: "yes",
+                    sftp: "true",
+                    failOnError: "true",
+                    verbose: "true") {
+                        fileset(dir: "${rootDir}", includes: "${version}/*")
+                    }
+
+            file(toPublishDir).deleteDir()
+
+			if (packageName != "nightly") {
+
+                //// Update '${packageName}/${infoJson}' with the newly published build
+                ant.touch(file: "${rootDir}/${infoJson}")
+    
+                // Download ${infoJson} from destDHEStaging and use it if it's not emptied.
+                println "Downloading ${destDHEStaging}/${packageName}/${infoJson}..."
+    
+                ant.scp(file: "${destDHEStaging}/${packageName}/${infoJson}",
+                        todir: "${rootDir}",
+                        password: "${pw}",
+                        trust: "yes",
+                        sftp: "true",
+                        failOnError: "false",
+                        verbose: "true")
+    
+                File json = new File("${rootDir}/${infoJson}")
+    
+                def object = [:]
+    
+                // if ${infoJson} from the staging server is not empty
+                if (json.getText() != null && json.getText() != "") {
+                    object = new JsonSlurper().parseText(json.getText())
+                } else {
+                   	  def infoJsonDHEPublicUrl = "http://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/${packageName}/${infoJson}"
+    
+    	              // if ${infoJson} in staging server is empty then download ${infoJson} from DHEPublic
+        	          println "${destDHEStaging}/${packageName}/${infoJson} is already published."
+                	  println "Downloading ${infoJsonDHEPublicUrl}"
+    
+            	      URL infoJsonURL = new URL("${infoJsonDHEPublicUrl}")
+            	      def connection = infoJsonURL.openConnection()
+    
+    				        // if ${infoJson} is not downloadable
+    				        if ("${connection.responseCode}" == "404") {
+    					          println "Response Code/Message: ${connection.responseCode} / ${connection.responseMessage}"
+    				        } else {
+    					          json << infoJsonURL.openStream()
+    				            object = new JsonSlurper().parseText(json.getText())
+    				        }
+                }
+    
+                List versionsList = object['versions']
+                if (versionsList != null) {
+                    versionsList.add("${version}")
+                } else {
+                    versionsList = ["${version}"]
+                }
+    
+                object['versions'] = versionsList
+                json.text = JsonOutput.prettyPrint(JsonOutput.toJson(object))
+    
+    		    println "Publishing build list ${infoJson}"
+    		    ant.scp(file: "${rootDir}/${infoJson}",
+                        todir: "${destDHEStaging}/${packageName}/${infoJson}",
+                        password: "${pw}",
+                        trust: "yes",
+                        sftp: "true",
+                        failOnError: "true",
+                        verbose: "true")
+                file("${rootDir}/${infoJson}").delete()
+            }
+        }
+    }
+}
+
+// Delete all dependencies from preparePrereqs
+task cleanPrereqs(type: Delete) {
+    doLast {
+        println 'Delete ' + eclipseSdkArchive
+        file(eclipseSdkArchive).delete()
+        println 'Delete ' + eclipseSdkFolder
+        file(eclipseSdkFolder).deleteDir()
+        println 'Delete ' + targetPlatformFolder
+        file(targetPlatformFolder).deleteDir()
+
+        // for each plugin, delete lib/ folder so that ivy will re-retrieve prereqs
+        fileTree(dir: projDir, include: 'com.ibm.*/lib/').visit {  FileVisitDetails details ->
+            if(details.file.isDirectory() && 'lib'.equals(details.file.name)) {
+                println 'Delete ' + details.file.getPath()
+                details.file.delete()
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    doLast {
+        def artifactsDir = project.properties['ant.artifacts.folder']
+        println 'Delete ' + artifactsDir
+        file(artifactsDir).deleteDir()
+    }
+}

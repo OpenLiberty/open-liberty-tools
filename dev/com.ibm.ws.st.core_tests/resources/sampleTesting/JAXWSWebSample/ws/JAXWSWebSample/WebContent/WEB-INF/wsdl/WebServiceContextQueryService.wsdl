@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservicecontext.web.jaxws.sample.wasdev/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+	name="WebServiceContextQueryService" targetNamespace="http://webservicecontext.web.jaxws.sample.wasdev/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://webservicecontext.web.jaxws.sample.wasdev/"
+			elementFormDefault="unqualified"
+			targetNamespace="http://webservicecontext.web.jaxws.sample.wasdev/"
+			version="1.0">
+			<xs:element name="query" type="tns:query"></xs:element>
+			<xs:element name="queryResponse" type="tns:queryResponse"></xs:element>
+			<xs:complexType name="query">
+				<xs:sequence></xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="queryResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="query">
+		<wsdl:part element="tns:query" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="queryResponse">
+		<wsdl:part element="tns:queryResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="WebServiceContextQuery">
+		<wsdl:operation name="query">
+			<wsdl:input message="tns:query" name="query">
+			</wsdl:input>
+			<wsdl:output message="tns:queryResponse" name="queryResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WebServiceContextQueryServiceSoapBinding"
+		type="tns:WebServiceContextQuery">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+		<wsdl:operation name="query">
+			<soap:operation soapAction="" style="document"></soap:operation>
+			<wsdl:input name="query">
+				<soap:body use="literal"></soap:body>
+			</wsdl:input>
+			<wsdl:output name="queryResponse">
+				<soap:body use="literal"></soap:body>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WebServiceContextQueryService">
+		<wsdl:port binding="tns:WebServiceContextQueryServiceSoapBinding"
+			name="WebServiceContextQueryPort">
+			<soap:address
+				location="http://localhost:9080/JaxWsLibertyDemo/WebServiceContextQueryService"></soap:address>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

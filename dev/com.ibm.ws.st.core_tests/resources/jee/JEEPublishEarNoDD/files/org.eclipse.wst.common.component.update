@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Web1EAR">
+        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+        <dependent-module archiveName="Web1.war" deploy-path="/" handle="module:/resource/Web1/Web1">
+            <dependent-object>Module_1381158804283</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Util1.jar" deploy-path="/lib" handle="module:/resource/Util1/Util1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Web1_2.war" deploy-path="/" handle="module:/resource/Web1_2/Web1_2">
+            <dependent-object>Module_1381163259965</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Util2.jar" deploy-path="/lib" handle="module:/resource/Util2/Util2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.6"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<plugin>
+  <extension point="org.eclipse.wst.server.ui.serverImages">
+    <image
+      id="com.ibm.ws.st.external.module.ear"
+      typeIds="was.external.ear"
+      icon="icons/externalEAR.gif"/>
+    <image
+      id="com.ibm.ws.st.external.module.war"
+      typeIds="was.external.war"
+      icon="icons/externalWAR.gif"/>
+    <image
+      id="com.ibm.ws.st.external.module.ejb"
+      typeIds="was.external.ejb"
+      icon="icons/externalEJB.gif"/>
+    <image
+      id="com.ibm.ws.st.external.module.rar"
+      typeIds="was.external.rar"
+      icon="icons/externalRAR.gif"/>
+  </extension>
+
+  <extension point="org.eclipse.ui.propertyPages">
+    <!-- Utility module shared lib settings -->
+    <page
+   		id="com.ibm.ws.st.jee.ui.sharedLibraryUtilProperties"
+   		name="%sharedLibraryPropertyPage"
+   		class="com.ibm.ws.st.jee.ui.internal.UtilityProjectSharedLibPropertiesPage"
+   		category="com.ibm.ws.st.ui.classpath">
+   		<enabledWhen>
+   		  <and>
+   		   <adapt type="org.eclipse.core.resources.IProject">
+           <test forcePluginActivation="true"
+              property="org.eclipse.wst.common.project.facet.core.projectFacet"
+                value="jst.utility"/>
+           </adapt>
+          </and>
+   		</enabledWhen>
+   </page>
+
+   <!-- Web module shared lib ref settings -->
+   <page
+   		id="com.ibm.ws.st.jee.ui.sharedLibraryWebProperties"
+   		name="%sharedLibraryRefPropertyPage"
+   		class="com.ibm.ws.st.jee.ui.internal.SharedLibPropertiesPage"
+   		category="com.ibm.ws.st.ui.classpath">
+   		<enabledWhen>
+   		  <and>
+   		   <adapt type="org.eclipse.core.resources.IProject">
+   		   <test forcePluginActivation="false" property="com.ibm.ws.st.runtimeTarget"/>
+   		   <or>
+            <test forcePluginActivation="true"
+              property="org.eclipse.wst.common.project.facet.core.projectFacet"
+                value="jst.web"/>
+            <test forcePluginActivation="true"
+              property="org.eclipse.wst.common.project.facet.core.projectFacet"
+                value="jst.ear"/>
+            <test forcePluginActivation="true"
+              property="org.eclipse.wst.common.project.facet.core.projectFacet"
+                value="jst.ejb"/>
+           </or>
+           </adapt>
+          </and>
+   		</enabledWhen>
+   	</page>
+   </extension>
+
+  <!-- Feature images -->
+  <extension point="org.eclipse.wst.common.project.facet.ui.images">
+    <image runtime-component-type="com.ibm.ws.st.runtime.servlet" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jsp" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jsf" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jpa" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.cdi" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jaxrs" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jaxws" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.ejblite" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jndi" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jdbc" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.json" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jaxb" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.beanvalidation" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jca" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.jms" path="icons/featureElement.gif"/>
+    <image runtime-component-type="com.ibm.ws.st.runtime.websocket" path="icons/featureElement.gif"/>
+  </extension>
+
+  <!-- Feature labels -->
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes"> 
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.servlet"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jsp"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jsf"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jpa"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.cdi"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jaxrs"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jaxws"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.ejblite"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jndi"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jdbc"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.json"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jaxb"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.beanvalidation"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jca"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.jms"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+    <adapter>
+      <runtime-component id="com.ibm.ws.st.runtime.websocket"/>
+      <factory class="com.ibm.ws.st.ui.internal.RuntimeLabelProvider$Factory"/>
+      <type class="org.eclipse.wst.common.project.facet.ui.IRuntimeComponentLabelProvider"/>
+    </adapter>
+  </extension>
+</plugin>

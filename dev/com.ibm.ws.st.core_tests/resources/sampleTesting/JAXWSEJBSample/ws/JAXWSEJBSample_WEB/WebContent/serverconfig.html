@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>JAX-WS Demo - EJB as web services and webservices.xml support</title>
+</head>
+<body>
+    <br/>
+	<div style='font-family: monospace; font-size: 16px;'>
+		&lt;server description="JAXWS Demo - EJB as Web Services"&gt;<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Enable features--&gt;
+		<br /> 
+		&nbsp;&nbsp;&nbsp;&nbsp;&lt;featureManager&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: blue'>&lt;feature&gt;jaxws-2.2&lt;/feature&gt;</span><br />		 
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color: blue'>&lt;feature&gt;ejbLite-3.1&lt;/feature&gt;</span><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;feature&gt;jsp-2.2&lt;/feature&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;feature&gt;localConnector-1.0&lt;/feature&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;feature&gt;jsf-2.0&lt;/feature&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&lt;/featureManager&gt;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&lt;httpEndpoint host="localhost"
+		httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint" /&gt; <br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&lt;applicationMonitor updateTrigger="mbean"
+		/&gt; <br /> &nbsp;&nbsp;&nbsp;&nbsp;&lt;application
+		id="JAXWSEJBSample" location="JAXWSEJBSampleEAR.ear"
+		name="JAXWSEJBSample" type="ear" /&gt; <br /> &lt;/server&gt;
+	</div>
+	<br />
+</body>
+</html>

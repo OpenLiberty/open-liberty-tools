@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2001, 2013 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="WebApp_ID" version="3.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>JAXWSEJBSample</display-name>
+  <welcome-file-list>    
+    <welcome-file>index.jsp</welcome-file>    
+  </welcome-file-list>
+  
+    <!-- A POJO web services -->
+    <servlet>
+        <servlet-name>CountdownImplService</servlet-name>
+        <servlet-class>wasdev.sample.jaxws.ejb.webservicesxml.CountdownImpl</servlet-class>
+    </servlet>
+            
+    <servlet-mapping>
+        <servlet-name>CountdownImplService</servlet-name>
+        <url-pattern>/CountdownImplService</url-pattern>
+    </servlet-mapping>
+</web-app>

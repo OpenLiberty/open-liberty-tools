@@ -1,0 +1,184 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="package">
+    <dirname property="imports.dir" file="${ant.file.package}"/>
+    <import file="standard_properties.xml" />
+    <import file="compile.xml"/>
+	
+
+    <property name="copyright.file.basedir" value="${build.dir}/tmp"/>
+    <property name="copyright.file.name" value=".copyright.properties"/>
+
+    <available property="manifest.exists" file="META-INF/MANIFEST.MF" />
+
+    <target name="package" unless="manifest.exists" depends="compile, createCopyright, generateProperties, packageWithManifest, processQualifier">
+        <mkdir dir="${lib.dir}" />
+
+        <echo message="${output.jar}"/>
+
+	  	<!--  <bnd> apparently tolerates absent files on classpath string, but not on classpathref. So: -->
+		<!-- It also has problems with comma as delimiter, despite claims -->
+        <wlpbnd eclipse="false"
+         failok="false"
+         exceptions="true"
+    	 classpathref="bnd.classpath"
+         output="${lib.dir}/${output.jar}"
+         files="bnd.bnd" />
+
+    </target>
+
+    <target name="packageWithManifest" if="manifest.exists" depends="generateProperties">
+        <mkdir dir="${lib.dir}" />
+        <mkdir dir="${build.dir}/META-INF"/>
+    	
+        <iff if="tools.image">
+         	<then>
+         		<iff>
+         			<isset property="newQualifier" />
+         			<then>
+         				<echo>The new qualifier property is already set ${newQualifier}</echo>
+         				<var name="qualifier" unset="true"/>
+         				<property name="qualifier" value="${newQualifier}" />
+         			</then>
+         			<else>
+                 		<qualifierManager 
+                 			operation="getBaseQualifier" 
+                 			propertyName="qualifier" 
+                 			metaInf="${basedir}/../Meta-inf.zip"/>
+         			</else>
+         		</iff>
+           	</then>
+       		<else>
+         		<property name="qualifier" value=".${buildLabel}" />
+       		</else>
+       </iff>
+    	<echo>Qualifier is ${qualifier}</echo>
+		<copy todir="${build.dir}/META-INF" file="META-INF/MANIFEST.MF">
+      		<filterchain>
+  				<replacetokens begintoken="." endtoken="r" >
+    				<token key="qualifie" value="${qualifier}"/>
+   				</replacetokens>
+ 			</filterchain>
+		</copy>
+    	
+        <iff>
+        	 <and>
+        	 	<istrue value="${project.compile.use.classpath.source}"/>
+        	 	<isreference refid="project.source.path"/>
+          	 </and>
+          	 <then>
+          	 	<foreach param="srcName" in="${sourcePath}" delimiter="${path.separator}">
+          	 		<copy todir="${generated.properties.dir}" includeemptydirs="true" >
+          				<fileset dir="${srcName}" erroronmissingdir="false">
+                        	<exclude name="**/*.nlsprops"/>
+                        	<exclude name="**/*.java"/>
+                    	</fileset>
+          			</copy>
+          		</foreach>
+          	</then>
+        </iff>
+
+        <available property="build.properties.exists" file="build.properties"/>
+    	<echo message="build.properties.exists = ${build.properties.exists}"/>
+
+        <if if="build.properties.exists">
+            <!-- ANTZ doesn't create empty dirs by default so we create the src.dir just in case it was empty in the stream. -->
+            <mkdir dir="${src.dir}"/>
+            <jar destfile="${lib.dir}/${output.jar}" manifest="${build.dir}/META-INF/MANIFEST.MF" duplicate="preserve" keepcompression="true" compress="true" update="false">
+                <fileset dir="${nls.output.bin.dir}" includes="**/*.class"/>
+                <fileset dir="${generated.properties.dir}" >
+                    <exclude name="**/*.nlsprops"/>
+                    <exclude name="**/*.java"/>
+                </fileset>
+                <fileset dir="${src.dir}">
+                    <exclude name="**/*.nlsprops"/>
+                    <exclude name="**/*.java"/>
+                </fileset>
+            	<fileset dir="${basedir}" includes="lib/**"/>
+                <!-- This bit here reads the pde build.properties file to add files into the jar -->
+                <fileset dir="${basedir}" includes="**/*">
+                    <custom classname="com.ibm.aries.buildtasks.selectors.PDEBuildPropertiesSelector" classpathref="buildtasks">
+                        <param name="file" value="${basedir}/build.properties"/>
+                    </custom>
+                	<exclude name=".settings/"/>
+                </fileset>
+            </jar>
+            <else>
+                <jar destfile="${lib.dir}/${output.jar}" manifest="${build.dir}/META-INF/MANIFEST.MF" keepcompression="true" duplicate="preserve" compress="true" update="false">
+                    <fileset dir="${classes.dir}" includes="**/*.class"/>
+                    <fileset dir="${nls.output.bin.dir}" includes="**/*.class"/>
+                    <fileset dir="${generated.properties.dir}" >
+                        <exclude name="**/*.nlsprops"/>
+                        <exclude name="**/*.java"/>
+                    </fileset>
+                    <fileset dir="${src.dir}">
+                        <exclude name="**/*.nlsprops"/>
+                        <exclude name="**/*.java"/>
+                    </fileset>
+                    <fileset dir="${basedir}" includes="META-INF/*" excludes="META-INF/MANIFEST.MF"/>
+                    <fileset dir="${basedir}" includes="OSGI-INF/**"/>
+                    <fileset dir="${basedir}" includes="schemas/**"/>
+                    <fileset dir="${basedir}" includes="plugin.xml"/>
+                	<fileset dir="${basedir}" includes="lib/**"/>
+                </jar>
+            </else>
+        </if>
+
+        <jar destfile="${lib.dir}/${output.jar}" manifest="${build.dir}/META-INF/MANIFEST.MF" keepcompression="true" compress="false" update="true">
+            <fileset dir="${copyright.file.basedir}" includes="${copyright.file.dir}/${copyright.file.name}"/>
+        </jar>
+    </target>
+	
+	<target name="processQualifier">
+        <iff if="tools.image">
+         	<then>
+         		<qualifierManager 
+         			operation="getCurrentQualifier"
+         			propertyName="newQualifier"
+         			metaInf="${basedir}/../Meta-inf.zip"
+         			file="${lib.dir}/${output.jar}"
+         		/>
+         		<iff>
+         			<equals arg1="${newQualifier}" arg2="${qualifier}" />
+         			<then>
+         				<!--echo>The new qualifier is equal ${newQualifier} ${qualifier}</echo -->
+         			</then>
+         			<else>
+         				<echo>The new qualifier is not equal ${newQualifier} but the old one was ${qualifier}</echo>
+         				<delete>
+         					<fileset dir="${build.dir}/META-INF" includes="*.MF"/>
+         					<fileset dir="${lib.dir}/" includes="*.jar"/>
+         				</delete>
+         				<antcall target="packageWithManifest" inheritall="true"/>
+         			</else>
+         		</iff>
+         	</then>
+        </iff>
+	</target>
+
+    <target name="createCopyright" unless="do.not.copyright">
+        <mkdir dir="${copyright.file.basedir}/"/>
+        <echo file="${copyright.file.basedir}/${copyright.file.name}">
+Bundle-Vendor: IBM
+#######################################################################
+Bundle-Copyright: All rights reserved. This program and the accompanying materials \
+are made available under the terms of the Eclipse Public License v1.0 \
+which accompanies this distribution, and is available at \
+http://www.eclipse.org/legal/epl-v10.html
+    </echo>
+    </target>
+
+    <target name="generateProperties">
+        <!-- Create an empty generated properties directory, override if you need to generate your own properties -->
+        <mkdir dir="${generated.properties.dir}"/>
+    </target>
+</project>

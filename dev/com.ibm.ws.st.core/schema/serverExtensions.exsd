@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.ws.st.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.ws.st.core" id="serverExtensions" name="Server Extensions"/>
+      </appinfo>
+      <documentation>
+         This extension point provides a way for extenders to provide support for new programming models
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="serverExtension" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified identifier of the target extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  an optional identifier of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  an optional name of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="serverExtension">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="name"/>
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="module"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies a unique identifier for this extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  specifies the fully qualified name of the Java class that extends &lt;samp&gt;ServerExtension&lt;/samp&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.ibm.ws.st.core.internal.ServerExtension:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="publishClass" type="string">
+            <annotation>
+               <documentation>
+                  specifies the fully qualified name of the Java class that extends &lt;samp&gt;ApplicationPublisher&lt;/samp&gt;
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="com.ibm.ws.st.core.internal.ApplicationPublisher:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="module">
+      <complexType>
+         <attribute name="type" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="applicationType" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="applicationElement" type="string">
+            <annotation>
+               <documentation>
+                  The name of the application element in the configuration file.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         The existence of the applicationType attribute defines the module type as a possible root module, and associates the server&apos;s &lt;application type=&quot;xx&quot;/&gt; value.
+The value of the attribute &lt;b&gt;class&lt;/b&gt; must be a fully qualified name of a Java class that extends &lt;code&gt;com.ibm.ws.st.core.internal.ServerExtension&lt;/code&gt; and contains a public 0-arg constructor.
+The value of the attribute &lt;b&gt;publicClass&lt;/b&gt; must be a fully qualified name of a Java class that extends &lt;code&gt;com.ibm.ws.st.core.internal.ApplicationPublisher&lt;/code&gt; and contains a public 0-arg constructor. This class is only used when publishing an application.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example of the serverExtension extension point:
+
+&lt;pre&gt;
+   &lt;extension point=&quot;com.ibm.ws.st.core.serverExtensions&quot;&gt;
+      &lt;serverExtension
+         id=&quot;com.example.jee.serverExtension&quot;
+         class=&quot;com.example.JEESserverExtension&quot;      
+         publishClass=&quot;com.example.JEEPublisher&quot;&gt;
+      &lt;module type=&quot;jst.ear&quot; applicationType=&quot;ear&quot; applicationElement=&quot;enterpriseApplication&quot;/&gt;
+      &lt;module type=&quot;jst.web&quot;/&gt;
+      &lt;module type=&quot;jst.utility&quot;/&gt;
+    &lt;/serverExtension&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2011 IBM Corporation and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBM Corporation - initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

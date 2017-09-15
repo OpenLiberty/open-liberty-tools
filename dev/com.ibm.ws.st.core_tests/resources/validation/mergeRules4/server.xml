@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<server description="Nested factory elements are merged parent id and nested id match.">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.3</feature>
+        <feature>jdbc-4.1</feature>
+    </featureManager>
+    
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443" />
+    
+    <dataSource id="ds1">
+        <properties.derby.embedded id="props1" databaseName="DB"/>
+    </dataSource>
+    
+    <dataSource id="ds2">
+        <properties.derby.embedded id="props1" databaseName="DB2"/>
+    </dataSource>
+    
+    <dataSource id="ds1">
+        <properties.derby.embedded id="props1" databaseName="DB1"/>
+    </dataSource>
+</server>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.ibm.xwt.dde/CustomizationFile" xmlns:tns="http://com.ibm.xwt.dde/CustomizationFile" elementFormDefault="qualified">
+    <element name="customization">
+    	<complexType>
+    		<sequence minOccurs="0" maxOccurs="unbounded">
+	    		<choice>
+	    			<element name="node" type="tns:nodeType"></element>
+	    			<element name="nodeType" type="tns:CTtype"></element>
+	    			<element name="itemType" type="tns:STtype"></element>
+	    		</choice>
+    		</sequence>
+    		<attribute name="customizationNamespace" type="string"
+    			use="required">
+    		</attribute>
+    		<attribute name="customizationSchemaLocation" type="string"
+    			use="required">
+    		</attribute>
+
+    		<attribute name="headerLabel" type="string"></attribute>
+
+    		<attribute name="headerIcon" type="string"></attribute>
+    		<attribute name="headerActions" type="string"></attribute>
+			<attribute name="addButtonClass" type="string"></attribute>
+    		<attribute name="headerLabelData" type="string"></attribute>
+    		<attribute name="headerLabelClass" type="string"></attribute>
+    		<attribute name="globalDetectSchemaLabel" type="boolean"></attribute>
+    		<attribute name="iconClass" type="string"></attribute>
+    		<attribute name="treeLabelClass" type="string"></attribute>
+    		<attribute name="detailSectionTitleClass" type="string"></attribute>
+    		<attribute name="overviewSectionTitle" type="string"></attribute>
+    		<attribute name="overviewSectionTitleData" type="string"></attribute>
+    		<attribute name="overviewSectionTitleClass" type="string"></attribute>
+    		<attribute name="overviewSectionHeaderText" type="string"></attribute>
+    		<attribute name="enableSchemaGroups" type="string"></attribute>
+    		<attribute name="overviewSectionHeaderTextData"
+    			type="string">
+    		</attribute>
+    		<attribute name="overviewSectionHeaderTextClass"
+    			type="string">
+    		</attribute>
+    		<attribute name="displayDocumentationAsHoverHelp"
+    			type="boolean">
+    		</attribute>
+    		<attribute name="helpContextId" type="string"></attribute>
+    		<attribute name="treeSortingPreference">
+    			<simpleType>
+    				<restriction base="string">
+    					<enumeration value="default"></enumeration>
+    					<enumeration value="sorted"></enumeration>
+    					<enumeration value="unsorted"></enumeration>
+    					<enumeration value="alwaysSorted"></enumeration>
+    					<enumeration value="alwaysUnsorted"></enumeration>
+    				</restriction>
+    			</simpleType>
+    		</attribute>
+    		<attribute name="detailsSortingPreference">
+    			<simpleType>
+    				<restriction base="string">
+    					<enumeration value="default"></enumeration>
+    					<enumeration value="sortBySchemaDefinition"></enumeration>
+    				</restriction>
+    			</simpleType>
+    		</attribute>
+    		<attribute name="treeSortConfirmationMessage"
+    			type="string">
+    		</attribute>
+    		<attribute name="treeUnsortConfirmationMessage"
+    			type="string">
+    		</attribute>
+    		<attribute name="editorTitle" type="string"></attribute>
+    		<attribute name="hideOverviewSection" type="boolean"></attribute>
+    		<attribute name="multipleDeletionClass" type="string"></attribute>
+    		<attribute name="preSelectedTreeElementClass" type="string"></attribute>
+    	</complexType></element>
+    <complexType name="itemType">
+    	<choice>
+    		<element name="possibleValues" minOccurs="0"
+    			maxOccurs="1">
+    			<complexType>
+    				<sequence>
+    					<element name="value" minOccurs="1"
+    						maxOccurs="unbounded">
+    						<complexType>
+    							<attribute name="label" type="string"
+    								use="required">
+    							</attribute>
+    							<attribute name="value" type="string"
+    								use="required">
+    							</attribute>
+
+    						</complexType>
+    					</element>
+    				</sequence>
+    			</complexType>
+    		</element>
+
+    		<element name="suggestedValues" minOccurs="0"
+    			maxOccurs="1">
+    			<complexType>
+    				<sequence>
+    					<element name="suggest" minOccurs="1"
+    						maxOccurs="unbounded">
+    						<complexType>
+    							<attribute name="value" type="string"
+    								use="required">
+    							</attribute>
+    						</complexType>
+    					</element>
+    				</sequence>
+    			</complexType>
+    		</element>
+    	</choice>
+    	<attribute name="namespace" type="string"></attribute>
+    	<attribute name="path" type="string" use="required"></attribute>
+    	<attribute name="hide" type="boolean"></attribute>
+    	<attribute name="style">
+    		<simpleType>
+    			<restriction base="string">
+    				<enumeration value="default"></enumeration>
+    				<enumeration value="text"></enumeration>
+    				<enumeration value="checkBox"></enumeration>
+    				<enumeration value="combo"></enumeration>
+    				<enumeration value="treeNode"></enumeration>
+    				<enumeration value="hyperLink"></enumeration>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    	<attribute name="label" type="string"></attribute>
+    	<attribute name="required" type="boolean"></attribute>
+    	<attribute name="textLines" type="int"></attribute>
+    	<attribute name="labelLinkClass" type="string"></attribute>
+    	<attribute name="labelLinkToolTip" type="string"></attribute>
+    	<attribute name="buttonClass" type="string"></attribute>
+    	<attribute name="buttonLabel" type="string"></attribute>
+    	<attribute name="buttonToolTip" type="string"></attribute>
+
+    	<attribute name="readOnly" type="boolean"></attribute>
+    	<attribute name="deleteIfEmpty" type="boolean"></attribute>
+    	<attribute name="hideLabel" type="boolean"></attribute>
+    	<attribute name="disabled" type="boolean"></attribute>
+
+    	<attribute name="singleOccurrence" type="boolean"></attribute>
+    	<attribute name="tableIcon" type="string"></attribute>
+    	<attribute name="inheritCustomization" type="boolean"></attribute>
+
+    	<attribute name="headerText" type="string"></attribute>
+    	<attribute name="footerText" type="string"></attribute>
+    	<attribute name="checkBoxText" type="string"></attribute>
+    	<attribute name="possibleValuesClass" type="string"></attribute>
+    	<attribute name="suggestedValuesClass" type="string"></attribute>
+    	<attribute name="defaultValue" type="string"></attribute>
+    	<attribute name="defaultValueClass" type="string"></attribute>
+    	<attribute name="validationClass" type="string"></attribute>
+    	<attribute name="customControlClass" type="string"></attribute>
+    	<attribute name="detectSchemaLabel" type="boolean"></attribute>
+    	<attribute name="triggerNodeValidationPath" type="string"></attribute>
+    	<attribute name="triggerNodeValidationRecurse" type="string"></attribute>
+    	<attribute name="CDATASectionStorage" type="boolean"></attribute>
+    	<attribute name="horizontalScrolling" type="boolean"></attribute>
+    	<attribute name="helpContextId" type="string"></attribute>
+    	<attribute name="hoverHelp" type="string"></attribute>
+    	<attribute name="skipSyntaxValidation" type="boolean"></attribute>
+    	<attribute name="checkBoxStateValues" type="string"></attribute>
+    	<attribute name="clearOptionalSectionIfEmpty" type="boolean"></attribute>
+    	<attribute name="showItemAsOptional" type="boolean"></attribute>
+    	<attribute name="buttonAccessibilityName" type="string"></attribute>
+    	<attribute name="echoChar" type="string"></attribute>
+    	<attribute name="wrapText" type="boolean"></attribute>
+    	<attribute name="disableClass" type="string"></attribute>
+    	<attribute name="shouldItemDisableClass" type="string"></attribute>
+    </complexType>
+    
+    <complexType name="CTtype">
+  		<complexContent>
+	  		<extension base="tns:nodeType">
+	   			<attribute name="name" type="string" use="required"/>
+	   		</extension>
+  		</complexContent>
+ 	</complexType>
+ 	
+ 	<complexType name="STtype">
+  		<complexContent>
+	  		<extension base="tns:itemType">
+	   			<attribute name="name" type="string" use="required"/>
+	   			<attribute name="inUnion" type="string" use="optional"/>
+	   		</extension>
+  		</complexContent>
+ 	</complexType>
+    
+    <complexType name="nodeType">
+    	<sequence minOccurs="0" maxOccurs="unbounded">
+    		<choice>
+    			<element name="node" type="tns:nodeType"></element>
+    			<element name="item" type="tns:itemType"></element>
+    			<element name="section" type="tns:sectionType"></element>
+    			<element name="hyperlink" type="tns:hyperlinkType"></element>
+    		</choice>
+
+    	</sequence>
+    	<attribute name="namespace" type="string"></attribute>
+    	<attribute name="path" type="string" use="required"></attribute>
+    	<attribute name="label" type="string"></attribute>
+    	<attribute name="icon" type="string"></attribute>
+    	<attribute name="hide" type="string"></attribute>
+    	<attribute name="style">
+    		<simpleType>
+    			<restriction base="string">
+    				<enumeration value="default"></enumeration>
+    				<enumeration value="treeNode"></enumeration>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    	<attribute name="treeLabel" type="string"></attribute>
+    	<attribute name="creationClass" type="string"></attribute>
+    	<attribute name="singleOccurrence" type="boolean"></attribute>
+    	<attribute name="creationLabel" type="string"></attribute>
+    	<attribute name="hideSectionTitle" type="boolean"></attribute>
+    	<attribute name="inheritCustomization" type="boolean"></attribute>
+    	<attribute name="treeLabelData" type="string"></attribute>
+    	<attribute name="sectionHeaderText" type="string"></attribute>
+    	<attribute name="detailSectionTitle" type="string"></attribute>
+    	<attribute name="detailSectionTitleData" type="string"></attribute>
+    	<attribute name="treeLabelClass" type="string"></attribute>
+    	<attribute name="detailSectionTitleClass" type="string"></attribute>
+    	<attribute name="iconClass" type="string"></attribute>
+    	<attribute name="deletionClass" type="string"></attribute>
+    	<attribute name="canCreate" type="boolean"></attribute>
+    	<attribute name="canDelete" type="boolean"></attribute>
+    	<attribute name="canCreateClass" type="string"></attribute>
+    	<attribute name="canDeleteClass" type="string"></attribute>
+    	<attribute name="validationClass" type="string"></attribute>
+    	<attribute name="triggerNodeValidationPath" type="string"></attribute>
+    	<attribute name="triggerNodeValidationRecurse" type="string"></attribute>
+    	<attribute name="helpContextId" type="string"></attribute>
+    	<attribute name="echoChar" type="string"></attribute>
+    	<attribute name="detailsSortingPreference" type="string"></attribute>
+    </complexType>
+
+    <complexType name="sectionType">
+        <choice minOccurs="1" maxOccurs="unbounded">
+        	<element name="item" type="tns:itemType"></element>
+        	<element name="hyperlink" type="tns:hyperlinkType"></element>
+        	<element name="node" type="tns:nodeType"></element>
+        </choice>
+        <attribute name="label" type="string"></attribute>
+    	<attribute name="headerText" type="string"></attribute>
+    </complexType>
+
+    <complexType name="hyperlinkType">
+    	<attribute name="label" type="string" use="required"></attribute>
+    	<attribute name="icon" type="string"></attribute>
+    	<attribute name="hyperlinkClass" type="string"></attribute>
+    	<attribute name="toolTip" type="string"></attribute>
+    	<attribute name="leftIndentation" type="boolean"></attribute>
+    </complexType>
+
+    <complexType name="SuggestType">
+    	<attribute name="value" type="string" use="required"></attribute>
+    </complexType>
+</schema>

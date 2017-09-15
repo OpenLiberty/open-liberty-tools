@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="com.ibm.ws.st.common.core.ext" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="com.ibm.ws.st.common.core.ext" id="serverTypeExtensions" name="Server Type Extensions"/>
+      </appinfo>
+      <documentation>
+         This extension point provides a way for extenders to provide support for a server type
+      </documentation>
+   </annotation>
+
+   <element name="serverTypeExtension">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  an optional identifier of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="typeId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a required type identifier for the server
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="serverLaunchConfigurationClass" type="string">
+            <annotation>
+               <documentation>
+                  an optional server launch configuration class
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="serverBehaviourClass" type="string">
+            <annotation>
+               <documentation>
+                  an optional server behaviour class
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="serverClass" type="string">
+            <annotation>
+               <documentation>
+                  an optional server class
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example of the serverExtension extension point:
+
+&lt;pre&gt;
+   &lt;extension point=&quot;com.ibm.ws.st.core.serverExtensions&quot;&gt;
+      &lt;serverExtension
+         id=&quot;com.example.jee.serverExtension&quot;
+         class=&quot;com.example.JEESserverExtension&quot;      
+         publishClass=&quot;com.example.JEEPublisher&quot;&gt;
+      &lt;module type=&quot;jst.ear&quot; applicationType=&quot;ear&quot; applicationElement=&quot;enterpriseApplication&quot;/&gt;
+      &lt;module type=&quot;jst.web&quot;/&gt;
+      &lt;module type=&quot;jst.utility&quot;/&gt;
+    &lt;/serverExtension&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         The existence of the applicationType attribute defines the module type as a possible root module, and associates the server&apos;s &lt;application type=&quot;xx&quot;/&gt; value.
+The value of the attribute &lt;b&gt;class&lt;/b&gt; must be a fully qualified name of a Java class that extends &lt;code&gt;com.ibm.ws.st.core.internal.ServerExtension&lt;/code&gt; and contains a public 0-arg constructor.
+The value of the attribute &lt;b&gt;publicClass&lt;/b&gt; must be a fully qualified name of a Java class that extends &lt;code&gt;com.ibm.ws.st.core.internal.ApplicationPublisher&lt;/code&gt; and contains a public 0-arg constructor. This class is only used when publishing an application.
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2015 IBM Corporation and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBM Corporation - initial API and implementation
+      </documentation>
+   </annotation>
+
+</schema>

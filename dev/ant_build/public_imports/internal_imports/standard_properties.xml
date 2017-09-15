@@ -1,0 +1,223 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="standard_properties">
+  <dirname property="imports.dir" file="${ant.file.standard_properties}"/>
+  <import file="${imports.dir}/buildtasks.xml"/>
+  <import file="${imports.dir}/universal_properties.xml"/>
+    
+  <property environment="env"/>
+  
+  <property name="build.dir" value="${basedir}/build"/>
+  <property name="report.dir" value="${build.dir}/reports"/>
+  <property name="lib.dir" value="${build.dir}/lib"/>
+  <property name="bin.tools.dir" value="${build.dir}/bin/tools"/>
+
+  <!-- Set use.global.micro true for shipped projects and false for test, build or
+       other projects unless already set by project's build.xml.  Shipped projects are
+       identified by the presence of a 'build.xml' or 'build-api-spi.xml' file. -->
+  <condition property="use.global.micro" value="true" else="false">
+    <or>
+      <available file="${basedir}/build.xml" type="file"/>
+      <available file="${basedir}/build-api-spi.xml" type="file"/>
+    </or>   
+  </condition>  
+	
+  <!-- Micro-version alias and suffix form (includes leading '.') -->
+  <property name="micro.version" value="${liberty.bundle.micro.version}"/>   	
+  <condition property="micro.suffix" value=".${micro.version}" else="">
+  	<istrue value="${use.global.micro}"/>
+  </condition>	
+  <!-- provide the release bundle micro version to tests -->
+  <property name="bvt.prop.micro.version" value="${micro.version}"/>   	
+
+  <!--Definitions for shared resources-->
+  <property name="shared.dir" value="../build.sharedResources" />
+  <property name="shared.httpunit.dir" value="${shared.dir}/lib/httpunit/1.7/lib" />
+  <property name="shared.httpunit.jars" value="${shared.dir}/lib/httpunit/1.7/jars" />
+      
+  <property name="classes.dir" value="${build.dir}/classes" />
+  <property name="generated.properties.dir" value="${build.dir}/properties"/>
+  <property name="src.dir" value="${basedir}/src" />
+  <property name="legal.dir" value="${basedir}/legal" />
+  <!-- Alternate legal folder name for those projects (zos) where non-dotted folders are significant for the build) -->
+  <property name=".legal.dir" value="${basedir}/.legal" />
+  <property name="resources.dir" value="${basedir}/resources"/>
+  
+  <property name="javac.source.file.encoding" value="UTF-8" />
+  <property name="javac.debug.level" value="lines,vars,source" />
+  <property name="javac.source" value="1.6" />
+  <property name="javac.target" value="1.6" />
+  
+  <!-- libertyfs cache location for findbugs/checkpii -->
+  <property name="liberty.cache.location" value="/liberty/caches" />	
+	
+  <!-- So, this kinda sucks. To ensure the generateClasspath validation routine doesn't fall over,
+       keep the java.level variable and use it in the same places as we used to. The proper fix for
+       this is to update the generateClasspath task, but this needs to be done carefully. -->
+  <condition property="java.level" value="1.7">
+    <equals arg1="1.7" arg2="${javac.boot.classpath}" />
+  </condition>
+
+  <!-- level of java used to compile. This overrides the previous 
+       javac.source and javac.target variables, as we always used
+       the same values for both -->
+  <property name="build.with.java.level" value="${javac.target}" />
+  
+  <property name="build.tests.with.java.level" value="${build.with.java.level}" />
+	
+	<!-- Correlates to finding the rt.jar in
+       /ant_build/java/${javac.boot.classpath}/lib/, which defines
+       the libraries used to compile against. -->
+  <condition property="javac.boot.classpath" value="${build.with.java.level}" else="1.${build.with.java.level}">
+	<contains string="${build.with.java.level}" substring="1."/>
+  </condition>
+	
+  <tstamp>
+    <format property="current.time"
+        pattern="yyyyMMddHHmm" />
+    <format property="current.date.time" 
+        pattern="EEE MMM dd HH:mm:ss yyyy" timezone="GMT"/>
+  </tstamp>
+	
+  <available classname="com.ibm.team.build.ant.task.ArtifactFilePublisherTask" property="jazz.tasks.available"/>
+  <property name="scripts.dir" value="${basedir}/../build/scripts" />
+
+  <!-- Any *.image property with a value of true is used to indicate/identify the "image" to publish resources to.
+       So, build.image=true identifies the build.image project as a target image -->
+  <property name="build.image" value="true"/>
+
+  <!-- This set of nls properties governs where to find .nlsprops files
+       (which therefore need to be converted into .class files and placed
+       in the jar files)
+       and the resulting files generated from those .nlsprops files
+  -->
+  <property name="nlsxml.dir" value="nlsxml"/>
+  <property name="nlsbin.dir" value="nlsclasses"/>    
+  <property name="nls.source.dir" value="${resources.dir}"/>
+  <property name="nls.build.dir" value="${build.dir}/nlsbuild"/>
+  <property name="nls.normalized.dir" value="${nls.build.dir}/normalized"/>
+  <property name="nls.normalized.xml.dir" value="${nls.build.dir}/normalizedxml"/>
+  <property name="nls.gensource.dir" value="${nls.build.dir}/gensrc"/>
+  <property name="nls.genxml.dir" value="${nls.build.dir}/nlsxml"/>
+  <property name="nls.output.bin.dir" value="${classes.dir}"/>
+  <property name="nls.build.with.java.level" value="${build.with.java.level}" />
+
+  <!-- Whereas this set of pii properties governs which files are to be
+       considered for sending to the translation centres for translation
+       (hence will have chkpii run against them -->
+  <fileset dir="${basedir}" id="pii.files">
+    <include name="resources/**/*.nlsprops"/>
+    <include name="resources/OSGI-INF/l10n/*"/>
+    <include name="resources/l10n/*"/>
+    <include name="publish/features/l10n/*.properties"/>
+  	<include name="resources/l10n/*"/>
+    <!-- JavaScript requires 2 patterns: English and translated. This is because
+         the name scheme is different from Java.
+         Java: basename (english), basename_ru (russian)
+         JavaScript: nls/basename (english), nls/ru/basename (russian)
+         -->
+    <!-- JavaScript English pattern -->
+    <include name="resources/WEB-CONTENT/**/nls/*.js"/>
+    <!-- JavaScript Non-English pattern.
+         Packaging is currently DISABLED due to base name conflicts and no need to package non-English files -->
+    <!-- <include name="resources/WEB-CONTENT/**/nls/*/*.js"/> -->
+  </fileset>
+  
+  <!-- If the OSGI-INF/l10n directory exists we need to set the nlssrc.treat.as.nlsprops to include it -->
+  <condition property="nlssrc.treat.as.nlsprops" value="OSGI-INF/l10n/*">
+    <available property="ignored" file="${nls.source.dir}/OSGI-INF/l10n" type="dir"/>
+  </condition>
+  
+  <!-- How to do emails -->
+  <property name="mail.host" value="smtp.hursley.ibm.com"/>
+  <property name="build.id" value="CONTBLD@uk.ibm.com"/>
+
+  <property name="publish.dirs" value="
+    bin=bin,
+    features=lib/features,
+    tools-internal=lib/tools-internal,
+    platform=lib/platform,
+    versions=lib/versions,
+    templates=templates,
+    extension=usr/extension,
+    extensions=etc/extensions,
+    servers=usr/servers,
+    applications=usr/shared/apps,
+    resources=usr/shared/resources
+  "/>
+  
+  <available file="bnd.bnd" property="bndFileExists"/>
+  <!-- Wish to work out what the jar should be called. We do this by reading the bnd.bnd
+       and extracting the Bundle-SymbolicName and the Bundle-Version. To resolve the 
+       Bundle-Version we also need to extract bVersion.
+   -->
+  <if if="bndFileExists">
+    <!-- Avoid overwritting output.jar set by project build.xml -->
+    <if if="output.jar">
+      <else>
+        <bndOutputJar file="${basedir}/bnd.bnd" property="output.jar" versionProperty="bVersion" microVersion="${micro.version}" useGlobalMicro="${use.global.micro}">
+          <fileset dir="${basedir}/../ant_build/release/" includes="wlp-${liberty.service.version}.zip"/>
+        </bndOutputJar>
+      </else>
+    </if>
+    <else>
+      <property name="output.jar" value="${ant.project.name}.jar" />
+    </else>
+  </if>
+    
+  <available file="${apibndfile}" property="apiBndFileExists"/>
+      <!-- Api bundle file.  -->
+      <if if="apiBndFileExists">
+        <!-- Avoid overwritting api.output.jar set by project build.xml -->
+        <if if="api.output.jar">
+          <else>
+            <bndOutputJar file="${apibndfile}" property="api.output.jar" versionProperty="bVersion" microVersion="${micro.version}" useGlobalMicro="${use.global.micro}"/>
+          </else>
+        </if>
+        <else>
+          <property name="api.output.jar" value="com.ibm.websphere.appserver.api.${ant.project.name}.jar" />
+        </else>
+      </if>
+   
+  <available file="${thirdpartybndfile}" property="thirdpartyBndFileExists"/>
+      <!-- Third party bundle file.  -->
+          <if if="thirdpartyBndFileExists">
+            
+            <if if="thirdparty.output.jar">
+              <else>
+                <bndOutputJar file="${thirdpartybndfile}" property="thirdparty.output.jar" versionProperty="bVersion" microVersion="${micro.version}" useGlobalMicro="${use.global.micro}"/>
+              </else>
+            </if>
+            <else>
+              <property name="thirdparty.output.jar" value="com.ibm.websphere.appserver.thirdparty.${ant.project.name}.jar" />
+            </else>
+          </if>
+
+  <path id="src.dirs">
+    <dirset dir="${basedir}">
+      <include name="**/src*" />
+    </dirset>
+  </path>
+
+  <!-- Despite the path, currently this path only contains one directory -->
+  <path id="resource.dirs">
+    <dirset dir="${basedir}">
+      <include name="**/resources" />
+    </dirset>
+  </path>
+
+  <path id="classes">
+    <fileset dir="${classes.dir}" />
+  </path>
+
+</project>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.6"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<plugin>
+  <extension point="com.ibm.ws.st.common.ui.ext.serverTypeUIExtension">
+    <serverTypeUIExtension
+      id="com.ibm.ws.st.docker.ui.libertyDockerServerType"
+      typeId="LibertyDocker"
+      typeLabel="%libertyDockerLabel"
+      mnemonic="%libertyDockerLabelMnemonic"
+      serverWizardClass="com.ibm.ws.st.docker.ui.internal.wizard.LibertyDockerWizardFragmentProvider"/>
+  </extension>
+   
+  <extension point="org.eclipse.ui.propertyPages">
+    <page
+      id="com.ibm.ws.st.docker.ui.properties.dockerInfo"
+      name="%propertiesDockerInfo"
+      class="com.ibm.ws.st.docker.ui.internal.DockerContainerInfoPropertyPage">
+       <enabledWhen>
+           <and>
+             <adapt type="org.eclipse.wst.server.core.IServer"/>
+             <test
+               forcePluginActivation="true"
+               property="com.ibm.ws.st.serverType"
+               value="LibertyDocker"/>
+           </and>
+       </enabledWhen>
+    </page>
+  </extension>
+  
+   <extension point="com.ibm.ws.st.ui.serverUtilityUIEnablementExtension">
+      <serverUtilityUIEnablement
+         id="com.ibm.ws.st.ui.serverUtilityUIEnablementExtension"
+         typeId="LibertyDocker"
+         typeLabel="%libertyDockerLabel"
+         serverUtilityUIEnablementClass="com.ibm.ws.st.docker.ui.internal.LibertyLocalDockerUtilityUIEnablement"/>
+   </extension>
+   
+   <extension point="com.ibm.ws.st.docker.core.libertyDockerHandlers">
+       <libertyDockerHandlers
+            modeSwitchHandlerClass="com.ibm.ws.st.docker.ui.internal.ModeSwitchHandler"
+            serverCleanupHandlerClass="com.ibm.ws.st.docker.ui.internal.ServerCleanupHandler"
+            flattenImageHandlerClass="com.ibm.ws.st.docker.ui.internal.FlattenImageHandler"/>
+   </extension>
+
+    <extension point="org.eclipse.help.contexts">
+		<contexts file="xml/STDockerContexts.xml" plugin="com.ibm.ws.st.docker.ui" />
+	</extension>
+</plugin>

@@ -1,0 +1,96 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="copypii" default="copyPiiFiles">
+  <import file="standard_properties.xml" />
+
+  <target name="determineWhatToDo">
+    <iff>
+      <equals arg1="true" arg2="${translation.needed}"/>
+      <then>
+        <iff >
+        	<istrue value="${tools.image}"/>
+        	<then>
+        		<property name="pii.package.target" value="tools.pii.package"/> <!--otherwise default is build.pii.package-->
+        	</then>
+        	<else>
+          		<property name="pii.package.target" value="build.pii.package"/>
+        	</else>
+        </iff>
+        <property name="nls.source.image.write.dir" value="${pii.package.target}/nlssrc/${ant.project.name}" />
+
+        <availableAndNonEmpty property="pii.files.need.copying">
+          <resourcecollection>
+            <fileset refid="pii.files" />
+          </resourcecollection>
+        </availableAndNonEmpty>
+        <availableAndNonEmpty property="nlsxml.files.need.copying">
+          <resourcecollection>
+            <fileset dir="${nls.genxml.dir}" includes="**/*.xml" />
+          </resourcecollection>
+        </availableAndNonEmpty>
+        <available file="${nls.output.bin.dir}" property="nls.class.files.need.copying" />
+      </then>
+    </iff>
+  </target>
+
+  <target name="copyPiiFiles" depends="determineWhatToDo, copyNlsClasses" if="pii.files.need.copying">
+    <!-- copy the nlssrc files to the build pii image dir: these files are used for creating pii
+         shipments, and for ensuring that we know when messages change. The target
+         directory should not have top-level-ish resources directories: 
+         com should be a peer of OSGI-INF. -->
+    <echo message="Copying PII files to ${nls.source.image.write.dir}" />
+    <mkdir dir="${nls.source.image.write.dir}" />
+    <iff >
+    	<istrue value="${tools.image}"/>
+    	<then>
+		    <copy todir="${nls.source.image.write.dir}" failonerror="false">
+		       <fileset refid="pii.files" />
+		    </copy>
+    	</then>
+    
+	  	<else>
+		    <copy todir="${nls.source.image.write.dir}" failonerror="false">
+		      <fileset refid="pii.files" />
+		      <mapper>
+		        <globmapper from="resources/*" to="*" handledirsep="true"/>
+		      </mapper>
+		    </copy>
+		      <copy todir="${nls.source.image.write.dir}" failonerror="false">
+		        <fileset refid="pii.files" />
+		     	<mapper>
+		          <globmapper from="src/*" to="src/*" handledirsep="true"/>
+		        </mapper>
+		      </copy>
+		    <copy todir="${nls.source.image.write.dir}" failonerror="false">
+		      <fileset refid="pii.files" />
+		      <mapper>
+		        <!-- copy feature properties files--> 
+		      <regexpmapper from="publish/features/l10n/(.*)" to="publish/features/l10n/\1" handledirsep="true"/>
+		      </mapper>
+		    </copy>
+	  	</else>
+    </iff>
+  </target>
+
+
+  <target name="copyNlsClasses" depends="determineWhatToDo" if="nls.class.files.need.copying">
+    <!-- Some projects need to disable this copying, so set nls.class.files.need.copying to false (so this target will run..., but we'll do nothing -->
+    <iff>
+      <istrue value="${nls.class.files.need.copying}"/>
+      <then>
+        <copy todir="../${image.name}/build/${nlsbin.dir}" failonerror="false">
+          <fileset dir="${nls.output.bin.dir}" includes="**/resources/*" />
+        </copy>
+      </then>
+    </iff>
+  </target>
+</project>

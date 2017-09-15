@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee">
+	<handler-chain>
+		<handler>
+			<handler-name>LogicalHandler</handler-name>
+			<handler-class>wasdev.sample.jaxws.web.handler.TestLogicalHandler
+			</handler-class>
+			<init-param>
+				<param-name>arg0</param-name>
+				<param-value>testInitParam</param-value>
+			</init-param>
+		</handler>
+		<handler>
+			<handler-name>SOAPHandler</handler-name>
+			<handler-class>wasdev.sample.jaxws.web.handler.TestSOAPHandler
+			</handler-class>
+		</handler>
+	</handler-chain>
+</handler-chains>

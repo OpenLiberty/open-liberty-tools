@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.6"?>
+<!--
+    Copyright (c) 2017 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+
+<plugin>
+  <extension-point id="serverExtensions" name="%extensionPointServerExtensions" schema="schema/serverExtensions.exsd"/>
+  <extension-point id="requiredFeatures" name="%extensionPointRequiredFeatures" schema="schema/requiredFeatures.exsd"/>
+  <extension-point id="classpathExtensions" name="%extensionPointClasspathExtensions" schema="schema/classpathExtensions.exsd"/>
+  <extension-point id="libertyX509CertPathValidator" name="%extensionPointLibertyX509CertPathValidator" schema="schema/libertyX509CertPathValidator.exsd"/>
+  <extension-point id="libertyConfigConflictHandler" name="%extensionPointLibertyConfigConflictHandler" schema="schema/libertyConfigConflictHandler.exsd"/>
+  <extension-point id="websphereSourcePathComputers" name="%extensionPointSourcePathComputers" schema="schema/sourcePathComputers.exsd"/>
+  <extension-point id="serverPreStart" name="%extensionPointServerPreStart" schema="schema/serverPreStart.exsd"/>
+  <extension-point id="facetFeatureMapping" name="%extensionPointFacetFeatureMapping" schema="schema/facetFeatureMapping.exsd"/>
+  <extension-point id="debugTargetFactory" name="%extensionPointDebugTargetFactory" schema="schema/debugTargetFactory.exsd"/>
+  <extension-point id="utilityLaunchExtension" name="%extensionPointUtilityLaunchExtension" schema="schema/utilityLaunchExtension.exsd"/>
+  <extension-point id="utilityExtension" name="%extensionPointUtilityExtension" schema="schema/utilityExtension.exsd"/>
+  <extension-point id="customServerVariables" name="Custom Server Variables" schema="schema/customServerVariables.exsd"/>
+  <extension-point id="metadataProvider" name="%extensionMetadataProviderExtension" schema="schema/metadataProvider.exsd"/>
+  
+  <extension point="org.eclipse.wst.server.core.runtimeLocators">
+    <runtimeLocator
+       id="com.ibm.ws.st.runtime.locator"
+       typeIds="com.ibm.ws.st.runtime.*"
+       class="com.ibm.ws.st.core.internal.WebSphereRuntimeLocator"/>
+  </extension>
+
+  <extension point="org.eclipse.jst.server.core.runtimeClasspathProviders">
+    <runtimeClasspathProvider
+      id="com.ibm.ws.st.core.runtimeClasspathProvider"
+      runtimeTypeIds="com.ibm.ws.st.runtime.*"
+      class="com.ibm.ws.st.core.internal.WebSphereRuntimeClasspathProvider"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.server.core.runtimeFacetComponentProviders">
+    <runtimeComponentProvider
+      id="com.ibm.ws.st.core.runtimeComponentProvider"
+      runtimeTypeIds="com.ibm.ws.st.runtime.*"
+      class="com.ibm.ws.st.core.internal.WebSphereRuntimeComponentProvider"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.server.core.launchableAdapters">
+    <launchableAdapter
+      id="com.ibm.ws.st.core.launchableAdapter"
+      class="com.ibm.ws.st.core.internal.WebSphereLaunchableAdapterDelegate"/>
+  </extension>
+
+  <extension point="org.eclipse.debug.core.sourcePathComputers">
+    <sourcePathComputer
+      id="com.ibm.ws.st.core.sourcePathComputer"
+      class="com.ibm.ws.st.core.internal.WebSphereSourcePathComputerDelegate"/>
+  </extension>
+
+  <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+      id="com.ibm.ws.st.core.launchConfigurationType"
+      name="%launchConfigurationType"
+      delegate="com.ibm.ws.st.core.internal.launch.WebSphereLaunchConfigurationDelegate"
+      modes="run, debug, profile"
+      sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+      sourcePathComputerId="com.ibm.ws.st.core.sourcePathComputer"/>
+    <launchConfigurationType
+      id="com.ibm.ws.st.core.utilityLaunchConfiguration"
+      name="%utilityLaunchConfigurationType"
+      delegate="com.ibm.ws.st.core.internal.launch.UtilityLaunchConfigurationDelegate"
+      public="false"
+      modes="run"/>
+  </extension>
+
+  <!-- Facets -->  
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type
+      id="com.ibm.ws.st.runtime"/>
+    <runtime-component-version
+      type="com.ibm.ws.st.runtime"
+      version="8.5"/>
+    <runtime-component-version
+      type="com.ibm.ws.st.runtime"
+      version="1.0"/>
+      
+    <runtime-component-type
+      id="com.ibm.ws.st.runtime.serviceVersion"/>
+    <runtime-component-version
+      type="com.ibm.ws.st.runtime.serviceVersion"
+      version="8.5.0"/>
+    <runtime-component-version
+      type="com.ibm.ws.st.runtime.serviceVersion"
+      version="8.5.5"/>
+    <runtime-component-version
+      type="com.ibm.ws.st.runtime.serviceVersion"
+      version="9.0.0"/>
+
+    <adapter>
+      <runtime-component
+        id="com.ibm.ws.st.runtime"
+        version="8.5"/>
+      <factory class="com.ibm.ws.st.core.internal.WebSphereRuntimeClasspathProvider2$Factory"/>
+      <type class="org.eclipse.jst.common.project.facet.core.IClasspathProvider"/>
+    </adapter>
+    
+    <adapter>
+      <runtime-component
+        id="com.ibm.ws.st.runtime"
+        version="1.0"/>
+      <factory class="com.ibm.ws.st.core.internal.WebSphereRuntimeClasspathProvider2$Factory"/>
+      <type class="org.eclipse.jst.common.project.facet.core.IClasspathProvider"/>
+    </adapter>
+  </extension>
+   
+  <extension point="org.eclipse.core.contenttype.contentTypes">
+    <content-type
+      id="com.ibm.ws.st.configuration"
+      name="%contentType"
+      file-extensions="xml"
+      priority="normal"
+      default-charset="UTF-8"
+      base-type="org.eclipse.core.runtime.xml">
+      <describer class="org.eclipse.core.runtime.content.XMLRootElementContentDescriber">
+        <parameter name="element" value="server"/>
+      </describer>
+    </content-type>
+    <content-type
+      id="bootstrap.properties"
+      name="%bootstrapContentType"
+      priority="normal"
+      default-charset="UTF-8"
+      file-names="bootstrap.properties"
+      base-type="org.eclipse.core.runtime.properties"/>
+    <content-type
+      id="jvm.options"
+      name="%jvmOptionsContentType"
+      priority="normal"
+      default-charset="UTF-8"
+      file-names="jvm.options"
+      base-type="org.eclipse.core.runtime.properties"/>
+    <content-type
+      id="server.env"
+      name="%serverEnvContentType"
+      priority="normal"
+      default-charset="UTF-8"
+      file-names="server.env"
+      base-type="org.eclipse.core.runtime.properties"/>
+  </extension>
+
+  <extension point="org.eclipse.core.resources.markers"
+    id="configmarker"
+    name="%problemMarker">
+    <persistent value="true"/>
+    <super type="org.eclipse.core.resources.problemmarker"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.validation.validatorV2"
+    id="com.ibm.ws.st.configuration.validator"
+    name="%configurationValidator">
+    <validator
+      version="2"
+      build="true"
+      manual="true"
+      markerId="com.ibm.ws.st.core.configmarker"
+      class="com.ibm.ws.st.core.internal.config.validation.ConfigurationValidator">
+      <include>
+        <rules>
+          <contentType id="com.ibm.ws.st.configuration" exactMatch="true"/>
+          <contentType id="bootstrap.properties" exactMatch="true"/>
+          <contentType id="jvm.options" exactMatch="true"/>
+          <contentType id="server.env" exactMatch="true"/>
+        </rules>
+      </include>
+    </validator>
+  </extension>
+
+  <extension point="org.eclipse.wst.xml.core.externalSchemaLocations">
+    <provider class="com.ibm.ws.st.core.internal.SchemaLocationProvider"/>
+  </extension>
+  
+  <extension point="org.eclipse.wst.server.core.publishController">
+    <publishController
+      id="com.ibm.ws.st.publishController"
+      name="Publish Controller"
+      description="Controls which files need publishing"
+      typeIds="com.ibm.ws.st.server.*"
+      order="1"
+      class="com.ibm.ws.st.core.internal.WASPublishControllerDelegate"/>
+  </extension>
+
+  <extension point="org.eclipse.wst.server.core.moduleTypes">
+    <moduleType
+      id="was.external"
+      name="%moduleTypeExternal"/>
+  </extension>
+  
+  <extension point="com.ibm.ws.st.core.requiredFeatures">
+    <requiredFeatures
+      id="com.ibm.ws.st.core.facet"
+      priority="10"
+      class="com.ibm.ws.st.core.internal.FacetFeatureResolver"/>
+  </extension>
+  
+  <extension point="com.ibm.ws.st.common.core.ext.WTPServerProducer">
+        <serverProducer
+              class="com.ibm.ws.st.core.internal.remote.LibertyRemoteServerProducer"
+              order="100"
+              runtimeType="com.ibm.ws.st.runtime.wlp"/>
+  </extension>
+  
+  <!-- Docker/WSaaS support extension -->
+     <extension
+         id="com.ibm.ws.st.common.core.ext.LibertySetup"
+         point="com.ibm.ws.st.common.core.ext.RemoteServerSetup">
+      <serverSetup
+            class="com.ibm.ws.st.core.internal.service.setup.LibertyWASaaSSetup"
+            order="100"
+            serviceType="WASLibertyCorePlan">
+      </serverSetup>
+      <serverSetup
+            class="com.ibm.ws.st.core.internal.service.setup.LibertySetup"
+            order="101"
+            serviceType="LibertyDockerLocal">
+      </serverSetup>
+   </extension>
+  
+  <extension
+        point="org.eclipse.wst.common.project.facet.core.listeners">
+     <listener
+           class="com.ibm.ws.st.core.internal.SchemaLocationProvider"
+           eventTypes="TARGETED_RUNTIMES_CHANGED">
+     </listener>
+  </extension>
+  
+</plugin>
