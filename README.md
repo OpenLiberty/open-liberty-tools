@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-EPL%201.0-green.svg)](https://opensource.org/licenses/EPL-1.0)
 
 # Summary
-Open Liberty Tools are lightweight tools for developing, assembling, and deploying apps to Open Liberty.
+Open Liberty Tools are lightweight tools for developing, assembling, and deploying apps to [Open Liberty](https://github.com/OpenLiberty/open-liberty).
 
 # Table of Contents
 * [Getting Started](https://github.com/OpenLiberty/open-liberty-tools#getting-started)
