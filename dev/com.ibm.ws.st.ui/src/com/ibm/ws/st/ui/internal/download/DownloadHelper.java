@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2016 IBM Corporation and others.
+ * Copyright (c) 2011, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.download;
 
@@ -75,9 +75,8 @@ public class DownloadHelper {
     private static FeatureInstaller featureInstaller = new FeatureInstaller();
     private static ConfigSnippetInstaller configSnippetInstaller = new ConfigSnippetInstaller();
 
-    private static final String[] SHARED_FOLDERS = new String[]
-    {
-     "usr/shared/apps", "usr/shared/config", "usr/shared/resources"
+    private static final String[] SHARED_FOLDERS = new String[] {
+                                                                  "usr/shared/apps", "usr/shared/config", "usr/shared/resources"
     };
 
     private static final NumberFormat numberFormat = NumberFormat.getIntegerInstance();
@@ -100,7 +99,7 @@ public class DownloadHelper {
 
     /**
      * Returns the given size in a formatted string.
-     * 
+     *
      * @param size the size in bytes
      */
     public static String getSize(long size) {
@@ -109,7 +108,7 @@ public class DownloadHelper {
 
     /**
      * Returns the given size in a formatted string.
-     * 
+     *
      * @param size the size in bytes
      */
     public static String getSize(long size, NumberFormat f) {
@@ -162,8 +161,8 @@ public class DownloadHelper {
                     if (monitor.isCanceled())
                         return;
                     Trace.logError("Error unzipping file: " + file.getName(), e);
-                    throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, 0,
-                                    NLS.bind(Messages.errorInstallingRuntimeEnvironment, path.toOSString() + "\n\n") + e.getLocalizedMessage(), e));
+                    throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, 0, NLS.bind(Messages.errorInstallingRuntimeEnvironment, path.toOSString() + "\n\n")
+                                                                                              + e.getLocalizedMessage(), e));
                 }
             }
         } finally {
@@ -305,7 +304,7 @@ public class DownloadHelper {
 
     /**
      * Unzip the input stream into the given path.
-     * 
+     *
      * @param srcFile
      * @param path
      * @param totalSize
@@ -592,7 +591,7 @@ public class DownloadHelper {
 
     /**
      * Check is SSL is working by trying to create a simple socket.
-     * 
+     *
      * @return <code>true</code> if SSL is working, and <code>false</code>
      *         if it fails due to missing classes.
      */
@@ -611,7 +610,7 @@ public class DownloadHelper {
     /**
      * Validates that the given folder exists as a folder on disk and is empty. Returns null if the folder is valid, and
      * returns an error message or "" (folder in empty) if the folder is invalid.
-     * 
+     *
      * @param folder
      * @return <code>null</code> if the folder is valid, and a non-null error otherwise
      */
@@ -656,10 +655,11 @@ public class DownloadHelper {
     public static IRuntimeInfo getRuntimeCore(final IRuntime runtime) {
         final WebSphereRuntime wsRuntime = (WebSphereRuntime) runtime.loadAdapter(WebSphereRuntime.class, null);
         final Properties prop = new Properties();
-        IPath path = runtime.getLocation();
-        if (path != null) {
-            path = path.append("lib").append("versions").append("WebSphereApplicationServer.properties");
-            FileUtil.loadProperties(prop, path);
+        if (wsRuntime != null) {
+            IPath path = wsRuntime.getRuntimePropertiesPath();
+            if (path != null) {
+                FileUtil.loadProperties(prop, path);
+            }
         }
 
         return new IRuntimeInfo() {
@@ -703,6 +703,9 @@ public class DownloadHelper {
 
             @Override
             public boolean isOnPremiseSupported() {
+                if (wsRuntime == null) {
+                    return false;
+                }
                 return wsRuntime.isOnPremiseSupported();
             }
         };
