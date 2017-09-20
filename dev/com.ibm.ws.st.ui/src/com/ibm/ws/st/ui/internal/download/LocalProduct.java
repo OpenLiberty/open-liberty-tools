@@ -26,6 +26,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.osgi.util.ManifestElement;
 
 import com.ibm.ws.st.core.internal.FileUtil;
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.repository.IProduct;
 import com.ibm.ws.st.core.internal.repository.ISource;
 import com.ibm.ws.st.core.internal.repository.License;
@@ -36,7 +37,8 @@ import com.ibm.ws.st.ui.internal.Trace;
  */
 public class LocalProduct extends AbstractProduct {
 
-    private static final String CORE_RUNTIME_MARKER = "wlp/lib/versions/WebSphereApplicationServer.properties";
+    private static final String RUNTIME_MARKER = "wlp/" + WebSphereRuntime.RUNTIME_MARKER;
+    private static final String OPEN_RUNTIME_MARKER = "wlp/" + WebSphereRuntime.OPEN_RUNTIME_MARKER;
     private static final String ASSET_MANAGER = "wlp/bin/installUtility.bat";
     private static final String APPLIES_TO = "Applies-To";
     private static final String PACKAGE_TYPE = "Archive-Content-Type";
@@ -66,7 +68,7 @@ public class LocalProduct extends AbstractProduct {
         ZipFile zipFile = null;
         try {
             zipFile = new ZipFile(archiveFile);
-            return zipFile.getEntry(CORE_RUNTIME_MARKER) != null;
+            return (getRuntimeMarker(zipFile) != null);
         } catch (IOException e) {
             if (Trace.ENABLED)
                 Trace.trace(Trace.WARNING, "Problem reading archive: " + archiveFile, e);
@@ -81,6 +83,15 @@ public class LocalProduct extends AbstractProduct {
         }
     }
 
+    private static ZipEntry getRuntimeMarker(ZipFile zipFile) {
+        ZipEntry entry = zipFile.getEntry(RUNTIME_MARKER);
+        if (entry != null) {
+            return entry;
+        }
+        entry = zipFile.getEntry(OPEN_RUNTIME_MARKER);
+        return entry;
+    }
+
     private static Map<String, String> getCoreProperties(File archiveFile) {
         ZipFile zipFile = null;
         InputStream is = null;
@@ -89,7 +100,7 @@ public class LocalProduct extends AbstractProduct {
             ZipEntry entry = zipFile.getEntry(ASSET_MANAGER);
             String onPremise = entry == null ? "false" : "true";
 
-            entry = zipFile.getEntry(CORE_RUNTIME_MARKER);
+            entry = getRuntimeMarker(zipFile);
             if (entry != null) {
                 is = zipFile.getInputStream(entry);
                 Properties prop = new Properties();

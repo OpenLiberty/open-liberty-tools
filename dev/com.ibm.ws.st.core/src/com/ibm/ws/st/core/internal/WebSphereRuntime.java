@@ -97,7 +97,8 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     private static final String ENCODE = "encode";
     private static final String SU_OPTION_LISTCUSTOM = "--listCustom";
 
-    private static final String RUNTIME_MARKER = "lib/versions/WebSphereApplicationServer.properties";
+    public static final String RUNTIME_MARKER = "lib/versions/WebSphereApplicationServer.properties";
+    public static final String OPEN_RUNTIME_MARKER = "lib/versions/openliberty.properties";
 
     protected static final String PROP_VM_INSTALL_TYPE_ID = "vm-install-type-id";
     protected static final String PROP_VM_INSTALL_ID = "vm-install-id";
@@ -223,7 +224,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     }
 
     public static boolean isValidLocation(IPath path) {
-        return path.append(RUNTIME_MARKER).toFile().exists();
+        return getRuntimePropertiesPath(path) != null;
     }
 
     public static List<IPath> findValidLocations(IPath path) {
@@ -2025,10 +2026,10 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
             return runtimeVersion;
         }
 
-        IPath path = getRuntimePath("lib");
-        if (path == null)
+        IPath path = getRuntimePropertiesPath();
+        if (path == null) {
             return null;
-        path = path.append("versions").append("WebSphereApplicationServer.properties");
+        }
         Properties prop = new Properties();
         FileUtil.loadProperties(prop, path);
         String s = prop.getProperty("com.ibm.websphere.productVersion");
@@ -2047,10 +2048,10 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
             return runtimeEdition;
         }
 
-        IPath path = getRuntimePath("lib");
-        if (path == null)
+        IPath path = getRuntimePropertiesPath();
+        if (path == null) {
             return null;
-        path = path.append("versions").append("WebSphereApplicationServer.properties");
+        }
         Properties prop = new Properties();
         FileUtil.loadProperties(prop, path);
         String s = prop.getProperty("com.ibm.websphere.productEdition");
@@ -2538,5 +2539,23 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
             return ".bat";
         }
         return "";
+    }
+
+    public IPath getRuntimePropertiesPath() {
+        return getRuntimePropertiesPath(getRuntime().getLocation());
+    }
+
+    public static IPath getRuntimePropertiesPath(IPath runtimeLocation) {
+        if (runtimeLocation == null || runtimeLocation.isEmpty())
+            return null;
+        IPath markerPath = runtimeLocation.append(RUNTIME_MARKER);
+        if (markerPath.toFile().exists()) {
+            return markerPath;
+        }
+        markerPath = runtimeLocation.append(OPEN_RUNTIME_MARKER);
+        if (markerPath.toFile().exists()) {
+            return markerPath;
+        }
+        return null;
     }
 }

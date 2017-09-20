@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import org.eclipse.core.runtime.CoreException;
@@ -84,7 +85,8 @@ import com.ibm.ws.st.ui.internal.wizard.WebSphereRuntimeWizardFragment;
  */
 @SuppressWarnings("restriction")
 public class RuntimeDropAdapter extends CommonDropAdapterAssistant {
-    private static final String RUNTIME_MARKER = "wlp/lib/versions/WebSphereApplicationServer.properties";
+    private static final String RUNTIME_MARKER = "wlp/" + WebSphereRuntime.RUNTIME_MARKER;
+    private static final String OPEN_RUNTIME_MARKER = "wlp/" + WebSphereRuntime.OPEN_RUNTIME_MARKER;
 
     private String filename;
     private IRuntime runtime;
@@ -276,7 +278,7 @@ public class RuntimeDropAdapter extends CommonDropAdapterAssistant {
         ZipFile zipFile = null;
         try {
             zipFile = new ZipFile(archiveFile);
-            return zipFile.getEntry(RUNTIME_MARKER) != null;
+            return (getRuntimeMarker(zipFile) != null);
         } catch (IOException e) {
             if (Trace.ENABLED)
                 Trace.trace(Trace.WARNING, "Problem reading archive: " + archiveFile, e);
@@ -289,6 +291,15 @@ public class RuntimeDropAdapter extends CommonDropAdapterAssistant {
                 // ignore
             }
         }
+    }
+
+    private static ZipEntry getRuntimeMarker(ZipFile zipFile) {
+        ZipEntry entry = zipFile.getEntry(RUNTIME_MARKER);
+        if (entry != null) {
+            return entry;
+        }
+        entry = zipFile.getEntry(OPEN_RUNTIME_MARKER);
+        return entry;
     }
 
     protected static boolean isAddonArchive(String filePath) {
