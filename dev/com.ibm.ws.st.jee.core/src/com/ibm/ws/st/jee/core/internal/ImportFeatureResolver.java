@@ -78,7 +78,8 @@ public class ImportFeatureResolver extends FeatureResolver {
                                                                   { "com.ibm.websphere.javaee.jaxrs", "jaxrs" },
                                                                   { "com.ibm.websphere.javaee.persistence", "jpa" },
                                                                   { "com.ibm.websphere.javaee.jsonb", "jsonb" },
-                                                                  { "com.ibm.websphere.javaee.jsonp", "jsonp" }
+                                                                  { "com.ibm.websphere.javaee.jsonp", "jsonp" },
+                                                                  { "com.ibm.websphere.javaee.jsf", "jsf" }
     };
 
     private static final Set<String> IGNORE_PKG_SET = new HashSet<String>();
@@ -144,6 +145,16 @@ public class ImportFeatureResolver extends FeatureResolver {
                                 // is to always automatically add the jpa-2.1 feature, never jpaContainer-2.1.
                                 if (curElementName.startsWith("javax.persistence")) {
                                     matchedFeatures.add("jpa");
+                                }
+
+                                // jsf-2.2 does NOT use jsfContainer-2.2 at its core, so imports of jsf interfaces will
+                                // resolve to jsf-2.2--even if jsfContainer-2.2 is already specified in the server config.
+                                // This causes the addition of jsf-2.2 to server feature lists during deployment, even though
+                                // jsfContainer-2.2 is already in the feature list. Adding jsfContainer to the matched
+                                // features list causes feature resolution to be satisfied when it's already listed,
+                                // even though jsf itself is canonically the only provider of the interfaces.
+                                if (curElementName.startsWith("javax.faces")) {
+                                    matchedFeatures.add("jsfContainer");
                                 }
                             }
                         }
