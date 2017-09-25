@@ -12,6 +12,7 @@ package com.ibm.ws.st.core.tests;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeoutException;
 import java.util.regex.Pattern;
@@ -395,6 +396,7 @@ public class UtilitiesTestCase extends ToolsTestBase {
     public void testInstallPackageAllZip() throws Exception {
         cleanUp();
         IPath newRuntime = ResourcesPlugin.getWorkspace().getRoot().getLocation().append("newRuntime");
+        deleteRuntime(newRuntime.toFile());
         File zipFile = ResourcesPlugin.getWorkspace().getRoot().getLocation().append("packageTestAll.zip").toFile();
         MyDownloadHelper.myUnzip(zipFile, newRuntime);
         runtime = TestUtil.createRuntime(getServerTypeId(), newRuntime.toOSString(), "New_Liberty_Runtime");
@@ -405,13 +407,14 @@ public class UtilitiesTestCase extends ToolsTestBase {
         assertTrue("FFDC generated , Start is not clean", !log.contains("FFDC"));
         stopServer();
         assertTrue("Server should be stopped", testServerState(IServer.STATE_STOPPED));
-
+        FileUtil.deleteDirectory(newRuntime.toOSString(), true);
     }
 
     @Test
     public void testInstallPackageMinifyZip() throws Exception {
         cleanUp();
         IPath newRuntime = ResourcesPlugin.getWorkspace().getRoot().getLocation().append("newRuntime");
+        deleteRuntime(newRuntime.toFile());
         File zipFile = ResourcesPlugin.getWorkspace().getRoot().getLocation().append("packageTestMinify.zip").toFile();
         MyDownloadHelper.myUnzip(zipFile, newRuntime);
         runtime = TestUtil.createRuntime(getServerTypeId(), newRuntime.toOSString(), "New_Liberty_Runtime");
@@ -422,12 +425,14 @@ public class UtilitiesTestCase extends ToolsTestBase {
         assertTrue("FFDC generated , Start is not clean", !log.contains("FFDC"));
         stopServer();
         assertTrue("Server should be stopped", testServerState(IServer.STATE_STOPPED));
+        FileUtil.deleteDirectory(newRuntime.toOSString(), true);
     }
 
     @Test
     public void testInstallUsrZip() throws Exception {
         cleanUp();
         IPath newRuntime = resourceFolder.append("UtilityTests/serverUtilsTestServer1");
+        deleteRuntime(newRuntime.toFile());
         File zipFile = ResourcesPlugin.getWorkspace().getRoot().getLocation().append("packageTestUsr.zip").toFile();
         MyDownloadHelper.myUnzip(zipFile, newRuntime);
         createRuntime(RUNTIME_NAME);
@@ -488,4 +493,14 @@ public class UtilitiesTestCase extends ToolsTestBase {
         }
     }
 
+    private void deleteRuntime(File runtime) {
+        if (runtime.exists()) {
+            try {
+                FileUtil.deleteDirectory(runtime.getAbsolutePath(), true);
+            } catch (IOException e) {
+                print("Exception when trying to delete runtime: " + runtime.getAbsolutePath(), e);
+            }
+            assertFalse("The runtime should be deleted: " + runtime.getAbsolutePath(), runtime.exists());
+        }
+    }
 }
