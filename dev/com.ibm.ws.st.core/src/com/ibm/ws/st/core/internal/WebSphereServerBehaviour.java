@@ -2038,7 +2038,10 @@ public class WebSphereServerBehaviour extends ServerBehaviourDelegate implements
         ServerExtensionWrapper[] extensions = getWebSphereServer().getServerExtensions();
         for (ServerExtensionWrapper se : extensions) {
             if (se.supportsApplicationType(module.getModuleType())) {
-                return se.checkModuleConfigOutOfSync(module);
+                OutOfSyncModuleInfo info = se.checkModuleConfigOutOfSync(module);
+                if (info != null) {
+                    return info;
+                }
             }
         }
         return null;

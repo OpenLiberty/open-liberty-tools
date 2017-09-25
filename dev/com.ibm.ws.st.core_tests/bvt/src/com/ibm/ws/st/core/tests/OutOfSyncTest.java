@@ -40,11 +40,11 @@ import junit.framework.TestSuite;
 @RunWith(AllTests.class)
 public class OutOfSyncTest extends ToolsTestBase {
 
-    private static final String RUNTIME_NAME = OutOfSyncTest.class.getCanonicalName() + "_runtime";
     private static final String SERVER_NAME = "outOfSyncServer";
     private static final String WAR_NAME = "KitchenSink";
     private static final String WEB_PROJ_NAME = "SharedWeb1";
     private static final String SHARED_LIB_PROJ_NAME = "SharedUtil1";
+    private static final String SHARED_LIB2_PROJ_NAME = "SharedUtil2";
     private static final String SHARED_LIB_ID = "SharedId1";
     private static final String MARKER_TYPE = "com.ibm.ws.st.core.configmarker";
     private static final int EXPECTED_MARKERS_COUNT = 2;
@@ -93,6 +93,7 @@ public class OutOfSyncTest extends ToolsTestBase {
 
     @Test
     public void testCreateServer() throws Exception {
+        createVM(JDK_NAME);
         createRuntime(RUNTIME_NAME);
         createServer(runtime, SERVER_NAME, "resources/OutOfSyncTesting/outOfSyncServer");
         wait("Waiting for server creation", 3000);
@@ -195,7 +196,7 @@ public class OutOfSyncTest extends ToolsTestBase {
     public void testImportSharedLib() throws Exception {
         final IPath sharedLibPath = new Path("JEEDDtesting/SharedLib");
         final IPath settingsFolder = resourceFolder.append("JEEDDtesting/SharedLib/settings");
-        importProjects(sharedLibPath, new String[] { SHARED_LIB_PROJ_NAME, WEB_PROJ_NAME });
+        importProjects(sharedLibPath, new String[] { SHARED_LIB_PROJ_NAME, SHARED_LIB2_PROJ_NAME, WEB_PROJ_NAME });
 
         final IProject sharedUtilProj = getProject(SHARED_LIB_PROJ_NAME);
         assertNotNull("Project for '" + SHARED_LIB_PROJ_NAME + "' is null", sharedUtilProj);
