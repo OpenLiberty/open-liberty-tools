@@ -47,7 +47,7 @@
 		<var name="fileNameVersion" unset="true" />
 		<property name="fileNameVersion" value="${newVersion}" />
 		<property name="qualifier" value="${buildLabel}"/>
-	  	<property name="updatesite-test-name" value="openlibertytools-test-update-site_${fileNameVersion}.v${qualifier}" />
+	  	<property name="updatesite-test-name" value="openlibertytools-test-${fileNameVersion}.v${qualifier}" />
 	  	<property file="${eclipse.properties.file}" />
 		 	
 	  	<property name="gen.updatesite.file" location="${wdt_test_imports.basedir}/resources/wdt_updatesite-properties/generateP2Metadata.xml" />
