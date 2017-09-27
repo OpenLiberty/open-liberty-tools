@@ -45,16 +45,16 @@ task importAnt {
             antClassLoader.addURL(f.toURI().toURL())
     }
 
-    // The below taskdefs are only used in prereqs.xml. build-wdt.xml has its taskdefs loaded in the ant code.
+    // The below taskdefs are only used in prereqs.xml. build-olt.xml has its taskdefs loaded in the ant code.
     ant.taskdef(resource:'net/sf/antcontrib/antlib.xml',classpath:configurations.antcp.asPath)
     ant.taskdef(uri:'antlib:org.apache.ivy.ant', resource:'org/apache/ivy/ant/antlib.xml',classpath: configurations.antcp.asPath)
 
     // prereqs uses ivy to resolve and download our runtime dependencies and some open source libs
     // and move them into /lib/ folders of dependant plugins
     ant.importBuild('ant_build/prereqs/prereqs.xml')
-    // build-wdt contains the generateOpenLTUpdateSite target, which is the entry point
+    // build-olt contains the generateOpenLTUpdateSite target, which is the entry point
     // for the compilation and assembling of updatesites
-    ant.importBuild('ant_build/build-wdt.xml')
+    ant.importBuild('ant_build/build-olt.xml')
 }
 
 def projDir = projectDir.getAbsolutePath()
