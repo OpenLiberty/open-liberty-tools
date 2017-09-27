@@ -55,8 +55,8 @@
 		<var name="fileNameVersion" unset="true" />
 		<property name="fileNameVersion" value="${newVersion}" />
 		<property name="qualifier" value="${buildLabel}"/>
-		<property name="updatesite-name" value="open-wdt-update-site_${fileNameVersion}.v${qualifier}" />
-		<property name="metadata-updatesite-name" value="open-wdt-update-site-metadata_${fileNameVersion}.v${qualifier}" />	    	
+		<property name="updatesite-name" value="openlibertytools-${fileNameVersion}.v${qualifier}" />
+		<property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />	    	
 		<echo message="Target jvm location at ${target.jvm}" />
 		  	
 	  	<property name="gen.updatesite.file" location="${wdt_imports.basedir}/resources/wdt_updatesite-properties/generateP2Metadata.xml" />
