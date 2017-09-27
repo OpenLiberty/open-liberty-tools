@@ -1,0 +1,47 @@
+<!--
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+-->
+
+<project name="wdt_build" default="generateOpenLTUpdateSite">
+	<property name="level_tag" value="0.0.1"/>
+	<property name="delegate.build.dir" location="${basedir}/../" />
+	<property name="disable.run.executeMetatypeValidation" value="true"/>
+	<property name="disable.run.unzipIfixReleaseZip" value="true"/>
+	<property name="javac.source.file.encoding" value="Cp1252" />
+	<property name="tools.image" value="true" />
+	<tstamp>
+			<format property="buildLabel" pattern="yyyy-MM-dd_HHmm" timezone="UTC"/>
+	</tstamp>
+    <!--echo message="Build label is ${buildLabel}"/-->
+
+    <dirname property="wdt_build.basedir" file="${ant.file.wdt_build}" />
+
+    <import file="${wdt_build.basedir}/resources/build_imports/liberty-macros.xml" />
+    <import file="${wdt_build.basedir}/resources/build_imports/liberty-all.xml" />
+	<import file="olt_imports.xml"/>
+	<import file="olt_test_imports.xml"/>
+	
+	<import file="${wdt_build.basedir}/prereqs/prereqs.xml" />
+    
+	<target name="compile" depends="preparePrereqsIvy">
+		<antcall target="liberty-all.compile" />		
+	</target>
+
+    <property name="artifacts.dir" value="${wdt_build.basedir}/artifacts"/>
+    <mkdir dir="${artifacts.dir}"/>
+
+	<target name="generateOpenLTUpdateSite" depends="compile">
+		<antcall target="wdt_imports.generateOpenLTUpdateSite"/>
+		<antcall target="wdt_test_imports.generateOpenLTTestUpdateSite"/>
+        <echo message="Delete tools.image"/>
+		<delete dir="../tools.image" failonerror="false"/>
+	</target>
+	
+</project>
