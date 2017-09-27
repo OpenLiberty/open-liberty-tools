@@ -18,7 +18,7 @@
     Contributors:
         IBM Corporation - initial API and implementation
  -->
-<project name="com.ibm.ws.st.docker" default="build">
+<project name="com.ibm.ws.st.docker.base" default="build">
 	<property name="image.write.dir" value="update/features"/>
 	<import file="../ant_build/public_imports/internal_imports/feature_build.xml"/>
 </project>
