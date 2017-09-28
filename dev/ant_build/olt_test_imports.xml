@@ -9,14 +9,14 @@
  *     IBM Corporation - initial API and implementation
 -->
 
-<project name="wdt_test_imports">
+<project name="olt_test_imports">
 
-    <dirname property="wdt_test_imports.basedir" file="${ant.file.wdt_imports}" />
-    <import file="${wdt_test_imports.basedir}/public_imports/updatesite_imports.xml"/>
+    <dirname property="olt_test_imports.basedir" file="${ant.file.olt_imports}" />
+    <import file="${olt_test_imports.basedir}/public_imports/updatesite_imports.xml"/>
 		
 	<target name="generateOpenLTTestUpdateSite">
 		
-		<echo>Open WDT generate Test updateSite call</echo>
+		<echo>Open OLT generate Test updateSite call</echo>
 			
 	    <condition property="java.executable" value="java" else="java.exe">
 	      <not>
@@ -24,7 +24,7 @@
 	      </not>
 	    </condition>
 
-		<property name="local.workspace" location="${wdt_test_imports.basedir}/.."/>
+		<property name="local.workspace" location="${olt_test_imports.basedir}/.."/>
 	    <property name="target.jvm" location="${java.home}/bin/${java.executable}" /> 
 		<property name="delegate.build.dir" location = "${local.workspace}"/>
 
@@ -50,7 +50,7 @@
 	  	<property name="updatesite-test-name" value="openlibertytools-test-${fileNameVersion}.v${qualifier}" />
 	  	<property file="${eclipse.properties.file}" />
 		 	
-	  	<property name="gen.updatesite.file" location="${wdt_test_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
+	  	<property name="gen.updatesite.file" location="${olt_test_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
 	  	<echo message="Script location at ${gen.updatesite.file}" />
 		  	
 	  	<property name="target.updatesite.repository" location="${updateSiteDir}/repository" />

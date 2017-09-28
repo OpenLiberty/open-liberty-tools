@@ -740,7 +740,7 @@ public class LibertyDockerRunUtility {
     }
 
     /**
-     * An existing container can have any number of mount volumes. If the container was created by WDT from another workspace,
+     * An existing container can have any number of mount volumes. If the container was created by OLT from another workspace,
      * then the mount volume for /opt/ibm/wlp/usr (User Directory) will be reused and the workspace mount volume, /opt/ibm/wlp/stdev must
      * be tracked and added later (switching to loose config mode) when the new container is created. This mount volume is not added
      * as part of adding an external module to the server. It is added separately as a mandatory volume and tracked and saved in the server properties.

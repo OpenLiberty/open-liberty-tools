@@ -21,7 +21,7 @@
   <property name="skip.import.validation" value="true"/>
   <property name="javac.source.file.encoding" value="Cp1252" />
 
-  <!-- Skip findbugs and chkpii for all WDT builds for the moment -->
+  <!-- Skip findbugs and chkpii for all OLT builds for the moment -->
   <property name="skip.findbugs" value="true"/>
   <var name="skip.chkpii" value="false"/>
   <var name="translation.needed" value="true"/>
@@ -55,7 +55,7 @@
   <basename property="pluginName" file="${ant.project.name}"/>	
 	
 	<!--NL gathering is done here-->
-  <taskdef name="wdtnlsfilter" classname="com.ibm.wdt.ant.tasks.filters.WdtNLSFileFilter" >
+  <taskdef name="oltnlsfilter" classname="com.ibm.wdt.ant.tasks.filters.WdtNLSFileFilter" >
 	<classpath>
 		<pathelement location="../ant_build/lib/wdt-updatesite_0.0.2_v.20131018_1700.jar"/>
 	</classpath>
@@ -91,7 +91,7 @@
 			 dir="${nls.gathering}"/>
 	     <delete file="${lib.dir}/${output.jar}"/>
   		
-	     <wdtnlsfilter filesetRefName="pii.files"
+	     <oltnlsfilter filesetRefName="pii.files"
 	     	defaultExcludes="**/*.jar,**/*.class,**/*.gif,**/nls.xml,**/*nl1*,**/*nl2*,**/.metadata,**/bin,**/build.properties,**/buildcontrol.properties,
 	     	**/ccpackage.properties,**/build.xml,**/buildZip.xml,**/component.xml,**/feature.xml,**/fragment.xml,**/plugin.xml,**/package.xml,**/trust.p12,**/*.css"
 	     	defaultIncludes="**/*.properties,**/*.xml,**/*.htm*"

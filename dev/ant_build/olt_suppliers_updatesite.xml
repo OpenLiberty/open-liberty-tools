@@ -9,7 +9,7 @@
  *     IBM Corporation - initial API and implementation
 -->
 
-<project name="wdt_suppliers_updatesite">	
+<project name="olt_suppliers_updatesite">	
 	<!--target name="doGenerateSuppliersUpdateSite"-->
 	<target name="generateSuppliersUpdateSite">
 		
