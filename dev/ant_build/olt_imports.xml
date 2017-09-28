@@ -9,12 +9,12 @@
  *     IBM Corporation - initial API and implementation
 -->
 
-<project name="old_imports">
+<project name="olt_imports">
 
-    <dirname property="old_imports.basedir" file="${ant.file.old_imports}" />
+    <dirname property="olt_imports.basedir" file="${ant.file.olt_imports}" />
 
-    <import file="${old_imports.basedir}/public_imports/internal_imports/buildtasks.xml" />
-    <import file="${old_imports.basedir}/public_imports/updatesite_imports.xml"/>
+    <import file="${olt_imports.basedir}/public_imports/internal_imports/buildtasks.xml" />
+    <import file="${olt_imports.basedir}/public_imports/updatesite_imports.xml"/>
 	<import file="olt_suppliers_updatesite.xml"/>
 
 	<target name="generateOpenLTUpdateSite">
@@ -27,7 +27,7 @@
 	      </not>
 	    </condition>
 
-		<property name="local.workspace" location="${old_imports.basedir}/.."/>
+		<property name="local.workspace" location="${olt_imports.basedir}/.."/>
 	    <property name="target.jvm" location="${java.home}/bin/${java.executable}" />
 	    <property name="equinox.launcher" value="org.eclipse.equinox.app_1.3.100.v20120522-1841.jar" />	
 		<property name="delegate.build.dir" location = "${local.workspace}"/>
@@ -59,7 +59,7 @@
 		<property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />	    	
 		<echo message="Target jvm location at ${target.jvm}" />
 		  	
-	  	<property name="gen.updatesite.file" location="${old_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
+	  	<property name="gen.updatesite.file" location="${olt_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
 	  	<echo message="Script location at ${gen.updatesite.file}" />
 		
 	  	<property name="target.updatesite.repository" location="${updateSiteDir}/repository" />
