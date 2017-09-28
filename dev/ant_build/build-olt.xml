@@ -9,7 +9,7 @@
  *     IBM Corporation - initial API and implementation
 -->
 
-<project name="wdt_build" default="generateOpenLTUpdateSite">
+<project name="olt_build" default="generateOpenLTUpdateSite">
 	<property name="level_tag" value="0.0.1"/>
 	<property name="delegate.build.dir" location="${basedir}/../" />
 	<property name="disable.run.executeMetatypeValidation" value="true"/>
@@ -21,25 +21,25 @@
 	</tstamp>
     <!--echo message="Build label is ${buildLabel}"/-->
 
-    <dirname property="wdt_build.basedir" file="${ant.file.wdt_build}" />
+    <dirname property="olt_build.basedir" file="${ant.file.olt_build}" />
 
-    <import file="${wdt_build.basedir}/resources/build_imports/liberty-macros.xml" />
-    <import file="${wdt_build.basedir}/resources/build_imports/liberty-all.xml" />
-	<import file="wdt_imports.xml"/>
-	<import file="wdt_test_imports.xml"/>
+    <import file="${olt_build.basedir}/resources/build_imports/liberty-macros.xml" />
+    <import file="${olt_build.basedir}/resources/build_imports/liberty-all.xml" />
+	<import file="olt_imports.xml"/>
+	<import file="olt_test_imports.xml"/>
 	
-	<import file="${wdt_build.basedir}/prereqs/prereqs.xml" />
+	<import file="${olt_build.basedir}/prereqs/prereqs.xml" />
     
 	<target name="compile" depends="preparePrereqsIvy">
 		<antcall target="liberty-all.compile" />		
 	</target>
 
-    <property name="artifacts.dir" value="${wdt_build.basedir}/artifacts"/>
+    <property name="artifacts.dir" value="${olt_build.basedir}/artifacts"/>
     <mkdir dir="${artifacts.dir}"/>
 
 	<target name="generateOpenLTUpdateSite" depends="compile">
-		<antcall target="wdt_imports.generateOpenLTUpdateSite"/>
-		<antcall target="wdt_test_imports.generateOpenLTTestUpdateSite"/>
+		<antcall target="olt_imports.generateOpenLTUpdateSite"/>
+		<antcall target="olt_test_imports.generateOpenLTTestUpdateSite"/>
         <echo message="Delete tools.image"/>
 		<delete dir="../tools.image" failonerror="false"/>
 	</target>

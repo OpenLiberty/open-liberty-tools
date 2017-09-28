@@ -270,7 +270,7 @@ public class FeatureInstaller extends AbstractInstaller {
                     jvmArgs += " -D" + ASSET_LOCATION_OVERRIDE_PROP_NAME + "=" + assetLoc;
                 }
 
-                jvmArgs += " -Duser.agent=WDT/" + Activator.getBundleVersion();
+                jvmArgs += " -Duser.agent=OLT/" + Activator.getBundleVersion();
 
                 String repoPropsURL = (String) settings.get(REPO_PROPS_LOCATION);
                 if (repoPropsURL != null)

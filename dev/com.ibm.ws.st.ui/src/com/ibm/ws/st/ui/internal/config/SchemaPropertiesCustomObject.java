@@ -288,7 +288,7 @@ public class SchemaPropertiesCustomObject extends BaseCustomObject {
         }
         // TODO: generate the schema based on the attribute
 
-        String schemaPath = "C:/home/eclipse431/workspace_wdtx/SchemaTest/properties.xsd";
+        String schemaPath = "C:/home/eclipse431/workspace_oltx/SchemaTest/properties.xsd";
         return schemaPath;
     }
 

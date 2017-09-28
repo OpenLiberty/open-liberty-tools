@@ -9,17 +9,17 @@
  *     IBM Corporation - initial API and implementation
 -->
 
-<project name="wdt_imports">
+<project name="olt_imports">
 
-    <dirname property="wdt_imports.basedir" file="${ant.file.wdt_imports}" />
+    <dirname property="olt_imports.basedir" file="${ant.file.olt_imports}" />
 
-    <import file="${wdt_imports.basedir}/public_imports/internal_imports/buildtasks.xml" />
-    <import file="${wdt_imports.basedir}/public_imports/updatesite_imports.xml"/>
-	<import file="wdt_suppliers_updatesite.xml"/>
+    <import file="${olt_imports.basedir}/public_imports/internal_imports/buildtasks.xml" />
+    <import file="${olt_imports.basedir}/public_imports/updatesite_imports.xml"/>
+	<import file="olt_suppliers_updatesite.xml"/>
 
 	<target name="generateOpenLTUpdateSite">
 		
-		<echo>Open WDT generate updateSite call</echo>
+		<echo>Open OLT generate updateSite call</echo>
 
 	    <condition property="java.executable" value="java" else="java.exe">
 	      <not>
@@ -27,7 +27,7 @@
 	      </not>
 	    </condition>
 
-		<property name="local.workspace" location="${wdt_imports.basedir}/.."/>
+		<property name="local.workspace" location="${olt_imports.basedir}/.."/>
 	    <property name="target.jvm" location="${java.home}/bin/${java.executable}" />
 	    <property name="equinox.launcher" value="org.eclipse.equinox.app_1.3.100.v20120522-1841.jar" />	
 		<property name="delegate.build.dir" location = "${local.workspace}"/>
@@ -59,7 +59,7 @@
 		<property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />	    	
 		<echo message="Target jvm location at ${target.jvm}" />
 		  	
-	  	<property name="gen.updatesite.file" location="${wdt_imports.basedir}/resources/wdt_updatesite-properties/generateP2Metadata.xml" />
+	  	<property name="gen.updatesite.file" location="${olt_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
 	  	<echo message="Script location at ${gen.updatesite.file}" />
 		
 	  	<property name="target.updatesite.repository" location="${updateSiteDir}/repository" />
@@ -82,10 +82,10 @@
 	  		</fileset>
 	  	</copy>
 		  			  	
-		<property name="wdt.product.toplevelfeatures.list" 
-			location="wdt_product_updatesite_toplevel_features.properties" />
-		<property name="wdt.product.features.list" 
-			location="wdt_product_updatesite_features.properties" />
+		<property name="olt.product.toplevelfeatures.list" 
+			location="olt_product_updatesite_toplevel_features.properties" />
+		<property name="olt.product.features.list" 
+			location="olt_product_updatesite_features.properties" />
 		
 		<!-- Step 1 -->
 		<!-- Create site.xml with top level feature(s) -->
@@ -101,8 +101,8 @@
 				description="Open Liberty Tools for Eclipse">
 				
 				<!-- Features list file -->
-				<featuresFile id="Open WDT product updatesite toplevel features" 
-					file="${wdt.product.toplevelfeatures.list}" />
+				<featuresFile id="Open OLT product updatesite toplevel features" 
+					file="${olt.product.toplevelfeatures.list}" />
 				
 		  	</category>
 		</generateUpdateSite>
@@ -116,8 +116,8 @@
 			addIncludedFeatures="true">
 			
 			<!-- Features list file -->
-			<featuresFile id="Open WDT product updatesite features" 
-								file="${wdt.product.features.list}" />
+			<featuresFile id="Open OLT product updatesite features" 
+								file="${olt.product.features.list}" />
 			
 			
 	  	</generateUpdateSite>

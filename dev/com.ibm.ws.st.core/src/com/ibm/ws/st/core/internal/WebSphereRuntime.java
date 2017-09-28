@@ -107,7 +107,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     public static final String PROP_USER_DIRECTORY = "userDirectory";
 
     protected static final String PROP_USER_DIR_NAME_MAP = "user-dir-name-map";
-    private static final String USER_DIR_METADATA_PATH = "WDT__UserDirectory__";
+    private static final String USER_DIR_METADATA_PATH = "OLT__UserDirectory__";
     private static byte userDirCounter = 0;
 
     protected List<WebSphereServerInfo> serverInfo;
