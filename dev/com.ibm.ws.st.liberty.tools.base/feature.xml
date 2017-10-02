@@ -2,7 +2,7 @@
 <feature
       id="com.ibm.ws.st.liberty.tools.base"
       label="%featureName"
-      version="17.0.0.3.qualifier"
+      version="1.0.2.qualifier"
       provider-name="%providerName">
 
    <description>
