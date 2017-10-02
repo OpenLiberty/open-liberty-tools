@@ -55,8 +55,8 @@
 		<var name="fileNameVersion" unset="true" />
 		<property name="fileNameVersion" value="${newVersion}" />
 		<property name="qualifier" value="${buildLabel}"/>
-		<property name="updatesite-name" value="openlibertytools-${fileNameVersion}." />
-		<property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}." />	    	
+		<property name="updatesite-name" value="openlibertytools-${fileNameVersion}.v${qualifier}" />
+		<property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />	    	
 		<echo message="Target jvm location at ${target.jvm}" />
 		  	
 	  	<property name="gen.updatesite.file" location="${olt_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />

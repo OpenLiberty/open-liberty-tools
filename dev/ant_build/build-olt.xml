@@ -17,7 +17,7 @@
 	<property name="javac.source.file.encoding" value="Cp1252" />
 	<property name="tools.image" value="true" />
 	<tstamp>
-			<format property="buildLabel" pattern="yyyyMMdd_HHmm" timezone="UTC"/>
+			<format property="buildLabel" pattern="yyyy-MM-dd_HHmm" timezone="UTC"/>
 	</tstamp>
     <!--echo message="Build label is ${buildLabel}"/-->
 
