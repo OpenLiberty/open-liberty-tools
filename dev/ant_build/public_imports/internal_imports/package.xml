@@ -65,7 +65,7 @@
 		<copy todir="${build.dir}/META-INF" file="META-INF/MANIFEST.MF">
       		<filterchain>
   				<replacetokens begintoken="." endtoken="r" >
-    				<token key="qualifier" value="${qualifier}"/>
+    				<token key="qualifie" value="${qualifier}"/>
    				</replacetokens>
  			</filterchain>
 		</copy>
