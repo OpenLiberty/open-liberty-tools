@@ -18,7 +18,7 @@
    </license>
 
    <requires>
-      <import feature="com.ibm.ws.st.liberty.tools.base" version="1.0.2.qualifier" match="greaterOrEqual"/>
+      <import feature="com.ibm.ws.st.liberty.tools.base" version="1.0.2" match="greaterOrEqual"/>
    </requires>
 
    <plugin
