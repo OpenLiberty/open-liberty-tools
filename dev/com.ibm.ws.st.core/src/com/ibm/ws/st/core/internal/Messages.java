@@ -140,7 +140,6 @@ public class Messages extends NLS {
     public static String jmxConnectionFailure;
     public static String remoteJMXConnectionFailure;
     public static String errorPublishJMX;
-    public static String errorPublishRemoteServerNotStarted;
     public static String deployAppSuccessfully;
     public static String deployAppFailed;
     public static String errorDeleteFile;

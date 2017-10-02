@@ -976,9 +976,7 @@ public class WebSphereServerBehaviour extends ServerBehaviourDelegate implements
 
             // can't publish to remote server if server isn't started or JMX connection unavailable
             if (jmxConnection == null && !isLocalUserDir()) {
-                if (getServer().getServerState() != IServer.STATE_STARTED) {
-                    multi.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.errorPublishRemoteServerNotStarted));
-                } else {
+                if (getServer().getServerState() == IServer.STATE_STARTED) {
                     multi.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.errorPublishJMX));
                 }
                 return; // returning will leave the server in republish state so that the publish can occur when a connection becomes available
