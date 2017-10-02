@@ -6,14 +6,16 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.runtime.CoreException;
@@ -65,9 +67,9 @@ public class ServerExtensionWrapper {
         IConfigurationElement[] cf = registry.getConfigurationElementsFor(Activator.PLUGIN_ID, EXTENSION_POINT);
         List<ServerExtensionWrapper> list = new ArrayList<ServerExtensionWrapper>(cf.length);
 
-        List<String> appTypeList = new ArrayList<String>();
-        List<String> genericTypeList = new ArrayList<String>();
-        List<String> applicationElementList = new ArrayList<String>();
+        Set<String> appTypeList = new HashSet<String>();
+        Set<String> genericTypeList = new HashSet<String>();
+        Set<String> applicationElementList = new HashSet<String>();
         applicationElementList.add("application"); // Liberty 8.5 uses it with type attribute.
         for (IConfigurationElement ce : cf) {
             try {
