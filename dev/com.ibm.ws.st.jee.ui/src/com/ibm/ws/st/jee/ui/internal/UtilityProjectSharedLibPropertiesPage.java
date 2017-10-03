@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.ui.internal;
 
@@ -15,6 +15,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Properties;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -23,6 +24,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
@@ -375,5 +377,33 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
             Server s = (Server) server;
             s.setServerPublishState(IServer.PUBLISH_STATE_INCREMENTAL);
         }
+    }
+
+    @Override
+    protected Label createDescriptionLabel(Composite parent) {
+
+        String descriptionMsg = getDescriptionMsg();
+
+        Label descriptionLabel = new Label(parent, SWT.WRAP);
+        descriptionLabel.setText(descriptionMsg);
+        return descriptionLabel;
+    }
+
+    private String getDescriptionMsg() {
+        IAdaptable element = getElement();
+        project = element.getAdapter(IProject.class);
+
+        // Maven projects might be targeted to a runtime in a target folder. If that's the case the shared lib
+        // configuration could be lost upon a maven clean. Therefore, warn the user so that they're aware and suggest
+        // they copy their configuration to server config files in src folders so that they're preserved even after a maven clean.
+        if (project != null) {
+            IFile pom = project.getFile("pom.xml");
+            if (pom != null && pom.exists()) {
+                setMessage(Messages.sharedLibWarning, IMessageProvider.WARNING);
+                return Messages.sharedLibMavenDescription;
+            }
+        }
+
+        return Messages.sharedLibGeneralDescription;
     }
 }

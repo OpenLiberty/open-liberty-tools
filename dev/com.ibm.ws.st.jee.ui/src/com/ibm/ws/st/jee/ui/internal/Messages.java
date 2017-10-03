@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.ui.internal;
 
@@ -19,6 +19,7 @@ public class Messages extends NLS {
     public static String browse;
     public static String remove;
     public static String add;
+    public static String sharedLibGeneralDescription;
     public static String sharedLibDescription;
     public static String sharedLibId;
     public static String sharedLibDirectory;
@@ -39,6 +40,12 @@ public class Messages extends NLS {
     public static String sharedLibAPIVisibilityIBMAPI;
     public static String sharedLibAPIVisibilitySpec;
     public static String sharedLibAPIVisibilityThirdParty;
+
+    public static String sharedLibWarning;
+
+    // Maven
+    public static String sharedLibMavenDescription;
+    public static String sharedLibMavenServer;
 
     static {
         NLS.initializeMessages(Activator.PLUGIN_ID + ".internal.Messages", Messages.class);
