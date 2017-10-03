@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.ibm.ws.st.jee.ui;singleton:=true
-Bundle-Version: 1.0.451.qualifier
+Bundle-Version: 1.0.452.qualifier
 Bundle-Activator: com.ibm.ws.st.jee.ui.internal.Activator
 Bundle-Vendor: IBM
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
