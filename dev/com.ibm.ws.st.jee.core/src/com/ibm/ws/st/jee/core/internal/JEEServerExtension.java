@@ -33,9 +33,6 @@ import org.eclipse.jst.server.core.IJ2EEModule;
 import org.eclipse.jst.server.core.IWebModule;
 import org.eclipse.jst.server.core.internal.J2EEUtil;
 import org.eclipse.osgi.util.NLS;
-import org.eclipse.wst.common.componentcore.ComponentCore;
-import org.eclipse.wst.common.componentcore.resources.IVirtualComponent;
-import org.eclipse.wst.common.componentcore.resources.IVirtualReference;
 import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.IModule2;
 import org.eclipse.wst.server.core.IModuleType;
@@ -342,28 +339,6 @@ public class JEEServerExtension extends ServerExtension {
 
             contextRoot = DeploymentDescriptorHelper.getWebContextRootFromEAR(DeploymentDescriptorHelper.getComponentRoot(earModule.getProject()),
                                                                               getModuleDeployName(webModule));
-        }
-
-        // If the context root was not defined as part of the ear module configuration or in a deployment descriptor then it is just the module archive name
-        if (contextRoot == null) {
-            IVirtualComponent vc = ComponentCore.createComponent(earModule.getProject());
-            if (vc != null) {
-                Map<String, Object> options = new HashMap<String, Object>();
-                options.put(IVirtualComponent.REQUESTED_REFERENCE_TYPE, IVirtualComponent.DISPLAYABLE_REFERENCES);
-                IVirtualReference[] refs = vc.getReferences(options);
-                for (IVirtualReference ref : refs) {
-                    String name = ref.getReferencedComponent().getName();
-                    if (webModule.getName().equals(name)) {
-                        String archiveName = ref.getArchiveName();
-                        if (archiveName != null) {
-                            if (archiveName.endsWith(WAR_EXTENSION))
-                                archiveName = archiveName.substring(0, archiveName.length() - WAR_EXTENSION.length());
-                            contextRoot = archiveName;
-                        }
-                        break;
-                    }
-                }
-            }
         }
 
         return contextRoot;
