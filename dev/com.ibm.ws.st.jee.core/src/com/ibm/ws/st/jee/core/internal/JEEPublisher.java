@@ -145,6 +145,7 @@ public class JEEPublisher extends ApplicationPublisher {
         IModule[] module = unit.getModule();
         int size = module.length;
         List<IStatus> status = new ArrayList<IStatus>();
+
         if (ServerBehaviourDelegate.ADDED == unit.getDeltaKind()) {
             if (Trace.ENABLED)
                 Trace.trace(Trace.INFO, "Module added: " + unit.getModuleName());
