@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: com.ibm.xwt.dde;singleton:=true
-Bundle-Version: 1.1.400.qualifier
+Bundle-Version: 1.1.401.qualifier
 Bundle-Activator: com.ibm.xwt.dde.DDEPlugin
 Bundle-Vendor: %Bundle-Vendor
 Bundle-Localization: plugin
