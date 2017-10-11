@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.preferencePages"> 
+       <page
+	            class="com.ibm.etools.maven.liberty.integration.ui.internal.LibertyIntegrationPreferencePage"
+	            id="com.ibm.etools.maven.liberty.integration.ui.internal.LibertyIntegrationPreferencePage"
+	            name="%IBMLibertyMavenPreferencePage"
+	            category="org.eclipse.m2e.core.preferences.Maven2PreferencePage">
+        </page>
+   </extension>
+   
+	<extension point="com.ibm.ws.st.ui.customServerConfig">
+		<handler class="com.ibm.etools.maven.liberty.integration.ui.internal.CustomServerConfig" />
+	</extension>
+    <extension point="com.ibm.ws.st.core.customServerVariables">
+    	<handler class="com.ibm.etools.maven.liberty.integration.internal.CustomServerVariablesHandler" />
+	</extension>
+	
+   <extension point="org.eclipse.ui.navigator.navigatorContent">
+    <navigatorContent
+       id="com.ibm.ws.etools.maven.liberty.integration.runtime.content"
+       name="%navigatorContentProviderMavenRuntime"
+       icon="icons/obj16/information.gif"
+       activeByDefault="true"
+       contentProvider="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeContentProvider"
+       labelProvider="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeLabelProvider">
+       <triggerPoints>
+         <or>
+           <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+         </or>
+       </triggerPoints>
+       <possibleChildren>
+         <or>
+           <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+         </or>
+       </possibleChildren>
+       <actionProvider
+         id="com.ibm.etools.maven.liberty.integration.rtexplorer.actionProvider"
+         class="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeActionProvider">
+         <enablement>
+             <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+         </enablement>
+       </actionProvider>
+    </navigatorContent>
+  </extension>
+
+  <extension point="org.eclipse.ui.navigator.viewer">
+    <viewerContentBinding
+      viewerId="com.ibm.ws.st.ui.runtime.view">
+      <includes>
+        <contentExtension isRoot="true" pattern="com.ibm.ws.etools.maven.liberty.integration.runtime.content"/>
+      </includes>
+    </viewerContentBinding>
+  </extension>
+    <extension point="com.ibm.ws.st.core.customServerVariables">
+    	<handler class="com.ibm.etools.maven.liberty.integration.internal.CustomServerVariablesHandler" />
+	</extension>
+
+	<extension point="com.ibm.ws.st.common.core.ext.serverTypeExtension">
+      <serverTypeExtension
+         id="com.ibm.etools.maven.liberty.integration.libertyMavenServerType"
+         typeId="LibertyMaven"
+         serverLaunchConfigurationClass="com.ibm.ws.st.core.internal.launch.BaseLibertyLaunchConfiguration"
+         serverBehaviourClass="com.ibm.etools.maven.liberty.integration.servertype.internal.LibertyMavenServerBehaviour"
+         serverClass="com.ibm.etools.maven.liberty.integration.servertype.internal.LibertyMavenServer"
+         />
+   </extension> 
+   
+   <extension point="com.ibm.ws.st.core.serverExtensions">
+    <serverExtension
+      id="com.ibm.etools.maven.liberty.integration.serverExtension"
+      class="com.ibm.etools.maven.liberty.integration.servertype.internal.LibertyMavenServerExtension"
+      publishClass="com.ibm.etools.maven.liberty.integration.servertype.internal.LibertyMavenJEEPublisher">
+
+      <module type="jst.web" applicationType="war" applicationElement="webApplication"/>
+      <module type="jst.ear" applicationType="ear" applicationElement="enterpriseApplication" />
+    </serverExtension>
+  </extension>
+  
+  <extension point="org.eclipse.ui.popupMenus">
+  	<objectContribution id="org.eclipse.m2e.core.projectMenu.newModuleProject"
+                          objectClass="org.eclipse.core.resources.IProject"
+                          adaptable="true">
+         <action id="com.ibm.etools.maven.liberty.integration.createRuntimeAndServerAction"
+                 class="com.ibm.etools.maven.liberty.integration.ui.actions.internal.CreateRuntimeServerProjectMenuAction"
+                 label="%popup.createRuntimeAndServer"
+                 style="push"
+                 icon="icons/obj16/liberty-runtime-maven-16.png"
+                 menubarPath="org.eclipse.m2e.core.mavenMenu/new"
+                 enablesFor="1"/>
+         <visibility>
+           <and>
+             <objectState name="open" value="true"/>
+             <objectState name="nature" value="org.eclipse.m2e.core.maven2Nature"/>
+           </and>
+         </visibility>
+      <enablement>
+         <test property="com.ibm.etools.maven.liberty.integration.isLibertyMavenEnhanced"/>
+      </enablement>
+      </objectContribution>
+  </extension>
+  
+  <extension point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            id="com.ibm.etools.maven.liberty.integration.LibertyIntegrationPropertyTester"
+            class="com.ibm.etools.maven.liberty.integration.ui.actions.internal.LibertyIntegrationPropertyTester"
+            namespace="com.ibm.etools.maven.liberty.integration"
+            properties="isLibertyMavenEnhanced"
+            type="org.eclipse.core.runtime.IAdaptable"/>
+   </extension>
+
+</plugin>

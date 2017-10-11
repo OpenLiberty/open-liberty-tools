@@ -1,0 +1,4 @@
+<project name="com.ibm.etools.maven.liberty.integration" default="build">
+	<import file="../ant_build/public_imports/tooling_imports.xml"/>
+	<target name="build" depends="standard_targets.build"/>
+</project>
