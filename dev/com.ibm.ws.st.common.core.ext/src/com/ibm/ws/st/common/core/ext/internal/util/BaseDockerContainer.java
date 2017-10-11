@@ -24,6 +24,7 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.json.JsonValue;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -373,8 +374,11 @@ public class BaseDockerContainer implements IPlatformHandler {
         Map<String, String> bindings = new HashMap<String, String>();
         JsonObject hostConfig = (JsonObject) inspect.get(HOST_CONFIG_KEY);
         if (hostConfig != null) {
-            JsonObject portBindings = (JsonObject) hostConfig.get(PORT_BINDINGS_KEY);
-            if (portBindings != null) {
+            JsonValue jsonValue = hostConfig.get(PORT_BINDINGS_KEY);
+            // If jsonValue is not an instance of JsonObject, then simply return an empty map because there are no port bindings defined.
+            // This handles the case where the JSON for this element is: "PortBindings": {}  or  "PortBindings": null
+            if (jsonValue instanceof JsonObject) {
+                JsonObject portBindings = (JsonObject) jsonValue;
                 for (Object key : portBindings.keySet()) {
                     String containerPort = (String) key;
                     if (containerPort.endsWith(PORT_SUFFIX)) {
