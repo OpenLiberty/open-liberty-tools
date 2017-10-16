@@ -18,11 +18,11 @@ To install the Open Liberty Tools:
 1. If you don’t already have Eclipse, install [Eclipse Oxygen for Java EE Developers ( 4.7 )](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygenr)
 2. Start your Eclipse workbench.
 3. Start the installation using either of the following methods.
-    Locate the installation files from your Eclipse workbench:
+    * Locate the installation files from your Eclipse workbench:
         Click Help > Eclipse Marketplace.
         In the Find field, type WebSphere.
         In the list of results, locate IBM WebSphere Application Server Liberty Developer Tools for Oxygen (and later) and then click Install. The Confirm Selected Features page opens.
-    Drag an Install icon from a web page to your Eclipse workbench:
+    * Drag an Install icon from a web page to your Eclipse workbench:
         Open your web browser to http://www.ibm.com/wasdev and click the Download tab.
         Select WebSphere Developer Tools for Eclipse Oxygen (and later) from the asset list.
         Locate the Install icon for WebSphere Application Server Liberty. 
