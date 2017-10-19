@@ -11,13 +11,7 @@
 
 package com.ibm.ws.st.liberty.buildplugin.integration.internal;
 
-public interface ILibertyBuildPluginImplProvider {
-
-    /**
-     * Provides a Liberty build plugin integration implementation.
-     *
-     * @return
-     */
-    public ILibertyBuildPluginImpl getBuildPluginImpl();
-
+public class Constants {
+    public static final String PROFILE_ID = "profileId";
+    public static final String JVM_PARAM = "param";
 }

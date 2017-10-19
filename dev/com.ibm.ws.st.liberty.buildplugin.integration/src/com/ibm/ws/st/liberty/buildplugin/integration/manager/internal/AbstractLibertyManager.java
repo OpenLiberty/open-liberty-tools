@@ -1,11 +1,13 @@
-/**
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 package com.ibm.ws.st.liberty.buildplugin.integration.manager.internal;
 
@@ -50,17 +52,6 @@ import org.eclipse.wst.server.core.internal.facets.FacetUtil;
 import org.eclipse.wst.validation.ValidationFramework;
 import org.eclipse.wst.validation.ValidationResults;
 
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.IProjectInspector;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.Activator;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ExcludeSyncModuleUtil;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImplProvider;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.Messages;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
-import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping.ProjectMapping;
-import com.ibm.ws.st.liberty.buildplugin.integration.ui.internal.UIHelper;
 import com.ibm.ws.st.core.internal.PromptUtil;
 import com.ibm.ws.st.core.internal.UserDirectory;
 import com.ibm.ws.st.core.internal.WebSphereRuntime;
@@ -70,7 +61,17 @@ import com.ibm.ws.st.core.internal.WebSphereServerBehaviour;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.WebSphereUtil;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
-import com.ibm.ws.st.core.internal.config.ConfigurationFile.Application;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.Activator;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ExcludeSyncModuleUtil;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImplProvider;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.IProjectInspector;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.Messages;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
+import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping.ProjectMapping;
+import com.ibm.ws.st.liberty.buildplugin.integration.ui.internal.UIHelper;
 
 @SuppressWarnings("restriction")
 public abstract class AbstractLibertyManager implements IResourceChangeListener, ILibertyBuildPluginImplProvider {
@@ -609,7 +610,6 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                 for (IModule module : projectModules) {
                     if (pi.isSupportedModule(module)) {
                         // Module setup
-
                         IModule[] serverModules = server.getModules();
                         int len = serverModules.length;
                         boolean found = false;
@@ -636,7 +636,6 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                                 // Need to add the local connector. For the non-loose dropins case, a jmx check
                                 // will happen, but if the connector is missing, an error will come up
                                 wsServer.addLocalConnectorFeature(monitor);
-
                                 if (config != null) {
                                     // Need to include all project modules in the exclusion otherwise the other project modules will be treated as external modules
                                     ExcludeSyncModuleUtil.updateExcludeSyncModuleMapping(projectModules, config, wsServer.getWebSphereServerBehaviour());
@@ -644,17 +643,19 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                                     if (serverConfig == null) {
                                         return new Status(IStatus.ERROR, Activator.PLUGIN_ID, NLS.bind(Messages.configFileNotFound, wsServer.getServerName()));
                                     }
-                                    Application[] configuredApps = serverConfig.getApplications();
-                                    boolean appConfigured = false;
-                                    for (Application app : configuredApps) {
-                                        if (app.getName().equals(module.getName())) {
-                                            appConfigured = true;
-                                            break;
-                                        }
-                                    }
-                                    if (!appConfigured) {
-                                        return new Status(IStatus.ERROR, Activator.PLUGIN_ID, NLS.bind(Messages.cannotBindApplication, module.getName()));
-                                    }
+//                                    Application[] configuredApps = serverConfig.getApplications();
+//                                    boolean appConfigured = false;
+//                                    for (Application app : configuredApps) {
+//                                        if (app.getName().equals(module.getName())) {
+//                                            appConfigured = true;
+//                                            break;
+//                                        }
+//                                    }
+//                                    if (!appConfigured) {
+//                                        return new Status(IStatus.ERROR, Activator.PLUGIN_ID, NLS.bind(Messages.cannotBindApplication,
+//                                                                                                       new String[] { module.getProject().getName(), server.getName(),
+//                                                                                                                      module.getName() }));
+//                                    }
                                     serverWc.modifyModules(new IModule[] { module }, new IModule[] {}, monitor);
                                     server = serverWc.save(true, null);
                                 }

@@ -1,11 +1,13 @@
-/*
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 package com.ibm.etools.maven.liberty.integration.manager.internal;
 
@@ -32,19 +34,19 @@ import org.eclipse.m2e.core.project.IMavenProjectFacade;
 import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.ServerUtil;
 
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.IProjectInspector;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
-import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConfiguration;
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConstants;
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConstants.ProjectType;
 import com.ibm.etools.maven.liberty.integration.internal.Trace;
-import com.ibm.etools.maven.liberty.integration.xml.internal.LibertyMavenXMLConfigurationReader;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.IProjectInspector;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
+import com.ibm.ws.st.liberty.buildplugin.integration.xml.internal.LibertyBuildPluginXMLConfigurationReader;
 
 public class MavenProjectInspector implements IProjectInspector {
 
     private final IProject project;
-    private LibertyMavenConfiguration projectConfig;
-    private LibertyMavenConfiguration cachedProjectConfig;
+    private LibertyBuildPluginConfiguration projectConfig;
+    private LibertyBuildPluginConfiguration cachedProjectConfig;
 
     public MavenProjectInspector(IProject project) {
         this.project = project;
@@ -52,7 +54,7 @@ public class MavenProjectInspector implements IProjectInspector {
 
     /** {@inheritDoc} */
     @Override
-    public LibertyMavenConfiguration getBuildPluginConfiguration(IProgressMonitor monitor) {
+    public LibertyBuildPluginConfiguration getBuildPluginConfiguration(IProgressMonitor monitor) {
         try {
             File configFile = getLibertyBuildPluginConfigFile(monitor);
             if (configFile == null)
@@ -68,7 +70,7 @@ public class MavenProjectInspector implements IProjectInspector {
 
     /** {@inheritDoc} */
     @Override
-    public LibertyMavenConfiguration getCachedBuildPluginConfiguration(IProgressMonitor monitor) {
+    public LibertyBuildPluginConfiguration getCachedBuildPluginConfiguration(IProgressMonitor monitor) {
         try {
             File configFile = getCachedLibertyBuildPluginConfigurationFile(monitor);
             if (configFile == null)
@@ -182,11 +184,11 @@ public class MavenProjectInspector implements IProjectInspector {
 
     /** {@inheritDoc} */
     @Override
-    public LibertyMavenConfiguration populateConfiguration(File configFile, IProgressMonitor monitor) throws IOException {
+    public LibertyBuildPluginConfiguration populateConfiguration(File configFile, IProgressMonitor monitor) throws IOException {
         if (monitor != null && monitor.isCanceled() || configFile == null || !configFile.exists())
             return null;
         Trace.trace(Trace.INFO, "Reading configFile from" + configFile.getAbsolutePath());
-        LibertyMavenXMLConfigurationReader reader = new LibertyMavenXMLConfigurationReader();
+        LibertyBuildPluginXMLConfigurationReader reader = new LibertyBuildPluginXMLConfigurationReader();
         return reader.load(configFile.toURI());
     }
 
@@ -255,7 +257,7 @@ public class MavenProjectInspector implements IProjectInspector {
 
     private IModule[] getLibertyAssemblyModules() {
         Trace.trace(Trace.INFO, "Looking up modules for project " + project.getName());
-        LibertyMavenConfiguration config = getBuildPluginConfiguration(null);
+        LibertyBuildPluginConfiguration config = getBuildPluginConfiguration(null);
         Set<String> dependencies = config.getProjectCompileDependencies();
         List<IModule> modules = new ArrayList<IModule>();
         for (String dependency : dependencies) {
@@ -275,7 +277,7 @@ public class MavenProjectInspector implements IProjectInspector {
     }
 
     public ProjectType getProjectType() {
-        LibertyMavenConfiguration config = getBuildPluginConfiguration(null);
+        LibertyBuildPluginConfiguration config = getBuildPluginConfiguration(null);
         String projectType = config.getConfigValue(ConfigurationType.projectType);
         if (LibertyMavenConstants.LIBERTY_ASSEMBLY_PROJECT_TYPE.equals(projectType))
             return ProjectType.LIBERTY_ASSEMBLY;

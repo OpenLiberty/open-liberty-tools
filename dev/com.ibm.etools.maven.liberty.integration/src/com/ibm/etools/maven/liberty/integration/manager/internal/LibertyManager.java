@@ -1,22 +1,24 @@
-/**
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 package com.ibm.etools.maven.liberty.integration.manager.internal;
 
 import org.eclipse.osgi.util.NLS;
 
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
-import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyManager;
-import com.ibm.ws.st.liberty.buildplugin.integration.ui.internal.UIHelper;
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMaven;
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConstants;
 import com.ibm.etools.maven.liberty.integration.internal.Messages;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
+import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyManager;
+import com.ibm.ws.st.liberty.buildplugin.integration.ui.internal.UIHelper;
 
 public class LibertyManager extends AbstractLibertyManager {
 

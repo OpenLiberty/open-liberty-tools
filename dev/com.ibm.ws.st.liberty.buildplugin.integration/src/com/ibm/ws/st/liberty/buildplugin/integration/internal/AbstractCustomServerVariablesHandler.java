@@ -1,11 +1,14 @@
-/*
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved.
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
+
 package com.ibm.ws.st.liberty.buildplugin.integration.internal;
 
 import java.io.File;
@@ -29,12 +32,35 @@ import com.ibm.ws.st.ui.internal.utility.PathUtil;
 @SuppressWarnings("restriction")
 public abstract class AbstractCustomServerVariablesHandler implements ICustomServerVariablesHandler {
 
+    /**
+     * Get the project that defines the given server in its liberty build plugin.
+     *
+     * @param server
+     * @return
+     */
     protected abstract IProject getMappedProject(IServer server);
 
+    /**
+     * Get the liberty build plugin configuration for the given project.
+     *
+     * @param project
+     * @return
+     */
     protected abstract LibertyBuildPluginConfiguration getLibertyBuildPluginConfiguration(IProject project);
 
+    /**
+     * Inline variables are defined in the configuration of a liberty build plugin instead of the bootstrap.properties, server.env or jvm.options files that the runtime
+     * traditionally uses.
+     *
+     * @param project
+     * @param configVars
+     * @param libertyBuildProjectConfiguration
+     */
     protected abstract void addInlineVars(IProject project, ConfigVars configVars, LibertyBuildPluginConfiguration libertyBuildProjectConfiguration);
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void addCustomServerVariables(ConfigVars configVars, IProject project) {
 

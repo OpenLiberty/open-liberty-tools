@@ -1,14 +1,14 @@
-/*
-* IBM Confidential
-*
-* OCO Source Materials
-*
-* Copyright IBM Corp. 2017 All Rights Reserved.
-*
-* The source code for this program is not published or otherwise divested
-* of its trade secrets, irrespective of what has been deposited with the
-* U.S. Copyright Office.
-*/
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
+
 package com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal;
 
 import java.util.HashSet;
@@ -20,12 +20,12 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.wst.server.core.ServerCore;
 
+import com.ibm.ws.st.core.internal.WebSphereUtil;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImplProvider;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Messages;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
-import com.ibm.ws.st.core.internal.WebSphereUtil;
 
 @SuppressWarnings("restriction")
 public abstract class AbstractLibertyBuildPluginRuntimeContentProvider implements org.eclipse.jface.viewers.ITreeContentProvider, ILibertyBuildPluginImplProvider {

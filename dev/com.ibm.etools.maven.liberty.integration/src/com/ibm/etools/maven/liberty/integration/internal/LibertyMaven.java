@@ -1,11 +1,13 @@
-/*
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 package com.ibm.etools.maven.liberty.integration.internal;
 
@@ -34,17 +36,17 @@ import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.IServer;
 import org.eclipse.wst.server.core.ServerCore;
 
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.IProjectInspector;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.Activator;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
-import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping;
 import com.ibm.etools.maven.liberty.integration.manager.internal.LibertyManager;
 import com.ibm.etools.maven.liberty.integration.manager.internal.LibertyMavenProjectMapping;
 import com.ibm.etools.maven.liberty.integration.manager.internal.MavenProjectInspector;
 import com.ibm.ws.st.core.internal.Constants;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.Activator;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.IProjectInspector;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
+import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping;
 
 @SuppressWarnings("restriction")
 public class LibertyMaven implements ILibertyBuildPluginImpl {
@@ -70,7 +72,7 @@ public class LibertyMaven implements ILibertyBuildPluginImpl {
      * @param monitor
      * @return the {@code LibertyMavenConfiguration} model or null if the model could not be generated
      */
-    public static LibertyMavenConfiguration getLibertyMavenProjectConfiguration(IProject project, IProgressMonitor monitor) {
+    public static LibertyBuildPluginConfiguration getLibertyMavenProjectConfiguration(IProject project, IProgressMonitor monitor) {
         return instance.getProjectInspector(project, monitor).getBuildPluginConfiguration(monitor);
     }
 
@@ -276,7 +278,7 @@ public class LibertyMaven implements ILibertyBuildPluginImpl {
 
     /** {@inheritDoc} */
     @Override
-    public void triggerAddProject(IProject project, IProgressMonitor monitor) {
+    public void triggerAddRuntimeAndServer(IProject project, IProgressMonitor monitor) {
 
         LibertyManager.getInstance().triggerAddProject(project, monitor);
 

@@ -1,13 +1,15 @@
-/**
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
-package com.ibm.etools.maven.liberty.integration.xml.internal;
+package com.ibm.ws.st.liberty.buildplugin.integration.xml.internal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,9 +19,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
-import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConfiguration;
-import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConstants;
-import com.ibm.etools.maven.liberty.integration.internal.Trace;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.Constants;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
 
 /**
  *
@@ -27,12 +29,12 @@ import com.ibm.etools.maven.liberty.integration.internal.Trace;
  * DOM data and retrieve the model object.
  *
  */
-public class DOMBasedLibertyMavenConfigurationBuilder {
+public class DOMBasedLibertyBuildPluginConfigurationBuilder {
 
-    private final LibertyMavenConfiguration config;
+    private final LibertyBuildPluginConfiguration config;
 
-    DOMBasedLibertyMavenConfigurationBuilder(long lastModified) {
-        config = new LibertyMavenConfiguration(lastModified);
+    DOMBasedLibertyBuildPluginConfigurationBuilder(long lastModified) {
+        config = new LibertyBuildPluginConfiguration(lastModified);
     }
 
     public void addToModel(Element elem) {
@@ -76,7 +78,7 @@ public class DOMBasedLibertyMavenConfigurationBuilder {
         ArrayList<String> profiles = new ArrayList<String>(5);
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
-            if (child != null && child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals(LibertyMavenConstants.PROFILE_ID)) {
+            if (child != null && child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals(Constants.PROFILE_ID)) {
                 String profile = child.getTextContent().trim();
                 if (profile != null && !profile.isEmpty())
                     profiles.add(profile);
@@ -105,7 +107,7 @@ public class DOMBasedLibertyMavenConfigurationBuilder {
         ArrayList<String> params = new ArrayList<String>(5);
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
-            if (child != null && child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals(LibertyMavenConstants.JVM_PARAM)) {
+            if (child != null && child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals(Constants.JVM_PARAM)) {
                 String param = child.getTextContent().trim();
                 if (param != null && !param.isEmpty())
                     params.add(param);
@@ -124,7 +126,7 @@ public class DOMBasedLibertyMavenConfigurationBuilder {
         config.setConfigValue(type, elem.getTextContent().trim());
     }
 
-    public LibertyMavenConfiguration getModel() {
+    public LibertyBuildPluginConfiguration getModel() {
         return config;
     }
 

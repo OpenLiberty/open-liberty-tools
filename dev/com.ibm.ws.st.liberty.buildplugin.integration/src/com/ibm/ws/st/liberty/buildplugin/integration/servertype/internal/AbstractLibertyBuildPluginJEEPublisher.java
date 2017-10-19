@@ -1,11 +1,13 @@
-/**
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 package com.ibm.ws.st.liberty.buildplugin.integration.servertype.internal;
 
@@ -26,6 +28,12 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.model.ServerBehaviourDelegate;
 
+import com.ibm.ws.st.core.internal.Constants;
+import com.ibm.ws.st.core.internal.ExcludeSyncModuleInfo;
+import com.ibm.ws.st.core.internal.PublishUnit;
+import com.ibm.ws.st.core.internal.WebSphereServer;
+import com.ibm.ws.st.core.internal.WebSphereServerBehaviour;
+import com.ibm.ws.st.jee.core.internal.JEEPublisher;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Activator;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
@@ -34,12 +42,6 @@ import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPlugin
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
 import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping;
 import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping.ProjectMapping;
-import com.ibm.ws.st.core.internal.Constants;
-import com.ibm.ws.st.core.internal.ExcludeSyncModuleInfo;
-import com.ibm.ws.st.core.internal.PublishUnit;
-import com.ibm.ws.st.core.internal.WebSphereServer;
-import com.ibm.ws.st.core.internal.WebSphereServerBehaviour;
-import com.ibm.ws.st.jee.core.internal.JEEPublisher;
 
 /**
  * Liberty Maven publishing implementation

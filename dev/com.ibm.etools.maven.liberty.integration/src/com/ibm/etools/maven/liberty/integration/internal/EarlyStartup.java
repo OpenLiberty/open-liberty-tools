@@ -11,20 +11,22 @@
 
 package com.ibm.etools.maven.liberty.integration.internal;
 
-public class LibertyMavenConstants {
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.ui.IStartup;
 
-    public static final String POM_FILE_NAME = "pom.xml";
+import com.ibm.etools.maven.liberty.integration.manager.internal.LibertyManager;
 
-    public static final String LIBERTY_ASSEMBLY_PROJECT_TYPE = "liberty-assembly";
+public class EarlyStartup implements IStartup {
 
-    public enum ProjectType {
-        LIBERTY_ASSEMBLY, STANDARD
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.eclipse.ui.IStartup#earlyStartup()
+     */
+    @Override
+    public void earlyStartup() {
+        ResourcesPlugin.getWorkspace().addResourceChangeListener(LibertyManager.getInstance(), IResourceChangeEvent.POST_CHANGE);
     }
 
-    // config xml constants
-    public static final String LIBERTY_PLUGIN_CONFIG_XML = "liberty-plugin-config.xml";
-    public static final String LIBERTY_PLUGIN_CONFIG_PATH = "/target/" + LIBERTY_PLUGIN_CONFIG_XML;
-
-    // preferences
-    public static final String PROMPT_PREFERENCE = "libertyMavenPrompt";
 }

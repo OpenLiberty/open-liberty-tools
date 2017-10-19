@@ -1,11 +1,13 @@
-/**
- * IBM Confidential
- * OCO Source Materials
- * (C) Copyright IBM Corp. 2017 All Rights Reserved
- * The source code for this program is not published or otherwise
- * divested of its trade secrets, irrespective of what has
- * been deposited with the U.S. Copyright Office.
- */
+/*******************************************************************************
+ * Copyright (c) 2017 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial API and implementation
+ *******************************************************************************/
 
 package com.ibm.etools.maven.liberty.integration.servertype.internal;
 
@@ -24,7 +26,6 @@ import org.eclipse.wst.server.core.model.ServerBehaviourDelegate;
 
 import com.ibm.etools.maven.liberty.integration.internal.Activator;
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMaven;
-import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConfiguration;
 import com.ibm.etools.maven.liberty.integration.internal.Trace;
 import com.ibm.etools.maven.liberty.integration.manager.internal.LibertyMavenProjectMapping;
 import com.ibm.ws.st.core.internal.Constants;
@@ -33,6 +34,7 @@ import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.internal.WebSphereServerBehaviour;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
+import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
 import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping.ProjectMapping;
 import com.ibm.ws.st.liberty.buildplugin.integration.servertype.internal.AbstractLibertyBuildPluginJEEPublisher;
 
@@ -62,7 +64,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                     ProjectMapping mapping = LibertyMavenProjectMapping.getInstance().getMapping(moduleProject.getName());
 
                     if (mapping != null && mapping.getServerID().equals(wsServer.getServer().getId())) {
-                        LibertyMavenConfiguration config = LibertyMaven.getLibertyMavenProjectConfiguration(moduleProject, monitor);
+                        LibertyBuildPluginConfiguration config = LibertyMaven.getLibertyMavenProjectConfiguration(moduleProject, monitor);
 
                         String projectType = config.getConfigValue(ConfigurationType.projectType);
 
@@ -110,7 +112,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
      * @param mStatus
      * @param monitor
      */
-    protected void publishOnParent(WebSphereServer wsServer, IProject moduleProject, LibertyMavenConfiguration config,
+    protected void publishOnParent(WebSphereServer wsServer, IProject moduleProject, LibertyBuildPluginConfiguration config,
                                    String mvnCommand, int kind, PublishUnit unit,
                                    MultiStatus mStatus, IProgressMonitor monitor) {
 
@@ -173,7 +175,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                                     super.publishModule(kind, publishUnit, monitor);
                                 } else {
                                     // Deal with added and changed via maven goal
-                                    LibertyMavenConfiguration config = LibertyMaven.getLibertyMavenProjectConfiguration(moduleProject, monitor);
+                                    LibertyBuildPluginConfiguration config = LibertyMaven.getLibertyMavenProjectConfiguration(moduleProject, monitor);
 
                                     String serverDir = config.getConfigValue(ConfigurationType.serverDirectory);
                                     String appsDir = config.getConfigValue(ConfigurationType.appsDirectory);
@@ -230,14 +232,17 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                                 }
 
                             } // end module mapping check
-                            else {
+                            else if (getBuildPluginImpl().isDependencyModule(moduleProject, wsServer.getServer())) {
                                 /*
                                  * The module project isn't mapped directly but it could be a dependency project.
-                                 * In that case we should call install-apps on the parent to process the changes.
+                                 * In that case we should call install-apps on the parent for the non-loose config case and for loose config call the JEEPublisher.
                                  */
-                                if (getBuildPluginImpl().isDependencyModule(moduleProject, wsServer.getServer())) {
+                                if (wsServer.isLooseConfigEnabled()) {
+                                    // In the loose config case, call the JEEPublisher implementation
+                                    super.publishModule(kind, publishUnit, monitor);
+                                } else {
                                     IProject mappedProject = LibertyMaven.getMappedProject(wsServer.getServer());
-                                    LibertyMavenConfiguration config = LibertyMaven.getLibertyMavenProjectConfiguration(mappedProject, monitor);
+                                    LibertyBuildPluginConfiguration config = LibertyMaven.getLibertyMavenProjectConfiguration(mappedProject, monitor);
 
                                     String parentId = config.getConfigValue(ConfigurationType.aggregatorParentId);
                                     String parentBaseDir = config.getConfigValue(ConfigurationType.aggregatorParentBasedir);
@@ -256,6 +261,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                                     wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
                                 }
                             }
+
                         } // end module project null check
                     } // end module external check
                 } // end publishUnit null check
