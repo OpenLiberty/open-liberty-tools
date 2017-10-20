@@ -51,11 +51,11 @@ public abstract class AbstractLibertyBuildPluginRuntimeLabelProvider implements 
     public String getText(Object obj) {
         if (obj instanceof LibertyBuildPluginProjectNode) {
             LibertyBuildPluginProjectNode node = ((LibertyBuildPluginProjectNode) obj);
-            StringBuilder mavenNodeText = new StringBuilder();
-            mavenNodeText.append(node.getText());
+            StringBuilder buildPluginNodeText = new StringBuilder();
+            buildPluginNodeText.append(node.getText());
             String installDir = node.getInstallDir();
             if (installDir != null)
-                mavenNodeText.append(" [" + installDir + "]");
+                buildPluginNodeText.append(" [" + installDir + "]");
         }
         return null;
     }

@@ -25,7 +25,7 @@ import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
 
 /**
  *
- * A single instance of this class can be used to build the LibertyMavenConfiguration data model based on
+ * A single instance of this class can be used to build the LibertyBuildPluginConfiguration data model based on
  * DOM data and retrieve the model object.
  *
  */

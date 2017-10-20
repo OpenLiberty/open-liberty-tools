@@ -56,9 +56,10 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
 
         IProject mappedProject = getBuildPluginImpl().getMappingHandler().getMappedProject(server);
         if (mappedProject != null) {
-            LibertyBuildPluginConfiguration libertyMavenProjectConfiguration = getBuildPluginImpl().getLibertyBuildPluginConfiguration(mappedProject, new NullProgressMonitor());
-            if (libertyMavenProjectConfiguration != null) {
-                String configValue = libertyMavenProjectConfiguration.getConfigValue(ConfigurationType.configFile);
+            LibertyBuildPluginConfiguration libertyBuildPluginProjectConfiguration = getBuildPluginImpl().getLibertyBuildPluginConfiguration(mappedProject,
+                                                                                                                                             new NullProgressMonitor());
+            if (libertyBuildPluginProjectConfiguration != null) {
+                String configValue = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.configFile);
                 if (configValue != null) {
                     try {
 
@@ -71,7 +72,7 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
                         }
 
                         // bootstrap.properties in source
-                        String bootstrapPropertiesFile = libertyMavenProjectConfiguration.getConfigValue(ConfigurationType.bootstrapPropertiesFile);
+                        String bootstrapPropertiesFile = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.bootstrapPropertiesFile);
                         if (bootstrapPropertiesFile != null) {
                             URI bootstrapFileURI = PathUtil.getURIForFilePath(bootstrapPropertiesFile);
                             if (bootstrapFileURI != null) {
@@ -81,7 +82,7 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
                         }
 
                         // server.env in source
-                        String serverEnvFile = libertyMavenProjectConfiguration.getConfigValue(ConfigurationType.serverEnv);
+                        String serverEnvFile = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.serverEnv);
                         if (serverEnvFile != null) {
                             URI serverEnvFileURI = PathUtil.getURIForFilePath(serverEnvFile);
                             if (serverEnvFileURI != null) {
@@ -91,7 +92,7 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
                         }
 
                         // jvm.options in source
-                        String jvmOptionsFile = libertyMavenProjectConfiguration.getConfigValue(ConfigurationType.jvmOptionsFile);
+                        String jvmOptionsFile = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.jvmOptionsFile);
                         if (jvmOptionsFile != null) {
                             URI jvmOptionsFileURI = PathUtil.getURIForFilePath(jvmOptionsFile);
                             if (jvmOptionsFileURI != null) {
@@ -100,7 +101,7 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
                             }
                         }
 
-                        // maven folder
+                        // build plugin folder
                         List<Object> children = new ArrayList<Object>();
                         CustomServerConfigTreeNode customServerConfigTreeNode = new CustomServerConfigTreeNode(getCustomConfigurationNodeLabel(), getCustomConfigurationNodeImage(), children);
                         serverConfigElements.add(customServerConfigTreeNode);
@@ -136,7 +137,7 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
                             children.add(dropinsFolder);
 
                     } catch (Exception exception) {
-                        Trace.logError("Error encountered while attempting to create Maven objects in servers view", exception);
+                        Trace.logError("Error encountered while attempting to create build plugin objects in servers view", exception);
                     }
                 }
             }

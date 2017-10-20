@@ -44,7 +44,7 @@ import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLi
 import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping.ProjectMapping;
 
 /**
- * Liberty Maven publishing implementation
+ * Liberty Build Plugin publishing implementation
  */
 @SuppressWarnings("restriction")
 public abstract class AbstractLibertyBuildPluginJEEPublisher extends JEEPublisher implements ILibertyBuildPluginImplProvider {
@@ -74,7 +74,7 @@ public abstract class AbstractLibertyBuildPluginJEEPublisher extends JEEPublishe
 
     /**
      * Return the path to the published module. The path is built from the Liberty
-     * Maven Configuration.
+     * Build Plugin Configuration.
      *
      * @param config
      * @return the path if the serverDir, appsDir, and appName attributes exist in the file
@@ -138,7 +138,7 @@ public abstract class AbstractLibertyBuildPluginJEEPublisher extends JEEPublishe
     @Override
     public boolean requireConsoleOutputBeforePublishComplete(int kind, PublishUnit unit, MultiStatus status, IProgressMonitor monitor) {
         int kind2 = unit.getDeltaKind();
-        // On the initial modify modules on Liberty Maven server setup, the getAddedResourceList will be empty
+        // On the initial modify modules on Liberty Build Plugin server setup, the getAddedResourceList will be empty
         // but the type will be added. We do not want the console to be waiting for a publish that will never happen
         // (since it already happened)
         if ((kind2 == ServerBehaviourDelegate.ADDED && !getAddedResourceList().isEmpty())
