@@ -1,0 +1,7 @@
+# Debugging options for the com.ibm.etools.maven.liberty.integration plugin
+
+# Turn on general debugging
+com.ibm.etools.maven.liberty.integration/debug=false
+com.ibm.etools.maven.liberty.integration/debug/error=true
+com.ibm.etools.maven.liberty.integration/debug/warning=true
+com.ibm.etools.maven.liberty.integration/debug/info=true
