@@ -36,7 +36,6 @@ public abstract class AbstractProjectMapXML extends XMLDocumentBuilder {
     private static final String RUNTIME_ID_ELEMENT = "runtimeId";
     private static final String NAME_ATTR = "name";
     private static final String IGNORED_ATTR = "ignored";
-    public static final String PROJECT_MAP_FILE_NAME = "mavenProjectMapping.xml";
 
     private final File xmlFile;
 
@@ -44,13 +43,13 @@ public abstract class AbstractProjectMapXML extends XMLDocumentBuilder {
         this.xmlFile = xmlFile;
     }
 
-    public synchronized void unmarshall(ConcurrentHashMap<String, ProjectMapping> trackedLibertyMavenProjects,
+    public synchronized void unmarshall(ConcurrentHashMap<String, ProjectMapping> trackedLibertyBuildPluginProjects,
                                         Set<String> ignoredProjects) throws ParserConfigurationException, SAXException, IOException {
         readDocument(xmlFile);
-        fillMap(trackedLibertyMavenProjects, ignoredProjects);
+        fillMap(trackedLibertyBuildPluginProjects, ignoredProjects);
     }
 
-    private void fillMap(ConcurrentHashMap<String, ProjectMapping> trackedLibertyMavenProjects, Set<String> ignoredProjects) {
+    private void fillMap(ConcurrentHashMap<String, ProjectMapping> trackedLibertyBuildPluginProjects, Set<String> ignoredProjects) {
         Element root = doc.getDocumentElement();
         NodeList mappings = root.getChildNodes();
 
@@ -104,7 +103,7 @@ public abstract class AbstractProjectMapXML extends XMLDocumentBuilder {
                 }
             } // project children loop
 
-            trackedLibertyMavenProjects.put(projectName, new ProjectMapping(runtimeID, serverID));
+            trackedLibertyBuildPluginProjects.put(projectName, new ProjectMapping(runtimeID, serverID));
 
         } // root children loop
     }
@@ -113,10 +112,10 @@ public abstract class AbstractProjectMapXML extends XMLDocumentBuilder {
         return value == null || value.isEmpty();
     }
 
-    public synchronized void marshall(ConcurrentHashMap<String, ProjectMapping> trackedLibertyMavenProjects,
+    public synchronized void marshall(ConcurrentHashMap<String, ProjectMapping> trackedLibertyBuildPluginProjects,
                                       Set<String> ignoredProjects) throws ParserConfigurationException, IOException, TransformerException {
         createNewDocument(ROOT_ELEMENT);
-        marshallMap(trackedLibertyMavenProjects, ignoredProjects);
+        marshallMap(trackedLibertyBuildPluginProjects, ignoredProjects);
         writeXMLDocument(xmlFile);
     }
 

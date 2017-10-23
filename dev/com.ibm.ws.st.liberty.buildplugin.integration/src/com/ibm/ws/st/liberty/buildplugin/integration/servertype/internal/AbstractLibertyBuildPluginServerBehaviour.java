@@ -30,7 +30,7 @@ import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLi
 import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyProjectMapping.ProjectMapping;
 
 /**
- * Liberty Maven Server Behaviour Implementation
+ * Liberty Build Plugin Server Behaviour Implementation
  */
 @SuppressWarnings("restriction")
 public abstract class AbstractLibertyBuildPluginServerBehaviour extends BaseLibertyBehaviourExtension implements ILibertyBuildPluginImplProvider {
@@ -47,7 +47,7 @@ public abstract class AbstractLibertyBuildPluginServerBehaviour extends BaseLibe
                 WebSphereServer wsServer = wsBehaviour.getWebSphereServer();
 
                 // Always override the publisher when the module being published
-                // is the project used to create the Liberty Maven server
+                // is the project used to create the Liberty Build Plugin server
                 if (publishUnit != null && publishUnit instanceof PublishUnit) {
                     PublishUnit pu = (PublishUnit) publishUnit;
 
@@ -58,21 +58,21 @@ public abstract class AbstractLibertyBuildPluginServerBehaviour extends BaseLibe
                     if (moduleProject != null) {
 
                         ProjectMapping mapping = mappingHandler.getMapping(moduleProject.getName());
-                        boolean isModulePublishedByMavenServer = mapping != null && mapping.getServerID().equals(wsServer.getServer().getId());
-                        if (!isModulePublishedByMavenServer) {
+                        boolean isModulePublishedByBuildPluginServer = mapping != null && mapping.getServerID().equals(wsServer.getServer().getId());
+                        if (!isModulePublishedByBuildPluginServer) {
                             /*
-                             * Check whether the server is mapped to a Maven project, if it is then this module might
+                             * Check whether the server is mapped to a Liberty Build Plugin project, if it is then this module might
                              * be a dependency module of that mapped project
                              */
                             if (buildPluginHelper.isDependencyModule(moduleProject, wsServer.getServer()))
-                                isModulePublishedByMavenServer = true;
+                                isModulePublishedByBuildPluginServer = true;
                         }
                         ServerExtensionWrapper serverExtWrapper = (ServerExtensionWrapper) publisher;
 
                         // Confirm that the module being published is the server
                         // The mapping can be null if the user publishes another module while the server is in
                         // non-loose config mode
-                        if (isModulePublishedByMavenServer) {
+                        if (isModulePublishedByBuildPluginServer) {
                             // Invalid publishers excluded
 
                             if ((serverExtWrapper.getPublishDelegate() instanceof AbstractLibertyBuildPluginJEEPublisher)) {
@@ -107,7 +107,7 @@ public abstract class AbstractLibertyBuildPluginServerBehaviour extends BaseLibe
                 if (wsServer != null) {
                     IProject proj = mappingHandler.getMappedProject(wsServer.getServer());
                     if (proj != null) {
-                        // Get modules from maven project
+                        // Get modules from build plugin project
                         IProjectInspector pi = getBuildPluginImpl().getProjectInspector(proj);
                         IModule[] projectModules = pi.getProjectModules();
 

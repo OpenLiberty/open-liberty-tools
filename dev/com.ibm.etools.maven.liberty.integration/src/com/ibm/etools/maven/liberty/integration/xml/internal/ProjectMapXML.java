@@ -17,6 +17,7 @@ import com.ibm.ws.st.liberty.buildplugin.integration.xml.internal.AbstractProjec
 public class ProjectMapXML extends AbstractProjectMapXML {
 
     private static ProjectMapXML instance;
+    public static final String PROJECT_MAP_FILE_NAME = "mavenProjectMapping.xml";
 
     private ProjectMapXML() {
         super(Activator.getLibertyMavenMetadataPath().append(PROJECT_MAP_FILE_NAME).toFile());

@@ -87,7 +87,7 @@ public class LibertyBuildPluginXMLConfigurationReader {
         // Get the child nodes
         NodeList children = rootElement.getChildNodes();
         if (children == null || children.getLength() == 0) {
-            throw new IOException("Liberty-Maven configuration file is invalid.");
+            throw new IOException("Liberty build plugin configuration file is invalid.");
         }
 
         DOMBasedLibertyBuildPluginConfigurationBuilder configBuilder = new DOMBasedLibertyBuildPluginConfigurationBuilder(lastModified);
