@@ -20,14 +20,14 @@ To install the Open Liberty Tools and other WebSphere Developer Tools features:
     * **Locate the installation files from your Eclipse workbench:**
       1. Click **Help** > **Eclipse Marketplace.**
       2. In the Find field, type Liberty.
-      3. In the list of results, locate **IBM Liberty Developer Tools for Oxygen** (and later) and then click **Install**. The Confirm Selected Features page opens.
+      3. In the list of results, locate **IBM Liberty Developer Tools for Eclipse Oxygen** (and later) and then click **Install**. The Confirm Selected Features page opens.
     * **Drag an Install icon from a web page to your Eclipse workbench:**
       1. Click [download Liberty page](https://developer.ibm.com/wasdev/downloads/)
-      2. Select **IBM Liberty Developer Tools for Oxygen** (and later) from the asset list.
-      3. Locate the **Install** icon for IBM Liberty Developer Tools for Oxygen. 
+      2. Select **IBM Liberty Developer Tools for Eclipse Oxygen** (and later) from the asset list.
+      3. Locate the **Install** icon for **WebSphere Application Server Liberty**. 
       4. Select and drag the **Install** icon to your Eclipse workbench, and drop it on the Eclipse toolbar. The Confirm Selected Features page opens.
-4. On the **Confirm Selected Features** page, expand the parent nodes and select the **WebSphere Application Server Liberty Tools** feature and any other feature that are needed. When you are finished, click **Next**.
-5. On the **Review Licenses** page, review the license text. If you agree to the terms, click **I accept the terms of the license agreement** and then click **Finish**. The installation process starts.
+4. On the **Confirm Selected Features** page, expand the parent nodes and select the **WebSphere Application Server Liberty Tools** feature and any other feature that are needed. When you are finished, click **Confirm**.
+5. On the **Review Licenses** page, review the license text. If you agree to the terms, click **I accept the terms of the license agreements** and then click **Finish**. The installation process starts.
    
 ```
   Note:
