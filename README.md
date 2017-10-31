@@ -12,16 +12,33 @@ Open Liberty Tools are lightweight tools for developing, assembling, and deployi
 * [Contribute to Open Liberty Tools](https://github.com/OpenLiberty/open-liberty-tools#contribute-to-open-liberty-tools)
 * [Community](https://github.com/OpenLiberty/open-liberty-tools#community)
 
-## Getting Started
-To install the Open Liberty Tools:
-1. If you don’t already have Eclipse, install [Eclipse Oxygen for Java EE Developers ( 4.7 )](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygenr)
-2. Download the .zip file of Eclipse Developer Tools to a directory on your computer. The .zip file is available [here](http://openliberty.io/downloads/).
-3. Start your Eclipse workbench.
-4. Click **Help > Install new software > Add**.
-5. In the *Add Repository* window, click **Archive**.
-6. Browse to the location of the .zip file of Open Liberty Tools. Select the file and then click **Open**.
-7. Follow the installation instructions on the installation wizard.
-8. When the installation process completes, restart the workbench.
+## Getting Started 
+To install the Open Liberty Tools and other WebSphere Developer Tools features:
+1. If you don’t already have Eclipse, install [Eclipse Oxygen for Java EE Developers ( 4.7 )](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen1a)
+2. Start your Eclipse workbench.
+3. Start the installation using either of the following methods.
+    * Locate the installation files from your Eclipse workbench:
+      1. Click **Help** > **Eclipse Marketplace.**
+      2. In the Find field, type Liberty.
+      3. In the list of results, locate **IBM Liberty Developer Tools for Eclipse Oxygen** (and later) and then click **Install**. The Confirm Selected Features page opens.
+    * Drag an Install icon from a web page to your Eclipse workbench:
+      1. Click [download Liberty page](https://developer.ibm.com/wasdev/downloads/)
+      2. Select **IBM Liberty Developer Tools for Eclipse Oxygen** (and later) from the asset list.
+      3. Locate the **Install** icon for **WebSphere Application Server Liberty**. 
+      4. Select and drag the **Install** icon to your Eclipse workbench, and drop it on the Eclipse toolbar. The **Confirm Selected Features page** opens.
+4. On the **Confirm Selected Features** page, expand the parent nodes and select the **WebSphere Application Server Liberty Tools** feature and any other feature that are needed. When you are finished, click **Confirm**.
+5. On the **Review Licenses** page, review the license text. If you agree to the terms, click **I accept the terms of the license agreements** and then click **Finish**. The installation process starts.
+   
+```
+  Note:
+      During the installation, a Security Warning dialog box might open and display the following message:
+      Warning: You are installing software that contains unsigned content. The authenticity or validity of this software cannot be established. Do you want to continue with the installation? 
+      You can safely ignore the message and click 'install anyway' to continue.
+```
+
+6. When the installation process completes, restart the workbench.
+
+To install the Open Liberty Tools only from Open Liberty site, follow [this instruction](https://github.com/OpenLiberty/open-liberty-tools/blob/master/INSTALL_OPENLIBERTYTOOLS.md).
 
 Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentation and tutorials.
 
