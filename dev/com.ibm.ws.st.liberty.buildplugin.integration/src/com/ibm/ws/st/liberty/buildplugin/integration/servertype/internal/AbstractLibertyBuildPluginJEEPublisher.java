@@ -28,7 +28,6 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.model.ServerBehaviourDelegate;
 
-import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.core.internal.ExcludeSyncModuleInfo;
 import com.ibm.ws.st.core.internal.PublishUnit;
 import com.ibm.ws.st.core.internal.WebSphereServer;
@@ -54,14 +53,8 @@ public abstract class AbstractLibertyBuildPluginJEEPublisher extends JEEPublishe
 
     @Override
     public void postPublishApplication(int kind, PublishUnit app, MultiStatus status, IProgressMonitor monitor) {
-        WebSphereServer wsServer = getWebSphereServer();
-
-        if (wsServer != null) {
-            String type = wsServer.getServerType();
-            if (Constants.SERVER_TYPE_LIBERTY_MAVEN.equals(type)) {
-                super.postPublishApplication(kind, app, status, monitor);
-            }
-        }
+        super.postPublishApplication(kind, app, status, monitor);
+        // Common postPublish behaviour to all build types here, if necessary.
     }
 
     @Override
@@ -103,14 +96,8 @@ public abstract class AbstractLibertyBuildPluginJEEPublisher extends JEEPublishe
 
     @Override
     public void prePublishApplication(int kind, PublishUnit app, MultiStatus status, IProgressMonitor monitor) {
-        WebSphereServer wsServer = getWebSphereServer();
-
-        if (wsServer != null) {
-            String type = wsServer.getServerType();
-            if (Constants.SERVER_TYPE_LIBERTY_MAVEN.equals(type)) {
-                super.prePublishApplication(kind, app, status, monitor);
-            }
-        }
+        super.prePublishApplication(kind, app, status, monitor);
+        // Common prePublish behaviour to all build types here, if necessary.
     }
 
     /*
