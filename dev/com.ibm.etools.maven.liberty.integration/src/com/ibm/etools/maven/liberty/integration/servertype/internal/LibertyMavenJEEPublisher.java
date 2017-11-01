@@ -51,6 +51,18 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
     }
 
     @Override
+    public void postPublishApplication(int kind, PublishUnit app, MultiStatus status, IProgressMonitor monitor) {
+        WebSphereServer wsServer = getWebSphereServer();
+
+        if (wsServer != null) {
+            String type = wsServer.getServerType();
+            if (Constants.SERVER_TYPE_LIBERTY_MAVEN.equals(type)) {
+                super.postPublishApplication(kind, app, status, monitor);
+            }
+        }
+    }
+
+    @Override
     public void publishModuleAndChildren(int kind, PublishUnit unit, MultiStatus mStatus, IProgressMonitor monitor) {
         WebSphereServer wsServer = getWebSphereServer();
 
@@ -268,5 +280,17 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
             }
         }
         return Status.OK_STATUS;
+    }
+
+    @Override
+    public void prePublishApplication(int kind, PublishUnit app, MultiStatus status, IProgressMonitor monitor) {
+        WebSphereServer wsServer = getWebSphereServer();
+
+        if (wsServer != null) {
+            String type = wsServer.getServerType();
+            if (Constants.SERVER_TYPE_LIBERTY_MAVEN.equals(type)) {
+                super.prePublishApplication(kind, app, status, monitor);
+            }
+        }
     }
 }
