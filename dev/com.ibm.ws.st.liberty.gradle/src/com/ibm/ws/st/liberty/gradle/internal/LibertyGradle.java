@@ -11,30 +11,27 @@
 
 package com.ibm.ws.st.liberty.gradle.internal;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.debug.core.DebugPlugin;
-import org.eclipse.debug.core.ILaunch;
-import org.eclipse.debug.core.ILaunchConfiguration;
-import org.eclipse.debug.core.ILaunchConfigurationType;
-import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.debug.core.ILaunchManager;
-import org.eclipse.debug.core.IStreamListener;
-import org.eclipse.debug.core.model.IProcess;
-import org.eclipse.debug.core.model.IStreamMonitor;
-import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.IServer;
 import org.eclipse.wst.server.core.ServerCore;
+import org.gradle.tooling.BuildLauncher;
+import org.gradle.tooling.CancellationTokenSource;
+import org.gradle.tooling.GradleConnectionException;
+import org.gradle.tooling.GradleConnector;
+import org.gradle.tooling.ProjectConnection;
+import org.gradle.tooling.ResultHandler;
 
 import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Activator;
@@ -76,57 +73,79 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
         return instance.getProjectInspector(project, monitor).getBuildPluginConfiguration(monitor);
     }
 
-    // TODO - Issue 52
-    public static boolean runGradleCommand(final IPath workingDir, String options, List<String> profiles, IProgressMonitor monitor) {
+    /**
+     * Run a set of Gradle tasks
+     * @param workingDir The base Gradle project directory
+     * @param tasks The tasks to run
+     * @param args The arguments for the tasks
+     * @param monitor A progress monitor that can be used to cancel the tasks
+     * @return True if the tasks ran successfully, false otherwise
+     */
+    public static boolean runGradleTask(final IPath workingDir, String[] tasks, String[] args, IProgressMonitor monitor) {
         boolean isSuccessful = true;
-        ILaunchManager launchManager = DebugPlugin.getDefault().getLaunchManager();
-        ILaunchConfigurationType launchConfigurationType = launchManager.getLaunchConfigurationType("org.eclipse.buildship.core.launch.runconfiguration");
 
-        // What is the gradle equivalent for skipping tests?
-        // We can run specific tasks and the tests will not be run?
-        String gradleOptions = options + " -x Tests";
+        // Add the arguments to skip the tests
+        List<String> arguments = args != null ? Arrays.asList(args) : new ArrayList<String>();
+        for (String arg : LibertyGradleConstants.SKIP_TESTS_ARGS) {
+            arguments.add(arg);
+        }
+        
+        if (Trace.ENABLED) {
+            Trace.trace(Trace.INFO, "Running gradle tasks: " + Arrays.toString(tasks) + ", with arguments: " + arguments);
+        }
+
+        ProjectConnection connection = null;
         try {
-            Trace.trace(Trace.INFO, "Running gradle command with options \'" + gradleOptions + "\' with working directory: " + workingDir.toOSString());
-            ILaunchConfigurationWorkingCopy workingCopy = launchConfigurationType.newInstance((IContainer) null, workingDir.lastSegment());
-
-            workingCopy.setAttribute(IJavaLaunchConfigurationConstants.ATTR_WORKING_DIRECTORY, workingDir.toOSString());
-            workingCopy.setAttribute("tasks", gradleOptions);
-            workingCopy.setAttribute("working_dir", workingDir.toOSString());
-
-            ILaunchConfiguration launchConfig = workingCopy.doSave();
-
-            ILaunch launch = launchConfig.launch("run", monitor);
-            Trace.trace(Trace.INFO, "Running gradle command \'" + gradleOptions + "\' with working directory: " + workingDir.toOSString());
-            IProcess[] processes = launch.getProcesses();
-            List<IStreamMonitor> streamMonitors = new ArrayList<IStreamMonitor>();
-            IStreamListener streamListener = new IStreamListener() {
+            final Boolean[] result = new Boolean[1];
+            CancellationTokenSource cancelTokenSrc = GradleConnector.newCancellationTokenSource();
+            
+            GradleConnector connector = GradleConnector.newConnector();
+            connector = connector.forProjectDirectory(new File(workingDir.toOSString()));
+            connection = connector.connect();
+            
+            BuildLauncher build = connection.newBuild();
+            build.forTasks(tasks);
+            build.withArguments(arguments.toArray(new String[arguments.size()]));
+            build.withCancellationToken(cancelTokenSrc.token());
+            ResultHandler<Void> handler = new ResultHandler<Void>() {
                 @Override
-                public void streamAppended(String text, IStreamMonitor monitor) {
-                    Trace.trace(Trace.INFO, workingDir.lastSegment() + ": " + text);
+                public void onComplete(Void arg0) {
+                    result[0] = Boolean.TRUE;
+                }
+
+                @Override
+                public void onFailure(GradleConnectionException e) {
+                    result[0] = Boolean.FALSE;
+                    Trace.logError("The gradle command failed for tasks: " + Arrays.toString(tasks) + ", and arguments: " + arguments, e);
                 }
             };
-            for (IProcess p : processes) {
-                IStreamMonitor outStream = p.getStreamsProxy().getOutputStreamMonitor();
-                outStream.addListener(streamListener);
-                streamMonitors.add(outStream);
-                IStreamMonitor errorStream = p.getStreamsProxy().getErrorStreamMonitor();
-                errorStream.addListener(streamListener);
-                streamMonitors.add(errorStream);
-            }
-            while (!launch.isTerminated() && !monitor.isCanceled()) {
-                Thread.sleep(500);
-            }
-            for (IStreamMonitor m : streamMonitors) {
+            build.run(handler);
+            
+            while (result[0] == null && !monitor.isCanceled()) {
                 try {
-                    m.removeListener(streamListener);
-                } catch (Exception e) {
-                    // ignore
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    // Ignore
                 }
+            }
+
+            if (monitor.isCanceled()) {
+                cancelTokenSrc.cancel();
+                return false;
+            }
+
+            if (result[0] != null) {
+                isSuccessful = result[0].booleanValue();
             }
         } catch (Exception e) {
             isSuccessful = false;
-            Trace.logError("The gradle command \'" + gradleOptions + "\' failed to execute using working directory: " + workingDir.toOSString(), e);
+            Trace.logError("The gradle command failed for tasks: " + Arrays.toString(tasks) + ", and arguments: " + arguments, e);
+        } finally {
+            if (connection != null) {
+            connection.close();
+            }
         }
+
         return isSuccessful;
     }
 
@@ -169,7 +188,7 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
     }
 
     private GradleProjectInspector getProjectInspector(IProject project, IProgressMonitor monitor) {
-    	   return new GradleProjectInspector(project);
+           return new GradleProjectInspector(project);
     }
 
     /** {@inheritDoc} */
@@ -181,8 +200,8 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
     /** {@inheritDoc} */
     @Override
     public void updateSrcConfig(IPath location, LibertyBuildPluginConfiguration config, IProgressMonitor monitor) {
-        String goal = "package liberty:install-apps";
-        runGradleCommand(location, goal, config.getActiveBuildProfiles(), monitor);
+        String[] tasks = new String[] {LibertyGradleConstants.ASSEMBLE_TASK, LibertyGradleConstants.INSTALL_APPS_TASK};
+        runGradleTask(location, tasks, null, monitor);
     }
 
     /** {@inheritDoc} */
@@ -213,15 +232,15 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
             if (!parentPath.toFile().exists()) {
                 return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "The parent project could not be found " + parentId + " : " + parentBaseDir);
             }
-            runGradleCommand(parentPath, "installApps libertyPackage", profiles, monitor);
+            String[] tasks = new String[] {LibertyGradleConstants.BUILD_TASK};
+            runGradleTask(parentPath, tasks, null, monitor);
         }
 
         // Check if the server directory exists in the user directory before attempting to create it
         if (!serverPath.toFile().exists()) {
             // if the path doesn't exist then run the gradle tasks to create the server files
-            String gradleOptions = "installApps libertyPackage";  // Maven equivalent: package liberty:install-apps";
-            Trace.trace(Trace.INFO, "Running " + gradleOptions + " goal on project: " + project.getName());
-            runGradleCommand(project.getLocation(), gradleOptions, profiles, monitor);
+            String[] tasks = new String[] {LibertyGradleConstants.ASSEMBLE_TASK, LibertyGradleConstants.INSTALL_APPS_TASK};
+            runGradleTask(project.getLocation(), tasks, null, monitor);
         }
         return Status.OK_STATUS;
     }
