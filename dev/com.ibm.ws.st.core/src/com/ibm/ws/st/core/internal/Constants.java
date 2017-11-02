@@ -224,4 +224,6 @@ public class Constants {
     // be known to plugins that should not reference the LibertyMaven plugins directly
     public static final String SERVER_TYPE_LIBERTY_MAVEN = "LibertyMaven";
 
+    public static final String SERVER_TYPE_LIBERTY_GRADLE = "LibertyGradle";
+
 }
