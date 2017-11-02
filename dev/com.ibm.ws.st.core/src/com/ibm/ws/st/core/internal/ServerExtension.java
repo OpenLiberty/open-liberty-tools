@@ -191,9 +191,10 @@ public abstract class ServerExtension {
     }
 
     protected boolean shouldExcludeAddingModuleToConfig(IModule module) {
-        // For this Liberty maven change, it is extremely high risk to modify this in general without
+        // For this Liberty maven or Gradle change, it is extremely high risk to modify this in general without
         // testing the implications. For now, we have to special case it
-        if (Constants.SERVER_TYPE_LIBERTY_MAVEN.equals(getWebSphereServer().getServerType())) {
+        if (Constants.SERVER_TYPE_LIBERTY_MAVEN.equals(getWebSphereServer().getServerType()) ||
+            Constants.SERVER_TYPE_LIBERTY_GRADLE.equals(getWebSphereServer().getServerType())) {
             ConfigurationFile config = getWebSphereServer().getConfiguration();
             if (config != null) {
                 Application[] app = config.getApplications();
@@ -204,7 +205,7 @@ public abstract class ServerExtension {
                 }
 
                 // If dropins, do not add the application to the configuration file
-                // The Liberty Maven case is dealt with specifically to avoid regression. If the dropins case
+                // The Liberty Maven or Gradle case is dealt with specifically to avoid regression. If the dropins case
                 // needs to be handled in the base Liberty case, more work needs to be done to support this
                 WebSphereServerBehaviour behaviour = (WebSphereServerBehaviour) getServer().loadAdapter(WebSphereServerBehaviour.class, null);
                 if (behaviour != null) {
