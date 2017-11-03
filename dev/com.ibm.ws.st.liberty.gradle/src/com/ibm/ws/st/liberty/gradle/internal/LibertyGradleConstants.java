@@ -27,4 +27,13 @@ public class LibertyGradleConstants {
 
     // preferences
     public static final String PROMPT_PREFERENCE = "libertyGradlePrompt";
+    
+    // tasks
+    public static final String BUILD_TASK = "build";
+    public static final String ASSEMBLE_TASK = "assemble";
+    public static final String INSTALL_APPS_TASK = "installApps";
+    
+    // arguments
+    public static final String[] SKIP_TESTS_ARGS = new String[] {"--exclude-task", "test"};
+    
 }
