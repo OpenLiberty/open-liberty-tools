@@ -35,6 +35,7 @@ import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLi
 import com.ibm.ws.st.liberty.buildplugin.integration.servertype.internal.AbstractLibertyBuildPluginJEEPublisher;
 import com.ibm.ws.st.liberty.gradle.internal.Activator;
 import com.ibm.ws.st.liberty.gradle.internal.LibertyGradle;
+import com.ibm.ws.st.liberty.gradle.internal.LibertyGradleConstants;
 import com.ibm.ws.st.liberty.gradle.internal.Trace;
 import com.ibm.ws.st.liberty.gradle.manager.internal.LibertyGradleProjectMapping;
 
@@ -88,7 +89,8 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
                             int publishUnitKind = unit.getDeltaKind();
                             if (!isLC && "ear".equals(projectType) && (ServerBehaviourDelegate.ADDED == publishUnitKind || ServerBehaviourDelegate.CHANGED == publishUnitKind)) {
 
-                                publishOnParent(wsServer, moduleProject, config, "package -DskipLibertyPackage=true",
+                                String[] tasks = new String[] {LibertyGradleConstants.ASSEMBLE_TASK};
+                                publishOnParent(wsServer, moduleProject, config, tasks,
                                                 kind, unit, mStatus, monitor);
 
                                 String pathToPublishedModule = getPathToPublishedModule(config);
@@ -125,7 +127,7 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
      * @param monitor
      */
     protected void publishOnParent(WebSphereServer wsServer, IProject moduleProject, LibertyBuildPluginConfiguration config,
-                                   String gradleCommand, int kind, PublishUnit unit,
+                                   String[] tasks, int kind, PublishUnit unit,
                                    MultiStatus mStatus, IProgressMonitor monitor) {
 
         IPath gradleCommandLocation = null;
@@ -150,7 +152,7 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
             return;
         }
 
-        LibertyGradle.runGradleCommand(gradleCommandLocation, gradleCommand, config.getActiveBuildProfiles(), monitor);
+        LibertyGradle.runGradleTask(gradleCommandLocation, tasks, null, monitor);
 
         // Ensure the local connector exists
         wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
@@ -208,15 +210,15 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
 
                                     int publishUnitKind = publishUnit.getDeltaKind();
                                     if (ServerBehaviourDelegate.ADDED == publishUnitKind || ServerBehaviourDelegate.CHANGED == publishUnitKind) {
-                                        final String gradleRepublishCmd = "war:war liberty:install-apps";
+                                        String[] tasks = new String[] { LibertyGradleConstants.INSTALL_APPS_TASK };
 
                                         // In the unlikely event that any of these values are null, it should be handled
                                         // It is possible the user removes some entries from the liberty plugin config to reach this state
                                         if (serverDir == null || appsDir == null || appName == null) {
-                                            LibertyGradle.runGradleCommand(moduleProject.getLocation(), gradleRepublishCmd, config.getActiveBuildProfiles(), monitor);
+                                            LibertyGradle.runGradleTask(moduleProject.getLocation(), tasks, null, monitor);
 
                                         } else {
-                                            LibertyGradle.runGradleCommand(moduleProject.getLocation(), gradleRepublishCmd, config.getActiveBuildProfiles(), monitor);
+                                            LibertyGradle.runGradleTask(moduleProject.getLocation(), tasks, null, monitor);
 
                                             // Calling the mvn goal "war:war liberty:install-apps" will reset the server.xml, so the
                                             // local connector and mbean have to be added back
@@ -263,13 +265,12 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
                                         if (!parentPath.toFile().exists()) {
                                             return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "The parent project could not be found " + parentId + " : " + parentBaseDir);
                                         }
-                                        String installGoal = "install";
-                                        LibertyGradle.runGradleCommand(moduleProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
+                                        String[] tasks = new String[] { LibertyGradleConstants.BUILD_TASK };
+                                        LibertyGradle.runGradleTask(moduleProject.getLocation(), tasks, null, monitor);
                                     }
 
-                                    String installGoal = "liberty:install-apps -DskipLibertyPackage=true";
-                                    Trace.trace(Trace.INFO, "Running " + installGoal + " goal on project: " + mappedProject.getName());
-                                    LibertyGradle.runGradleCommand(mappedProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
+                                    String[] tasks = new String[] { LibertyGradleConstants.INSTALL_APPS_TASK };
+                                    LibertyGradle.runGradleTask(mappedProject.getLocation(), tasks, null, monitor);
                                     wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
                                 }
                             }
