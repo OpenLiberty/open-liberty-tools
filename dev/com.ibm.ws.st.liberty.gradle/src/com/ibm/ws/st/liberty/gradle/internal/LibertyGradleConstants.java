@@ -19,6 +19,9 @@ public class LibertyGradleConstants {
         STANDARD
     }
 
+    // Same id as in org.eclipse.ui.navigator.navigatorContent extension
+    public static final String LIBERTY_GRADLE_RUNTIME_CONTENT_ID = "com.ibm.ws.st.liberty.gradle.runtime.content";
+
     public static final String BUILDSHIP_GRADLE_PROJECT_NATURE = "org.eclipse.buildship.core.gradleprojectnature";
     
     // config xml constants

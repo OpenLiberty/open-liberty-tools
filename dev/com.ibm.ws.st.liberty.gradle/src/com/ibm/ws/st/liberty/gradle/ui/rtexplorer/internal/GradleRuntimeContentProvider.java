@@ -14,9 +14,15 @@ package com.ibm.ws.st.liberty.gradle.ui.rtexplorer.internal;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
 import com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.AbstractLibertyBuildPluginRuntimeContentProvider;
 import com.ibm.ws.st.liberty.gradle.internal.LibertyGradle;
+import com.ibm.ws.st.liberty.gradle.internal.LibertyGradleConstants;
 
 public class GradleRuntimeContentProvider extends AbstractLibertyBuildPluginRuntimeContentProvider {
-
+	
+	@Override
+	public String getRuntimeContentId() {
+		return LibertyGradleConstants.LIBERTY_GRADLE_RUNTIME_CONTENT_ID;
+	}
+	
     /** {@inheritDoc} */
     @Override
     public ILibertyBuildPluginImpl getBuildPluginImpl() {

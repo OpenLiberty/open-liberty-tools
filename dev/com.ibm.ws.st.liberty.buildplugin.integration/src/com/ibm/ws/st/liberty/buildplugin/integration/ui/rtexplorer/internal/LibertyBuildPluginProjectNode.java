@@ -19,12 +19,14 @@ public class LibertyBuildPluginProjectNode {
     private final String text;
     private final String installDir;
     private final String description;
+    private final String runtimeContentId;
 
-    public LibertyBuildPluginProjectNode(IProject project, String text, String installDir, String description) {
+    public LibertyBuildPluginProjectNode(IProject project, String text, String installDir, String description, String runtimeContentId) {
         this.project = project;
         this.text = text;
         this.installDir = installDir;
         this.description = description;
+        this.runtimeContentId = runtimeContentId;
     }
 
     /**
@@ -46,4 +48,9 @@ public class LibertyBuildPluginProjectNode {
         return description;
     }
 
+    // Since each build type implementation will use the same project node 'type',
+    // we need to differentiate between them by using a unique ID.
+    public String getRuntimeContentId() {
+        return runtimeContentId;
+    }
 }

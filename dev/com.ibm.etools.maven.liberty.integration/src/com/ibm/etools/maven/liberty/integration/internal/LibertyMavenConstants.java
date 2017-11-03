@@ -20,6 +20,9 @@ public class LibertyMavenConstants {
     public enum ProjectType {
         LIBERTY_ASSEMBLY, STANDARD
     }
+    
+    // Same id as in org.eclipse.ui.navigator.navigatorContent extension
+    public static final String LIBERTY_MAVEN_RUNTIME_CONTENT_ID = "com.ibm.ws.etools.maven.liberty.integration.runtime.content";
 
     // config xml constants
     public static final String LIBERTY_PLUGIN_CONFIG_XML = "liberty-plugin-config.xml";
