@@ -1,18 +1,16 @@
 /*******************************************************************************
- * Copyright (c) 2015 IBM Corporation and others.
+ * Copyright (c) 2015, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests;
 
 import java.net.URL;
-
-import junit.framework.TestSuite;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +18,8 @@ import org.junit.runners.AllTests;
 
 import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
+
+import junit.framework.TestSuite;
 
 @TestCaseDescriptor(description = "Test bluemix tools link", isStable = true)
 @RunWith(AllTests.class)
@@ -43,7 +43,7 @@ public class BluemixLinkTest extends ToolsTestBase {
     @Test
     public void testPingBluemixLink() throws Exception {
         URL url = new URL(Constants.BLUEMIX_URL);
-        pingWebPage(url, "IBM Bluemix Docs");
+        pingWebPage(url, "IBM Cloud Docs");
     }
 
 }

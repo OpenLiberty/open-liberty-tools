@@ -416,6 +416,13 @@ public abstract class ToolsTestBase extends TestCase {
             // Copy projects to a temp directory so the originals do not get modified
             IPath tmpPath = new Path(System.getProperty("java.io.tmpdir"));
             tmpPath = tmpPath.append("LibertyTestProjects");
+            if (tmpPath.toFile().exists()) {
+                try {
+                    FileUtil.deleteDirectory(tmpPath.toOSString(), true);
+                } catch (IOException e) {
+                    print("Failed to delete the tmp directory: " + tmpPath.toOSString());
+                }
+            }
             try {
                 ServerTestUtil.copyProjects(srcPath, projectNames, tmpPath);
             } catch (IOException e) {
