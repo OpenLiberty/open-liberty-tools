@@ -12,12 +12,14 @@
 package com.ibm.ws.st.liberty.buildplugin.integration.ui.actions.internal;
 
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.ui.IWorkbenchCommandConstants;
 import org.eclipse.ui.actions.SelectionProviderAction;
 
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImplProvider;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Messages;
+import com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode;
 
 public abstract class AbstractRefreshAction extends SelectionProviderAction implements ILibertyBuildPluginImplProvider {
     protected Object objectToRefresh;
@@ -29,6 +31,21 @@ public abstract class AbstractRefreshAction extends SelectionProviderAction impl
         setImageDescriptor(null);
         this.viewer = viewer;
         selectionChanged(getStructuredSelection());
+    }
+
+    @Override
+    public void selectionChanged(IStructuredSelection sel) {
+        if (sel.size() != 1) {
+            setEnabled(false);
+            return;
+        }
+        Object obj = sel.getFirstElement();
+        if (obj instanceof LibertyBuildPluginProjectNode) {
+            objectToRefresh = obj;
+            setEnabled(true);
+        } else {
+            setEnabled(false);
+        }
     }
 
     @Override

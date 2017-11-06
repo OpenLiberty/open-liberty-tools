@@ -12,10 +12,16 @@
 package com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal;
 
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMaven;
+import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConstants;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
 import com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.AbstractLibertyBuildPluginRuntimeContentProvider;
 
 public class MavenRuntimeContentProvider extends AbstractLibertyBuildPluginRuntimeContentProvider {
+
+    @Override
+    public String getRuntimeContentId() {
+        return LibertyMavenConstants.LIBERTY_MAVEN_RUNTIME_CONTENT_ID;
+    }
 
     /** {@inheritDoc} */
     @Override
