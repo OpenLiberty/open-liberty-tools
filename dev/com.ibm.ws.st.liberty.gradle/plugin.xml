@@ -90,7 +90,7 @@
                  class="com.ibm.ws.st.liberty.gradle.ui.actions.internal.CreateRuntimeServerProjectMenuAction"
                  label="%popup.createRuntimeAndServer"
                  style="push"
-                 icon="icons/obj16/liberty-runtime-maven-16.png"
+                 icon="icons/obj16/liberty-runtime-gradle.png"
                  menubarPath="org.eclipse.buildship.ui.contextmenuentry/org.eclipse.buildship.ui.commands.refreshproject"
                  enablesFor="1"/>
          <visibility>

@@ -114,8 +114,8 @@ public class Activator extends AbstractUIPlugin {
             ICON_BASE_URL = plugin.getBundle().getEntry("icons/");
 
         // TODO - change these when we get new gradle images/icons
-        registerImage(registry, IMG_GRADLE_FOLDER, ICON_BASE_URL + URL_OBJ16 + "/maven_folder.png");
-        registerImage(registry, IMG_GRADLE_RUNTIME, ICON_BASE_URL + URL_OBJ16 + "/liberty-runtime-maven-16.png");
+        registerImage(registry, IMG_GRADLE_FOLDER, ICON_BASE_URL + URL_OBJ16 + "/gradle-folder.png");
+        registerImage(registry, IMG_GRADLE_RUNTIME, ICON_BASE_URL + URL_OBJ16 + "/liberty-runtime-gradle.png");
 
         return registry;
     }
