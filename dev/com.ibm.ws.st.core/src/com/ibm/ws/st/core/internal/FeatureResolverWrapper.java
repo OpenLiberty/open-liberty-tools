@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 IBM Corporation and others.
+ * Copyright (c) 2011, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,7 +14,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.eclipse.core.resources.IProject;
@@ -39,6 +41,11 @@ public class FeatureResolverWrapper {
     private static final String EXTENSION_POINT = "requiredFeatures";
 
     private static FeatureResolverWrapper[] featureExtensions;
+    private static Map<String, String[]> alternativeFeatureMap = new HashMap<String, String[]>();
+
+    static {
+        alternativeFeatureMap.put("jsf", new String[] { "jsfContainer" });
+    }
 
     private final IConfigurationElement configElement;
     private final String[] moduleTypes;
@@ -318,6 +325,28 @@ public class FeatureResolverWrapper {
                 fe.getRequiredFeatures(wr, supportedModules, supportedDeltas, existingFeatures, featureMap, includeAll, monitor);
             }
         }
+
+        // Replace features in the map with ones that specify their alternatives from the override list
+        for (int i = 0; i < featureMap.getFeatures().length; i++) {
+            FeatureResolverFeature feature = featureMap.getFeatures()[i];
+            for (String key : alternativeFeatureMap.keySet()) {
+                if (feature.name.startsWith(key)) {
+                    List<String> currentAlternatives = feature.getAcceptedAlternatives();
+                    String[] alternativesToAdd = alternativeFeatureMap.get(key);
+                    String[] alternatives = new String[currentAlternatives.size() + alternativesToAdd.length];
+                    for (int j = 0; j < alternatives.length; j++) {
+                        if (j < currentAlternatives.size()) {
+                            alternatives[j] = currentAlternatives.get(j);
+                        } else {
+                            alternatives[j] = alternativesToAdd[j - currentAlternatives.size()];
+                        }
+
+                    }
+                    featureMap.replaceFeature(feature, new FeatureResolverFeature(feature.getName(), alternatives));
+                }
+            }
+        }
+
         return featureMap;
     }
 
