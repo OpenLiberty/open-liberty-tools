@@ -86,9 +86,8 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
 
         // Add the arguments to skip the tests
         List<String> arguments = args != null ? Arrays.asList(args) : new ArrayList<String>();
-        for (String arg : LibertyGradleConstants.SKIP_TESTS_ARGS) {
-            arguments.add(arg);
-        }
+        addArgs(arguments, LibertyGradleConstants.SKIP_TESTS_ARGS);
+        addArgs(arguments, LibertyGradleConstants.SKIP_LIBERTY_PKG_ARGS);
         
         if (Trace.ENABLED) {
             Trace.trace(Trace.INFO, "Running gradle tasks: " + Arrays.toString(tasks) + ", with arguments: " + arguments);
@@ -102,7 +101,7 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
             GradleConnector connector = GradleConnector.newConnector();
             connector = connector.forProjectDirectory(new File(workingDir.toOSString()));
             connection = connector.connect();
-            
+
             BuildLauncher build = connection.newBuild();
             build.forTasks(tasks);
             build.withArguments(arguments.toArray(new String[arguments.size()]));
@@ -147,6 +146,12 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
         }
 
         return isSuccessful;
+    }
+    
+    private static void addArgs(List<String> argumentList, String... argsToAdd) {
+    	for (String arg : argsToAdd) {
+    		argumentList.add(arg);
+    	}
     }
 
     /**
@@ -200,7 +205,7 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
     /** {@inheritDoc} */
     @Override
     public void updateSrcConfig(IPath location, LibertyBuildPluginConfiguration config, IProgressMonitor monitor) {
-        String[] tasks = new String[] {LibertyGradleConstants.ASSEMBLE_TASK, LibertyGradleConstants.INSTALL_APPS_TASK};
+        String[] tasks = new String[] {LibertyGradleConstants.LIBERTY_CREATE_TASK};
         runGradleTask(location, tasks, null, monitor);
     }
 
@@ -232,15 +237,13 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
             if (!parentPath.toFile().exists()) {
                 return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "The parent project could not be found " + parentId + " : " + parentBaseDir);
             }
-            String[] tasks = new String[] {LibertyGradleConstants.BUILD_TASK};
-            runGradleTask(parentPath, tasks, null, monitor);
+            runGradleTask(parentPath, LibertyGradleConstants.ASSEMBLE_INSTALL_APPS_TASKS, null, monitor);
         }
 
         // Check if the server directory exists in the user directory before attempting to create it
         if (!serverPath.toFile().exists()) {
             // if the path doesn't exist then run the gradle tasks to create the server files
-            String[] tasks = new String[] {LibertyGradleConstants.ASSEMBLE_TASK, LibertyGradleConstants.INSTALL_APPS_TASK};
-            runGradleTask(project.getLocation(), tasks, null, monitor);
+            runGradleTask(project.getLocation(), LibertyGradleConstants.ASSEMBLE_INSTALL_APPS_TASKS, null, monitor);
         }
         return Status.OK_STATUS;
     }
