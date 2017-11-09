@@ -14,4 +14,13 @@ package com.ibm.ws.st.liberty.buildplugin.integration.internal;
 public class Constants {
     public static final String PROFILE_ID = "profileId";
     public static final String JVM_PARAM = "param";
+
+    // liberty plugin config
+    public static final String LIBERTY_PLUGIN_CONFIG = "liberty-plugin-config";
+    public static final String VERSION = "version";
+    public static final String SERVER_ELEMENT = "server";
+    public static final String SERVERS_ELEMENT = "servers";
+    public static final String APPLICATION_ELEMENT = "application";
+    public static final String APPLICATIONS_ELEMENT = "applications";
+
 }

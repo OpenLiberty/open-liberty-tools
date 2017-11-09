@@ -27,6 +27,7 @@ public class LibertyBuildPluginConfiguration {
     private List<String> activeBuildProfiles = null;
     private final Set<String> projectCompileDependencies = new HashSet<String>();
     private final long lastModified;
+    private String version = null;
 
     public LibertyBuildPluginConfiguration(long lastModified) {
         this.lastModified = lastModified;
@@ -113,6 +114,14 @@ public class LibertyBuildPluginConfiguration {
             return new HashSet<ConfigurationType>(Arrays.asList(ConfigurationType.values()));
         }
         return Collections.emptySet();
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getVersion() {
+        return this.version;
     }
 
     public boolean mapsEqual(Map<ConfigurationType, String> configMapA, Map<ConfigurationType, String> configMapB) {

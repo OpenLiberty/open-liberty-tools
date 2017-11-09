@@ -25,7 +25,6 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
@@ -86,20 +85,12 @@ public class LibertyBuildPluginXMLConfigurationReader {
     private LibertyBuildPluginConfiguration loadModel() throws IOException {
         // Get the child nodes
         NodeList children = rootElement.getChildNodes();
+        // General validation of the plugin configuration file
         if (children == null || children.getLength() == 0) {
             throw new IOException("Liberty build plugin configuration file is invalid.");
         }
-
         DOMBasedLibertyBuildPluginConfigurationBuilder configBuilder = new DOMBasedLibertyBuildPluginConfigurationBuilder(lastModified);
-        // Iterate through each of the nodes and add them to the model
-        Element elem = null;
-        for (int i = 0; i < children.getLength(); i++) {
-            Node child = children.item(i);
-            if (child != null && child.getNodeType() == Node.ELEMENT_NODE) {
-                elem = (Element) child;
-                configBuilder.addToModel(elem);
-            }
-        }
+        configBuilder.buildModel(rootElement);
         return configBuilder.getModel();
     }
 
