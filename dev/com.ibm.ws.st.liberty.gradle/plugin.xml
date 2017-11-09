@@ -14,6 +14,7 @@
 	<extension point="com.ibm.ws.st.ui.customServerConfig">
 		<handler class="com.ibm.ws.st.liberty.gradle.ui.internal.CustomServerConfig" />
 	</extension>
+	
     <extension point="com.ibm.ws.st.core.customServerVariables">
     	<handler class="com.ibm.ws.st.liberty.gradle.internal.CustomServerVariablesHandler" />
 	</extension>
@@ -54,10 +55,7 @@
       </includes>
     </viewerContentBinding>
   </extension>
-    <extension point="com.ibm.ws.st.core.customServerVariables">
-    	<handler class="com.ibm.ws.st.liberty.gradle.internal.CustomServerVariablesHandler" />
-	</extension>
-
+  
 	<extension point="com.ibm.ws.st.common.core.ext.serverTypeExtension">
       <serverTypeExtension
          id="com.ibm.ws.st.liberty.gradle.libertyGradleServerType"

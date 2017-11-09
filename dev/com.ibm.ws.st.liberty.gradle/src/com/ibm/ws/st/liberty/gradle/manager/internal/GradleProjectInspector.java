@@ -29,11 +29,8 @@ import org.gradle.tooling.GradleConnector;
 import org.gradle.tooling.ModelBuilder;
 import org.gradle.tooling.ProjectConnection;
 import org.gradle.tooling.model.GradleProject;
-import org.gradle.tooling.model.build.BuildEnvironment;
-import org.gradle.tooling.model.eclipse.EclipseProject;
 import org.gradle.tooling.model.gradle.GradleScript;
 
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ConfigurationType;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.IProjectInspector;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPluginConfiguration;
 import com.ibm.ws.st.liberty.buildplugin.integration.xml.internal.LibertyBuildPluginXMLConfigurationReader;
@@ -131,7 +128,7 @@ public class GradleProjectInspector implements IProjectInspector {
     public File getLibertyBuildPluginConfigFile(IProgressMonitor mon) throws CoreException {
         // In the majority of the cases the liberty-plugin-config.xml file will be in the Gradle build folder so check there first
     	
-    	    // Note the Gradle build can be configurable.  The default value is 'build'.
+        // Note the Gradle build can be configurable.  The default value is 'build'.
         IFile f = project.getFile(LibertyGradleConstants.LIBERTY_PLUGIN_CONFIG_PATH);
         // Check the if the Gradle build has the file.
         if (f != null && f.exists())
@@ -171,20 +168,23 @@ public class GradleProjectInspector implements IProjectInspector {
         return reader.load(configFile.toURI());
     }
     
-    // TODO: This is where we can attach the progress listener and maintain the project connection.
     private GradleProject getGradleProject(IProgressMonitor monitor)  {
+    	ProjectConnection connection = null;
+    	try {
     		GradleConnector gradleConnector = GradleConnector.newConnector();
-    		System.out.println(project.getLocation().toString());
-    		ProjectConnection connection = gradleConnector.forProjectDirectory(new File(project.getLocation().toString())).connect();
-    		if (connection != null) {
-    			BuildEnvironment buildEnvironment = connection.model(BuildEnvironment.class).get();
-    			ModelBuilder<EclipseProject> model = connection.model(EclipseProject.class);
-    			EclipseProject eclipseProject = model.get();
-    			GradleProject gradleProject = eclipseProject.getGradleProject();
-    			connection.close();
-    			return gradleProject;
-    		}
-    		return null;
+    		connection = gradleConnector.forProjectDirectory(new File(project.getLocation().toString())).connect();
+    		ModelBuilder<GradleProject> model = connection.model(GradleProject.class);
+    		GradleProject gradleProject = model.get();
+    		return gradleProject;
+    	} catch (Exception e) {
+    	    Trace.logError("Could not get Gradle project for project: " + project.getName() + ", at location: " + project.getLocation(), e);
+    	} finally {
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    	
+    	return null;
     }
 
     /** {@inheritDoc} */

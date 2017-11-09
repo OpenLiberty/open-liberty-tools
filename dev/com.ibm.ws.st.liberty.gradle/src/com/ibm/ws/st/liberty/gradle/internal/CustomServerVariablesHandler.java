@@ -43,13 +43,13 @@ public class CustomServerVariablesHandler extends AbstractCustomServerVariablesH
     @Override
     protected void addInlineVars(IProject project, ConfigVars configVars, LibertyBuildPluginConfiguration libertyBuildProjectConfiguration) {
 
-        URI pomURI = obtainPomURI(project);
-        if (libertyBuildProjectConfiguration != null && pomURI != null) {
+        URI buildScriptURI = obtainBuildScriptURI(project);
+        if (libertyBuildProjectConfiguration != null && buildScriptURI != null) {
             // Load in-line bootstrap variables (when applicable)
             // Overlapping variables from server.env file will be overridden (in-line bootstrap variables have higher priority)
             // Overlapping variables from bootstrap.properties file will be overridden (in-line bootstrap variables have higher priority)
             // Note that in practice overlapping between bootstrap.properties file and in-line bootstrap variables should not happen
-            DocumentLocation documentLocation = DocumentLocation.createDocumentLocation(pomURI, DocumentLocation.Type.BOOTSTRAP);
+            DocumentLocation documentLocation = DocumentLocation.createDocumentLocation(buildScriptURI, DocumentLocation.Type.BOOTSTRAP);
             Map<String, String> bootstrapProperties = libertyBuildProjectConfiguration.getBootstrapProperties();
             Iterator<String> iterator = bootstrapProperties.keySet().iterator();
             while (iterator.hasNext()) {
@@ -60,13 +60,13 @@ public class CustomServerVariablesHandler extends AbstractCustomServerVariablesH
         }
     }
 
-    private URI obtainPomURI(IProject project) {
+	private URI obtainBuildScriptURI(IProject project) {
         if (project == null)
             return null;
         try {
-            return new URI(project.getLocationURI().toString() + "/pom.xml");
+            return new URI(project.getLocationURI().toString() + "/" + LibertyGradleConstants.GRADLE_BUILD_SCRIPT);
         } catch (URISyntaxException exception) {
-            Trace.logError("Could not obtain URI to pom.xml in project " + project.getName(), exception);
+            Trace.logError("Could not obtain URI to " + LibertyGradleConstants.GRADLE_BUILD_SCRIPT + " in project " + project.getName(), exception);
         }
         return null;
     }
