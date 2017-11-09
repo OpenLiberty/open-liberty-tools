@@ -117,9 +117,7 @@ public class GradleProjectInspector implements IProjectInspector {
 
     public boolean isGradleProject() {
 		try {
-			IProjectDescription description = project.getDescription();
-	    		List<String> asList = Arrays.asList(description.getNatureIds());
-	    		return asList.contains(LibertyGradleConstants.BUILDSHIP_GRADLE_PROJECT_NATURE);
+			return project.hasNature(LibertyGradleConstants.BUILDSHIP_GRADLE_PROJECT_NATURE);
 		} catch (CoreException e) {
 			Trace.trace(Trace.INFO, "Error getting the description for the project " + project.getName(), e);
 		}

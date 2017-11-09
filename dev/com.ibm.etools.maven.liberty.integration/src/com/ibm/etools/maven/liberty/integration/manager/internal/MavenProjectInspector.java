@@ -123,12 +123,12 @@ public class MavenProjectInspector implements IProjectInspector {
     }
 
     public boolean isMavenProject() {
-        IFile pom = project.getFile(LibertyMavenConstants.POM_FILE_NAME);
-        if (pom == null || !pom.exists()) {
-            Trace.trace(Trace.INFO, "The project " + project.getName() + " is not a Maven Project");
-            return false;
+        try {
+            return project.hasNature(LibertyMavenConstants.MAVEN_PROJECT_NATURE);
+        } catch (CoreException e) {
+            Trace.trace(Trace.INFO, "Error getting the description for the project " + project.getName(), e);
         }
-        return true;
+        return false;
     }
 
     private Model getModelObject(IFile pomFile) {
