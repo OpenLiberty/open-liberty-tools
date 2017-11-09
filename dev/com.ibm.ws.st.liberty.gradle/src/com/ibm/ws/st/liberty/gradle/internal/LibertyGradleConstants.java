@@ -12,8 +12,8 @@
 package com.ibm.ws.st.liberty.gradle.internal;
 
 public class LibertyGradleConstants {
-
-    public static final String POM_FILE_NAME = "pom.xml";
+	
+	public static final String GRADLE_BUILD_SCRIPT = "build.gradle";
 
     public enum ProjectType {
         STANDARD

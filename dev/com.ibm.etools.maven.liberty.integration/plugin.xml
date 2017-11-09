@@ -25,6 +25,7 @@
 	<extension point="com.ibm.ws.st.ui.customServerConfig">
 		<handler class="com.ibm.etools.maven.liberty.integration.ui.internal.CustomServerConfig" />
 	</extension>
+	
     <extension point="com.ibm.ws.st.core.customServerVariables">
     	<handler class="com.ibm.etools.maven.liberty.integration.internal.CustomServerVariablesHandler" />
 	</extension>
@@ -65,9 +66,6 @@
       </includes>
     </viewerContentBinding>
   </extension>
-    <extension point="com.ibm.ws.st.core.customServerVariables">
-    	<handler class="com.ibm.etools.maven.liberty.integration.internal.CustomServerVariablesHandler" />
-	</extension>
 
 	<extension point="com.ibm.ws.st.common.core.ext.serverTypeExtension">
       <serverTypeExtension
