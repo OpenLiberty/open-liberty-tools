@@ -9,8 +9,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Require-Bundle: com.ibm.ws.st.ui,
- com.ibm.ws.st.core,
- org.gradle.toolingapi
+ com.ibm.ws.st.core
 Import-Package: com.ibm.ws.st.liberty.buildplugin.integration.internal,
  com.ibm.ws.st.liberty.buildplugin.integration.manager.internal,
  com.ibm.ws.st.liberty.buildplugin.integration.servertype.internal,
@@ -85,4 +84,7 @@ Import-Package: com.ibm.ws.st.liberty.buildplugin.integration.internal,
  org.eclipse.wst.server.core.internal.facets,
  org.eclipse.wst.validation,
  org.eclipse.wst.xml.core.internal.provisional.document,
+ org.gradle.tooling,
+ org.gradle.tooling.model,
+ org.gradle.tooling.model.gradle,
  org.osgi.framework;version="[1.5.0,2.0.0)"
