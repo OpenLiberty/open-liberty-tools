@@ -30,7 +30,7 @@ import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
 @SuppressWarnings("restriction")
 public abstract class AbstractLibertyBuildPluginRuntimeContentProvider implements org.eclipse.jface.viewers.ITreeContentProvider, ILibertyBuildPluginImplProvider {
 
-    public abstract String getRuntimeContentId();
+    public abstract LibertyBuildPluginProjectNode createRuntimeProjectNode(IProject project, String text, String installDir, String description);
 
     /** {@inheritDoc} */
     @Override
@@ -78,7 +78,7 @@ public abstract class AbstractLibertyBuildPluginRuntimeContentProvider implement
 
             text = WebSphereUtil.getUniqueRuntimeName(NLS.bind(Messages.runtimeLabel, proj.getName()), ServerCore.getRuntimes());
 
-            LibertyBuildPluginProjectNode node = new LibertyBuildPluginProjectNode(proj, text, installDir, description, getRuntimeContentId());
+            LibertyBuildPluginProjectNode node = createRuntimeProjectNode(proj, text, installDir, description);
             nodes.add(node);
         }
         return nodes;

@@ -28,19 +28,19 @@
        labelProvider="com.ibm.ws.st.liberty.gradle.ui.rtexplorer.internal.GradleRuntimeLabelProvider">
        <triggerPoints>
          <or>
-           <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+           <instanceof value="com.ibm.ws.st.liberty.gradle.ui.rtexplorer.internal.GradleRuntimeProjectNode"/>
          </or>
        </triggerPoints>
        <possibleChildren>
          <or>
-           <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+           <instanceof value="com.ibm.ws.st.liberty.gradle.ui.rtexplorer.internal.GradleRuntimeProjectNode"/>
          </or>
        </possibleChildren>
        <actionProvider
          id="com.ibm.ws.st.liberty.gradle.rtexplorer.actionProvider"
          class="com.ibm.ws.st.liberty.gradle.ui.rtexplorer.internal.GradleRuntimeActionProvider">
          <enablement>
-             <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+             <instanceof value="com.ibm.ws.st.liberty.gradle.ui.rtexplorer.internal.GradleRuntimeProjectNode"/>
          </enablement>
        </actionProvider>
     </navigatorContent>
