@@ -40,19 +40,19 @@
        labelProvider="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeLabelProvider">
        <triggerPoints>
          <or>
-           <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+           <instanceof value="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeProjectNode"/>
          </or>
        </triggerPoints>
        <possibleChildren>
          <or>
-           <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+           <instanceof value="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeProjectNode"/>
          </or>
        </possibleChildren>
        <actionProvider
          id="com.ibm.etools.maven.liberty.integration.rtexplorer.actionProvider"
          class="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeActionProvider">
          <enablement>
-             <instanceof value="com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode"/>
+             <instanceof value="com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal.MavenRuntimeProjectNode"/>
          </enablement>
        </actionProvider>
     </navigatorContent>
