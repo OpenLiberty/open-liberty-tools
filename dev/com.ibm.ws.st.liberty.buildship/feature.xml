@@ -17,13 +17,13 @@
       %license
    </license>
 
-   <url>
+  <url>
       <update label="http://download.eclipse.org/buildship/updates/e46/releases/2.x/" url="http://download.eclipse.org/buildship/updates/e46/releases/2.x/"/>
       <discovery label="http://download.eclipse.org/buildship/updates/e46/releases/2.x/" url="http://download.eclipse.org/buildship/updates/e46/releases/2.x/"/>
    </url>
 
    <requires>
-      <import feature="org.eclipse.buildship" version="2.1.2" match="greaterOrEqual"/>
-   </requires>
-
+      <import feature="org.eclipse.buildship" version="2.0.0" match="greaterOrEqual"/>
+   </requires>   
+   
 </feature>

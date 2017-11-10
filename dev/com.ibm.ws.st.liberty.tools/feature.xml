@@ -25,8 +25,8 @@
       id="com.ibm.ws.st.docker.base"
       version="0.0.0"/>
       
-   <includes
-      id="com.ibm.ws.st.liberty.gradle.base"
-      version="0.0.0"/>
-
+    <includes
+      id="com.ibm.ws.st.liberty.buildship"
+      version="0.0.0"/>     
+      
 </feature>
