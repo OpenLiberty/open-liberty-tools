@@ -20,7 +20,9 @@ public class LibertyMavenConstants {
     public enum ProjectType {
         LIBERTY_ASSEMBLY, STANDARD
     }
-    
+
+    public static final String MAVEN_PROJECT_NATURE = "org.eclipse.m2e.core.maven2Nature";
+
     // Same id as in org.eclipse.ui.navigator.navigatorContent extension
     public static final String LIBERTY_MAVEN_RUNTIME_CONTENT_ID = "com.ibm.ws.etools.maven.liberty.integration.runtime.content";
 

@@ -16,7 +16,11 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.osgi.service.debug.DebugOptions;
@@ -33,6 +37,8 @@ public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "com.ibm.ws.st.liberty.gradle"; //$NON-NLS-1$
+	
+	private static final String BUILDSHIP_PLUGIN_ID = "org.eclipse.buildship.core";
 
 	// The shared instance
 	private static Activator plugin;
@@ -59,6 +65,11 @@ public class Activator extends AbstractUIPlugin {
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
+		if (Platform.getBundle(BUILDSHIP_PLUGIN_ID) == null) {
+			IStatus status = new Status(IStatus.ERROR, PLUGIN_ID, Messages.noEclipseBuildshipError);
+			throw new CoreException(status);
+		}
+		
 		super.start(context);
 		plugin = this;
         Trace.ENABLED = isDebugging();

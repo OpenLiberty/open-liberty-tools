@@ -8,27 +8,32 @@
  * Contributors:
  * IBM Corporation - initial API and implementation
  *******************************************************************************/
-
 package com.ibm.etools.maven.liberty.integration.ui.rtexplorer.internal;
 
 import org.eclipse.core.resources.IProject;
 
-import com.ibm.etools.maven.liberty.integration.internal.LibertyMaven;
-import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
-import com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.AbstractLibertyBuildPluginRuntimeContentProvider;
+import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConstants;
 import com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode;
 
-public class MavenRuntimeContentProvider extends AbstractLibertyBuildPluginRuntimeContentProvider {
+/**
+ *
+ */
+public class MavenRuntimeProjectNode extends LibertyBuildPluginProjectNode {
 
-    @Override
-    public LibertyBuildPluginProjectNode createRuntimeProjectNode(IProject project, String text, String installDir, String description) {
-        return new MavenRuntimeProjectNode(project, text, installDir, description);
+    /**
+     * @param project
+     * @param text
+     * @param installDir
+     * @param description
+     */
+    public MavenRuntimeProjectNode(IProject project, String text, String installDir, String description) {
+        super(project, text, installDir, description);
     }
 
     /** {@inheritDoc} */
     @Override
-    public ILibertyBuildPluginImpl getBuildPluginImpl() {
-        return LibertyMaven.getInstance();
+    public String getRuntimeContentId() {
+        return LibertyMavenConstants.LIBERTY_MAVEN_RUNTIME_CONTENT_ID;
     }
 
 }

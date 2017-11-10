@@ -13,21 +13,21 @@ package com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal;
 
 import org.eclipse.core.resources.IProject;
 
-public class LibertyBuildPluginProjectNode {
+public abstract class LibertyBuildPluginProjectNode {
 
     private final IProject project;
     private final String text;
     private final String installDir;
     private final String description;
-    private final String runtimeContentId;
 
-    public LibertyBuildPluginProjectNode(IProject project, String text, String installDir, String description, String runtimeContentId) {
+    public LibertyBuildPluginProjectNode(IProject project, String text, String installDir, String description) {
         this.project = project;
         this.text = text;
         this.installDir = installDir;
         this.description = description;
-        this.runtimeContentId = runtimeContentId;
     }
+
+    public abstract String getRuntimeContentId();
 
     /**
      * @return the project
@@ -46,11 +46,5 @@ public class LibertyBuildPluginProjectNode {
 
     public String getDescription() {
         return description;
-    }
-
-    // Since each build type implementation will use the same project node 'type',
-    // we need to differentiate between them by using a unique ID.
-    public String getRuntimeContentId() {
-        return runtimeContentId;
     }
 }
