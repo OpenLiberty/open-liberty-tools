@@ -17,6 +17,9 @@ import org.eclipse.osgi.util.NLS;
  * Translated messages.
  */
 public class Messages extends NLS {
+	
+    // Plugin
+    public static String noEclipseBuildshipError;
 
     // Detection prompt
     public static String generationPromptMsg;
