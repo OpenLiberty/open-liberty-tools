@@ -192,8 +192,13 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                 // Check project deltas for plugin config file changes
                 for (IResourceDelta projectDelta : projectDeltas) {
                     // If we're dealing with an ignored project then there's no need to do anything because the user would have to trigger the runtime and server generation manually
-                    if (mappingHandler.isIgnored(projectDelta.getResource().getProject().getName()))
+                    if (mappingHandler.isIgnored(projectDelta.getResource().getProject().getName())) {
+                        // if it is ignored, then it is a project that is of our interest.
+                        if (projectDelta.getKind() == IResourceDelta.REMOVED) {
+                            handleProjectRemoved(projectDelta.getResource().getProject(), monitor);
+                        }
                         return Status.OK_STATUS;
+                    }
 
                     boolean isHandled = processPluginConfigDeltas(projectDelta, monitor);
 
