@@ -326,26 +326,7 @@ public class FeatureResolverWrapper {
             }
         }
 
-        // Replace features in the map with ones that specify their alternatives from the override list
-        for (int i = 0; i < featureMap.getFeatures().length; i++) {
-            FeatureResolverFeature feature = featureMap.getFeatures()[i];
-            for (String key : alternativeFeatureMap.keySet()) {
-                if (feature.name.startsWith(key)) {
-                    List<String> currentAlternatives = feature.getAcceptedAlternatives();
-                    String[] alternativesToAdd = alternativeFeatureMap.get(key);
-                    String[] alternatives = new String[currentAlternatives.size() + alternativesToAdd.length];
-                    for (int j = 0; j < alternatives.length; j++) {
-                        if (j < currentAlternatives.size()) {
-                            alternatives[j] = currentAlternatives.get(j);
-                        } else {
-                            alternatives[j] = alternativesToAdd[j - currentAlternatives.size()];
-                        }
-
-                    }
-                    featureMap.replaceFeature(feature, new FeatureResolverFeature(feature.getName(), alternatives));
-                }
-            }
-        }
+        addAcceptableAlternativesToFeatures(featureMap);
 
         return featureMap;
     }
@@ -356,6 +337,8 @@ public class FeatureResolverWrapper {
 
         FacetFeatureResolver facetFeatureResolver = new FacetFeatureResolver();
         facetFeatureResolver.getRequiredFeatures(wr, moduleList, deltaList, existingFeatures, featureMap, includeAll, monitor);
+
+        addAcceptableAlternativesToFeatures(featureMap);
 
         return featureMap;
     }
@@ -585,6 +568,34 @@ public class FeatureResolverWrapper {
 
         if (!features.contains(resolvedFeature)) {
             features.add(resolvedFeature);
+        }
+    }
+
+    /**
+     * Add acceptable alternatives to features from the alternativeFeatureMap
+     *
+     * @param featureMap The features being added which may require having alternative features inserted
+     */
+    private static void addAcceptableAlternativesToFeatures(RequiredFeatureMap featureMap) {
+
+        for (int i = 0; i < featureMap.getFeatures().length; i++) {
+            FeatureResolverFeature feature = featureMap.getFeatures()[i];
+            for (String key : alternativeFeatureMap.keySet()) {
+                if (feature.name.equals(key) || feature.name.startsWith(key + "-")) {
+                    List<String> currentAlternatives = feature.getAcceptedAlternatives();
+                    String[] alternativesToAdd = alternativeFeatureMap.get(key);
+                    String[] alternatives = new String[currentAlternatives.size() + alternativesToAdd.length];
+                    for (int j = 0; j < alternatives.length; j++) {
+                        if (j < currentAlternatives.size()) {
+                            alternatives[j] = currentAlternatives.get(j);
+                        } else {
+                            alternatives[j] = alternativesToAdd[j - currentAlternatives.size()];
+                        }
+
+                    }
+                    featureMap.replaceFeature(feature, new FeatureResolverFeature(feature.getName(), alternatives));
+                }
+            }
         }
     }
 
