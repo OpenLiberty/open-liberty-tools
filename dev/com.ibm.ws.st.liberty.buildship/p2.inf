@@ -1,3 +1,2 @@
-instructions.configure=\
-org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:0,location:http${#58}//download.eclipse.org/buildship/updates/e46/releases/2.x/,name:http://download.eclipse.org/buildship/updates/e46/releases/2.x/,enabled:true);\
-org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(type:1,location:http${#58}//download.eclipse.org/buildship/updates/e46/releases/2.x/,name:http://download.eclipse.org/buildship/updates/e46/releases/2.x/,enabled:true);\
+instructions.configure=org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/buildship/updates/e46/releases/2.x/,type:0,name:Buildship 2.x,enabled:true); \
+org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/buildship/updates/e46/releases/2.x/,type:1,name:Buildship 2.x,enabled:true);
