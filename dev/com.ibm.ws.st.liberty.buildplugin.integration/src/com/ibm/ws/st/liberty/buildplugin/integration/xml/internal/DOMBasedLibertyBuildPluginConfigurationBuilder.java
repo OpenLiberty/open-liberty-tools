@@ -24,9 +24,10 @@ import com.ibm.ws.st.liberty.buildplugin.integration.internal.LibertyBuildPlugin
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Trace;
 
 /**
- *
  * A single instance of this class can be used to build the LibertyBuildPluginConfiguration data model based on
  * DOM data and retrieve the model object.
+ *
+ * This Builder works for v1 config files and v2 config files with only one server element and one application element
  *
  */
 public class DOMBasedLibertyBuildPluginConfigurationBuilder {
@@ -37,7 +38,28 @@ public class DOMBasedLibertyBuildPluginConfigurationBuilder {
         config = new LibertyBuildPluginConfiguration(lastModified);
     }
 
-    public void addToModel(Element elem) {
+    public void buildModel(Element rootElement) {
+        checkChildElements(rootElement);
+    }
+
+    public LibertyBuildPluginConfiguration getModel() {
+        return config;
+    }
+
+    /*
+     * Check immediate element children of element and add them to the model
+     */
+    private void checkChildElements(Element element) {
+        NodeList children = element.getChildNodes();
+        for (int i = 0; i < children.getLength(); i++) {
+            Node child = children.item(i);
+            if (child != null && child.getNodeType() == Node.ELEMENT_NODE) {
+                addToModel((Element) child);
+            }
+        }
+    }
+
+    private void addToModel(Element elem) {
         if (elem == null)
             return;
 
@@ -55,6 +77,9 @@ public class DOMBasedLibertyBuildPluginConfigurationBuilder {
                 case activeBuildProfiles:
                     handleActiveBuildProfiles(elem);
                     break;
+                case applications:
+                    handleApplications(elem);
+                    break;
                 case bootstrapProperties:
                     handleBootstrapProperties(elem);
                     break;
@@ -64,12 +89,43 @@ public class DOMBasedLibertyBuildPluginConfigurationBuilder {
                 case projectCompileDependency:
                     handleProjectCompileDependencies(elem);
                     break;
+                case servers:
+                    handleServers(elem);
+                    break;
                 default: {
                     setValue(type, elem);
                 }
             }
         } catch (Exception e) {
             Trace.logError("Failed to parse data for liberty configuration element: " + elem.getNodeName(), e);
+        }
+    }
+
+    private void handleApplications(Element elem) {
+        // TODO For multiple Applications support, simply call checkChildElements(elem);
+        //       <applications>
+        //         <application>
+        NodeList children = elem.getChildNodes();
+        int numOfChildren = children.getLength();
+        for (int i = 0; i < numOfChildren; i++) {
+            Node child = children.item(i);
+            if (child != null && child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals(Constants.APPLICATION_ELEMENT)) {
+                checkChildElements((Element) child);
+                break; // TODO for multiple application support.  Support first app for now.
+            }
+        }
+    }
+
+    private void handleServers(Element elem) {
+        // TODO for multiple servers support should simply call this instead: checkChildElements(elem);
+        NodeList children = elem.getChildNodes();
+        int numOfChildren = children.getLength();
+        for (int i = 0; i < numOfChildren; i++) {
+            Node child = children.item(i);
+            if (child != null && child.getNodeType() == Node.ELEMENT_NODE && child.getNodeName().equals(Constants.SERVER_ELEMENT)) {
+                checkChildElements((Element) child);
+                break; // TODO only support the first server element
+            }
         }
     }
 
@@ -88,6 +144,7 @@ public class DOMBasedLibertyBuildPluginConfigurationBuilder {
     }
 
     private void handleBootstrapProperties(Element elem) {
+        // TODO For multiple servers support, the bootstrap properties must be associated with each server.
         NodeList children = elem.getChildNodes();
         HashMap<String, String> props = new HashMap<String, String>();
         for (int i = 0; i < children.getLength(); i++) {
@@ -125,9 +182,4 @@ public class DOMBasedLibertyBuildPluginConfigurationBuilder {
     private void setValue(ConfigurationType type, Element elem) {
         config.setConfigValue(type, elem.getTextContent().trim());
     }
-
-    public LibertyBuildPluginConfiguration getModel() {
-        return config;
-    }
-
 }
