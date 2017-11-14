@@ -1218,8 +1218,8 @@ public class LibertyDockerComposite extends AbstractRemoteServerComposite {
         // The project in the other workspace was created to be unique (by calling generateUserDirName)
         // and it may have the (1) or (2)... strings append to it.
         // For example:
-        //    a)   /workspaceA/WebSphere Application Server Liberty (wlp)
-        // or b)   /workspaceA/WebSphere Application Server Liberty (wlp) (1)
+        //    a)   /workspaceA/Liberty Server (wlp)
+        // or b)   /workspaceA/Liberty Server (wlp) (1)
         // Try to use the same name because the local project name will match the 'external' project name.
         // Typically, projects that link to external content (from Import Projects wizard) will have the same name as that of the target.
         // This can be seen by the Properties page of the project.

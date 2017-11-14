@@ -11,7 +11,7 @@
  -->
 
 <faceted-project>
-  <runtime name="WebSphere Application Server Liberty"/>
+  <runtime name="Liberty Runtime"/>
   <fixed facet="jst.ear"/>
   <installed facet="jst.ear" version="7.0"/>
 </faceted-project>

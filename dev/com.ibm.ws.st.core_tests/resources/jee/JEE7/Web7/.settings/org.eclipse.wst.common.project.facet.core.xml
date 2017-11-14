@@ -11,7 +11,7 @@
  -->
 
 <faceted-project>
-  <runtime name="WebSphere Application Server Liberty"/>
+  <runtime name="Liberty Runtime"/>
   <fixed facet="wst.jsdt.web"/>
   <fixed facet="jst.web"/>
   <fixed facet="java"/>
