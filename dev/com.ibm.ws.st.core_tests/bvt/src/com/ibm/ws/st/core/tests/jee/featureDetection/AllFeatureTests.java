@@ -36,6 +36,7 @@ public class AllFeatureTests {
         // Add following tests only if JDK >= 1.7.0
         if (System.getProperty("java.version").compareTo(JDK_VERSION_7) >= 0) {
             testsuites.add(ClientOnlyFeatureTest.class);
+            testsuites.add(AlternativeFeatureTest.class);
         }
         return testsuites;
     }
