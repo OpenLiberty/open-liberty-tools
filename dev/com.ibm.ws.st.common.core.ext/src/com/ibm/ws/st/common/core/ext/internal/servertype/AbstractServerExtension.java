@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 
 package com.ibm.ws.st.common.core.ext.internal.servertype;
@@ -113,4 +113,14 @@ public abstract class AbstractServerExtension {
     public Boolean isLocalSetup(IServer server) {
         return null;
     }
+
+    /**
+     * Perform any additional work on a server configuration change
+     *
+     * @param server
+     */
+    public void serverConfigChanged(IServer server, IProgressMonitor monitor) {
+        // Do nothing by default
+    }
+
 }
