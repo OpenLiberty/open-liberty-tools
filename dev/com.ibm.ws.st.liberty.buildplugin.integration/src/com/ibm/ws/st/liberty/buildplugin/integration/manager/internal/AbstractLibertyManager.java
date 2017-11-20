@@ -120,6 +120,8 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
 
     protected abstract boolean handleGenerationPrompt(String name);
 
+    protected abstract boolean isSupportedProjectType(IProject project);
+
     /*
      * (non-Javadoc)
      *
@@ -135,14 +137,38 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
         if (projectDeltas == null)
             return;
 
-        ISchedulingRule rule = MultiRule.combine(new ISchedulingRule[] { generationRule, ResourcesPlugin.getWorkspace().getRoot() });
-        ScanJob scanJob = new ScanJob(Messages.scanJob, projectDeltas);
-        scanJob.setRule(rule);
-        // schedule the job after 5 seconds so that the other workspace jobs can be scheduled first, this is important because
-        // we want the other jobs (git/m2e) to finish setting up the project before we scan it
-        scanJob.schedule(5000);
-        if (Trace.ENABLED)
-            Trace.trace(Trace.INFO, "Liberty build plugin manager scanning job scheduled");
+        List<IResourceDelta> applicableResourceDeltas = new ArrayList<IResourceDelta>();
+        // Do preliminary check to see if the changes are only from projects that we are interested in before scheduling any ScanJobs.
+        // Examples:
+        // 1) Create Server and Runtime results in two project deltas.  One for the build plug-in project, and one for the
+        // newly created Runtime project.   We are only interested in the first one.
+        // 2) Multiple source file changes from one project results in one delta (with multiple children), but the project
+        // is a Web project that we don't care about
+        // So, without the prelim. check, for two build plugin implementations, for example 1, four scans jobs are scheduled, but two are applicable.
+        // And, for example 2, two scan jobs are scheduled, but none are applicable.
+        if (projectDeltas.length > 0) {
+            for (int i = 0; i < projectDeltas.length; i++) {
+                IResource resource = projectDeltas[i].getResource();
+                if (resource instanceof IProject) {
+                    IProject project = (IProject) resource;
+                    // If the project is deleted, or the project just got closed, then checking the nature is not possible.
+                    // So we are 'forced' to scan it.
+                    if (projectDeltas[i].getKind() == IResourceDelta.REMOVED || !project.isAccessible() || isSupportedProjectType(project)) {
+                        applicableResourceDeltas.add(projectDeltas[i]);
+                    }
+                }
+            }
+        }
+        if (!applicableResourceDeltas.isEmpty()) {
+            ISchedulingRule rule = MultiRule.combine(new ISchedulingRule[] { generationRule, ResourcesPlugin.getWorkspace().getRoot() });
+            ScanJob scanJob = new ScanJob(Messages.scanJob, applicableResourceDeltas.toArray(new IResourceDelta[0]));
+            scanJob.setRule(rule);
+            // schedule the job after 5 seconds so that the other workspace jobs can be scheduled first, this is important because
+            // we want the other jobs (git/m2e) to finish setting up the project before we scan it
+            scanJob.schedule(5000);
+            if (Trace.ENABLED)
+                Trace.trace(Trace.INFO, "Liberty build plugin manager scanning job scheduled");
+        }
     }
 
     static synchronized List<IServer> getServerList(IRuntime runtime) {
@@ -857,7 +883,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                     return;
                 }
 
-                if (inUse) {
+                if (!inUse) {
                     try {
                         Trace.trace(Trace.INFO, "Removing target facets for runtime: " + runtime.getName());
                         FacetUtil.removeTargets(runtime, new NullProgressMonitor());

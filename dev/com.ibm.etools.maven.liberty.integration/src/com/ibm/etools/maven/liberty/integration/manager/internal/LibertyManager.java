@@ -11,11 +11,14 @@
 
 package com.ibm.etools.maven.liberty.integration.manager.internal;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.osgi.util.NLS;
 
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMaven;
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMavenConstants;
 import com.ibm.etools.maven.liberty.integration.internal.Messages;
+import com.ibm.etools.maven.liberty.integration.internal.Trace;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
 import com.ibm.ws.st.liberty.buildplugin.integration.manager.internal.AbstractLibertyManager;
 import com.ibm.ws.st.liberty.buildplugin.integration.ui.internal.UIHelper;
@@ -42,6 +45,19 @@ public class LibertyManager extends AbstractLibertyManager {
     @Override
     protected boolean handleGenerationPrompt(String projectName) {
         return UIHelper.handleGenerationPrompt(LibertyMavenConstants.PROMPT_PREFERENCE, NLS.bind(Messages.generationPromptMsg, projectName));
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    protected boolean isSupportedProjectType(IProject project) {
+        try {
+            return project.hasNature(LibertyMavenConstants.MAVEN_PROJECT_NATURE);
+        } catch (CoreException e) {
+            if (Trace.ENABLED) {
+                Trace.trace(Trace.INFO, "Error getting project nature for" + project.getName(), e);
+            }
+        }
+        return false;
     }
 
 }
