@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -266,7 +266,7 @@ public class ConfigurationResourceChangeListener implements IResourceChangeListe
             WebSphereServer ws = WebSphereUtil.getWebSphereServer(server);
             if (ws != null) {
                 if (ws.isLocalSetup())
-                    ws.addLocalConnectorFeature(null);
+                    ws.serverConfigChanged(null);
                 ws.getWebSphereServerBehaviour().startAutoConfigSyncJob();
             }
 

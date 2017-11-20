@@ -778,4 +778,26 @@ public class WebSphereUtil {
         }
         return name;
     }
+
+    /**
+     * Get the WebSphereServer given the IServer
+     * 
+     * @param server The IServer - should not be null
+     * @return The WebSphereServer or null if the server is not a WebSphere server
+     */
+    public static WebSphereServer getWebSphereServer(IServer server) {
+        if (server == null) {
+            if (Trace.ENABLED) {
+                Trace.trace(Trace.WARNING, "The server should not be null.");
+            }
+            return null;
+        }
+        WebSphereServer wsServer = server.getAdapter(WebSphereServer.class);
+        if (wsServer == null) {
+            if (Trace.ENABLED) {
+                Trace.trace(Trace.WARNING, "The server is not a WebSphereServer as expected: " + server.getName());
+            }
+        }
+        return wsServer;
+    }
 }

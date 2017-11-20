@@ -1670,4 +1670,9 @@ public class WebSphereServer extends ServerDelegate implements IURLProvider, IAd
         }
     }
 
+    public void serverConfigChanged(IProgressMonitor monitor) {
+        AbstractServerExtension serverExt = getServerTypeExtension();
+        serverExt.serverConfigChanged(getServer(), monitor);
+    }
+
 }
