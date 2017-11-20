@@ -12,10 +12,7 @@
 package com.ibm.ws.st.liberty.buildplugin.integration.internal;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.net.URI;
-import java.util.Iterator;
-import java.util.Properties;
+import java.io.IOException;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.wst.server.core.IServer;
@@ -24,10 +21,10 @@ import com.ibm.ws.st.core.internal.Trace;
 import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.WebSphereUtil;
+import com.ibm.ws.st.core.internal.config.Bootstrap;
 import com.ibm.ws.st.core.internal.config.ConfigVars;
-import com.ibm.ws.st.core.internal.config.DocumentLocation;
+import com.ibm.ws.st.core.internal.config.ServerEnv;
 import com.ibm.ws.st.core.internal.config.validation.ICustomServerVariablesHandler;
-import com.ibm.ws.st.ui.internal.utility.PathUtil;
 
 @SuppressWarnings("restriction")
 public abstract class AbstractCustomServerVariablesHandler implements ICustomServerVariablesHandler {
@@ -71,11 +68,11 @@ public abstract class AbstractCustomServerVariablesHandler implements ICustomSer
             // Load variables from server.env file (when applicable)
             String serverEnvFile = libertyBuildProjectConfiguration.getConfigValue(ConfigurationType.serverEnv);
             if (serverEnvFile != null) {
-                URI serverEnvFileURI;
-                serverEnvFileURI = PathUtil.getURIForFilePath(serverEnvFile);
-                if (serverEnvFileURI != null) {
-                    DocumentLocation serverEnvFileLocation = DocumentLocation.createDocumentLocation(serverEnvFileURI, DocumentLocation.Type.SERVER_ENV);
-                    loadPropertiesFile(configVars, serverEnvFile, serverEnvFileLocation);
+                try {
+                    ServerEnv serverEnv = new ServerEnv(new File(serverEnvFile), null);
+                    serverEnv.getVariables(configVars);
+                } catch (IOException e) {
+                    Trace.logError("Could not read server.env file " + serverEnvFile, e);
                 }
             }
 
@@ -83,11 +80,11 @@ public abstract class AbstractCustomServerVariablesHandler implements ICustomSer
             // Overlapping variables from server.env file will be overridden (bootstrap.properties variables have higher priority)
             String bootstrapFile = libertyBuildProjectConfiguration.getConfigValue(ConfigurationType.bootstrapPropertiesFile);
             if (bootstrapFile != null) {
-                URI bootstrapFileURI;
-                bootstrapFileURI = PathUtil.getURIForFilePath(bootstrapFile);
-                if (bootstrapFileURI != null) {
-                    DocumentLocation bootstrapFileLocation = DocumentLocation.createDocumentLocation(bootstrapFileURI, DocumentLocation.Type.BOOTSTRAP);
-                    loadPropertiesFile(configVars, bootstrapFile, bootstrapFileLocation);
+                try {
+                    Bootstrap bootstrap = new Bootstrap(new File(bootstrapFile), null);
+                    bootstrap.getVariables(configVars);
+                } catch (IOException e) {
+                    Trace.logError("Could not read bootstrap.properties file " + bootstrapFile, e);
                 }
             }
 
@@ -107,26 +104,6 @@ public abstract class AbstractCustomServerVariablesHandler implements ICustomSer
             return;
 
         addCustomServerVariables(configVars, project);
-    }
-
-    private void loadPropertiesFile(ConfigVars configVars, String fileName, DocumentLocation documentLocation) {
-        try {
-            File file = new File(fileName);
-            FileInputStream fileInput = new FileInputStream(file);
-            Properties properties = new Properties();
-            properties.load(fileInput);
-            fileInput.close();
-
-            Iterator<Object> iterator = properties.keySet().iterator();
-            while (iterator.hasNext()) {
-                String key = (String) iterator.next();
-                String value = properties.getProperty(key);
-                configVars.add(key, value, documentLocation);
-            }
-
-        } catch (Exception exception) {
-            Trace.logError("Could not read bootstrap properties file " + fileName, exception);
-        }
     }
 
 }
