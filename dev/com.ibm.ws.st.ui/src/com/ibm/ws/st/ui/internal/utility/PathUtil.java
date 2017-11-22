@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.utility;
 
+import java.io.File;
 import java.net.URI;
 
 import org.eclipse.core.resources.IFile;
@@ -57,13 +58,12 @@ public class PathUtil {
     }
 
     public static URI getURIForFilePath(String filePath) {
-        URI uri = null;
         try {
-            uri = new URI("file:///" + filePath.replace("+", "%20").replace('\\', '/'));
+            return new File(filePath).toURI();
         } catch (Exception exception) {
             Trace.logError("Could not create URI for file path " + filePath, exception);
         }
-        return uri;
+        return null;
     }
 
 }

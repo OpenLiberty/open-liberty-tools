@@ -65,10 +65,12 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
 
                         // server.xml in source
                         URI fileURI = PathUtil.getURIForFilePath(configValue);
-                        ConfigurationFile configurationFile = new ConfigurationFile(fileURI, webSphereServer.getUserDirectory(), webSphereServerInfo);
-                        Document document = DomXmlDocumentFileCache.getInstance().getDocument(configurationFile);
-                        if (document != null) {
-                            serverConfigElements.add(document.getDocumentElement());
+                        if (fileURI != null) {
+                            ConfigurationFile configurationFile = new ConfigurationFile(fileURI, webSphereServer.getUserDirectory(), webSphereServerInfo);
+                            Document document = DomXmlDocumentFileCache.getInstance().getDocument(configurationFile);
+                            if (document != null) {
+                                serverConfigElements.add(document.getDocumentElement());
+                            }
                         }
 
                         // bootstrap.properties in source
