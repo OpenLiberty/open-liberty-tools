@@ -8,25 +8,25 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -96,25 +96,25 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -621,25 +621,25 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1307,6 +1307,27 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.cdi20.cdiContainer"> 
+        <xsd:annotation> 
+            <xsd:documentation>Defines the behavior of the Contexts and Dependency Injection (CDI).</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Contexts And Dependency Injection (CDI)</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="enableImplicitBeanArchives" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The implicit bean archives are scanned for any bean discoveries.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable scanning implicit bean archives</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.channelfw"> 
         <xsd:annotation> 
             <xsd:documentation>Defines channel and chain management settings. </xsd:documentation> 
@@ -1385,6 +1406,38 @@
                 <xsd:documentation>Enables immediate rebind to a port with no active listener.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>SO_REUSEADDR socket option</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="addressIncludeList" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of addresses that are allowed to make inbound connections on this endpoint. You can specify IPv4 or IPv6 addresses. All values in an IPv4 or IPv6 address must be represented by a number or by an asterisk wildcard character.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Address include list</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="addressExcludeList" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of addresses that are not allowed to make inbound connections on this endpoint. You can specify IPv4 or IPv6 addresses. All values in an IPv4 or IPv6 address must be represented by a number or by an asterisk wildcard character. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Address exclude list</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="hostNameIncludeList" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of host names that are allowed to make inbound connections on this endpoint. Host names are not case-sensitive and can start with an asterisk, which is used as a wildcard character. However, asterisks cannot be elsewhere in the host name. For example, *.abc.com is valid, but *.abc.* is not valid. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Host name include list</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="hostNameExcludeList" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of host names that are not allowed to make inbound connections on this endpoint. Host names are not case-sensitive and can start with an asterisk, which is used as a wildcard character. However, asterisks cannot be elsewhere in the host name. For example, *.abc.com is valid, but *.abc.* is not valid.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Host name exclude list</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -1510,9 +1563,9 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="apiTypeVisibility" use="optional" default="spec,ibm-api,api" type="xsd:string"> 
+        <xsd:attribute name="apiTypeVisibility" use="optional" default="spec,ibm-api,api,stable" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The types of API package this class loader will be able to see, as a comma-separated list of any combination of the following: spec, ibm-api, api, third-party.</xsd:documentation> 
+                <xsd:documentation>The types of API packages that this class loader supports. This value is a comma-separated list of any combination of the following API packages: spec, ibm-api, api, stable, third-party.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allowed API types</ext:label> 
                 </xsd:appinfo> 
@@ -1663,9 +1716,9 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="apiTypeVisibility" use="optional" default="spec,ibm-api,api" type="xsd:string"> 
+        <xsd:attribute name="apiTypeVisibility" use="optional" default="spec,ibm-api,api,stable" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The types of API package this library's class loader will be able to see, as a comma-separated list of any combination of the following: spec, ibm-api, api, third-party.</xsd:documentation> 
+                <xsd:documentation>The types of API packages that this class loader supports. This value is a comma-separated list of any combination of the following API packages: spec, ibm-api, api, stable, third-party.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allowed API types</ext:label> 
                 </xsd:appinfo> 
@@ -1688,6 +1741,137 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.concurrency.policy.concurrencyPolicy"> 
+        <xsd:annotation> 
+            <xsd:documentation>A set of behaviors and constraints that are applied to tasks that are capable of asynchronous execution, such as maximum concurrency and maximum queue size.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Concurrency Policy</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="expedite" use="optional" default="0"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a target minimum number of tasks to run concurrently by expediting requests to the global thread pool. The actual number of tasks that run concurrently might be fewer than the target number you define. If the expedite value is updated while in use, the update goes into effect gradually, as previous expedited and non-expedited requests complete.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Expedite</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxPolicy" use="optional" default="loose"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether to loosely or strictly enforce maximum concurrency for tasks that run on the task submitter's thread. Tasks can run on the task submitter's thread when using the untimed invokeAll method, or, if only invoking a single task, the untimed invokeAny method. If the run-if-queue-full attribute is configured, it is also possible for tasks to run the task submitter's thread when using the execute and submit methods. In all of these cases, this attribute determines whether or not running on the submitter's thread counts against the maximum concurrency.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum policy</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="loose"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Maximum concurrency is loosely enforced. Tasks are allowed to run on the task submitter's thread without counting against maximum concurrency.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="strict"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Maximum concurrency is strictly enforced. Tasks that run on the task submitter's thread count towards maximum concurrency. This policy does not allow tasks to run on the task submitter's thread when already at maximum concurrency.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxWaitForEnqueue" use="optional" default="0" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum duration of time to wait for enqueuing a task. If unable to enqueue the task within this interval, the task submission is subject to the run-if-queue-full policy. When the maximum wait for enqueue is updated, the update applies only to tasks submitted after that point. Tasks submissions that were already waiting for a queue position continue to wait per the previously configured value. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum wait for enqueue</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="runIfQueueFull" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Applies when using the execute or submit methods. Indicates whether or not to run the task on the submitter's thread when the queue is full and the maximum wait for enqueue has been exceeded. When configured to false, the task submission is rejected after the maximum wait for enqueue elapses instead of running on the submitter's thread.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Run if queue full</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="max" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of tasks that can run simultaneously. The default is Integer.MAX_VALUE. Maximum concurrency can be updated while tasks are in progress. If the maximum concurrency is reduced below the number of concurrently running tasks, the update goes into effect gradually as in-progress tasks complete, rather than canceling them.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum concurrency</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="1"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxQueueSize" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of tasks that can be in the queue waiting for execution. As tasks are started, canceled, or aborted, they are removed from the queue. When the queue is at capacity and another task is submitted, the behavior is determined by the maximum wait for enqueue and run-if-queue-full attributes. To ensure that a specific number of tasks can be queued within a short interval of time, use a maximum queue size that is at least as large as that amount. The default maximum queue size is Integer.MAX_VALUE. Maximum queue size can be updated while tasks are both in progress or queued for execution. If the maximum queue size is reduced below the current number of queued tasks, the update goes into effect gradually rather than automatically canceling the excess queued tasks.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum queue size</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="1"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="startTimeout" use="optional" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum amount of time that may elapse between the task submission and the task start. By default, tasks do not time out. If both a maximum wait for enqueue and a start timeout are enabled, configure the start timeout to be larger than the maximum wait for enqueue. When the start timeout is updated while in use, the new start timeout value applies to tasks submitted after the update occurs. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Start timeout</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.concurrency.policy.concurrencyPolicy-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.concurrency.policy.concurrencyPolicy"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.concurrent.managedExecutorService"> 
         <xsd:annotation> 
             <xsd:documentation>Managed executor service</xsd:documentation> 
@@ -1695,8 +1879,16 @@
                 <ext:label>Managed Executor</ext:label> 
             </xsd:appinfo> 
         </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="contextService" minOccurs="0" maxOccurs="1" type="com.ibm.ws.context.service"> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="concurrencyPolicy" type="com.ibm.ws.concurrency.policy.concurrencyPolicy"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Concurrency policy for tasks that are submitted to this executor. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the collection of executors that specify the policy.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Concurrency Policy</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="contextService" type="com.ibm.ws.context.service"> 
                 <xsd:annotation> 
                     <xsd:documentation>Configures how context is propagated to threads</xsd:documentation> 
                     <xsd:appinfo> 
@@ -1704,7 +1896,24 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-        </xsd:sequence> 
+            <xsd:element name="longRunningPolicy" type="com.ibm.ws.concurrency.policy.concurrencyPolicy"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Concurrency policy for tasks that specify the LONGRUNNING_HINT execution property with value of 'true'. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the whole the collection of executors that specify the policy. If unspecified, the long running concurrency policy defaults to the executor's general concurrency policy.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Long Running Policy</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="concurrencyPolicyRef" use="optional" default="defaultConcurrencyPolicy" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Concurrency policy for tasks that are submitted to this executor. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the collection of executors that specify the policy.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Concurrency policy</ext:label> 
+                    <ext:reference>concurrencyPolicy</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="contextServiceRef" use="optional" default="DefaultContextService" type="pidType"> 
             <xsd:annotation> 
                 <xsd:documentation>Configures how context is propagated to threads</xsd:documentation> 
@@ -1720,6 +1929,15 @@
                 <xsd:appinfo> 
                     <ext:label>JNDI name</ext:label> 
                     <ext:unique>jndiName</ext:unique> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="longRunningPolicyRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Concurrency policy for tasks that specify the LONGRUNNING_HINT execution property with value of 'true'. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the whole the collection of executors that specify the policy. If unspecified, the long running concurrency policy defaults to the executor's general concurrency policy.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Long running policy</ext:label> 
+                    <ext:reference>concurrencyPolicy</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -1840,58 +2058,6 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.concurrent.managedScheduledExecutorService"> 
-        <xsd:annotation> 
-            <xsd:documentation>Managed scheduled executor service</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Managed Scheduled Executor</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="contextService" minOccurs="0" maxOccurs="1" type="com.ibm.ws.context.service"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Configures how context is propagated to threads</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Thread Context Propagation</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:sequence> 
-        <xsd:attribute name="contextServiceRef" use="optional" default="DefaultContextService" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Configures how context is propagated to threads</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Context propagation reference</ext:label> 
-                    <ext:reference>contextService</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="jndiName" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>JNDI name</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>JNDI name</ext:label> 
-                    <ext:unique>jndiName</ext:unique> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.concurrent.managedScheduledExecutorService-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.concurrent.managedScheduledExecutorService"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.context.service"> 
         <xsd:annotation> 
             <xsd:documentation>Configures how context is propagated to threads</xsd:documentation> 
@@ -1974,6 +2140,92 @@
     <xsd:complexType name="com.ibm.ws.context.service-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.context.service"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.concurrent.managedScheduledExecutorService"> 
+        <xsd:annotation> 
+            <xsd:documentation>Managed scheduled executor service</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Managed Scheduled Executor</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="concurrencyPolicy" type="com.ibm.ws.concurrency.policy.concurrencyPolicy"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Concurrency policy for tasks that are submitted to this executor. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the collection of executors that specify the policy.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Concurrency Policy</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="contextService" type="com.ibm.ws.context.service"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Configures how context is propagated to threads</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Thread Context Propagation</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="longRunningPolicy" type="com.ibm.ws.concurrency.policy.concurrencyPolicy"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Concurrency policy for tasks that specify the LONGRUNNING_HINT execution property with value of 'true'. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the whole the collection of executors that specify the policy. If unspecified, the long running concurrency policy defaults to the executor's general concurrency policy.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Long Running Policy</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="concurrencyPolicyRef" use="optional" default="defaultConcurrencyPolicy" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Concurrency policy for tasks that are submitted to this executor. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the collection of executors that specify the policy.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Concurrency policy</ext:label> 
+                    <ext:reference>concurrencyPolicy</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="contextServiceRef" use="optional" default="DefaultContextService" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Configures how context is propagated to threads</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Context propagation reference</ext:label> 
+                    <ext:reference>contextService</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jndiName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JNDI name</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JNDI name</ext:label> 
+                    <ext:unique>jndiName</ext:unique> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="longRunningPolicyRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Concurrency policy for tasks that specify the LONGRUNNING_HINT execution property with value of 'true'. If multiple executors specify the same concurrency policy, then the policy's constraints are enforced across tasks that are submitted by the whole the collection of executors that specify the policy. If unspecified, the long running concurrency policy defaults to the executor's general concurrency policy.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Long running policy</ext:label> 
+                    <ext:reference>concurrencyPolicy</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.concurrent.managedScheduledExecutorService-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.concurrent.managedScheduledExecutorService"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -3191,9 +3443,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
-            </xsd:element> 
             <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
+            </xsd:element> 
+            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -3323,25 +3575,17 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -4616,6 +4860,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="AutoDecompression" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the HTTP Channel automatically decompresses incoming request body data.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Auto decompression</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -5024,27 +5276,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -19068,6 +19302,265 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.jwt.builder"> 
+        <xsd:annotation> 
+            <xsd:documentation>Information about configuring the builder. The elements and attributes that you specify are used to build the token.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>JWT Builder</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="audiences" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Trusted audiences</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="claims" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specify a comma separated list of claims to include in the token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Supported claims</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="issuer" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>An Issuer is a case-sensitive URL using the HTTP or HTTPS scheme that contains scheme, host, and optionally port number and path components.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Issuer</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwkEnabled" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether to use JWK to sign the token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable JSON web key (JWK)</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="expiry" use="optional" default="2h" type="hourDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates the token expiration time. Specify a positive integer followed by the unit of time, which can be hours (h). For example, specify 12 hours as 12h.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token expiration time</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scope" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>scope.desc=Specify a white space separated list of OAuth scopes.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Supported scopes</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the signature algorithm that will be used to sign the JWT token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWT token signature algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="RS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="HS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the HS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="sharedKey" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the string that will be used to generate the shared keys. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Shared secret</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jti" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether to generate a unique id for the token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JTI</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyStoreRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A keystore containing the private key necessary for signing the token with an asymmetric algorithm.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore</ext:label> 
+                    <ext:reference>keyStore</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyAlias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A key alias name that is used to locate the private key for signing the token with an asymmetric algorithm.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Key alias name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.jwt.builder-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.jwt.builder"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.jwt.consumer"> 
+        <xsd:annotation> 
+            <xsd:documentation>The JWT consumer information to validate the JWT token.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>JWT Consumer</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="audiences" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Trusted audiences</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="issuer" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>An Issuer is a case-sensitive URL using the HTTP or HTTPS scheme that contains scheme, host, and optionally port number and path components.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Issuer</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sharedKey" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the string that will be used to generate the shared keys. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Shared secret</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the signature algorithm that will be used to sign the JWT token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWT token signature algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="RS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="HS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the HS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="trustStoreRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A keystore containing the public key necessary for verifying a signature of the JWT token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Trust keystore</ext:label> 
+                    <ext:reference>keyStore</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="trustedAlias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A trusted key alias for using the public key to verify the signature of the token</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Trusted alias name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the JSON web token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>The time difference allowed between systems</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwkEnabled" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether to use JWK to sign the token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable JSON web key (JWK)</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwkEndpointUrl" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a JWK end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JSON web key(JWK) end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the OpenID Connect provider.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.jwt.consumer-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.jwt.consumer"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.kernel.feature"> 
         <xsd:annotation> 
             <xsd:documentation>Defines how the server loads features.</xsd:documentation> 
@@ -19528,6 +20021,14 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="groupProperties" type="com.ibm.ws.security.wim.adapter.ldap.groupConfiguration"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The configuration for group membership properties (for example; memberAttribute or membershipAttribute).</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Configure the LDAP Group Properties</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="attributeConfiguration" type="com.ibm.ws.security.wim.adapter.ldap.attributeConfiguration"> 
                 <xsd:annotation> 
                     <xsd:documentation>The configuration that maps the LDAP attributes with the user registry schema (for example; Person, PersonAccount or Group) field names.</xsd:documentation> 
@@ -19950,9 +20451,9 @@
         </xsd:attribute> 
         <xsd:attribute name="sizeLimit" use="optional" default="2000" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>The size limit for the cache.</xsd:documentation> 
+                <xsd:documentation>The maximum number of attributes per LDAP entity that will be cached.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Size limit</ext:label> 
+                    <ext:label>Maximum entity attributes cached</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -20857,7 +21358,7 @@
         </xsd:attribute> 
         <xsd:attribute name="timeout" use="optional" default="0s" type="duration"> 
             <xsd:annotation> 
-                <xsd:documentation>The duration after which the context pool times out. An integer that represents the time that an idle context instance can remain in the pool without being closed and removed from the pool. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:documentation>The duration after which the context pool times out. An integer that represents the time that an idle context instance can remain in the pool without being closed and removed from the pool. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s) or milliseconds (ms). For example, specify 1 second as 1s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 1.5 minutes. The minimum timeout allowed is 1 second. Millisecond entries are rounded to the nearest second. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Timeout</ext:label> 
                 </xsd:appinfo> 
@@ -20999,9 +21500,9 @@
         </xsd:attribute> 
         <xsd:attribute name="resultsSizeLimit" use="optional" default="2000" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>The maximum number of results that can be returned in the search.</xsd:documentation> 
+                <xsd:documentation>The maximum number of results that can be cached for a single LDAP search.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Results size limit</ext:label> 
+                    <ext:label>Maximum search results cached</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -21515,6 +22016,286 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.mp.jwt"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration to process the MicroProfile JWT token.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>MicroProfile JWT</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="audiences" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Trusted audiences</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="id" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The unique ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Unique ID</ext:label> 
+                    <ext:unique>uniqueId</ext:unique> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="issuer" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The url of the issuer.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Issuer</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwksUri" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a JSON Web Key service URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWK endpoint url</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="upn" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim will be used as user principal to authenticate.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User principal claim</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used for SSL connections.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a trusted key alias for using the public key to verify the signature of the token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Verification key name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="groupNameAttribute" use="optional" default="groups" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim will be used as the user group membership.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Group claim</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to a registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenReuse" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the token can be re-used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Re-use the token</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the JSON web token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>The time difference allowed between systems</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ignoreApplicationAuthMethod" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Ignore the configured authentication method in the application. Allow legacy applications that do not configure MP-JWT as their authentication method to use MicroProfile JWT token if one is included in the request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Ignore authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.mp.jwt-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.mp.jwt"> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.opentracing"> 
+        <xsd:annotation> 
+            <xsd:documentation>Optional. Configuration for the opentracing feature.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Opentracing</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="excludeSpans" type="com.ibm.ws.opentracing.excludeSpans-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Optional. Configuration to exclude inbound and/or outbound spans. By default, nothing is excluded.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Exclude</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="includeSpans" type="com.ibm.ws.opentracing.includeSpans-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Optional. Configuration to override excludeSpans. By default, anything that is not excluded is included.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Include</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="excludeSpansRef" use="optional" type="pidListType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Configuration to exclude inbound and/or outbound spans. By default, nothing is excluded.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Exclude</ext:label> 
+                    <ext:reference>excludeSpans</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="includeSpansRef" use="optional" type="pidListType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Configuration to override excludeSpans. By default, anything that is not excluded is included.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Include</ext:label> 
+                    <ext:reference>includeSpans</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.opentracing.excludeSpans"> 
+        <xsd:annotation> 
+            <xsd:documentation>Optional. Configuration to exclude inbound and/or outbound spans. By default, nothing is excluded.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Exclude</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="pattern" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Required. The URL pattern for which this filter applies.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>URL pattern</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="type" use="optional" default="BOTH" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Whether to apply this filter to INCOMING requests, OUTGOING requests, or BOTH. Default BOTH.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Filter type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ignoreCase" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Whether to ignore case when comparing URIs. Default true.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Ignore case</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="regex" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Whether to interpret the pattern as a regular expression. Default false. Discouraged due to the performance overhead of applying to every request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use a regular expression</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.opentracing.excludeSpans-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.opentracing.excludeSpans"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.opentracing.includeSpans"> 
+        <xsd:annotation> 
+            <xsd:documentation>Optional. Configuration to override excludeSpans. By default, anything that is not excluded is included.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Include</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="pattern" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Required. The URL pattern for which this filter applies.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>URL pattern</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="type" use="optional" default="BOTH" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Whether to apply this filter to INCOMING requests, OUTGOING requests, or BOTH. Default BOTH.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Filter type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ignoreCase" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Whether to ignore case when comparing URIs. Default true.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Ignore case</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="regex" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optional. Whether to interpret the pattern as a regular expression. Default false. Discouraged due to the performance overhead of applying to every request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use a regular expression</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.opentracing.includeSpans-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.opentracing.includeSpans"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.concurrent.persistent.executor"> 
         <xsd:annotation> 
@@ -22771,6 +23552,259 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.session.db"> 
+        <xsd:annotation> 
+            <xsd:documentation>Controls how HTTP sessions are persisted to a database.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>HTTP Session Database</ext:label> 
+                <ext:extraProperties/> 
+                <ext:groupDecl id="performance" label="Performance">Changing these settings may enhance performance.</ext:groupDecl> 
+                <ext:groupDecl id="advanced.performance" label="Advanced Performance">Changing these settings may enhance performance, but the default values work for most environments.</ext:groupDecl> 
+                <ext:groupDecl id="db2" label="DB2 Only">These optional settings are only applicable to DB2 databases.</ext:groupDecl> 
+                <ext:groupDecl id="oracle" label="Oracle Only">These optional settings are only applicable to Oracle databases.</ext:groupDecl> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="dataSourceRef" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The identifier of the data source the session manager should use to persist HTTP session data.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Data source</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tableName" use="optional" default="sessions" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The database table name.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Table name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useMultiRowSchema" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When enabled, each session data attribute is placed in a separate row in the database, allowing larger amounts of data to be stored for each session. This configuration can yield better performance when session attributes are very large and few changes are required to the session attributes. When disabled, all session data attributes are placed in the same row for each session.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use multi row schema</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="skipIndexCreation" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set this property to "true" to disable index creation on server startup. This custom property should only be used if you want to manually create your own database indices for session persistence. However, it is recommended that you let session manager create database indices. Before enabling this property, make sure that the correct index does exist on your session database.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Skip index creation</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="writeFrequency" use="optional" default="END_OF_SERVLET_SERVICE"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies when session data is written to the persistent store. By default, session data is written to the persistent store after the servlet completes execution. Changing this value can improve performance in some environments.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Write frequency</ext:label> 
+                    <ext:group id="performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="END_OF_SERVLET_SERVICE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Session data is written to the persistent store after the servlet completes execution.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="MANUAL_UPDATE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>A programmatic sync on the IBMSession object is required to write the session data to the persistent store.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="TIME_BASED_WRITE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Session data is written to the persistent store based on the specified write interval value.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="writeInterval" use="optional" default="2m" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Number of seconds that should pass before writing session data to the persistent store. The default is 120 seconds. This value is only used when a time based write frequency is enabled. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Write interval</ext:label> 
+                    <ext:group id="performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="writeContents" use="optional" default="ONLY_UPDATED_ATTRIBUTES"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies how much session data should be written to the persistent store.  By default, only updated attributes are written, but all attributes can be written instead (regardless of whether or not they changed).</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Write contents</ext:label> 
+                    <ext:group id="performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="ONLY_UPDATED_ATTRIBUTES"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Only updated attributes are written to the persistent store.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ALL_SESSION_ATTRIBUTES"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>All attributes are written to the persistent store.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="scheduleInvalidation" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enable this option to reduce the number of database updates required to keep the HTTP sessions alive. Specify the two hours of a day when there is the least activity in the application server. When this option is disabled, the invalidator process runs every few minutes to remove invalidated HTTP sessions.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Schedule invalidation</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scheduleInvalidationFirstHour" use="optional" default="0" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates the first hour during which the invalidated sessions are cleared from the persistent store. Specify this value as an integer between 0 and 23. This value is valid only when schedule invalidation is enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>First hour of day</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scheduleInvalidationSecondHour" use="optional" default="0" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates the second hour during which the invalidated sessions are cleared from the persistent store. Specify this value as an integer between 0 and 23. This value is valid only when schedule invalidation is enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Second hour of day</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="noAffinitySwitchBack" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set this property to "true" to maintain affinity to the new member even after original one comes back up. When a cluster member fails, its requests routed to a different cluster member, and sessions are activated in that other member. Thus, session affinity is maintained to the new member, and when failed cluster member comes back up, the requests for sessions that were created in the original cluster member are routed back to it. Allowed values are true or false, with the default being false. Set this property to true when you have distributed sessions configured with time-based write. Note that this property has no affect on the behavior when distributed sessions are not enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>No affinity switchBack</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useInvalidatedId" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set this property to "true" to reuse the incoming identifier if the session with that identifier was recently invalidated. This is a performance optimization because it prevents checking the persistent store.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use invalidated identifier</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="onlyCheckInCacheDuringPreInvoke" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A value of true indicates that the last access time of a session should only be updated if a request gets the session. A value of false indicates that the last access time of a session should be updated upon every request. Changing this value can improve performance in some environments.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Only check in cache during pre invoke</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="optimizeCacheIdIncrements" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>If the user's browser session is moving back and forth across multiple web applications, you might see extra persistent store activity as the in-memory sessions for a web module are refreshed from the persistent store. As a result, the cache identifiers are continually increasing and the in-memory session attributes are overwritten by those of the persistent copy.  Set this property to true if you want to prevent the cache identifiers from continually increasing. A value of true indicates that the session manager should assess whether the in-memory session for a web module is older than the copy in persistent store. If the configuration is a cluster, ensure that the system times of each cluster member are as identical as possible.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Optimize cache identifier increments</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="db2RowSize" use="optional" default="4KB"> 
+            <xsd:annotation> 
+                <xsd:documentation>Table space page size configured for the sessions table, if using a DB2 database. Increasing this value can improve database performance in some environments.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>DB2 row size</ext:label> 
+                    <ext:group id="db2"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="4KB"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the default table space page size of 4 KB. You do not need to create a DB2 buffer pool or table space, and you do not need to specify a table space name.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="8KB"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use a table space page size of 8 KB. You must additionally create a DB2 buffer pool and table space, and specify 8KB as the page size for both. You must also specify the name of the table space you created.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="16KB"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use a table space page size of 16 KB. You must additionally create a DB2 buffer pool and table space, and specify 16KB as the page size for both. You must also specify the name of the table space you created.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="32KB"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use a table space page size of 32 KB. You must additionally create a DB2 buffer pool and table space, and specify 32KB as the page size for both. You must also specify the name of the table space you created.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="tableSpaceName" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Table space to be used for the sessions table. This value is only required when the DB2 Row Size is greater than 4KB.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Table space name</ext:label> 
+                    <ext:group id="db2"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="usingCustomSchemaName" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set this property to "true" if you are using DB2 for session persistence and the currentSchema property is set in the data source.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use custom schema name</ext:label> 
+                    <ext:group id="db2"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useOracleBlob" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set this property to "true" to create the database table using the Binary Large Object (BLOB) data type for the medium column. This value increases performance of persistent sessions when Oracle databases are used. Due to an Oracle restriction, BLOB support requires use of the Oracle Call Interface (OCI) database driver for more than 4000 bytes of data. You must also ensure that a new sessions table is created before the server is restarted by dropping your old sessions table or by changing the datasource definition to reference a database that does not contain a sessions table.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Binary Large Object (BLOB) for medium column</ext:label> 
+                    <ext:group id="oracle"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Additional properties related to session persistence.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Additional properties</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.ssl.default"> 
         <xsd:annotation> 
             <xsd:documentation>The default repertoire for SSL services.</xsd:documentation> 
@@ -23192,6 +24226,27 @@
                 </xsd:attribute> 
             </xsd:extension> 
         </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="build.example.project"> 
+        <xsd:annotation> 
+            <xsd:documentation>Description of sample configuration</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Sample configuration</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="someProperty" use="optional" default="String value" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Description of sample property</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Sample property</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.transaction"> 
         <xsd:annotation> 
@@ -27092,13 +28147,15 @@
             <xsd:element name="authentication" type="com.ibm.ws.security.authentication"/> 
             <xsd:element name="authCache" type="com.ibm.ws.security.authentication.cache"/> 
             <xsd:element name="cdi12" type="com.ibm.ws.cdi12.cdiContainer"/> 
+            <xsd:element name="cdi" type="com.ibm.ws.cdi20.cdiContainer"/> 
             <xsd:element name="channelfw" type="com.ibm.ws.channelfw"/> 
             <xsd:element name="tcpOptions" type="com.ibm.ws.tcpchannel.options-factory"/> 
             <xsd:element name="library" type="com.ibm.ws.classloading.sharedlibrary-factory"/> 
+            <xsd:element name="concurrencyPolicy" type="com.ibm.ws.concurrency.policy.concurrencyPolicy-factory"/> 
             <xsd:element name="managedExecutorService" type="com.ibm.ws.concurrent.managedExecutorService-factory"/> 
             <xsd:element name="managedThreadFactory" type="com.ibm.ws.concurrent.managedThreadFactory-factory"/> 
-            <xsd:element name="managedScheduledExecutorService" type="com.ibm.ws.concurrent.managedScheduledExecutorService-factory"/> 
             <xsd:element name="contextService" type="com.ibm.ws.context.service-factory"/> 
+            <xsd:element name="managedScheduledExecutorService" type="com.ibm.ws.concurrent.managedScheduledExecutorService-factory"/> 
             <xsd:element name="connectionManager" type="com.ibm.ws.jca.connectionManager-factory"/> 
             <xsd:element name="distributedMap" type="com.ibm.ws.cache-factory"/> 
             <xsd:element name="ejbApplication" type="com.ibm.ws.app.manager.ejbappcfg-factory"/> 
@@ -27136,6 +28193,8 @@
             <xsd:element name="jndiReferenceEntry" type="com.ibm.ws.jndi.referenceEntry-factory"/> 
             <xsd:element name="jpa" type="com.ibm.ws.jpacomponent"/> 
             <xsd:element name="jspEngine" type="com.ibm.ws.jsp.2.2"/> 
+            <xsd:element name="jwtBuilder" type="com.ibm.ws.security.jwt.builder-factory"/> 
+            <xsd:element name="jwtConsumer" type="com.ibm.ws.security.jwt.consumer-factory"/> 
             <xsd:element name="featureManager" type="com.ibm.ws.kernel.feature"/> 
             <xsd:element name="executor" type="com.ibm.ws.threading"/> 
             <xsd:element name="config" type="com.ibm.ws.config"/> 
@@ -27153,6 +28212,10 @@
             <xsd:element name="ltpa" type="com.ibm.ws.security.token.ltpa.LTPAConfiguration"/> 
             <xsd:element name="ejbContainer" type="com.ibm.ws.ejbcontainer.runtime"/> 
             <xsd:element name="monitor" type="com.ibm.ws.monitor.internal.MonitoringFrameworkExtender"/> 
+            <xsd:element name="mpJwt" type="com.ibm.ws.security.mp.jwt-factory"/> 
+            <xsd:element name="opentracing" type="com.ibm.ws.opentracing"/> 
+            <xsd:element name="excludeSpans" type="com.ibm.ws.opentracing.excludeSpans-factory"/> 
+            <xsd:element name="includeSpans" type="com.ibm.ws.opentracing.includeSpans-factory"/> 
             <xsd:element name="persistentExecutor" type="com.ibm.ws.concurrent.persistent.executor-factory"/> 
             <xsd:element name="remoteFileAccess" type="com.ibm.ws.management.filetransfer"/> 
             <xsd:element name="quickStartSecurity" type="com.ibm.ws.security.quickStartSecurity"/> 
@@ -27161,6 +28224,7 @@
             <xsd:element name="httpSession" type="com.ibm.ws.session"/> 
             <xsd:element name="pluginConfiguration" type="com.ibm.ws.generatePluginConfig"/> 
             <xsd:element name="webContainer" type="com.ibm.ws.webcontainer"/> 
+            <xsd:element name="httpSessionDatabase" type="com.ibm.ws.session.db"/> 
             <xsd:element name="sslDefault" type="com.ibm.ws.ssl.default"/> 
             <xsd:element name="ssl" type="com.ibm.ws.ssl.repertoire-factory"/> 
             <xsd:element name="keyStore" type="com.ibm.ws.ssl.keystore-factory"/> 
