@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -440,23 +440,25 @@ public class Activator extends Plugin {
                                     int serverWork = totalWork / serverInfos.size();
                                     for (WebSphereServerInfo info : serverInfos) {
                                         ConfigurationFile[] configFiles = info.getConfigurationFiles();
-                                        int fileWork = serverWork / configFiles.length;
-                                        for (ConfigurationFile file : configFiles) {
-                                            IFile iFile = file.getIFile();
-                                            if (iFile != null) {
-                                                try {
-                                                    // An IFile.touch will tell eclipse that the file has changed so
-                                                    // that it gets revalidated but it does not update the timestamp
-                                                    // on the file.
-                                                    iFile.touch(monitor.newChild(fileWork));
-                                                } catch (CoreException e) {
-                                                    if (Trace.ENABLED) {
-                                                        Trace.trace(Trace.WARNING, "Touch failed on file: " + iFile.getLocation().toOSString(), e);
+                                        if (configFiles.length > 0) {
+                                            int fileWork = serverWork / configFiles.length;
+                                            for (ConfigurationFile file : configFiles) {
+                                                IFile iFile = file.getIFile();
+                                                if (iFile != null) {
+                                                    try {
+                                                        // An IFile.touch will tell eclipse that the file has changed so
+                                                        // that it gets revalidated but it does not update the timestamp
+                                                        // on the file.
+                                                        iFile.touch(monitor.newChild(fileWork));
+                                                    } catch (CoreException e) {
+                                                        if (Trace.ENABLED) {
+                                                            Trace.trace(Trace.WARNING, "Touch failed on file: " + iFile.getLocation().toOSString(), e);
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            if (monitor.isCanceled()) {
-                                                return Status.CANCEL_STATUS;
+                                                if (monitor.isCanceled()) {
+                                                    return Status.CANCEL_STATUS;
+                                                }
                                             }
                                         }
                                     }
@@ -486,6 +488,7 @@ public class Activator extends Plugin {
         emptyContainerExtensions = emptyContainerlist.toArray(new ClasspathExtension[emptyContainerlist.size()]);
 
         checkRuntimeMetadata();
+
     }
 
     @Override
