@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 IBM Corporation and others.
+ * Copyright (c) 2012, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -68,18 +68,21 @@ public class RuntimeMessageHelper {
                 // the message key, so we just match the key and end, then we
                 // look for the rest of start (excluding the key) in message
                 int indexStart = message.indexOf(start);
-                if (message.regionMatches(indexStart, start, 0, KEY_LENGTH) && message.endsWith(end)) {
+                int endIndex = message.indexOf(end, indexStart + start.length());
+                if (message.regionMatches(indexStart, start, 0, KEY_LENGTH) && endIndex >= 0) {
                     start = start.substring(KEY_LENGTH);
                     int index = message.indexOf(start, indexStart + KEY_LENGTH);
                     if (index != -1) {
                         int startIndex = start.length() + index;
-                        int endIndex = message.length() - end.length();
                         if (startIndex < endIndex) {
                             String s = message.substring(startIndex, endIndex);
                             String middle = messages[i + 1];
                             if (middle != null && middle.length() > 0) {
                                 int ind = s.indexOf(middle);
-                                return s.substring(0, ind);
+                                s = s.substring(0, ind);
+                            }
+                            if (Trace.ENABLED) {
+                                Trace.trace(Trace.INFO, "Found the application name " + s + " in message: " + message);
                             }
                             return s;
                         }
@@ -88,8 +91,10 @@ public class RuntimeMessageHelper {
             }
         } catch (Exception e) {
             if (Trace.ENABLED)
-                Trace.trace(Trace.WARNING, "Could not determine app name", e);
+                Trace.trace(Trace.WARNING, "An exception occurred trying to extract the application name from the message: " + message, e);
         }
+        if (Trace.ENABLED)
+            Trace.trace(Trace.WARNING, "Could not extract the application name from the message: " + message);
         return null;
     }
 
@@ -105,12 +110,12 @@ public class RuntimeMessageHelper {
                 // the message key, so we just match the key and end, then we
                 // look for the rest of start (excluding the key) in message
                 int indexStart = message.indexOf(start);
-                if (message.regionMatches(indexStart, start, 0, KEY_LENGTH) && message.endsWith(end)) {
+                int endIndex = message.indexOf(end, indexStart + start.length());
+                if (message.regionMatches(indexStart, start, 0, KEY_LENGTH) && endIndex >= 0) {
                     start = start.substring(KEY_LENGTH);
                     int index = message.indexOf(start, indexStart + KEY_LENGTH);
                     if (index != -1) {
                         int startIndex = start.length() + index;
-                        int endIndex = message.length() - end.length();
                         if (startIndex < endIndex) {
                             String s = message.substring(startIndex, endIndex);
                             String middle = messages[i + 1];
@@ -130,7 +135,14 @@ public class RuntimeMessageHelper {
             }
         } catch (Exception e) {
             if (Trace.ENABLED)
-                Trace.trace(Trace.WARNING, "Could not get message substitution text from: " + message, e);
+                Trace.trace(Trace.WARNING, "An exception occurred trying to extract the substitution text from the message: " + message, e);
+        }
+        if (Trace.ENABLED) {
+            if (set.isEmpty()) {
+                Trace.trace(Trace.WARNING, "Could not extract the substitution text from the message: " + message);
+            } else {
+                Trace.trace(Trace.INFO, "Found the substitution strings " + set + " in message: " + message);
+            }
         }
         return set;
     }
@@ -145,12 +157,12 @@ public class RuntimeMessageHelper {
                 // the message key, so we just match the key and end, then we
                 // look for the rest of start (excluding the key) in message
                 int indexStart = message.indexOf(start);
-                if (message.regionMatches(indexStart, start, 0, KEY_LENGTH) && message.endsWith(end)) {
+                int endIndex = message.indexOf(end, indexStart + start.length());
+                if (message.regionMatches(indexStart, start, 0, KEY_LENGTH) && endIndex >= 0) {
                     start = start.substring(KEY_LENGTH);
                     int index = message.indexOf(start, indexStart + KEY_LENGTH);
                     if (index != -1) {
                         int startIndex = start.length() + index;
-                        int endIndex = message.length() - end.length();
                         if (startIndex < endIndex) {
                             String s = message.substring(startIndex, endIndex);
                             String middle = messages[i + 1];
@@ -162,19 +174,29 @@ public class RuntimeMessageHelper {
                                     return name;
                                 // if the first variable didn't meatch check the second substitute variable
                                 name = s.substring(ind + middle.length(), s.length());
-                                if (matchesProjectName(name, server))
+                                if (matchesProjectName(name, server)) {
+                                    if (Trace.ENABLED) {
+                                        Trace.trace(Trace.INFO, "Found the application name " + name + " in message: " + message);
+                                    }
                                     return name;
+                                }
                             }
-                            if (matchesProjectName(s, server))
+                            if (matchesProjectName(s, server)) {
+                                if (Trace.ENABLED) {
+                                    Trace.trace(Trace.INFO, "Found the application name " + s + " in message: " + message);
+                                }
                                 return s;
+                            }
                         }
                     }
                 }
             }
         } catch (Exception e) {
             if (Trace.ENABLED)
-                Trace.trace(Trace.WARNING, "Could not determine app name", e);
+                Trace.trace(Trace.WARNING, "An exception occurred trying to match the application name in the message: " + message, e);
         }
+        if (Trace.ENABLED)
+            Trace.trace(Trace.WARNING, "Could not match the application name in the message: " + message);
         return null;
     }
 
