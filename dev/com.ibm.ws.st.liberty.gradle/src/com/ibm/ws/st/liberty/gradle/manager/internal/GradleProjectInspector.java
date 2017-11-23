@@ -166,24 +166,29 @@ public class GradleProjectInspector implements IProjectInspector {
         return reader.load(configFile.toURI());
     }
     
-    private GradleProject getGradleProject(IProgressMonitor monitor)  {
-    	ProjectConnection connection = null;
-    	try {
-    		GradleConnector gradleConnector = GradleConnector.newConnector();
-    		connection = gradleConnector.forProjectDirectory(new File(project.getLocation().toString())).connect();
-    		ModelBuilder<GradleProject> model = connection.model(GradleProject.class);
-    		GradleProject gradleProject = model.get();
-    		return gradleProject;
-    	} catch (Exception e) {
-    	    Trace.logError("Could not get Gradle project for project: " + project.getName() + ", at location: " + project.getLocation(), e);
-    	} finally {
-            if (connection != null) {
-                connection.close();
-            }
-        }
-    	
-    	return null;
-    }
+	private GradleProject getGradleProject(IProgressMonitor monitor) {
+		ProjectConnection connection = null;
+		try {
+			GradleConnector gradleConnector = GradleConnector.newConnector();
+			// The workspace project could be deleted so getLocation is null.
+			// If we can't get GradleProject for any other reason, then log the error.
+			if (project.getLocation() != null) {
+				connection = gradleConnector.forProjectDirectory(new File(project.getLocation().toString())).connect();
+				ModelBuilder<GradleProject> model = connection.model(GradleProject.class);
+				GradleProject gradleProject = model.get();
+				return gradleProject;
+			}
+		} catch (Exception e) {
+			Trace.logError("Could not get Gradle project for project: " + project.getName() + ", at location: "
+					+ project.getLocation(), e);
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+		}
+
+		return null;
+	}
 
     /** {@inheritDoc} */
     @Override
