@@ -60,6 +60,10 @@ public class WLPCommonUtil {
     public static final String ENABLE_JAVA2SECURITY_PROPERTY = "was.runtime.liberty.enableJava2Security";
     public static final String AUTO_EXPAND_APPS_PROPERTY = "was.runtime.liberty.autoExpandApps";
     public static final String HTTP_PORT_START_PROPERTY = "was.runtime.liberty.httpPortStart";
+    // Sets console log format.  Valid settings are json or basic (default).
+    public static final String CONSOLE_LOG_FORMAT_PROPERTY = "was.runtime.liberty.consoleLogFormat";
+    // Sets additional messages to be sent to the console log.  Valid settings are message,trace,accessLog,ffdc.
+    public static final String CONSOLE_LOG_SOURCE_PROPERTY = "was.runtime.liberty.consoleLogSource";
     public static boolean isDebugEnabled = true;
     private static final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy k:mm:ss");
     private static final String DEFAULT_RUNTIME_NAME = "Liberty_Tools_Runtime";
@@ -625,6 +629,16 @@ public class WLPCommonUtil {
         String prop = System.getProperty(ENABLE_JAVA2SECURITY_PROPERTY);
         if ("true".equals(prop)) {
             appendStringToFile(file, "\r\nwebsphere.java.security=true");
+        }
+
+        prop = System.getProperty(CONSOLE_LOG_FORMAT_PROPERTY);
+        if ("json".equals(prop)) {
+            appendStringToFile(file, "\r\ncom.ibm.ws.logging.console.format=json");
+        }
+
+        prop = System.getProperty(CONSOLE_LOG_SOURCE_PROPERTY);
+        if (prop != null && !prop.isEmpty()) {
+            appendStringToFile(file, "\r\ncom.ibm.ws.logging.console.source=" + prop);
         }
     }
 
