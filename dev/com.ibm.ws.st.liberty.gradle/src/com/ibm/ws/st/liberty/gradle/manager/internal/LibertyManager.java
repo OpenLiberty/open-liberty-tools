@@ -11,6 +11,8 @@
 
 package com.ibm.ws.st.liberty.gradle.manager.internal;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.osgi.util.NLS;
 
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImpl;
@@ -19,6 +21,7 @@ import com.ibm.ws.st.liberty.buildplugin.integration.ui.internal.UIHelper;
 import com.ibm.ws.st.liberty.gradle.internal.LibertyGradle;
 import com.ibm.ws.st.liberty.gradle.internal.LibertyGradleConstants;
 import com.ibm.ws.st.liberty.gradle.internal.Messages;
+import com.ibm.ws.st.liberty.gradle.internal.Trace;
 
 public class LibertyManager extends AbstractLibertyManager {
 
@@ -43,5 +46,17 @@ public class LibertyManager extends AbstractLibertyManager {
     protected boolean handleGenerationPrompt(String projectName) {
         return UIHelper.handleGenerationPrompt(LibertyGradleConstants.PROMPT_PREFERENCE, NLS.bind(Messages.generationPromptMsg, projectName));
     }
+
+	@Override
+	protected boolean isSupportedProjectType(IProject project) {
+		try {
+			return project.hasNature(LibertyGradleConstants.BUILDSHIP_GRADLE_PROJECT_NATURE);
+		} catch (CoreException e) {
+			if (Trace.ENABLED) {
+				Trace.trace(Trace.INFO, "Error getting project nature for" + project.getName(), e);
+			}
+		}
+		return false;
+	}
 
 }
