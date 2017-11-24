@@ -10,10 +10,16 @@
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonReaderFactory;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -41,6 +47,8 @@ public class ConsoleMonitorThread extends AbstractMonitorThread {
 
     private IStreamListener streamListener;
     private IDebugEventSetListener processListener;
+    protected final JsonReaderFactory jsonFactory = Json.createReaderFactory(null);
+    protected static final String MESSAGE_KEY = "message";
 
     ConsoleMonitorThread(WebSphereServerBehaviour wsBehaviour, Object serverStateSyncObj, String name) {
         super(wsBehaviour, serverStateSyncObj, name);
@@ -197,6 +205,13 @@ public class ConsoleMonitorThread extends AbstractMonitorThread {
                 while (st.hasMoreTokens()) {
                     String s = st.nextToken();
 
+                    if (s.startsWith("{")) {
+                        String message = parseJsonMessage(s);
+                        if (message != null) {
+                            s = message;
+                        }
+                    }
+
                     if (serverMessageReplacementKey != null && s.length() > 22) {
                         String tempS = s.substring(11, 21);
                         tempS = serverMessageReplacementKey.getProperty(tempS);
@@ -293,6 +308,22 @@ public class ConsoleMonitorThread extends AbstractMonitorThread {
                         wsBehaviour.appStateTracker.addApplicationState(RuntimeMessageHelper.getAppName(s), ApplicationStateTracker.NEED_RESTART_APP);
                     }
                 }
+            }
+
+            private String parseJsonMessage(String s) {
+                try {
+                    JsonReader reader = jsonFactory.createReader(new ByteArrayInputStream(s.getBytes()));
+                    JsonObject obj = reader.readObject();
+                    String message = obj.getString(MESSAGE_KEY);
+                    if (message != null && !message.isEmpty()) {
+                        return message;
+                    }
+                } catch (Exception e) {
+                    if (Trace.ENABLED) {
+                        Trace.trace(Trace.WARNING, "Message started with '{' but could not parse as JSON: " + s, e);
+                    }
+                }
+                return null;
             }
         };
         newProcess.getStreamsProxy().getOutputStreamMonitor().addListener(streamListener);
