@@ -39,6 +39,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -82,6 +83,8 @@ import com.ibm.websphere.crypto.PasswordUtil;
 import com.ibm.websphere.crypto.UnsupportedCryptoAlgorithmException;
 import com.ibm.ws.st.core.internal.Activator;
 import com.ibm.ws.st.core.internal.Constants;
+import com.ibm.ws.st.core.internal.GhostRuntimeProvider;
+import com.ibm.ws.st.core.internal.GhostRuntimeProviderExtension;
 import com.ibm.ws.st.core.internal.Trace;
 import com.ibm.ws.st.core.internal.URIUtil;
 import com.ibm.ws.st.core.internal.UserDirectory;
@@ -223,7 +226,11 @@ public class ConfigUtils {
             in = file.getContents();
             IContentTypeManager contentTypeManager = Platform.getContentTypeManager();
             IContentType contentType = contentTypeManager.findContentTypeFor(in, file.getName());
-            if (CONTENT_TYPE_ID.equals(contentType.getId())) {
+            if (contentType == null) {
+                if (Trace.ENABLED)
+                    Trace.trace(Trace.WARNING, "The content type is null for the following file: "
+                                               + (file.getLocation() == null ? file.getFullPath().toOSString() : file.getLocation().toOSString()));
+            } else if (CONTENT_TYPE_ID.equals(contentType.getId())) {
                 return true;
             }
         } catch (Exception e) {
@@ -251,7 +258,10 @@ public class ConfigUtils {
             in = new FileInputStream(file);
             IContentTypeManager contentTypeManager = Platform.getContentTypeManager();
             IContentType contentType = contentTypeManager.findContentTypeFor(in, file.getName());
-            if (CONTENT_TYPE_ID.equals(contentType.getId())) {
+            if (contentType == null) {
+                if (Trace.ENABLED)
+                    Trace.trace(Trace.WARNING, "The content type is null for the following file: " + file.getAbsolutePath());
+            } else if (CONTENT_TYPE_ID.equals(contentType.getId())) {
                 return true;
             }
         } catch (Exception e) {
@@ -434,6 +444,18 @@ public class ConfigUtils {
         return null;
     }
 
+    public static WebSphereRuntime getGhostWebSphereRuntime(IResource resource) {
+        List<GhostRuntimeProvider> list = GhostRuntimeProviderExtension.getGhostRuntimeProviders();
+        for (GhostRuntimeProvider provider : list) {
+            // This will allow any configuration file to be validated against the ghost runtime.
+            WebSphereRuntime wsRuntime = provider.getWebSphereRuntime(resource, resource.getProject());
+            if (wsRuntime != null) { // Get the first one from the first extension
+                return wsRuntime;
+            }
+        }
+        return null;
+    }
+
     /**
      * Get the UserDirectory for the given configuration file URI.
      *
@@ -447,6 +469,25 @@ public class ConfigUtils {
      * @return The UserDirectory or null if not found.
      */
     public static UserDirectory getUserDirectory(URI docURI) {
+        return getUserDirectory(docURI, null);
+    }
+
+    /**
+     * Get the UserDirectory for the given configuration file URI.
+     *
+     * Do not call this method from a thread that has a lock on a runtime as
+     * this will try to get locks on the other runtimes which can lead to
+     * deadlocks. If the thread has a lock on a runtime then it should know
+     * what runtime and server it is working with and should not need to call
+     * this method.
+     *
+     * Use this method with a non-null resource if a ghost runtime
+     * exists in the resource's IProject.
+     *
+     * @param docURI The configuration file URI.
+     * @return The UserDirectory or null if not found.
+     */
+    public static UserDirectory getUserDirectory(URI docURI, IResource resource) {
         if (docURI == null)
             return null;
 
@@ -476,6 +517,22 @@ public class ConfigUtils {
                 if (!URIUtil.canonicalRelativize(userDirURI, docURI).isAbsolute()) {
                     return userDir;
                 }
+            }
+        }
+
+        // At this point, it is likely that there is no runtime and no server created for this particular
+        // configuration file. (Likely a stand-alone file, or a file in a specialized project)
+        // Allow ghost runtime providers to contribute their own user directory
+        if (resource == null) {
+            return null;
+        }
+        IProject project = resource.getProject();
+        List<GhostRuntimeProvider> list = GhostRuntimeProviderExtension.getGhostRuntimeProviders();
+        for (GhostRuntimeProvider provider : list) {
+            // This will allow any configuration file to be validated against the ghost runtime.
+            UserDirectory userDir = provider.getUserDirectory(docURI, project);
+            if (userDir != null) {
+                return userDir;
             }
         }
 

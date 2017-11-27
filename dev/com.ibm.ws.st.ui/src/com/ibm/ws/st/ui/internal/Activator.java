@@ -75,6 +75,7 @@ import com.ibm.ws.st.core.internal.PromptHandler;
 import com.ibm.ws.st.core.internal.PublishWithErrorHandler;
 import com.ibm.ws.st.core.internal.RuntimeFeatureResolver.FeatureConflict;
 import com.ibm.ws.st.core.internal.UserDirectory;
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.WebSphereUtil;
@@ -222,31 +223,54 @@ public class Activator extends AbstractUIPlugin {
         });
 
         com.ibm.ws.st.core.internal.Activator.setFeatureConflictHandler(new FeatureConflictHandler() {
+
+            WebSphereServerInfo wsServerInfo = null;
+            WebSphereRuntime wsRuntime = null;
+            ConfigurationFile configFile = null;
+
             /** {@inheritDoc} */
             @Override
             public boolean handleFeatureConflicts(final WebSphereServerInfo wsServerInfo, final Map<String, List<String>> requiredFeatures, final Set<FeatureConflict> conflicts,
                                                   final boolean quickFixMode) {
+                this.wsServerInfo = wsServerInfo;
+                return invokeDialog(requiredFeatures, conflicts, quickFixMode);
+            }
+
+            @Override
+            public boolean handleFeatureConflicts(WebSphereRuntime wsRuntime, ConfigurationFile file, Map<String, List<String>> requiredFeatures, Set<FeatureConflict> conflicts,
+                                                  boolean quickFixMode) {
+                this.wsRuntime = wsRuntime;
+                this.configFile = file;
+                return invokeDialog(requiredFeatures, conflicts, quickFixMode);
+            }
+
+            private boolean invokeDialog(final Map<String, List<String>> requiredFeatures, final Set<FeatureConflict> conflicts,
+                                         final boolean quickFixMode) {
                 final FeatureConflictDialog[] dialog = new FeatureConflictDialog[1];
                 final int[] response = { -1 };
                 Display.getDefault().syncExec(new Runnable() {
                     @Override
                     public void run() {
                         Shell shell = Display.getDefault().getActiveShell();
-                        dialog[0] = new FeatureConflictDialog(shell, wsServerInfo, requiredFeatures, conflicts);
+                        if (wsRuntime != null && configFile != null) {
+                            dialog[0] = new FeatureConflictDialog(shell, wsRuntime, configFile, requiredFeatures, conflicts);
+                        } else {
+                            dialog[0] = new FeatureConflictDialog(shell, wsServerInfo, requiredFeatures, conflicts);
+                        }
                         dialog[0].setShowIgnoreButton(!quickFixMode);
                         response[0] = dialog[0].open();
                     }
                 });
-
-                WebSphereServer wsServer = WebSphereUtil.getWebSphereServer(wsServerInfo);
-                if (wsServer != null) {
-                    if (response[0] == IDialogConstants.IGNORE_ID) {
-                        wsServer.saveIgnoredFeatureConflicts(dialog[0].getConflicts());
-                    } else if (!quickFixMode || (quickFixMode && dialog[0].getRemainingConflictsSize() == 0)) {
-                        wsServer.saveIgnoredFeatureConflicts(null);
+                if (wsServerInfo != null) {
+                    WebSphereServer wsServer = WebSphereUtil.getWebSphereServer(wsServerInfo);
+                    if (wsServer != null) {
+                        if (response[0] == IDialogConstants.IGNORE_ID) {
+                            wsServer.saveIgnoredFeatureConflicts(dialog[0].getConflicts());
+                        } else if (!quickFixMode || (quickFixMode && dialog[0].getRemainingConflictsSize() == 0)) {
+                            wsServer.saveIgnoredFeatureConflicts(null);
+                        }
                     }
                 }
-
                 if (dialog[0].getReturnCode() != 0)
                     return false;
                 return dialog[0].isChanged();

@@ -91,6 +91,26 @@ public class FeatureConflictDialog extends TitleAreaDialog {
     // main server configuration file are shown in the feature table (since don't want to be 
     // editing include files) but conflicts are determined based on the entire set of enabled
     // features.
+    public FeatureConflictDialog(Shell parent, WebSphereRuntime wsRuntime, ConfigurationFile file, Map<String, List<String>> requiredFeatures, Set<FeatureConflict> conflicts) {
+        super(parent);
+        this.wsRuntime = wsRuntime;
+        configFile = file;
+        allFeatures = configFile.getAllFeatures();
+        mainFeatures = configFile.getFeatures();
+        includeFeatures = new ArrayList<String>(allFeatures);
+        includeFeatures.removeAll(mainFeatures);
+        currentFeatures = configFile.getAllFeatures();
+        this.requiredFeatures = requiredFeatures;
+        this.conflicts = conflicts;
+        setTitleImage(Activator.getImage(Activator.IMG_WIZ_SERVER));
+
+    }
+
+    // Dialog that lists feature conflicts and allows the user to add/remove features using
+    // a feature table (similar to that in the configuration editor).  Only features in the
+    // main server configuration file are shown in the feature table (since don't want to be
+    // editing include files) but conflicts are determined based on the entire set of enabled
+    // features.
     public FeatureConflictDialog(Shell parent, WebSphereServerInfo serverInfo, Map<String, List<String>> requiredFeatures, Set<FeatureConflict> conflicts) {
         super(parent);
         this.wsRuntime = serverInfo.getWebSphereRuntime();

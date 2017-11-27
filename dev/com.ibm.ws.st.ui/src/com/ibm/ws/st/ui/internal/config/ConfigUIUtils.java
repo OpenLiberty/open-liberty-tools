@@ -23,6 +23,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPathEditorInput;
 import org.eclipse.ui.IURIEditorInput;
 import org.eclipse.ui.IWorkbench;
@@ -151,7 +152,11 @@ public class ConfigUIUtils {
                 if (serverInfo != null) {
                     userDir = serverInfo.getUserDirectory();
                 } else {
-                    userDir = ConfigUtils.getUserDirectory(uri);
+                    if (editorInput instanceof IFileEditorInput) {
+                        userDir = ConfigUtils.getUserDirectory(uri, ((IFileEditorInput) editorInput).getFile());
+                    } else {
+                        userDir = ConfigUtils.getUserDirectory(uri);
+                    }
                 }
             }
         }
@@ -182,6 +187,9 @@ public class ConfigUIUtils {
                 } else {
                     // If no server, see if the file is in a user directory
                     userDir = ConfigUtils.getUserDirectory(uri);
+                    if (editorInput instanceof IFileEditorInput) {
+                        userDir = ConfigUtils.getUserDirectory(uri, ((IFileEditorInput) editorInput).getFile());
+                    }
                     if (userDir != null) {
                         userDir.getVariables(configVars, true);
                     }
@@ -266,6 +274,11 @@ public class ConfigUIUtils {
                 URI uri = getURI(editorInput);
                 if (uri != null) {
                     UserDirectory userDir = ConfigUtils.getUserDirectory(uri);
+                    if (userDir == null) {
+                        if (editorInput instanceof IFileEditorInput) {
+                            userDir = ConfigUtils.getUserDirectory(uri, ((IFileEditorInput) editorInput).getFile());
+                        }
+                    }
                     if (userDir != null) {
                         return userDir.getWebSphereRuntime();
                     }

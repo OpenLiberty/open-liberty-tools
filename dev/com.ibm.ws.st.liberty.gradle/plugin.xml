@@ -119,4 +119,8 @@
     <extension point="org.eclipse.ui.startup">
      <startup class="com.ibm.ws.st.liberty.gradle.internal.EarlyStartup"/>
    </extension>
+
+    <extension point="com.ibm.ws.st.core.ghostRuntimeProvider">
+         <provider class="com.ibm.ws.st.liberty.gradle.manager.internal.GhostRuntimeProvider"></provider>
+    </extension>
 </plugin>

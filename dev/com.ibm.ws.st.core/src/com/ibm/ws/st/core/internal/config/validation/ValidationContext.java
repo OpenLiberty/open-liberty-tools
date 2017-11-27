@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.config.validation;
 
@@ -30,7 +30,7 @@ import com.ibm.ws.st.core.internal.config.IncludeConflictResolution;
  * Generic context that allows different configuration file sources
  * to be used when validating. Also keeps track of some information while
  * validating (such as the current include).
- * 
+ *
  * Currently the document is only valid after creation of the context
  * and before dispose() is called. Other parts of the context continue
  * to be valid after dispose() is called.
@@ -51,7 +51,7 @@ public abstract class ValidationContext {
             try {
                 URI uri = resource.getLocation().toFile().toURI();
                 WebSphereServerInfo server = ConfigUtils.getServer(uri);
-                UserDirectory userDir = server != null ? server.getUserDirectory() : ConfigUtils.getUserDirectory(uri);
+                UserDirectory userDir = server != null ? server.getUserDirectory() : ConfigUtils.getUserDirectory(uri, resource);
                 return new DOMModelValidationContext((IFile) resource, server, userDir, parent, conflictResolution);
             } catch (Exception e) {
                 if (Trace.ENABLED) {
@@ -92,13 +92,14 @@ public abstract class ValidationContext {
         }
         if (uri != null) {
             server = ConfigUtils.getServer(uri);
-            userDir = server != null ? server.getUserDirectory() : ConfigUtils.getUserDirectory(uri);
+            userDir = server != null ? server.getUserDirectory() : ConfigUtils.getUserDirectory(uri, resource);
         }
 
         return new DOMValidationContext(document, resource, server, userDir, parent, conflictResolution);
     }
 
-    public static ValidationContext createValidationContext(String path, URI base, UserDirectory context, ValidationContext parent, IncludeConflictResolution conflictResolution) throws Exception {
+    public static ValidationContext createValidationContext(String path, URI base, UserDirectory context, ValidationContext parent,
+                                                            IncludeConflictResolution conflictResolution) throws Exception {
         final URI uri = ConfigUtils.resolve(base, path, context);
         if (uri != null) {
             final WebSphereServerInfo[] servers = WebSphereUtil.getWebSphereServerInfos();

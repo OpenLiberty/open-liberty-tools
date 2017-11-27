@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 IBM Corporation and others.
+ * Copyright (c) 2011, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.config.validation;
 
+import java.io.IOException;
 import java.net.URI;
 
 import org.eclipse.core.resources.IFile;
@@ -86,7 +87,17 @@ public class DOMModelValidationContext extends ValidationContext {
     /** {@inheritDoc} */
     @Override
     public ConfigurationFile getConfigFile() {
-        return ConfigUtils.getConfigFile(resource);
+        ConfigurationFile configFile = ConfigUtils.getConfigFile(resource);
+        if (configFile == null) { //TODO Use Ghost Runtime Cache
+            try {
+                configFile = new ConfigurationFile(resource.getLocationURI(), userDirectory);
+            } catch (IOException e) {
+                if (Trace.ENABLED) {
+                    Trace.trace(Trace.WARNING, "Could not create configuration file: " + resource.getLocationURI());
+                }
+            }
+        }
+        return configFile;
     }
 
     /** {@inheritDoc} */

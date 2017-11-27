@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -42,6 +43,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.SearchPattern;
@@ -100,7 +102,12 @@ public abstract class AbstractBrowseDialog extends TitleAreaDialog {
             this.server = server;
             this.userDir = server.getUserDirectory();
         } else {
-            this.userDir = ConfigUtils.getUserDirectory(documentURI);
+            IFile inputFile = null;
+            if (editorInput instanceof IFileEditorInput) {
+                inputFile = ((IFileEditorInput) editorInput).getFile();
+            }
+            // Allow ghost runtime providers to contribute their user directory
+            this.userDir = ConfigUtils.getUserDirectory(documentURI, inputFile);
         }
         this.sharedImages = PlatformUI.getWorkbench().getSharedImages();
     }
