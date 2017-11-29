@@ -949,7 +949,24 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
 
                 Trace.trace(Trace.INFO, "Stopping server: " + server.getName());
                 wsServer.getWebSphereServerBehaviour().stop(true, monitor);
-                if (IServer.STATE_STOPPED != server.getServerState()) {
+                boolean waitForServerStop = wsServer.getWebSphereServerBehaviour().waitForServerStop(server.getStopTimeout() * 1000); // Default is 15 seconds
+                if (waitForServerStop) {
+                    long endTime = System.currentTimeMillis() + 5000;
+                    // Also check the IServer state but need to give it some time.
+                    while (IServer.STATE_STOPPED != server.getServerState()) {
+                        long currentTime = System.currentTimeMillis();
+                        Thread.sleep(250);
+                        if (currentTime >= endTime) {
+                            if (Trace.ENABLED) {
+                                Trace.trace(Trace.INFO, "Server state failed to change to stop: " + server.getName());
+                            }
+                            throw new Exception("Server state failed to change to stop: " + server.getName());
+                        }
+                    }
+                } else {
+                    if (Trace.ENABLED) {
+                        Trace.trace(Trace.INFO, "Failed to stop server: " + server.getName());
+                    }
                     throw new Exception("Failed to stop server: " + server.getName());
                 }
             }
