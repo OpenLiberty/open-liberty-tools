@@ -10,7 +10,9 @@ Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Require-Bundle: com.ibm.ws.st.ui,
  com.ibm.ws.st.core
-Export-Package: com.ibm.ws.st.liberty.gradle.internal;x-internal:=true
+Export-Package: com.ibm.ws.st.liberty.gradle.internal;x-internal:=true,
+ com.ibm.ws.st.liberty.gradle.ui.rtexplorer.internal;x-internal:=true,
+ com.ibm.ws.st.liberty.gradle.manager.internal;x-internal:=true
 Import-Package: com.ibm.ws.st.liberty.buildplugin.integration.internal,
  com.ibm.ws.st.liberty.buildplugin.integration.manager.internal,
  com.ibm.ws.st.liberty.buildplugin.integration.servertype.internal,
