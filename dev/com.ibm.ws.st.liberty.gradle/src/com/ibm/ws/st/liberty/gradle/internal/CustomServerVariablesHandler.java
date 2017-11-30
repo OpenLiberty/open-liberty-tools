@@ -31,7 +31,12 @@ public class CustomServerVariablesHandler extends AbstractCustomServerVariablesH
 
     @Override
     protected LibertyBuildPluginConfiguration getLibertyBuildPluginConfiguration(IProject project) {
-        return LibertyGradle.getLibertyGradleProjectConfiguration(project, new NullProgressMonitor());
+    		NullProgressMonitor monitor = new NullProgressMonitor();
+    		// We only care about projects with the Gradle nature
+    	    if (LibertyGradle.isGradleProject(project, monitor)) {
+    	    		return LibertyGradle.getLibertyGradleProjectConfiguration(project, monitor);
+    	    }
+    	    return null;
     }
 
     /** {@inheritDoc} */
