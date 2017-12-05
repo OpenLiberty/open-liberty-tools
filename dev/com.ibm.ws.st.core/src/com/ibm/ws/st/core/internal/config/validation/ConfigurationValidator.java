@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 IBM Corporation and others.
+ * Copyright (c) 2011, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.config.validation;
 
@@ -15,11 +15,13 @@ import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.content.IContentDescription;
 import org.eclipse.osgi.util.NLS;
@@ -33,6 +35,7 @@ import com.ibm.ws.st.core.internal.Activator;
 import com.ibm.ws.st.core.internal.Messages;
 import com.ibm.ws.st.core.internal.OutOfSyncModuleInfo;
 import com.ibm.ws.st.core.internal.Trace;
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.internal.WebSphereServerBehaviour;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
@@ -56,6 +59,45 @@ public class ConfigurationValidator extends AbstractValidator {
             file.deleteMarkers(ConfigurationValidator.MARKER_TYPE, true, IResource.DEPTH_INFINITE);
         } catch (CoreException e) {
             Trace.logError("Error removing markers", e);
+        }
+
+        // For defined runtimes, do not validate any server config files in a templates folder inside the runtime folder
+        IPath fileLocation = file.getLocation(); // Full system path of the file
+        IPath fileFullPath = file.getFullPath(); // Used to ensure that templates is a subfolder of the runtime
+        WebSphereRuntime[] webSphereRuntimes = WebSphereUtil.getWebSphereRuntimes();
+        int length = webSphereRuntimes.length;
+        for (int i = 0; i < length; i++) {
+            WebSphereRuntime runtime = webSphereRuntimes[i];
+            IPath runtimeLocation = runtime.getRuntimeLocation();
+            if (runtimeLocation.append("templates").isPrefixOf(fileLocation)) { //$NON-NLS-1$
+                return EMPTY_RESULT;
+            }
+        }
+
+        // Workaround to not validate server.xml files in templates folder in build plugins
+        // eg. target/liberty/wlp/templates
+        // eg. build/wlp/templates/
+        // There are two conditions:
+        // 1) it must be in some templates folder
+        // 2) the parent folder of the templates folder is a valid Liberty runtime.
+        boolean hasTemplates = fileFullPath.toString().contains("templates"); //$NON-NLS-1$
+        if (hasTemplates) {
+            IContainer parent = file.getParent();
+            // Get parent containers until we reach templates or null.
+            while (parent != null) {
+                if ("templates".equals(parent.getName())) { //$NON-NLS-1$
+                    IContainer parentOfTemplates = parent.getParent();
+                    if (parentOfTemplates == null) { // This could be the workspace root.  If so, then exit
+                        break;
+                    }
+                    boolean validLocation = WebSphereRuntime.isValidLocation(parentOfTemplates.getLocation());
+                    if (validLocation) {
+                        return EMPTY_RESULT;
+                    }
+                    break; // Do the validation.
+                }
+                parent = parent.getParent();
+            }
         }
 
         String contentType = null;
@@ -252,8 +294,7 @@ public class ConfigurationValidator extends AbstractValidator {
             if (type == OutOfSyncModuleInfo.Type.SHARED_LIB_REF_MISMATCH) {
                 marker.setAttribute(IMarker.MESSAGE, NLS.bind(Messages.publishedModuleSharedLibRefMismatchInConfig, new String[] { module.getName(), label }));
                 marker.setAttribute(AbstractConfigurationValidator.QUICK_FIX_TYPE_ATTR, AbstractConfigurationValidator.QuickFixType.OUT_OF_SYNC_SHARED_LIB_REF_MISMATCH.ordinal());
-            }
-            else {
+            } else {
                 marker.setAttribute(IMarker.MESSAGE, NLS.bind(Messages.publishedModuleNotInConfig, new String[] { module.getName(), label }));
                 marker.setAttribute(AbstractConfigurationValidator.QUICK_FIX_TYPE_ATTR, AbstractConfigurationValidator.QuickFixType.OUT_OF_SYNC_APP.ordinal());
             }
