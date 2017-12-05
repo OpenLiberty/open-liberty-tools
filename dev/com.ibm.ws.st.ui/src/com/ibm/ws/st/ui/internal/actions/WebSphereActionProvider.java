@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 IBM Corporation and others.
+ * Copyright (c) 2011, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.actions;
 
@@ -33,6 +33,7 @@ public class WebSphereActionProvider extends CommonActionProvider {
     protected ShowInExplorerAction showInExplorerAction;
     protected ShowInFilesystemAction showInFilesystemAction;
     protected RefreshConfigFileAction refreshConfigAction;
+    protected ValidateConfigAction validateConfigAction;
 
     @Override
     public void init(ICommonActionExtensionSite aSite) {
@@ -44,6 +45,7 @@ public class WebSphereActionProvider extends CommonActionProvider {
         showInExplorerAction = new ShowInExplorerAction(selectionProvider);
         showInFilesystemAction = new ShowInFilesystemAction(selectionProvider);
         refreshConfigAction = new RefreshConfigFileAction(selectionProvider);
+        validateConfigAction = new ValidateConfigAction(selectionProvider);
     }
 
     @Override
@@ -57,10 +59,8 @@ public class WebSphereActionProvider extends CommonActionProvider {
         if (showInExplorerAction.isEnabled()) {
             String text = Messages.actionShowIn;
             final IWorkbench workbench = PlatformUI.getWorkbench();
-            final IBindingService bindingService = (IBindingService) workbench
-                                .getAdapter(IBindingService.class);
-            final TriggerSequence[] activeBindings = bindingService
-                                .getActiveBindingsFor(IWorkbenchCommandConstants.NAVIGATE_SHOW_IN_QUICK_MENU);
+            final IBindingService bindingService = workbench.getAdapter(IBindingService.class);
+            final TriggerSequence[] activeBindings = bindingService.getActiveBindingsFor(IWorkbenchCommandConstants.NAVIGATE_SHOW_IN_QUICK_MENU);
             if (activeBindings.length > 0)
                 text += "\t" + activeBindings[0].format();
 
@@ -72,6 +72,9 @@ public class WebSphereActionProvider extends CommonActionProvider {
 
         if (refreshConfigAction.isEnabled())
             menu.add(refreshConfigAction);
+
+        if (validateConfigAction.isEnabled())
+            menu.add(validateConfigAction);
     }
 
     @Override
