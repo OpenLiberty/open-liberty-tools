@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.service.setup;
 
@@ -300,7 +300,7 @@ public class LibertySetup extends AbstractServerSetup {
     public static String resolveFeature(IPlatformHandler handler, Map<String, String> serviceInfo, String featureName) {
         if (featureName == null)
             return null;
-        IPath featureManagerScript = new Path(serviceInfo.get(Constants.LIBERTY_RUNTIME_INSTALL_PATH)).append("/bin/featureManager");
+        IPath featureListJar = new Path(serviceInfo.get(Constants.LIBERTY_RUNTIME_INSTALL_PATH)).append("/bin/tools/ws-featurelist.jar");
         IPath featureListFile = new Path(serviceInfo.get(Constants.LIBERTY_SERVER_CONFIG_PATH)).append("/st_featureList_st.xml");
 
         try {
@@ -308,7 +308,7 @@ public class LibertySetup extends AbstractServerSetup {
                 handler.deleteFile(featureListFile.toString());
             }
             // the output return code was found to be unreliable so we just check the error stream instead
-            ExecutionOutput output = handler.executeCommand(featureManagerScript + " featureList " + featureListFile, 30000);
+            ExecutionOutput output = handler.executeCommand("java -jar " + featureListJar + " " + featureListFile, 30000);
             if (output.getError() != null && output.getError().length() > 0) {
                 throw new IOException("Failed to generate feature list: " + output.getError());
             }
