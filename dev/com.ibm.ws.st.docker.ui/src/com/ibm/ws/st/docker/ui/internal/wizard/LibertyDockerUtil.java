@@ -63,9 +63,21 @@ public class LibertyDockerUtil {
     protected static Map<String, String> getLibertyServerInfoMap(BaseDockerContainer container, WebSphereServer server) {
         // Get the server information from the container in order to enable remote administration and set up the connection.
         Map<String, String> libertyServerInfo = new HashMap<String, String>();
-        String installPath = "opt/ibm/wlp";
+        String installPath = "/opt/ibm/wlp";
         String serverName = "defaultServer";
         // This method is only called if validate has passed so container should never be null
+        try {
+            if (!container.directoryExists(installPath)) {
+                String olInstallPath = "/opt/ol/wlp";
+                if (container.directoryExists(olInstallPath)) {
+                    installPath = olInstallPath;
+                } else {
+                    Trace.logError("The expected install path for the runtime does not exist in the container.", null);
+                }
+            }
+        } catch (Exception e) {
+            Trace.logError("Could not determine if the expected runtime install path exists", e);
+        }
         try {
             List<String> command = container.getCommand();
             if (command.size() >= 3 && command.get(0).endsWith("server")) {
