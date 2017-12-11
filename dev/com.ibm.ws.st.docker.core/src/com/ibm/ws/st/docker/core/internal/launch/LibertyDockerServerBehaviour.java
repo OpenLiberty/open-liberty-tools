@@ -162,10 +162,12 @@ public class LibertyDockerServerBehaviour extends AbstractServerBehaviourExtensi
             IPath appsFolder = null;
             String sourceMount = null;
             if (serverExt != null) {
+                Map<String, String> serviceInfo = server.getServiceInfo();
+                String libertyUsrPath = LibertyDockerRunUtility.getLibertyUsrPath(serviceInfo);
                 try {
                     BaseDockerContainer container = serverExt.getContainer(server);
                     if (container != null) {
-                        sourceMount = container.getMountSourceForDestination(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH);
+                        sourceMount = container.getMountSourceForDestination(libertyUsrPath);
                         if (sourceMount != null) {
                             appsFolder = new Path(sourceMount).append(makeRelativeTo);
                             // For Windows non-native, the mounted volume is /c/Users/<path>.  It is a 'logical' mapping of the
@@ -180,7 +182,7 @@ public class LibertyDockerServerBehaviour extends AbstractServerBehaviourExtensi
 
                 } catch (Exception e) {
                     if (Trace.ENABLED)
-                        Trace.trace(Trace.WARNING, "Failed to get the Docker container mount source for: " + LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH, e);
+                        Trace.trace(Trace.WARNING, "Failed to get the Docker container mount source for: " + libertyUsrPath, e);
                 }
                 if (appsFolder != null) {
                     appsOverridePath = appsFolder;
@@ -483,7 +485,8 @@ public class LibertyDockerServerBehaviour extends AbstractServerBehaviourExtensi
                 try {
                     BaseDockerContainer container = serverExt.getContainer(server);
                     if (container != null) {
-                        sourceMount = container.getMountSourceForDestination(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH);
+                        Map<String, String> serviceInfo = server.getServiceInfo();
+                        sourceMount = container.getMountSourceForDestination(LibertyDockerRunUtility.getLibertyUsrPath(serviceInfo));
                         if (sourceMount != null) {
                             IPath sourcePath = BaseDockerContainer.getContainerToLocalPath(new Path(sourceMount));
                             if (userDirPath.toFile().getCanonicalPath().equals(sourcePath.toFile().getCanonicalPath())) {

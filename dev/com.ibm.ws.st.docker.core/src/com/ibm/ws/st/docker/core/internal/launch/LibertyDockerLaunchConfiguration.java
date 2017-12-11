@@ -321,7 +321,7 @@ public class LibertyDockerLaunchConfiguration extends AbstractLaunchConfiguratio
 
         // Before deleting the current container, grab the mounted temp path for the usr folder
         // We should use this path to copy any files to the new container, instead of reconstructing the path
-        String originalTempPath = container.getMountSourceForDestination(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH);
+        String originalTempPath = container.getMountSourceForDestination(LibertyDockerRunUtility.getLibertyUsrPath(serviceInfo));
 
         if (monitor.isCanceled()) {
             throw new CoreException(Status.CANCEL_STATUS);

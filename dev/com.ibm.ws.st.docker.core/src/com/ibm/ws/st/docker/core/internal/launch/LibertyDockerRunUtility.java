@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.docker.core.internal.launch;
 
@@ -49,8 +49,33 @@ import com.ibm.ws.st.docker.core.internal.Trace;
  */
 public class LibertyDockerRunUtility {
 
-    public static final String DOCKER_LIBERTY_USR_PATH = "/opt/ibm/wlp/usr";
-    public static final String DOCKER_LIBERTY_STDEV_PATH = "/opt/ibm/wlp/stdev";
+    public static String getLibertyUsrPath(Map<String, String> serviceInfo) {
+        final String defaultPath = "/opt/ibm/wlp/usr";
+        if (serviceInfo == null) {
+            Trace.logError("The service info map is null so using default Liberty Docker user directory.", null);
+            return defaultPath;
+        }
+        String installDir = serviceInfo.get(Constants.LIBERTY_RUNTIME_INSTALL_PATH);
+        if (installDir != null && !installDir.isEmpty()) {
+            return installDir + "/usr";
+        }
+        Trace.logError("The runtime install path is not set properly in the service info - using the default user directory", null);
+        return defaultPath;
+    }
+
+    public static String getLibertyStdevPath(Map<String, String> serviceInfo) {
+        final String defaultPath = "/opt/ibm/wlp/stdev";
+        if (serviceInfo == null) {
+            Trace.logError("The service info map is null so using default Liberty Docker stdev directory.", null);
+            return defaultPath;
+        }
+        String installDir = serviceInfo.get(Constants.LIBERTY_RUNTIME_INSTALL_PATH);
+        if (installDir != null && !installDir.isEmpty()) {
+            return installDir + "/stdev";
+        }
+        Trace.logError("The runtime install path is not set properly in the service info - using the default stdev directory", null);
+        return defaultPath;
+    }
 
     public static List<String> getCreateCommand(BaseDockerContainer container, boolean looseCfgModeChanged, String newMode, String currentMode,
                                                 String newContainerName, String imageName, WebSphereServer server) throws Exception {
@@ -514,12 +539,16 @@ public class LibertyDockerRunUtility {
     public static Map<IPath, IPath> calculateVolumes(BaseDockerContainer container, WebSphereServer wsServer, boolean looseCfgModeChanged) throws Exception {
         Map<IPath, IPath> volumes = container.getMountedVolumeHash();
 
+        Map<String, String> serviceInfo = wsServer.getServiceInfo();
+        String libertyUsrPath = getLibertyUsrPath(serviceInfo);
+        String libertyStdevPath = getLibertyStdevPath(serviceInfo);
+
         if (wsServer.isLooseConfigEnabled()) {
             // Add default loose config volumes
             IPath usrDirPath = wsServer.getUserDirectory().getPath();
             usrDirPath = FileUtil.getCanonicalPath(usrDirPath);
             IPath dest = volumes.get(usrDirPath);
-            IPath expectedDest = new Path(DOCKER_LIBERTY_USR_PATH);
+            IPath expectedDest = new Path(libertyUsrPath);
             if (!expectedDest.equals(dest)) {
                 volumes.put(usrDirPath, expectedDest);
             }
@@ -532,7 +561,7 @@ public class LibertyDockerRunUtility {
             } else {
                 // Add any mandatory workspace volumes (stdevX mounts)
                 List<String> mandatoryVolumes = serverExt.getMandatoryVolumes(wsServer);
-                String candidate = DOCKER_LIBERTY_STDEV_PATH;
+                String candidate = libertyStdevPath;
                 for (String mandatoryVolume : mandatoryVolumes) {
                     if (newVolumeNeeded(volumes, new Path(mandatoryVolume))) {
                         volumes.put(new Path(mandatoryVolume), getVolumeDestination(candidate, volumes));
@@ -553,7 +582,7 @@ public class LibertyDockerRunUtility {
                 List<IPath> newVolumes = new ArrayList<IPath>();
                 for (IPath moduleLocation : moduleLocations) {
                     if (newVolumeNeeded(volumes, moduleLocation)) {
-                        dest = getVolumeDestination(DOCKER_LIBERTY_STDEV_PATH, volumes);
+                        dest = getVolumeDestination(libertyStdevPath, volumes);
                         volumes.put(moduleLocation, dest);
                         newVolumes.add(moduleLocation);
                     }
@@ -566,7 +595,7 @@ public class LibertyDockerRunUtility {
                 Map.Entry<IPath, IPath> entry = it.next();
                 IPath dest = entry.getValue();
                 String destStr = dest.toString();
-                if (destStr.startsWith(DOCKER_LIBERTY_STDEV_PATH) || destStr.equals(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH)) {
+                if (destStr.startsWith(libertyStdevPath) || destStr.equals(libertyUsrPath)) {
                     it.remove();
                 }
             }
@@ -755,11 +784,11 @@ public class LibertyDockerRunUtility {
      * @param workspacePath
      * @return
      */
-    public static MountProperty checkContainerForLooseConfigMountVolume(BaseDockerContainer container, IPath workspacePath) {
+    public static MountProperty checkContainerForLooseConfigMountVolume(BaseDockerContainer container, Map<String, String> serviceInfo, IPath workspacePath) {
         // Get the current usr mount volume of the running container
         EnumSet<MountProperties> mountVolumeDescription = EnumSet.noneOf(MountProperties.class);
         try {
-            IPath usrMount = BaseDockerContainer.getContainerToLocalPath(new Path(container.getMountSourceForDestination(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH)));
+            IPath usrMount = BaseDockerContainer.getContainerToLocalPath(new Path(container.getMountSourceForDestination(getLibertyUsrPath(serviceInfo))));
             if (usrMount != null) {
                 if (FileUtil.getCanonicalPath(usrMount.toString()).startsWith(FileUtil.getCanonicalPath(workspacePath).toString())) {
                     mountVolumeDescription.add(MountProperties.SAME_USR_MOUNT);
@@ -772,9 +801,9 @@ public class LibertyDockerRunUtility {
             IPath stdevMount = null;
             boolean matchesCurrentWorkspace = false;
             int i = 0;
+            String base = getLibertyStdevPath(serviceInfo);
             do {
-                String stdevString = container.getMountSourceForDestination(LibertyDockerRunUtility.DOCKER_LIBERTY_STDEV_PATH
-                                                                            + (i == 0 ? "" : Integer.toString(i)));
+                String stdevString = container.getMountSourceForDestination(base + (i == 0 ? "" : Integer.toString(i)));
                 if (stdevString == null) {
                     break;
                 }

@@ -696,7 +696,7 @@ public class LibertyDockerComposite extends AbstractRemoteServerComposite {
         IPath workspacePath = getWorkspacePath(selectedContainer);
         boolean createNewContainer = false;
 
-        LibertyDockerRunUtility.MountProperty existingVolumeStatus = LibertyDockerRunUtility.checkContainerForLooseConfigMountVolume(selectedContainer, workspacePath);
+        LibertyDockerRunUtility.MountProperty existingVolumeStatus = LibertyDockerRunUtility.checkContainerForLooseConfigMountVolume(selectedContainer, serviceInfo, workspacePath);
 
         // If necessary, ask the user if they want to create a new container before doing anything (in case they select cancel)
         if (looseConfigEnabled && needsNewContainerForLooseConfig(selectedContainer, workspacePath, existingVolumeStatus)) {
@@ -800,7 +800,7 @@ public class LibertyDockerComposite extends AbstractRemoteServerComposite {
     protected boolean needsNewContainerForLooseConfig(BaseDockerContainer container, IPath workspacePath, MountProperty existingVolumeStatus) {
         // Get the current usr mount volume of the running container
         try {
-            String usrMount = container.getMountSourceForDestination(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH);
+            String usrMount = container.getMountSourceForDestination(LibertyDockerRunUtility.getLibertyUsrPath(serviceInfo));
             IPath looseConfigPathMount = container.getMountDestinationForSource(workspacePath);
             // If the container already has mount volumes, and has the expected user folder and workspace volume mounts, then we can simply reuse the container.
             if (usrMount != null && looseConfigPathMount != null && !looseConfigPathMount.equals("") && existingVolumeStatus.equals(MountProperty.SAME_USR_MOUNT)) { // better validation?
@@ -978,7 +978,7 @@ public class LibertyDockerComposite extends AbstractRemoteServerComposite {
                 for (IPath volume : volumes) {
                     // Interested only in the workspace mounts, not the usr mount
                     String aVolume = containerVolumes.get(volume).toString();
-                    if (!aVolume.equals(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH) && aVolume.startsWith(LibertyDockerRunUtility.DOCKER_LIBERTY_STDEV_PATH)) {
+                    if (!aVolume.equals(LibertyDockerRunUtility.getLibertyUsrPath(serviceInfo)) && aVolume.startsWith(LibertyDockerRunUtility.getLibertyStdevPath(serviceInfo))) {
                         workspaceMountVolumes.add(volume);
                     }
                 }
@@ -1226,7 +1226,7 @@ public class LibertyDockerComposite extends AbstractRemoteServerComposite {
         // Also, there can't be overlap of the external project.
         try {
             // This contains the project name from the other workspace
-            usrMount = selectedContainer.getMountSourceForDestination(LibertyDockerRunUtility.DOCKER_LIBERTY_USR_PATH);
+            usrMount = selectedContainer.getMountSourceForDestination(LibertyDockerRunUtility.getLibertyUsrPath(serviceInfo));
         } catch (Exception e) {
             Trace.logError("Failed to get the user path of the container ", e);
             IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.wizDockerExceptionDialogDetails, e);
