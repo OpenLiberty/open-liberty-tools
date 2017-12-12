@@ -8,25 +8,25 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -94,27 +94,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -619,27 +619,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1307,27 +1307,6 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.cdi20.cdiContainer"> 
-        <xsd:annotation> 
-            <xsd:documentation>Defines the behavior of the Contexts and Dependency Injection (CDI).</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Contexts And Dependency Injection (CDI)</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="enableImplicitBeanArchives" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>The implicit bean archives are scanned for any bean discoveries.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Enable scanning implicit bean archives</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.channelfw"> 
         <xsd:annotation> 
             <xsd:documentation>Defines channel and chain management settings. </xsd:documentation> 
@@ -1751,24 +1730,6 @@
         <xsd:sequence> 
             <xsd:sequence/> 
         </xsd:sequence> 
-        <xsd:attribute name="expedite" use="optional" default="0"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a target minimum number of tasks to run concurrently by expediting requests to the global thread pool. The actual number of tasks that run concurrently might be fewer than the target number you define. If the expedite value is updated while in use, the update goes into effect gradually, as previous expedited and non-expedited requests complete.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Expedite</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:int"> 
-                            <xsd:minInclusive value="0"> 
-                            </xsd:minInclusive> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
         <xsd:attribute name="maxPolicy" use="optional" default="loose"> 
             <xsd:annotation> 
                 <xsd:documentation>Indicates whether to loosely or strictly enforce maximum concurrency for tasks that run on the task submitter's thread. Tasks can run on the task submitter's thread when using the untimed invokeAll method, or, if only invoking a single task, the untimed invokeAny method. If the run-if-queue-full attribute is configured, it is also possible for tasks to run the task submitter's thread when using the execute and submit methods. In all of these cases, this attribute determines whether or not running on the submitter's thread counts against the maximum concurrency.</xsd:documentation> 
@@ -3443,9 +3404,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
-            </xsd:element> 
             <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
+            </xsd:element> 
+            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -3575,17 +3536,17 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -5276,9 +5237,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
-            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -22133,170 +22094,6 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.opentracing"> 
-        <xsd:annotation> 
-            <xsd:documentation>Optional. Configuration for the opentracing feature.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Opentracing</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="excludeSpans" type="com.ibm.ws.opentracing.excludeSpans-factory"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Optional. Configuration to exclude inbound and/or outbound spans. By default, nothing is excluded.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Exclude</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="includeSpans" type="com.ibm.ws.opentracing.includeSpans-factory"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Optional. Configuration to override excludeSpans. By default, anything that is not excluded is included.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Include</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:choice> 
-        <xsd:attribute name="excludeSpansRef" use="optional" type="pidListType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Configuration to exclude inbound and/or outbound spans. By default, nothing is excluded.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Exclude</ext:label> 
-                    <ext:reference>excludeSpans</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="includeSpansRef" use="optional" type="pidListType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Configuration to override excludeSpans. By default, anything that is not excluded is included.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Include</ext:label> 
-                    <ext:reference>includeSpans</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.opentracing.excludeSpans"> 
-        <xsd:annotation> 
-            <xsd:documentation>Optional. Configuration to exclude inbound and/or outbound spans. By default, nothing is excluded.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Exclude</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="pattern" use="optional" default="" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Required. The URL pattern for which this filter applies.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>URL pattern</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="type" use="optional" default="BOTH" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Whether to apply this filter to INCOMING requests, OUTGOING requests, or BOTH. Default BOTH.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Filter type</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ignoreCase" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Whether to ignore case when comparing URIs. Default true.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Ignore case</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="regex" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Whether to interpret the pattern as a regular expression. Default false. Discouraged due to the performance overhead of applying to every request.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Use a regular expression</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.opentracing.excludeSpans-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.opentracing.excludeSpans"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.opentracing.includeSpans"> 
-        <xsd:annotation> 
-            <xsd:documentation>Optional. Configuration to override excludeSpans. By default, anything that is not excluded is included.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Include</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="pattern" use="optional" default="" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Required. The URL pattern for which this filter applies.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>URL pattern</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="type" use="optional" default="BOTH" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Whether to apply this filter to INCOMING requests, OUTGOING requests, or BOTH. Default BOTH.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Filter type</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ignoreCase" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Whether to ignore case when comparing URIs. Default true.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Ignore case</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="regex" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optional. Whether to interpret the pattern as a regular expression. Default false. Discouraged due to the performance overhead of applying to every request.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Use a regular expression</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.opentracing.includeSpans-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.opentracing.includeSpans"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.concurrent.persistent.executor"> 
         <xsd:annotation> 
             <xsd:documentation>Schedules and runs persistent tasks.</xsd:documentation> 
@@ -24226,27 +24023,6 @@
                 </xsd:attribute> 
             </xsd:extension> 
         </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="build.example.project"> 
-        <xsd:annotation> 
-            <xsd:documentation>Description of sample configuration</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Sample configuration</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="someProperty" use="optional" default="String value" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Description of sample property</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Sample property</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.transaction"> 
         <xsd:annotation> 
@@ -28147,7 +27923,6 @@
             <xsd:element name="authentication" type="com.ibm.ws.security.authentication"/> 
             <xsd:element name="authCache" type="com.ibm.ws.security.authentication.cache"/> 
             <xsd:element name="cdi12" type="com.ibm.ws.cdi12.cdiContainer"/> 
-            <xsd:element name="cdi" type="com.ibm.ws.cdi20.cdiContainer"/> 
             <xsd:element name="channelfw" type="com.ibm.ws.channelfw"/> 
             <xsd:element name="tcpOptions" type="com.ibm.ws.tcpchannel.options-factory"/> 
             <xsd:element name="library" type="com.ibm.ws.classloading.sharedlibrary-factory"/> 
@@ -28213,9 +27988,6 @@
             <xsd:element name="ejbContainer" type="com.ibm.ws.ejbcontainer.runtime"/> 
             <xsd:element name="monitor" type="com.ibm.ws.monitor.internal.MonitoringFrameworkExtender"/> 
             <xsd:element name="mpJwt" type="com.ibm.ws.security.mp.jwt-factory"/> 
-            <xsd:element name="opentracing" type="com.ibm.ws.opentracing"/> 
-            <xsd:element name="excludeSpans" type="com.ibm.ws.opentracing.excludeSpans-factory"/> 
-            <xsd:element name="includeSpans" type="com.ibm.ws.opentracing.includeSpans-factory"/> 
             <xsd:element name="persistentExecutor" type="com.ibm.ws.concurrent.persistent.executor-factory"/> 
             <xsd:element name="remoteFileAccess" type="com.ibm.ws.management.filetransfer"/> 
             <xsd:element name="quickStartSecurity" type="com.ibm.ws.security.quickStartSecurity"/> 
