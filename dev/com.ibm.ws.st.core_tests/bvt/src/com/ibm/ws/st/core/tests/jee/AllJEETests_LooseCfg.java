@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.jee;
 
@@ -21,9 +21,12 @@ import junit.framework.JUnit4TestAdapter;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-// Run tests with the following properties
-//    -Dwas.runtime.liberty.enableJava2Security=true
-//    -Dwas.runtime.liberty=<location of liberty runtime>
+// Run tests with the following properties:
+// -Dwas.runtime.liberty=<location of liberty runtime>
+//
+// The following property is set within the test suite but when running
+// the tests individually, also set:
+// -Dliberty.loosecfg=true
 @RunWith(AllTests.class)
 public class AllJEETests_LooseCfg {
     public static final String JDK_VERSION_7 = "1.7.0";
