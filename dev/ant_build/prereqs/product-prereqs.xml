@@ -25,7 +25,7 @@
   		<dependency org="io.openliberty" name="com.ibm.ws.crypto.passwordutil" 		rev="1.0.19.RELEASE"/>
 		<dependency org="io.openliberty" name="com.ibm.ws.kernel.boot" 				rev="1.0.19.RELEASE"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.kernel.cmdline" 				rev="1.0.19.RELEASE"/>
-  		<dependency org="io.openliberty" name="com.ibm.ws.kernel.service" 				rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.kernel.service" 				rev="1.3.19.RELEASE"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.logging" 					rev="1.0.19.RELEASE"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.jmx.connector.client.restConnector" rev="1.0.19.RELEASE"/>
   	</dependencies>
