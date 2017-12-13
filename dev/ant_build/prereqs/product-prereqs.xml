@@ -20,13 +20,13 @@
   		<dependency org="commons-httpclient" 	name="commons-httpclient" 	rev="latest.integration"/>
   		<dependency org="commons-logging" 		name="commons-logging" 		rev="latest.integration"/>
   	
-  		<dependency org="io/openliberty" name="com.ibm.websphere.javaee.jsonp.1.0" 	rev="1.0.19.RELEASE"/>
-  		<dependency org="io/openliberty" name="com.ibm.ws.org.glassfish.json.1.0" 		rev="1.0.19.RELEASE"/>
-  		<dependency org="io/openliberty" name="com.ibm.ws.crypto.passwordutil" 		rev="1.0.19.RELEASE"/>
-		<dependency org="io/openliberty" name="com.ibm.ws.kernel.boot" 				rev="1.0.19.RELEASE"/>
-  		<dependency org="io/openliberty" name="com.ibm.ws.kernel.cmdline" 				rev="1.0.19.RELEASE"/>
-  		<dependency org="io/openliberty" name="com.ibm.ws.kernel.service" 				rev="1.0.19.RELEASE"/>
-  		<dependency org="io/openliberty" name="com.ibm.ws.logging" 					rev="1.0.19.RELEASE"/>
-  		<dependency org="io/openliberty" name="com.ibm.ws.jmx.connector.client.restConnector" rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.websphere.javaee.jsonp.1.0" 	rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.org.glassfish.json.1.0" 		rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.crypto.passwordutil" 		rev="1.0.19.RELEASE"/>
+		<dependency org="io.openliberty" name="com.ibm.ws.kernel.boot" 				rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.kernel.cmdline" 				rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.kernel.service" 				rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.logging" 					rev="1.0.19.RELEASE"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.jmx.connector.client.restConnector" rev="1.0.19.RELEASE"/>
   	</dependencies>
 </ivy-module>
