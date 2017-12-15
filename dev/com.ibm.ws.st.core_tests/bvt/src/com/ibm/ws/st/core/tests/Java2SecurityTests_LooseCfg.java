@@ -6,14 +6,14 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests;
 
 import java.util.ArrayList;
 
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
+import org.junit.runners.AllTests;
 
 import com.ibm.ws.st.core.tests.jee.JEEPublishEarNoDD;
 import com.ibm.ws.st.core.tests.jee.JEEPublishWarDD;
@@ -26,10 +26,13 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 // Run tests with the following properties
-//    -Dwas.runtime.liberty.enableJava2Security=true
-//    -Dwas.runtime.liberty=<runtime location>
-//    -Dliberty.loosecfg=true
-@RunWith(Suite.class)
+// -Dwas.runtime.liberty.enableJava2Security=true
+// -Dwas.runtime.liberty=<runtime location>
+//
+// The following property is set within the test suite but when running
+// the tests individually, also set:
+// -Dliberty.loosecfg=true
+@RunWith(AllTests.class)
 public class Java2SecurityTests_LooseCfg {
     public static TestSuite suite() {
         System.setProperty(ServerTestUtil.LOOSE_CFG_MODE_PROP, "true");

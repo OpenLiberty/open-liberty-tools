@@ -30,6 +30,10 @@ import junit.framework.TestSuite;
 // -Dwas.runtime.liberty=<runtime location>
 // -Dliberty.servertype=LibertyDocker
 // -Dliberty.loosecfg=true
+//
+// IMPORTANT: when running on Windows or OS X the workspace for the tests
+// must be in the user home directory or another directory that is shared
+// with Docker (this is because loose configuration uses Docker volumes)
 @RunWith(AllTests.class)
 public class AllDockerTests_LooseCfg {
     public static TestSuite suite() {
