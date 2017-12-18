@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <runtime name="Liberty_Tools_Runtime"/>
+  <fixed facet="jst.ear"/>
+  <installed facet="jst.ear" version="7.0"/>
+</faceted-project>

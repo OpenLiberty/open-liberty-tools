@@ -131,7 +131,19 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
 
     //enum can be extended to add JAVA EE 8 support
     enum JAVAEESUPPORT {
-        JAVAEE7, JAVAEE6;
+        JAVAEE6(6.0f),
+        JAVAEE7(7.0f),
+        JAVAEE8(8.0f);
+
+        private final float version;
+
+        JAVAEESUPPORT(float version) {
+            this.version = version;
+        }
+
+        public float getVersion() {
+            return version;
+        }
     }
 
     private JAVAEESUPPORT earSupported = null;
@@ -2359,19 +2371,23 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     }
 
     public void setJAVAEESupportLevel() {
-        boolean categoryFound = false;
         List<String> features = FeatureList.getFeatures(true, this);
         for (String feature : features) {
             Set<String> categoryElements = FeatureList.getFeatureCategory(feature, this);
-            //if category has  element JavaEE7Application, that means runtime supports Java EE 7
-            if (categoryElements != null && !categoryElements.isEmpty() && categoryElements.contains("JavaEE7Application")) {
-                categoryFound = true;
-                earSupported = JAVAEESUPPORT.JAVAEE7;
-                break;
+            if (categoryElements != null && !categoryElements.isEmpty()) {
+                if (categoryElements.contains("JavaEE8Application")) {
+                    earSupported = JAVAEESUPPORT.JAVAEE8;
+                    // Currently the latest version so break out of the loop
+                    break;
+                }
+                if (categoryElements.contains("JavaEE7Application")) {
+                    earSupported = JAVAEESUPPORT.JAVAEE7;
+                    // Keep looking for later version
+                }
             }
         }
 
-        if (!categoryFound) {
+        if (earSupported == null) {
             earSupported = JAVAEESUPPORT.JAVAEE6;
         }
     }
@@ -2389,13 +2405,11 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
         float f = Float.parseFloat(version);
 
         if (f >= 1.2f) {
-            if (f <= 6.0f)
+            if (earSupported == null) {
+                setJAVAEESupportLevel();
+            }
+            if (f <= earSupported.getVersion()) {
                 return true;
-            else if (f <= 7.0f) {
-                if (earSupported == null) {
-                    setJAVAEESupportLevel();
-                }
-                return earSupported.equals(JAVAEESUPPORT.JAVAEE7);
             }
         }
         return false;

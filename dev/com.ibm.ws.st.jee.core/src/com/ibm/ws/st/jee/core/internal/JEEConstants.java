@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.core.internal;
 
@@ -22,5 +22,6 @@ public interface JEEConstants {
 
     public FeatureResolverFeature FEATURE_CDI10 = new FeatureResolverFeature("cdi-1.0");
     public FeatureResolverFeature FEATURE_CDI12 = new FeatureResolverFeature("cdi-1.2");
+    public FeatureResolverFeature FEATURE_CDI20 = new FeatureResolverFeature("cdi-2.0");
     public FeatureResolverFeature FEATURE_CDI = new FeatureResolverFeature("cdi");
 }

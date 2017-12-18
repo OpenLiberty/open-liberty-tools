@@ -70,6 +70,8 @@ public class AllJEETests {
             testsuites.add(JEEPublishJCA_traceFileName_stdout.class);
             testsuites.add(CDIRequiredFeaturesBeans11.class);
             testsuites.add(CDIRequiredFeaturesBeansVersion11.class);
+            testsuites.add(CDIRequiredFeaturesBeans20.class);
+            testsuites.add(CDIRequiredFeaturesBeansVersion20.class);
             testsuites.add(JEEBinaryModule.class);
             testsuites.add(WebFragmentResources.class);
         }

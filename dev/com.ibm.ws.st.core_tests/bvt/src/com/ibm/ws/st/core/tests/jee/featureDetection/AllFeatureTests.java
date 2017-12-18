@@ -37,6 +37,7 @@ public class AllFeatureTests {
         if (System.getProperty("java.version").compareTo(JDK_VERSION_7) >= 0) {
             testsuites.add(ClientOnlyFeatureTest.class);
             testsuites.add(AlternativeFeatureTest.class);
+            testsuites.add(MixedFeatureTest.class);
         }
         return testsuites;
     }
