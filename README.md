@@ -47,9 +47,11 @@ Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentatio
 
     ```git clone https://github.com/OpenLiberty/open-liberty-tools```
     
-2. Run a gradle release
-       ```cd open-liberty-tools/dev```
-       ```./gradlew```
+2. Run a gradle build.
+
+    ```cd open-liberty-tools/dev```
+    
+    ```./gradlew```
  
 3. Go [Open issues](https://github.com/OpenLiberty/open-liberty-tools/issues), [Review existing contributions](https://github.com/OpenLiberty/open-liberty-tools/pulls), or [Submit fixes](https://github.com/OpenLiberty/open-liberty-tools/blob/master/CONTRIBUTING.md).
 
