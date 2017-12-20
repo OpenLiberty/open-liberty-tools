@@ -220,14 +220,14 @@ task deployDHE {
             return
         }
 
-        println "Publishing ${packageName} build: ${version}"
+        println "Publishing ${buildType} build: ${version}"
         
         def infoJson = System.getenv("INFO_JSON")
         
         def toPublishDir = "${rootDir}/${version}"
         mkdir(toPublishDir)
 
-		if (packageName == "release") {
+		if (buildType == "release") {
         		createJSONForBuild("${version}")
         }
 
@@ -268,7 +268,7 @@ task deployDHE {
         ant.taskdef(name: 'scp', classname: 'org.apache.tools.ant.taskdefs.optional.ssh.Scp',
             classpath: configurations.antScp.asPath)
 
-        ant.scp(todir: "${destDHEStaging}/${packageName}/",
+        ant.scp(todir: "${destDHEStaging}/${buildType}/",
                 password: "${pw}",
                 trust: "yes",
                 sftp: "true",
@@ -279,15 +279,15 @@ task deployDHE {
 
         file(toPublishDir).deleteDir()
 
-		if (packageName != "nightly") {
+		if (buildType != "nightly") {
 
-            //// Update '${packageName}/${infoJson}' with the newly published build
+            //// Update '${buildType}/${infoJson}' with the newly published build
             ant.touch(file: "${rootDir}/${infoJson}")
 
             // Download ${infoJson} from destDHEStaging and use it if it's not emptied.
-            println "Downloading ${destDHEStaging}/${packageName}/${infoJson}..."
+            println "Downloading ${destDHEStaging}/${buildType}/${infoJson}..."
 
-            ant.scp(file: "${destDHEStaging}/${packageName}/${infoJson}",
+            ant.scp(file: "${destDHEStaging}/${buildType}/${infoJson}",
                     todir: "${rootDir}",
                     password: "${pw}",
                     trust: "yes",
@@ -303,10 +303,10 @@ task deployDHE {
             if (json.getText() != null && json.getText() != "") {
                 object = new JsonSlurper().parseText(json.getText())
             } else {
-               	  def infoJsonDHEPublicUrl = "http://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/${packageName}/${infoJson}"
+               	  def infoJsonDHEPublicUrl = "http://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/${buildType}/${infoJson}"
 
 	              // if ${infoJson} in staging server is empty then download ${infoJson} from DHEPublic
-    	          println "${destDHEStaging}/${packageName}/${infoJson} is already published."
+    	          println "${destDHEStaging}/${buildType}/${infoJson} is already published."
             	  println "Downloading ${infoJsonDHEPublicUrl}"
 
         	      URL infoJsonURL = new URL("${infoJsonDHEPublicUrl}")
@@ -333,7 +333,7 @@ task deployDHE {
 
 		    println "Publishing build list ${infoJson}"
 		    ant.scp(file: "${rootDir}/${infoJson}",
-                    todir: "${destDHEStaging}/${packageName}/${infoJson}",
+                    todir: "${destDHEStaging}/${buildType}/${infoJson}",
                     password: "${pw}",
                     trust: "yes",
                     sftp: "true",
