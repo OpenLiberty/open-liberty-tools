@@ -46,9 +46,11 @@ Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentatio
 1. Clone the repository to your system.
 
     ```git clone https://github.com/OpenLiberty/open-liberty-tools```
-
-2. Set up self-hosting in Eclipse with the Open Liberty Tools as the target platform.
-
+    
+2. Run a gradle release
+       ```cd open-liberty-tools/dev```
+       ```./gradlew```
+ 
 3. Go [Open issues](https://github.com/OpenLiberty/open-liberty-tools/issues), [Review existing contributions](https://github.com/OpenLiberty/open-liberty-tools/pulls), or [Submit fixes](https://github.com/OpenLiberty/open-liberty-tools/blob/master/CONTRIBUTING.md).
 
 ## Community
