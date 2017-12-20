@@ -19,6 +19,7 @@
 	
 	<property name="artifactory.props.location" value="${prereqs.basedir}${file.separator}artifactory.properties"/>
 	
+	<!--  Load the artifactory properties from file for non-personal build -->
 	<contrib:if>
 		<available file="${artifactory.props.location}"/>
 		<then>
@@ -28,43 +29,32 @@
 
 	<!--  Load the same properties from the environment variables if they are set 
 		- these DO take precedence over the above file -->
-	<property environment="env"/>
-
-	<contrib:if>
-		<isset property="env.artifactory_download_server"/>
-		<then>
-			<contrib:propertycopy name="artifactory_download_server" from="env.artifactory_download_server" override="true"/>
-		</then>
-	</contrib:if>
-	<contrib:if>
-		<isset property="env.artifactory_download_user"/>
-		<then>
-			<contrib:propertycopy name="artifactory_download_user" from="env.artifactory_download_user" override="true"/>
-		</then>
-	</contrib:if>
-	<contrib:if>
-		<isset property="env.artifactory_download_apikey"/>
-		<then>
-			<contrib:propertycopy name="artifactory_download_apikey" from="env.artifactory_download_apikey" override="true"/>
-		</then>
-	</contrib:if>
-
-	<contrib:if>
-		<or>
-			<not><isset property="artifactory_download_server"/></not>
-			<equals arg1="" arg2="${artifactory_download_server}"/>
-			<not><isset property="artifactory_download_user"/></not>
-			<equals arg1="" arg2="${artifactory_download_user}"/>
-			<not><isset property="artifactory_download_apikey"/></not>
-			<equals arg1="" arg2="${artifactory_download_apikey}"/>
-		</or>
-		<then>
-			<fail message="
-At least one of artifactory_download_server, artifactory_download_user, or artifactory_download_apikey is not set, or is empty.${line.separator}
-All 3 of these must be set either as environment variables, or in ${prereqs.basedir}/artifactory.properties"/>
-		</then>
-	</contrib:if>
+	<property environment="env"/>	
 	
+	<!-- olt_build_type is 'personal' by default  -->
+	<contrib:if>
+		<and>
+	    	    <not><equals arg1="nightly" arg2="${env.olt_build_type}"/></not>
+	    	    <not><equals arg1="release" arg2="${env.olt_build_type}"/></not>
+	    	</and>
+        <then>
+            <property name="olt_build_type" value="personal"/>
+        </then>
+		<else>
+			<property name="olt_build_type" value="${env.olt_build_type}"/>
+		</else>
+    </contrib:if>
+	
+	<!-- for a personal test build, we don't use artifactory -->
+	<contrib:if>
+	    <equals arg1="personal" arg2="${olt_build_type}"/>
+	    <then>
+	    	    <var name="artifactory_download_server" unset="true"/>
+	      	<var name="artifactory_download_user" unset="true"/>
+	    	    	<var name="artifactory_download_apikey" unset="true"/>
+	    </then>
+    </contrib:if>
+
     <ivy:settings id="ivy.remote.settings" file="${prereqs.basedir}/ivysettings-remote.xml" />
 
     <!-- Primary user target -->
@@ -83,25 +73,34 @@ All 3 of these must be set either as environment variables, or in ${prereqs.base
     <target name="resolve" description="Resolve artifacts with Ivy">
     	<!-- Resolve artifacts with ivy and download them into ${prereqs.lib.dir} -->
         <mkdir dir="${prereqs.lib.dir}" />
-        
+    	
+      	<ivy:retrieve inline="true" organisation="commons-logging" module="commons-logging" pattern="${prereqs.lib.dir}/[type]/[artifact].[ext]"/>
+      	<copy file="${prereqs.lib.dir}/jar/commons-logging.jar" todir="${prereqs.lib.dir}"/>
+        <ivy:retrieve inline="true" organisation="commons-codec" module="commons-codec" pattern="${prereqs.lib.dir}/[type]/[artifact].[ext]"/>
+    	    <copy file="${prereqs.lib.dir}/jar/commons-codec.jar" todir="${prereqs.lib.dir}"/>
+         <ivy:retrieve inline="true" organisation="commons-httpclient" module="commons-httpclient" pattern="${prereqs.lib.dir}/[type]/[artifact].[ext]"/>
+    	     <copy file="${prereqs.lib.dir}/jar/commons-httpclient.jar" todir="${prereqs.lib.dir}"/>
+    	   
         <!-- pattern attribute removes version info from artifacts, but it's still available in jar manifests -->
         <ivy:retrieve file="${prereqs.basedir}/product-prereqs.xml" settingsRef="ivy.remote.settings" pattern="${prereqs.lib.dir}/[artifact].[ext]"/>
     </target>
 
 	<!-- The goal of populate is to copy each resolved prereq into the plugin that requires it's lib/ dir -->
     <target name="populate" description="Extract dependencies to their dependant plugins">
-    	<ivy:retrieve inline="true" organisation="dev" module="openliberty" settingsRef="ivy.remote.settings"/>
 
-    	<!-- Unlike the others, this file goes into ant_build/lib. It contains tasks used by some build scripts in public_imports --> 
-    	<copy todir="${prereqs.basedir}/../lib" verbose="true">
-    		<fileset dir="${prereqs.lib.dir}" includes="infra-buildtasks*.jar"/>
-    	</copy>
-    	
-    	<!-- First load the prereqs.properties which maps plugins to prereq jars -->
-    	<echo message="Getting prereqs mappings from ${prereqs.basedir}/prereqs.properties"/>
-		<loadproperties srcfile="${prereqs.basedir}/prereqs.properties"/>
-    	
-    	<!-- Load the list of dependencies into plugins.list, and loop over each plugin -->
+        	<!-- Unlike the others, this file goes into ant_build/lib. It contains tasks used by some build scripts in public_imports --> 
+        	<copy todir="${prereqs.basedir}/../lib" verbose="true">
+        		<fileset dir="${prereqs.lib.dir}" includes="infra.buildtasks*.jar"/>
+        	</copy>
+        	
+        	<!-- the following file is required for the compile of OLT -->
+        <copy file="${prereqs.lib.dir}/com.ibm.ws.kernel.feature.resolver.jar" todir="${prereqs.basedir}/../../target_platform/prereqs/temp/plugins"/>
+        
+        	<!-- First load the prereqs.properties which maps plugins to prereq jars -->
+        	<echo message="Getting prereqs mappings from ${prereqs.basedir}/prereqs.properties"/>
+    		<loadproperties srcfile="${prereqs.basedir}/prereqs.properties"/>
+        	
+        	<!-- Load the list of dependencies into plugins.list, and loop over each plugin -->
 		<contrib:propertyselector property="plugins.list" match="depends\.com\.ibm\..*"/>
     	
 		<contrib:foreach list="${plugins.list}" param="plugin" target="testNeedCopyPrereqs" inheritall="true"/>
@@ -154,6 +153,6 @@ All 3 of these must be set either as environment variables, or in ${prereqs.base
 	</target>
 	
 	<target name="cleanDownloads">
-		<!--delete dir="${prereqs.basedir}/lib"/-->
+		<delete dir="${prereqs.basedir}/lib"/>
 	</target>
 </project>
