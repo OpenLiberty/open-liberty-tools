@@ -14,12 +14,9 @@
 <ivy-module version="2.0">
   	<info organisation="dev" module="prereq.published"/>
   	<dependencies>
-  		<dependency org="infra-buildtasks-core" name="infra-buildtasks-core" rev="latest.integration"/>
-  	
-  		<dependency org="commons-codec" 		name="commons-codec" 		rev="latest.integration"/>
-  		<dependency org="commons-httpclient" 	name="commons-httpclient" 	rev="latest.integration"/>
-  		<dependency org="commons-logging" 		name="commons-logging" 		rev="latest.integration"/>
-  	
+  	    <!--  dependency from: https://repo1.maven.org/maven2/  -->
+  		<dependency org="com.ibm.ws.componenttest" name="infra.buildtasks-core" rev="latest.integration"/>
+        <!--  dependency from: http://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/wasliberty-open-liberty/   -->
   		<dependency org="io.openliberty" name="com.ibm.websphere.javaee.jsonp.1.0" 	rev="latest.integration"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.org.glassfish.json.1.0" 		rev="latest.integration"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.crypto.passwordutil" 		rev="latest.integration"/>
@@ -27,6 +24,7 @@
   		<dependency org="io.openliberty" name="com.ibm.ws.kernel.cmdline" 				rev="latest.integration"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.kernel.service" 				rev="latest.integration"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.logging" 					rev="latest.integration"/>
+  		<dependency org="io.openliberty" name="com.ibm.ws.kernel.feature.resolver"                     rev="latest.integration"/>
   		<dependency org="io.openliberty" name="com.ibm.ws.jmx.connector.client.restConnector" rev="latest.integration"/>
   	</dependencies>
 </ivy-module>

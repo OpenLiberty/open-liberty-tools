@@ -23,7 +23,7 @@
   <dirname property="imports.dir" file="${ant.file.buildtasks}" />
 
   <patternset id="buildtasks.jars">
-  	<include name="infra-buildtasks-core.jar" />
+  	 <include name="infra.buildtasks-core.jar" /> 
     <include name="asm-all-5.0.3.jar" />
     <include name="org.apache.aries.util-*.jar" />
     <include name="osgi.core.jar" />
