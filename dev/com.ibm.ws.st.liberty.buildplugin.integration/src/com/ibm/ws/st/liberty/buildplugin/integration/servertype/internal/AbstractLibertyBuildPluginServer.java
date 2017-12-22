@@ -43,4 +43,13 @@ public class AbstractLibertyBuildPluginServer extends AbstractServerExtension {
             wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
         }
     }
+
+    @Override
+    public String getServerDisplayName(IServer server) {
+        WebSphereServer wsServer = WebSphereUtil.getWebSphereServer(server);
+        if (wsServer != null) {
+            return wsServer.getServerName();
+        }
+        return super.getServerDisplayName(server);
+    }
 }
