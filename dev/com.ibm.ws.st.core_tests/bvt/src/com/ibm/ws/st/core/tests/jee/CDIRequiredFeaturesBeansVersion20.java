@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,7 +29,7 @@ import junit.framework.TestSuite;
 @TestCaseDescriptor(description = "CDI required feature for beans.xml with 1.1 schema location where version is 1.1", isStable = true)
 @RunWith(AllTests.class)
 public class CDIRequiredFeaturesBeansVersion20 extends CDIRequiredFeaturesBase {
-    private static final String TEST_NAME = "CDIRequiredFeaturesBeansVersion20";
+    private static final String TEST_NAME = CDIRequiredFeaturesBeansVersion20.class.getSimpleName();
     private static final String CDI_FEATURE = "cdi-2.0";
     private static final String[] EXPECTED_FEATURES = new String[] { CDI_FEATURE };
 
