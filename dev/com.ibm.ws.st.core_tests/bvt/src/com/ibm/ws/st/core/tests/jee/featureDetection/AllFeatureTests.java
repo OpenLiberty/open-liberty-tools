@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,6 +37,7 @@ public class AllFeatureTests {
         if (System.getProperty("java.version").compareTo(JDK_VERSION_7) >= 0) {
             testsuites.add(ClientOnlyFeatureTest.class);
             testsuites.add(AlternativeFeatureTest.class);
+            testsuites.add(MixedFeatureTest.class);
         }
         return testsuites;
     }

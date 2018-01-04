@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 IBM Corporation and others.
+ * Copyright (c) 2012, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -28,7 +28,7 @@ import org.eclipse.wst.server.core.internal.facets.RuntimeFacetComponentProvider
  * the mapping is done through a naming pattern - all runtime components (providers of the
  * org.eclipse.wst.common.project.facet.core.runtimes <runtime-component-type id="">) should be named
  * "com.ibm.ws.st.runtime.<featureName>", where <featureName> corresponds to the feature that it enables.
- * 
+ *
  * It is important for all programming model features to define a runtime component. This enables the
  * facet runtime to correctly block users from targeting projects to server that do not have the
  * necessary feature support. This will be even more important when Liberty supports minify
@@ -71,12 +71,15 @@ public class WebSphereRuntimeComponentProvider extends RuntimeFacetComponentProv
                 }
             }
 
-            // Check if EAR 7.0 applications are supported by the runtime
+            // Check what version of EAR applications are supported by the runtime
             if (RuntimeManager.isRuntimeComponentTypeDefined("com.ibm.ws.st.runtime.enterpriseApplication")) {
                 IRuntimeComponentType rct = RuntimeManager.getRuntimeComponentType("com.ibm.ws.st.runtime.enterpriseApplication");
                 if (rct != null) {
                     if (wr.isEARSupported("7.0") && rct.hasVersion("7.0")) {
                         list.add(RuntimeManager.createRuntimeComponent(rct.getVersion("7.0"), new HashMap<String, String>(0)));
+                    }
+                    if (wr.isEARSupported("8.0") && rct.hasVersion("8.0")) {
+                        list.add(RuntimeManager.createRuntimeComponent(rct.getVersion("8.0"), new HashMap<String, String>(0)));
                     }
                 }
             }

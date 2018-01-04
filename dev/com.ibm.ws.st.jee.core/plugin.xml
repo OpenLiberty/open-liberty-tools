@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.6"?>
 <!--
-    Copyright (c) 2017 IBM Corporation and others.
+    Copyright (c) 2017, 2018 IBM Corporation and others.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -18,16 +18,16 @@
       runtimeTypes="com.ibm.ws.st.runtime.*">
       <moduleType
         types="jst.ear"
-        versions="1.2,1.3,1.4,5.0,6.0,7.0"/>
+        versions="1.2,1.3,1.4,5.0,6.0,7.0,8.0"/>
       <moduleType
         types="jst.web"
-        versions="2.2,2.3,2.4,2.5,3.0,3.1"/>
+        versions="2.2,2.3,2.4,2.5,3.0,3.1,4.0"/>
       <moduleType
         types="jst.ejb"
         versions="1.1,2.0,2.1,3.0,3.1,3.2"/>
       <moduleType
          types="jst.webfragment"
-         versions="3.0,3.1"/>
+         versions="3.0,3.1,4.0"/>
       <moduleType
         types="jst.utility"
         versions="1.0"/>
@@ -88,6 +88,28 @@
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.enterpriseApplication"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.enterpriseApplication" version="8.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.enterpriseApplication" version="8.0"/>
+      <facet id="jst.ear" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="7.0"/>
+    <supported>
+      <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="8.0"/>
+    <supported>
+      <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.servlet"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.servlet" version="3.0"/>
     <supported>
@@ -97,19 +119,21 @@
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
-  <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
-  <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="7.0"/>
-   <supported>
-      <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0"/>
-  </supported>
-  </extension>
-  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.servlet"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.servlet" version="3.1"/>
     <supported>
       <runtime-component id="com.ibm.ws.st.runtime.servlet" version="3.1"/>
       <facet id="jst.web" version="2.2,2.3,2.4,2.5,3.0,3.1"/>
       <facet id="jst.webfragment" version="3.0,3.1"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.servlet"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.servlet" version="4.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.servlet" version="4.0"/>
+      <facet id="jst.web" version="2.2,2.3,2.4,2.5,3.0,3.1,4.0"/>
+      <facet id="jst.webfragment" version="3.0,3.1,4.0"/>
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
@@ -137,6 +161,14 @@
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.jsf"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.jsf" version="2.3"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.jsf" version="2.3"/>
+      <facet id="jst.jsf" version="2.0,2.1,2.2,2.3"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.jpa"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.jpa" version="2.0"/>
     <supported>
@@ -153,6 +185,14 @@
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.jpa"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.jpa" version="2.2"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.jpa" version="2.2"/>
+      <facet id="jpt.jpa" version="2.1,2.2"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.jaxrs"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.jaxrs" version="1.1"/>
     <supported>
@@ -166,6 +206,14 @@
     <supported>
       <runtime-component id="com.ibm.ws.st.runtime.jaxrs" version="2.0"/>
       <facet id="jst.jaxrs" version="1.0,1.1,2.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.jaxrs"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.jaxrs" version="2.1"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.jaxrs" version="2.1"/>
+      <facet id="jst.jaxrs" version="1.0,1.1,2.0,2.1"/>
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
@@ -201,6 +249,10 @@
     <runtime-component-version type="com.ibm.ws.st.runtime.jdbc" version="4.1"/>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.jdbc"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.jdbc" version="4.2"/>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.json"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.json" version="1.0"/>
   </extension>
@@ -211,6 +263,14 @@
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.beanvalidation"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.beanvalidation" version="1.0"/>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.beanvalidation"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.beanvalidation" version="1.1"/>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.beanvalidation"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.beanvalidation" version="2.0"/>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.jca"/>
@@ -269,11 +329,18 @@
       <facet id="jst.web" version="2.2,2.3,2.4,2.5,3.0,3.1"/>
       <facet id="jst.webfragment" version="3.0,3.1"/>
     </facetFeatureMapping>
+    <facetFeatureMapping id="com.ibm.ws.st.jee.servlet40" features="servlet-4.0">
+      <facet id="jst.web" version="2.2,2.3,2.4,2.5,3.0,3.1,4.0"/>
+      <facet id="jst.webfragment" version="3.0,3.1,4.0"/>
+    </facetFeatureMapping>
     <facetFeatureMapping id="com.ibm.ws.st.jee.jsf20" features="jsf-2.0">
       <facet id="jst.jsf" version="2.0"/>
     </facetFeatureMapping>
     <facetFeatureMapping id="com.ibm.ws.st.jee.jsf22" features="jsf-2.2">
       <facet id="jst.jsf" version="2.0,2.1,2.2"/>
+    </facetFeatureMapping>
+    <facetFeatureMapping id="com.ibm.ws.st.jee.jsf23" features="jsf-2.3">
+      <facet id="jst.jsf" version="2.0,2.1,2.2,2.3"/>
     </facetFeatureMapping>
     <facetFeatureMapping id="com.ibm.ws.st.jee.jpa10" features="jpa-1.0">
       <facet id="jpt.jpa" version="1.0"/>
@@ -284,11 +351,17 @@
     <facetFeatureMapping id="com.ibm.ws.st.jee.jpa21" features="jpa-2.1">
       <facet id="jpt.jpa" version="2.1"/>
     </facetFeatureMapping>
+    <facetFeatureMapping id="com.ibm.ws.st.jee.jpa22" features="jpa-2.2">
+      <facet id="jpt.jpa" version="2.2"/>
+    </facetFeatureMapping>
     <facetFeatureMapping id="com.ibm.ws.st.jee.jaxr11s" features="jaxrs-1.1">
       <facet id="jst.jaxrs" version="1.0,1.1"/>
     </facetFeatureMapping>
     <facetFeatureMapping id="com.ibm.ws.st.jee.jaxrs20" features="jaxrs-2.0">
       <facet id="jst.jaxrs" version="1.0,1.1,2.0"/>
+    </facetFeatureMapping>
+    <facetFeatureMapping id="com.ibm.ws.st.jee.jaxrs21" features="jaxrs-2.1">
+      <facet id="jst.jaxrs" version="1.0,1.1,2.0,2.1"/>
     </facetFeatureMapping>
     <facetFeatureMapping id="com.ibm.ws.st.jee.ejbLite31" features="ejbLite-3.1">
       <facet id="jst.ejb" version="1.1,2.0,2.1,3.0,3.1"/>

@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2015 IBM Corporation and others.
+ * Copyright (c) 2014, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -194,13 +194,20 @@ class WebSphereRuntimeClasspathHelper {
         //TODO: Need a smart way to get this info.
 
         featuresWithConflicts = new HashMap<String, Set<String>>();
-        Set<String> features = new HashSet<String>();
+        Set<String> features;
 
         // JPA features
+        features = new HashSet<String>();
         features.add("jpa-2.0");
+        features.add("jpa-2.1");
+        featuresWithConflicts.put("jpa-2.2", features);
+        features = new HashSet<String>();
+        features.add("jpa-2.0");
+        features.add("jpa-2.2");
         featuresWithConflicts.put("jpa-2.1", features);
         features = new HashSet<String>();
         features.add("jpa-2.1");
+        features.add("jpa-2.2");
         featuresWithConflicts.put("jpa-2.0", features);
 
         // EJB features
@@ -216,42 +223,75 @@ class WebSphereRuntimeClasspathHelper {
         //Servlets
         features = new HashSet<String>();
         features.add("servlet-3.0");
+        features.add("servlet-3.1");
+        featuresWithConflicts.put("servlet-4.0", features);
+        features = new HashSet<String>();
+        features.add("servlet-3.0");
+        features.add("servlet-4.0");
         featuresWithConflicts.put("servlet-3.1", features);
         features = new HashSet<String>();
         features.add("servlet-3.1");
+        features.add("servlet-4.0");
         featuresWithConflicts.put("servlet-3.0", features);
 
         //jax-rs
         features = new HashSet<String>();
         features.add("jaxrs-1.1");
+        features.add("jaxrs-2.0");
+        features.add("jaxrsClient-2.0");
+        featuresWithConflicts.put("jaxrs-2.1", features);
+        features = new HashSet<String>();
+        features.add("jaxrs-1.1");
+        features.add("jaxrs-2.1");
+        features.add("jaxrsClient-2.1");
         featuresWithConflicts.put("jaxrs-2.0", features);
         features = new HashSet<String>();
         features.add("jaxrs-2.0");
         features.add("jaxrsClient-2.0");
+        features.add("jaxrs-2.1");
+        features.add("jaxrsClient-2.1");
         featuresWithConflicts.put("jaxrs-1.1", features);
 
         //Bean Validation
         features = new HashSet<String>();
         features.add("beanValidation-1.0");
+        features.add("beanValidation-1.1");
+        featuresWithConflicts.put("beanValidation-2.0", features);
+        features = new HashSet<String>();
+        features.add("beanValidation-1.0");
+        features.add("beanValidation-2.0");
         featuresWithConflicts.put("beanValidation-1.1", features);
         features = new HashSet<String>();
         features.add("beanValidation-1.1");
+        features.add("beanValidation-2.0");
         featuresWithConflicts.put("beanValidation-1.0", features);
 
         //CDI
         features = new HashSet<String>();
         features.add("cdi-1.0");
+        features.add("cdi-1.2");
+        featuresWithConflicts.put("cdi-2.0", features);
+        features = new HashSet<String>();
+        features.add("cdi-1.0");
+        features.add("cdi-2.0");
         featuresWithConflicts.put("cdi-1.2", features);
         features = new HashSet<String>();
         features.add("cdi-1.2");
+        features.add("cdi-2.0");
         featuresWithConflicts.put("cdi-1.0", features);
 
         //JSF
         features = new HashSet<String>();
         features.add("jsf-2.0");
+        features.add("jsf-2.2");
+        featuresWithConflicts.put("jsf-2.3", features);
+        features = new HashSet<String>();
+        features.add("jsf-2.0");
+        features.add("jsf-2.3");
         featuresWithConflicts.put("jsf-2.2", features);
         features = new HashSet<String>();
         features.add("jsf-2.2");
+        features.add("jsf-2.3");
         featuresWithConflicts.put("jsf-2.0", features);
 
     }
