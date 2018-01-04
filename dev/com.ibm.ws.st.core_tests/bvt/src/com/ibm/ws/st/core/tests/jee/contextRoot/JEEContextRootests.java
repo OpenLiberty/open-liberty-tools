@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.jee.contextRoot;
 
@@ -45,6 +45,7 @@ public class JEEContextRootests {
             testsuites.add(JEEContextRoot_EAR_NoDD_CRinWebXML.class);
             testsuites.add(JEEContextRoot_EAR_NoDD_defaultCR.class);
             testsuites.add(JEEContextRoot_EAR_NoDD_defaultCRwSpaces.class);
+            testsuites.add(JEEContextRootServerConfig.class);
         }
         return testsuites;
     }

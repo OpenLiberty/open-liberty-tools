@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -103,14 +103,16 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
         private final String autoStart;
         private final String[] sharedLibRefs;
         EnumSet<APIVisibility> apiVisibility;
+        private final String contextRoot;
 
-        public Application(String name, String type, String location, String autoStart, String[] sharedLibRefs, EnumSet<APIVisibility> apiVisibility) {
+        public Application(String name, String type, String location, String autoStart, String[] sharedLibRefs, EnumSet<APIVisibility> apiVisibility, String contextRoot) {
             this.name = name;
             this.type = type;
             this.location = location;
             this.autoStart = autoStart;
             this.sharedLibRefs = sharedLibRefs;
             this.apiVisibility = apiVisibility;
+            this.contextRoot = contextRoot;
         }
 
         public String getName() {
@@ -135,6 +137,10 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
 
         public EnumSet<APIVisibility> getAPIVisibility() {
             return apiVisibility;
+        }
+
+        public String getContextRoot() {
+            return contextRoot;
         }
 
         @Override
@@ -737,7 +743,20 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
         String appLocation = resolveValue(appElem.getAttribute(Constants.APP_LOCATION));
         String appAutostart = resolveValue(appElem.getAttribute(Constants.APP_AUTOSTART));
 
-        Application app = new Application(appName, ServerExtensionWrapper.getAppTypeFromAppElement(appLabel), appLocation, appAutostart, getSharedLibRefs(appElem), apiVisibility);
+        String contextRoot = null;
+        if (Constants.APPLICATION.equals(appElem.getNodeName())) {
+            contextRoot = resolveValue(appElem.getAttribute(Constants.APP_CONTEXT_ROOT));
+        } else if (Constants.WEB_APPLICATION.equals(appElem.getNodeName())) {
+            contextRoot = resolveValue(appElem.getAttribute(Constants.APP_CONTEXT_ROOT_NEW));
+            if (contextRoot == null || contextRoot.isEmpty()) {
+                contextRoot = resolveValue(appElem.getAttribute(Constants.APP_CONTEXT_ROOT));
+            }
+        }
+        if (contextRoot != null && contextRoot.isEmpty()) {
+            contextRoot = null;
+        }
+
+        Application app = new Application(appName, ServerExtensionWrapper.getAppTypeFromAppElement(appLabel), appLocation, appAutostart, getSharedLibRefs(appElem), apiVisibility, contextRoot);
         return app;
     }
 

@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -66,11 +66,13 @@ public class Constants {
 
     public static final String INSTANCE_ID = "id";
     public static final String APPLICATION = "application";
+    public static final String WEB_APPLICATION = "webApplication";
     public static final String APP_AUTOSTART = "autoStart";
     public static final String APP_NAME = "name";
     public static final String APP_LOCATION = "location";
     public static final String APP_TYPE = "type";
     public static final String APP_CONTEXT_ROOT = "context-root";
+    public static final String APP_CONTEXT_ROOT_NEW = "contextRoot";
     public static final String LOGGING = "logging";
     public static final String LOG_DIR = "logDirectory";
     public static final String TRACE_FILE = "traceFileName";
