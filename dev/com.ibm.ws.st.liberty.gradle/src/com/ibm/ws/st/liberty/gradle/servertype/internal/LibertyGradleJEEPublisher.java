@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -79,17 +79,16 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
                     if (mapping != null && mapping.getServerID().equals(wsServer.getServer().getId())) {
                         LibertyBuildPluginConfiguration config = LibertyGradle.getLibertyGradleProjectConfiguration(moduleProject, monitor);
 
-                        String projectType = config.getConfigValue(ConfigurationType.projectType);
-
-                        // For the EAR non-loose scenario, do not run the publish on each child, otherwise the
+                        // For a project with a parent in non-loose config mode, do not run the publish on each child, otherwise the
                         // gradle task will be called multiple times. Only call once on the parent build
                         String looseConfigValue = config.getConfigValue(ConfigurationType.looseApplication);
                         boolean isLC = Boolean.parseBoolean(looseConfigValue);
-                        if (projectType != null) {
                             int publishUnitKind = unit.getDeltaKind();
-                            if (!isLC && "ear".equals(projectType) && (ServerBehaviourDelegate.ADDED == publishUnitKind || ServerBehaviourDelegate.CHANGED == publishUnitKind)) {
-
-                                publishOnParent(wsServer, moduleProject, config, LibertyGradleConstants.ASSEMBLE_INSTALL_APPS_TASKS,
+                            String parentId = config.getConfigValue(ConfigurationType.aggregatorParentId);
+                            String parentPath = config.getConfigValue(ConfigurationType.aggregatorParentBasedir);
+                            if (!isLC && parentId != null && parentPath != null && (ServerBehaviourDelegate.ADDED == publishUnitKind || ServerBehaviourDelegate.CHANGED == publishUnitKind)) {
+                                
+                            	publishOnParent(wsServer, moduleProject, config, LibertyGradleConstants.ASSEMBLE_INSTALL_APPS_TASKS,
                                                 kind, unit, mStatus, monitor);
 
                                 String pathToPublishedModule = getPathToPublishedModule(config);
@@ -105,7 +104,6 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
                                 // To avoid calling publishModulesAndChildren, exit publishModuleAndChildren
                                 return;
                             }
-                        }
                     }
                     super.publishModuleAndChildren(kind, unit, mStatus, monitor);
                 }
