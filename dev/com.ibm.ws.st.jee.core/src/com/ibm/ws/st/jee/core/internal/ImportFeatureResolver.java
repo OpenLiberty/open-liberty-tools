@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2017 IBM Corporation and others.
+ * Copyright (c) 2012, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.core.internal;
 
@@ -78,7 +78,8 @@ public class ImportFeatureResolver extends FeatureResolver {
                                                                   { "com.ibm.websphere.javaee.jaxrs", "jaxrs" },
                                                                   { "com.ibm.websphere.javaee.persistence", "jpa" },
                                                                   { "com.ibm.websphere.javaee.jsonb", "jsonb" },
-                                                                  { "com.ibm.websphere.javaee.jsonp", "jsonp" }
+                                                                  { "com.ibm.websphere.javaee.jsonp", "jsonp" },
+                                                                  { "com.ibm.websphere.javaee.cdi", "cdi" }
     };
 
     private static final Set<String> IGNORE_PKG_SET = new HashSet<String>();
@@ -94,6 +95,7 @@ public class ImportFeatureResolver extends FeatureResolver {
         String[] packages;
         String[][] features;
         Map<String, String> preferredFeatureMap;
+        Map<String, List<String>> apiPackageMap;
     }
 
     private static APIInfo getDevAnnotations(WebSphereRuntime wsRuntime, IJavaProject javaProject) throws CoreException {
@@ -178,6 +180,8 @@ public class ImportFeatureResolver extends FeatureResolver {
 
         info.preferredFeatureMap = preferredFeatures;
 
+        info.apiPackageMap = getAPIPackageMap(wsRuntime);
+
         runtimeAPIMap.put(key, info);
 
         if (Trace.ENABLED) {
@@ -186,6 +190,28 @@ public class ImportFeatureResolver extends FeatureResolver {
         }
 
         return info;
+    }
+
+    private static Map<String, List<String>> getAPIPackageMap(WebSphereRuntime wsRuntime) {
+        Map<String, List<String>> apiPackageMap = new HashMap<String, List<String>>();
+        List<String> featureList = FeatureList.getFeatures(false, wsRuntime);
+        for (String feature : featureList) {
+            Set<String> packages = FeatureList.getFeatureAPIPackages(feature, wsRuntime);
+            for (String pkg : packages) {
+                List<String> features = apiPackageMap.get(pkg);
+                if (features == null) {
+                    features = new ArrayList<String>();
+                    apiPackageMap.put(pkg, features);
+                }
+                if (feature.indexOf("-") > 0) {
+                    feature = feature.substring(0, feature.indexOf("-"));
+                }
+                if (!features.contains(feature)) {
+                    features.add(feature);
+                }
+            }
+        }
+        return apiPackageMap;
     }
 
     /**
@@ -243,8 +269,24 @@ public class ImportFeatureResolver extends FeatureResolver {
      */
     private static void checkAndAddFeatures(String pkg, APIInfo info, List<String> features, FeatureSet existingFeatures, FeaturePackages featurePackages,
                                             boolean isAcceptMultipleFeatures) {
+
+        if (ignorePackage(pkg)) {
+            return;
+        }
+
+        // Try the apiPackage map first as it is more precise
+        List<String> apiFeatures = info.apiPackageMap.get(pkg);
+        if (apiFeatures != null && apiFeatures.size() == 1) {
+            if (isFeatureNeeded(apiFeatures.get(0), pkg, features, existingFeatures, featurePackages)) {
+                features.add(apiFeatures.get(0));
+                if (Trace.ENABLED) {
+                    Trace.trace(Trace.INFO, "Found feature: " + apiFeatures.get(0) + " (" + pkg + ")");
+                }
+            }
+        }
+
         int index = contains(info.packages, pkg);
-        if (index > 0 && !ignorePackage(pkg)) {
+        if (index > 0) {
             String[] featureList = info.features[index];
 
             // Gather the features related to this package
@@ -255,17 +297,11 @@ public class ImportFeatureResolver extends FeatureResolver {
             for (String feature : featureList) {
                 // We don't need to add any features if they are already added to the
                 // server config (existingFeatures) or have already been detected (requiredFeatures)
-                if (!features.isEmpty() && features.contains(feature)) {
-                    return;
-                }
-                if (existingFeatures != null && existingFeatures.resolve(feature) != null) {
+                if (!isFeatureNeeded(feature, pkg, features, existingFeatures, featurePackages)) {
                     return;
                 }
                 if (preferredFeature != null && preferredFeature.equals(feature)) {
                     containsPreferredFeature = true;
-                }
-                if (featurePackages != null && featurePackages.containsPackage(pkg)) {
-                    return;
                 }
             }
 
@@ -284,6 +320,19 @@ public class ImportFeatureResolver extends FeatureResolver {
                 }
             }
         }
+    }
+
+    private static boolean isFeatureNeeded(String feature, String pkg, List<String> features, FeatureSet existingFeatures, FeaturePackages featurePackages) {
+        if (!features.isEmpty() && features.contains(feature)) {
+            return false;
+        }
+        if (existingFeatures != null && existingFeatures.resolve(feature) != null) {
+            return false;
+        }
+        if (featurePackages != null && featurePackages.containsPackage(pkg)) {
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -487,14 +536,14 @@ public class ImportFeatureResolver extends FeatureResolver {
             try {
                 IProject project = module[module.length - 1].getProject();
                 if (project == null || !project.hasNature(JavaCore.NATURE_ID))
-                    return null;
+                    continue;
 
                 IJavaProject javaProject = JavaCore.create(project);
                 APIInfo info = getDevAnnotations(wr, javaProject);
                 if (info == null) {
                     if (Trace.ENABLED)
                         Trace.trace(Trace.INFO, "No WAS classpath, skipping scanning");
-                    return null;
+                    continue;
                 }
                 long time = System.currentTimeMillis();
 
