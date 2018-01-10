@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.core.internal;
 
@@ -48,6 +48,7 @@ public class CDIFeatureResolver extends FeatureResolver {
     private static final String ROOT_ELEM = "beans";
     private static final String VERSION_ATTR = "version";
     private static final String BEANS1_1 = "beans_1_1.xsd";
+    private static final String BEANS2_0 = "beans_2_0.xsd";
 
     private static final Set<String> folderSet = new HashSet<String>();
     private static final Map<String, FeatureResolverFeature> cdiMap = new HashMap<String, FeatureResolverFeature>();
@@ -58,6 +59,7 @@ public class CDIFeatureResolver extends FeatureResolver {
 
         cdiMap.put("1.0", JEEConstants.FEATURE_CDI10);
         cdiMap.put("1.1", JEEConstants.FEATURE_CDI12);
+        cdiMap.put("2.0", JEEConstants.FEATURE_CDI20);
     }
 
     @Override
@@ -165,10 +167,14 @@ public class CDIFeatureResolver extends FeatureResolver {
                             break;
                         } else if (SCHEMA_QNAME.equals(reader.getAttributeName(i))) {
                             String value = reader.getAttributeValue(i);
-                            if (value != null && value.endsWith(BEANS1_1)) {
-                                version = "1.1";
-                                // Don't break as should keep looking in case there
-                                // is a version attribute
+                            if (value != null) {
+                                if (value.endsWith(BEANS1_1)) {
+                                    version = "1.1";
+                                    // Don't break as should keep looking in case there is a version attribute
+                                } else if (value.endsWith(BEANS2_0)) {
+                                    version = "2.0";
+                                    // Don't break as should keep looking in case there is a version attribute
+                                }
                             }
                         }
                     }

@@ -1,16 +1,14 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2014 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.jee;
-
-import junit.framework.TestSuite;
 
 import org.eclipse.core.runtime.Path;
 import org.junit.Test;
@@ -22,6 +20,8 @@ import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.tests.util.FeatureUtil;
 import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
 
+import junit.framework.TestSuite;
+
 /**
  * Test that correct cdi feature enabled for beans.xml that specifies the 1.1
  * schema location and the version is set to 1.1.
@@ -29,7 +29,7 @@ import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
 @TestCaseDescriptor(description = "CDI required feature for beans.xml with 1.1 schema location where version is 1.1", isStable = true)
 @RunWith(AllTests.class)
 public class CDIRequiredFeaturesBeansVersion11 extends CDIRequiredFeaturesBase {
-    private static final String TEST_NAME = "CDIRequiredFeaturesBeansVersion11";
+    private static final String TEST_NAME = CDIRequiredFeaturesBeansVersion11.class.getSimpleName();
     private static final String CDI_FEATURE = "cdi-1.2";
     private static final String[] EXPECTED_FEATURES = new String[] { CDI_FEATURE };
 
