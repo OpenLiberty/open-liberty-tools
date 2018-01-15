@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -38,7 +38,6 @@ import org.eclipse.wst.server.core.IModule2;
 import org.eclipse.wst.server.core.IModuleType;
 import org.eclipse.wst.server.core.IServer;
 import org.eclipse.wst.server.core.IServerWorkingCopy;
-import org.w3c.dom.Element;
 
 import com.ibm.ws.st.core.internal.APIVisibility;
 import com.ibm.ws.st.core.internal.OutOfSyncModuleInfo;
@@ -416,16 +415,12 @@ public class JEEServerExtension extends ServerExtension {
             } else {
                 // In the non EAR case, first check the server config file
                 if (configFile != null) {
-                    Element ele = configFile.getApplicationElement(WEB_APPLICATION, webModule.getName());
-                    if (ele != null) {
-                        WebSphereServerInfo serverInfo = getWebSphereServerInfo();
-                        if (serverInfo != null && serverInfo.getSchemaHelper().isSupportedApplicationElement(WEB_APPLICATION)) {
-                            contextRoot = ele.getAttribute("contextRoot");
-                        } else {
-                            contextRoot = ele.getAttribute("context-root");
+                    Application[] applications = configFile.getApplications();
+                    for (Application app : applications) {
+                        if (webModule.getName().equals(app.getName())) {
+                            contextRoot = app.getContextRoot();
+                            break;
                         }
-                        if (contextRoot.isEmpty())
-                            contextRoot = null;
                     }
                 }
             }
