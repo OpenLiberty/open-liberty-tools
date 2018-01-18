@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -81,7 +81,7 @@ public class LibertyMaven implements ILibertyBuildPluginImpl {
         ILaunchManager launchManager = DebugPlugin.getDefault().getLaunchManager();
         ILaunchConfigurationType launchConfigurationType = launchManager.getLaunchConfigurationType("org.eclipse.m2e.Maven2LaunchConfigurationType");
 
-        String goal = specifiedGoal + " -DskipTests=true";
+        String goal = specifiedGoal + " -DskipTests=true -DskipLibertyPackage=true";
         try {
             Trace.trace(Trace.INFO, "Running maven goal \'" + goal + "\' with working directory: " + workingDir.toOSString());
             ILaunchConfigurationWorkingCopy workingCopy = launchConfigurationType.newInstance((IContainer) null, workingDir.lastSegment());

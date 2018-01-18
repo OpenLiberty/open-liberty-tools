@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -88,7 +88,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                             int publishUnitKind = unit.getDeltaKind();
                             if (!isLC && "ear".equals(projectType) && (ServerBehaviourDelegate.ADDED == publishUnitKind || ServerBehaviourDelegate.CHANGED == publishUnitKind)) {
 
-                                publishOnParent(wsServer, moduleProject, config, "package -DskipLibertyPackage=true",
+                                publishOnParent(wsServer, moduleProject, config, "package",
                                                 kind, unit, mStatus, monitor);
 
                                 String pathToPublishedModule = getPathToPublishedModule(config);
@@ -267,7 +267,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                                         LibertyMaven.runMavenGoal(moduleProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
                                     }
 
-                                    String installGoal = "liberty:install-apps -DskipLibertyPackage=true";
+                                    String installGoal = "liberty:install-apps";
                                     Trace.trace(Trace.INFO, "Running " + installGoal + " goal on project: " + mappedProject.getName());
                                     LibertyMaven.runMavenGoal(mappedProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
                                     wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
