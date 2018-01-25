@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2016 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.jmx;
 
@@ -36,14 +36,14 @@ import javax.net.ssl.TrustManager;
 
 import org.eclipse.core.runtime.IPath;
 
-import sun.net.util.IPAddressUtil;
-
 import com.ibm.ws.st.core.internal.ApplicationNotificationListener;
 import com.ibm.ws.st.core.internal.ConfigurationListener;
 import com.ibm.ws.st.core.internal.FileUtil;
 import com.ibm.ws.st.core.internal.Trace;
 import com.ibm.ws.st.core.internal.security.LibertySecurityHelper;
 import com.ibm.ws.st.core.internal.security.LibertyX509TrustManager;
+
+import sun.net.util.IPAddressUtil;
 
 /**
  * JMX connection helper class.
@@ -399,12 +399,22 @@ public class JMXConnection {
     }
 
     public void notifyFileChanges(Collection<String> added, Collection<String> changed, Collection<String> removed) throws Exception {
-        if (Trace.ENABLED)
-            Trace.trace(Trace.JMX, "notify server file changed");
+        if (Trace.ENABLED) {
+            Trace.trace(Trace.JMX, "Notify the server of added, changed and removed files");
+            traceNotifyFileChanges("Added files", added);
+            traceNotifyFileChanges("Changed files", changed);
+            traceNotifyFileChanges("Removed files", removed);
+        }
         String[] signature = new String[] { "java.util.Collection", "java.util.Collection", "java.util.Collection" };
         Collection<?>[] params = new Collection[] { added, changed, removed };
         invoke("WebSphere:service=com.ibm.ws.kernel.filemonitor.FileNotificationMBean",
                "notifyFileChanges", params, signature);
+    }
+
+    private void traceNotifyFileChanges(String title, Collection<String> files) {
+        if (files != null) {
+            Trace.trace(Trace.JMX, title + ": " + files);
+        }
     }
 
     public void generateDefaultPluginConfig() throws Exception {
