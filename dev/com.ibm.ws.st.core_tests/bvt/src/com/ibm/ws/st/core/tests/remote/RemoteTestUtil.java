@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2016 IBM Corporation and others.
+ * Copyright (c) 2016, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.remote;
 
@@ -42,6 +42,8 @@ import com.ibm.ws.st.core.tests.util.WLPCommonUtil;
  *
  */
 public class RemoteTestUtil extends ServerTestUtil {
+
+    private static Map<String, String> connectionInfoCache;
 
     public static void setRemotePreferences() {
         System.setProperty("wtp.autotest.noninteractive", "true");
@@ -153,48 +155,77 @@ public class RemoteTestUtil extends ServerTestUtil {
     }
 
     public static Map<String, String> getConnectionInfo() {
-        String hostname = System.getProperty("liberty.remote.hostname");
-        String username = System.getProperty("liberty.remote.username");
-        String password = System.getProperty("liberty.remote.password");
-        String httpsPort = System.getProperty("liberty.remote.https.port");
-        String osName = System.getProperty("liberty.remote.osname");
-        String osUser = System.getProperty("liberty.remote.oslogon.user");
-        String osPassword = System.getProperty("liberty.remote.oslogon.pass");
-        String sshUser = System.getProperty("liberty.remote.sshlogon.user");
-        String sshPassword = System.getProperty("liberty.remote.sshlogon.password");
-        String sshKeyFile = System.getProperty("liberty.remote.sshlogon.keyfile");
-        String installPath = System.getProperty("liberty.remote.installPath");
-        String configPath = System.getProperty("liberty.remote.configPath");
-        String logonMethod = System.getProperty("liberty.remote.logonMethod");
+        if (connectionInfoCache == null) {
+            String hostname = System.getProperty("liberty.remote.hostname");
+            String username = System.getProperty("liberty.remote.username");
+            String password = System.getProperty("liberty.remote.password");
+            String httpsPort = System.getProperty("liberty.remote.https.port");
+            String osName = System.getProperty("liberty.remote.osname");
+            String osUser = System.getProperty("liberty.remote.oslogon.user");
+            String osPassword = System.getProperty("liberty.remote.oslogon.pass");
+            String sshUser = System.getProperty("liberty.remote.sshlogon.user");
+            String sshPassword = System.getProperty("liberty.remote.sshlogon.password");
+            String sshKeyFile = System.getProperty("liberty.remote.sshlogon.keyfile");
+            String installPath = System.getProperty("liberty.remote.installPath");
+            String configPath = System.getProperty("liberty.remote.configPath");
+            String logonMethod = System.getProperty("liberty.remote.logonMethod");
 
-        Map<String, String> connectionInfo = new HashMap<String, String>();
-        if (hostname == null || hostname.isEmpty()) {
-            hostname = "localhost";
-        }
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.HOSTNAME, hostname);
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_USER, username);
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_PASSWORD, password);
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_HTTPS_PORT, httpsPort);
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_NAME, osName);
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.SSH_KEY, sshKeyFile);
-        if (com.ibm.ws.st.common.core.ext.internal.Constants.LOGON_METHOD_SSH.equals(logonMethod) && sshUser != null && sshPassword != null) {
-            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_USER, sshUser);
-            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_PASSWORD, sshPassword);
-        } else {
-            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_USER, osUser);
-            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_PASSWORD, osPassword);
-        }
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_RUNTIME_INSTALL_PATH, installPath);
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_SERVER_CONFIG_PATH, configPath);
-        addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LOGON_METHOD, logonMethod);
+            if (hostname == null || hostname.isEmpty()) {
+                hostname = "localhost";
+            } else {
+                // Allow for multiple test runs at the same time, trying to keep them from
+                // all accessing the same remote host.  This only works for Docker where a
+                // new server (container) is created for each test case since tests may
+                // still access the same host at the same time.  This is just meant to spread
+                // it around a bit.
+                String[] hostList = hostname.split(",");
+                if (hostList.length > 1) {
+                    // Support hostname, osName, osUser and osPassword being different, the
+                    // rest of the setup is expected to be the same.  More can be added later
+                    // if needed.
+                    int index = (int) (Math.random() * hostList.length);
+                    hostname = hostList[index];
+                    osName = getIndexedProperty(index, osName);
+                    osUser = getIndexedProperty(index, osUser);
+                    osPassword = getIndexedProperty(index, osPassword);
+                }
+            }
 
-        return connectionInfo;
+            Map<String, String> connectionInfo = new HashMap<String, String>();
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.HOSTNAME, hostname);
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_USER, username);
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_PASSWORD, password);
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_HTTPS_PORT, httpsPort);
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_NAME, osName);
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.SSH_KEY, sshKeyFile);
+            if (com.ibm.ws.st.common.core.ext.internal.Constants.LOGON_METHOD_SSH.equals(logonMethod) && sshUser != null && sshPassword != null) {
+                addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_USER, sshUser);
+                addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_PASSWORD, sshPassword);
+            } else {
+                addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_USER, osUser);
+                addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.OS_PASSWORD, osPassword);
+            }
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_RUNTIME_INSTALL_PATH, installPath);
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LIBERTY_SERVER_CONFIG_PATH, configPath);
+            addConnectionProperty(connectionInfo, com.ibm.ws.st.common.core.ext.internal.Constants.LOGON_METHOD, logonMethod);
+            connectionInfoCache = connectionInfo;
+        }
+
+        return connectionInfoCache;
     }
 
     private static void addConnectionProperty(Map<String, String> connectionInfo, String key, String value) {
         if (value != null && !value.isEmpty()) {
             connectionInfo.put(key, value);
         }
+    }
+
+    private static String getIndexedProperty(int index, String property) {
+        String[] list = property.split(",");
+        if (list.length > index) {
+            return list[index];
+        }
+        return list[0];
     }
 
 }

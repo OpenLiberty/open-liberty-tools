@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2017 IBM Corporation and others.
+ * Copyright (c) 2016, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.docker;
 
@@ -70,7 +70,7 @@ public class LibertyDockerTestExt extends StandaloneLibertyTestExt {
         }
 
         if (container == null) {
-            container = DockerTestUtil.getDockerContainer();
+            container = DockerTestUtil.getDockerContainer(machine);
         }
         assertNotNull("The docker container is null, this typically happens if the docker-machine isn't running", container);
 
@@ -265,12 +265,23 @@ public class LibertyDockerTestExt extends StandaloneLibertyTestExt {
     @Override
     public void cleanUp() {
         WLPCommonUtil.cleanUp();
+    }
 
-        //Only remove the container if a new one was created during the test
+    @Override
+    public void cleanUp(IServer server) {
+        // Get the container name from the server before the server is cleaned up
+        String containerName = null;
         if (!DockerTestUtil.isContainerSpecified()) {
-            String containerName = DockerTestUtil.getDockerContainerName();
+            containerName = DockerTestUtil.getContainerName(server);
+        }
+
+        WLPCommonUtil.cleanUp();
+
+        // Remove the container if a new one was created during test (it was not
+        // specified in the properties)
+        if (containerName != null) {
             try {
-                DockerTestUtil.getDockerMachine().removeContainer(containerName);
+                DockerTestUtil.getDockerMachine().removeContainer(containerName, true);
             } catch (Exception e) {
                 Trace.logError("Error removing the container: " + containerName, e);
             }
