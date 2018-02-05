@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2016 IBM Corporation and others.
+ * Copyright (c) 2016, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.docker;
 
@@ -78,7 +78,8 @@ public class DockerServerTest extends ToolsTestBase {
         }
 
         // get the featurelist from the runtime in the docker container
-        String containerName = DockerTestUtil.getDockerContainerName();
+        String containerName = DockerTestUtil.getContainerName(server);
+        assertNotNull("The container name for the " + server.getName() + " server should not be null.", containerName);
         BaseDockerContainer container = DockerTestUtil.getExistingContainer(DockerTestUtil.getDockerMachine(), containerName);
 
         // assert that only one restConnector feature is configured

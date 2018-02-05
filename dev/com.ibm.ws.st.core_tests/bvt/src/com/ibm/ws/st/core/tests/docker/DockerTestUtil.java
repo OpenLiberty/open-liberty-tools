@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2017 IBM Corporation and others.
+ * Copyright (c) 2016, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.wst.server.core.IServer;
 
 import com.ibm.ws.st.common.core.ext.internal.Constants;
 import com.ibm.ws.st.common.core.ext.internal.setuphandlers.IPlatformHandler;
@@ -25,11 +26,13 @@ import com.ibm.ws.st.common.core.ext.internal.setuphandlers.PlatformHandlerFacto
 import com.ibm.ws.st.common.core.ext.internal.util.AbstractDockerMachine;
 import com.ibm.ws.st.common.core.ext.internal.util.BaseDockerContainer;
 import com.ibm.ws.st.core.internal.Trace;
+import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.tests.remote.RemoteTestUtil;
 import com.ibm.ws.st.core.tests.util.ServerTestUtil;
 import com.ibm.ws.st.core.tests.util.WLPCommonUtil;
 import com.ibm.ws.st.docker.core.internal.launch.LibertyDockerRunUtility;
 import com.ibm.ws.st.docker.core.internal.launch.LibertyDockerRunUtility.MountProperty;
+import com.ibm.ws.st.docker.core.internal.launch.LibertyDockerServer;
 import com.ibm.ws.st.docker.ui.internal.wizard.LibertyDockerUtil;
 
 /**
@@ -52,14 +55,6 @@ public class DockerTestUtil extends ServerTestUtil {
     /* Get the docker-machine name, if not specified, assume default */
     private static String getDockerMachineName() {
         return System.getProperty("liberty.docker.machine", MACHINE_NAME);
-    }
-
-    /*
-     * Get an existing container name, a new container will be created if not specified.
-     * This does not return a default so the code knows not to cleanup the container.
-     */
-    public static String getDockerContainerName() {
-        return System.getProperty("liberty.docker.container", CONTAINER_NAME);
     }
 
     public static boolean isContainerSpecified() {
@@ -154,17 +149,38 @@ public class DockerTestUtil extends ServerTestUtil {
 
     /*
      * Get the container if it exists or create a new one. If no container name specified
-     * in the properties then use the default, deleting any existing container with that
-     * name (since it may not be set up properly).
+     * in the properties then generate a new random name.
      *
      * If you want to find an existing container, use getExistingContainer. The getDockerMachine and
      * getDockerContainerName methods can be used for the parameters.
      *
      */
     public static BaseDockerContainer getDockerContainer() throws Exception {
-        String containerName = getDockerContainerName();
-        boolean removeExisting = !isContainerSpecified();
-        return getDockerContainer(containerName, removeExisting, null);
+        return getDockerContainer(getDockerMachine());
+    }
+
+    public static BaseDockerContainer getDockerContainer(AbstractDockerMachine machine) throws Exception {
+        String containerName = System.getProperty("liberty.docker.container");
+        if (containerName == null || containerName.isEmpty()) {
+            containerName = generateContainerName(machine);
+        }
+        return getDockerContainer(containerName, false, null);
+    }
+
+    /*
+     * Generate a random container name making sure a container with the same
+     * name does not already exist.
+     *
+     * @return A random container name that is not already in use
+     */
+    public static String generateContainerName(AbstractDockerMachine machine) throws Exception {
+        List<String> containerNames = machine.getContainerNames(true);
+        String containerName;
+        do {
+            int id = (int) (Math.random() * Integer.MAX_VALUE);
+            containerName = CONTAINER_NAME + id;
+        } while (containerNames.contains(containerName));
+        return containerName;
     }
 
     /*
@@ -384,6 +400,19 @@ public class DockerTestUtil extends ServerTestUtil {
             print("Failed to get containers for machine: " + machine.getMachineName(), e);
         }
         print("Could not find a container with the name: " + containerName);
+        return null;
+    }
+
+    public static String getContainerName(IServer server) {
+        if (server != null) {
+            WebSphereServer wsServer = server.getAdapter(WebSphereServer.class);
+            if (wsServer != null) {
+                LibertyDockerServer serverExt = (LibertyDockerServer) wsServer.getAdapter(LibertyDockerServer.class);
+                if (serverExt != null) {
+                    return serverExt.getContainerName(wsServer);
+                }
+            }
+        }
         return null;
     }
 }
