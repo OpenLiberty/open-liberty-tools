@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 IBM Corporation and others.
+ * Copyright (c) 2012, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.actions;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -70,9 +71,16 @@ public class ShowInExplorerAction extends SelectionProviderAction {
             Element element = (Element) obj;
             // only enable on the root ("the file") element
             if (element.getParentNode() == element.getOwnerDocument()) {
-                WebSphereServerInfo wsi = (WebSphereServerInfo) Platform.getAdapterManager().getAdapter(obj, WebSphereServerInfo.class);
-                if (wsi != null)
+                WebSphereServerInfo wsi = Platform.getAdapterManager().getAdapter(obj, WebSphereServerInfo.class);
+                if (wsi != null) { // Classic Liberty
                     resource = wsi.getServerFolder();
+                } else {
+                	    // Runtime Providers
+                    IFile configFile = Platform.getAdapterManager().getAdapter(obj, IFile.class);
+                    if (configFile != null) {
+                        resource = configFile;
+                    }
+                }
             }
         } else if (obj instanceof UserDirectory) {
             UserDirectory userDir = (UserDirectory) obj;

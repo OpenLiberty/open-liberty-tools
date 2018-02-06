@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -39,6 +39,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -82,6 +83,8 @@ import com.ibm.websphere.crypto.PasswordUtil;
 import com.ibm.websphere.crypto.UnsupportedCryptoAlgorithmException;
 import com.ibm.ws.st.core.internal.Activator;
 import com.ibm.ws.st.core.internal.Constants;
+import com.ibm.ws.st.core.internal.LibertyRuntimeProvider;
+import com.ibm.ws.st.core.internal.LibertyRuntimeProviderExtension;
 import com.ibm.ws.st.core.internal.Trace;
 import com.ibm.ws.st.core.internal.URIUtil;
 import com.ibm.ws.st.core.internal.UserDirectory;
@@ -223,7 +226,11 @@ public class ConfigUtils {
             in = file.getContents();
             IContentTypeManager contentTypeManager = Platform.getContentTypeManager();
             IContentType contentType = contentTypeManager.findContentTypeFor(in, file.getName());
-            if (CONTENT_TYPE_ID.equals(contentType.getId())) {
+            if (contentType == null) {
+                if (Trace.ENABLED)
+                    Trace.trace(Trace.WARNING, "The content type is null for the following file: "
+                                               + (file.getLocation() == null ? file.getFullPath().toOSString() : file.getLocation().toOSString()));
+            } else if (CONTENT_TYPE_ID.equals(contentType.getId())) {
                 return true;
             }
         } catch (Exception e) {
@@ -251,7 +258,10 @@ public class ConfigUtils {
             in = new FileInputStream(file);
             IContentTypeManager contentTypeManager = Platform.getContentTypeManager();
             IContentType contentType = contentTypeManager.findContentTypeFor(in, file.getName());
-            if (CONTENT_TYPE_ID.equals(contentType.getId())) {
+            if (contentType == null) {
+                if (Trace.ENABLED)
+                    Trace.trace(Trace.WARNING, "The content type is null for the following file: " + file.getAbsolutePath());
+            } else if (CONTENT_TYPE_ID.equals(contentType.getId())) {
                 return true;
             }
         } catch (Exception e) {
@@ -340,6 +350,51 @@ public class ConfigUtils {
             if (configFile != null)
                 return server;
         }
+
+        WebSphereServerInfo wsInfo = getServerFromRuntimeProviders(uri, servers);
+
+        if (wsInfo != null) {
+            return wsInfo;
+        }
+
+        return null;
+    }
+
+    private static ConfigurationFile getConfigFromRuntimeProviders(URI uri, WebSphereServerInfo server) {
+        final List<LibertyRuntimeProvider> list = LibertyRuntimeProviderExtension.getLibertyRuntimeProviders();
+        for (LibertyRuntimeProvider provider : list) {
+            URI targetConfigURI = provider.getTargetConfigFileLocation(uri, server);
+            if (targetConfigURI != null) { // Get the first one from the first extension
+                ConfigurationFile configFile = server.getConfigurationFileFromURI(targetConfigURI);
+                if (configFile != null)
+                    return configFile;
+            }
+        }
+        return null;
+    }
+
+    /*
+     * For any server.xml, return the WSInfo for the containing project
+     */
+    private static WebSphereServerInfo getServerFromRuntimeProviders(URI uri, WebSphereServerInfo[] servers) {
+        final List<LibertyRuntimeProvider> list = LibertyRuntimeProviderExtension.getLibertyRuntimeProviders();
+        for (LibertyRuntimeProvider provider : list) {
+            for (WebSphereServerInfo server : servers) {
+                URI alternateUri = provider.getTargetConfigFileLocation(uri, server);
+                // We found the right server so return the first one
+                if (alternateUri != null) {
+                    return server;
+                }
+            }
+        }
+        // Allow liberty runtime providers to provide their WSInfo for this particular uri, when the server has NOT been created in the Servers view.
+        for (LibertyRuntimeProvider provider : list) {
+            WebSphereServerInfo temporaryWSInfo = provider.getWebSphereServerInfo(uri);
+            if (temporaryWSInfo != null) {
+                return temporaryWSInfo;
+            }
+        }
+
         return null;
     }
 
@@ -397,6 +452,45 @@ public class ConfigUtils {
     }
 
     /**
+     * For any server.xml designated by uri, return the ConfigurationFile instance provided by
+     * the Custom Liberty Runtime Provider extension
+     *
+     * @param uri
+     * @return
+     */
+    public static ConfigurationFile getMappedConfigFile(URI uri) {
+        WebSphereServerInfo[] servers = WebSphereUtil.getWebSphereServerInfos();
+        for (WebSphereServerInfo server : servers) {
+            ConfigurationFile configFile = getConfigFromRuntimeProviders(uri, server);
+            if (configFile != null) {
+                // Then we have a mapped config file
+                return configFile;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * For any server.xml designated by uri, return the ConfigurationFile instance provided by
+     * the Custom Liberty Runtime Provider extension
+     *
+     * @param uri
+     * @return
+     */
+    public static IFile getMappedConfigIFile(URI uri) {
+        IContainer[] containers = ResourcesPlugin.getWorkspace().getRoot().findContainersForLocationURI(uri);
+        if (containers != null && containers.length == 1) { // Should only be the one
+            IContainer container = containers[0];
+            IProject project = container.getProject();
+            IResource file = project.findMember(container.getProjectRelativePath());
+            if (file instanceof IFile && file.exists()) {
+                return (IFile) file;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Lookup the server for a configuration URI.
      *
      * Do not call this method from a thread that has a lock on a runtime as
@@ -422,6 +516,12 @@ public class ConfigUtils {
             }
         }
 
+        // Allow ghost runtime providers to provide the server (could be a ghost runtime)
+        WebSphereServerInfo wsInfo = getServerFromRuntimeProviders(docURI, servers);
+        if (wsInfo != null) {
+            return wsInfo;
+        }
+
         // The document may be within a server directory but not included
         // anywhere yet.  Check for this as well.
         for (WebSphereServerInfo server : servers) {
@@ -431,6 +531,18 @@ public class ConfigUtils {
             }
         }
 
+        return null;
+    }
+
+    public static IFolder getMappedConfigFolder(IResource resource) {
+        List<LibertyRuntimeProvider> list = LibertyRuntimeProviderExtension.getLibertyRuntimeProviders();
+        for (LibertyRuntimeProvider provider : list) {
+            // This will allow any configuration file to be validated against the ghost runtime.
+            IFolder configFolder = provider.getConfigFolder(resource);
+            if (configFolder != null) { // Get the first one from the first extension
+                return configFolder;
+            }
+        }
         return null;
     }
 
@@ -477,6 +589,14 @@ public class ConfigUtils {
                     return userDir;
                 }
             }
+        }
+
+        // At this point, it is likely that there is no runtime and no server created for this particular
+        // configuration file. (Likely a stand-alone file, or a file in a specialized build project)
+        // Allow custom liberty runtime providers to contribute their own user directory
+        WebSphereServerInfo wsInfo = getServerFromRuntimeProviders(docURI, servers);
+        if (wsInfo != null) {
+            return wsInfo.getUserDirectory();
         }
 
         return null;
@@ -604,7 +724,19 @@ public class ConfigUtils {
             return;
         }
 
-        final URI includeURI = resolve(uri, location, serverInfo, userDir);
+        // We must allow Custom Runtime Providers to override this location first
+        final IResource project = userDir.getProject();
+        final IFolder mappedConfigFolder = ConfigUtils.getMappedConfigFolder(project);
+        String mappedLocation = null;
+        if (mappedConfigFolder != null) {
+            // we will simply append the path value (the value of the include element) to this config folder path
+            final IResource includeFile = mappedConfigFolder.findMember(location);
+            if (includeFile != null && includeFile.exists()) {
+                mappedLocation = includeFile.getLocation().toString();
+            }
+        }
+
+        final URI includeURI = resolve(uri, mappedLocation != null ? mappedLocation : location, serverInfo, userDir);
         // We process the include configuration, if the URI exists and we
         // have not seen it before
         if (includeURI != null && !includeFilter.contains(includeURI) && new File(includeURI).exists()) {

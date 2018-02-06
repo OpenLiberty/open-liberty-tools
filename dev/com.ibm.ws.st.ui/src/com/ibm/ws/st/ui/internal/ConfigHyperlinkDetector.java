@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 IBM Corporation and others.
+ * Copyright (c) 2012, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,11 +13,15 @@ package com.ibm.ws.st.ui.internal;
 import java.net.URI;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IRegion;
 import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.hyperlink.IHyperlink;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.wst.sse.core.internal.provisional.text.IStructuredDocument;
 import org.eclipse.wst.sse.core.internal.provisional.text.IStructuredDocumentRegion;
 import org.eclipse.wst.sse.core.internal.provisional.text.ITextRegion;
@@ -156,6 +160,25 @@ public class ConfigHyperlinkDetector extends BaseHyperlinkDetector {
             if (include != null && !include.trim().isEmpty()) {
                 URI uri = null;
                 WebSphereServerInfo serverInfo = ConfigUtils.getServerInfo(baseURI);
+
+                // We must check the Custom Runtime Provider extensions FIRST because they can override
+                // the location of the include file.   eg. location="fileA" may not necessarily mean that fileA is in the
+                // current directory as the server.xml.   fileA could be located anywhere in the project.
+                if (editorInput instanceof IFileEditorInput) {
+                    IFileEditorInput fileEditorInput = (IFileEditorInput) editorInput;
+                    IFile file = fileEditorInput.getFile();
+                    IFolder mappedConfigFolder = ConfigUtils.getMappedConfigFolder(file);
+                    if (mappedConfigFolder != null) {
+                        IResource includeFile = mappedConfigFolder.findMember(include);
+                        uri = includeFile.getLocationURI();
+                        if (uri != null) {
+                            return new IHyperlink[] { new ConfigHyperlink(region, DocumentLocation.createDocumentLocation(uri, DocumentLocation.Type.SERVER_XML), include) };
+                        }
+                    }
+                }
+
+                // Regular behavior
+
                 if (serverInfo != null) {
                     uri = serverInfo.resolve(baseURI, include);
                 } else {

@@ -1,15 +1,16 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.config.validation;
 
+import java.io.IOException;
 import java.net.URI;
 
 import org.eclipse.core.resources.IFile;
@@ -43,7 +44,8 @@ public class DOMModelValidationContext extends ValidationContext {
     private final WebSphereServerInfo server;
     private final UserDirectory userDirectory;
 
-    public DOMModelValidationContext(IFile resource, WebSphereServerInfo server, UserDirectory userDirectory, ValidationContext parent, IncludeConflictResolution conflictResolution) throws Exception {
+    public DOMModelValidationContext(IFile resource, WebSphereServerInfo server, UserDirectory userDirectory, ValidationContext parent,
+                                     IncludeConflictResolution conflictResolution) throws Exception {
         super(parent, conflictResolution);
         this.resource = resource;
         this.server = server;
@@ -86,7 +88,24 @@ public class DOMModelValidationContext extends ValidationContext {
     /** {@inheritDoc} */
     @Override
     public ConfigurationFile getConfigFile() {
-        return ConfigUtils.getConfigFile(resource);
+        ConfigurationFile configFile = ConfigUtils.getConfigFile(resource);
+        if (configFile == null) {
+            try {
+                // At this point, it is not the "classic" liberty case.
+                // Runtime provider extensions can provide source server config files.  Get it from the associated WSInfo
+                WebSphereServerInfo wsInfo = ConfigUtils.getServer(resource.getLocationURI());
+                if (wsInfo != null) {
+                    configFile = wsInfo.getConfigRoot(); // this is the Config File instance for the 'source' config for runtime providers
+                } else { // else, just create the config file
+                    configFile = new ConfigurationFile(resource.getLocationURI(), userDirectory);
+                }
+            } catch (IOException e) {
+                if (Trace.ENABLED) {
+                    Trace.trace(Trace.WARNING, "Could not create configuration file: " + resource.getLocationURI());
+                }
+            }
+        }
+        return configFile;
     }
 
     /** {@inheritDoc} */

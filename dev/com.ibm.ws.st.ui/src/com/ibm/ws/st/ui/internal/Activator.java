@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -75,6 +75,7 @@ import com.ibm.ws.st.core.internal.PromptHandler;
 import com.ibm.ws.st.core.internal.PublishWithErrorHandler;
 import com.ibm.ws.st.core.internal.RuntimeFeatureResolver.FeatureConflict;
 import com.ibm.ws.st.core.internal.UserDirectory;
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.WebSphereUtil;
@@ -226,27 +227,47 @@ public class Activator extends AbstractUIPlugin {
             @Override
             public boolean handleFeatureConflicts(final WebSphereServerInfo wsServerInfo, final Map<String, List<String>> requiredFeatures, final Set<FeatureConflict> conflicts,
                                                   final boolean quickFixMode) {
+                return invokeDialog(wsServerInfo, null, null, requiredFeatures, conflicts, quickFixMode);
+            }
+
+            @Override
+            public boolean handleFeatureConflicts(WebSphereRuntime wsRuntime, ConfigurationFile file, Map<String, List<String>> requiredFeatures, Set<FeatureConflict> conflicts,
+                                                  boolean quickFixMode) {
+                return invokeDialog(null, wsRuntime, file, requiredFeatures, conflicts, quickFixMode);
+            }
+
+            // Two situations: (See above two methods)
+            //     1. wsServerInfo must be non-null and wsRuntime and configFile are null
+            // OR  2. wsServerInfo is null and wsRuntime and configFile are non-null
+
+            private boolean invokeDialog(final WebSphereServerInfo wsServerInfo, final WebSphereRuntime wsRuntime, final ConfigurationFile configFile,
+                                         final Map<String, List<String>> requiredFeatures, final Set<FeatureConflict> conflicts,
+                                         final boolean quickFixMode) {
                 final FeatureConflictDialog[] dialog = new FeatureConflictDialog[1];
                 final int[] response = { -1 };
                 Display.getDefault().syncExec(new Runnable() {
                     @Override
                     public void run() {
                         Shell shell = Display.getDefault().getActiveShell();
-                        dialog[0] = new FeatureConflictDialog(shell, wsServerInfo, requiredFeatures, conflicts);
+                        if (wsRuntime != null && configFile != null) {
+                            dialog[0] = new FeatureConflictDialog(shell, wsRuntime, configFile, requiredFeatures, conflicts);
+                        } else {
+                            dialog[0] = new FeatureConflictDialog(shell, wsServerInfo, requiredFeatures, conflicts);
+                        }
                         dialog[0].setShowIgnoreButton(!quickFixMode);
                         response[0] = dialog[0].open();
                     }
                 });
-
-                WebSphereServer wsServer = WebSphereUtil.getWebSphereServer(wsServerInfo);
-                if (wsServer != null) {
-                    if (response[0] == IDialogConstants.IGNORE_ID) {
-                        wsServer.saveIgnoredFeatureConflicts(dialog[0].getConflicts());
-                    } else if (!quickFixMode || (quickFixMode && dialog[0].getRemainingConflictsSize() == 0)) {
-                        wsServer.saveIgnoredFeatureConflicts(null);
+                if (wsServerInfo != null) {
+                    WebSphereServer wsServer = WebSphereUtil.getWebSphereServer(wsServerInfo);
+                    if (wsServer != null) {
+                        if (response[0] == IDialogConstants.IGNORE_ID) {
+                            wsServer.saveIgnoredFeatureConflicts(dialog[0].getConflicts());
+                        } else if (!quickFixMode || (quickFixMode && dialog[0].getRemainingConflictsSize() == 0)) {
+                            wsServer.saveIgnoredFeatureConflicts(null);
+                        }
                     }
                 }
-
                 if (dialog[0].getReturnCode() != 0)
                     return false;
                 return dialog[0].isChanged();
@@ -837,8 +858,14 @@ public class Activator extends AbstractUIPlugin {
 
     private static ConfigurationFile getConfigFile(URI uri) {
         ConfigurationFile configFile = ConfigUtils.getConfigFile(uri);
-        if (configFile != null)
+        if (configFile != null) {
             return configFile;
+        }
+        // let Custom Liberty Runtime Providers provide their 'mapped' Config File
+        configFile = ConfigUtils.getMappedConfigFile(uri);
+        if (configFile != null) {
+            return configFile;
+        }
 
         UserDirectory userDir = ConfigUtils.getUserDirectory(uri);
         if (userDir != null) {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,12 +13,9 @@ package com.ibm.ws.st.liberty.gradle.manager.internal;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -129,8 +126,25 @@ public class GradleProjectInspector implements IProjectInspector {
         // Note the Gradle build can be configurable.  The default value is 'build'.
         IFile f = project.getFile(LibertyGradleConstants.LIBERTY_PLUGIN_CONFIG_PATH);
         // Check the if the Gradle build has the file.
+        
+        if (!f.exists()) {
+           	Trace.trace(Trace.INFO, "The gradle project " + project.getName() + " does not have the liberty plugin config path.  Liberty Tools will not recognize this as a Liberty Gradle project.");
+        }
+        
         if (f != null && f.exists())
             return f.getLocation().toFile();
+        
+        IFile buildGradleFile = project.getFile("build.gradle");
+        IFile settingsGradleFile = project.getFile("settings.gradle"); // Groovy file
+        
+		// Bug fix: Gradle Connector taking a long time to connect on "invalid" projects.  The project
+	    // has the Gradle nature but it has no Liberty Build Plugin file (except the one from Liberty Maven, but it is in a different
+	    // location/path), and no build.gradle file and no settings.gradle file.   Need to short-cut these checks.
+        if (!buildGradleFile.exists() && !settingsGradleFile.exists()) {
+        	    // For the sample, both of these conditions are true, so we return to avoid invoking the Gradle connector.
+        	    // If the build.gradle file does exist or the settings file exists, then proceed with establishing the Gradle connectior
+        		return null;
+        }
 
         // If we can't find it, we will have to inspect.
         // Check if it is a Gradle Project

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -271,12 +271,21 @@ public class WebSphereServerInfo implements IMetadataGenerator {
         }
     }
 
+    /**
+     * Allow extenders to provide their own BootstrapFile
+     *
+     * @return
+     */
+    protected File getBootstrapFile() {
+        return getServerPath().append(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE).toFile();
+    }
+
     private boolean updateBootstrap() {
         synchronized (infoLock) {
             boolean changed = false;
             try {
                 // get the bootstrap.properties file
-                final File bootstrapFile = getServerPath().append(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE).toFile();
+                final File bootstrapFile = getBootstrapFile();
 
                 // we have a boostrap.properties file
                 if (bootstrapFile.exists()) {
@@ -309,11 +318,20 @@ public class WebSphereServerInfo implements IMetadataGenerator {
         }
     }
 
+    /**
+     * Allow extenders to provide their own server.env file
+     *
+     * @return
+     */
+    protected File getServerEnvFile() {
+        return getServerPath().append(ExtendedConfigFile.SERVER_ENV_FILE).toFile();
+    }
+
     private boolean updateServerEnv() {
         synchronized (infoLock) {
             boolean changed = false;
             try {
-                File serverEnvFile = getServerPath().append(ExtendedConfigFile.SERVER_ENV_FILE).toFile();
+                File serverEnvFile = getServerEnvFile();
                 if (serverEnvFile.exists()) {
                     if (serverEnv == null || serverEnv.hasChanged()) {
                         changed = true;

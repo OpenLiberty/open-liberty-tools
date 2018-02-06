@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 IBM Corporation and others.
+ * Copyright (c) 2015, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,6 +18,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import com.ibm.ws.st.core.internal.UserDirectory;
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.core.internal.config.validation.AbstractConfigurationValidator;
@@ -48,12 +50,25 @@ public class QuickFixAddSecurityElements extends AbstractMarkerResolution {
             return;
 
         WebSphereServerInfo wsInfo = configFile.getWebSphereServer();
-        if (wsInfo == null)
-            return;
 
         boolean securityEnabled = marker.getAttribute(AbstractConfigurationValidator.APP_SECURITY_ENABLED, false);
         Shell shell = Display.getDefault().getActiveShell();
-        AddSecurityElementsDialog dialog = new AddSecurityElementsDialog(shell, wsInfo, securityEnabled);
+
+        AddSecurityElementsDialog dialog = null;
+        if (wsInfo != null) { // classic scenario
+            dialog = new AddSecurityElementsDialog(shell, wsInfo, securityEnabled);
+        } else {
+            // Give Liberty Runtime provider extensions a chance
+            UserDirectory userDirectory = configFile.getUserDirectory();
+            if (userDirectory != null) {
+                WebSphereRuntime wsRuntime = userDirectory.getWebSphereRuntime();
+                dialog = new AddSecurityElementsDialog(shell, wsRuntime, configFile, securityEnabled);
+            }
+            if (dialog == null) {
+                showErrorMessage();
+                return;
+            }
+        }
         if (dialog.open() == IStatus.OK) {
             try {
                 configFile.save(null);

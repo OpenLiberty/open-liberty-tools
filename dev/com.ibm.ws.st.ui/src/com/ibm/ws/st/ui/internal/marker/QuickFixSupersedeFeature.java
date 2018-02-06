@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2015 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,6 +19,8 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import com.ibm.ws.st.core.internal.UserDirectory;
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.ui.internal.Messages;
 import com.ibm.ws.st.ui.internal.Trace;
@@ -66,7 +68,22 @@ public class QuickFixSupersedeFeature extends AbstractMarkerResolution {
 
     private String[] getReplacementFeatures(ConfigurationFile configFile) {
         Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-        SupersedeFeatureDialog dialog = new SupersedeFeatureDialog(shell, configFile.getWebSphereServer(), feature);
+        SupersedeFeatureDialog dialog = null;
+        WebSphereRuntime webSphereRuntime = null;
+        if (configFile.getWebSphereServer() != null) { // Usual classic case for a server config
+            dialog = new SupersedeFeatureDialog(shell, configFile.getWebSphereServer(), feature);
+        } else {
+            // Let Liberty runtime providers a chance to provide this runtime.  Each config file in the project has an associated user directory and a runtime
+            UserDirectory userDirectory = configFile.getUserDirectory();
+            if (userDirectory != null) {
+                webSphereRuntime = userDirectory.getWebSphereRuntime();
+                dialog = new SupersedeFeatureDialog(shell, webSphereRuntime, configFile, feature);
+            }
+            if (dialog == null) {
+                return null;
+            }
+        }
+
         if (dialog.open() == Window.CANCEL)
             return null;
         return dialog.getReplacementFeatures();

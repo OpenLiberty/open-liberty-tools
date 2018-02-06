@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 IBM Corporation and others.
+ * Copyright (c) 2015, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -51,6 +51,22 @@ public class AddSecurityElementsDialog extends TitleAreaDialog {
     protected Button addUserRegistryButton;
     protected Text userNameText;
     protected Text userPasswordText;
+
+    /**
+     * For Use by Custom Liberty Runtime Providers Only.
+     *
+     * @param parent
+     * @param wsRuntime
+     * @param configFile
+     * @param appSecurityEnabled
+     */
+    public AddSecurityElementsDialog(Shell parent, WebSphereRuntime wsRuntime, ConfigurationFile configFile, boolean appSecurityEnabled) {
+        super(parent);
+        this.wsRuntime = wsRuntime;
+        this.configFile = configFile; // This is the src config file and it will be updated instead of the one in the target
+        this.appSecurityEnabled = appSecurityEnabled;
+        setTitleImage(Activator.getImage(Activator.IMG_WIZ_SERVER));
+    }
 
     public AddSecurityElementsDialog(Shell parent, WebSphereServerInfo serverInfo, boolean appSecurityEnabled) {
         super(parent);

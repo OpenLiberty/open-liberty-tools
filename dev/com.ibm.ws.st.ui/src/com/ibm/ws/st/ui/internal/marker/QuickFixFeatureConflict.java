@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 IBM Corporation and others.
+ * Copyright (c) 2015, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,6 +23,8 @@ import com.ibm.ws.st.core.internal.Activator;
 import com.ibm.ws.st.core.internal.FeatureConflictHandler;
 import com.ibm.ws.st.core.internal.RuntimeFeatureResolver;
 import com.ibm.ws.st.core.internal.RuntimeFeatureResolver.ResolverResult;
+import com.ibm.ws.st.core.internal.UserDirectory;
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.ui.internal.Messages;
@@ -53,18 +55,35 @@ public class QuickFixFeatureConflict extends AbstractMarkerResolution {
         if (configFile == null)
             return;
 
+        WebSphereRuntime webSphereRuntime = null;
         WebSphereServerInfo wsInfo = configFile.getWebSphereServer();
-        if (wsInfo == null)
+        if (wsInfo != null) {
+            webSphereRuntime = wsInfo.getWebSphereRuntime();
+        } else {
+            // Let runtime providers a chance to provide this runtime.
+            // For these configuration files, there should be an associated user directory and runtime
+            UserDirectory userDirectory = configFile.getUserDirectory();
+            if (userDirectory != null) {
+                webSphereRuntime = userDirectory.getWebSphereRuntime();
+            }
+        }
+        if (webSphereRuntime == null) {
             return;
+        }
 
         FeatureConflictHandler featureConflictHandler = Activator.getFeatureConflictHandler();
         if (featureConflictHandler == null)
             return;
 
-        ResolverResult result = RuntimeFeatureResolver.resolve(wsInfo.getWebSphereRuntime(), configFile.getAllFeatures());
+        ResolverResult result = RuntimeFeatureResolver.resolve(webSphereRuntime, configFile.getAllFeatures());
         final Map<String, List<String>> alwaysAdd = new HashMap<String, List<String>>();
-        if (!featureConflictHandler.handleFeatureConflicts(wsInfo, alwaysAdd, result.getFeatureConflicts(), true))
-            return;
+        if (wsInfo != null) {
+            if (!featureConflictHandler.handleFeatureConflicts(wsInfo, alwaysAdd, result.getFeatureConflicts(), true))
+                return;
+        } else {
+            if (!featureConflictHandler.handleFeatureConflicts(webSphereRuntime, configFile, alwaysAdd, result.getFeatureConflicts(), true))
+                return;
+        }
 
         try {
             configFile.save(null);

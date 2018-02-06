@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
+<!--
+    Copyright (c) 2017, 2018 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
 <plugin>
    <extension
          point="org.eclipse.ui.preferencePages"> 
@@ -119,4 +129,8 @@
     <extension point="org.eclipse.ui.startup">
      <startup class="com.ibm.ws.st.liberty.gradle.internal.EarlyStartup"/>
    </extension>
+
+    <extension point="com.ibm.ws.st.core.libertyRuntimeProvider">
+         <provider class="com.ibm.ws.st.liberty.gradle.manager.internal.LibertyGradleRuntimeProvider"></provider>
+    </extension>
 </plugin>
