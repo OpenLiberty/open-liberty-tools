@@ -166,7 +166,7 @@ public abstract class AbstractConfigurationValidator {
                     userDir = serverInfo.getUserDirectory();
                     wsRuntime = serverInfo.getWebSphereRuntime();
                 } else {
-                    userDir = ConfigUtils.getUserDirectory(uri);
+                    userDir = ConfigUtils.getUserDirectory(uri, context.getResource());
                     if (userDir != null) {
                         wsRuntime = userDir.getWebSphereRuntime();
                     } else {
@@ -1004,8 +1004,10 @@ public abstract class AbstractConfigurationValidator {
      */
     private ValidationContext getCommonParent(ValidationContext context, String featureName) {
         ValidationContext toplevl = context;
-        while (!hasFeature(toplevl.getConfigFile(), featureName)) {
-            toplevl = toplevl.getParent();
+        if (toplevl.getConfigFile() != null) {
+            while (!hasFeature(toplevl.getConfigFile(), featureName)) {
+                toplevl = toplevl.getParent();
+            }
         }
         return toplevl;
     }

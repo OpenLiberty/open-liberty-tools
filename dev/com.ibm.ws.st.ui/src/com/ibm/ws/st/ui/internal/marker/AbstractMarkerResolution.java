@@ -46,7 +46,7 @@ public abstract class AbstractMarkerResolution implements IMarkerResolution {
         ConfigurationFile configFile = ConfigUtils.getConfigFile(resource);
         if (configFile == null) {
             final URI uri = resource.getLocation().toFile().toURI();
-            UserDirectory userDir = ConfigUtils.getUserDirectory(uri);
+            UserDirectory userDir = ConfigUtils.getUserDirectory(uri, resource);
             if (userDir != null) {
                 try {
                     configFile = new ConfigurationFile(uri, userDir);

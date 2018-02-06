@@ -439,8 +439,13 @@ public class SchemaUtil {
                 // The cache is not populated, so let's ask the model for
                 // the node of the root element -- update the cache
                 if (cmDoc == null && dom != null && dom.getDocumentElement() != null) {
-                    modelQuery.getCMNode(dom.getDocumentElement());
-                    cmDoc = cache.getCMDocument(s);
+                    CMNode cmNode = modelQuery.getCMNode(dom.getDocumentElement());
+                    // Should update the cache
+                    if (cmNode != null) {
+//                      cmDoc = (CMDocument) cmNode.getProperty("CMDocument"); //$NON-NLS-1$
+                        cmDoc = modelQuery.getCorrespondingCMDocument(dom.getDocumentElement());
+                        cache.putCMDocument(s, cmDoc);
+                    }
                 }
                 if (cmDoc != null) {
                     return cmDoc;

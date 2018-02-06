@@ -19,6 +19,8 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import com.ibm.ws.st.core.internal.WebSphereRuntime;
+import com.ibm.ws.st.core.internal.config.ConfigUtils;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.ui.internal.Messages;
 import com.ibm.ws.st.ui.internal.Trace;
@@ -66,7 +68,17 @@ public class QuickFixSupersedeFeature extends AbstractMarkerResolution {
 
     private String[] getReplacementFeatures(ConfigurationFile configFile) {
         Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
-        SupersedeFeatureDialog dialog = new SupersedeFeatureDialog(shell, configFile.getWebSphereServer(), feature);
+        SupersedeFeatureDialog dialog = null;
+        WebSphereRuntime webSphereRuntime = null;
+        if (configFile.getWebSphereServer() != null) {
+            webSphereRuntime = configFile.getWebSphereServer().getWebSphereRuntime();
+        } else {
+            // Perhaps the server config file is in a project that has a runtime.
+            // Let ghost runtime providers a chance to provide this runtime.
+            webSphereRuntime = ConfigUtils.getGhostWebSphereRuntime(configFile.getIFile());
+        }
+
+        dialog = new SupersedeFeatureDialog(shell, webSphereRuntime, configFile, feature);
         if (dialog.open() == Window.CANCEL)
             return null;
         return dialog.getReplacementFeatures();

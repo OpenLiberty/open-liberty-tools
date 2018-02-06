@@ -25,6 +25,7 @@
   <extension-point id="utilityExtension" name="%extensionPointUtilityExtension" schema="schema/utilityExtension.exsd"/>
   <extension-point id="customServerVariables" name="Custom Server Variables" schema="schema/customServerVariables.exsd"/>
   <extension-point id="metadataProvider" name="%extensionMetadataProviderExtension" schema="schema/metadataProvider.exsd"/>
+  <extension-point id="ghostRuntimeProvider" name="ghostRuntimeProvider" schema="schema/ghostRuntimeProvider.exsd"/>
   
   <extension point="org.eclipse.wst.server.core.runtimeLocators">
     <runtimeLocator
