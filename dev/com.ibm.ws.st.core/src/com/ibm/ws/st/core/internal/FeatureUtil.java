@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2015 IBM Corporation and others.
+ * Copyright (c) 2014, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -18,7 +18,7 @@ public class FeatureUtil {
 
     /**
      * Check to see if a feature1 is an older version of feature2
-     * 
+     *
      * @param feature1
      * @param feature2
      * @return true if condition satisfied, otherwise false
@@ -26,7 +26,7 @@ public class FeatureUtil {
     public static boolean isLowerVersion(String feature1, String feature2) {
         int index = feature1.indexOf(FEATURE_SEPARATOR);
 
-        if (index == -1 || feature2.indexOf(FEATURE_SEPARATOR) == -1)
+        if (index == -1 || feature2.indexOf(FEATURE_SEPARATOR) != index)
             return false;
 
         if (feature2.toLowerCase().startsWith(feature1.substring(0, index + 1).toLowerCase()))
@@ -38,7 +38,7 @@ public class FeatureUtil {
     /**
      * Check to see if a feature1 is directly enabled by feature2. Does not
      * check children.
-     * 
+     *
      * @param feature1
      * @param feature2
      * @return true if condition satisfied, otherwise false
@@ -68,7 +68,7 @@ public class FeatureUtil {
 
     /**
      * compare the versions of the featureA and featureB
-     * 
+     *
      * @param featureA
      * @param featureB
      * @return 1 if featureA's version is greater than featureB, -1 otherwise
@@ -97,7 +97,7 @@ public class FeatureUtil {
 
     /**
      * returns the first matching lower version of featureToCheck from given featureList.
-     * 
+     *
      * @param featureList
      * @param featureToCheck
      * @return first matching lower version feature
@@ -122,7 +122,7 @@ public class FeatureUtil {
      * Returns the feature with closest matching higher version than featureToCheck in the given featureList. for example,
      * if the featureToChech has version 1.2 and featureList has versions 1.3, 1.5, 2.0 then this method will return the feature
      * with version 1.3.
-     * 
+     *
      * @param featureList
      * @param featureToCheck
      * @return closest higher version feature

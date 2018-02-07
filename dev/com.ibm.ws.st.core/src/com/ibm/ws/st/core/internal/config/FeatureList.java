@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 IBM Corporation and others.
+ * Copyright (c) 2012, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.config;
 
@@ -47,7 +47,7 @@ public class FeatureList {
      * @param wsRuntime The runtime, null means use fall back feature list
      */
     public static String getCanonicalFeatureName(String featureName, WebSphereRuntime wsRuntime) {
-    	Feature feature = getFeature(featureName, wsRuntime);
+        Feature feature = getFeature(featureName, wsRuntime);
         if (feature != null)
             return feature.getName();
         return null;
@@ -236,6 +236,16 @@ public class FeatureList {
         return f.getApiJars();
     }
 
+    public static Set<String> getFeatureAPIPackages(String feature, WebSphereRuntime wsRuntime) {
+        Feature f = getFeature(feature, wsRuntime);
+        if (f == null) {
+            if (Trace.ENABLED)
+                Trace.trace(Trace.WARNING, "Unrecognized feature:" + feature);
+            return new HashSet<String>();
+        }
+        return f.getApiPackages();
+    }
+
     /**
      * Get the feature config elements.
      *
@@ -406,4 +416,5 @@ public class FeatureList {
         Feature f = getFeature(featureName, wsRuntime);
         return f == null ? null : f.getCategoryElements();
     }
+
 }

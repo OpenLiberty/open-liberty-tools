@@ -10,20 +10,11 @@
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.jee.featureDetection;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import com.ibm.ws.st.core.internal.WebSphereRuntime;
-import com.ibm.ws.st.core.internal.WebSphereServer;
-import com.ibm.ws.st.core.internal.config.ConfigurationFile;
-import com.ibm.ws.st.core.tests.ToolsTestBase;
-import com.ibm.ws.st.core.tests.util.FeatureUtil;
 import com.ibm.ws.st.core.tests.util.WLPCommonUtil;
 import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
 
@@ -32,8 +23,10 @@ import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
  */
 @TestCaseDescriptor(description = "Check required feature detection", isStable = true)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class MixedFeatureTest extends ToolsTestBase {
-    private static final Path RESOURCE_PATH = new Path("FeatureTesting/MixedFeatureTest");
+public class MixedFeatureTest extends BaseFeatureTest {
+    private static final String TEST_NAME = MixedFeatureTest.class.getSimpleName();
+    private static final Path RESOURCE_PATH = new Path("FeatureTesting/" + TEST_NAME);
+    private static final String SERVER_NAME = "MixedFeatureTestServer";
     private static final String WEB31_PROJECT = "Web31";
     private static final String WEB40_PROJECT = "Web40";
     private static final String JSP_PROJECT = "JSP";
@@ -58,10 +51,10 @@ public class MixedFeatureTest extends ToolsTestBase {
 
     @Test
     public void test01_doSetup() throws Exception {
-        print("Starting test: MixedFeatureTest");
+        print("Starting test: " + TEST_NAME);
         init();
         createRuntime();
-        createServer(runtime, "MixedFeatureTestServer", "resources/FeatureTesting/MixedFeatureTest/MixedFeatureTestServer");
+        createServer(runtime, SERVER_NAME, "resources/" + RESOURCE_PATH + "/" + SERVER_NAME);
         createVM(JDK_NAME);
         importProjects(RESOURCE_PATH, ALL_PROJECTS);
         startServer();
@@ -249,66 +242,11 @@ public class MixedFeatureTest extends ToolsTestBase {
         }
     }
 
-    private void checkFeatures(String... expectedFeatures) {
-        WebSphereRuntime wr = (WebSphereRuntime) runtime.loadAdapter(WebSphereRuntime.class, null);
-        WebSphereServer ws = (WebSphereServer) server.loadAdapter(WebSphereServer.class, null);
-        List<String> features = ws.getConfiguration().getFeatures();
-        print("After publish feature list");
-        for (String feature : features)
-            print(feature);
-        FeatureUtil.verifyFeatures(wr, expectedFeatures, features);
-    }
-
-    private void addFeature(String feature) {
-        WebSphereServer ws = (WebSphereServer) server.loadAdapter(WebSphereServer.class, null);
-        ConfigurationFile configFile = ws.getConfiguration();
-        configFile.addFeature(feature);
-        try {
-            configFile.save(new NullProgressMonitor());
-            ws.refreshConfiguration();
-        } catch (IOException e) {
-            print("Exception trying to save changes to config file " + configFile.getName() + " (" + e + ").");
-        }
-    }
-
-    private void clearFeatures() {
-        WebSphereServer ws = (WebSphereServer) server.loadAdapter(WebSphereServer.class, null);
-        ConfigurationFile configFile = ws.getConfiguration();
-        List<String> featureList = configFile.getFeatures();
-        for (int i = 0; i < featureList.size(); i++) {
-            if (featureList.get(i).toLowerCase().startsWith("localconnector")) {
-                featureList.remove(i);
-                break;
-            }
-        }
-        configFile.removeFeatures(featureList);
-        try {
-            configFile.save(new NullProgressMonitor());
-            ws.refreshConfiguration();
-        } catch (IOException e) {
-            print("Exception trying to save changes to config file " + configFile.getName() + " (" + e + ").");
-        }
-    }
-
-    private void cleanupAfterTest(String... projects) {
-        try {
-            removeApps(projects);
-        } catch (Exception e) {
-            print("Failed to remove projects", e);
-        }
-        clearFeatures();
-    }
-
-    @Override
-    protected boolean isLooseCfg() {
-        return true;
-    }
-
     @Test
     public void test99_doTearDown() throws Exception {
         stopServer();
         WLPCommonUtil.cleanUp();
-        wait("Ending test: MixedFeatureTest\n", 1000);
+        wait("Ending test: " + TEST_NAME + "\n", 1000);
     }
 
 }

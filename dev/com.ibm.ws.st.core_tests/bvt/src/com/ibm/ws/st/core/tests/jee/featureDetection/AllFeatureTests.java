@@ -38,6 +38,7 @@ public class AllFeatureTests {
             testsuites.add(ClientOnlyFeatureTest.class);
             testsuites.add(AlternativeFeatureTest.class);
             testsuites.add(MixedFeatureTest.class);
+            testsuites.add(ImportFeatureTest.class);
         }
         return testsuites;
     }

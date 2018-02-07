@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2016 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.generation;
 
@@ -29,7 +29,6 @@ import com.ibm.ws.kernel.feature.ProcessType;
 import com.ibm.ws.st.core.internal.config.FeatureList.FeatureMapType;
 import com.ibm.ws.st.core.internal.generation.Feature.FeatureType;
 
-
 public class FeatureInfoHandler extends DefaultHandler {
     private static final String FEATURE = "feature";
     private static final String FEATURE_INFO = "featureInfo";
@@ -39,7 +38,7 @@ public class FeatureInfoHandler extends DefaultHandler {
     private static final String DESCRIPTION = "description";
     private static final String CATEGORY = "category";
     private static final String API_JAR = "apiJar";
-    private static final String SPI_JAR = "apiJar";
+    private static final String SPI_JAR = "spiJar";
     private static final String API_PACKAGE = "apiPackage";
     private static final String SPI_PACKAGE = "spiPackage";
     private static final String ENABLES = "enables";
