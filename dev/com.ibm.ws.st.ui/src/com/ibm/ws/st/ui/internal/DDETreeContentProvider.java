@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,6 +14,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.Display;
@@ -338,7 +341,23 @@ public class DDETreeContentProvider extends TreeContentProvider {
                     URI baseUri = getURI(document);
                     UserDirectory userDir = getUserDirectory(document);
                     if (userDir != null) {
-                        URI includeURI = ConfigUtils.resolve(baseUri, include, userDir);
+                        // Must allow custom Liberty Runtime Providers to provide the include location FIRST because
+                        // it can be overridden.
+                        URI includeURI = null;
+                        IFile configIFile = ConfigUtils.getMappedConfigIFile(baseUri); // Don't want the userDir's 'runtime' project config file
+                        if (configIFile != null) {
+                            IFolder mappedConfigFolder = ConfigUtils.getMappedConfigFolder(configIFile.getProject());
+                            if (mappedConfigFolder != null) {
+                                IResource includeFile = mappedConfigFolder.findMember(include);
+                                if (includeFile != null) {
+                                    includeURI = includeFile.getLocationURI();
+                                }
+                            }
+                        }
+                        // If no providers override the location, then resolve it as usual
+                        if (includeURI == null) {
+                            includeURI = ConfigUtils.resolve(baseUri, include, userDir);
+                        }
                         if (includeURI == null)
                             return NO_CHILDREN;
                         try {

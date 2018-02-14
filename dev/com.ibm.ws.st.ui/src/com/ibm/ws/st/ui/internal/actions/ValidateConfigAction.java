@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,6 +12,7 @@ package com.ibm.ws.st.ui.internal.actions;
 
 import java.util.Iterator;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -56,11 +57,17 @@ public class ValidateConfigAction extends SelectionProviderAction {
                     // Excludes children of the server.xml
                     if (Constants.SERVER_ELEMENT.equals(element.getTagName())) {
                         WebSphereServerInfo wsi = Platform.getAdapterManager().getAdapter(obj, WebSphereServerInfo.class);
-
                         // Notify the Action delegate that the file to be Validated has changed
                         // The delegate only accepts ISelections, and the object contained in the selection
                         // must be an IResource.
-                        configFileSelection = new StructuredSelection(new Object[] { wsi.getConfigRoot().getIFile() });
+                        if (wsi != null) { // Classic Liberty
+                            configFileSelection = new StructuredSelection(new Object[] { wsi.getConfigRoot().getIFile() });
+                        } else { // Liberty Runtime Providers
+                            IFile configFile = Platform.getAdapterManager().getAdapter(obj, IFile.class);
+                            if (configFile != null) {
+                                configFileSelection = new StructuredSelection(new Object[] { configFile });
+                            }
+                        }
                         delegate.selectionChanged(this, configFileSelection);
                     }
                 } catch (Exception e) {

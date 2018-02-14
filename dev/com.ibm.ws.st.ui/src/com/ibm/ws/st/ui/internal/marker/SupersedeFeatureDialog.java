@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2015 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -42,6 +42,7 @@ import org.eclipse.swt.widgets.Text;
 import com.ibm.ws.st.core.internal.FeatureSet;
 import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.core.internal.config.FeatureList;
 import com.ibm.ws.st.ui.internal.Activator;
 import com.ibm.ws.st.ui.internal.Messages;
@@ -63,13 +64,24 @@ public class SupersedeFeatureDialog extends TitleAreaDialog {
     protected Text enabledByLabel;
     protected Text descriptionLabel;
     protected Table featureTable;
+    private final ConfigurationFile configRoot;
+
+    public SupersedeFeatureDialog(Shell parent, WebSphereRuntime wsRuntime, ConfigurationFile configRoot, String feature) {
+        super(parent);
+        this.feature = feature;
+
+        this.wsRuntime = wsRuntime;
+        this.configRoot = configRoot;
+
+        setTitleImage(Activator.getImage(Activator.IMG_WIZ_SERVER));
+    }
 
     public SupersedeFeatureDialog(Shell parent, WebSphereServerInfo serverInfo, String feature) {
         super(parent);
-        this.serverInfo = serverInfo;
         this.feature = feature;
 
-        wsRuntime = serverInfo.getWebSphereRuntime();
+        this.wsRuntime = serverInfo.getWebSphereRuntime();
+        this.configRoot = serverInfo.getConfigRoot();
 
         setTitleImage(Activator.getImage(Activator.IMG_WIZ_SERVER));
     }
@@ -175,7 +187,7 @@ public class SupersedeFeatureDialog extends TitleAreaDialog {
         Collections.sort(featureList);
 
         // find features that are already added (or supported by) the current config
-        List<String> configuredFeatures = serverInfo.getConfigRoot().getAllFeatures();
+        List<String> configuredFeatures = configRoot.getAllFeatures();
         configuredFeatures.remove(feature);
 
         currentFeatures = new ArrayList<String>();

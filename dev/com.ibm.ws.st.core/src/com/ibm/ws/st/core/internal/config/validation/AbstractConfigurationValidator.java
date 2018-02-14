@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,6 +22,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.Path;
@@ -485,8 +486,20 @@ public abstract class AbstractConfigurationValidator {
             ValidationContext newContext = null;
             ValidationContext mergedContext = null;
             try {
-                newContext = ValidationContext.createValidationContext(path, currentContext.getURI(), currentContext.getUserDirectory(), currentContext,
-                                                                       IncludeConflictResolution.MERGE);
+                // We have to check the Custom Runtime Provider extensions first, otherwise, we will flag
+                // include errors incorrectly.
+                IResource currentContextResource = currentContext.getResource();
+                IFolder mappedConfigFolder = ConfigUtils.getMappedConfigFolder(currentContextResource);
+                if (mappedConfigFolder != null) {
+                    // we will simply append the path value (the value of the include element) to this config folder path
+                    IResource includeFile = mappedConfigFolder.findMember(path);
+                    if (includeFile != null && includeFile.exists()) {
+                        newContext = ValidationContext.createValidationContext(includeFile, currentContext, IncludeConflictResolution.MERGE);
+                    }
+                } else {
+                    newContext = ValidationContext.createValidationContext(path, currentContext.getURI(), currentContext.getUserDirectory(), currentContext,
+                                                                           IncludeConflictResolution.MERGE);
+                }
                 if (newContext == null) {
                     if (Trace.ENABLED) {
                         Trace.trace(Trace.WARNING, "Failed to create validation context for include file " + path + ".");
@@ -1004,8 +1017,10 @@ public abstract class AbstractConfigurationValidator {
      */
     private ValidationContext getCommonParent(ValidationContext context, String featureName) {
         ValidationContext toplevl = context;
-        while (!hasFeature(toplevl.getConfigFile(), featureName)) {
+        ConfigurationFile configFile = toplevl.getConfigFile();
+        while (configFile != null && !hasFeature(configFile, featureName)) {
             toplevl = toplevl.getParent();
+            configFile = toplevl.getConfigFile();
         }
         return toplevl;
     }
