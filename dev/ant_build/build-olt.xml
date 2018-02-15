@@ -10,7 +10,7 @@
 -->
 
 <project name="olt_build" default="generateOpenLTUpdateSite">
-	<property name="level_tag" value="17.0.0.4"/>
+	<property name="level_tag" value="18.0.0.1"/>
 	<property name="delegate.build.dir" location="${basedir}/../" />
 	<property name="disable.run.executeMetatypeValidation" value="true"/>
 	<property name="disable.run.unzipIfixReleaseZip" value="true"/>
@@ -19,7 +19,8 @@
 	<tstamp>
 			<format property="buildLabel" pattern="yyyy-MM-dd_HHmm" timezone="UTC"/>
 	</tstamp>
-    <!--echo message="Build label is ${buildLabel}"/-->
+	
+    <echo message="Build label is ${buildLabel}"/>
 
     <dirname property="olt_build.basedir" file="${ant.file.olt_build}" />
 
