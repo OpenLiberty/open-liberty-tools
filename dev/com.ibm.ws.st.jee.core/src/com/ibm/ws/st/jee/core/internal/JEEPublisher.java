@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.core.internal;
 
@@ -165,7 +165,12 @@ public class JEEPublisher extends ApplicationPublisher {
                     if (jeeModule.isBinary() || JST_WEBFRAGMENT.equals(moduleTypeId)) {
                         publishJar(kind, unit.getDeltaKind(), module, jeeModule.isBinary(), helper, status, monitor);
                     } else {
-                        publishDir(kind, unit.getDeltaKind(), module, getDeployPath(module, false), helper, status, monitor);
+                        try {
+                            publishDir(kind, unit.getDeltaKind(), module, getDeployPath(module, false), helper, status, monitor);
+                        } catch (NullPointerException e) {
+                            status.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, NLS.bind(Messages.errorPublishingModule, module[size - 1])));
+                            e.printStackTrace();
+                        }
                     }
                 } else if (module[size - 1] instanceof DeletedModule) {
                     boolean skipDelete = false;

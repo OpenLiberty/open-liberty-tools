@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.core.internal;
 
@@ -25,6 +25,7 @@ public class Messages extends NLS {
     public static String errorNotSupportedModuleInEAR;
     public static String errorEARMissingRequiredModules;
     public static String errorGettingModulesInEAR;
+    public static String errorPublishingModule;
     public static String warningAppIsOnServer;
     public static String errorGenLooseConfigXML;
     public static String errorSharedLibProjectInfoIncomplete;
