@@ -153,11 +153,13 @@ public class Constants {
     public static final String API_VISIBILITY_ATTRIBUTE_VALUE_API = "api";
     public static final String API_VISIBILITY_ATTRIBUTE_VALUE_IBM_API = "ibm-api";
     public static final String API_VISIBILITY_ATTRIBUTE_VALUE_SPEC = "spec";
+    public static final String API_VISIBILITY_ATTRIBUTE_VALUE_STABLE = "stable";
     public static final String API_VISIBILITY_ATTRIBUTE_VALUE_THIRD_PARTY = "third-party";
 
     public static final String SHARED_LIBRARY_SETTING_API_VISIBILITY_API_KEY = "com.ibm.ws.st.core.api.visibility.api";
     public static final String SHARED_LIBRARY_SETTING_API_VISIBILITY_IBM_API_KEY = "com.ibm.ws.st.core.api.visibility.ibmapi";
     public static final String SHARED_LIBRARY_SETTING_API_VISIBILITY_SPEC_KEY = "com.ibm.ws.st.core.api.visibility.spec";
+    public static final String SHARED_LIBRARY_SETTING_API_VISIBILITY_STABLE_KEY = "com.ibm.ws.st.core.api.visibility.stable";
     public static final String SHARED_LIBRARY_SETTING_API_VISIBILITY_THIRD_PARTY_KEY = "com.ibm.ws.st.core.api.visibility.thirdparty";
 
     // prefix of runtime and server ids

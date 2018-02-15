@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2016 IBM Corporation and others.
+ * Copyright (c) 2011, 2016, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.ui.internal;
 
@@ -63,6 +63,7 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
     protected Button apiVisibilityCheckboxAPI;
     protected Button apiVisibilityCheckboxIBMAPI;
     protected Button apiVisibilityCheckboxSpec;
+    protected Button apiVisibilityCheckboxStable;
     protected Button apiVisibilityCheckboxThirdParty;
     protected EnumSet<APIVisibility> apiVisibility;
 
@@ -150,6 +151,10 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
         apiVisibilityCheckboxSpec.setText(Messages.sharedLibAPIVisibilitySpec);
         apiVisibilityCheckboxSpec.addSelectionListener(selectionListener);
 
+        apiVisibilityCheckboxStable = new Button(group, SWT.CHECK);
+        apiVisibilityCheckboxStable.setText(Messages.sharedLibAPIVisibilityStable);
+        apiVisibilityCheckboxStable.addSelectionListener(selectionListener);
+
         apiVisibilityCheckboxThirdParty = new Button(group, SWT.CHECK);
         apiVisibilityCheckboxThirdParty.setText(Messages.sharedLibAPIVisibilityThirdParty);
         apiVisibilityCheckboxThirdParty.addSelectionListener(selectionListener);
@@ -163,6 +168,7 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
         apiVisibilityCheckboxAPI.setSelection(apiVisibility.contains(APIVisibility.API));
         apiVisibilityCheckboxIBMAPI.setSelection(apiVisibility.contains(APIVisibility.IBM_API));
         apiVisibilityCheckboxSpec.setSelection(apiVisibility.contains(APIVisibility.SPEC));
+        apiVisibilityCheckboxStable.setSelection(apiVisibility.contains(APIVisibility.STABLE));
         apiVisibilityCheckboxThirdParty.setSelection(apiVisibility.contains(APIVisibility.THIRD_PARTY));
     }
 
@@ -193,7 +199,7 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
     @Override
     public boolean isValid() {
         return apiVisibilityCheckboxAPI.getSelection() || apiVisibilityCheckboxIBMAPI.getSelection() || apiVisibilityCheckboxSpec.getSelection()
-               || apiVisibilityCheckboxThirdParty.getSelection();
+               || apiVisibilityCheckboxStable.getSelection() || apiVisibilityCheckboxThirdParty.getSelection();
     }
 
     @Override
@@ -226,6 +232,7 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
                 settings.setProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_API_KEY, Boolean.toString(apiVisibilityCheckboxAPI.getSelection()));
                 settings.setProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_IBM_API_KEY, Boolean.toString(apiVisibilityCheckboxIBMAPI.getSelection()));
                 settings.setProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_SPEC_KEY, Boolean.toString(apiVisibilityCheckboxSpec.getSelection()));
+                settings.setProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_STABLE_KEY, Boolean.toString(apiVisibilityCheckboxStable.getSelection()));
                 settings.setProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_THIRD_PARTY_KEY, Boolean.toString(apiVisibilityCheckboxThirdParty.getSelection()));
             }
 
@@ -257,6 +264,7 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
         if (apiVisibilityCheckboxAPI.getSelection() != apiVisibility.contains(APIVisibility.API)
             || apiVisibilityCheckboxIBMAPI.getSelection() != apiVisibility.contains(APIVisibility.IBM_API)
             || apiVisibilityCheckboxSpec.getSelection() != apiVisibility.contains(APIVisibility.SPEC)
+            || apiVisibilityCheckboxStable.getSelection() != apiVisibility.contains(APIVisibility.STABLE)
             || apiVisibilityCheckboxThirdParty.getSelection() != apiVisibility.contains(APIVisibility.THIRD_PARTY)) {
             return true;
         }
