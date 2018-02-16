@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,7 +13,9 @@ package com.ibm.ws.st.liberty.buildplugin.integration.manager.internal;
 
 import java.io.FileNotFoundException;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -274,6 +276,24 @@ public abstract class AbstractLibertyProjectMapping {
             }
         }
         return null;
+    }
+
+    // Get all projects mapped to this runtime
+    public IProject[] getMappedProjects(IRuntime runtime) {
+        List<IProject> projects = new ArrayList<IProject>();
+        if (runtime != null) {
+            Set<String> mappedProjects = getMappedProjectSet();
+            for (String mappedProject : mappedProjects) {
+                ProjectMapping mapping = getMapping(mappedProject);
+                if (mapping == null)
+                    continue;
+                if (runtime.getId().equals(mapping.getRuntimeID())) {
+                    IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(mappedProject);
+                    projects.add(project);
+                }
+            }
+        }
+        return projects.toArray(new IProject[projects.size()]);
     }
 
     // ProjectMapping class

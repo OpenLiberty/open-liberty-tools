@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -606,7 +606,10 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                     // If this is the mapped runtime ensure it remains mapped, this could happen if the server needs to be generated
                     // but the runtime remains the same
                     ProjectMapping mapping = mappingHandler.getMapping(project.getName());
-                    if (runtime.getId().equals(mapping.getRuntimeID())) {
+                    if (mapping != null && runtime.getId().equals(mapping.getRuntimeID())) {
+                        mappedRuntime = runtime;
+                    } else if (mappingHandler.getMappedProjects(rt).length > 0) {
+                        // If the runtime is mapped to another project then share the runtime and map this project as well
                         mappedRuntime = runtime;
                     }
                     return Status.OK_STATUS;
@@ -621,7 +624,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                 return null;
             runtimeWc.setName(name);
             runtime = runtimeWc.save(true, null);
-            mappedRuntime = runtime; // map this server to the project
+            mappedRuntime = runtime; // map this runtime to the project
 
             WebSphereRuntime wsRuntime = (WebSphereRuntime) runtime.loadAdapter(WebSphereRuntime.class, null);
             IStatus status = wsRuntime.validate();
@@ -830,11 +833,13 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
 
     private class DeletionJob extends WorkspaceJob {
         IRuntime runtime;
+        IServer server;
         IProject proj;
 
         public DeletionJob(String name, IProject proj, IRuntime runtime, IServer server) {
             super(name);
             this.runtime = runtime;
+            this.server = server;
             this.proj = proj;
         }
 
@@ -861,47 +866,62 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                 return;
             }
 
-            // check if runtime is targeted
-            boolean inUse = false;
-            try {
-                inUse = FacetUtil.isRuntimeTargeted(runtime);
-            } catch (Throwable t) {
-                // ignore - facet framework not found
-            }
-
-            List<IServer> serverList = getServerList(runtime);
-            if (!serverList.isEmpty()) {
-                try {
-                    ensureServersStopped(serverList, monitor);
-                    Trace.trace(Trace.INFO, "Deleting servers associated with runtime: " + runtime.getName());
-                    for (IServer s : serverList) {
-                        Trace.trace(Trace.INFO, "Deleting server: " + s.getName());
-                        s.delete();
-                    }
-                } catch (Exception e) {
-                    Trace.logError("Problem encountered while deleting servers", e);
-                    return;
-                }
-
-                if (!inUse) {
+            if (mappingHandler.getMappedProjects(runtime).length > 1) {
+                // The runtime is being used by other projects so only delete the server
+                Trace.trace(Trace.INFO, "The " + runtime.getName() + " is being used by other projects.");
+                if (server != null) {
                     try {
-                        Trace.trace(Trace.INFO, "Removing target facets for runtime: " + runtime.getName());
-                        FacetUtil.removeTargets(runtime, new NullProgressMonitor());
-                    } catch (Throwable t) {
-                        // facet framework failure, or may be missing entirely
-                        if (Trace.ENABLED)
-                            Trace.trace(Trace.WARNING, "Error deleting facet targets", t);
+                        ensureServersStopped(monitor, server);
+                        Trace.trace(Trace.INFO, "Deleting server: " + server.getName());
+                        server.delete();
+                    } catch (Exception e) {
+                        Trace.logError("A problem was encountered trying to remove the server: " + server.getName(), e);
                     }
                 }
-            }
+            } else {
 
-            try {
-                Trace.trace(Trace.INFO, "Deleting runtime: " + runtime.getName());
-                runtime.delete();
-            } catch (CoreException ce) {
-                Trace.logError(ce.getLocalizedMessage(), ce);
-            } catch (Exception e) {
-                Trace.logError("Error deleting runtime: " + runtime.getId(), e);
+                // check if runtime is targeted
+                boolean inUse = false;
+                try {
+                    inUse = FacetUtil.isRuntimeTargeted(runtime);
+                } catch (Throwable t) {
+                    // ignore - facet framework not found
+                }
+
+                List<IServer> serverList = getServerList(runtime);
+                if (!serverList.isEmpty()) {
+                    try {
+                        ensureServersStopped(monitor, serverList.toArray(new IServer[serverList.size()]));
+                        Trace.trace(Trace.INFO, "Deleting servers associated with runtime: " + runtime.getName());
+                        for (IServer s : serverList) {
+                            Trace.trace(Trace.INFO, "Deleting server: " + s.getName());
+                            s.delete();
+                        }
+                    } catch (Exception e) {
+                        Trace.logError("Problem encountered while deleting servers", e);
+                        return;
+                    }
+
+                    if (!inUse) {
+                        try {
+                            Trace.trace(Trace.INFO, "Removing target facets for runtime: " + runtime.getName());
+                            FacetUtil.removeTargets(runtime, new NullProgressMonitor());
+                        } catch (Throwable t) {
+                            // facet framework failure, or may be missing entirely
+                            if (Trace.ENABLED)
+                                Trace.trace(Trace.WARNING, "Error deleting facet targets", t);
+                        }
+                    }
+                }
+
+                try {
+                    Trace.trace(Trace.INFO, "Deleting runtime: " + runtime.getName());
+                    runtime.delete();
+                } catch (CoreException ce) {
+                    Trace.logError(ce.getLocalizedMessage(), ce);
+                } catch (Exception e) {
+                    Trace.logError("Error deleting runtime: " + runtime.getId(), e);
+                }
             }
 
             if (proj.exists() && proj.isOpen()) {
@@ -919,7 +939,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
             printTrackedLibertyProjects();
         }
 
-        private void ensureServersStopped(List<IServer> serverList, IProgressMonitor monitor) throws Exception {
+        private void ensureServersStopped(IProgressMonitor monitor, IServer... serverList) throws Exception {
             for (IServer server : serverList) {
 
                 // First check if the runtime installation still exists, if it doesn't there's no need to attempt stopping any servers
