@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -48,6 +48,7 @@ public class WebSphereRuntimeClasspathProvider extends RuntimeClasspathProviderD
     public static final String FOLDER_SPEC = "spec"; // Also as top level folder on Liberty 8.5.
     public static final String FOLDER_IBM = "ibm";
     public static final String FOLDER_THIRD_PARTY = "third-party"; // Also as top level folder on Liberty 8.5.
+    public static final String FOLDER_STABLE = "stable";
     // Sub folders under spec, ibm or third-party
     public static final String FOLDER_JAVADOC = "javadoc";
     // Top level folder on Liberty 8.5 only.
@@ -193,6 +194,8 @@ public class WebSphereRuntimeClasspathProvider extends RuntimeClasspathProviderD
 
         if (FOLDER_THIRD_PARTY.equals(s))
             return !prefs.isExcludeThirdPartyAPI();
+        else if (FOLDER_STABLE.equals(s))
+            return !prefs.isExcludeStableAPI();
         else if (FOLDER_IBM.equals(s) || FOLDER_IBM_API.equals(s))
             return !prefs.isExcludeIBMAPI();
         return !prefs.isExcludeUnrecognized();

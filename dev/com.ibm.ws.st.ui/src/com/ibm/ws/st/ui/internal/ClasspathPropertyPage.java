@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 IBM Corporation and others.
+ * Copyright (c) 2012, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal;
 
@@ -40,6 +40,7 @@ public class ClasspathPropertyPage extends PropertyPage {
     protected boolean changed;
 
     protected Button excludeThirdParty;
+    protected Button excludeStable;
     protected Button excludeIBMAPI;
     protected Button excludeUnknown;
 
@@ -53,7 +54,7 @@ public class ClasspathPropertyPage extends PropertyPage {
     protected Control createContents(Composite parent) {
         try {
             IAdaptable element = getElement();
-            project = (IProject) element.getAdapter(IProject.class);
+            project = element.getAdapter(IProject.class);
             if (project != null)
                 prefs = new ProjectPrefs(project);
 
@@ -83,6 +84,21 @@ public class ClasspathPropertyPage extends PropertyPage {
                         return;
                     changed = true;
                     prefs.setExcludeThirdPartyAPI(excludeThirdParty.getSelection());
+                }
+            });
+
+            excludeStable = new Button(composite, SWT.CHECK);
+            excludeStable.setText(Messages.runtimeClasspathExcludeStable);
+            data = new GridData(SWT.FILL, SWT.BEGINNING, true, false);
+            data.horizontalIndent = 15;
+            excludeStable.setLayoutData(data);
+            excludeStable.addSelectionListener(new SelectionAdapter() {
+                @Override
+                public void widgetSelected(SelectionEvent event) {
+                    if (updating)
+                        return;
+                    changed = true;
+                    prefs.setExcludeStableAPI(excludeStable.getSelection());
                 }
             });
 
@@ -130,6 +146,7 @@ public class ClasspathPropertyPage extends PropertyPage {
     protected void init() {
         updating = true;
         excludeThirdParty.setSelection(prefs.isExcludeThirdPartyAPI());
+        excludeStable.setSelection(prefs.isExcludeStableAPI());
         excludeIBMAPI.setSelection(prefs.isExcludeIBMAPI());
         excludeUnknown.setSelection(prefs.isExcludeUnrecognized());
         updating = false;

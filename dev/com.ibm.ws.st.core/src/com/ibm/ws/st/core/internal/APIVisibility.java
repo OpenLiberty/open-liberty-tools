@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2016 IBM Corporation and others.
+ * Copyright (c) 2016, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -18,10 +18,11 @@ public enum APIVisibility {
     API,
     IBM_API,
     SPEC,
+    STABLE,
     THIRD_PARTY;
 
     public static EnumSet<APIVisibility> getDefaults() {
-        return EnumSet.of(API, IBM_API, SPEC);
+        return EnumSet.of(API, IBM_API, SPEC, STABLE);
     }
 
     public static EnumSet<APIVisibility> parseFromAttribute(String value) {
@@ -37,6 +38,9 @@ public enum APIVisibility {
                 }
                 if (values[i].trim().toLowerCase().equals(Constants.API_VISIBILITY_ATTRIBUTE_VALUE_SPEC)) {
                     apiVisibility.add(SPEC);
+                }
+                if (values[i].trim().toLowerCase().equals(Constants.API_VISIBILITY_ATTRIBUTE_VALUE_STABLE)) {
+                    apiVisibility.add(STABLE);
                 }
                 if (values[i].trim().toLowerCase().equals(Constants.API_VISIBILITY_ATTRIBUTE_VALUE_THIRD_PARTY)) {
                     apiVisibility.add(THIRD_PARTY);
@@ -63,6 +67,12 @@ public enum APIVisibility {
             }
             stringBuilder.append(Constants.API_VISIBILITY_ATTRIBUTE_VALUE_SPEC);
         }
+        if (apiVisibility.contains(STABLE)) {
+            if (stringBuilder.length() > 0) {
+                stringBuilder.append(',');
+            }
+            stringBuilder.append(Constants.API_VISIBILITY_ATTRIBUTE_VALUE_STABLE);
+        }
         if (apiVisibility.contains(THIRD_PARTY)) {
             if (stringBuilder.length() > 0) {
                 stringBuilder.append(',');
@@ -82,6 +92,9 @@ public enum APIVisibility {
         }
         if (Boolean.parseBoolean(properties.getProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_SPEC_KEY))) {
             apiVisibility.add(APIVisibility.SPEC);
+        }
+        if (Boolean.parseBoolean(properties.getProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_STABLE_KEY))) {
+            apiVisibility.add(APIVisibility.STABLE);
         }
         if (Boolean.parseBoolean(properties.getProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_THIRD_PARTY_KEY))) {
             apiVisibility.add(APIVisibility.THIRD_PARTY);
