@@ -45,4 +45,11 @@
 		<delete dir="../tools.image" failonerror="false"/>
 	</target>
 	
+	<target name="generateSignedOpenLTUpdateSite">
+	        <antcall target="olt_imports.generateOpenLTUpdateSite"/>
+	        <antcall target="olt_test_imports.generateOpenLTTestUpdateSite"/>
+	        <echo message="Delete tools.image"/>
+	        <delete dir="../tools.image" failonerror="false"/>
+	    </target>
+	
 </project>
