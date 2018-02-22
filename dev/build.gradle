@@ -33,7 +33,7 @@ dependencies {
     antScp 'org.apache.ant:ant-jsch:1.7.1', 'jsch:jsch:0.1.29'
 }
 
-defaultTasks 'build'
+defaultTasks 'build_olt'
 
 task importAnt {
     ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
@@ -148,7 +148,7 @@ task preparePrereqs {
 }
 
 // Main task for this file - prepare prereqs, compile, and generate updatesites into artifacts/
-task build { }
+task build_olt { }
 compile.dependsOn preparePrereqs
 generateOpenLTUpdateSite.dependsOn preparePrereqs
 build.dependsOn generateOpenLTUpdateSite
