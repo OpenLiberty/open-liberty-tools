@@ -8,25 +8,25 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -94,27 +94,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -619,27 +619,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -3557,17 +3557,17 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -5227,7 +5227,7 @@
             <xsd:annotation> 
                 <xsd:documentation>Configures whether a resource adapter starts automatically upon deployment of the resource adapter or lazily upon injection or lookup of a resource. </xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Auto start</ext:label> 
+                    <ext:label>Automatically start</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -5276,7 +5276,7 @@
             <xsd:annotation> 
                 <xsd:documentation>Configures whether a resource adapter starts automatically upon deployment of the resource adapter or lazily upon injection or lookup of a resource. </xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Auto start</ext:label> 
+                    <ext:label>Automatically start</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -5384,7 +5384,7 @@
             <xsd:annotation> 
                 <xsd:documentation>Configures whether the message endpoints associated with this activation specification start automatically or need to be manually started using the resume command.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Auto start</ext:label> 
+                    <ext:label>Automatically start</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -5646,7 +5646,7 @@
             <xsd:annotation> 
                 <xsd:documentation>Configures whether the message endpoints associated with this activation specification start automatically or need to be manually started using the resume command.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Auto start</ext:label> 
+                    <ext:label>Automatically start</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -19383,14 +19383,6 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
-        <xsd:attribute name="tokenEndpointHttpsRequired" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Indicates whether HTTPS is required for communication with the token generation endpoint. </xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Token generation endpoint HTTPS required</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
         <xsd:attribute name="sharedKey" use="optional" type="password"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the string that will be used to generate the shared keys. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
@@ -19571,7 +19563,7 @@
         <xsd:annotation> 
             <xsd:documentation>Information about configuring JWT Single Sign On.</xsd:documentation> 
             <xsd:appinfo> 
-                <ext:label>Jwtsso</ext:label> 
+                <ext:label>JWT SSO</ext:label> 
             </xsd:appinfo> 
         </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
         <xsd:sequence> 
@@ -19609,28 +19601,20 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="groupBaseDnOmitted" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Group base distinguished name to be omitted</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Group base distinguished name to be omitted</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
         <xsd:attribute name="jwtBuilderRef" use="optional" type="pidType"> 
             <xsd:annotation> 
-                <xsd:documentation>A reference to the JwtBuilder configuration element in server.xml that describes how to build the JWT token.</xsd:documentation> 
+                <xsd:documentation>A reference to the JWT Builder configuration element in server.xml that describes how to build the JWT token.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Jwt builder reference</ext:label> 
+                    <ext:label>JWT builder reference</ext:label> 
                     <ext:reference>jwtBuilder</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
         <xsd:attribute name="jwtConsumerRef" use="optional" type="pidType"> 
             <xsd:annotation> 
-                <xsd:documentation>A reference to the JwtConsumer configuration element in server.xml that describes how to consume the JWT token.</xsd:documentation> 
+                <xsd:documentation>A reference to the JWT Consumer configuration element in server.xml that describes how to consume the JWT token.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Jwt consumer reference</ext:label> 
+                    <ext:label>JWT consumer reference</ext:label> 
                     <ext:reference>jwtConsumer</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
@@ -23794,6 +23778,15 @@
                 <xsd:documentation>The name of the SSL repertoire that will be used as the default for outbound SSL connections.  The default SSL repertoire will be used if no SSL repertoire is specified.  This attribute is ignored if the transportSecurity-1.0 feature is not specified.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Outbound default SSL repertoire</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="httpHostNameVerificationRef" use="optional" default="false" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether SSL outbound host name verification is enabled. The default is false. If set to true, then during the outbound SSL handshake requests, the JDK will verify that the returned certificate contains a host name that matches the outbound HTTP request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Perform outbound host name verification</ext:label> 
                     <ext:reference>ssl</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
