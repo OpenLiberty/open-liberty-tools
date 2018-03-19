@@ -67,7 +67,7 @@
 	  	<echo message="Source location at ${updateSiteDir}" />
 	  	<echo message="Updatesite location at ${target.updatesite.repository}" />
 		
-		<antcall target="generateSuppliersUpdateSite"/>
+		<!-- antcall target="generateSuppliersUpdateSite"/ -->
 
 		<!-- Copy build result content -->
 		<copy todir="${sourceDir}/features" overwrite="true" verbose="true">
