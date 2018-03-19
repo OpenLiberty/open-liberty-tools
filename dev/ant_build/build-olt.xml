@@ -29,7 +29,7 @@
 	<import file="olt_imports.xml"/>
 	<import file="olt_test_imports.xml"/>
 	
-	<import file="${olt_build.basedir}/prereqs/prereqs.xml" />
+	<!-- import file="${olt_build.basedir}/prereqs/prereqs.xml" / -->
     
 	<target name="compile" depends="preparePrereqsIvy">
 		<antcall target="liberty-all.compile" />		
