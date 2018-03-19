@@ -31,9 +31,9 @@
 	
 	<!-- import file="${olt_build.basedir}/prereqs/prereqs.xml" / -->
     
-	<target name="compile" depends="preparePrereqsIvy">
+	<!-- target name="compile" depends="preparePrereqsIvy">
 		<antcall target="liberty-all.compile" />		
-	</target>
+	</target -->
 
     <property name="artifacts.dir" value="${olt_build.basedir}/artifacts"/>
     <mkdir dir="${artifacts.dir}"/>
