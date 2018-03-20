@@ -33,7 +33,7 @@ dependencies {
     antScp 'org.apache.ant:ant-jsch:1.7.1', 'jsch:jsch:0.1.29'
 }
 
-defaultTasks 'build_olt'
+defaultTasks 'build'
 
 task importAnt {
     ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
@@ -148,10 +148,11 @@ task preparePrereqs {
 }
 
 // Main task for this file - prepare prereqs, compile, and generate updatesites into artifacts/
-task build_olt { }
+task build { }
 compile.dependsOn preparePrereqs
-generateOpenLTUpdateSite.dependsOn preparePrereqs
+build.dependsOn compile
 build.dependsOn generateOpenLTUpdateSite
+generateOpenLTUpdateSite.mustRunAfter compile
 
 //// build version from the artifacts to avoid version mismatch
 import static groovy.io.FileType.FILES
