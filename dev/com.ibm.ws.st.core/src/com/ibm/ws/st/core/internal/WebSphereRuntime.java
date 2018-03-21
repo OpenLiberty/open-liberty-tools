@@ -2555,11 +2555,29 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
         return "";
     }
 
-    public IPath getRuntimePropertiesPath() {
+    // The first path in the returned list is the primary path
+    public List<IPath> getRuntimePropertiesPaths() {
+        List<IPath> paths = new ArrayList<IPath>();
+        IPath runtimeLocation = getRuntime().getLocation();
+        if (runtimeLocation == null || runtimeLocation.isEmpty()) {
+            return paths;
+        }
+        IPath path = runtimeLocation.append(RUNTIME_MARKER);
+        if (path.toFile().exists()) {
+            paths.add(path);
+        }
+        path = runtimeLocation.append(OPEN_RUNTIME_MARKER);
+        if (path.toFile().exists()) {
+            paths.add(path);
+        }
+        return paths;
+    }
+
+    private IPath getRuntimePropertiesPath() {
         return getRuntimePropertiesPath(getRuntime().getLocation());
     }
 
-    public static IPath getRuntimePropertiesPath(IPath runtimeLocation) {
+    private static IPath getRuntimePropertiesPath(IPath runtimeLocation) {
         if (runtimeLocation == null || runtimeLocation.isEmpty())
             return null;
         IPath markerPath = runtimeLocation.append(RUNTIME_MARKER);

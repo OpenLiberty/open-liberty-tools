@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2017 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -45,11 +45,13 @@ public abstract class AbstractProduct implements IProduct {
     }
 
     protected final Map<String, String> properties;
+    protected final List<Map<String, String>> productList;
     private List<String> provideFeature;
     private List<String> requireFeature;
 
-    AbstractProduct(Map<String, String> properties) {
+    AbstractProduct(Map<String, String> properties, List<Map<String, String>> productList) {
         this.properties = properties;
+        this.productList = productList;
     }
 
     @Override
@@ -93,25 +95,25 @@ public abstract class AbstractProduct implements IProduct {
         if (getType() != IProduct.Type.INSTALL)
             return null;
 
+        final List<IRuntimeInfo.IProduct> products = new ArrayList<IRuntimeInfo.IProduct>();
+        for (Map<String, String> prop : productList) {
+            products.add(createProduct(prop));
+        }
+
         return new IRuntimeInfo() {
             @Override
-            public String getProductId() {
-                return properties.get(PROP_PRODUCT_ID);
+            public List<com.ibm.ws.st.core.internal.repository.IRuntimeInfo.IProduct> getProducts() {
+                return products;
             }
 
             @Override
-            public String getProductVersion() {
-                return properties.get(PROP_PRODUCT_VERSION);
+            public String getVersion() {
+                return products.get(0).getProductVersion();
             }
 
             @Override
-            public String getProductEdition() {
-                return properties.get(PROP_PRODUCT_EDITION);
-            }
-
-            @Override
-            public String getProductInstallType() {
-                return properties.get(PROP_PRODUCT_INSTALL_TYPE);
+            public String getPrimaryProductId() {
+                return products.get(0).getProductId();
             }
 
             @Override
@@ -129,9 +131,34 @@ public abstract class AbstractProduct implements IProduct {
                 return "true".equals(properties.get(PROP_ON_PREMISE));
             }
 
+        };
+    }
+
+    private static IRuntimeInfo.IProduct createProduct(final Map<String, String> prop) {
+        return new IRuntimeInfo.IProduct() {
+            @Override
+            public String getProductId() {
+                return prop.get(PROP_PRODUCT_ID);
+            }
+
+            @Override
+            public String getProductVersion() {
+                return prop.get(PROP_PRODUCT_VERSION);
+            }
+
+            @Override
+            public String getProductEdition() {
+                return prop.get(PROP_PRODUCT_EDITION);
+            }
+
+            @Override
+            public String getProductInstallType() {
+                return prop.get(PROP_PRODUCT_INSTALL_TYPE);
+            }
+
             @Override
             public String getProductLicenseType() {
-                String licenseType = properties.get(PROP_PRODUCT_LICENSE_TYPE);
+                String licenseType = prop.get(PROP_PRODUCT_LICENSE_TYPE);
                 return licenseType == null ? "ILAN" : licenseType;
             }
         };

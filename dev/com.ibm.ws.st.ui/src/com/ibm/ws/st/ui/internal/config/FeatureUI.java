@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2017 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -529,7 +529,7 @@ public class FeatureUI {
             if (SiteHelper.downloadAndInstallSupported() && wsRuntime != null && wsRuntime.supportsInstallingAdditionalContent()) {
                 final IRuntime runtime = wsRuntime.getRuntime();
                 final IRuntimeInfo core = DownloadHelper.getRuntimeCore(runtime);
-                if (core.getProductVersion() != null && !core.getProductVersion().startsWith("8.5.0")) {
+                if (core.getVersion() != null && !core.getVersion().startsWith("8.5.0")) {
                     addAdditionalContentLink = new Link(composite, SWT.NONE);
                     addAdditionalContentLink.setText("<a>" + Messages.actionInstallFeatures + "</a>");
                     addAdditionalContentLink.setLayoutData(new GridData(SWT.RIGHT, SWT.FILL, true, false));
