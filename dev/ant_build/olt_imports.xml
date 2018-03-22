@@ -160,5 +160,9 @@
         <copy file="${artifact.location}" todir="${artifacts.dir}"/>
 
         <echo>***** Build artifact available at ${artifacts.dir}/${updatesite-name}.zip</echo>
+		
+		
+		<!-- Publish update site -->
+		<recordAndAntcall target="publishUpdateSite"/>
 	</target>
 </project>
