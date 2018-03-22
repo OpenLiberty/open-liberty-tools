@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015, 2017 IBM Corporation and others.
+ * Copyright (c) 2015, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package com.ibm.ws.st.ui.internal.download;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
@@ -305,7 +306,20 @@ public class RepositoryInfoDialog extends TitleAreaDialog {
             nameText.setText(site.getName());
 
             if (url.toString().startsWith(FileUtil.FILE_URI)) { // local site
-                locationText.setText(site.getURL().toString().replace(FileUtil.FILE_URI, ""));
+                String path;
+                try {
+                    File file = new File(url.toURI());
+                    path = file.getPath();
+                } catch (URISyntaxException e) {
+                    // This should not happen
+                    Trace.logError("Could not create a file from the URL: " + url, e);
+                    path = url.getFile();
+                    if (System.getProperty("os.name").toLowerCase().contains("windows") && path.startsWith("/")) {
+                        // remove the leading '/'
+                        path = path.substring(1);
+                    }
+                }
+                locationText.setText(path);
                 localButton.setSelection(true);
             } else { // remote site
                 urlText.setText(site.getURL().toString());
@@ -372,25 +386,13 @@ public class RepositoryInfoDialog extends TitleAreaDialog {
             }
 
             try {
-                url = new URL(FileUtil.FILE_URI + location);
-            } catch (MalformedURLException e) {
-                setErrorMessage(Messages.errorRepositoryInvalidLocation);
-                return false;
-            }
-
-            if (url == null) {
-                setErrorMessage(Messages.errorRepositoryInvalidLocation);
-                return false;
-            }
-
-            try {
                 FilenameFilter filter = new FilenameFilter() {
                     @Override
                     public boolean accept(File dir, String name) {
                         return name.equalsIgnoreCase("repository.config");
                     }
                 };
-                File file = new File(url.toURI());
+                File file = new File(location);
                 IRuntimeInfo runtimeInfo = (IRuntimeInfo) map.get(AbstractDownloadComposite.RUNTIME_CORE);
 
                 if (!file.exists()) {
@@ -403,6 +405,18 @@ public class RepositoryInfoDialog extends TitleAreaDialog {
                     }
                 } else if (!SiteHelper.isZipRepoSupported(runtimeInfo) || !SiteHelper.isValidOnPremZipRepository(file)) { // file repo validation
                     setErrorMessage(Messages.errorRepositoryInvalidArchive);
+                    return false;
+                }
+
+                try {
+                    url = file.toURI().toURL();
+                } catch (MalformedURLException e) {
+                    setErrorMessage(Messages.errorRepositoryInvalidLocation);
+                    return false;
+                }
+
+                if (url == null) {
+                    setErrorMessage(Messages.errorRepositoryInvalidLocation);
                     return false;
                 }
             } catch (Throwable t) {
