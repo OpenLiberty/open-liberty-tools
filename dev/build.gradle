@@ -152,7 +152,7 @@ task build { }
 compile.dependsOn preparePrereqs
 build.dependsOn compile
 build.dependsOn generateOpenLTUpdateSite
-generateOpenLTUpdateSite.mustRunAfter compile
+//generateOpenLTUpdateSite.mustRunAfter compile
 
 //// build version from the artifacts to avoid version mismatch
 import static groovy.io.FileType.FILES
@@ -226,7 +226,7 @@ task deployDHE {
 
         // Put all files to be published into a directory
         def toPublish = ant.path {
-            fileset(dir: 'ant_build/artifacts/', includes: "*.zip")
+            fileset(dir: 'ant_build/artifacts/', includes: "openlibertytools-*.zip")
             fileset(dir: "${rootDir}", includes: System.getenv("BUILD_LOG"))
         }
 
