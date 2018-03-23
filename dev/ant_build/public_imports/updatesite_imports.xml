@@ -71,36 +71,5 @@
 			</classpath>
 		</java>  	
 	</target>
-	
-    <target name="publishUpdateSite">
-        <checkRtcUp />      
 
-            <fileset dir="${nativeDirectory}" id="updateSiteFiles"> 
-                <include name="*.zip"/>
-                <include name="*.html"/>
-            </fileset>
-        
-        <var name="updateSiteFilesString" unset="true"/>
-        <pathconvert property="updateSiteFilesString" refid="updateSiteFiles" pathsep=","/>
-
-        <foreach param="a.file.to.upload" in="${updateSiteFilesString}">
-          <publishFile group="Update site" filepath="${a.file.to.upload}" label="${wdt-updatesite-label}"/>
-        </foreach>
-
-        <!-- Publish link -->       
-        <linkPublisher repositoryAddress="${repositoryAddress}"
-            userId="${userId}"
-            passwordfile="${passwordFile}"
-            buildResultUUID="${buildResultUUID}"
-            url="https://${gsa.server}${gsa.base.dir}/${uploadBuildDir}/${updatesite-name}.zip"
-            label="${wdt-updatesite-label}" 
-        />
-
-        <!-- Upload zip to wdtbits -->
-        <!-- WI 219934 antcall target="publishUpdateSiteToWdtbits" / -->
-            
-        <!-- Update latest builds page -->
-        <recordAndAntcall target="updateLatestBuildPage"/>
-    </target>
-	
 </project>
