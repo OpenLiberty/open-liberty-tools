@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015, 2017 IBM Corporation and others.
+ * Copyright (c) 2015, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -973,7 +973,7 @@ public class BaseDockerContainer implements IPlatformHandler {
     }
 
     /**
-     * Convert /c/Users to c:/Users for writing back to the local file system.
+     * Convert /c/Users or /host_mnt/c/Users to c:/Users for writing back to the local file system.
      *
      * @param container
      * @param tempDirectory
@@ -987,8 +987,17 @@ public class BaseDockerContainer implements IPlatformHandler {
         IPath updatedTempDirectory = null;
         // Only change for Windows and non-native Docker
         if (isWindows) {
-            String device = tempDirectory.toString().substring(1, 2);
-            String winPath = device + ":" + tempDirectory.toString().substring(2); //$NON-NLS-1$
+            String device;
+            String winPath;
+            if (tempDirectory.segment(0).equals("host_mnt")) { // Docker CE 17.12 Mount point is different
+                // Mount:  /host_mnt/c/Users
+                device = tempDirectory.toString().substring(10, 11);
+                winPath = device + ":" + tempDirectory.toString().substring(11); //$NON-NLS-1$
+            } else {
+                // Mount:  /c/Users
+                device = tempDirectory.toString().substring(1, 2);
+                winPath = device + ":" + tempDirectory.toString().substring(2); //$NON-NLS-1$
+            }
             updatedTempDirectory = new Path(winPath);
         } else {
             updatedTempDirectory = tempDirectory;
@@ -998,6 +1007,7 @@ public class BaseDockerContainer implements IPlatformHandler {
 
     /**
      * Get Windows path mount. Must be /c/Users/<path> instead of C:/Users/<path>
+     * Note: For Docker CE for Windows 17.20, this path works fine. Alternatively, it can be mounted as C:/anypath.
      *
      * @param tempDirectory
      * @return

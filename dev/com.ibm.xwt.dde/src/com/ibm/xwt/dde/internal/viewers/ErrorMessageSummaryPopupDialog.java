@@ -64,7 +64,7 @@ public class ErrorMessageSummaryPopupDialog extends PopupDialog {
 	private DDEViewer ddeViewer;
 	
 	public ErrorMessageSummaryPopupDialog(Shell parent, DDEViewer ddeViewer) {
-		super(parent, SWT.BORDER | SWT.RESIZE, true, false, false, false, null, null);
+		super(parent, SWT.BORDER | SWT.RESIZE, true, false, false, false, false, null, null);
 		this.ddeViewer = ddeViewer;
 	}
 
