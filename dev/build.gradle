@@ -150,8 +150,8 @@ task preparePrereqs {
 // Main task for this file - prepare prereqs, compile, and generate updatesites into artifacts/
 task build { }
 compile.dependsOn preparePrereqs
-build.dependsOn compile
-build.dependsOn generateOpenLTUpdateSite
+//build.dependsOn compile
+//build.dependsOn generateOpenLTUpdateSite
 generateOpenLTUpdateSite.mustRunAfter compile
 
 //// build version from the artifacts to avoid version mismatch
