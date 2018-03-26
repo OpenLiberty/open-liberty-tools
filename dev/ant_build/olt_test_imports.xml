@@ -14,7 +14,7 @@
     <dirname property="olt_test_imports.basedir" file="${ant.file.olt_imports}" />
     <import file="${olt_test_imports.basedir}/public_imports/updatesite_imports.xml"/>
 		
-	<target name="generateOpenLTTestUpdateSite">
+	<target name="generateOLTTestUpdateSite">
 		
 		<echo>Open OLT generate Test updateSite call</echo>
 			

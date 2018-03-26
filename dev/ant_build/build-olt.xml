@@ -9,7 +9,7 @@
  *     IBM Corporation - initial API and implementation
 -->
 
-<project name="olt_build">
+<project name="olt_build" default="generateOpenLTUpdateSite">
 	<property name="level_tag" value="18.0.0.2"/>
 	<property name="delegate.build.dir" location="${basedir}/../" />
 	<property name="disable.run.executeMetatypeValidation" value="true"/>
@@ -39,8 +39,11 @@
     <mkdir dir="${artifacts.dir}"/>
 
     <target name="generateOpenLTUpdateSite">
-        <antcall target="olt_imports.generateOpenLTUpdateSite"/>
-        <antcall target="olt_test_imports.generateOpenLTTestUpdateSite"/>
+    	
+    	    <echo message="build-olt  generateOpenLTUpdateSite call"/>
+    	
+        <antcall target="olt_imports.generateOLTUpdateSite"/>
+        <antcall target="olt_test_imports.generateOLTTestUpdateSite"/>
         <echo message="Delete tools.image"/>
         <delete dir="../tools.image" failonerror="false"/>
     </target>

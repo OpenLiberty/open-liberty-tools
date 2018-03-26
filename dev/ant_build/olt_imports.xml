@@ -17,7 +17,7 @@
     <import file="${olt_imports.basedir}/public_imports/updatesite_imports.xml"/>
 	<import file="olt_suppliers_updatesite.xml"/>
 
-	<target name="generateOpenLTUpdateSite">
+	<target name="generateOLTUpdateSite">
 		
 		<echo>Open OLT generate updateSite call</echo>
 
