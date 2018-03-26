@@ -9,7 +9,7 @@
  *     IBM Corporation - initial API and implementation
 -->
 
-<project name="olt_build" default="generateOpenLTUpdateSite">
+<project name="olt_build">
 	<property name="level_tag" value="18.0.0.2"/>
 	<property name="delegate.build.dir" location="${basedir}/../" />
 	<property name="disable.run.executeMetatypeValidation" value="true"/>

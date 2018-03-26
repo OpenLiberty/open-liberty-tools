@@ -152,7 +152,7 @@ task build { }
 compile.dependsOn preparePrereqs
 build.dependsOn compile
 build.dependsOn generateOpenLTUpdateSite
-//generateOpenLTUpdateSite.mustRunAfter compile
+generateOpenLTUpdateSite.mustRunAfter compile
 
 //// build version from the artifacts to avoid version mismatch
 import static groovy.io.FileType.FILES
