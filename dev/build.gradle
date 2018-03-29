@@ -33,7 +33,7 @@ dependencies {
     antScp 'org.apache.ant:ant-jsch:1.7.1', 'jsch:jsch:0.1.29'
 }
 
-defaultTasks 'build'
+defaultTasks 'clean', 'gradleCompile', 'gradleGenerateOpenLTUpdateSite'
 
 task importAnt {
     ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
@@ -65,6 +65,9 @@ def eclipseTargetPlatformIESFolder  = file(projDir + project.properties['eclipse
 def eclipseTargetPlatformFolder  = file(projDir + project.properties['eclipse.target.platform.folder'])
 
 def eclipseTempFolder  = file(projDir + project.properties['eclipse.temp.folder'])
+def toolsImageFolder  = file(projDir + project.properties['tools.image.folder'])
+def toolsImagePluginsFolder  = file(projDir + project.properties['tools.image.plugins.folder'])
+def artifactsFolder = file(projDir + '/' + project.properties['ant.artifacts.folder'])
 
 // Download an Eclipse TargetPlatform
 task downloadEclipseTargetPlatform {
@@ -87,7 +90,7 @@ task downloadEclipseTargetPlatform {
             }
             else {
                 println 'Untar existing ' + eclipseTargetPlatformArchive.getAbsolutePath() + ' into ' + eclipseTargetPlatformIESFolder
-                println 'Run \'gradle cleanAll build\' to build by downloading target platform files again.'
+                println 'Run \'gradle clean build\' to build by downloading target platform files again.'
             }
             
             copy {
@@ -98,6 +101,10 @@ task downloadEclipseTargetPlatform {
         else {
             println eclipseTargetPlatformIESFolder.getAbsolutePath() + ' already exists.'
         }
+    }
+    
+    onlyIf {
+        System.env['skip_compile_olt'] == null
     }
 }
 
@@ -125,7 +132,7 @@ task downloadEclipseSDK {
              }
              else {
                   println 'Untar existing ' + eclipseSdkArchive.getAbsolutePath() + ' into ' + eclipseSdkFolder
-                  println 'Run \'gradle cleanAll build\' to build by downloading Eclipse SDK files again'
+                  println 'Run \'gradle clean build\' to build by downloading Eclipse SDK files again'
              }
 
             copy {
@@ -137,22 +144,30 @@ task downloadEclipseSDK {
             println eclipseSdkFolder.getAbsolutePath() + ' already exists.'
         }
     }
+    
+    onlyIf {
+        System.env['skip_compile_olt'] == null
+    }
 }
 
-// Download all prereqs required to compile and build OpenLT
-task preparePrereqs {
-    preparePrereqsIvy.dependsOn importAnt
-    preparePrereqs.dependsOn preparePrereqsIvy
-    preparePrereqs.dependsOn downloadEclipseTargetPlatform
-    preparePrereqs.dependsOn downloadEclipseSDK
+task gradleCompile {
+    doLast {
+    }
 }
 
-// Main task for this file - prepare prereqs, compile, and generate updatesites into artifacts/
-task build { }
-compile.dependsOn preparePrereqs
-//build.dependsOn compile
-//build.dependsOn generateOpenLTUpdateSite
-generateOpenLTUpdateSite.mustRunAfter compile
+task gradleGenerateOpenLTUpdateSite {
+    doLast {
+    }
+}
+
+gradleGenerateOpenLTUpdateSite.dependsOn generateOpenLTUpdateSite
+
+preparePrereqsIvy.dependsOn importAnt
+compile.dependsOn preparePrereqsIvy
+compile.dependsOn downloadEclipseSDK
+compile.dependsOn downloadEclipseTargetPlatform
+
+gradleCompile.dependsOn compile
 
 //// build version from the artifacts to avoid version mismatch
 import static groovy.io.FileType.FILES
@@ -338,18 +353,6 @@ task deployDHE {
     }
 }
 
-// Delete all prereq files, downloaded artifacts and build output
-task clean(type: Delete) {
-    doLast {
-        cleanBuilds.execute()
-        cleanPrereqs.execute()
-        println 'Delete ' + eclipseSdkArchive
-        file(eclipseSdkArchive).delete()
-        println 'Delete ' + eclipseTargetPlatformArchive
-        file(eclipseTargetPlatformArchive).delete()
-    }
-}
-
 // Delete all prereq files and extracted SDK and target platform files.
 task cleanPrereqs(type: Delete) {
     doLast {
@@ -370,6 +373,10 @@ task cleanPrereqs(type: Delete) {
             }
         }
     }
+    
+    onlyIf {
+        System.env['skip_compile_olt'] == null
+    }
 }
 
 // clean build output folder
@@ -378,5 +385,30 @@ task cleanBuilds(type: Delete) {
         def artifactsDir = project.properties['ant.artifacts.folder']
         println 'Delete ' + artifactsDir
         file(artifactsDir).deleteDir()
+        
+        println 'Delete ' + toolsImageFolder
+        file(toolsImageFolder).deleteDir()
+    }
+    
+    onlyIf {
+        System.env['skip_compile_olt'] == null
     }
 }
+
+// Delete all prereq files, downloaded artifacts and build output
+task clean(type: Delete) {
+    doLast {
+        println 'skip_compile_olt is ' + System.getenv("skip_compile_olt")
+
+        println 'Delete ' + eclipseSdkArchive
+        file(eclipseSdkArchive).delete()
+        println 'Delete ' + eclipseTargetPlatformArchive
+        file(eclipseTargetPlatformArchive).delete()        
+    }
+    
+    onlyIf {
+        System.env['skip_compile_olt'] == null
+    }
+}
+
+clean.dependsOn cleanBuilds, cleanPrereqs
