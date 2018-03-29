@@ -152,13 +152,63 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                 if (resource instanceof IProject) {
                     IProject project = (IProject) resource;
                     // If the project is deleted, or the project just got closed, then checking the nature is not possible.
-                    // So we are 'forced' to scan it.
                     if (projectDeltas[i].getKind() == IResourceDelta.REMOVED || !project.isAccessible() || isSupportedProjectType(project)) {
-                        applicableResourceDeltas.add(projectDeltas[i]);
+                        try {
+                            // Check if the project is removed in which case a scan job is needed to do the clean up
+                            if (projectDeltas[i].getKind() == IResourceDelta.REMOVED) {
+                                applicableResourceDeltas.add(projectDeltas[i]);
+                                continue;
+                            }
+                            // If the project is ignored then skip it
+                            if (mappingHandler.isIgnored(projectDeltas[i].getResource().getProject().getName())) {
+                                continue;
+                            }
+                            // If the plugin config file has been updated a scan job is needed
+                            IResourceDelta pluginConfigDelta = projectDeltas[i].findMember(new Path(buildPluginHelper.getRelativeBuildPluginConfigurationFileLocation()));
+                            if (pluginConfigDelta != null && pluginConfigDelta.getResource() != null) {
+                                applicableResourceDeltas.add(projectDeltas[i]);
+                                continue;
+                            }
+                            // If the project doesn't have a valid server then skip it
+                            ProjectMapping mapping = mappingHandler.getMapping(project.getName());
+                            if (mapping == null || mapping.getServerID() == null) {
+                                continue;
+                            }
+                            IServer server = ServerCore.findServer(mapping.getServerID());
+                            if (server == null) {
+                                continue;
+                            }
+                            WebSphereServer wsServer = (WebSphereServer) server.loadAdapter(WebSphereServer.class, null);
+                            if (wsServer == null) {
+                                continue;
+                            }
+                            // Check if the server configuration has been updated
+                            IProjectInspector pi = getBuildPluginImpl().getProjectInspector(project);
+                            LibertyBuildPluginConfiguration config = pi.getBuildPluginConfiguration(null);
+                            if (config != null) {
+                                String configVal = config.getConfigValue(ConfigurationType.configFile);
+                                if (configVal != null) {
+                                    IPath srcConfigPath = new Path(configVal);
+                                    if (srcConfigPath.toFile().exists() && project.getLocation().isPrefixOf(srcConfigPath)) {
+                                        srcConfigPath = srcConfigPath.makeRelativeTo(project.getLocation());
+                                        IResourceDelta srcConfigDelta = projectDeltas[i].findMember(srcConfigPath);
+                                        if (srcConfigDelta != null && srcConfigDelta.getResource() != null) {
+                                            applicableResourceDeltas.add(projectDeltas[i]);
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            if (Trace.ENABLED) {
+                                Trace.trace(Trace.WARNING, "Checking resource deltas for relevant changes has encountered an error for project: " + project.getName(), e);
+                            }
+                        }
                     }
                 }
             }
         }
+
         if (!applicableResourceDeltas.isEmpty()) {
             ISchedulingRule rule = MultiRule.combine(new ISchedulingRule[] { generationRule, ResourcesPlugin.getWorkspace().getRoot() });
             ScanJob scanJob = new ScanJob(Messages.scanJob, applicableResourceDeltas.toArray(new IResourceDelta[0]));
