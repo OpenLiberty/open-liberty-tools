@@ -398,8 +398,6 @@ task cleanBuilds(type: Delete) {
 // Delete all prereq files, downloaded artifacts and build output
 task clean(type: Delete) {
     doLast {
-        println 'skip_compile_olt is ' + System.getenv("skip_compile_olt")
-
         println 'Delete ' + eclipseSdkArchive
         file(eclipseSdkArchive).delete()
         println 'Delete ' + eclipseTargetPlatformArchive
