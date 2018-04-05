@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -55,6 +55,7 @@ import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.wst.server.core.IRuntime;
 
+import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.core.internal.FileUtil;
 import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.config.FeatureList;
@@ -654,38 +655,35 @@ public class DownloadHelper {
 
     public static IRuntimeInfo getRuntimeCore(final IRuntime runtime) {
         final WebSphereRuntime wsRuntime = (WebSphereRuntime) runtime.loadAdapter(WebSphereRuntime.class, null);
-        final Properties prop = new Properties();
+        final List<IRuntimeInfo.IProduct> productList = new ArrayList<IRuntimeInfo.IProduct>();
         if (wsRuntime != null) {
-            IPath path = wsRuntime.getRuntimePropertiesPath();
-            if (path != null) {
+            List<IPath> paths = wsRuntime.getRuntimePropertiesPaths();
+            for (IPath path : paths) {
+                Properties prop = new Properties();
                 FileUtil.loadProperties(prop, path);
+                productList.add(createProduct(prop));
             }
+        }
+
+        if (productList.isEmpty()) {
+            Properties prop = new Properties();
+            productList.add(createProduct(prop));
         }
 
         return new IRuntimeInfo() {
             @Override
-            public String getProductId() {
-                return prop.getProperty("com.ibm.websphere.productId");
+            public List<com.ibm.ws.st.core.internal.repository.IRuntimeInfo.IProduct> getProducts() {
+                return productList;
             }
 
             @Override
-            public String getProductVersion() {
-                return prop.getProperty("com.ibm.websphere.productVersion");
+            public String getVersion() {
+                return productList.get(0).getProductVersion();
             }
 
             @Override
-            public String getProductEdition() {
-                return prop.getProperty("com.ibm.websphere.productEdition");
-            }
-
-            @Override
-            public String getProductInstallType() {
-                return prop.getProperty("com.ibm.websphere.productInstallType");
-            }
-
-            @Override
-            public String getProductLicenseType() {
-                return prop.getProperty("com.ibm.websphere.productLicenseType");
+            public String getPrimaryProductId() {
+                return productList.get(0).getProductId();
             }
 
             @Override
@@ -707,6 +705,35 @@ public class DownloadHelper {
                     return false;
                 }
                 return wsRuntime.isOnPremiseSupported();
+            }
+        };
+    }
+
+    private static IRuntimeInfo.IProduct createProduct(final Properties prop) {
+        return new IRuntimeInfo.IProduct() {
+            @Override
+            public String getProductId() {
+                return prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_ID);
+            }
+
+            @Override
+            public String getProductVersion() {
+                return prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_VERSION);
+            }
+
+            @Override
+            public String getProductEdition() {
+                return prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_EDITION);
+            }
+
+            @Override
+            public String getProductInstallType() {
+                return prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_INSTALL_TYPE);
+            }
+
+            @Override
+            public String getProductLicenseType() {
+                return prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_LICENSE_TYPE);
             }
         };
     }

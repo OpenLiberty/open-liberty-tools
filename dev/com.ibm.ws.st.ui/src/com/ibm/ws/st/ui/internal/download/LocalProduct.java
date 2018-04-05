@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2017 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,8 +13,10 @@ package com.ibm.ws.st.ui.internal.download;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.jar.Attributes;
@@ -25,6 +27,7 @@ import java.util.zip.ZipFile;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.osgi.util.ManifestElement;
 
+import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.core.internal.FileUtil;
 import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.core.internal.repository.IProduct;
@@ -57,18 +60,27 @@ public class LocalProduct extends AbstractProduct {
         if (!archiveFile.exists()) {
             return null;
         }
+
+        Map<String, String> properties = new HashMap<String, String>();
+        List<Map<String, String>> productList = new ArrayList<Map<String, String>>();
         if (isCoreLibertyArchive(archiveFile)) {
-            return new LocalProduct(archiveFile, getCoreProperties(archiveFile));
+            getCoreProperties(archiveFile, properties, productList);
+        } else {
+            getAddOnProperties(archiveFile, properties, productList);
         }
 
-        return new LocalProduct(archiveFile, getAddOnProperties(archiveFile));
+        if (properties.isEmpty() || productList.isEmpty()) {
+            return null;
+        }
+
+        return new LocalProduct(archiveFile, properties, productList);
     }
 
     private static boolean isCoreLibertyArchive(File archiveFile) {
         ZipFile zipFile = null;
         try {
             zipFile = new ZipFile(archiveFile);
-            return (getRuntimeMarker(zipFile) != null);
+            return (!getRuntimeMarkers(zipFile).isEmpty());
         } catch (IOException e) {
             if (Trace.ENABLED)
                 Trace.trace(Trace.WARNING, "Problem reading archive: " + archiveFile, e);
@@ -83,59 +95,71 @@ public class LocalProduct extends AbstractProduct {
         }
     }
 
-    private static ZipEntry getRuntimeMarker(ZipFile zipFile) {
+    private static List<ZipEntry> getRuntimeMarkers(ZipFile zipFile) {
+        List<ZipEntry> markers = new ArrayList<ZipEntry>();
         ZipEntry entry = zipFile.getEntry(RUNTIME_MARKER);
         if (entry != null) {
-            return entry;
+            markers.add(entry);
         }
         entry = zipFile.getEntry(OPEN_RUNTIME_MARKER);
-        return entry;
+        if (entry != null) {
+            markers.add(entry);
+        }
+        return markers;
     }
 
-    private static Map<String, String> getCoreProperties(File archiveFile) {
+    private static void getCoreProperties(File archiveFile, Map<String, String> coreProp, List<Map<String, String>> productList) {
         ZipFile zipFile = null;
-        InputStream is = null;
         try {
             zipFile = new ZipFile(archiveFile);
             ZipEntry entry = zipFile.getEntry(ASSET_MANAGER);
             String onPremise = entry == null ? "false" : "true";
+            String provideFeature = getCoreFeatures(archiveFile);
 
-            entry = getRuntimeMarker(zipFile);
-            if (entry != null) {
-                is = zipFile.getInputStream(entry);
-                Properties prop = new Properties();
-                prop.load(is);
+            coreProp.put(IProduct.PROP_NAME, archiveFile.getName());
+            coreProp.put(IProduct.PROP_DESCRIPTION, archiveFile.getAbsolutePath());
+            coreProp.put(IProduct.PROP_TYPE, "install");
+            coreProp.put(IProduct.PROP_ON_PREMISE, onPremise);
+            if (provideFeature != null) {
+                coreProp.put("provideFeature", provideFeature);
+            }
 
-                Map<String, String> coreProp = new HashMap<String, String>();
-                String provideFeature = getCoreFeatures(archiveFile);
-                coreProp.put(IProduct.PROP_NAME, archiveFile.getName());
-                coreProp.put(IProduct.PROP_DESCRIPTION, archiveFile.getAbsolutePath());
-                coreProp.put(IProduct.PROP_TYPE, "install");
-                coreProp.put(IProduct.PROP_PRODUCT_ID, prop.getProperty("com.ibm.websphere.productId"));
-                coreProp.put(IProduct.PROP_PRODUCT_VERSION, prop.getProperty("com.ibm.websphere.productVersion"));
-                coreProp.put(IProduct.PROP_PRODUCT_INSTALL_TYPE, prop.getProperty("com.ibm.websphere.productInstallType"));
-                coreProp.put(IProduct.PROP_PRODUCT_EDITION, prop.getProperty("com.ibm.websphere.productEdition"));
-                coreProp.put(IProduct.PROP_PRODUCT_LICENSE_TYPE, prop.getProperty("com.ibm.websphere.productLicenseType", "ILAN"));
-                coreProp.put(IProduct.PROP_ON_PREMISE, onPremise);
-                if (provideFeature != null)
-                    coreProp.put("provideFeature", provideFeature);
-                return coreProp;
+            List<ZipEntry> markers = getRuntimeMarkers(zipFile);
+            for (ZipEntry marker : markers) {
+                InputStream is = null;
+                try {
+                    is = zipFile.getInputStream(marker);
+                    Properties prop = new Properties();
+                    prop.load(is);
+
+                    Map<String, String> productProp = new HashMap<String, String>();
+                    productProp.put(IProduct.PROP_PRODUCT_ID, prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_ID));
+                    productProp.put(IProduct.PROP_PRODUCT_VERSION, prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_VERSION));
+                    productProp.put(IProduct.PROP_PRODUCT_INSTALL_TYPE, prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_INSTALL_TYPE));
+                    productProp.put(IProduct.PROP_PRODUCT_EDITION, prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_EDITION));
+                    productProp.put(IProduct.PROP_PRODUCT_LICENSE_TYPE, prop.getProperty(Constants.RUNTIME_PROP_PRODUCT_LICENSE_TYPE, "ILAN"));
+
+                    productList.add(productProp);
+                } finally {
+                    try {
+                        if (is != null)
+                            is.close();
+                    } catch (Exception e) {
+                        // ignore
+                    }
+                }
             }
         } catch (IOException e) {
             if (Trace.ENABLED)
                 Trace.trace(Trace.WARNING, "Problem reading archive: " + archiveFile, e);
         } finally {
             try {
-                if (is != null)
-                    is.close();
-
                 if (zipFile != null)
                     zipFile.close();
             } catch (Exception e) {
                 // ignore
             }
         }
-        return null;
     }
 
     private static String getCoreFeatures(File archiveFile) {
@@ -234,7 +258,7 @@ public class LocalProduct extends AbstractProduct {
         return (sb.length() == 0) ? null : sb.toString();
     }
 
-    private static Map<String, String> getAddOnProperties(File archiveFile) {
+    private static void getAddOnProperties(File archiveFile, Map<String, String> addOnProp, List<Map<String, String>> productList) {
         String archivePath = archiveFile.getAbsolutePath();
         String appliesTo = null;
         String type = null;
@@ -295,7 +319,6 @@ public class LocalProduct extends AbstractProduct {
             }
         }
 
-        Map<String, String> addOnProp = new HashMap<String, String>();
         addOnProp.put(IProduct.PROP_NAME, archiveFile.getName());
         addOnProp.put(IProduct.PROP_DESCRIPTION, archivePath);
         if (appliesTo != null) {
@@ -311,11 +334,12 @@ public class LocalProduct extends AbstractProduct {
             addOnProp.put("requireFeature", requireFeature);
         }
 
-        return addOnProp;
+        Map<String, String> productProps = new HashMap<String, String>();
+        productList.add(productProps);
     }
 
-    private LocalProduct(File file, Map<String, String> properties) {
-        super(properties);
+    private LocalProduct(File file, Map<String, String> properties, List<Map<String, String>> productList) {
+        super(properties, productList);
         source = new LocalSource(file);
     }
 
