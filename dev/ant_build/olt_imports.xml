@@ -17,76 +17,68 @@
     <import file="${olt_imports.basedir}/public_imports/updatesite_imports.xml"/>
 	<import file="olt_suppliers_updatesite.xml"/>
 
-	<target name="generateOLTUpdateSite">
+   <target name="setOLTUpdateSiteProperties">
+  
+         <echo>Open OLT setOLTUpdateSiteProperties call</echo>
+   	
+         <condition property="java.executable" value="java" else="java.exe">
+           <not>
+             <os family="windows" />
+           </not>
+         </condition>
+
+         <property name="local.workspace" location="${olt_imports.basedir}/.."/>
+         <property name="target.jvm" location="${java.home}/bin/${java.executable}" />
+         <property name="equinox.launcher" value="org.eclipse.equinox.app_1.3.100.v20120522-1841.jar" /> 
+         <property name="delegate.build.dir" location = "${local.workspace}"/>
+
+         <property name="nativeDirectory" value="${local.workspace}/tools.image/update" />
+         <property name="sourceDir" value="${nativeDirectory}/staging" />
+         <property name="tempDir" value="${sourceDir}/temp" />
+         <property name="updateSiteDir" value="${sourceDir}/update-site" />
+         <property name="updateSiteDirFull" value="${sourceDir}/update-sitefull" />
+         <property name="version" value="${level_tag}" />
+         <property name="fileNameVersion" value="${level_tag}" />
+         
+         <echo>SourceDir is ${sourceDir}</echo>
+         
+         <loadresource property="newVersion">
+             <propertyresource name="fileNameVersion" />
+             <filterchain>
+                 <tokenfilter>
+                     <filetokenizer />
+                     <replacestring from=" " to="_" />
+                 </tokenfilter>
+             </filterchain>
+         </loadresource>
+         
+         <var name="fileNameVersion" unset="true" />
+         <property name="fileNameVersion" value="${newVersion}" />
+         <property name="qualifier" value="${buildLabel}"/>
+         <property name="updatesite-name" value="openlibertytools-${fileNameVersion}.v${qualifier}" />
+         <property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />         
+         <echo message="Target jvm location at ${target.jvm}" />
+             
+         <property name="gen.updatesite.file" location="${olt_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
+         <echo message="Script location at ${gen.updatesite.file}" />
+         
+         <property name="target.updatesite.repository" location="${updateSiteDir}/repository" />
+   	
+         <mkdir dir="${target.updatesite.repository}"/>
+         <echo message="Source location at ${updateSiteDir}" />
+         <echo message="Updatesite location at ${target.updatesite.repository}" />
+     
+         <property name="olt.product.toplevelfeatures.list" 
+             location="olt_product_updatesite_toplevel_features.properties" />
+         <property name="olt.product.features.list" 
+             location="olt_product_updatesite_features.properties" />
+ 	
+	</target>
+	
+	<target name="generateOLTUpdateSite" depends="setOLTUpdateSiteProperties">
 		
 		<echo>Open OLT generate updateSite call</echo>
 
-	    <condition property="java.executable" value="java" else="java.exe">
-	      <not>
-	        <os family="windows" />
-	      </not>
-	    </condition>
-
-		<property name="local.workspace" location="${olt_imports.basedir}/.."/>
-	    <property name="target.jvm" location="${java.home}/bin/${java.executable}" />
-	    <property name="equinox.launcher" value="org.eclipse.equinox.app_1.3.100.v20120522-1841.jar" />	
-		<property name="delegate.build.dir" location = "${local.workspace}"/>
-
-		<property name="nativeDirectory" value="${local.workspace}/tools.image/update" />
-		<property name="sourceDir" value="${nativeDirectory}/staging" />
-	  	<property name="tempDir" value="${sourceDir}/temp" />
-	  	<property name="updateSiteDir" value="${sourceDir}/update-site" />
-	  	<property name="updateSiteDirFull" value="${sourceDir}/update-sitefull" />
-		<property name="version" value="${level_tag}" />
-		<property name="fileNameVersion" value="${level_tag}" />
-		
-		<echo>SourceDir is ${sourceDir}</echo>
-		
-		<loadresource property="newVersion">
-			<propertyresource name="fileNameVersion" />
-			<filterchain>
-				<tokenfilter>
-					<filetokenizer />
-					<replacestring from=" " to="_" />
-				</tokenfilter>
-			</filterchain>
-		</loadresource>
-		
-		<var name="fileNameVersion" unset="true" />
-		<property name="fileNameVersion" value="${newVersion}" />
-		<property name="qualifier" value="${buildLabel}"/>
-		<property name="updatesite-name" value="openlibertytools-${fileNameVersion}.v${qualifier}" />
-		<property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />	    	
-		<echo message="Target jvm location at ${target.jvm}" />
-		  	
-	  	<property name="gen.updatesite.file" location="${olt_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
-	  	<echo message="Script location at ${gen.updatesite.file}" />
-		
-	  	<property name="target.updatesite.repository" location="${updateSiteDir}/repository" />
-	  	<mkdir dir="${target.updatesite.repository}"/>
-	  	<echo message="Source location at ${updateSiteDir}" />
-	  	<echo message="Updatesite location at ${target.updatesite.repository}" />
-		
-		<antcall target="generateSuppliersUpdateSite"/>
-
-		<!-- Copy build result content -->
-		<copy todir="${sourceDir}/features" overwrite="true" verbose="true">
-			<fileset dir="${local.workspace}/tools.image/update/features">
-				<include name="**/*.jar"/>
-			</fileset>
-		</copy>
-		
-		<copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
-	  		<fileset dir="${local.workspace}/tools.image/update/plugins">
-	  			<include name="**/*.jar"/>
-	  		</fileset>
-	  	</copy>
-		  			  	
-		<property name="olt.product.toplevelfeatures.list" 
-			location="olt_product_updatesite_toplevel_features.properties" />
-		<property name="olt.product.features.list" 
-			location="olt_product_updatesite_features.properties" />
-		
 		<!-- Step 1 -->
 		<!-- Create site.xml with top level feature(s) -->
 		<generateUpdateSite 
@@ -161,5 +153,52 @@
 
         <echo>***** Build artifact available at ${artifacts.dir}/${updatesite-name}.zip</echo>
 	
+	</target>
+	
+   <target name="generateOLTSuppliersUpdateSite" depends="setOLTUpdateSiteProperties">
+                
+            <echo>Open OLT generateOLTSuppliersUpdateSite call</echo>
+            <antcall target="generateSuppliersUpdateSite"/>
+   	
+            <!-- Copy com.ibm.ws.kernel.feature.resolver_*.jar into ${sourceDir}/plugins to have them signed -->
+            <echo>Copying ${sourceDir}/plugins/com.ibm.ws.kernel.feature.resolver_*.jar to ${local.workspace}/tools.image/update/plugins </echo>
+            <copy todir="${local.workspace}/tools.image/update/plugins" overwrite="true" verbose="true">
+                <fileset dir="${sourceDir}/plugins">
+                    <include name="com.ibm.ws.kernel.feature.resolver_*.jar"/>
+                </fileset>
+            </copy>
+   
+    </target>
+	
+	<target name="generateOLTSuppliersUpdateSiteRestore" depends="setOLTUpdateSiteProperties">
+		        
+	        <echo>Open OLT generateOLTSuppliersUpdateSiteRestore call</echo>
+		
+	        <!-- 
+	        i.e. 
+	        ${local.workspace} : build/open-liberty-tools/dev/ 
+		    ${sourceDIR} : build/open-liberty-tools/dev/tools.image/update/staging
+		    -->
+		
+    	        <!-- Copy build (signed if disable.run.signjar=false) result content -->
+    	        <copy todir="${sourceDir}/features" overwrite="true" verbose="true">
+    	            <fileset dir="${local.workspace}/tools.image/update/features">
+    	                <include name="**/*.jar"/>
+    	            </fileset>
+    	        </copy>
+ 
+    	        <copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
+    	            <fileset dir="${local.workspace}/tools.image/update/plugins">
+    	                <include name="**/*.jar"/>
+    	            </fileset>
+    	        </copy>
+		
+		    <!-- Move com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
+		    <move todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
+                <fileset dir="${local.workspace}/tools.image/update/plugins">
+                    <include name="com.ibm.ws.kernel.feature.resolver_*.jar"/>
+                </fileset>
+            </move>                    		
+            	
 	</target>
 </project>

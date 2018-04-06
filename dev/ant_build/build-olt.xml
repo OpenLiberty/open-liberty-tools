@@ -45,17 +45,23 @@
 	</target>
 
     <target name="compile" depends="getOLTBuildLabel, preparePrereqsIvy" unless="${env.skip_compile_olt}">
-        <echo message="Build label is ${env.olt_buildLabel}"/>
+        <echo message="Build label is ${buildLabel}"/>
     	    <antcall target="liberty-all.compile" /> 
+    	
+     	<echo message="olt_imports.generateOLTSuppliersUpdateSite call"/>
+        <antcall target="olt_imports.generateOLTSuppliersUpdateSite"/>
+
     </target>
 
     <property name="artifacts.dir" value="${olt_build.basedir}/artifacts"/>
     <mkdir dir="${artifacts.dir}"/>
 	
     <target name="generateOpenLTUpdateSite" depends="getOLTBuildLabel" unless="${env.skip_generate_olt}">
-    	    <echo message="Build label is ${env.olt_buildLabel}"/>
+    	    <echo message="Build label is ${buildLabel}"/>
 
-        <antcall target="olt_imports.generateOLTUpdateSite"/>
+        <antcall target="olt_imports.generateOLTSuppliersUpdateSiteRestore"/>
+    	
+      	<antcall target="olt_imports.generateOLTUpdateSite"/>
         <antcall target="olt_test_imports.generateOLTTestUpdateSite"/>
         
     	    <echo message="Delete tools.image"/>

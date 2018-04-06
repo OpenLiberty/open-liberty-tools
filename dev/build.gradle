@@ -33,7 +33,7 @@ dependencies {
     antScp 'org.apache.ant:ant-jsch:1.7.1', 'jsch:jsch:0.1.29'
 }
 
-defaultTasks 'clean', 'gradleCompile', 'gradleGenerateOpenLTUpdateSite'
+defaultTasks 'clean', 'gradleCompile', 'gradleGenerateOpenLTUpdateSite', 'deployDHE'
 
 task importAnt {
     ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
@@ -222,12 +222,8 @@ task deployDHE {
 
         def version = getBuildLabelFromArtifact()
         def buildType = System.getenv("olt_build_type")
+        def buildLog = System.getenv("BUILD_LOG")
         
-        if (buildType != "nightly" && buildType != "release") {
-            println "Skipping deploy for a personal build"
-            return
-        }
-
         println "Publishing ${buildType} build: ${version}"
         
         def infoJson = System.getenv("INFO_JSON")
@@ -241,21 +237,30 @@ task deployDHE {
 
         // Put all files to be published into a directory
         def toPublish = ant.path {
-            fileset(dir: 'ant_build/artifacts/', includes: "openlibertytools-*.zip")
-            fileset(dir: "${rootDir}", includes: System.getenv("BUILD_LOG"))
+             fileset(dir: 'ant_build/artifacts/', includes: "openlibertytools-*.zip")
         }
-
+        
         toPublish.list().each { file ->
-            println "Publishing " + file
+            println "Publishing " + file + " to DHE"
             copy {
                 from file
                 into toPublishDir
             }
         }
+        
+        def toPublish_buildlog = ant.path {
+             fileset(dir: '.', includes: "${buildLog}")
+        }
+        
+        println "Publishing " + toPublish_buildlog + " to DHE"
+        copy {
+            from toPublish_buildlog
+            into toPublishDir
+        }        
 
-        def user = System.getenv("gsaid")
+        def user = System.getenv("dhe_gsaid")
         def host = System.getenv("dhe_server")
-        def pw = System.getenv("gsapw")
+        def pw = System.getenv("dhe_gsapw")
 
         if(user == null || user.isEmpty()) {
             throw new GradleException("gsaid is not set!")
@@ -350,6 +355,11 @@ task deployDHE {
             file("${rootDir}/${infoJson}").delete()
         }        
         
+    }
+    
+    onlyIf {
+        ((System.getenv("olt_build_type") == "nightly") || 
+             (System.getenv("olt_build_type") == "release"))
     }
 }
 
