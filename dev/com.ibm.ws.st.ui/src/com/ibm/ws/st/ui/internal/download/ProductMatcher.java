@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2015 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.download;
 
@@ -114,33 +114,38 @@ class ProductMatcher {
             return new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.errorAddonInvalid, null);
         }
 
-        IStatus status = matches(appliesToList.get(0), runtime);
-        for (int i = 1; i < appliesToList.size(); ++i) {
-            if (status == Status.OK_STATUS)
-                break;
-
-            status = matches(appliesToList.get(i), runtime);
+        IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.errorRuntimeNoProductInfo, null);
+        List<IRuntimeInfo.IProduct> runtimeProducts = runtime.getProducts();
+        if (runtimeProducts != null) {
+            for (IRuntimeInfo.IProduct runtimeProduct : runtimeProducts) {
+                for (ProductInfo appliesTo : appliesToList) {
+                    status = matches(appliesTo, runtimeProduct);
+                    if (status == Status.OK_STATUS) {
+                        return status;
+                    }
+                }
+            }
         }
 
         return status;
     }
 
-    private static IStatus matches(ProductInfo appliesTo, IRuntimeInfo runtime) {
+    private static IStatus matches(ProductInfo appliesTo, IRuntimeInfo.IProduct runtimeProduct) {
         if (appliesTo.id == null) {
             return new Status(IStatus.ERROR, Activator.PLUGIN_ID, Messages.errorAddonNoProductId, null);
         }
 
-        if (!appliesTo.id.equals(runtime.getProductId())) {
+        if (!appliesTo.id.equals(runtimeProduct.getProductId())) {
             String message;
-            if (runtime.getProductId() != null || runtime.getProductId().isEmpty()) {
+            if (runtimeProduct.getProductId() == null || runtimeProduct.getProductId().isEmpty()) {
                 message = Messages.errorRuntimeNoProductId;
             } else {
-                message = NLS.bind(Messages.errorAddonProdcutIdMismatch, new String[] { runtime.getProductId(), appliesTo.id });
+                message = NLS.bind(Messages.errorAddonProdcutIdMismatch, new String[] { runtimeProduct.getProductId(), appliesTo.id });
             }
             return new Status(IStatus.ERROR, Activator.PLUGIN_ID, message, null);
         }
 
-        String productVersion = runtime.getProductVersion();
+        String productVersion = runtimeProduct.getProductVersion();
         if (appliesTo.version != null) {
             java.util.regex.Matcher appliesToMatcher = validNumericVersionOrRange.matcher(appliesTo.version);
             boolean appliesToIsRange = appliesTo.version.endsWith("+");
@@ -167,14 +172,14 @@ class ProductMatcher {
             }
         }
 
-        if (!appliesTo.editions.isEmpty() && !appliesTo.editions.contains(runtime.getProductEdition())) {
-            return new Status(IStatus.ERROR, Activator.PLUGIN_ID, NLS.bind(Messages.errorAddonEditionMismatch, new String[] { runtime.getProductEdition(),
-                                                                                                                             appliesTo.editions.toString() }), null);
+        if (!appliesTo.editions.isEmpty() && !appliesTo.editions.contains(runtimeProduct.getProductEdition())) {
+            return new Status(IStatus.ERROR, Activator.PLUGIN_ID, NLS.bind(Messages.errorAddonEditionMismatch, new String[] { runtimeProduct.getProductEdition(),
+                                                                                                                              appliesTo.editions.toString() }), null);
         }
 
-        if (appliesTo.installType != null && !appliesTo.installType.equals(runtime.getProductInstallType())) {
+        if (appliesTo.installType != null && !appliesTo.installType.equals(runtimeProduct.getProductInstallType())) {
             return new Status(IStatus.ERROR, Activator.PLUGIN_ID, NLS.bind(Messages.errorAddonInstallTypeMismatch,
-                                                                           new String[] { runtime.getProductInstallType(), appliesTo.installType }), null);
+                                                                           new String[] { runtimeProduct.getProductInstallType(), appliesTo.installType }), null);
         }
 
         return Status.OK_STATUS;
@@ -191,15 +196,15 @@ class ProductMatcher {
 
     /**
      * Evaluate whether queryVersion is considered to be greater or equal than minimumVersion.
-     * 
+     *
      * Expects version numbers in array form, where the elements of the array are the digits of the version
      * number, in order.
-     * 
+     *
      * Returns true if the version represented by queryVersion is greater than or equal to the
      * version represented by minimumVersion.
-     * 
+     *
      * Returns false if the version numbers are not of the same length, or the minimum version is not satisfied.
-     * 
+     *
      * @param minimumVersion
      * @param queryVersion
      * @return

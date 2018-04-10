@@ -230,4 +230,11 @@ public class Constants {
 
     public static final String SERVER_TYPE_LIBERTY_GRADLE = "LibertyGradle";
 
+    // Runtime properties
+    public static final String RUNTIME_PROP_PRODUCT_ID = "com.ibm.websphere.productId";
+    public static final String RUNTIME_PROP_PRODUCT_VERSION = "com.ibm.websphere.productVersion";
+    public static final String RUNTIME_PROP_PRODUCT_EDITION = "com.ibm.websphere.productEdition";
+    public static final String RUNTIME_PROP_PRODUCT_INSTALL_TYPE = "com.ibm.websphere.productInstallType";
+    public static final String RUNTIME_PROP_PRODUCT_LICENSE_TYPE = "com.ibm.websphere.productLicenseType";
+
 }

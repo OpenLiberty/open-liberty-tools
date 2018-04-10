@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2015 IBM Corporation and others.
+ * Copyright (c) 2013, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.download;
 
@@ -58,6 +58,6 @@ public class ProductHelper {
             return false;
         }
 
-        return IProduct.Type.INSTALL == product.getType() && LIBERTY_PRODUCT_ID.equals(product.getRuntimeInfo().getProductId());
+        return IProduct.Type.INSTALL == product.getType() && LIBERTY_PRODUCT_ID.equals(product.getRuntimeInfo().getPrimaryProductId());
     }
 }

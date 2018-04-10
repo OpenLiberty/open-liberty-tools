@@ -692,6 +692,7 @@ public class Messages extends NLS {
     public static String errorAddonNotSupported;
     public static String errorAddonIsRepo;
     public static String errorRuntimeNoProductId;
+    public static String errorRuntimeNoProductInfo;
 
     public static String mergedEditorTitle;
     public static String mergedEditorFormText;
