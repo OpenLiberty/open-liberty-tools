@@ -174,12 +174,6 @@
 		        
 	        <echo>Open OLT generateOLTSuppliersUpdateSiteRestore call</echo>
 		
-	        <!-- 
-	        i.e. 
-	        ${local.workspace} : build/open-liberty-tools/dev/ 
-		    ${sourceDIR} : build/open-liberty-tools/dev/tools.image/update/staging
-		    -->
-		
     	        <!-- Copy build (signed if disable.run.signjar=false) result content -->
     	        <copy todir="${sourceDir}/features" overwrite="true" verbose="true">
     	            <fileset dir="${local.workspace}/tools.image/update/features">

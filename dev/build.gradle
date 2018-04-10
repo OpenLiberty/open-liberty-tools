@@ -49,7 +49,7 @@ task importAnt {
     // prereqs uses ivy to resolve and download our runtime dependencies and some open source libs
     // and move them into /lib/ folders of dependant plugins
     ant.importBuild('ant_build/prereqs/prereqs.xml')
-    // build-olt contains the generateOpenLTUpdateSite target, which is the entry point
+    // build-olt provides the generateOpenLTUpdateSite target, which is the entry point
     // for the compilation and assembling of updatesites
     ant.importBuild('ant_build/build-olt.xml')
 }
@@ -319,19 +319,19 @@ task deployDHE {
                	  def infoJsonDHEPublicUrl = "http://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/${buildType}/${infoJson}"
 
 	              // if ${infoJson} in staging server is empty then download ${infoJson} from DHEPublic
-    	          println "${destDHEStaging}/${buildType}/${infoJson} is already published."
-            	  println "Downloading ${infoJsonDHEPublicUrl}"
-
-        	      URL infoJsonURL = new URL("${infoJsonDHEPublicUrl}")
-        	      def connection = infoJsonURL.openConnection()
-
-				        // if ${infoJson} is not downloadable
-				        if ("${connection.responseCode}" == "404") {
-					          println "Response Code/Message: ${connection.responseCode} / ${connection.responseMessage}"
-				        } else {
-					          json << infoJsonURL.openStream()
-				            object = new JsonSlurper().parseText(json.getText())
-				        }
+        	          println "${destDHEStaging}/${buildType}/${infoJson} is already published."
+                	  println "Downloading ${infoJsonDHEPublicUrl}"
+    
+            	      URL infoJsonURL = new URL("${infoJsonDHEPublicUrl}")
+            	      def connection = infoJsonURL.openConnection()
+    
+        	          // if ${infoJson} is not downloadable
+        	          if ("${connection.responseCode}" == "404") {
+        		          println "Response Code/Message: ${connection.responseCode} / ${connection.responseMessage}"
+        	          } else {
+        		          json << infoJsonURL.openStream()
+        	            object = new JsonSlurper().parseText(json.getText())
+        	          }
             }
 
             List versionsList = object['versions']

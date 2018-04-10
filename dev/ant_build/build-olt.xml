@@ -50,7 +50,6 @@
     	
      	<echo message="olt_imports.generateOLTSuppliersUpdateSite call"/>
         <antcall target="olt_imports.generateOLTSuppliersUpdateSite"/>
-
     </target>
 
     <property name="artifacts.dir" value="${olt_build.basedir}/artifacts"/>
