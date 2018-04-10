@@ -187,12 +187,12 @@
     	            </fileset>
     	        </copy>
 		
-		    <!-- Move com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
-		    <move todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
+		    <!-- copy com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
+		    <copy todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
                 <fileset dir="${local.workspace}/tools.image/update/plugins">
                     <include name="com.ibm.ws.kernel.feature.resolver_*.jar"/>
                 </fileset>
-            </move>                    		
+            </copy>                    		
             	
 	</target>
 </project>
