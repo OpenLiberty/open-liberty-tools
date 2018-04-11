@@ -160,7 +160,7 @@
             <echo>Open OLT generateOLTSuppliersUpdateSite call</echo>
             <antcall target="generateSuppliersUpdateSite"/>
    	
-            <!-- Copy com.ibm.ws.kernel.feature.resolver_*.jar into ${sourceDir}/plugins to have them signed -->
+            <!-- Copy com.ibm.ws.kernel.feature.resolver_*.jar into ${local.workspace}/tools.image/update/plugins to have them signed -->
             <echo>Copying ${sourceDir}/plugins/com.ibm.ws.kernel.feature.resolver_*.jar to ${local.workspace}/tools.image/update/plugins </echo>
             <copy todir="${local.workspace}/tools.image/update/plugins" overwrite="true" verbose="true">
                 <fileset dir="${sourceDir}/plugins">
@@ -175,6 +175,9 @@
 	        <echo>Open OLT generateOLTSuppliersUpdateSiteRestore call</echo>
 		
     	        <!-- Copy build (signed if disable.run.signjar=false) result content -->
+		    <mkdir dir="${local.workspace}/tools.image/update/features"/>
+		    <mkdir dir="${sourceDir}/features"/>
+		    	
     	        <copy todir="${sourceDir}/features" overwrite="true" verbose="true">
     	            <fileset dir="${local.workspace}/tools.image/update/features">
     	                <include name="**/*.jar"/>
@@ -188,11 +191,11 @@
     	        </copy>
 		
 		    <!-- copy com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
-		    <copy todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
+		    <move todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
                 <fileset dir="${local.workspace}/tools.image/update/plugins">
                     <include name="com.ibm.ws.kernel.feature.resolver_*.jar"/>
                 </fileset>
-            </copy>                    		
+            </move>                    		
             	
 	</target>
 </project>
