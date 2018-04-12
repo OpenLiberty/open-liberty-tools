@@ -15,12 +15,12 @@
 
     <import file="${olt_imports.basedir}/public_imports/internal_imports/buildtasks.xml" />
     <import file="${olt_imports.basedir}/public_imports/updatesite_imports.xml"/>
-	<import file="olt_suppliers_updatesite.xml"/>
+    <import file="olt_suppliers_updatesite.xml"/>
 
    <target name="setOLTUpdateSiteProperties">
   
          <echo>Open OLT setOLTUpdateSiteProperties call</echo>
-   	
+       
          <condition property="java.executable" value="java" else="java.exe">
            <not>
              <os family="windows" />
@@ -57,100 +57,99 @@
          <property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />         
          <property name="gen.updatesite.file" location="${olt_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
          <property name="target.updatesite.repository" location="${updateSiteDir}/repository" />
-   	
+       
          <mkdir dir="${target.updatesite.repository}"/>
      
          <property name="olt.product.toplevelfeatures.list" 
              location="olt_product_updatesite_toplevel_features.properties" />
          <property name="olt.product.features.list" 
              location="olt_product_updatesite_features.properties" />
- 	
-	</target>
-	
-	<target name="generateOLTUpdateSite" depends="setOLTUpdateSiteProperties">
-		
-		<echo>Call generateOLTUpdateSite...</echo>
+     
+    </target>
+    
+    <target name="generateOLTUpdateSite" depends="setOLTUpdateSiteProperties">
+        
+        <echo>Call generateOLTUpdateSite...</echo>
 
-		<!-- Step 1 -->
-		<!-- Create site.xml with top level feature(s) -->
-		<generateUpdateSite 
-			tempDir="${tempDir}" 
-			sourceDir="${sourceDir}" 
-			outputDir="${updateSiteDir}"
-			addIncludedFeatures="false">
-		  				
-		<!-- Add Main feature here -->
-			<category name="was4d"  
-				label="Open Liberty Tools for Eclipse" 
-				description="Open Liberty Tools for Eclipse">
-				
-				<!-- Features list file -->
-				<featuresFile id="Open OLT product updatesite toplevel features" 
-					file="${olt.product.toplevelfeatures.list}" />
-				
-		  	</category>
-		</generateUpdateSite>
-		  	
-		<!-- Step 2 -->
-		<!-- Include features -->
-		<generateUpdateSite 
-			tempDir="${tempDir}" 
-			sourceDir="${sourceDir}" 
-			outputDir="${updateSiteDirFull}"
-			addIncludedFeatures="true">
-			
-			<!-- Features list file -->
-			<featuresFile id="Open OLT product updatesite features" 
-								file="${olt.product.features.list}" />
-			
-	  	</generateUpdateSite>
-		
-	  	<!-- Step 3 -->
-	  	<!-- Generate P2 metadata -->
-	  	<copy todir="${updateSiteDir}/features" overwrite="true" verbose="true">
-	  		<fileset dir="${updateSiteDirFull}/features">
-	  			<include name="**/*.jar"/>
-	  		</fileset>
-	  	</copy>  
-		  			
-	  	<copy todir="${updateSiteDir}/plugins" overwrite="true" verbose="true">
-	  		<fileset dir="${updateSiteDirFull}/plugins">
-	  			<include name="**/*.jar"/>
-	  		</fileset>
-	  	</copy>
+        <!-- Step 1 -->
+        <!-- Create site.xml with top level feature(s) -->
+        <generateUpdateSite 
+            tempDir="${tempDir}" 
+            sourceDir="${sourceDir}" 
+            outputDir="${updateSiteDir}"
+            addIncludedFeatures="false">
+                          
+            <!-- Add Main feature here -->
+            <category name="was4d"  
+                label="Open Liberty Tools for Eclipse" 
+                description="Open Liberty Tools for Eclipse">
+                
+                <!-- Features list file -->
+                <featuresFile id="Open OLT product updatesite toplevel features" 
+                    file="${olt.product.toplevelfeatures.list}" />
+                
+              </category>
+        </generateUpdateSite>
+              
+        <!-- Step 2 -->
+        <!-- Include features -->
+        <generateUpdateSite 
+            tempDir="${tempDir}" 
+            sourceDir="${sourceDir}" 
+            outputDir="${updateSiteDirFull}"
+            addIncludedFeatures="true">
+            
+            <!-- Features list file -->
+            <featuresFile id="Open OLT product updatesite features" 
+                                file="${olt.product.features.list}" />
+            
+          </generateUpdateSite>
+        
+          <!-- Step 3 -->
+          <!-- Generate P2 metadata -->
+          <copy todir="${updateSiteDir}/features" overwrite="true" verbose="true">
+              <fileset dir="${updateSiteDirFull}/features">
+                  <include name="**/*.jar"/>
+              </fileset>
+          </copy>  
+                      
+          <copy todir="${updateSiteDir}/plugins" overwrite="true" verbose="true">
+              <fileset dir="${updateSiteDirFull}/plugins">
+                  <include name="**/*.jar"/>
+              </fileset>
+          </copy>
 
-		<ant antfile="${delegate.build.dir}/ant_build/public_imports/updatesite_imports.xml" 
-							 target="pde-setup"
-							 inheritall="true"
-							 inheritrefs="true"/>
-		
-		<ant antfile="${delegate.build.dir}/ant_build/public_imports/updatesite_imports.xml" 
-									 target="generateP2Metadata"
-									 inheritall="true"
-									 inheritrefs="true"/>
-	  	
-	  	<!-- Step 4 -->
-		<!-- Copy site.xml into staging directory for WTP installation compatibility-->
-		<copy file="${updateSiteDir}/site.xml" todir="${target.updatesite.repository}" overwrite="true" verbose="true" />
-		  
+        <ant antfile="${delegate.build.dir}/ant_build/public_imports/updatesite_imports.xml" 
+                             target="pde-setup"
+                             inheritall="true"
+                             inheritrefs="true"/>
+        
+        <ant antfile="${delegate.build.dir}/ant_build/public_imports/updatesite_imports.xml" 
+                                     target="generateP2Metadata"
+                                     inheritall="true"
+                                     inheritrefs="true"/>
+          
+          <!-- Step 4 -->
+        <!-- Copy site.xml into staging directory for WTP installation compatibility-->
+        <copy file="${updateSiteDir}/site.xml" todir="${target.updatesite.repository}" overwrite="true" verbose="true" />
 
         <property name="artifact.location" value="${nativeDirectory}/${updatesite-name}.zip"/>
 
-	  	<!-- Step 5 -->
-	    <!-- Create final zip -->
-		<zip destfile="${artifact.location}" basedir="${target.updatesite.repository}"/>
+          <!-- Step 5 -->
+        <!-- Create final zip -->
+        <zip destfile="${artifact.location}" basedir="${target.updatesite.repository}"/>
 
         <copy file="${artifact.location}" todir="${artifacts.dir}"/>
 
         <echo>***** Build artifact available at ${artifacts.dir}/${updatesite-name}.zip</echo>
-	
-	</target>
-	
+    
+    </target>
+    
    <target name="generateOLTSuppliersUpdateSite" depends="setOLTUpdateSiteProperties">
                 
             <echo>Call generateOLTSuppliersUpdateSite...</echo>
             <antcall target="generateSuppliersUpdateSite"/>
-   	
+       
             <!-- Copy com.ibm.ws.kernel.feature.resolver_*.jar into ${local.workspace}/tools.image/update/plugins to have them signed -->
             <copy todir="${local.workspace}/tools.image/update/plugins" overwrite="true" verbose="true">
                 <fileset dir="${sourceDir}/plugins">
@@ -159,33 +158,32 @@
             </copy>
    
     </target>
-	
-	<target name="generateOLTSuppliersUpdateSiteRestore" depends="setOLTUpdateSiteProperties">
-		        
-	        <echo>Call generateOLTSuppliersUpdateSiteRestore...</echo>
-		
-		    <mkdir dir="${local.workspace}/tools.image/update/features"/>
-		    <mkdir dir="${sourceDir}/features"/>
-		    	
+    
+    <target name="generateOLTSuppliersUpdateSiteRestore" depends="setOLTUpdateSiteProperties">
+                
+            <echo>Call generateOLTSuppliersUpdateSiteRestore...</echo>
+        
+            <mkdir dir="${local.workspace}/tools.image/update/features"/>
+            <mkdir dir="${sourceDir}/features"/>
+                
             <!-- Copy build (signed if disable.run.signjar=false) result content -->
-    	        <copy todir="${sourceDir}/features" overwrite="true" verbose="true">
-    	            <fileset dir="${local.workspace}/tools.image/update/features">
-    	                <include name="**/*.jar"/>
-    	            </fileset>
-    	        </copy>
+                <copy todir="${sourceDir}/features" overwrite="true" verbose="true">
+                    <fileset dir="${local.workspace}/tools.image/update/features">
+                        <include name="**/*.jar"/>
+                    </fileset>
+                </copy>
  
-    	        <copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
-    	            <fileset dir="${local.workspace}/tools.image/update/plugins">
-    	                <include name="**/*.jar"/>
-    	            </fileset>
-    	        </copy>
-		
-		    <!-- copy com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
-		    <move todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
+                <copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
+                    <fileset dir="${local.workspace}/tools.image/update/plugins">
+                        <include name="**/*.jar"/>
+                    </fileset>
+                </copy>
+        
+            <!-- copy com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
+            <move todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
                 <fileset dir="${local.workspace}/tools.image/update/plugins">
                     <include name="com.ibm.ws.kernel.feature.resolver_*.jar"/>
                 </fileset>
-            </move>                    		
-            	
-	</target>
+            </move>                            
+    </target>
 </project>

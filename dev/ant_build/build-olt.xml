@@ -10,61 +10,60 @@
 -->
 
 <project name="olt_build" default="generateOpenLTUpdateSite">
-	<property name="level_tag" value="18.0.0.2"/>
-	<property name="delegate.build.dir" location="${basedir}/../" />
-	<property name="disable.run.executeMetatypeValidation" value="true"/>
-	<property name="disable.run.unzipIfixReleaseZip" value="true"/>
-	<property name="javac.source.file.encoding" value="Cp1252" />
-	<property name="tools.image" value="true" />
-	
+    <property name="level_tag" value="18.0.0.2"/>
+    <property name="delegate.build.dir" location="${basedir}/../" />
+    <property name="disable.run.executeMetatypeValidation" value="true"/>
+    <property name="disable.run.unzipIfixReleaseZip" value="true"/>
+    <property name="javac.source.file.encoding" value="Cp1252" />
+    <property name="tools.image" value="true" />
+    
     <dirname property="olt_build.basedir" file="${ant.file.olt_build}" />
-	
+    
     <import file="${olt_build.basedir}/resources/build_imports/liberty-macros.xml" />
     <import file="${olt_build.basedir}/resources/build_imports/liberty-all.xml" />
     <import file="${olt_build.basedir}/olt_imports.xml"/>
     <import file="${olt_build.basedir}/olt_test_imports.xml"/>
     <import file="${olt_build.basedir}/prereqs/prereqs.xml" />
-	
-	 <target name="getOLTBuildLabel" depends="createBuildLabelFile">     
-	 	  <loadproperties srcFile="${olt_build.basedir}/buildLabel.properties"/>
-	      <echo>Build label is "${buildLabel}"</echo>       
-	 </target>
+    
+     <target name="getOLTBuildLabel" depends="createBuildLabelFile">     
+           <loadproperties srcFile="${olt_build.basedir}/buildLabel.properties"/>
+          <echo>Build label is "${buildLabel}"</echo>       
+     </target>
 
-	<target name="checkBuildLabelFile" >        
+    <target name="checkBuildLabelFile" >        
         <available file="${olt_build.basedir}/buildLabel.properties" property="buildLabel.present"/>
     </target>
-	    
-	<target name="createBuildLabelFile" depends="checkBuildLabelFile" unless="buildLabel.present">     
-	        <tstamp>
-	              <format property="buildLabel" pattern="yyyy-MM-dd_HHmm" timezone="UTC"/>
-	        </tstamp>
-	               
-	        <propertyfile file="${olt_build.basedir}/buildLabel.properties" comment="Creating buildlabel.propertiess">
-	              <entry key="buildLabel" value="${buildLabel}"/>
-	        </propertyfile>
-	</target>
+        
+    <target name="createBuildLabelFile" depends="checkBuildLabelFile" unless="buildLabel.present">     
+        <tstamp>
+              <format property="buildLabel" pattern="yyyy-MM-dd_HHmm" timezone="UTC"/>
+        </tstamp>
+               
+        <propertyfile file="${olt_build.basedir}/buildLabel.properties" comment="Creating buildlabel.propertiess">
+              <entry key="buildLabel" value="${buildLabel}"/>
+        </propertyfile>
+    </target>
 
     <target name="compile" depends="getOLTBuildLabel, preparePrereqsIvy" unless="${env.skip_compile_olt}">
         <echo message="Build label is ${buildLabel}"/>
-    	    <antcall target="liberty-all.compile" /> 
-    	
-     	<echo message="olt_imports.generateOLTSuppliersUpdateSite call"/>
+        <antcall target="liberty-all.compile" /> 
+        <echo message="olt_imports.generateOLTSuppliersUpdateSite call"/>
         <antcall target="olt_imports.generateOLTSuppliersUpdateSite"/>
     </target>
 
     <property name="artifacts.dir" value="${olt_build.basedir}/artifacts"/>
     <mkdir dir="${artifacts.dir}"/>
-	
+
     <target name="generateOpenLTUpdateSite" depends="getOLTBuildLabel" unless="${env.skip_generate_olt}">
-    	    <echo message="Build label is ${buildLabel}"/>
+        <echo message="Build label is ${buildLabel}"/>
 
         <antcall target="olt_imports.generateOLTSuppliersUpdateSiteRestore"/>
-    	
-      	<antcall target="olt_imports.generateOLTUpdateSite"/>
+
+        <antcall target="olt_imports.generateOLTUpdateSite"/>
         <antcall target="olt_test_imports.generateOLTTestUpdateSite"/>
-        
-    	    <echo message="Delete tools.image"/>
+
+        <echo message="Delete tools.image"/>
         <delete dir="${olt_build.basedir}/tools.image" failonerror="false"/>
     </target>
-    
+
 </project>
