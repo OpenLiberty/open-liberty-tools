@@ -39,9 +39,7 @@
          <property name="updateSiteDirFull" value="${sourceDir}/update-sitefull" />
          <property name="version" value="${level_tag}" />
          <property name="fileNameVersion" value="${level_tag}" />
-         
-         <echo>SourceDir is ${sourceDir}</echo>
-         
+       
          <loadresource property="newVersion">
              <propertyresource name="fileNameVersion" />
              <filterchain>
@@ -57,16 +55,10 @@
          <property name="qualifier" value="${buildLabel}"/>
          <property name="updatesite-name" value="openlibertytools-${fileNameVersion}.v${qualifier}" />
          <property name="metadata-updatesite-name" value="openlibertytools-metadata-${fileNameVersion}.v${qualifier}" />         
-         <echo message="Target jvm location at ${target.jvm}" />
-             
          <property name="gen.updatesite.file" location="${olt_imports.basedir}/resources/olt_updatesite-properties/generateP2Metadata.xml" />
-         <echo message="Script location at ${gen.updatesite.file}" />
-         
          <property name="target.updatesite.repository" location="${updateSiteDir}/repository" />
    	
          <mkdir dir="${target.updatesite.repository}"/>
-         <echo message="Source location at ${updateSiteDir}" />
-         <echo message="Updatesite location at ${target.updatesite.repository}" />
      
          <property name="olt.product.toplevelfeatures.list" 
              location="olt_product_updatesite_toplevel_features.properties" />
@@ -77,7 +69,7 @@
 	
 	<target name="generateOLTUpdateSite" depends="setOLTUpdateSiteProperties">
 		
-		<echo>Open OLT generate updateSite call</echo>
+		<echo>Call generateOLTUpdateSite...</echo>
 
 		<!-- Step 1 -->
 		<!-- Create site.xml with top level feature(s) -->
@@ -110,7 +102,6 @@
 			<!-- Features list file -->
 			<featuresFile id="Open OLT product updatesite features" 
 								file="${olt.product.features.list}" />
-			
 			
 	  	</generateUpdateSite>
 		
@@ -157,11 +148,10 @@
 	
    <target name="generateOLTSuppliersUpdateSite" depends="setOLTUpdateSiteProperties">
                 
-            <echo>Open OLT generateOLTSuppliersUpdateSite call</echo>
+            <echo>Call generateOLTSuppliersUpdateSite...</echo>
             <antcall target="generateSuppliersUpdateSite"/>
    	
             <!-- Copy com.ibm.ws.kernel.feature.resolver_*.jar into ${local.workspace}/tools.image/update/plugins to have them signed -->
-            <echo>Copying ${sourceDir}/plugins/com.ibm.ws.kernel.feature.resolver_*.jar to ${local.workspace}/tools.image/update/plugins </echo>
             <copy todir="${local.workspace}/tools.image/update/plugins" overwrite="true" verbose="true">
                 <fileset dir="${sourceDir}/plugins">
                     <include name="com.ibm.ws.kernel.feature.resolver_*.jar"/>
@@ -172,88 +162,30 @@
 	
 	<target name="generateOLTSuppliersUpdateSiteRestore" depends="setOLTUpdateSiteProperties">
 		        
-	        <echo>Open OLT generateOLTSuppliersUpdateSiteRestore call</echo>
+	        <echo>Call generateOLTSuppliersUpdateSiteRestore...</echo>
 		
-    	        <!-- Copy build (signed if disable.run.signjar=false) result content -->
 		    <mkdir dir="${local.workspace}/tools.image/update/features"/>
 		    <mkdir dir="${sourceDir}/features"/>
-		
-        		<copy todir="${sourceDir}/features" overwrite="true" verbose="true">
-                <fileset dir="${local.workspace}/tools.image/update/features">
-                    <include name="**/*.jar"/>
-                </fileset>
-            </copy>
-
-	    		<resourcecount property="count.resolver">
-                <filelist dir="${sourceDir}/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-            </resourcecount>
-		    
-		    <echo>count.resolver in ${sourceDir}/plugins is ${count.resolver}</echo>		        
-        		
-		    <delete verbose="true">
-        		    <fileset dir="${sourceDir}/plugins" includes="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-        		</delete>
-		
-            <resourcecount property="count.resolver.afterdelete">
-                <filelist dir="${sourceDir}/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-            </resourcecount>
-            
-            <echo>count.resolver.afterdelete in ${sourceDir}/plugins is ${count.resolver.afterdelete}</echo>                
-		
-            <copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
-                  <fileset dir="${local.workspace}/tools.image/update/plugins">
-                      <include name="**/*.jar"/>
-                  </fileset>
-            </copy>
-
-        <resourcecount property="count.resolver.aftercopy">
-            <filelist dir="${sourceDir}/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-        </resourcecount>
-        
-        <echo>count.resolver.count.resolver.aftercopy in ${sourceDir}/plugins is ${count.resolver.aftercopy}</echo>                
-		
-		
-		
-		
-        <resourcecount property="count.supp.resolver.delete">
-            <filelist dir="${sourceDir}/suppliers/update-site/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-        </resourcecount>
-        
-        <echo>count.supp.resolver.delete  in ${sourceDir}/plugins is ${count.supp.resolver.delete}</echo>                
-
-		
-            <delete verbose="true">
-                <fileset dir="${sourceDir}/suppliers/update-site/plugins" includes="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-            </delete>
-		
-        <resourcecount property="count.supp.resolver.afterdelete">
-            <filelist dir="${sourceDir}/suppliers/update-site/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-        </resourcecount>
-        
-        <echo>count.supp.resolver.afterdelete  in ${sourceDir}/plugins is ${count.supp.resolver.afterdelete}</echo>                
-
-        <resourcecount property="count.beforemove">
-            <filelist dir="${local.workspace}/tools.image/update/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-        </resourcecount>
-        
-        <echo>count.beforemove  in ${local.workspace}/tools.image/update/plugins is ${count.beforemove}</echo>                
-
+		    	
+            <!-- Copy build (signed if disable.run.signjar=false) result content -->
+    	        <copy todir="${sourceDir}/features" overwrite="true" verbose="true">
+    	            <fileset dir="${local.workspace}/tools.image/update/features">
+    	                <include name="**/*.jar"/>
+    	            </fileset>
+    	        </copy>
+ 
+    	        <copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
+    	            <fileset dir="${local.workspace}/tools.image/update/plugins">
+    	                <include name="**/*.jar"/>
+    	            </fileset>
+    	        </copy>
 		
 		    <!-- copy com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
 		    <move todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
                 <fileset dir="${local.workspace}/tools.image/update/plugins">
                     <include name="com.ibm.ws.kernel.feature.resolver_*.jar"/>
                 </fileset>
-            </move>            
-		
-	     <resourcecount property="count.aftermove">
-	            <filelist dir="${local.workspace}/tools.image/update/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
-	        </resourcecount>
-	        
-	        <echo>count.aftermove in ${local.workspace}/tools.image/update/plugins is ${count.aftermove}</echo>                
-
-		      
-		   <echo>Open OLT generateOLTSuppliersUpdateSiteRestore call ends</echo>
+            </move>                    		
             	
 	</target>
 </project>

@@ -33,7 +33,7 @@ dependencies {
     antScp 'org.apache.ant:ant-jsch:1.7.1', 'jsch:jsch:0.1.29'
 }
 
-defaultTasks 'clean', 'gradleCompile', 'gradleGenerateOpenLTUpdateSite', 'deployDHE'
+defaultTasks 'clean', 'compile', 'generateOpenLTUpdateSite', 'deployDHE'
 
 task importAnt {
     ClassLoader antClassLoader = org.apache.tools.ant.Project.class.classLoader
@@ -150,6 +150,11 @@ task downloadEclipseSDK {
     }
 }
 
+task build {
+    doLast {
+    }
+}
+
 task gradleCompile {
     doLast {
     }
@@ -161,6 +166,9 @@ task gradleGenerateOpenLTUpdateSite {
 }
 
 gradleGenerateOpenLTUpdateSite.dependsOn generateOpenLTUpdateSite
+
+build.dependsOn compile
+build.dependsOn generateOpenLTUpdateSite
 
 preparePrereqsIvy.dependsOn importAnt
 compile.dependsOn preparePrereqsIvy
