@@ -26,7 +26,7 @@
     <import file="${olt_build.basedir}/prereqs/prereqs.xml" />
     
      <target name="getOLTBuildLabel" depends="createBuildLabelFile">     
-           <loadproperties srcFile="${olt_build.basedir}/buildLabel.properties"/>
+          <loadproperties srcFile="${olt_build.basedir}/buildLabel.properties"/>
           <echo>Build label is "${buildLabel}"</echo>       
      </target>
 

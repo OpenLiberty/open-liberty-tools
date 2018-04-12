@@ -195,7 +195,7 @@ def getBuildLabelFromArtifact() {
 
         buildLabel = (fileName =~ "${filePrefix}(.*).zip")[0][1]
 
-    f (buildLabel.isEmpty()) {
+    if (buildLabel.isEmpty()) {
         buildLabel = ant.properties['buildLabel']
         println "Unable to grab build label - ant buildLabel is used instead."
         }
