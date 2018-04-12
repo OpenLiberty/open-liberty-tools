@@ -188,7 +188,7 @@
                 <filelist dir="${sourceDir}/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
             </resourcecount>
 		    
-		    <echo>The number of resolver in ${sourceDir}/plugins is ${count.resolver}</echo>		        
+		    <echo>count.resolver in ${sourceDir}/plugins is ${count.resolver}</echo>		        
         		
 		    <delete verbose="true">
         		    <fileset dir="${sourceDir}/plugins" includes="com.ibm.ws.kernel.feature.resolver_*.jar"/>
@@ -198,7 +198,7 @@
                 <filelist dir="${sourceDir}/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
             </resourcecount>
             
-            <echo>The number of resolver after deletion in ${sourceDir}/plugins is ${count.resolver.afterdelete}</echo>                
+            <echo>count.resolver.afterdelete in ${sourceDir}/plugins is ${count.resolver.afterdelete}</echo>                
 		
             <copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
                   <fileset dir="${local.workspace}/tools.image/update/plugins">
@@ -206,11 +206,20 @@
                   </fileset>
             </copy>
 
+        <resourcecount property="count.resolver.aftercopy">
+            <filelist dir="${sourceDir}/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
+        </resourcecount>
+        
+        <echo>count.resolver.count.resolver.aftercopy in ${sourceDir}/plugins is ${count.resolver.aftercopy}</echo>                
+		
+		
+		
+		
         <resourcecount property="count.supp.resolver.delete">
             <filelist dir="${sourceDir}/suppliers/update-site/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
         </resourcecount>
         
-        <echo>The number of supp resolver  in ${sourceDir}/plugins is ${count.supp.resolver.delete}</echo>                
+        <echo>count.supp.resolver.delete  in ${sourceDir}/plugins is ${count.supp.resolver.delete}</echo>                
 
 		
             <delete verbose="true">
@@ -221,13 +230,13 @@
             <filelist dir="${sourceDir}/suppliers/update-site/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
         </resourcecount>
         
-        <echo>The number of supp resolver after deletion  in ${sourceDir}/plugins is ${count.supp.count.supp.resolver.afterdelete.delete}</echo>                
+        <echo>count.supp.resolver.afterdelete  in ${sourceDir}/plugins is ${count.supp.resolver.afterdelete}</echo>                
 
-        <resourcecount property="count.1.resolver.delete">
+        <resourcecount property="count.beforemove">
             <filelist dir="${local.workspace}/tools.image/update/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
         </resourcecount>
         
-        <echo>count.1.resolver.delete  in ${local.workspace}/tools.image/update/plugins is ${count.1.resolver.delete}</echo>                
+        <echo>count.beforemove  in ${local.workspace}/tools.image/update/plugins is ${count.beforemove}</echo>                
 
 		
 		    <!-- copy com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
@@ -237,11 +246,11 @@
                 </fileset>
             </move>            
 		
-	     <resourcecount property="count.1.resolver.aftermove">
+	     <resourcecount property="count.aftermove">
 	            <filelist dir="${local.workspace}/tools.image/update/plugins" files="com.ibm.ws.kernel.feature.resolver_*.jar"/>
 	        </resourcecount>
 	        
-	        <echo>count.1.resolver.aftermove in ${local.workspace}/tools.image/update/plugins is ${count.1.count.1.resolver.aftermove.delete}</echo>                
+	        <echo>count.aftermove in ${local.workspace}/tools.image/update/plugins is ${count.aftermove}</echo>                
 
 		      
 		   <echo>Open OLT generateOLTSuppliersUpdateSiteRestore call ends</echo>
