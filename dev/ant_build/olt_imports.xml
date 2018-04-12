@@ -177,6 +177,21 @@
     	        <!-- Copy build (signed if disable.run.signjar=false) result content -->
 		    <mkdir dir="${local.workspace}/tools.image/update/features"/>
 		    <mkdir dir="${sourceDir}/features"/>
+		
+		    <echo>local.workspaceDIR: 
+		    	${local.workspace}/tools.image/update/features folder directory contents:
+	        </echo>
+	        <exec executable="ls" failonerror="false" dir="${local.workspace}/tools.image/update/features">
+	            <arg value="-a" />
+	        </exec>
+		
+        <echo> sourceDIR: 
+        	${sourceDir}/features folder directory contents:
+        </echo>
+        <exec executable="ls" failonerror="false" dir="${sourceDir}/features">
+            <arg value="-a" />
+        </exec>
+		
 		    	
     	        <copy todir="${sourceDir}/features" overwrite="true" verbose="true">
     	            <fileset dir="${local.workspace}/tools.image/update/features">
@@ -184,11 +199,32 @@
     	            </fileset>
     	        </copy>
  
+        <echo> sourceDIR: 
+        	${local.workspace}/tools.image/update/plugins folder directory contents:
+        </echo>
+        <exec executable="ls" failonerror="false" dir="${local.workspace}/tools.image/update/plugins">
+            <arg value="-a" />
+        </exec>
+        	
+            <echo> sourceDIR: 
+            	${sourceDir}/plugins folder directory contents:
+            </echo>
+            <exec executable="ls" failonerror="false" dir="${sourceDir}/plugins">
+                <arg value="-a" />
+            </exec>
+        	
     	        <copy todir="${sourceDir}/plugins" overwrite="true" verbose="true">
     	            <fileset dir="${local.workspace}/tools.image/update/plugins">
     	                <include name="**/*.jar"/>
     	            </fileset>
     	        </copy>
+		
+		<echo> sourceDIR: 
+			${sourceDir}/suppliers/update-site/plugins folder directory contents:
+		            </echo>
+		            <exec executable="ls" failonerror="false" dir="${sourceDir}/suppliers/update-site/plugins">
+		                <arg value="-a" />
+		            </exec>
 		
 		    <!-- copy com.ibm.ws.kernel.feature.resolver_*.jar into suppliers dir  -->
 		    <move todir="${sourceDir}/suppliers/update-site/plugins" overwrite="true" verbose="true">
@@ -197,5 +233,12 @@
                 </fileset>
             </move>                    		
             	
+	      <echo> afterMove: 
+	            ${sourceDir}/suppliers/update-site/plugins folder directory contents:
+	                    </echo>
+	                    <exec executable="ls" failonerror="false" dir="${sourceDir}/suppliers/update-site/plugins">
+	                        <arg value="-a" />
+	                    </exec>
+	        
 	</target>
 </project>
