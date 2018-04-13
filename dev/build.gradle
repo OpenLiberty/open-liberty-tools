@@ -266,15 +266,15 @@ task deployDHE {
             into toPublishDir
         }
 
-        def user = System.getenv("dhe_gsaid")
+        def user = System.getenv("intranet.user")
         def host = System.getenv("dhe_server")
-        def pw = System.getenv("dhe_gsapw")
+        def pw = System.getenv("intranet.password")
 
         if(user == null || user.isEmpty()) {
-            throw new GradleException("gsaid is not set!")
+            throw new GradleException("dhe user id is not set!")
         }
         if(pw == null || pw.isEmpty()) {
-            throw new GradleException("gsapw is not set!")
+            throw new GradleException("dhe password is not set!")
         }
         if(host == null || host.isEmpty()) {
             throw new GradleException("dhe_server is not set!")
