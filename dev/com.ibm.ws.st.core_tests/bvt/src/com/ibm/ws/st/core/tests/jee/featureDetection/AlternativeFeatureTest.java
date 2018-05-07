@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -48,7 +48,7 @@ public class AlternativeFeatureTest extends ToolsTestBase {
     private static final String FACES_CONFIG_SERVLET_NAME = "TestJSFFaces/JSFFacesServlet";
     private static final String FACES_CONFIG_SERVLET_BODY = "Hello from JSFFacesServlet";
 
-    private static final String JSF_CONTAINER_VERSION = "2.2";
+    private static final String JSF_CONTAINER_FEATURE = "jsfContainer";
 
     @Test
     public void test01_doSetup() throws Exception {
@@ -78,8 +78,9 @@ public class AlternativeFeatureTest extends ToolsTestBase {
 
         // Test that jsf is NOT added in this case, since it should
         // see jsfContainer as equivalent.
-        if (runtimeSupportsFeature("jsfContainer-" + JSF_CONTAINER_VERSION)) {
-            addFeatures(new String[] { "jsfContainer-" + JSF_CONTAINER_VERSION });
+        String feature = resolveFeature(JSF_CONTAINER_FEATURE);
+        if (feature != null) {
+            addFeatures(new String[] { feature });
 
             addApp(JSF_FACET_PROJECT_NAME);
             checkFeatures(new String[] { "jsfContainer" }, new String[] { "jsf" });
@@ -114,8 +115,9 @@ public class AlternativeFeatureTest extends ToolsTestBase {
 
         // Test that jsf is NOT added in this case, since it should
         // see jsfContainer as equivalent.
-        if (runtimeSupportsFeature("jsfContainer-" + JSF_CONTAINER_VERSION)) {
-            addFeatures(new String[] { "jsfContainer-" + JSF_CONTAINER_VERSION });
+        String feature = resolveFeature(JSF_CONTAINER_FEATURE);
+        if (feature != null) {
+            addFeatures(new String[] { feature });
 
             addApp(JSF_FACES_CONFIG_PROJECT_NAME);
             checkFeatures(new String[] { "jsfContainer" }, new String[] { "jsf" });

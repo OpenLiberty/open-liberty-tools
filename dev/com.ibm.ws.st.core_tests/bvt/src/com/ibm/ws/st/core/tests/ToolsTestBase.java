@@ -221,6 +221,23 @@ public abstract class ToolsTestBase extends TestCase {
         return feature != null && !feature.isEmpty();
     }
 
+    /*
+     * Resolve a feature. Ensures the runtime supports the feature
+     * and if the feature name passed in has no version then it returns
+     * the latest version of that feature.
+     *
+     * If the feature cannot be resolved it returns null.
+     */
+    protected String resolveFeature(String featureName) {
+        WebSphereRuntime wsRuntime = getWebSphereRuntime();
+        FeatureSet features = wsRuntime.getInstalledFeatures();
+        String feature = features.resolve(featureName);
+        if (feature != null && feature.isEmpty()) {
+            feature = null;
+        }
+        return feature;
+    }
+
     protected static WebSphereRuntime getWebSphereRuntime() {
         if (runtime == null)
             throw new NullPointerException("Runtime should not be null.");
