@@ -257,14 +257,25 @@ task deployDHE {
         }
         
         def toPublish_buildlog = ant.path {
-             fileset(dir: '.', includes: "${buildLog}")
+             fileset(dir: '.', includes: "**.*")
         }
         
         println "Publishing " + toPublish_buildlog + " to DHE"
+        
+        toPublish_buildlog.list().each { file ->
+            println "Publishing working dir" + file + " to DHE"
+            /*copy {
+                from file
+                into toPublishDir
+            }
+            */
+        }
+        
         copy {
-            from toPublish_buildlog
+            from 'build.log'
             into toPublishDir
         }
+        
 
         def user = System.getenv("intranet.user")
         def host = System.getenv("dhe_server")
