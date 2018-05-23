@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2015 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.config;
 
@@ -107,6 +107,9 @@ public class ConfigVars {
     public static final HashMap<String, EnumSet<Type>> TYPE_MAP = new HashMap<String, EnumSet<Type>>();
     public static final HashMap<EnumSet<Type>, String> TYPE_NAME_MAP = new HashMap<EnumSet<Type>, String>();
     public static final HashSet<String> PREDEFINED_VARS = new HashSet<String>();
+
+    public static final String LIST_START = "list(";
+    public static final String LIST_END = ")";
 
     static {
         TYPE_MAP.put(Constants.XSD_BOOLEAN_TYPE, BOOLEAN_TYPES);
@@ -426,10 +429,19 @@ public class ConfigVars {
             if (end >= 0) {
                 builder.append(value, offset, start);
                 String varName = value.substring(start + 2, end);
+                int varOffset = start + 2;
+                Expression expression = null;
+
+                // Check for list
+                if (varName.startsWith(LIST_START) && varName.endsWith(LIST_END)) {
+                    varName = varName.substring(LIST_START.length(), varName.length() - 1);
+                    varOffset = varOffset + LIST_START.length();
+                } else {
+                    expression = new Expression(varName);
+                }
 
                 // Check for expressions
-                Expression expression = new Expression(varName);
-                if (expression.getOperator() != null) {
+                if (expression != null && expression.getOperator() != null) {
 
                     // Detect if there is a chained expression
                     Expression chainedExpression = new Expression(expression.getRightOperand());
@@ -453,8 +465,7 @@ public class ConfigVars {
                             }
                         }
                     } else {
-                        final String reference = value.substring(start + 2, end);
-                        info.addUndefinedReference(reference, start + 2);
+                        info.addUndefinedReference(varName, varOffset);
                         builder.append(value, start, end + 1);
                     }
                 }

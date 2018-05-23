@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -57,6 +57,7 @@ public class VariableValidationTest extends ValidationTestBase {
         testSuite.addTest(TestSuite.createTest(VariableValidationTest.class, "implicitVarValue"));
         testSuite.addTest(TestSuite.createTest(VariableValidationTest.class, "varRefInvalidValue"));
         testSuite.addTest(TestSuite.createTest(VariableValidationTest.class, "testServerEnv"));
+        testSuite.addTest(TestSuite.createTest(VariableValidationTest.class, "varList"));
         testSuite.addTest(TestSuite.createTest(VariableValidationTest.class, "doTearDown"));
 
         return testSuite;
@@ -259,6 +260,19 @@ public class VariableValidationTest extends ValidationTestBase {
                 FileUtil.deleteDirectory(etcDir.getAbsolutePath(), true);
             }
         }
+    }
+
+    @Test
+    public void varList() throws Exception {
+        // Test that the ${list(varname)} syntax is handled properly
+        String serverName = "varList";
+        setupRuntimeServer(RESOURCE_PATH, serverName);
+        IFile file = getServerFile(serverName, "server.xml");
+        ValidatorMessage[] messages = TestUtil.validate(file);
+        checkMessageCount(messages, 1);
+        checkMessage(messages[0], NLS.bind(Messages.unresolvedPropertyValue, new String[] { "filesetRef", "library", "filesetsBC" }),
+                     serverName + "/" + file.getName(), 27);
+        deleteRuntimeServer(serverName);
     }
 
     @Test
