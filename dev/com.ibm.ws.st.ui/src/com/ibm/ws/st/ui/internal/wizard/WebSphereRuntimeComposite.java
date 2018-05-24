@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,13 +11,11 @@
 package com.ibm.ws.st.ui.internal.wizard;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.IVMInstallType;
 import org.eclipse.jdt.launching.JavaRuntime;
@@ -44,10 +42,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.browser.IWebBrowser;
 
-import com.ibm.ws.st.common.core.internal.Trace;
-import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.core.internal.WebSphereRuntime;
 import com.ibm.ws.st.ui.internal.Activator;
 import com.ibm.ws.st.ui.internal.ContentAssistCombo;
@@ -62,8 +57,6 @@ import com.ibm.ws.st.ui.internal.download.ValidationResult;
  * Composite to set a runtime's name, install directory, and JRE.
  */
 public class WebSphereRuntimeComposite extends Composite {
-
-    private static final String BLUEMIX_BUNDLE_ID = "com.ibm.cftools.branding";
 
     // the composite supports three modes:
     //   NEW_FOLDER      - create a completely new runtime (only option with download link)
@@ -100,7 +93,6 @@ public class WebSphereRuntimeComposite extends Composite {
     protected IRuntimeHandler runtimeHandler;
     protected IDownloadRequestHandler requestHandler;
     protected boolean isDownloading;
-    protected Link bluemixLink;
 
     /**
      * Create a new WebSphereRuntimeComposite.
@@ -351,27 +343,6 @@ public class WebSphereRuntimeComposite extends Composite {
                 dialog.open();
             }
         });
-
-        if (Platform.getBundle(BLUEMIX_BUNDLE_ID) == null) {
-            bluemixLink = new Link(this, SWT.NONE);
-            bluemixLink.setText(Messages.runtimeBluemixLink);
-            data = new GridData(SWT.LEFT, SWT.BOTTOM, false, false);
-            data.horizontalSpan = 2;
-            data.verticalSpan = 8;
-            bluemixLink.setLayoutData(data);
-            bluemixLink.addSelectionListener(new SelectionAdapter() {
-                @Override
-                public void widgetSelected(SelectionEvent e) {
-                    try {
-                        IWebBrowser browser = PlatformUI.getWorkbench().getBrowserSupport().getExternalBrowser();
-                        URL url = new URL(Constants.BLUEMIX_URL);
-                        browser.openURL(url);
-                    } catch (Exception e1) {
-                        Trace.logError("Failed to open browser for: " + Constants.BLUEMIX_URL, e1);
-                    }
-                }
-            });
-        }
 
         init();
         validate();

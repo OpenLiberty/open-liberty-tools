@@ -171,7 +171,6 @@ public class Messages extends NLS {
     public static String runtimeExistingDirLabel;
     public static String runtimeNewDirLabel;
     public static String runtimeArchiveInstallLabel;
-    public static String runtimeBluemixLink;
 
     public static String serverName;
     public static String server;

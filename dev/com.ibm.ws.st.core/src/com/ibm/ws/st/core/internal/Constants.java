@@ -216,9 +216,6 @@ public class Constants {
     public static final String DELETE_PROJECT_FILES_ALWAYS_ACTION = "deleteProjectFilesAlwaysAction";
     public static final String DELETE_PROJECT_FILES_APPLY_ALWAYS = "deleteProjectFilesApplyAlways";
 
-    // bluemix
-    public static final String BLUEMIX_URL = "https://www.ng.bluemix.net/docs/#manageapps/eclipsetools/eclipsetools.html";
-
     // repo
     public static final String INSTALL_UTILITY_CMD = "installUtility";
     public static final String INSTALL_UTILITY_JAR = "ws-installUtility.jar";
