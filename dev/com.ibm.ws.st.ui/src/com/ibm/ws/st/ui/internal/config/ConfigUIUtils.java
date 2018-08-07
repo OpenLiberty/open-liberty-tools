@@ -15,6 +15,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -492,7 +493,7 @@ public class ConfigUIUtils {
         if (type == null)
             return null;
         List<XSDEnumerationFacet> facets = type.getEnumerationFacets();
-        Map<String, XSDEnumerationFacet> map = new HashMap<String, XSDEnumerationFacet>(facets.size());
+        Map<String, XSDEnumerationFacet> map = new LinkedHashMap<String, XSDEnumerationFacet>(facets.size());
         for (XSDEnumerationFacet facet : facets) {
             map.put(facet.getLexicalValue(), facet);
         }
