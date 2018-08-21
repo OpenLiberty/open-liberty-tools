@@ -245,7 +245,10 @@ task deployDHE {
 
         // Put all files to be published into a directory
         def toPublish = ant.path {
-             fileset(dir: 'ant_build/artifacts/', includes: "openlibertytools-*.zip")
+             fileset(dir: 'ant_build/artifacts/') {
+             	include(name : "openlibertytools-*.zip")
+             	include(name : "${buildLog}.zip")
+             }
         }
         
         toPublish.list().each { file ->
@@ -255,13 +258,15 @@ task deployDHE {
                 into toPublishDir
             }
         }
-        
+       
+        /* 
         println "Publishing " + ${buildLog} + " to DHE"
         
         copy {
             from "${buildLog}"
             into toPublishDir
         }
+        */
 
         def user = System.getenv("intranet.user")
         def host = System.getenv("dhe_server")
