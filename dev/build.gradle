@@ -256,22 +256,23 @@ task deployDHE {
             }
         }
         
-        /*
+        
         def workingDir = ant.path {
-             fileset(dir: '.', includes: "*")
+             fileset(dir: '${user.dir}', includes: "**")
         }
         
         workingDir.list().each { file ->
             println "workingDir : " + file 
         }
-        */
-        
+
+		/*        
         println "Publishing " + ${buildLog} + " to DHE"
         
         copy {
             from "${buildLog}"
             into toPublishDir
         }
+        */
 
         def user = System.getenv("intranet.user")
         def host = System.getenv("dhe_server")
