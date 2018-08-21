@@ -256,6 +256,7 @@ task deployDHE {
             }
         }
         
+        /*
         def workingDir = ant.path {
              fileset(dir: '.', includes: "*")
         }
@@ -263,6 +264,7 @@ task deployDHE {
         workingDir.list().each { file ->
             println "workingDir : " + file 
         }
+        */
         
         println "Publishing " + ${buildLog} + " to DHE"
         
