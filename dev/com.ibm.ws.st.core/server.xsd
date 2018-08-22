@@ -8,25 +8,25 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -50,6 +50,14 @@
                 <xsd:documentation>Indicates whether or not the server automatically starts the application.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Automatically start</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useJandex" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables use of Jandex index files if they are supplied in the application</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Jandex</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -86,27 +94,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -130,6 +138,14 @@
                 <xsd:documentation>Indicates whether or not the server automatically starts the application.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Automatically start</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useJandex" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables use of Jandex index files if they are supplied in the application</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Jandex</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -508,6 +524,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="useJandex" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables use of Jandex index files if they are supplied in the application</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Jandex</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="startTimeout" use="optional" default="30s" type="secondDuration"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies how long the server waits for an application to start before it considers it slow. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
@@ -603,27 +627,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -666,6 +690,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="useJandex" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables use of Jandex index files if they are supplied in the application</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Jandex</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -703,6 +735,382 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.remoteAddress"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the remote host.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Remote Host</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="matchType" use="optional" default="contains"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the match type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Match type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="equals"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Equals</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="contains"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Contains</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="notContain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Not contain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="greaterThan"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Greater than</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="lessThan"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Less than</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="ip" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the IP address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>IP address</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.remoteAddress-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter.remoteAddress"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.requestUrl"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the request URL.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Request URL</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="urlPattern" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the URL pattern.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>URL pattern</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="matchType" use="optional" default="contains"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the match type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Match type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="equals"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Equals</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="contains"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Contains</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="notContain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Not contain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.requestUrl-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter.requestUrl"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.userAgent"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the user agent.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>User Agent</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="agent" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the user agent</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Agent</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="matchType" use="optional" default="contains"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the match type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Match type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="equals"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Equals</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="contains"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Contains</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="notContain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Not contain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.userAgent-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter.userAgent"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.webApp"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the web application name.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Web Application</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the name.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="matchType" use="optional" default="contains"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the match type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Match type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="equals"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Equals</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="contains"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Contains</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="notContain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Not contain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.webApp-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter.webApp"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.host"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the host name.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Host</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the name.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="matchType" use="optional" default="contains"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the match type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Match type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="equals"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Equals</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="contains"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Contains</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="notContain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Not contain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.host-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter.host"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies a selection rule that represents conditions that are matched against the HTTP request headers to determine whether or not the HTTP request is selected for the authentication.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Authentication Filter</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="webApp" type="com.ibm.ws.security.authentication.filter.webApp-factory"> 
+            </xsd:element> 
+            <xsd:element name="requestUrl" type="com.ibm.ws.security.authentication.filter.requestUrl-factory"> 
+            </xsd:element> 
+            <xsd:element name="remoteAddress" type="com.ibm.ws.security.authentication.filter.remoteAddress-factory"> 
+            </xsd:element> 
+            <xsd:element name="host" type="com.ibm.ws.security.authentication.filter.host-factory"> 
+            </xsd:element> 
+            <xsd:element name="userAgent" type="com.ibm.ws.security.authentication.filter.userAgent-factory"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.registry.basic.config.group.member"> 
         <xsd:annotation> 
@@ -1559,7 +1967,7 @@
         </xsd:attribute> 
         <xsd:attribute name="apiTypeVisibility" use="optional" default="spec,ibm-api,api,stable" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The types of API packages that this class loader supports. This value is a comma-separated list of any combination of the following API packages: spec, ibm-api, api, stable, third-party.</xsd:documentation> 
+                <xsd:documentation>The types of API packages that this class loader supports. This value is a comma-separated list of any combination of the following API packages: spec, ibm-api, api, stable, third-party.  If a prefix of + or - is added to API types, those API types are added or removed, respectively, from the default set of API types. Common usage for the prefix, +third-party, results in "spec, ibm-api, api, stable, third-party". The prefix, -api, results in "spec, ibm-api, stable". </xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allowed API types</ext:label> 
                 </xsd:appinfo> 
@@ -4050,17 +4458,17 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -4092,6 +4500,14 @@
                 <xsd:documentation>Indicates whether or not the server automatically starts the application.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Automatically start</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useJandex" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables use of Jandex index files if they are supplied in the application</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Jandex</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -5809,6 +6225,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="useJandex" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables use of Jandex index files if they are supplied in the application</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Jandex</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -6572,6 +6996,173 @@
                         </xsd:appinfo> 
                     </xsd:annotation> 
                 </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.mp.jwt"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration to process the MicroProfile JWT token.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>MicroProfile JWT</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="audiences" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Trusted audiences</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="id" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The unique ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Unique ID</ext:label> 
+                    <ext:unique>uniqueId</ext:unique> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwksUri" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a JSON Web Key service URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWK endpoint url</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="upn" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim will be used as user principal to authenticate.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User principal claim</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used for SSL connections.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a trusted key alias for using the public key to verify the signature of the token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Verification key name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="issuer" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The url of the issuer.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Issuer</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="groupNameAttribute" use="optional" default="groups" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim will be used as the user group membership.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Group claim</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to a registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenReuse" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the token can be re-used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Re-use the token</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the JSON web token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>The time difference allowed between systems</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ignoreApplicationAuthMethod" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Ignore the configured authentication method in the application. Allow legacy applications that do not configure MP-JWT as their authentication method to use MicroProfile JWT token if one is included in the request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Ignore authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sharedKey" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the string that will be used to generate the shared keys for HS256 signatures. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Shared secret</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the signature algorithm that will be used to sign the JWT token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWT token signature algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="RS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>%tokenSignAlgorithm.RS256</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="HS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>%tokenSignAlgorithm.HS256</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.mp.jwt-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.mp.jwt"> 
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
@@ -18908,6 +19499,11 @@
                                     <xsd:documentation>javax.sql.DataSource</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
+                            <xsd:enumeration value="java.sql.Driver"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>java.sql.Driver</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                         </xsd:restriction> 
                     </xsd:simpleType> 
                 </xsd:union> 
@@ -18991,6 +19587,11 @@
                             <xsd:enumeration value="TRANSACTION_SNAPSHOT"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Snapshot isolation for Microsoft SQL Server JDBC Driver and DataDirect Connect for JDBC driver.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="TRANSACTION_NONE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Indicates that the JDBC driver does not support transactions.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -20106,156 +20707,6 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.mp.jwt"> 
-        <xsd:annotation> 
-            <xsd:documentation>The configuration to process the MicroProfile JWT token.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>MicroProfile JWT</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="audiences" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
-                <xsd:annotation> 
-                    <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Trusted audiences</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:sequence> 
-        <xsd:attribute name="id" use="required" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The unique ID.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Unique ID</ext:label> 
-                    <ext:unique>uniqueId</ext:unique> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="issuer" use="required" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The url of the issuer.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Issuer</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="jwksUri" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a JSON Web Key service URL.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>JWK endpoint url</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="userNameAttribute" use="optional" default="upn" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The value of the claim will be used as user principal to authenticate.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>User principal claim</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies an ID of the SSL configuration that is used for SSL connections.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>SSL reference</ext:label> 
-                    <ext:reference>ssl</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="keyName" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a trusted key alias for using the public key to verify the signature of the token.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Verification key name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="groupNameAttribute" use="optional" default="groups" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The value of the claim will be used as the user group membership.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Group claim</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies whether to map userIdentifier to a registry user.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Map user identifier</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="tokenReuse" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies whether the token can be re-used.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Re-use the token</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
-            <xsd:annotation> 
-                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the JSON web token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>The time difference allowed between systems</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ignoreApplicationAuthMethod" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Ignore the configured authentication method in the application. Allow legacy applications that do not configure MP-JWT as their authentication method to use MicroProfile JWT token if one is included in the request.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Ignore authentication method</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="sharedKey" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the string that will be used to generate the shared keys for HS256 signatures. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Shared secret</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the signature algorithm that will be used to sign the JWT token.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>JWT token signature algorithm</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="RS256"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.RS256</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="HS256"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.HS256</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.mp.jwt-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.security.mp.jwt"> 
-            </xsd:extension> 
-        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.threading"> 
         <xsd:annotation> 
@@ -23225,6 +23676,90 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.appconfig.appProperties.property"> 
+        <xsd:annotation> 
+            <xsd:documentation>Provides a specific custom property to an application.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>A Name/value Pair Describing A Property</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Provides name of the application scoped property.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Application scoped property name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="value" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Provides value of the application scoped property.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Application scoped property value</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.appconfig.appProperties.property-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.appconfig.appProperties.property"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.appconfig.appProperties"> 
+        <xsd:annotation> 
+            <xsd:documentation>Provides custom properties to an application.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Application Scoped Properties</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="property" minOccurs="0" maxOccurs="unbounded" type="com.ibm.ws.appconfig.appProperties.property-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Provides a specific custom property to an application.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>A Name/value Pair Describing A Property</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.microprofile.metrics"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration for MicroProfile Metrics.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>MicroProfile Metrics</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="authentication" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether or not users should provide user name and password when accessing metrics endpoint.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable authentication</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.concurrent.persistent.executor"> 
         <xsd:annotation> 
             <xsd:documentation>Schedules and runs persistent tasks.</xsd:documentation> 
@@ -23846,7 +24381,7 @@
             </xsd:element> 
             <xsd:element name="extraConfigProperties" type="com.ibm.ws.generatePluginConfig.properties"> 
                 <xsd:annotation> 
-                    <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file.  These properties can be specified by IBM support to modify behavior of the web server plug-in.</xsd:documentation> 
+                    <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file.  These properties can be specified by IBM support to modify behavior of the web server plug-in.  They can be found at https://www.ibm.com/support/knowledgecenter/en/SSAW57_9.0.0/com.ibm.websphere.nd.multiplatform.doc/ae/rwsv_plugin_propstable.html</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Additional Properties</ext:label> 
                     </xsd:appinfo> 
@@ -24486,7 +25021,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.generatePluginConfig.properties"> 
         <xsd:annotation> 
-            <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file.  These properties can be specified by IBM support to modify behavior of the web server plug-in.</xsd:documentation> 
+            <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file.  These properties can be specified by IBM support to modify behavior of the web server plug-in.  They can be found at https://www.ibm.com/support/knowledgecenter/en/SSAW57_9.0.0/com.ibm.websphere.nd.multiplatform.doc/ae/rwsv_plugin_propstable.html</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>Additional Properties</ext:label> 
                 <ext:extraProperties/> 
@@ -24950,6 +25485,1229 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.linkedin"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration of the social login for Linkedin.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Linkedin Social Login</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="clientId" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The application or client ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ID of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientSecret" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The secret of the application or client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Secret of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authorizationEndpoint" use="optional" default="https://www.linkedin.com/oauth/v2/authorization" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an Authorization end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authorization end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpoint" use="optional" default="https://www.linkedin.com/oauth/v2/accessToken" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a token end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userApi" use="optional" default="https://api.linkedin.com/v1/people/~:(firstName,id,lastName,email-address)" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The URL of retrieving the user information.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User information URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scope" use="optional" default="r_emailaddress r_basicprofile" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required scope.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth scope</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="emailAddress" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is authenticated user principal.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the principal</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether client side redirection is supported. Examples of a client include a browser or a standalone JavaScript application. If set to true, the client must support JavaScript.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Is client side redirection supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayName" use="optional" default="Linkedin" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the social login configuration for display.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of social login</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="website" use="optional" default="https://www.linkednin.com" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The website address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Website</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.google"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration of the social login for Google.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Google Social Login</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="clientId" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The application or client ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ID of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientSecret" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The secret of the application or client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Secret of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authorizationEndpoint" use="optional" default="https://accounts.google.com/o/oauth2/v2/auth" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an Authorization end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authorization end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpoint" use="optional" default="https://www.googleapis.com/oauth2/v4/token" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a token end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwksUri" use="optional" default="https://www.googleapis.com/oauth2/v3/certs" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a JSON Web Key service URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWK endpoint url</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scope" use="optional" default="openid profile email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required scope.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth scope</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is authenticated user principal.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the principal</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether client side redirection is supported. Examples of a client include a browser or a standalone JavaScript application. If set to true, the client must support JavaScript.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Is client side redirection supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayName" use="optional" default="Google" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the social login configuration for display.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of social login</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="website" use="optional" default="https://accounts.google.com" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The website address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Website</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="issuer" use="optional" default="https://accounts.google.com" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The url of the issuer.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Issuer</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="realmNameAttribute" use="optional" default="iss" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the subject realm.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the realm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="groupNameAttribute" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the user group membership.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the group</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userUniqueIdAttribute" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the subject uniqueId.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as subject unique id</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clockSkew" use="optional" default="300000" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The maximum time difference in milliseconds between when a key is issued and when it can be used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Clock skew</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The algorithm that is used to sign a token or key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Signature algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.github"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration of the social login for GitHub.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>GitHub Social Login</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="clientId" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The application or client ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ID of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientSecret" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The secret of the application or client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Secret of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authorizationEndpoint" use="optional" default="https://github.com/login/oauth/authorize" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an Authorization end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authorization end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpoint" use="optional" default="https://github.com/login/oauth/access_token" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a token end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userApi" use="optional" default="https://api.github.com/user/emails" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The URL of retrieving the user information.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User information URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scope" use="optional" default="user" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required scope.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth scope</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is authenticated user principal.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the principal</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether client side redirection is supported. Examples of a client include a browser or a standalone JavaScript application. If set to true, the client must support JavaScript.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Is client side redirection supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayName" use="optional" default="GitHub" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the social login configuration for display.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of social login</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="website" use="optional" default="https://github.com" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The website address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Website</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.twitter"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration of the social login for Twitter.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Twitter Social Login</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="consumerKey" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Consumer key issued by Twitter.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Consumer key</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="consumerSecret" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Consumer secret issued by Twitter.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Consumer secret</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="requestTokenUrl" use="optional" default="https://api.twitter.com/oauth/request_token" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The request token endpoint of Twitter.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Request token URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userAuthorizationUrl" use="optional" default="https://api.twitter.com/oauth/authenticate" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The user authorization end point URL of Twitter.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authorization URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="accessTokenUrl" use="optional" default="https://api.twitter.com/oauth/access_token" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The token end point URL of Twitter.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userApi" use="optional" default="https://api.twitter.com/1.1/account/verify_credentials.json" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The URL of retrieving the user information.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User information URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is authenticated user principal.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the principal</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether client side redirection is supported. Examples of a client include a browser or a standalone JavaScript application. If set to true, the client must support JavaScript.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Is client side redirection supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayName" use="optional" default="Twitter" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the social login configuration for display.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of social login</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="website" use="optional" default="https://twitter.com" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The website address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Website</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.webapp"> 
+        <xsd:annotation> 
+            <xsd:documentation>Social Login Web Application.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Social Login Web Application</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="contextPath" use="optional" default="/ibm/api/social-login" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The context path that the social login web application redirect servlet listens on.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Context path</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="socialMediaSelectionPageUrl" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The URL of a custom web page that can display social media options that are available to use for authentication. The value must be an absolute URI that uses the HTTP or HTTPS protocol, or a relative URI. The web page must be able to receive HTTP request parameters that include the server configuration information that is required to display and submit the appropriate options. See the product documentation for more information.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Social media selection page</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.facebook"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration of the social login for Facebook.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Facebook Social Login</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="clientId" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The application or client ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ID of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientSecret" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The secret of the application or client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Secret of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="loginDialogEndpoint" use="optional" default="https://www.facebook.com/v2.8/dialog/oauth" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The login authorization end point URL of Facebook.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Login dialog end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpoint" use="optional" default="https://graph.facebook.com/v2.8/oauth/access_token" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a token end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userApi" use="optional" default="https://graph.facebook.com/v2.8/me?fields=id,name,email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The URL of retrieving the user information.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User information URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="permissions" use="optional" default="public_profile email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the required scope from Facebook.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth permissions</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is authenticated user principal.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the principal</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether client side redirection is supported. Examples of a client include a browser or a standalone JavaScript application. If set to true, the client must support JavaScript.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Is client side redirection supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayName" use="optional" default="Facebook" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the social login configuration for display.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of social login</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="website" use="optional" default="https://www.facebook.com" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The website address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Website</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.oidclogin"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration of a social login that uses OIDC.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>OIDC Social Login</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="id" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The unique ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Unique ID</ext:label> 
+                    <ext:unique>uniqueId</ext:unique> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientId" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The application or client ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ID of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientSecret" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The secret of the application or client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Secret of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authorizationEndpoint" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an Authorization end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authorization end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpoint" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a token end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwksUri" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a JSON Web Key service URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWK endpoint url</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scope" use="optional" default="openid profile email" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required scope.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth scope</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="sub" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is authenticated user principal.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the principal</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="trustAliasName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a trusted key alias for using the public key to verify the signature of the token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Trusted alias name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether client side redirection is supported. Examples of a client include a browser or a standalone JavaScript application. If set to true, the client must support JavaScript.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Is client side redirection supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayName" use="optional" default="oidcLogin" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the social login configuration for display.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of social login</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="website" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The website address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Website</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="issuer" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The url of the issuer.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Issuer</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="realmNameAttribute" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the subject realm.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the realm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="groupNameAttribute" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the user group membership.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the group</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userUniqueIdAttribute" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the subject uniqueId.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as subject unique id</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clockSkew" use="optional" default="300000" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The maximum time difference in milliseconds between when a key is issued and when it can be used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Clock skew</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The algorithm that is used to sign a token or key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Signature algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="hostNameVerificationEnabled" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to enable host name verification when the client contacts the provider. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Host name verification enabled</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.oidclogin-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.social.oidclogin"> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.login.jwt"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the information that is used to build the JWT tokens. This information includes the JWT builder reference and the claims from the id token.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>JWT Builder</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="claims" minOccurs="0" maxOccurs="400" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a comma-separated list of claims to copy from the user information or the id token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>List of claims to copy to the JWT token</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="builder" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The referenced JWT builder creates a JWT token, and the token is added to the authenticated subject.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Builder reference</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.login.jwt-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.social.login.jwt"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.oauth2login"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration of a generic social media login. </xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>OAuth Login</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="id" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The unique ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Unique ID</ext:label> 
+                    <ext:unique>uniqueId</ext:unique> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authorizationEndpoint" use="required" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an Authorization end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authorization end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="scope" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required scope.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth scope</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientId" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The application or client ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ID of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientSecret" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The secret of the application or client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Secret of application or client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the social login configuration for display.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of social login</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="website" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The website address.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Website</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpoint" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a token end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthMethod" use="optional" default="client_secret_post"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required authentication method.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="client_secret_basic"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_basic</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="client_secret_post"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_post</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used to connect to the social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="email" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is authenticated user principal.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the principal</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userApi" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The URL of retrieving the user information.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User information URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="realmName" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The realm name for this social media.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Realm name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="realmNameAttribute" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the subject realm.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the realm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="groupNameAttribute" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the user group membership.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as the group</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userUniqueIdAttribute" use="optional" type="tokenType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim is used as the subject uniqueId.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Claim as subject unique id</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether client side redirection is supported. Examples of a client include a browser or a standalone JavaScript application. If set to true, the client must support JavaScript.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Is client side redirection supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.oauth2login-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.social.oauth2login"> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.app.manager.springappcfg"> 
         <xsd:annotation> 
             <xsd:documentation>Defines the properties of a Spring Boot application.</xsd:documentation> 
@@ -24990,6 +26748,14 @@
                 <xsd:documentation>Indicates whether or not the server automatically starts the application.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Automatically start</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useJandex" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables use of Jandex index files if they are supplied in the application</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use Jandex</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -25441,6 +27207,27 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="build.example.project"> 
+        <xsd:annotation> 
+            <xsd:documentation>Description of sample configuration</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Sample configuration</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="someProperty" use="optional" default="String value" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Description of sample property</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Sample property</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.transaction"> 
         <xsd:annotation> 
             <xsd:documentation>Configuration properties for the Transaction Manager service</xsd:documentation> 
@@ -25766,7 +27553,7 @@
         </xsd:sequence> 
         <xsd:attribute name="busName" use="optional" default="defaultBus" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The name of a bus when connecting to the service integration bus in a full profile server.</xsd:documentation> 
+                <xsd:documentation>The name of a bus when connecting to the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Bus name</ext:label> 
                 </xsd:appinfo> 
@@ -25910,7 +27697,7 @@
         </xsd:attribute> 
         <xsd:attribute name="targetTransportChain" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in a full profiles server.</xsd:documentation> 
+                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Transport chain</ext:label> 
                 </xsd:appinfo> 
@@ -25953,7 +27740,7 @@
         </xsd:sequence> 
         <xsd:attribute name="busName" use="optional" default="defaultBus" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The name of a bus when connecting to the service integration bus in a full profile server.</xsd:documentation> 
+                <xsd:documentation>The name of a bus when connecting to the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Bus name</ext:label> 
                 </xsd:appinfo> 
@@ -26105,7 +27892,7 @@
         </xsd:attribute> 
         <xsd:attribute name="targetTransportChain" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in a full profiles server.</xsd:documentation> 
+                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Transport chain</ext:label> 
                 </xsd:appinfo> 
@@ -26281,7 +28068,7 @@
         </xsd:sequence> 
         <xsd:attribute name="busName" use="optional" default="defaultBus" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The name of a bus when connecting to the service integration bus in a full profile server.</xsd:documentation> 
+                <xsd:documentation>The name of a bus when connecting to the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Bus name</ext:label> 
                 </xsd:appinfo> 
@@ -26401,7 +28188,7 @@
         </xsd:attribute> 
         <xsd:attribute name="targetTransportChain" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in a full profiles server.</xsd:documentation> 
+                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Transport chain</ext:label> 
                 </xsd:appinfo> 
@@ -26470,7 +28257,7 @@
         </xsd:attribute> 
         <xsd:attribute name="busName" use="optional" default="defaultBus" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The name of a bus when connecting to the service integration bus in a full profile server.</xsd:documentation> 
+                <xsd:documentation>The name of a bus when connecting to the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Bus name</ext:label> 
                 </xsd:appinfo> 
@@ -26599,7 +28386,7 @@
         </xsd:attribute> 
         <xsd:attribute name="targetTransportChain" use="optional" default="InboundBasicMessaging"> 
             <xsd:annotation> 
-                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in a full profiles server.</xsd:documentation> 
+                <xsd:documentation>Transport chains specify the communication protocols that can be used to communicate with the service integration bus in WebSphere Application Server traditional.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Transport chain</ext:label> 
                 </xsd:appinfo> 
@@ -29293,6 +31080,9 @@
     <xsd:simpleType name="minuteDuration"> 
         <xsd:union memberTypes="xsd:string variableType"/> 
     </xsd:simpleType> 
+    <xsd:simpleType name="tokenType"> 
+        <xsd:union memberTypes="xsd:token variableType"/> 
+    </xsd:simpleType> 
     <xsd:simpleType name="factoryIdType"> 
         <xsd:restriction base="xsd:string"/> 
     </xsd:simpleType> 
@@ -29394,6 +31184,7 @@
             <xsd:element name="applicationMonitor" type="com.ibm.ws.app.manager.monitor"/> 
             <xsd:element name="application" type="com.ibm.ws.app.manager-factory"/> 
             <xsd:element name="classloading" type="com.ibm.ws.classloading.global"/> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter-factory"/> 
             <xsd:element name="basicRegistry" type="com.ibm.ws.security.registry.basic.config-factory"/> 
             <xsd:element name="batchPersistence" type="com.ibm.ws.jbatch.container.persistence"/> 
             <xsd:element name="bell" type="com.ibm.ws.classloading.bell-factory"/> 
@@ -29438,6 +31229,7 @@
             <xsd:element name="jmsTopic" type="com.ibm.ws.jca.jmsTopic-factory"/> 
             <xsd:element name="jmsDestination" type="com.ibm.ws.jca.jmsDestination-factory"/> 
             <xsd:element name="jmsConnectionFactory" type="com.ibm.ws.jca.jmsConnectionFactory-factory"/> 
+            <xsd:element name="mpJwt" type="com.ibm.ws.security.mp.jwt-factory"/> 
             <xsd:element name="mailSession" type="com.ibm.ws.javamail.mailSession-factory"/> 
             <xsd:element name="javaPermission" type="com.ibm.ws.security.java2sec.policyConfig-factory"/> 
             <xsd:element name="jdbcDriver" type="com.ibm.ws.jdbc.jdbcDriver-factory"/> 
@@ -29451,7 +31243,6 @@
             <xsd:element name="jwtBuilder" type="com.ibm.ws.security.jwt.builder-factory"/> 
             <xsd:element name="jwtConsumer" type="com.ibm.ws.security.jwt.consumer-factory"/> 
             <xsd:element name="jwtSso" type="com.ibm.ws.security.jwtsso"/> 
-            <xsd:element name="mpJwt" type="com.ibm.ws.security.mp.jwt-factory"/> 
             <xsd:element name="executor" type="com.ibm.ws.threading"/> 
             <xsd:element name="fileset" type="com.ibm.ws.kernel.metatype.helper.fileset-factory"/> 
             <xsd:element name="featureManager" type="com.ibm.ws.kernel.feature"/> 
@@ -29471,6 +31262,7 @@
             <xsd:element name="mongo" type="com.ibm.ws.mongo.mongo-factory"/> 
             <xsd:element name="mongoDB" type="com.ibm.ws.mongo.mongoDB-factory"/> 
             <xsd:element name="monitor" type="com.ibm.ws.monitor.internal.MonitoringFrameworkExtender"/> 
+            <xsd:element name="mpMetrics" type="com.ibm.ws.microprofile.metrics"/> 
             <xsd:element name="persistentExecutor" type="com.ibm.ws.concurrent.persistent.executor-factory"/> 
             <xsd:element name="remoteFileAccess" type="com.ibm.ws.management.filetransfer"/> 
             <xsd:element name="quickStartSecurity" type="com.ibm.ws.security.quickStartSecurity"/> 
@@ -29481,6 +31273,14 @@
             <xsd:element name="webContainer" type="com.ibm.ws.webcontainer"/> 
             <xsd:element name="httpSessionCache" type="com.ibm.ws.session.cache"/> 
             <xsd:element name="httpSessionDatabase" type="com.ibm.ws.session.db"/> 
+            <xsd:element name="linkedinLogin" type="com.ibm.ws.security.social.linkedin"/> 
+            <xsd:element name="googleLogin" type="com.ibm.ws.security.social.google"/> 
+            <xsd:element name="githubLogin" type="com.ibm.ws.security.social.github"/> 
+            <xsd:element name="twitterLogin" type="com.ibm.ws.security.social.twitter"/> 
+            <xsd:element name="socialLoginWebapp" type="com.ibm.ws.security.social.webapp"/> 
+            <xsd:element name="facebookLogin" type="com.ibm.ws.security.social.facebook"/> 
+            <xsd:element name="oidcLogin" type="com.ibm.ws.security.social.oidclogin-factory"/> 
+            <xsd:element name="oauth2Login" type="com.ibm.ws.security.social.oauth2login-factory"/> 
             <xsd:element name="springBootApplication" type="com.ibm.ws.app.manager.springappcfg-factory"/> 
             <xsd:element name="sslDefault" type="com.ibm.ws.ssl.default"/> 
             <xsd:element name="ssl" type="com.ibm.ws.ssl.repertoire-factory"/> 
