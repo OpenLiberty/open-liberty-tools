@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2017 IBM Corporation and others.
+    Copyright (c) 2017, 2018 IBM Corporation and others.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
     which accompanies this distribution, and is available at
@@ -310,14 +310,14 @@
   <node path="/server/jndiReferenceEntry/factory/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
-  <node detailsSortingPreference="default" path="/server/featureManager" sectionHeaderText="%featureManager_description">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FeatureCustomObject" path="feature"/>
-    <item path="@onError"/>
-  </node>
   <node path="/server/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node detailsSortingPreference="default" path="/server/featureManager" sectionHeaderText="%featureManager_description">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FeatureCustomObject" path="feature"/>
+    <item path="@onError"/>
   </node>
   <node path="/server/ldapRegistry">
     <item hide="true" path="@activedFiltersRef"/>
@@ -415,6 +415,39 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/osgiLibrary/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/httpSessionCache/library/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/httpSessionCache/library/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/httpSessionCache/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/keyStore">

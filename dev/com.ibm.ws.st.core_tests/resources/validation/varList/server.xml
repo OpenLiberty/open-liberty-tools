@@ -1,0 +1,28 @@
+<!--
+    Copyright (c) 2018 IBM Corporation and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        IBM Corporation - initial API and implementation
+ -->
+<server description="Test list variables">
+
+    <featureManager>
+        <feature>servlet-3.1</feature>
+    </featureManager>
+
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+    <applicationManager autoExpand="true"/>
+    
+    <fileset id="filesetA"></fileset>
+    <fileset id="filesetB"></fileset>
+    
+    <variable name="filesetsAB" value="filesetA, filesetB"/>
+
+    <library apiTypeVisibility="spec,ibm-api,api" filesetRef="${list(filesetsAB)}" id="libAB" name="libAB"></library>
+    <library apiTypeVisibility="spec,ibm-api,api" filesetRef="${list(filesetsBC)}" id="libBC" name="libBC"></library>
+</server>
