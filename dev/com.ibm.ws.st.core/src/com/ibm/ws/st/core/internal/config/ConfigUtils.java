@@ -726,13 +726,15 @@ public class ConfigUtils {
 
         // We must allow Custom Runtime Providers to override this location first
         final IResource project = userDir.getProject();
-        final IFolder mappedConfigFolder = ConfigUtils.getMappedConfigFolder(project);
         String mappedLocation = null;
-        if (mappedConfigFolder != null) {
-            // we will simply append the path value (the value of the include element) to this config folder path
-            final IResource includeFile = mappedConfigFolder.findMember(location);
-            if (includeFile != null && includeFile.exists()) {
-                mappedLocation = includeFile.getLocation().toString();
+        if (project != null) {
+            final IFolder mappedConfigFolder = ConfigUtils.getMappedConfigFolder(project);
+            if (mappedConfigFolder != null) {
+                // we will simply append the path value (the value of the include element) to this config folder path
+                final IResource includeFile = mappedConfigFolder.findMember(location);
+                if (includeFile != null && includeFile.exists()) {
+                    mappedLocation = includeFile.getLocation().toString();
+                }
             }
         }
 
