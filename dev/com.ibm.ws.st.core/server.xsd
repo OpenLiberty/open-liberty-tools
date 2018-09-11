@@ -8,25 +8,25 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -94,25 +94,25 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
@@ -627,25 +627,25 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
@@ -4458,13 +4458,13 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
@@ -6996,173 +6996,6 @@
                         </xsd:appinfo> 
                     </xsd:annotation> 
                 </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.mp.jwt"> 
-        <xsd:annotation> 
-            <xsd:documentation>The configuration to process the MicroProfile JWT token.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>MicroProfile JWT</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="audiences" type="xsd:string"> 
-                <xsd:annotation> 
-                    <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Trusted audiences</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Authentication Filter Reference</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:choice> 
-        <xsd:attribute name="id" use="required" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The unique ID.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Unique ID</ext:label> 
-                    <ext:unique>uniqueId</ext:unique> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="jwksUri" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a JSON Web Key service URL.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>JWK endpoint url</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="userNameAttribute" use="optional" default="upn" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The value of the claim will be used as user principal to authenticate.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>User principal claim</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies an ID of the SSL configuration that is used for SSL connections.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>SSL reference</ext:label> 
-                    <ext:reference>ssl</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="keyName" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a trusted key alias for using the public key to verify the signature of the token.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Verification key name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="issuer" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The url of the issuer.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Issuer</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="groupNameAttribute" use="optional" default="groups" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The value of the claim will be used as the user group membership.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Group claim</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies whether to map userIdentifier to a registry user.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Map user identifier</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="tokenReuse" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies whether the token can be re-used.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Re-use the token</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Authentication filter reference</ext:label> 
-                    <ext:reference>authFilter</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
-            <xsd:annotation> 
-                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the JSON web token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>The time difference allowed between systems</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ignoreApplicationAuthMethod" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Ignore the configured authentication method in the application. Allow legacy applications that do not configure MP-JWT as their authentication method to use MicroProfile JWT token if one is included in the request.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Ignore authentication method</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="sharedKey" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the string that will be used to generate the shared keys for HS256 signatures. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Shared secret</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the signature algorithm that will be used to sign the JWT token.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>JWT token signature algorithm</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="RS256"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.RS256</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="HS256"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.HS256</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.mp.jwt-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.security.mp.jwt"> 
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
@@ -20708,6 +20541,173 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.mp.jwt"> 
+        <xsd:annotation> 
+            <xsd:documentation>The configuration to process the MicroProfile JWT token.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>MicroProfile JWT</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="audiences" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Trusted audiences</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="id" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The unique ID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Unique ID</ext:label> 
+                    <ext:unique>uniqueId</ext:unique> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwksUri" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a JSON Web Key service URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWK endpoint url</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userNameAttribute" use="optional" default="upn" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim will be used as user principal to authenticate.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User principal claim</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL configuration that is used for SSL connections.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a trusted key alias for using the public key to verify the signature of the token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Verification key name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="issuer" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The url of the issuer.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Issuer</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="groupNameAttribute" use="optional" default="groups" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value of the claim will be used as the user group membership.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Group claim</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to map userIdentifier to a registry user.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map user identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenReuse" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the token can be re-used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Re-use the token</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the JSON web token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>The time difference allowed between systems</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ignoreApplicationAuthMethod" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Ignore the configured authentication method in the application. Allow legacy applications that do not configure MP-JWT as their authentication method to use MicroProfile JWT token if one is included in the request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Ignore authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sharedKey" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the string that will be used to generate the shared keys for HS256 signatures. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Shared secret</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the signature algorithm that will be used to sign the JWT token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWT token signature algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="RS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>%tokenSignAlgorithm.RS256</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="HS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>%tokenSignAlgorithm.HS256</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.mp.jwt-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.mp.jwt"> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.threading"> 
         <xsd:annotation> 
             <xsd:documentation>Defines settings for the Liberty kernel default executor.  Note that there is always one and exactly one default executor, for use by the Liberty runtime only and not directly accessible by applications.  Applications that need to configure and utilize executors should instead use Managed Executors.</xsd:documentation> 
@@ -27207,27 +27207,6 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
-    <xsd:complexType name="build.example.project"> 
-        <xsd:annotation> 
-            <xsd:documentation>Description of sample configuration</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Sample configuration</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="someProperty" use="optional" default="String value" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Description of sample property</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Sample property</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.transaction"> 
         <xsd:annotation> 
             <xsd:documentation>Configuration properties for the Transaction Manager service</xsd:documentation> 
@@ -31229,7 +31208,6 @@
             <xsd:element name="jmsTopic" type="com.ibm.ws.jca.jmsTopic-factory"/> 
             <xsd:element name="jmsDestination" type="com.ibm.ws.jca.jmsDestination-factory"/> 
             <xsd:element name="jmsConnectionFactory" type="com.ibm.ws.jca.jmsConnectionFactory-factory"/> 
-            <xsd:element name="mpJwt" type="com.ibm.ws.security.mp.jwt-factory"/> 
             <xsd:element name="mailSession" type="com.ibm.ws.javamail.mailSession-factory"/> 
             <xsd:element name="javaPermission" type="com.ibm.ws.security.java2sec.policyConfig-factory"/> 
             <xsd:element name="jdbcDriver" type="com.ibm.ws.jdbc.jdbcDriver-factory"/> 
@@ -31243,6 +31221,7 @@
             <xsd:element name="jwtBuilder" type="com.ibm.ws.security.jwt.builder-factory"/> 
             <xsd:element name="jwtConsumer" type="com.ibm.ws.security.jwt.consumer-factory"/> 
             <xsd:element name="jwtSso" type="com.ibm.ws.security.jwtsso"/> 
+            <xsd:element name="mpJwt" type="com.ibm.ws.security.mp.jwt-factory"/> 
             <xsd:element name="executor" type="com.ibm.ws.threading"/> 
             <xsd:element name="fileset" type="com.ibm.ws.kernel.metatype.helper.fileset-factory"/> 
             <xsd:element name="featureManager" type="com.ibm.ws.kernel.feature"/> 
