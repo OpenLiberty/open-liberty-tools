@@ -72,13 +72,13 @@ public class JAXWSEJBSample extends SampleTestBase {
         init();
 
         //create liberty runtime. Runtime name initialized from super class
-        createRuntime("Liberty Runtime");
+        createRuntime();
 
         //Create server
         createServer();
 
         //Create a vm with the name expected by the sample test case
-        createVM("jdk8");
+        createVM(JDK_NAME);
 
         importProjects(new Path("sampleTesting" + "/" + SAMPLE_TEST_NAME + "/ws"), new String[] { "JAXWSEJBSample", "JAXWSEJBSample_WEB", "AnEJBWebServices",
                                                                                                   "AnEJBWebServicesWithHandler" });
