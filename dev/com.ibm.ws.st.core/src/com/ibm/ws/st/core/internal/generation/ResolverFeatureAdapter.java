@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.generation;
 
@@ -209,7 +209,7 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
                     if (!satisfiedFeatureDefs.contains(featureDef)) {
 
                         // We have a mismatch between the key the filter is using to look up the feature name and the property containing the name in the
-                        // headers. So we need to add a new property for osgi.identity (filter key) that contains the value of the 
+                        // headers. So we need to add a new property for osgi.identity (filter key) that contains the value of the
                         // Subsystem-SymbolicName (manifest header).
                         // We also have to do this for the Subsystem-Type(manifest header) and the type (filter key).
                         Map<String, String> filterProps = new HashMap<String, String>();
@@ -223,7 +223,7 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
                         }
                     }
                 }
-                // Once we've checked all the FeatureDefinitions, apply the result to the isCapabilitySatisfied boolean, 
+                // Once we've checked all the FeatureDefinitions, apply the result to the isCapabilitySatisfied boolean,
                 // so we stop processing as soon as we know we don't have a match.
                 isCapabilitySatisfied = featureMatch;
                 if (!isCapabilitySatisfied)
@@ -349,6 +349,11 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
 
         @Override
         public String getBundleRepositoryType() {
+            return null;
+        }
+
+        @Override
+        public String getRequiredOSGiEE() {
             return null;
         }
 

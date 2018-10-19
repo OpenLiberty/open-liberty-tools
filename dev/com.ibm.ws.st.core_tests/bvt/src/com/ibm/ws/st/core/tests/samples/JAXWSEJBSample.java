@@ -6,14 +6,12 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.samples;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import junit.framework.TestSuite;
 
 import org.eclipse.core.runtime.Path;
 import org.junit.Test;
@@ -22,6 +20,8 @@ import org.junit.runners.AllTests;
 
 import com.ibm.ws.st.core.tests.util.WLPCommonUtil;
 import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
+
+import junit.framework.TestSuite;
 
 /**
  *
@@ -77,11 +77,11 @@ public class JAXWSEJBSample extends SampleTestBase {
         //Create server
         createServer();
 
-        //Not sure why we need to create vm ?????
+        //Create a vm with the name expected by the sample test case
         createVM(JDK_NAME);
 
         importProjects(new Path("sampleTesting" + "/" + SAMPLE_TEST_NAME + "/ws"), new String[] { "JAXWSEJBSample", "JAXWSEJBSample_WEB", "AnEJBWebServices",
-                                                                                                 "AnEJBWebServicesWithHandler" });
+                                                                                                  "AnEJBWebServicesWithHandler" });
 
         //start server and Add the application
         startServer();

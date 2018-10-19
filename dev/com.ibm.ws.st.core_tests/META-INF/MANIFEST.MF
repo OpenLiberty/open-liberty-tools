@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: com.ibm.ws.st.core.tests
 Bundle-SymbolicName: com.ibm.ws.st.core_tests;singleton:=true
-Bundle-Version: 1.0.1.qualifier
+Bundle-Version: 1.0.2.qualifier
 Bundle-ClassPath: tests.jar
 Bundle-Activator: com.ibm.ws.st.core.tests.TestsPlugin
 Bundle-Vendor: IBM
