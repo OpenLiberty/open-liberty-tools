@@ -8,25 +8,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -94,27 +96,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -627,27 +631,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1840,6 +1846,22 @@
                 <xsd:documentation>A comma-separated list of host names that are not allowed to make inbound connections on this endpoint. Host names are not case-sensitive and can start with an asterisk, which is used as a wildcard character. However, asterisks cannot be elsewhere in the host name. For example, *.abc.com is valid, but *.abc.* is not valid.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Host name exclude list</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="waitToAccept" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Queries whether this TCP Channel will delay accepting connections until the server starts. If false, connections are closed until the server starts. If true, the value for the acceptThread tcpOption is also set to true, and connections are delayed until the server starts.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Wait to accept</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="acceptThread" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>If true, then listening ports do not share the same thread for accepting connections. Otherwise, they share the same thread.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Accept thread</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -4326,9 +4348,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
-            </xsd:element> 
             <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
+            </xsd:element> 
+            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -4458,17 +4480,19 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -5759,6 +5783,82 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="limitNumHeaders" use="optional" default="500"> 
+            <xsd:annotation> 
+                <xsd:documentation>Limits the number of HTTP headers that can exist in an incoming message. When this limit is exceeded, an error is returned to the remote client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Limit number of headers</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="50"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="500"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="limitFieldSize" use="optional" default="32768"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enforces the size limits on various HTTP fields, such as request URLs, or individual header names or values. Enforcing the size limits of these fields guards against possible Denial of Service attacks. An error is returned to the remote client, if a field exceeds the allowed size.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Limit header field size</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="50"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="32768"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="DoNotAllowDuplicateSetCookies" use="optional" default="false" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Prevents the HTTP Channel from sending multiple Set-Cookie headers with the same name.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Do not allow duplicate set cookies</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="MessageSizeLimit" use="optional" default="-1" type="longType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Limits the acceptable size of an incoming message. If a message arrives with a size larger than this value, then an error is returned to the remote client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Message size limit</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="incomingBodyBufferSize" use="optional" default="32768"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the size of each buffer used when reading the body of an incoming HTTP message.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Incoming body buffer size</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="1024"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="1048576"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="http2ConnectionIdleTimeout" use="optional" default="0" type="secondDuration"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the amount of time, in seconds, that an HTTP/2 connection will be allowed to remain idle between socket IO operations. If not specified, or set to a value of 0, there is no connection timeout set. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
@@ -6203,9 +6303,11 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -20478,6 +20580,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the JWT Consumer creates HTTP client connections. Set this property to true if you want the connections to use the http* and javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -20670,6 +20780,14 @@
                 <xsd:documentation>Specifies the string that will be used to generate the shared keys for HS256 signatures. The value can be stored in clear text or in the more secure encoded form. Use the securityUtility tool with the encode option to encode the shared key.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Shared secret</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the JWT Consumer creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -21627,14 +21745,6 @@
                 <xsd:documentation>The maximum number of attributes per LDAP entity that will be cached.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Maximum entity attributes cached</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="serverTTLAttribute" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The time after which a cache entry expires. The subsequent call for this entry will be fetched directly from the server and then placed again in the cache.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Cache time to live</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -23941,7 +24051,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.management.security.role.administrator"> 
         <xsd:annotation> 
-            <xsd:documentation>A collection of users and/or groups assigned the server administrator role.</xsd:documentation> 
+            <xsd:documentation>A collection of users, groups, or both that are assigned the server administrator role.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>Administrator Role</ext:label> 
             </xsd:appinfo> 
@@ -25016,6 +25126,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="throwExceptionWhenUnableToCompleteOrDispatch" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Throw an illegal state exception when an asynchronous request cannot be completed or dispatched. The default is true. If the asynchronous request must complete or the dispatch method must return even if the call does not succeed, set the property to false.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Throw exception for not complete or dispatch asyn</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -25610,11 +25728,45 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthMethod" use="optional" default="client_secret_post"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required authentication method.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="client_secret_basic"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_basic</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="client_secret_post"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_post</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -25746,6 +25898,32 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthMethod" use="optional" default="client_secret_post"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required authentication method.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="client_secret_basic"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_basic</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="client_secret_post"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_post</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
@@ -25799,6 +25977,14 @@
                 <xsd:documentation>The algorithm that is used to sign a token or key.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Signature algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -25930,11 +26116,45 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthMethod" use="optional" default="client_secret_post"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required authentication method.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="client_secret_basic"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_basic</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="client_secret_post"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_post</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -26071,6 +26291,14 @@
                 <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -26231,11 +26459,45 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthMethod" use="optional" default="client_secret_post"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required authentication method.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="client_secret_basic"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_basic</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="client_secret_post"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_post</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Callback host and port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -26259,6 +26521,38 @@
                 </xsd:annotation> 
             </xsd:element> 
             <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
+            </xsd:element> 
+            <xsd:element name="authzParameter" type="com.ibm.ws.security.social.client.param-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies custom parameters to send to the authorization endpoint of the OpenID Connect provider.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Custom Parameters For Authorization Endpoint</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="tokenParameter" type="com.ibm.ws.security.social.client.param-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies custom parameters to send to the token endpoint of the OpenID Connect provider.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Custom Parameters For Token Endpoint</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="userinfoParameter" type="com.ibm.ws.security.social.client.param-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies custom parameters to send to the user info endpoint of the OpenID Connect provider.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Custom Parameters For User Info Endpoint</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="jwkParameter" type="com.ibm.ws.security.social.client.param-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies custom parameters to send to the jwk endpoint of the OpenID Connect provider.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Custom Parameters For JWK Endpoint</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="id" use="required" type="xsd:string"> 
@@ -26299,6 +26593,22 @@
                 <xsd:documentation>Specifies a token end point URL.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Token end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userInfoEndpoint" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a UserInfo end point URL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Userinfo end point URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userInfoEndpointEnabled" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the User Info endpoint is contacted.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Userinfo endpoint enabled</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -26392,7 +26702,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="realmNameAttribute" use="optional" type="xsd:string"> 
+        <xsd:attribute name="realmNameAttribute" use="optional" default="iss" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>The value of the claim is used as the subject realm.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -26432,6 +26742,32 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthMethod" use="optional" default="client_secret_post"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies required authentication method.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="client_secret_basic"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_basic</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="client_secret_post"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>client_secret_post</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies a callback host and port number.</xsd:documentation> 
@@ -26445,6 +26781,46 @@
                 <xsd:documentation>Specifies whether to enable host name verification when the client contacts the provider. </xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Host name verification enabled</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="discoveryEndpoint" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a discovery endpoint URL for an OpenID Connect provider.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Discovery endpoint URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="discoveryPollingRate" use="optional" default="300s" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Rate in milliseconds at which the OpenID Connect client checks for updates to the discovery file. The check is done only if an authentication failure exists. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Next discovery interval</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwkClientId" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the client identifier to include in the basic authentication scheme of the JWK request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWK client identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwkClientSecret" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the client password to include in the basic authentication scheme of the JWK request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWK client password</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -26488,6 +26864,49 @@
     <xsd:complexType name="com.ibm.ws.security.social.login.jwt-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.security.social.login.jwt"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.client.param"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies additional parameters to include in the requests to send to the provider.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Custom Parameters To Include In Requests</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the name of the additional parameter.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Custom request parameter name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="value" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the value of the additional parameter.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Custom request parameter value</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.social.client.param-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.social.client.param"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -26699,6 +27118,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use system properties for HTTP client connections</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -26823,10 +27250,26 @@
                 <ext:label>SSL Repertoire</ext:label> 
             </xsd:appinfo> 
         </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="outboundConnection" minOccurs="0" maxOccurs="unbounded" type="com.ibm.ws.ssl.repertoire.config.outboundConnection-factory"> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="keyStore" type="com.ibm.ws.ssl.keystore"> 
+                <xsd:annotation> 
+                    <xsd:documentation>A keystore containing key entries for the SSL repertoire. This attribute is required.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Keystore</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
             </xsd:element> 
-        </xsd:sequence> 
+            <xsd:element name="trustStore" type="com.ibm.ws.ssl.keystore"> 
+                <xsd:annotation> 
+                    <xsd:documentation>A keystore containing trusted certificate entries used by the SSL repertoire for signing verification. This attribute is optional. If unspecified, the same keystore is used for both key and trusted certificate entries.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Truststore</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="outboundConnection" type="com.ibm.ws.ssl.repertoire.config.outboundConnection-factory"> 
+            </xsd:element> 
+        </xsd:choice> 
         <xsd:attribute name="keyStoreRef" use="optional" type="pidType"> 
             <xsd:annotation> 
                 <xsd:documentation>A keystore containing key entries for the SSL repertoire. This attribute is required.</xsd:documentation> 
@@ -26836,7 +27279,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="trustStoreRef" use="optional" default="${keyStoreRef}" type="pidType"> 
+        <xsd:attribute name="trustStoreRef" use="optional" type="pidType"> 
             <xsd:annotation> 
                 <xsd:documentation>A keystore containing trusted certificate entries used by the SSL repertoire for signing verification. This attribute is optional. If unspecified, the same keystore is used for both key and trusted certificate entries.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -29762,6 +30205,14 @@
                 <xsd:documentation>Specifies whether to use the domain name from the request URL for the cookie domain.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Use domain name from the request URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useLtpaSSOForJaspic" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables the single sign-on behavior using the LTPA token for a JASPIC authentication. After the initial authentication is performed by the JASPIC provider, the LTPA cookie is created and used for subsequent logins to achieve the single-sign on behavior. The JASPIC provider is not called until the token expires. The JASPIC authentication applies when an external provider is used and also when the application uses the Java EE Security API annotations. The single sign-on behavior can also be achieved by enabling the JASPIC session cookie or the application provided RememberMeIdentityStore bean for a JASPIC authentication. In this case, set the useLtpaSSOForJaspic attribute to false.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable LTPA single sign-on for JASPIC</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
