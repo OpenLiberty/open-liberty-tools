@@ -189,6 +189,9 @@
   <node path="/server/cloudantDatabase/cloudant/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
+  <node path="/server/cloudantDatabase/cloudant/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
+  </node>
   <node path="/server/cloudant/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -199,6 +202,9 @@
   </node>
   <node path="/server/cloudant/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/cloudant/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
   </node>
   <node path="/server/couchdb/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
@@ -346,6 +352,9 @@
   <node path="/server/mongo/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
+  <node path="/server/mongo/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
+  </node>
   <node path="/server/mongoDB/mongo/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -356,6 +365,9 @@
   </node>
   <node path="/server/mongoDB/mongo/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/mongoDB/mongo/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
   </node>
   <node path="/server/oauthProvider/databaseStore/dataSource/jdbcDriver/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
@@ -417,6 +429,9 @@
   <node path="/server/osgiLibrary/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
+  <node path="/server/productInsights/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
+  </node>
   <node path="/server/httpSessionCache/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -450,6 +465,9 @@
   <node path="/server/springBootApplication/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
+  <node path="/server/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
+  </node>
   <node path="/server/keyStore">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
   </node>
@@ -466,6 +484,9 @@
   </node>
   <node path="/server/transaction/dataSource/jdbcDriver/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/usageMetering/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
   </node>
   <node path="/server/databaseStore/dataSource/jdbcDriver/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
