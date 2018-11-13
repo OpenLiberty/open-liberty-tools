@@ -26,6 +26,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +35,6 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import javax.xml.bind.DatatypeConverter;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -359,7 +359,7 @@ public class ServerTestUtil {
         String reponseMessage = null;
         int responsecode = -1;
         url = getURL(server, PartialURL);
-        String encoding = DatatypeConverter.printBase64Binary(auth.getBytes("UTF-8"));
+        String encoding = Base64.getEncoder().encodeToString(auth.getBytes("UTF-8"));
         for (int i = 0; i < 20; i++) {
             try {
                 connection = (HttpURLConnection) url.openConnection();
