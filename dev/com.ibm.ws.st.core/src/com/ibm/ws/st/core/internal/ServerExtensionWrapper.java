@@ -269,6 +269,7 @@ public class ServerExtensionWrapper {
                         return null;
                     }
                 };
+                publishDelegate.init(this);
             }
         }
         return publishDelegate;
