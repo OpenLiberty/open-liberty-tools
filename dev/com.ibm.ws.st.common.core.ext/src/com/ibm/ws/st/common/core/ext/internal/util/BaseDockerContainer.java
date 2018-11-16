@@ -194,6 +194,11 @@ public class BaseDockerContainer implements IPlatformHandler {
         return runCommand(cmdEnv, cmd, checkExitValue, timeout, progressMonitor);
     }
 
+    public ExecutionOutput dockerRootExec(String command, boolean checkExitValue, long timeout) throws ConnectException {
+        String cmd = getRootExecCommand() + command;
+        return runCommand(cmd, checkExitValue, timeout);
+    }
+
     /**
      * Check if a file exits in the container
      *
@@ -679,6 +684,10 @@ public class BaseDockerContainer implements IPlatformHandler {
         return "docker exec -i " + containerName + " ";
     }
 
+    private String getRootExecCommand() {
+        return "docker exec --user root " + containerName + " ";
+    }
+
     /** {@inheritDoc} */
     @Override
     public String toString() {
@@ -736,6 +745,7 @@ public class BaseDockerContainer implements IPlatformHandler {
     @Override
     public void uploadFile(String sourcePath, String destinationPath) throws Exception {
         copyIn(sourcePath, destinationPath);
+        dockerRootExec("sh -c \"chmod 664 " + destinationPath + "\"", true, AbstractDockerMachine.DEFAULT_TIMEOUT);
     }
 
     /** {@inheritDoc} */
