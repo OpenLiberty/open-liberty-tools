@@ -30,6 +30,7 @@ import org.eclipse.wst.server.core.IServer;
 import com.ibm.ws.st.core.internal.Activator;
 import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.core.internal.LaunchUtil;
+import com.ibm.ws.st.core.internal.WebSphereServer;
 
 public class ExternalProcess extends PlatformObject implements IProcess {
     private final Map<String, String> attributes = new HashMap<String, String>(3);
@@ -94,7 +95,8 @@ public class ExternalProcess extends PlatformObject implements IProcess {
             return;
 
         int state = server.getServerState();
-        if (state != IServer.STATE_STOPPED && state != IServer.STATE_STOPPING) {
+        WebSphereServer wsServer = (WebSphereServer) server.loadAdapter(WebSphereServer.class, null);
+        if (state != IServer.STATE_STOPPED && state != IServer.STATE_STOPPING && wsServer != null && wsServer.isStopOnShutdown()) {
             server.stop(false);
             return;
         }
