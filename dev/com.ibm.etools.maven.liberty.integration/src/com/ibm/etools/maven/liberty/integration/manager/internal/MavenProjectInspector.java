@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -132,23 +132,35 @@ public class MavenProjectInspector implements IProjectInspector {
     }
 
     private Model getModelObject(IFile pomFile) {
+        if (pomFile == null) {
+            if (Trace.ENABLED)
+                Trace.trace(Trace.WARNING, "A pom file was not specified before attempting to create the model");
+            return null;
+        }
+
+        InputStreamReader streamReader = null;
         try {
-            if (pomFile == null) {
-                if (Trace.ENABLED)
-                    Trace.trace(Trace.WARNING, "A pom file was not specified before attempting to create the model");
-                return null;
-            }
             if (!pomFile.exists()) {
                 if (Trace.ENABLED)
                     Trace.trace(Trace.WARNING, "The pom file cannot be found: " + pomFile.getLocation().toOSString());
                 return null;
             }
             MavenXpp3Reader reader = new MavenXpp3Reader();
-
-            return reader.read(new InputStreamReader(new FileInputStream(pomFile.getLocation().toFile())));
+            streamReader = new InputStreamReader(new FileInputStream(pomFile.getLocation().toFile()));
+            Model model = reader.read(streamReader);
+            return model;
         } catch (Exception e) {
             if (Trace.ENABLED)
                 Trace.logError("The pom file could not be read", e);
+        } finally {
+            if (streamReader != null) {
+                try {
+                    streamReader.close();
+                } catch (IOException e) {
+                    if (Trace.ENABLED)
+                        Trace.trace(Trace.WARNING, "Failed to close the InputStreamReader for the pom file: " + pomFile.getLocation().toOSString());
+                }
+            }
         }
         return null;
     }
