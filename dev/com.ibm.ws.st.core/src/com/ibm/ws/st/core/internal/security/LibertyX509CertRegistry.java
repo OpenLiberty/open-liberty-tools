@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 
 package com.ibm.ws.st.core.internal.security;
@@ -14,6 +14,7 @@ package com.ibm.ws.st.core.internal.security;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.KeyStore;
@@ -84,11 +85,11 @@ public class LibertyX509CertRegistry {
      * area, it is effectively moved to transient storage.
      *
      * @param certificate The certificate to store in memory.
-     *            The method does nothing if the certificate is null.
+     *                        The method does nothing if the certificate is null.
      * @throws KeyStoreException If the underlying key stores used to manage
-     *             the certificates cannot be constructed, loaded, or otherwise manipulated.
-     *             If an exception is thrown, the certificate may or may not have been
-     *             registered successfully.
+     *                               the certificates cannot be constructed, loaded, or otherwise manipulated.
+     *                               If an exception is thrown, the certificate may or may not have been
+     *                               registered successfully.
      */
     public void trustCertificateTransiently(Certificate certificate) throws KeyStoreException {
         if (Trace.ENABLED) {
@@ -131,11 +132,11 @@ public class LibertyX509CertRegistry {
      * area, it is effectively moved to on disk storage.
      *
      * @param certificate The certificate to store on disk.
-     *            The method does nothing if the certificate is null.
+     *                        The method does nothing if the certificate is null.
      * @throws KeyStoreException If the underlying key stores used to manage
-     *             the certificates cannot be constructed, loaded, or otherwise manipulated.
-     *             If an exception is thrown, the certificate may or may not have been
-     *             registered successfully.
+     *                               the certificates cannot be constructed, loaded, or otherwise manipulated.
+     *                               If an exception is thrown, the certificate may or may not have been
+     *                               registered successfully.
      */
     public void trustCertificatePersistently(Certificate certificate) throws KeyStoreException {
         if (Trace.ENABLED) {
@@ -175,11 +176,11 @@ public class LibertyX509CertRegistry {
      * The method has no effect if the certificate is not registered.
      *
      * @param certificate The certificate to remove.
-     *            The method does nothing if the certificate is null.
+     *                        The method does nothing if the certificate is null.
      * @throws KeyStoreException If the underlying key stores used to manage
-     *             the certificates cannot be manipulated.
-     *             If an exception is thrown, the certificate may or may not have been
-     *             removed successfully.
+     *                               the certificates cannot be manipulated.
+     *                               If an exception is thrown, the certificate may or may not have been
+     *                               removed successfully.
      */
     public void removeCertificate(Certificate certificate) throws KeyStoreException {
         if (Trace.ENABLED) {
@@ -215,7 +216,7 @@ public class LibertyX509CertRegistry {
      * @return A possibly empty, but never null, array of
      *         all certificates registered in transient storage.
      * @throws KeyStoreException If the underlying key store used to manage
-     *             the certificates cannot be manipulated.
+     *                               the certificates cannot be manipulated.
      */
     public Certificate[] getCertificatesTrustedTransiently() throws KeyStoreException {
         return transientKeyStore_ == null ? new Certificate[0] : certificates(transientKeyStore_);
@@ -227,7 +228,7 @@ public class LibertyX509CertRegistry {
      * @return A possibly empty, but never null, array of
      *         all certificates registered in persistent storage.
      * @throws KeyStoreException If the underlying key store used to manage
-     *             the certificates cannot be manipulated.
+     *                               the certificates cannot be manipulated.
      */
     public Certificate[] getCertificatesTrustedPersistently() throws KeyStoreException {
         return certificates(persistentKeyStore());
@@ -240,7 +241,7 @@ public class LibertyX509CertRegistry {
      * @return True if and only if the certificate exists in the registry.
      *         Returns false if the certificate does not exist, or is null.
      * @throws KeyStoreException If the underlying key store used to manage
-     *             the certificates cannot be manipulated.
+     *                               the certificates cannot be manipulated.
      */
     public boolean isTrusted(Certificate certificate) throws KeyStoreException {
         boolean trusted = certificate != null
@@ -262,7 +263,7 @@ public class LibertyX509CertRegistry {
      *         exists in the registry. Returns false if none of the certificates
      *         in the path exist, or if the certificate path is null.
      * @throws KeyStoreException If the underlying key stores used to manage
-     *             the certificates cannot be manipulated.
+     *                               the certificates cannot be manipulated.
      */
     public boolean isTrusted(CertPath certPath) throws KeyStoreException {
         boolean trusted = false;
@@ -289,19 +290,19 @@ public class LibertyX509CertRegistry {
      * thresholds are exceeded and memory needs to be reclaimed.
      *
      * @param removeTransientCertificates Controls whether or not
-     *            transient certificates are discarded.
-     *            <p/>If false, the in memory cache of persistent certificates is
-     *            discarded, however, this has no observable effect since the
-     *            persistent key store is written to disk after every update.
-     *            The in memory key store of transient certificates is not touched.
-     *            purge(false) should be called when memory reclamation is desired,
-     *            but not critical.
-     *            <p/>If true, the in memory cache of persistent certificates is
-     *            discarded as explained above, <b>and</b> the in memory key store
-     *            of transient certificates is discarded. purge(true) should be
-     *            called only when the need to reclaim memory is critical since the
-     *            effect of the call will be to discard all certificates the user
-     *            has accepted as trusted for the current session.
+     *                                        transient certificates are discarded.
+     *                                        <p/>If false, the in memory cache of persistent certificates is
+     *                                        discarded, however, this has no observable effect since the
+     *                                        persistent key store is written to disk after every update.
+     *                                        The in memory key store of transient certificates is not touched.
+     *                                        purge(false) should be called when memory reclamation is desired,
+     *                                        but not critical.
+     *                                        <p/>If true, the in memory cache of persistent certificates is
+     *                                        discarded as explained above, <b>and</b> the in memory key store
+     *                                        of transient certificates is discarded. purge(true) should be
+     *                                        called only when the need to reclaim memory is critical since the
+     *                                        effect of the call will be to discard all certificates the user
+     *                                        has accepted as trusted for the current session.
      */
     public void purge(boolean removeTransientCertificates) {
         if (Trace.ENABLED) {
@@ -356,13 +357,21 @@ public class LibertyX509CertRegistry {
             File keyStoreFile = keyStoreFile();
             persistentKeyStore_ = KeyStore.getInstance(KeyStore.getDefaultType());
             if (keyStoreFile.exists()) {
+                InputStream inputStream = null;
                 try {
-                    InputStream inputStream = new FileInputStream(keyStoreFile);
+                    inputStream = new FileInputStream(keyStoreFile);
                     persistentKeyStore_.load(inputStream, getPassword().toCharArray());
                     inputStream.close();
                 } catch (Exception e) {
                     Trace.logError(e.getMessage(), e);
                     throw new KeyStoreException(NLS.bind(Messages.X509_CANNOT_READ_PERSISTENT_KEYSTORE, keyStoreFile), e);
+                } finally {
+                    try {
+                        if (inputStream != null)
+                            inputStream.close();
+                    } catch (IOException ex) {
+                        //ignore
+                    }
                 }
             } else {
                 try {
@@ -390,13 +399,21 @@ public class LibertyX509CertRegistry {
         }
         if (persistentKeyStore_ != null) {
             File keyStoreFile = keyStoreFile();
+            OutputStream outputStream = null;
             try {
-                OutputStream outputStream = new FileOutputStream(keyStoreFile);
+                outputStream = new FileOutputStream(keyStoreFile);
                 persistentKeyStore_.store(outputStream, getPassword().toCharArray());
                 outputStream.close();
             } catch (Exception e) {
                 Trace.logError(e.getMessage(), e);
                 throw new KeyStoreException(NLS.bind(Messages.X509_CANNOT_WRITE_PERSISTENT_KEYSTORE, keyStoreFile));
+            } finally {
+                try {
+                    if (outputStream != null)
+                        outputStream.close();
+                } catch (IOException ex) {
+                    //ignore
+                }
             }
         }
     }

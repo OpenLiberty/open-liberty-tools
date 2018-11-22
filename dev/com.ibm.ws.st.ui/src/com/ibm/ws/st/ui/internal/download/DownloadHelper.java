@@ -263,14 +263,25 @@ public class DownloadHelper {
      * @throws IOException
      */
     static String getExtractorClassName(File srcFile) throws IOException {
-        JarFile jarFile = new JarFile(srcFile);
-        Manifest man = jarFile.getManifest();
-        String extractorClass = null;
-        if (man != null) {
-            extractorClass = man.getMainAttributes().getValue("Map-Based-Self-Extractor");
+        JarFile jarFile = null;
+        try {
+            jarFile = new JarFile(srcFile);
+            Manifest man = jarFile.getManifest();
+            String extractorClass = null;
+            if (man != null) {
+                extractorClass = man.getMainAttributes().getValue("Map-Based-Self-Extractor");
+            }
+            jarFile.close();
+            return extractorClass;
+        } finally {
+            try {
+                if (jarFile != null)
+                    jarFile.close();
+            } catch (IOException ex) {
+                //ignore
+
+            }
         }
-        jarFile.close();
-        return extractorClass;
     }
 
     /**

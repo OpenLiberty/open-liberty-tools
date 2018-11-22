@@ -6,11 +6,12 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.marker;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.eclipse.core.resources.IFile;
@@ -36,10 +37,10 @@ public class QuickFixRemoveWhitespace extends AbstractMarkerResolution {
         IFile file = getResource(marker);
         if (file == null)
             return;
-
+        InputStreamReader in = null;
         try {
             // read file
-            InputStreamReader in = new InputStreamReader(file.getContents(), file.getCharset());
+            in = new InputStreamReader(file.getContents(), file.getCharset());
             StringBuilder sb = new StringBuilder();
             char[] buf = new char[256];
             int n = in.read(buf);
@@ -56,6 +57,14 @@ public class QuickFixRemoveWhitespace extends AbstractMarkerResolution {
             if (Trace.ENABLED)
                 Trace.trace(Trace.ERROR, "Quick fix for removing whitespace failed", e);
             showErrorMessage();
+        } finally {
+            try {
+                if (in != null)
+                    in.close();
+            } catch (IOException ex) {
+                //ignore
+
+            }
         }
     }
 
