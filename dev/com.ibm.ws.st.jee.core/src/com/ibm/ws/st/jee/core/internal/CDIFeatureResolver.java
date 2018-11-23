@@ -12,6 +12,8 @@ package com.ibm.ws.st.jee.core.internal;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -152,9 +154,11 @@ public class CDIFeatureResolver extends FeatureResolver {
     private static FeatureResolverFeature getFeature(File file) {
         XMLInputFactory factory = XMLInputFactory.newInstance();
         XMLStreamReader reader = null;
+        InputStream fileStream = null;
         String version = "1.0";
         try {
-            reader = factory.createXMLStreamReader(new FileInputStream(file));
+            fileStream = new FileInputStream(file);
+            reader = factory.createXMLStreamReader(fileStream);
             if (reader.hasNext()) {
                 reader.nextTag();
                 if (reader.isStartElement() && ROOT_ELEM.equals(reader.getLocalName())) {
@@ -184,6 +188,13 @@ public class CDIFeatureResolver extends FeatureResolver {
             if (Trace.ENABLED)
                 Trace.trace(Trace.INFO, "Problem parsing beans.xml file: " + file.getAbsolutePath(), e);
         } finally {
+            if (fileStream != null) {
+                try {
+                    fileStream.close();
+                } catch (IOException e) {
+                    // Ignore
+                }
+            }
             if (reader != null) {
                 try {
                     reader.close();

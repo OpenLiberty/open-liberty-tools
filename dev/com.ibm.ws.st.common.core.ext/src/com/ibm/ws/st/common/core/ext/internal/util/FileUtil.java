@@ -6,11 +6,12 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.common.core.ext.internal.util;
 
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -90,18 +91,8 @@ public class FileUtil {
         } catch (IOException e) {
             throw e;
         } finally {
-            try {
-                if (in != null)
-                    in.close();
-            } catch (Exception ex) {
-                // ignore
-            }
-            try {
-                if (out != null)
-                    out.close();
-            } catch (Exception ex) {
-                // ignore
-            }
+            closeQuietly(in);
+            closeQuietly(out);
             buf = null;
         }
         return Status.OK_STATUS;
@@ -140,18 +131,8 @@ public class FileUtil {
         } catch (IOException e) {
             throw e;
         } finally {
-            try {
-                if (in != null)
-                    in.close();
-            } catch (Exception ex) {
-                // ignore
-            }
-            try {
-                if (out != null)
-                    out.close();
-            } catch (Exception ex) {
-                // ignore
-            }
+            closeQuietly(in);
+            closeQuietly(out);
             buf = null;
         }
         return Status.OK_STATUS;
@@ -226,7 +207,7 @@ public class FileUtil {
      * directory. The first directory in the path cannot
      * be removed to prevent the whole driver to be removed.
      *
-     * @param dir java.lang.String
+     * @param dir       java.lang.String
      * @param recursive boolean
      * @exception java.io.IOException
      */
@@ -314,20 +295,8 @@ public class FileUtil {
                     return manifest.getMainAttributes();
                 }
             } finally {
-                if (in != null) {
-                    try {
-                        in.close();
-                    } catch (IOException e) {
-                        // ignore
-                    }
-                }
-                if (jar != null) {
-                    try {
-                        jar.close();
-                    } catch (IOException e) {
-                        // ignore
-                    }
-                }
+                closeQuietly(in);
+                closeQuietly(jar);
             }
         }
         return null;
@@ -348,20 +317,8 @@ public class FileUtil {
                     return props;
                 }
             } finally {
-                if (in != null) {
-                    try {
-                        in.close();
-                    } catch (IOException e) {
-                        // ignore
-                    }
-                }
-                if (jar != null) {
-                    try {
-                        jar.close();
-                    } catch (IOException e) {
-                        // ignore
-                    }
-                }
+                closeQuietly(in);
+                closeQuietly(jar);
             }
         }
         return null;
@@ -407,13 +364,7 @@ public class FileUtil {
                 props.put(hName, hValue.toString());
             }
         } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    // ignore
-                }
-            }
+            closeQuietly(br);
         }
     }
 
@@ -437,21 +388,24 @@ public class FileUtil {
             }
 
         } finally {
-            try {
-                if (zos != null)
-                    zos.close();
-            } catch (Exception e) {
-                // ignore
-            }
-            try {
-                if (fos != null)
-                    fos.close();
-            } catch (Exception e) {
-                // ignore
-            }
+            closeQuietly(zos);
+            closeQuietly(fos);
         }
 
         return false;
+    }
+
+    /**
+     * Equivalent to Closeable.close(), except any exceptions will be ignored. This is typically used in finally blocks.
+     */
+    private static void closeQuietly(Closeable stream) {
+        try {
+            if (stream != null)
+                stream.close();
+        } catch (IOException ex) {
+            //ignore
+
+        }
     }
 
     /**
@@ -464,7 +418,7 @@ public class FileUtil {
     /**
      * Recursively adds files to a provided ZipOutputStream.
      *
-     * @param zos The ZipOutputStream object.
+     * @param zos  The ZipOutputStream object.
      * @param file A file or folder to be zipped.
      * @param root The root directory for the zip structure. Must be a parent of the provided {@code file}.
      * @throws IOException
@@ -477,17 +431,20 @@ public class FileUtil {
             entry = entry.replace("\\", "/");
             ZipEntry zipEntry = new ZipEntry(entry);
             zos.putNextEntry(zipEntry);
-            FileInputStream fis = new FileInputStream(file);
-            int length;
-            while ((length = fis.read(buf)) > 0) {
-                zos.write(buf, 0, length);
-            }
-            fis.close();
-            zos.closeEntry();
-            return;
-        }
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(file);
 
-        if (file.isDirectory()) {
+                int length;
+                while ((length = fis.read(buf)) > 0) {
+                    zos.write(buf, 0, length);
+                }
+                fis.close();
+                zos.closeEntry();
+            } finally {
+                closeQuietly(fis);
+            }
+        } else if (file.isDirectory()) {
             File[] files = file.listFiles();
             for (File f : files) {
                 // TODO investigate using java NIO APIs, in particular DirectoryStream.class which
@@ -524,7 +481,7 @@ public class FileUtil {
     /**
      * Get a sorted list of files in the given directory.
      *
-     * @param dir The directory containing the files.
+     * @param dir        The directory containing the files.
      * @param ignoreCase Whether to ignore case when sorting.
      * @return The sorted list of files.
      */

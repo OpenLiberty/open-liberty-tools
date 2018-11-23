@@ -408,7 +408,7 @@ public class LibertyDockerServer extends AbstractServerExtension {
                     InputStream inputStream = null;
                     try {
                         inputStream = new FileInputStream(file);
-                        runProperties.load(new FileInputStream(file));
+                        runProperties.load(inputStream);
                         runPropertiesTimestamp = file.lastModified();
                     } catch (Exception e) {
                         Trace.logError("Could not load the properties file: " + file.getAbsolutePath(), e);
