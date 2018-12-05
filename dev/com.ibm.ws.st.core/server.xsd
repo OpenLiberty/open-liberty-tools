@@ -8,27 +8,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -96,29 +96,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -631,29 +631,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -4348,9 +4348,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
-            </xsd:element> 
             <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
+            </xsd:element> 
+            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -4480,19 +4480,19 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -6303,11 +6303,11 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -25126,6 +25126,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="servletPathForDefaultMapping" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set the servlet path value to the request URI minus the context path. The path information is null when a servlet is used as a default mapping. The default value is true for version 4.0 or later of the servlet feature. It is false for other servlet features. When mapping is to the /* pattern, the servlet path is empty and the path information starts with a leading slash (/).</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Set the servlet path value for a default mapping</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="throwExceptionWhenUnableToCompleteOrDispatch" use="optional" default="true" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Throw an illegal state exception when an asynchronous request cannot be completed or dispatched. The default is true. If the asynchronous request must complete or the dispatch method must return even if the call does not succeed, set the property to false.</xsd:documentation> 
@@ -26535,22 +26543,6 @@
                     <xsd:documentation>Specifies custom parameters to send to the token endpoint of the OpenID Connect provider.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Custom Parameters For Token Endpoint</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="userinfoParameter" type="com.ibm.ws.security.social.client.param-factory"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Specifies custom parameters to send to the user info endpoint of the OpenID Connect provider.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Custom Parameters For User Info Endpoint</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="jwkParameter" type="com.ibm.ws.security.social.client.param-factory"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Specifies custom parameters to send to the jwk endpoint of the OpenID Connect provider.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Custom Parameters For JWK Endpoint</ext:label> 
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
