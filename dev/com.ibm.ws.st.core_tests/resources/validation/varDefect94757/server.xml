@@ -23,5 +23,5 @@
                   
     <applicationMonitor pollingRate="1s500ms"/>         
     <connectionManager connectionTimeout="10s" maxIdleTime="10m30s" reapTime="5m10s500ms" agedTimeout="50mx"/>
-    <executor keepAlive="1d5h22m46s312ms"/>
+    <tcpOptions inactivityTimeout="1d5h22m46s312ms"/>
 </server>
