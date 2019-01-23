@@ -20,7 +20,8 @@
  -->
 <server description="JAXWS Web Sample Server">
     <featureManager>
-     
+        <feature>jaxb-2.2</feature>
+        <feature>jaxws-2.2</feature>
         <feature>jsf-2.2</feature>
     </featureManager>
     
