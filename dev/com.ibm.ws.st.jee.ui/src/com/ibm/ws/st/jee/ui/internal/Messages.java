@@ -19,6 +19,7 @@ public class Messages extends NLS {
     public static String browse;
     public static String remove;
     public static String add;
+    public static String sharedLibGeneralDescription;
     public static String sharedLibDescription;
     public static String sharedLibId;
     public static String sharedLibDirectory;
@@ -40,6 +41,12 @@ public class Messages extends NLS {
     public static String sharedLibAPIVisibilitySpec;
     public static String sharedLibAPIVisibilityStable;
     public static String sharedLibAPIVisibilityThirdParty;
+
+    public static String sharedLibWarning;
+
+    // Maven
+    public static String sharedLibMavenDescription;
+    public static String sharedLibMavenServer;
 
     static {
         NLS.initializeMessages(Activator.PLUGIN_ID + ".internal.Messages", Messages.class);

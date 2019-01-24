@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.ui.internal;
 
@@ -42,6 +42,7 @@ public class Activator extends AbstractUIPlugin {
 
     public static final String IMG_LIBRARY = "library";
     public static final String IMG_SERVER = "server";
+    public static final String IMG_ERROR = "error";
 
     public Activator() {
         // do nothing
@@ -49,7 +50,7 @@ public class Activator extends AbstractUIPlugin {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
      */
     @Override
@@ -66,7 +67,7 @@ public class Activator extends AbstractUIPlugin {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
      */
     @Override
@@ -77,7 +78,7 @@ public class Activator extends AbstractUIPlugin {
 
     /**
      * Returns the shared instance
-     * 
+     *
      * @return the shared instance
      */
     public static Activator getInstance() {
@@ -86,7 +87,7 @@ public class Activator extends AbstractUIPlugin {
 
     /**
      * Register an image with the registry.
-     * 
+     *
      * @param key java.lang.String
      * @param partialURL java.lang.String
      */
@@ -109,13 +110,14 @@ public class Activator extends AbstractUIPlugin {
 
         registerImage(registry, IMG_LIBRARY, URL_OBJ + "library.gif");
         registerImage(registry, IMG_SERVER, URL_OBJ + "server.gif");
+        registerImage(registry, IMG_ERROR, URL_OBJ + "error.gif");
 
         return registry;
     }
 
     /**
      * Return the image with the given key from the image registry.
-     * 
+     *
      * @param key
      * @return Image
      */
@@ -125,7 +127,7 @@ public class Activator extends AbstractUIPlugin {
 
     /**
      * Return the image with the given key from the image registry.
-     * 
+     *
      * @param key
      * @return ImageDescriptor
      */

@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.ui.internal;
 
@@ -17,6 +17,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.PopupDialog;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
@@ -29,10 +30,12 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -41,6 +44,8 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 
+import com.ibm.ws.st.core.internal.Constants;
+import com.ibm.ws.st.core.internal.WebSphereServer;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.WebSphereUtil;
 import com.ibm.ws.st.core.internal.config.ConfigUtils;
@@ -55,6 +60,10 @@ import com.ibm.ws.st.jee.core.internal.SharedLibertyUtils;
 public class SharedLibSelectionDialog extends Dialog {
     protected String id = null;
     protected List<String> currentRefIds;
+
+    Label messageLabel = null;
+    Label errorLabel = null;
+    TreeItem currentlySelectedItem = null;
 
     public SharedLibSelectionDialog(Shell parent, List<String> currentRefIds) {
         super(parent);
@@ -82,7 +91,7 @@ public class SharedLibSelectionDialog extends Dialog {
         layout.verticalSpacing = 7;
         layout.numColumns = 2;
         composite.setLayout(layout);
-        GridData data = new GridData(GridData.FILL_BOTH);
+        GridData data = new GridData(GridData.FILL, GridData.FILL, true, true);
         data.minimumWidth = 300;
         composite.setLayoutData(data);
         composite.setFont(parent.getFont());
@@ -160,6 +169,7 @@ public class SharedLibSelectionDialog extends Dialog {
             serverItem.setText(NLS.bind(Messages.sharedLibServer, ws.getServerName()));
             serverItem.setImage(Activator.getImage(Activator.IMG_SERVER));
             serverItem.setForeground(gray);
+            serverItem.setData(ws);
 
             ConfigurationFile configFile = ws.getConfigRoot();
             String[] ids = ConfigUtils.getSharedLibraryIds(configFile);
@@ -188,6 +198,8 @@ public class SharedLibSelectionDialog extends Dialog {
                 if (items == null || items.length != 1)
                     return;
 
+                currentlySelectedItem = items[0];
+
                 Object obj = items[0].getData();
                 if (obj == null || !(obj instanceof String)) {
                     idText.setText("");
@@ -208,6 +220,32 @@ public class SharedLibSelectionDialog extends Dialog {
             }
         });
 
+        // Validation message composite
+        Composite messageComposite = new Composite(parent, SWT.NONE);
+        layout = new GridLayout();
+        layout.numColumns = 2;
+        messageComposite.setLayout(layout);
+
+        data = new GridData(GridData.FILL_BOTH);
+        messageComposite.setLayoutData(data);
+
+        Image errorIcon = Activator.getImage(Activator.IMG_ERROR);
+        errorLabel = new Label(messageComposite, SWT.NONE);
+        errorLabel.setImage(errorIcon);
+        errorLabel.setVisible(false);
+        data = new GridData(GridData.BEGINNING, GridData.BEGINNING, false, false);
+        errorLabel.setLayoutData(data);
+
+        messageLabel = new Label(messageComposite, SWT.WRAP);
+        messageLabel.setText("");
+        messageLabel.setVisible(false);
+        data = new GridData(GridData.FILL, GridData.FILL, true, true);
+        data.widthHint = 500;
+        data.grabExcessVerticalSpace = true;
+        data.horizontalIndent = PopupDialog.POPUP_HORIZONTALSPACING;
+        data.verticalIndent = PopupDialog.POPUP_VERTICALSPACING;
+        messageLabel.setLayoutData(data);
+
         return composite;
     }
 
@@ -223,7 +261,51 @@ public class SharedLibSelectionDialog extends Dialog {
         boolean ok = false;
         if (id != null && !id.trim().isEmpty())
             ok = !currentRefIds.contains(id);
+
+        String validationMsg = "";
+        if (ok) {
+            validationMsg = validateServer();
+            ok = validationMsg.isEmpty();
+        }
+        handleValidationMessages(validationMsg);
         getButton(IDialogConstants.OK_ID).setEnabled(ok);
+    }
+
+    private String validateServer() {
+        if (currentlySelectedItem != null) {
+            TreeItem parent = currentlySelectedItem.getParentItem();
+            if (parent != null) {
+                WebSphereServerInfo wsInfo = (WebSphereServerInfo) parent.getData();
+                if (wsInfo != null) {
+                    WebSphereServer wsServer = WebSphereUtil.getWebSphereServer(wsInfo);
+                    /*
+                     * Maven type servers are currently created in target folders by default so we will block them
+                     * and ask the user to manually configure their server using the config files in the src folders
+                     */
+                    if (wsServer != null && Constants.SERVER_TYPE_LIBERTY_MAVEN.equals(wsServer.getServerType()))
+                        return Messages.sharedLibMavenServer;
+
+                }
+            }
+        }
+        return "";
+    }
+
+    private void handleValidationMessages(final String msg) {
+
+        Display.getDefault().syncExec(new Runnable() {
+            @Override
+            public void run() {
+                if (messageLabel != null) {
+                    errorLabel.setVisible(!msg.isEmpty());
+                    messageLabel.setText(msg);
+                    messageLabel.setVisible(!msg.isEmpty());
+                    Point location = messageLabel.getShell().getLocation(); // preserve location
+                    messageLabel.getShell().pack();
+                    messageLabel.getShell().setLocation(location);
+                }
+            }
+        });
     }
 
     public String getId() {
