@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,6 +21,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -130,9 +131,9 @@ public class ConfigUtils {
     /**
      * Validates the password against the runtime
      *
-     * @param password a password
+     * @param password     a password
      * @param passwordType the type of password. Either a <code>Constants.PASSWORD_TYPE</code> or a <code>Constants.PASSWORD_HASH_TYPE</code>
-     * @param wsRuntime a WebSphere runtime
+     * @param wsRuntime    a WebSphere runtime
      *
      * @return <code>PASSWORD_OK</code> if the password is encoded or encrypted;
      *         <code>PASSWORD_PLAIN_TEXT</code> if the password is not encoded or encrypted;
@@ -616,7 +617,6 @@ public class ConfigUtils {
 
         try {
             includeFilter.push(uri);
-            varsContext.setEffectiveIgnore(uri, Boolean.FALSE);
             vars.startContext();
             getVariables(configFile, document, uri, serverInfo, userDir, vars, includeFilter, varsContext);
             vars.endContext();
@@ -630,10 +630,10 @@ public class ConfigUtils {
      * Get local variables for the given configuration element (all of its attributes
      * can be used as variables including attributes with default values).
      *
-     * @param elem The element for which to get the local variables
+     * @param elem        The element for which to get the local variables
      * @param attrExclude The attribute to exclude. If null, all attributes are included.
-     * @param uri The document URI.
-     * @param vars The ConfigVars object to add the variables to.
+     * @param uri         The document URI.
+     * @param vars        The ConfigVars object to add the variables to.
      */
     public static void getLocalVariables(Element elem, String attrExclude, URI uri, ConfigVars vars) {
         CMElementDeclaration elemDecl = SchemaUtil.getElement(elem.getOwnerDocument(), getElementTags(elem), uri);
@@ -739,25 +739,27 @@ public class ConfigUtils {
         }
 
         final URI includeURI = resolve(uri, mappedLocation != null ? mappedLocation : location, serverInfo, userDir);
-        // We process the include configuration, if the URI exists and we
-        // have not seen it before
+        // We process the include configuration, if the URI exists and we have not seen it before
         if (includeURI != null && !includeFilter.contains(includeURI) && new File(includeURI).exists()) {
             final Document document = getDOM(includeURI);
             if (document != null) {
-                IncludeConflictResolution conflictResolution = IncludeConflictResolution.getConflictResolution(DOMUtils.getAttributeValue(elem, Constants.ONCONFLICT_ATTRIBUTE));
-                Boolean currentIgnore = varsContext.getEffectiveIgnore(uri);
-                Boolean includeIgnore = conflictResolution == IncludeConflictResolution.IGNORE ? Boolean.TRUE : Boolean.FALSE;
-
+                // Get the onConflict setting for the include and save it in the varsContext
+                String attrValue = DOMUtils.getAttributeValue(elem, Constants.ONCONFLICT_ATTRIBUTE);
+                if (attrValue != null) {
+                    IncludeConflictResolution conflictResolution = IncludeConflictResolution.getConflictResolution(attrValue);
+                    varsContext.pushIgnore(conflictResolution == IncludeConflictResolution.IGNORE);
+                } else {
+                    // Use the parent setting if the attribute is not specified
+                    varsContext.pushIgnore();
+                }
                 includeFilter.push(includeURI);
-                varsContext.setEffectiveIgnore(uri, includeIgnore);
-                varsContext.setEffectiveIgnore(includeURI, Boolean.FALSE);
                 ConfigurationFile configFile = null;
                 if (serverInfo != null) {
                     configFile = serverInfo.getConfigurationFileFromURI(includeURI);
                 }
                 getVariables(configFile, document, includeURI, serverInfo, userDir, vars, includeFilter, varsContext);
                 includeFilter.pop();
-                varsContext.setEffectiveIgnore(uri, currentIgnore);
+                varsContext.popIgnore();
             }
         }
     }
@@ -765,38 +767,64 @@ public class ConfigUtils {
     private static void processDropinForVars(ConfigurationFile dropin, WebSphereServerInfo serverInfo, UserDirectory userDir, ConfigVars vars, Stack<URI> includeFilter,
                                              VarsContext varsContext) {
         includeFilter.push(dropin.getURI());
-        varsContext.setEffectiveIgnore(dropin.getURI(), Boolean.FALSE);
         getVariables(dropin, dropin.getDomDocument(), dropin.getURI(), serverInfo, userDir, vars, includeFilter, varsContext);
         includeFilter.pop();
     }
 
     private static class VarsContext {
-        private final Map<URI, Boolean> effectiveIgnoreFilter = new HashMap<URI, Boolean>();
-        private final Map<String, URI> declaredURIMap = new HashMap<String, URI>();
+
+        // Keep track of the stack of on conflict settings for each include - only ignore counts
+        // for variables since replace and merge will behave the same way
+        private final List<Boolean> ignoreList = new ArrayList<Boolean>();
+
+        // Keep track of what variables have already been declared
+        private final Set<String> declaredVars = new HashSet<String>();
 
         protected VarsContext() {
             // empty constructor
         }
 
+        // Push the ignore value for the current include
+        protected void pushIgnore(boolean value) {
+            ignoreList.add(value ? Boolean.TRUE : Boolean.FALSE);
+        }
+
+        // If the current include does not specify onConflict then it inherits the parent setting.
+        // If there is no parent setting then the default is false.
+        protected void pushIgnore() {
+            if (!ignoreList.isEmpty()) {
+                Boolean value = ignoreList.get(ignoreList.size() - 1);
+                ignoreList.add(value);
+            } else {
+                ignoreList.add(Boolean.FALSE);
+            }
+        }
+
+        // Remove the last setting when finished processing the current include
+        protected void popIgnore() {
+            if (!ignoreList.isEmpty()) {
+                ignoreList.remove(ignoreList.size() - 1);
+            }
+        }
+
+        protected boolean isIgnore() {
+            if (!ignoreList.isEmpty() && ignoreList.get(ignoreList.size() - 1).booleanValue()) {
+                return true;
+            }
+            return false;
+        }
+
+        protected void addDeclared(String name) {
+            declaredVars.add(name);
+        }
+
+        protected boolean isDeclared(String name) {
+            return declaredVars.contains(name);
+        }
+
         protected void clear() {
-            effectiveIgnoreFilter.clear();
-            declaredURIMap.clear();
-        }
-
-        protected void setEffectiveIgnore(URI uri, Boolean value) {
-            effectiveIgnoreFilter.put(uri, value);
-        }
-
-        protected Boolean getEffectiveIgnore(URI uri) {
-            return effectiveIgnoreFilter.get(uri);
-        }
-
-        protected URI getDeclaredURI(String name) {
-            return declaredURIMap.get(name);
-        }
-
-        protected void setDeclaredURI(String name, URI uri) {
-            declaredURIMap.put(name, uri);
+            ignoreList.clear();
+            declaredVars.clear();
         }
     }
 
@@ -804,9 +832,10 @@ public class ConfigUtils {
         final String varName = elem.getAttribute("name");
         final String varValue = elem.getAttribute("value");
         if (varName != null && varValue != null) {
-            URI declaredURI = varsContext.getDeclaredURI(varName);
-            if (declaredURI == null || varsContext.getEffectiveIgnore(declaredURI) == Boolean.FALSE) {
-                varsContext.setDeclaredURI(varName, uri);
+            // If the variable has not been declared yet then add it, or if the current include is not
+            // ignored then replace the previous variable declaration with this one
+            if (!varsContext.isDeclared(varName) || !varsContext.isIgnore()) {
+                varsContext.addDeclared(varName);
                 vars.add(varName, varValue, DocumentLocation.createDocumentLocation(uri, elem));
             }
         }
@@ -1026,9 +1055,9 @@ public class ConfigUtils {
     /**
      * Add the drop-in lib ids and locations to the map.
      *
-     * @param ids <code>Map</code> of ids to location
+     * @param ids        <code>Map</code> of ids to location
      * @param serverInfo The <code>WebSphereServerInfo</code> object or null if there isn't one
-     * @param userDir The <code>UserDirectory</code> object or null if there isn't one
+     * @param userDir    The <code>UserDirectory</code> object or null if there isn't one
      */
     public static void addDropInLibIds(Map<String, URILocation> ids, WebSphereServerInfo serverInfo, UserDirectory userDir) {
         List<IPath> paths = new ArrayList<IPath>();
@@ -1188,9 +1217,9 @@ public class ConfigUtils {
      * Checks if the given element is already enabled and if not returns
      * a list of features that can be used to enable it.
      *
-     * @param elemName The element name
+     * @param elemName        The element name
      * @param enabledFeatures The currently enabled features
-     * @param wsRuntime The runtime
+     * @param wsRuntime       The runtime
      * @return The features that can be used to enable the element or null
      *         if already enabled
      */
