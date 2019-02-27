@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -56,6 +56,9 @@ public class MergeRulesValidationTest extends ValidationTestBase {
         testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "mergeRules5"));
         testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "includeConflictMerge"));
         testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "includeConflictIgnore"));
+        testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "includeConflictIgnore2"));
+        testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "includeConflictIgnore3"));
+        testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "includeConflictIgnore4"));
         testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "includeConflictReplace"));
         testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "includeConflictNested"));
         testSuite.addTest(TestSuite.createTest(MergeRulesValidationTest.class, "onConflictIgnoreReplace"));
@@ -278,6 +281,51 @@ public class MergeRulesValidationTest extends ValidationTestBase {
     }
 
     @Test
+    public void includeConflictIgnore2() throws Exception {
+        String serverName = "includeConflictIgnore2";
+        setupRuntimeServer(RESOURCE_PATH, serverName);
+        IFile file = getServerFile(serverName, "server.xml");
+        ValidatorMessage[] messages = TestUtil.validate(file);
+        checkMessageCount(messages, 0);
+
+        ConfigurationFile cf = getConfigFile(serverName);
+        assertNotNull("Configuration file is null.", cf);
+        int httpPort = cf.getHTTPPort();
+        assertTrue("Expecting the value of httpPort to be 8001 but the value was " + httpPort, httpPort == 8001);
+        deleteRuntimeServer(serverName);
+    }
+
+    @Test
+    public void includeConflictIgnore3() throws Exception {
+        String serverName = "includeConflictIgnore3";
+        setupRuntimeServer(RESOURCE_PATH, serverName);
+        IFile file = getServerFile(serverName, "server.xml");
+        ValidatorMessage[] messages = TestUtil.validate(file);
+        checkMessageCount(messages, 0);
+
+        ConfigurationFile cf = getConfigFile(serverName);
+        assertNotNull("Configuration file is null.", cf);
+        int httpPort = cf.getHTTPPort();
+        assertTrue("Expecting the value of httpPort to be 8001 but the value was " + httpPort, httpPort == 8001);
+        deleteRuntimeServer(serverName);
+    }
+
+    @Test
+    public void includeConflictIgnore4() throws Exception {
+        String serverName = "includeConflictIgnore4";
+        setupRuntimeServer(RESOURCE_PATH, serverName);
+        IFile file = getServerFile(serverName, "server.xml");
+        ValidatorMessage[] messages = TestUtil.validate(file);
+        checkMessageCount(messages, 0);
+
+        ConfigurationFile cf = getConfigFile(serverName);
+        assertNotNull("Configuration file is null.", cf);
+        int httpPort = cf.getHTTPPort();
+        assertTrue("Expecting the value of httpPort to be 8002 but the value was " + httpPort, httpPort == 8002);
+        deleteRuntimeServer(serverName);
+    }
+
+    @Test
     public void includeConflictReplace() throws Exception {
         String serverName = "includeConflictReplace";
         setupRuntimeServer(RESOURCE_PATH, serverName);
@@ -318,7 +366,7 @@ public class MergeRulesValidationTest extends ValidationTestBase {
         ConfigurationFile cf = getConfigFile(serverName);
         assertNotNull("Configuration file is null.", cf);
         int httpPort = cf.getHTTPPort();
-        assertTrue("Expecting the value of httpPort to be 9080 but the value was " + httpPort, httpPort == 9080);
+        assertTrue("Expecting the value of httpPort to be 9081 but the value was " + httpPort, httpPort == 9081);
         int httpsPort = cf.getHTTPSPort();
         assertTrue("Expecting the value of httpsPort to be 9444 but the value was " + httpsPort, httpsPort == 9444);
         deleteRuntimeServer(serverName);
