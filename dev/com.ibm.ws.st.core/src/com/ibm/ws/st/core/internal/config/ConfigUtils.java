@@ -21,7 +21,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -778,7 +777,7 @@ public class ConfigUtils {
         private final List<Boolean> ignoreList = new ArrayList<Boolean>();
 
         // Keep track of what variables have already been declared
-        private final Set<String> declaredVars = new HashSet<String>();
+        private final Map<String, Boolean> declaredVars = new HashMap<String, Boolean>();
 
         protected VarsContext() {
             // empty constructor
@@ -814,12 +813,22 @@ public class ConfigUtils {
             return false;
         }
 
-        protected void addDeclared(String name) {
-            declaredVars.add(name);
+        protected void addDeclared(String name, boolean isDefault) {
+            declaredVars.put(name, isDefault ? Boolean.TRUE : Boolean.FALSE);
         }
 
         protected boolean isDeclared(String name) {
-            return declaredVars.contains(name);
+            return declaredVars.containsKey(name);
+        }
+
+        // Always check if the variable is declared first before calling this.
+        // If it is not declared then this is meaningless.
+        protected boolean isDefault(String name) {
+            Boolean isDefault = declaredVars.get(name);
+            if (isDefault != null) {
+                return isDefault.booleanValue();
+            }
+            return false;
         }
 
         protected void clear() {
@@ -830,13 +839,32 @@ public class ConfigUtils {
 
     private static void processVariableElement(Element elem, URI uri, ConfigVars vars, VarsContext varsContext) {
         final String varName = elem.getAttribute("name");
-        final String varValue = elem.getAttribute("value");
-        if (varName != null && varValue != null) {
-            // If the variable has not been declared yet then add it, or if the current include is not
-            // ignored then replace the previous variable declaration with this one
-            if (!varsContext.isDeclared(varName) || !varsContext.isIgnore()) {
-                varsContext.addDeclared(varName);
-                vars.add(varName, varValue, DocumentLocation.createDocumentLocation(uri, elem));
+        String varValue = null;
+        String defaultValue = null;
+        if (elem.hasAttribute("value")) {
+            varValue = elem.getAttribute("value");
+        } else if (elem.hasAttribute("defaultValue")) {
+            defaultValue = elem.getAttribute("defaultValue");
+        }
+        if (varName != null) {
+            // Handle the value and defaultValue cases separately
+            if (varValue != null) {
+                // If the variable has not been declared yet then add it, or if the current include is not
+                // ignored then replace the previous variable declaration with this one
+                if (!varsContext.isDeclared(varName) || !varsContext.isIgnore()) {
+                    varsContext.addDeclared(varName, false);
+                    vars.add(varName, varValue, DocumentLocation.createDocumentLocation(uri, elem));
+                }
+            } else if (defaultValue != null) {
+                // If the variable has not been declared yet then add it, or if only a default value has been
+                // declared and the current include is not ignored then replace the previous default
+                // with this one.  For default values, check if the variable is declared in ConfigVars
+                // instead of the VarsContext since a value could have been specified in bootstrap.properties
+                // and this overrides a default value.
+                if (!vars.isDefined(varName) || (varsContext.isDefault(varName) && !varsContext.isIgnore())) {
+                    varsContext.addDeclared(varName, true);
+                    vars.add(varName, defaultValue, DocumentLocation.createDocumentLocation(uri, elem));
+                }
             }
         }
     }

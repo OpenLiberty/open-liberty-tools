@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2017 IBM Corporation and others.
+ * Copyright (c) 2012, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,6 +23,7 @@ import com.ibm.ws.st.core.tests.validation.IncludeValidationTest;
 import com.ibm.ws.st.core.tests.validation.MergeRulesValidationTest;
 import com.ibm.ws.st.core.tests.validation.MiscellaneousValidationTest;
 import com.ibm.ws.st.core.tests.validation.QuickFixTestCase;
+import com.ibm.ws.st.core.tests.validation.VariableDefaultValueTest;
 import com.ibm.ws.st.core.tests.validation.VariableExpressionValidationTest;
 import com.ibm.ws.st.core.tests.validation.VariableValidationTest;
 
@@ -41,6 +42,7 @@ import com.ibm.ws.st.core.tests.validation.VariableValidationTest;
                       MiscellaneousValidationTest.class,
                       VariableExpressionValidationTest.class,
                       MergeRulesValidationTest.class,
+                      VariableDefaultValueTest.class,
                       IncludeValidationTest.class,
                       VariableValidationTest.class,
                       FeatureValidationTest.class,
