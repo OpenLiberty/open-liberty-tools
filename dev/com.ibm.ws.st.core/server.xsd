@@ -8,27 +8,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -96,29 +96,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -631,29 +631,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -741,6 +741,325 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.audit.file.handler"> 
+        <xsd:annotation> 
+            <xsd:documentation>The default implementation of the audit file handler which emits audit events to a text file.   </xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Default Audit File Handler</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="events" minOccurs="0" maxOccurs="unbounded" type="com.ibm.ws.security.audit.event-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>A definition of an audit event and audit outcome to emit an audit record for to an audit log.  If no events are specified, then all events and all outcomes will be emitted to the audit log.   </xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Event</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="eventsRef" use="optional" type="pidListType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A definition of an audit event and audit outcome to emit an audit record for to an audit log.  If no events are specified, then all events and all outcomes will be emitted to the audit log.   </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Event</ext:label> 
+                    <ext:reference>auditEvent</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxFileSize" use="optional" default="20"> 
+            <xsd:annotation> 
+                <xsd:documentation>The maximum size, in MB, of each audit file log.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Audit file log size</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxFiles" use="optional" default="100"> 
+            <xsd:annotation> 
+                <xsd:documentation>Maximum number of audit file logs to save before the oldest audit file log is wrapped.  If an enforced maximum file size exists, this setting is used to determine how many of each of the logs files are kept.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum number of audit file logs</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="logDirectory" use="optional" default="${server.output.dir}/logs" type="dirLocation"> 
+            <xsd:annotation> 
+                <xsd:documentation>Location where the audit file log(s) will be written to.   If not specified, the audit logs are written to the default log location for the server, WLP_OUTPUT_DIR/serverName/logs.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Audit file location</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sign" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether the audit records in the audit file log will be signed.  Default behavior is to not sign the audit records.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Sign the audit records in the audit log file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="encrypt" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether the audit records in the audit file log will be encrypted.  Default behavior is to not encrypt the audit records.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Encrypt the audit records in the audit file log</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="encryptAlias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Alias name of the certificate used to encrypt the audit records.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Alias name of certificate for encrypting</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="encryptKeyStoreRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Location of the keystore containing the certificate used to encrypt the audit records.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Audit encryption keystore reference</ext:label> 
+                    <ext:reference>keyStore</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signingAlias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Alias name of the personal certificate used to sign the audit records.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Alias name of personal certificate for signing</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="signingKeyStoreRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Location of keystore that contains the personal certificate that is used to sign the audit records.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Audit signing keystore location</ext:label> 
+                    <ext:reference>keyStore</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="compact" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When set to true, the entire audit record, which is in JSON format, will be printed on one line within the audit log.  </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Compact json record format</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.audit.file.handler-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.audit.file.handler"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.audit.event"> 
+        <xsd:annotation> 
+            <xsd:documentation>An audit event</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Audit Event</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="eventName" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>The unique name of the audit event.  For example: SECURITY_AUTHN or SECURITY_AUTHZ. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Audit event name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="SECURITY_AUDIT_MGMT"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record of the starting and stopping of audit services.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_MEMBER_MGMT"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for all user and group management events, including creation, reading, updating and deleting of user and group records.                </xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_API_AUTHN"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any authentication which passes through the authentication API, excluding logouts.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_API_AUTHN_TERMINATE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any authentication logout which passes through the authentication API.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_AUTHN"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any security authentication event, excluding logouts.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_AUTHN_TERMINATE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any authentication logout event.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_AUTHN_FAILOVER"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any authentication failover event.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_AUTHN_DELEGATION"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any delegation, identify assertion, and runAS.  Used when switching user identities within a given session.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_AUTHZ"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any security authorization events.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="JMX_MBEAN"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any create, query, invoke MBean operations</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="JMX_MBEAN_ATTRIBUTES"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any query, create or update to MBean attributes.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="JMX_MBEAN_REGISTER"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any register or unregister MBean operations.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="JMX_NOTIFICATION"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record of any addition or removal of notification listeners.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_JMS_AUTHN"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any JMS authentication events.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_JMS_AUTHZ"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for any JMS auhorization events.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="outcome" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Defines the outcome for an audit event to gather and report.  For example:  SUCCESS, FAILURE, or DENIED.  If no outcome is specified, then all outcomes for the particular audit event are emitted to the audit.log.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Audit outcome</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="SUCCESS"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>success</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="FAILURE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>failure</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ERROR"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>error</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="REDIRECT"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>redirect</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="INFO"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>info</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="WARNING"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>warning</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="DENIED"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>denied</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="CHALLENGE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>challenge</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.audit.event-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.audit.event"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.authentication.filter.remoteAddress"> 
         <xsd:annotation> 
@@ -884,6 +1203,80 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.requestHeader"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the request header attribute name.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Request Header</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the name.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="value" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the value.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Value</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="matchType" use="optional" default="contains"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the match type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Match type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="equals"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Equals</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="contains"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Contains</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="notContain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Not contain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.requestHeader-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter.requestHeader"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.authentication.filter.userAgent"> 
         <xsd:annotation> 
             <xsd:documentation>Specifies the user agent.</xsd:documentation> 
@@ -939,6 +1332,72 @@
     <xsd:complexType name="com.ibm.ws.security.authentication.filter.userAgent-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.security.authentication.filter.userAgent"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.cookie"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the cookie name.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Cookie</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the name.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="matchType" use="optional" default="contains"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the match type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Match type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="equals"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Equals</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="contains"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Contains</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="notContain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Not contain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.authentication.filter.cookie-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.authentication.filter.cookie"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -1099,6 +1558,10 @@
             <xsd:element name="host" type="com.ibm.ws.security.authentication.filter.host-factory"> 
             </xsd:element> 
             <xsd:element name="userAgent" type="com.ibm.ws.security.authentication.filter.userAgent-factory"> 
+            </xsd:element> 
+            <xsd:element name="requestHeader" type="com.ibm.ws.security.authentication.filter.requestHeader-factory"> 
+            </xsd:element> 
+            <xsd:element name="cookie" type="com.ibm.ws.security.authentication.filter.cookie-factory"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:anyAttribute processContents="skip"> 
@@ -4348,9 +4811,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
-            </xsd:element> 
             <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
+            </xsd:element> 
+            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -4480,19 +4943,19 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -5532,6 +5995,14 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="remoteIp" type="com.ibm.ws.http.remoteip"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Remote IP options for the endpoint.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Remote IP Options</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="sslOptions" type="com.ibm.ws.sslchannel.options"> 
                 <xsd:annotation> 
                     <xsd:documentation>SSL protocol options for the endpoint.</xsd:documentation> 
@@ -5652,6 +6123,15 @@
                 <xsd:appinfo> 
                     <ext:label>HTTP options reference</ext:label> 
                     <ext:reference>httpOptions</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="remoteIpRef" use="optional" default="defaultRemoteIp" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Remote IP options for the endpoint.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Remote IP options reference</ext:label> 
+                    <ext:reference>remoteIp</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -5912,6 +6392,49 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.http.remoteip"> 
+        <xsd:annotation> 
+            <xsd:documentation>An element configured within the httpEndpoint element so that the associated HTTP channel is enabled to consider X-Forwarded-* or Forwarded request headers.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Remote IP Options</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="proxies" use="optional" default="10.\d{1,3}.\d{1,3}.\d{1,3}|192.168.\d{1,3}.\d{1,3}|169.254.\d{1,3}.\d{1,3}|127.\d{1,3}.\d{1,3}.\d{1,3}|172.1[6-9]{1}.\d{1,3}.\d{1,3}|172.2[0-9]{1}.\d{1,3}.\d{1,3}|172.3[0-1]{1}.\d{1,3}.\d{1,3}|0:0:0:0:0:0:0:1|::1" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A regular expression that defines trusted proxies.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Proxies regex</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useRemoteIpInAccessLog" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>If this property is set to true and the remote client information was verified by the HTTP Channel, the NCSA access log reflects the Forwarded or X-Forwarded-* headers. These headers are reflected when one or more of the following items are recorded: the remote client IP, the host, or the request protocol.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use remote IP in access log</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.http.remoteip-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.http.remoteip"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.http.virtualhost"> 
         <xsd:annotation> 
             <xsd:documentation>A virtual host provides a logical grouping for configuring web applications to a particular host name. The default virtual host (default_host) is suitable for most simple configurations.</xsd:documentation> 
@@ -5999,6 +6522,14 @@
                 <xsd:documentation>Optional URL for the remote name service, for example corbaname::localhost:2809</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Naming context location for a client ORB</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="orbSSLInitTimeout" use="optional" default="10" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>ORB SSL initialization timeout specified in seconds</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Timeout that governs ORB SSL initialization</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -6303,9 +6834,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
@@ -20846,7 +21377,7 @@
         </xsd:attribute> 
         <xsd:attribute name="maxThreads" use="optional" default="-1" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Maximum number of threads that can be associated with the executor. If greater than 0, this value must be greater than or equal to the value of coreThreads. If the value of maxThreads is less than or equal to 0, the maximum number of threads is unbounded.  Note that the actual number of threads associated with the executor is determined dynamically by the Liberty kernel, so leaving the maximum threads unbounded does not imply that the runtime will actively create large amounts of threads; it simply lets the Liberty kernel decide how many threads to associate with the executor without having a defined upper boundary.</xsd:documentation> 
+                <xsd:documentation>Maximum number of threads that can be associated with the executor. If greater than 0, maxThreads can be a minimum of 4, and should be at least as large as coreThreads; if maxThreads is set less than coreThreads, Liberty will reduce coreThreads to the maxThreads value.  If the value of maxThreads is less than or equal to 0, the maximum number of threads is unbounded, which lets the Liberty kernel decide how many threads to associate with the executor without having a defined upper boundary.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Maximum threads</ext:label> 
                 </xsd:appinfo> 
@@ -20854,76 +21385,11 @@
         </xsd:attribute> 
         <xsd:attribute name="coreThreads" use="optional" default="-1" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Steady-state or core number of threads to associate with the executor. The number of threads associated with the executor will quickly grow to this number. If this value is less than 0, a default value is used. This default value is calculated based on the number of hardware threads on the system.</xsd:documentation> 
+                <xsd:documentation>Baseline or minimum number of threads to associate with the executor. The number of threads associated with the executor will quickly grow to this number. If this value is less than 0, a default value is used, calculated based on the number of hardware threads on the system. If the value is a positive number less than 4, then a default value of 4 is used.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Core threads</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="keepAlive" use="optional" default="60s" type="duration"> 
-            <xsd:annotation> 
-                <xsd:documentation>Amount of time to keep an idle thread in the pool before allowing it to terminate. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keep alive time</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="stealPolicy" use="optional" default="LOCAL"> 
-            <xsd:annotation> 
-                <xsd:documentation>The work-stealing policy to employ. The options for this policy determine how work is queued, and how threads obtain queued work.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Work stealing policy</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="STRICT"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>All threads that generate work own a local work pile. Threads that are associated with the executor take work from other threads when the local work pile is exhausted.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="LOCAL"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>A global work queue is used for work that is generated by threads that are not associated with the executor. Work generated by threads associated with the executor is placed on a local work pile. This work pile is owned by the generating thread, unless another thread steals it. Threads that are associated with the executor take work associated with other threads if the local work pile is empty and there is no work on the global work queue.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="NEVER"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>A global work queue is used to feed work to threads that are associated with the executor. No stealing will occur.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:attribute name="rejectedWorkPolicy" use="optional" default="ABORT"> 
-            <xsd:annotation> 
-                <xsd:documentation>Policy to employ when the executor is unable to stage work for execution.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Rejected execution policy</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="ABORT"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Raise an exception.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="CALLER_RUNS"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Execute the work immediately on the caller's thread.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
@@ -21130,6 +21596,111 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig"> 
+        <xsd:annotation> 
+            <xsd:documentation>Permission of object deserialization by java.io.ObjectInputStream class. By default, all classes are permitted to be deserialized.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Object Deserialization Permission</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="mode" use="optional" default="Enforce"> 
+            <xsd:annotation> 
+                <xsd:documentation>The filter operation.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Mode</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="Inactive"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Disables the filter.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="Discover"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Informs that the class name is not on the whitelist</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="Enforce"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>The access depends on the permission value.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="Reject"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>The access is always rejected.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="class" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The class name to be filtered. Wildcard "*" can be used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Class</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="permission" use="optional" default="Deny"> 
+            <xsd:annotation> 
+                <xsd:documentation>The access permission to be enforced.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Permission</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="Allow"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>The specified class is listed on the whitelist and access is allowed.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="Deny"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>The specified class is listed on the blacklist and access is denied.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="method" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The method name to be filtered. Wildcard "*" can be used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.kernel.instrument.serialfilter.serverconfig"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.registry.ldap.internal.filters.secureway"> 
         <xsd:annotation> 
@@ -21480,7 +22051,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="readTimeout" use="optional" default="0m" type="duration"> 
+        <xsd:attribute name="readTimeout" use="optional" default="1m" type="duration"> 
             <xsd:annotation> 
                 <xsd:documentation>Maximum time to wait for read operations for LDAP operations. A value of 0 indicates that no timeout exists and the read waits indefinitely. The program logs an error message if the specified time expires. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -21643,6 +22214,14 @@
                 <xsd:documentation>A boolean value that indicates if the search should be done against the Primary Server.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Return to primary server</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="timestampFormat" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A string value that provides a SimpleDateFormat pattern that is used to parse timestamp attribute values. For example, you can use 'yyyyMMddHHmmss.SSSZ' to parse '20181120214852.869-0000Z'. If this attribute is not defined, a default will be provided based on ldapType.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Timestamp format</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -24038,7 +24617,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="userPassword" use="optional" type="password"> 
+        <xsd:attribute name="userPassword" use="optional" type="passwordHash"> 
             <xsd:annotation> 
                 <xsd:documentation>Password for the single user defined as part of the quick start security configuration. It is recommended that you encode this password. To do so, use the securityUtility tool with the encode option.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -25778,6 +26357,27 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="responseType" use="optional" default="code"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the OAuth response type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth response type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="code"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Authorization code</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -25988,6 +26588,32 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="responseType" use="optional" default="code"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the OAuth response type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth response type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="code"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Authorization code</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="id_token token"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>ID token and access token</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
@@ -26166,6 +26792,27 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="responseType" use="optional" default="code"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the OAuth response type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth response type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="code"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Authorization code</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -26328,6 +26975,14 @@
                 <xsd:documentation>The context path that the social login web application redirect servlet listens on.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Context path</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="enableLocalAuthentication" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When this property is set to true and a custom social media selection page is not configured, the default social media selection page will include inputs for a user name and password. Users may choose to authenticate with a user name and password instead of selecting a social media provider. The user name and password will be verified against the configured user registry.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable local authentication</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -26508,6 +27163,27 @@
                     <ext:label>Use system properties for HTTP client connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="responseType" use="optional" default="code"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the OAuth response type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth response type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="code"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Authorization code</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
@@ -26776,6 +27452,32 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="responseType" use="optional" default="code"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the OAuth response type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth response type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="code"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Authorization code</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="id_token token"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>ID token and access token</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="useSystemPropertiesForHttpClientConnections" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies whether to use Java system properties when the OpenID Connect or OAuth client creates HTTP client connections. Set this property to true if you want the connections to use the http* or javax* system properties.</xsd:documentation> 
@@ -26993,6 +27695,27 @@
                     <ext:label>Token end point URL</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="responseType" use="optional" default="code"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the OAuth response type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth response type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="code"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Authorization code</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
         </xsd:attribute> 
         <xsd:attribute name="tokenEndpointAuthMethod" use="optional" default="client_secret_post"> 
             <xsd:annotation> 
@@ -30554,7 +31277,7 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="defaultParents" type="com.ibm.ws.security.wim.core.defaultParents"> 
+            <xsd:element name="defaultParents" type="com.ibm.ws.security.wim.core.defaultParents-factory"> 
                 <xsd:annotation> 
                     <xsd:documentation>The default parent mapping for the realm.</xsd:documentation> 
                     <xsd:appinfo> 
@@ -31606,6 +32329,8 @@
             <xsd:element name="applicationMonitor" type="com.ibm.ws.app.manager.monitor"/> 
             <xsd:element name="application" type="com.ibm.ws.app.manager-factory"/> 
             <xsd:element name="classloading" type="com.ibm.ws.classloading.global"/> 
+            <xsd:element name="auditFileHandler" type="com.ibm.ws.security.audit.file.handler-factory"/> 
+            <xsd:element name="auditEvent" type="com.ibm.ws.security.audit.event-factory"/> 
             <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter-factory"/> 
             <xsd:element name="basicRegistry" type="com.ibm.ws.security.registry.basic.config-factory"/> 
             <xsd:element name="batchPersistence" type="com.ibm.ws.jbatch.container.persistence"/> 
@@ -31635,6 +32360,7 @@
             <xsd:element name="httpProxyRedirect" type="com.ibm.ws.http.proxyredirect-factory"/> 
             <xsd:element name="httpEndpoint" type="com.ibm.ws.http-factory"/> 
             <xsd:element name="httpOptions" type="com.ibm.ws.http.options-factory"/> 
+            <xsd:element name="remoteIp" type="com.ibm.ws.http.remoteip-factory"/> 
             <xsd:element name="virtualHost" type="com.ibm.ws.http.virtualhost-factory"/> 
             <xsd:element name="orb" type="com.ibm.ws.transport.iiop.internal.ORBWrapper-factory"/> 
             <xsd:element name="iiopServerPolicies" type="com.ibm.ws.transport.iiop.internal.ServerPolicySourceImpl-factory"/> 
@@ -31669,6 +32395,7 @@
             <xsd:element name="fileset" type="com.ibm.ws.kernel.metatype.helper.fileset-factory"/> 
             <xsd:element name="featureManager" type="com.ibm.ws.kernel.feature"/> 
             <xsd:element name="config" type="com.ibm.ws.config"/> 
+            <xsd:element name="serialFilter" type="com.ibm.ws.kernel.instrument.serialfilter.serverconfig-factory"/> 
             <xsd:element name="securewayLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.secureway-factory"/> 
             <xsd:element name="ldapRegistry" type="com.ibm.ws.security.registry.ldap.config-factory"/> 
             <xsd:element name="edirectoryLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.eDirectory-factory"/> 
