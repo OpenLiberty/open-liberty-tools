@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.ibm.ws.st.ui;singleton:=true
-Bundle-Version: 1.0.708.qualifier
+Bundle-Version: 1.0.709.qualifier
 Bundle-Vendor: IBM
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy; exclude:="com.ibm.ws.st.ui.internal.plugin"
