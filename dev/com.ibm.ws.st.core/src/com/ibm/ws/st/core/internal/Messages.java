@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -123,6 +123,8 @@ public class Messages extends NLS {
     public static String missingKeystore;
     public static String missingKeystoreAndUR;
     public static String securePortMismatch;
+    public static String invalidVariableDecl;
+    public static String variableDeclNoValue;
 
     public static String invalidWhitespace;
     public static String invalidJVMOption;

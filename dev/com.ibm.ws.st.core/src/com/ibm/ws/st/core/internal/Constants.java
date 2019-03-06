@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -98,6 +98,8 @@ public class Constants {
     public static final String FILESET_EXCLUDES = "excludes";
     public static final String VARIABLE_ELEMENT = "variable";
     public static final String VARIABLE_NAME = "name";
+    public static final String VARIABLE_VALUE = "value";
+    public static final String VARIABLE_DEFAULT_VALUE = "defaultValue";
     public static final String VARIABLE_USER = "user";
     public static final String VALUE_ATTRIBUTE = "value";
     public static final String FACTORY_TYPE_ID = "factoryIdType";
