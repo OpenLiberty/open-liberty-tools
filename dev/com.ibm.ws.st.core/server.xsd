@@ -8,27 +8,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -96,29 +96,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -631,29 +631,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -2325,6 +2325,14 @@
                 <xsd:documentation>If true, then listening ports do not share the same thread for accepting connections. Otherwise, they share the same thread.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Accept thread</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxOpenConnections" use="optional" default="128000" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Defines the maximum number of connections allowed to be open on this endpoint.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Max open connections</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -4811,9 +4819,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
-            </xsd:element> 
             <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
+            </xsd:element> 
+            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -4943,19 +4951,19 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -5188,8 +5196,8 @@
                 <ext:label>HTTP Dispatcher</ext:label> 
             </xsd:appinfo> 
         </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="trustedHeaderOrigin" minOccurs="0" maxOccurs="unbounded" default="*" type="xsd:string"> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="trustedHeaderOrigin" default="*" type="xsd:string"> 
                 <xsd:annotation> 
                     <xsd:documentation>Private headers are used by the web server plug-in to provide information about the original request. These headers take precedence over the http Host header, and are used to select a virtual host to service a request. The default value is '*', which will trust incoming private headers from any source. Specify 'none' to disable private headers and rely only on the http Host header, or specify a list of IP addresses to restrict private header processing to specific trusted sources.</xsd:documentation> 
                     <xsd:appinfo> 
@@ -5197,7 +5205,15 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-        </xsd:sequence> 
+            <xsd:element name="trustedSensitiveHeaderOrigin" default="none" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Private headers are used by the web server plug-in to provide information about the original request. A subset of these headers are considered sensitive. By default, the value for this property is 'none'. Incoming, sensitive private headers are not trusted from any source. Specify a comma-separated list of IP addresses, such as {1.1.2.2, F:FF:FFF:FFFF:1:11:111:1111} to allow sensitive private header processing for specific trusted sources, or specify '*' to trust incoming sensitive private headers from any source.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Trusted sensitive private header origin</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
         <xsd:attribute name="enableWelcomePage" use="optional" default="true" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Enables the default Liberty profile welcome page when no application is bound to a context root of "/".  The default value is true.</xsd:documentation> 
@@ -6836,9 +6852,9 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -21597,21 +21613,29 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig"> 
+    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig.mode"> 
         <xsd:annotation> 
-            <xsd:documentation>Permission of object deserialization by java.io.ObjectInputStream class. By default, all classes are permitted to be deserialized.</xsd:documentation> 
+            <xsd:documentation>The filter operation to be used for specified Class or combination of Class and Method.</xsd:documentation> 
             <xsd:appinfo> 
-                <ext:label>Object Deserialization Permission</ext:label> 
+                <ext:label>Filter Mode</ext:label> 
             </xsd:appinfo> 
         </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
         <xsd:sequence> 
             <xsd:sequence/> 
         </xsd:sequence> 
-        <xsd:attribute name="mode" use="optional" default="Enforce"> 
+        <xsd:attribute name="class" use="required" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The filter operation.</xsd:documentation> 
+                <xsd:documentation>The class name to be filtered when this is configured with Permission. Or the caller class name to set the filter operation when this is configured with Mode. Wildcard "*" can be used at the end of the value.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Mode</ext:label> 
+                    <ext:label>Class</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="operation" use="optional" default="Enforce"> 
+            <xsd:annotation> 
+                <xsd:documentation>The filter operation for the specified class or class and method.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Operation</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
             <xsd:simpleType> 
@@ -21620,22 +21644,22 @@
                         <xsd:restriction base="xsd:string"> 
                             <xsd:enumeration value="Inactive"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>Disables the filter.</xsd:documentation> 
+                                    <xsd:documentation>Do nothing.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="Discover"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>Informs that the class name is not on the whitelist</xsd:documentation> 
+                                    <xsd:documentation>The filter permits deserializing any classes, and logs class names which are not allowed to be deserialized.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="Enforce"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>The access depends on the permission value.</xsd:documentation> 
+                                    <xsd:documentation>The filter enforces Permission configuration.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="Reject"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>The access is always rejected.</xsd:documentation> 
+                                    <xsd:documentation>The filter rejects deserializing any classes.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -21643,17 +21667,52 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="method" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The method name. This is valid for setting Mode. This cannot be set with Permission.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig.mode-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.kernel.instrument.serialfilter.serverconfig.mode"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig.policy"> 
+        <xsd:annotation> 
+            <xsd:documentation>The deserialization policy to be enforced. This value is effective when mode is set as Enforce.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Policy</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
         <xsd:attribute name="class" use="required" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The class name to be filtered. Wildcard "*" can be used.</xsd:documentation> 
+                <xsd:documentation>The class name to be filtered when this is configured with Permission. Or the caller class name to set the filter operation when this is configured with Mode. Wildcard "*" can be used at the end of the value.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Class</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="permission" use="optional" default="Deny"> 
+        <xsd:attribute name="permission" use="optional" default="Allow"> 
             <xsd:annotation> 
-                <xsd:documentation>The access permission to be enforced.</xsd:documentation> 
+                <xsd:documentation>The access permission to be enforced. This value is effective when mode is set as Enforce.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Permission</ext:label> 
                 </xsd:appinfo> 
@@ -21664,12 +21723,12 @@
                         <xsd:restriction base="xsd:string"> 
                             <xsd:enumeration value="Allow"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>The specified class is listed on the whitelist and access is allowed.</xsd:documentation> 
+                                    <xsd:documentation>The specified class is allowed to be deserialized.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="Deny"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>The specified class is listed on the blacklist and access is denied.</xsd:documentation> 
+                                    <xsd:documentation>The specified class is prohibited to be deserialized.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -21677,20 +21736,12 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
-        <xsd:attribute name="method" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The method name to be filtered. Wildcard "*" can be used.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Method</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig-factory"> 
+    <xsd:complexType name="com.ibm.ws.kernel.instrument.serialfilter.serverconfig.policy-factory"> 
         <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.kernel.instrument.serialfilter.serverconfig"> 
+            <xsd:extension base="com.ibm.ws.kernel.instrument.serialfilter.serverconfig.policy"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -24619,7 +24670,7 @@
         </xsd:attribute> 
         <xsd:attribute name="userPassword" use="optional" type="passwordHash"> 
             <xsd:annotation> 
-                <xsd:documentation>Password for the single user defined as part of the quick start security configuration. It is recommended that you encode this password. To do so, use the securityUtility tool with the encode option.</xsd:documentation> 
+                <xsd:documentation>Password for the single user defined as part of the quick start security configuration. It is recommended that you encode or hash this password. To do so, use the securityUtility tool with the encode option.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User password</ext:label> 
                 </xsd:appinfo> 
@@ -28131,7 +28182,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="location" use="optional" default="${server.output.dir}/resources/security/key.jks" type="location"> 
+        <xsd:attribute name="location" use="optional" default="${server.output.dir}/resources/security/key.p12" type="location"> 
             <xsd:annotation> 
                 <xsd:documentation>An absolute or relative path to the keystore file. If a relative path is provided, the server will attempt to locate the file in the ${server.output.dir}/resources/security directory. Use the keystore file for a file-based keystore, the keyring name for SAF keyrings, or the device configuration file for hardware cryptography devices. In the SSL minimal configuration, the location of the file is assumed to be ${server.output.dir}/resources/security/key.jks.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -28139,7 +28190,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="type" use="optional" default="jks" type="xsd:string"> 
+        <xsd:attribute name="type" use="optional" default="PKCS12" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>A keystore type supported by the target SDK.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -32207,14 +32258,14 @@
     <xsd:simpleType name="hourDuration"> 
         <xsd:union memberTypes="xsd:string variableType"/> 
     </xsd:simpleType> 
+    <xsd:simpleType name="intType"> 
+        <xsd:union memberTypes="xsd:int variableType"/> 
+    </xsd:simpleType> 
     <xsd:simpleType name="fileLocation"> 
         <xsd:union memberTypes="xsd:string variableType"/> 
     </xsd:simpleType> 
     <xsd:simpleType name="password"> 
         <xsd:union memberTypes="xsd:string variableType"/> 
-    </xsd:simpleType> 
-    <xsd:simpleType name="intType"> 
-        <xsd:union memberTypes="xsd:int variableType"/> 
     </xsd:simpleType> 
     <xsd:simpleType name="longType"> 
         <xsd:union memberTypes="xsd:long variableType"/> 
@@ -32307,11 +32358,19 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="value" type="xsd:string" use="required"> 
+        <xsd:attribute name="value" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>The value to be assigned to the variable.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Value</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="defaultValue" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The defaultValue to be assigned to the variable if no value is available.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Default value</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -32395,7 +32454,6 @@
             <xsd:element name="fileset" type="com.ibm.ws.kernel.metatype.helper.fileset-factory"/> 
             <xsd:element name="featureManager" type="com.ibm.ws.kernel.feature"/> 
             <xsd:element name="config" type="com.ibm.ws.config"/> 
-            <xsd:element name="serialFilter" type="com.ibm.ws.kernel.instrument.serialfilter.serverconfig-factory"/> 
             <xsd:element name="securewayLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.secureway-factory"/> 
             <xsd:element name="ldapRegistry" type="com.ibm.ws.security.registry.ldap.config-factory"/> 
             <xsd:element name="edirectoryLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.eDirectory-factory"/> 
