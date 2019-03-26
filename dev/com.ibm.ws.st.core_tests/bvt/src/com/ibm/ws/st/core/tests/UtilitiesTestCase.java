@@ -199,7 +199,7 @@ public class UtilitiesTestCase extends ToolsTestBase {
     @Test
     public void testSSLCertificate() throws Exception {
         String includeName = "sslinclude.xml";
-        File file = wsServerInfo.getServerPath().append("resources/security/key.jks").toFile();
+        File file = wsServerInfo.getServerPath().append("resources/security/key.p12").toFile();
         File includeFile = wsServerInfo.getServerOutputPath().append(includeName).toFile();
         IPath serverConfig = wsServerInfo.getServerOutputPath().append("server.xml");
 
