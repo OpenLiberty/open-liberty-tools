@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.looseconfig;
 
@@ -24,7 +24,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.jdt.core.IClasspathAttribute;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
@@ -291,21 +290,6 @@ public class LooseArchive {
 
     private void addReferencedComponentClasspathDependencies(IVirtualReference reference) {
         final IVirtualComponent referencedComponent = reference.getReferencedComponent();
-        IProject project = referencedComponent.getProject();
-        IClasspathEntry[] javaClasspathEntries = null;
-
-        try {
-            if (project.hasNature(JavaCore.NATURE_ID)) {
-                IJavaProject javaProject = JavaCore.create(project);
-                javaClasspathEntries = javaProject.getRawClasspath();
-            }
-        } catch (CoreException e) {
-            Trace.logError("Problem to calculate the build path entires of " + project.getName(), e);
-        }
-
-        if (javaClasspathEntries == null || javaClasspathEntries.length == 0)
-            return;
-
         final IPath runtimePath = reference.getRuntimePath();
         IVirtualReference[] refs = referencedComponent.getReferences();
         for (IVirtualReference ref : refs) {
@@ -316,9 +300,10 @@ public class LooseArchive {
                     if (file == null) {
                         Trace.logError("LooseConfig - the virtual component does not adapt to a File: " + ((VirtualArchiveComponent) component).getArchivePath(), null);
                     }
-                    // Revisit: Do we really need the extra match? The check on the
-                    // refRuntimePath might be enough.
-                    else if (isMatchedComponentDependency(file, project.getLocation(), javaClasspathEntries)) {
+                    // This code used to check if the reference matched one of the Java classpath entries
+                    // but this does not work for dependencies handled by IvyDE (and possibly others) so
+                    // it was removed.
+                    else {
                         IPath refRuntimePath = ref.getRuntimePath();
                         //if path isn't ../, it shouldn't be added here
                         if (!refRuntimePath.toString().startsWith("../"))
@@ -336,27 +321,9 @@ public class LooseArchive {
 
     }
 
-    private boolean isMatchedComponentDependency(File file, IPath projPath, IClasspathEntry[] javaClasspathEntries) {
-        for (IClasspathEntry entry : javaClasspathEntries) {
-            final IClasspathAttribute[] attributes = entry.getExtraAttributes();
-            for (int i = 0; i < attributes.length; i++) {
-                final IClasspathAttribute attribute = attributes[i];
-                final String name = attribute.getName();
-                if (name.equals("org.eclipse.jst.component.dependency")) {
-                    IPath location = getEntryLocation(entry, projPath);
-                    if (location != null) {
-                        if (location.toFile().getAbsolutePath().equals(file.getAbsolutePath()))
-                            return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
     private static boolean canAddReferencedComponentClasspathDependencies(IModule module, IProject refProject) {
-        if ("jst.web".equals(module.getModuleType().getId())) {
+        String type = module.getModuleType().getId();
+        if ("jst.web".equals(type) || "jst.ear".equals(type) || "jst.ejb".equals(type)) {
             try {
                 IFacetedProject facetedProject = ProjectFacetsManager.create(refProject);
                 Iterator<IProjectFacetVersion> iterator = facetedProject.getProjectFacets().iterator();
@@ -371,25 +338,5 @@ public class LooseArchive {
         }
 
         return false;
-    }
-
-    private static IPath getEntryLocation(final IClasspathEntry entry, IPath projPath) {
-        if (entry == null) {
-            return null;
-        }
-
-        final IPath entryPath = entry.getPath();
-        if (entryPath == null)
-            return null;
-
-        final IResource resource = ResourcesPlugin.getWorkspace().getRoot().findMember(entryPath);
-        if (resource != null) {
-            return resource.getLocation();
-        }
-
-        if (entryPath.isAbsolute() || projPath == null)
-            return entryPath;
-
-        return projPath.append(entryPath);
     }
 }
