@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -564,6 +564,20 @@ public abstract class AbstractConfigurationValidator {
             }
             name = globalVars.resolve(name);
         }
+
+        // Check for either a value or a defaultValue attribute but not both
+        Attr valueAttr = elem.getAttributeNode(Constants.VARIABLE_VALUE);
+        Attr defaultValueAttr = elem.getAttributeNode(Constants.VARIABLE_DEFAULT_VALUE);
+        if (valueAttr != null && defaultValueAttr != null) {
+            createMessage(NLS.bind(Messages.invalidVariableDecl, name), getTopLevelResource(), Level.ERROR, elem);
+            // The element is in error so skip further checking
+            return;
+        } else if (valueAttr == null && defaultValueAttr == null) {
+            createMessage(NLS.bind(Messages.variableDeclNoValue, name), getTopLevelResource(), Level.ERROR, elem);
+            // The element is in error so skip further checking
+            return;
+        }
+
         Element mergeElem = lookupElement(Constants.VARIABLE_ELEMENT, Constants.VARIABLE_NAME, name, mergeParent);
         if (mergeElem == null) {
             mergeElem = mergeParent.getOwnerDocument().createElement(elem.getNodeName());
