@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -48,6 +48,7 @@ import org.eclipse.wst.server.core.internal.Server;
 
 import com.ibm.ws.st.core.internal.APIVisibility;
 import com.ibm.ws.st.core.internal.Constants;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibRef;
 import com.ibm.ws.st.jee.core.internal.JEEServerExtConstants;
 import com.ibm.ws.st.jee.core.internal.SharedLibRefInfo;
 import com.ibm.ws.st.jee.core.internal.SharedLibertyUtils;
@@ -352,15 +353,17 @@ public class UtilityProjectSharedLibPropertiesPage extends PropertyPage {
         for (IProject project : projects) {
             if (SharedLibertyUtils.hasSharedLibSettingsFile(project, JEEServerExtConstants.SHARED_LIBRARY_REF_SETTING_FILE_PATH)) {
                 SharedLibRefInfo refInfo = SharedLibertyUtils.getSharedLibRefInfo(project);
-                List<String> sharedLibRefIds = refInfo.getLibRefIds();
-                int index = sharedLibRefIds.indexOf(oldId);
+                List<LibRef> sharedLibRefs = refInfo.getLibRefs();
+                int index = LibRef.getListIndex(sharedLibRefs, oldId);
                 if (index >= 0) {
-                    if (newId == null || newId.isEmpty())
-                        sharedLibRefIds.remove(oldId);
-                    else
-                        sharedLibRefIds.set(index, newId);
+                    if (newId == null || newId.isEmpty()) {
+                        sharedLibRefs.remove(index);
+                    } else {
+                        LibRef oldRef = sharedLibRefs.get(index);
+                        sharedLibRefs.set(index, new LibRef(newId, oldRef.type));
+                    }
                     projectList.add(project);
-                    refInfo.setLibRefIds(sharedLibRefIds);
+                    refInfo.setLibRefs(sharedLibRefs);
                     SharedLibertyUtils.saveSettings(refInfo, project.getLocation().append(JEEServerExtConstants.SHARED_LIBRARY_REF_SETTING_FILE_PATH));
                 }
             }

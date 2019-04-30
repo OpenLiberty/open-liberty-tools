@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2016 IBM Corporation and others.
+ * Copyright (c) 2012, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -171,24 +171,32 @@ public class OutOfSyncApplicationPrompt extends AbstractPrompt implements IPromp
             if (type == OutOfSyncModuleInfo.Type.SHARED_LIB_REF_MISMATCH) {
                 String addIds = info.getPropertyValue(OutOfSyncModuleInfo.Property.LIB_REF_IDS_ADD);
                 String removeIds = info.getPropertyValue(OutOfSyncModuleInfo.Property.LIB_REF_IDS_REMOVE);
+                String changeIds = info.getPropertyValue(OutOfSyncModuleInfo.Property.LIB_REF_IDS_CHANGE);
                 String apiVisibility = info.getPropertyValue(OutOfSyncModuleInfo.Property.LIB_REF_API_VISIBILITY);
 
-                if ((removeIds == null || removeIds.isEmpty()) && (addIds == null || addIds.isEmpty())) {
+                if ((removeIds == null || removeIds.isEmpty()) && (addIds == null || addIds.isEmpty()) && (changeIds == null || changeIds.isEmpty())) {
                     return NLS.bind(Messages.outOfSyncSharedLibRefAPIVisibilityChangedDetails, apiVisibility);
                 }
 
-                if (removeIds == null || removeIds.isEmpty()) {
-                    return buildRefIdsDetails(Messages.outOfSyncSharedLibRefMissingDetails, moduleName, addIds);
+                String message = null;
+                if (addIds != null && !addIds.isEmpty()) {
+                    message = buildRefIdsDetails(Messages.outOfSyncSharedLibRefMissingDetails, moduleName, addIds);
                 }
-
-                if (addIds == null || addIds.isEmpty()) {
-                    return buildRefIdsDetails(Messages.outOfSyncSharedLibRefNotUsedDetails, moduleName, removeIds);
+                if (removeIds != null && !removeIds.isEmpty()) {
+                    if (message != null) {
+                        message += "\n\n";
+                    }
+                    message += buildRefIdsDetails(Messages.outOfSyncSharedLibRefNotUsedDetails, moduleName, removeIds);
                 }
-
-                String addIdMessage = buildRefIdsDetails(Messages.outOfSyncSharedLibRefMissingDetails, moduleName, addIds);
-                String removeIdMessage = buildRefIdsDetails(Messages.outOfSyncSharedLibRefNotUsedDetails, moduleName, removeIds);
-                return addIdMessage + "\n\n" + removeIdMessage;
+                if (changeIds != null && !changeIds.isEmpty()) {
+                    if (message != null) {
+                        message += "\n\n";
+                    }
+                    message += buildRefIdsDetails(Messages.outOfSyncSharedLibRefChangedDetails, moduleName, changeIds);
+                }
+                return message;
             }
+
             String label = (type == OutOfSyncModuleInfo.Type.APP_ENTRY_MISSING) ? Messages.applicationLabel : Messages.sharedLibraryLabel;
             return NLS.bind(Messages.outOfSyncAppMissingDetails, new String[] { moduleName, label });
         }
@@ -213,17 +221,22 @@ public class OutOfSyncApplicationPrompt extends AbstractPrompt implements IPromp
             if (type == OutOfSyncModuleInfo.Type.SHARED_LIB_REF_MISMATCH) {
                 String addIds = info.getPropertyValue(OutOfSyncModuleInfo.Property.LIB_REF_IDS_ADD);
                 String removeIds = info.getPropertyValue(OutOfSyncModuleInfo.Property.LIB_REF_IDS_REMOVE);
+                String changeIds = info.getPropertyValue(OutOfSyncModuleInfo.Property.LIB_REF_IDS_CHANGE);
 
-                if ((removeIds == null || removeIds.isEmpty()) && (addIds == null || addIds.isEmpty())) {
+                if ((removeIds == null || removeIds.isEmpty()) && (addIds == null || addIds.isEmpty()) && (changeIds == null || changeIds.isEmpty())) {
                     return NLS.bind(Messages.outOfSyncSharedLibRefAPIVisibilityChangedSummary, moduleName);
                 }
 
-                if (removeIds == null || removeIds.isEmpty()) {
+                if ((removeIds == null || removeIds.isEmpty()) && (changeIds == null || changeIds.isEmpty())) {
                     return NLS.bind(Messages.outOfSyncSharedLibRefMissingSummary, moduleName);
                 }
 
-                if (addIds == null || addIds.isEmpty()) {
+                if ((addIds == null || addIds.isEmpty()) && (changeIds == null || changeIds.isEmpty())) {
                     return NLS.bind(Messages.outOfSyncSharedLibRefNotUsedSummary, moduleName);
+                }
+
+                if ((addIds == null || addIds.isEmpty()) && (removeIds == null || removeIds.isEmpty())) {
+                    return NLS.bind(Messages.outOfSyncSharedLibRefChangedSummary, moduleName);
                 }
 
                 return NLS.bind(Messages.outOfSyncSharedLibRefMismatchSummary, moduleName);

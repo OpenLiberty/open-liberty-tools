@@ -83,6 +83,9 @@ public class AllJEETests {
         testsuites.add(JEEMultiLocationPublish2.class);
         testsuites.add(Issue303Test1.class);
         testsuites.add(Issue303Test2.class);
+        testsuites.add(SharedLibTest2.class);
+        testsuites.add(SharedLibTest2B.class);
+        testsuites.add(SharedLibTest2C.class);
         return testsuites;
     }
 }

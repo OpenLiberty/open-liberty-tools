@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2015 IBM Corporation and others.
+ * Copyright (c) 2012, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.ui.internal;
 
@@ -31,6 +31,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -45,6 +46,7 @@ import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.WebSphereUtil;
 import com.ibm.ws.st.core.internal.config.ConfigUtils;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibRef;
 import com.ibm.ws.st.jee.core.internal.JEEServerExtConstants;
 import com.ibm.ws.st.jee.core.internal.SharedLibertyUtils;
 
@@ -54,11 +56,12 @@ import com.ibm.ws.st.jee.core.internal.SharedLibertyUtils;
 @SuppressWarnings("restriction")
 public class SharedLibSelectionDialog extends Dialog {
     protected String id = null;
-    protected List<String> currentRefIds;
+    protected boolean isPrivate = false;
+    protected List<LibRef> currentRefs;
 
-    public SharedLibSelectionDialog(Shell parent, List<String> currentRefIds) {
+    public SharedLibSelectionDialog(Shell parent, List<LibRef> currentRefs) {
         super(parent);
-        this.currentRefIds = currentRefIds;
+        this.currentRefs = currentRefs;
     }
 
     @Override
@@ -141,7 +144,7 @@ public class SharedLibSelectionDialog extends Dialog {
                 item.setText(NLS.bind(Messages.sharedLibProject, libId, project.getName()));
                 item.setImage(Activator.getImage(Activator.IMG_LIBRARY));
                 item.setData(libId);
-                if (currentRefIds.contains(libId))
+                if (LibRef.listContains(currentRefs, libId))
                     item.setForeground(gray);
                 found = true;
             }
@@ -169,7 +172,7 @@ public class SharedLibSelectionDialog extends Dialog {
                     item.setText(s);
                     item.setImage(Activator.getImage(Activator.IMG_LIBRARY));
                     item.setData(s);
-                    if (currentRefIds.contains(s))
+                    if (LibRef.listContains(currentRefs, s))
                         item.setForeground(gray);
                     found = true;
                 }
@@ -208,6 +211,21 @@ public class SharedLibSelectionDialog extends Dialog {
             }
         });
 
+        // Fill in the left column
+        label = new Label(composite, SWT.NONE);
+
+        // Checkbox for common or private
+        Button isPrivateButton = new Button(composite, SWT.CHECK);
+        isPrivateButton.setText(Messages.sharedLibPrivateLabel);
+        isPrivateButton.setToolTipText(Messages.sharedLibPrivateTooltip);
+        isPrivateButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
+        isPrivateButton.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                isPrivate = isPrivateButton.getSelection();
+            }
+        });
+
         return composite;
     }
 
@@ -222,12 +240,16 @@ public class SharedLibSelectionDialog extends Dialog {
     protected void validate() {
         boolean ok = false;
         if (id != null && !id.trim().isEmpty())
-            ok = !currentRefIds.contains(id);
+            ok = !LibRef.listContains(currentRefs, id);
         getButton(IDialogConstants.OK_ID).setEnabled(ok);
     }
 
     public String getId() {
         return id;
+    }
+
+    public boolean getIsPrivate() {
+        return isPrivate;
     }
 
     @Override

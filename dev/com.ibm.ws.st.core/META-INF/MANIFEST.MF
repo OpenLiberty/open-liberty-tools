@@ -13,6 +13,7 @@ Export-Package: com.ibm.websphere.crypto,
    com.ibm.ws.st.docker.ui",
  com.ibm.ws.st.core.internal.config;
   x-friends:="com.ibm.ws.st.ui,
+   com.ibm.ws.st.jee.core,
    com.ibm.ws.st.docker.core,
    com.ibm.ws.st.docker.ui",
  com.ibm.ws.st.core.internal.config.validation;x-friends:="com.ibm.ws.st.ui",

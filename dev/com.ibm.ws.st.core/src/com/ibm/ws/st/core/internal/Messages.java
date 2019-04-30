@@ -202,6 +202,8 @@ public class Messages extends NLS {
     public static String outOfSyncSharedLibRefMissingDetails;
     public static String outOfSyncSharedLibRefNotUsedSummary;
     public static String outOfSyncSharedLibRefNotUsedDetails;
+    public static String outOfSyncSharedLibRefChangedSummary;
+    public static String outOfSyncSharedLibRefChangedDetails;
     public static String outOfSyncSharedLibRefAPIVisibilityChangedSummary;
     public static String outOfSyncSharedLibRefAPIVisibilityChangedDetails;
 
