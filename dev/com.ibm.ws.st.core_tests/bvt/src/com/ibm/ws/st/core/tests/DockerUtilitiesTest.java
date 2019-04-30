@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 /*******************************************************************************
  * Copyright (c) 2017 IBM Corporation and others.
@@ -16,7 +16,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests;
 
@@ -26,8 +26,6 @@ import java.util.concurrent.TimeoutException;
 import java.util.regex.Pattern;
 
 import javax.management.openmbean.CompositeData;
-
-import junit.framework.TestSuite;
 
 import org.eclipse.debug.core.ILaunch;
 import org.junit.Assert;
@@ -41,6 +39,8 @@ import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.WebSphereUtil;
 import com.ibm.ws.st.core.tests.util.FileUtil;
 import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
+
+import junit.framework.TestSuite;
 
 @TestCaseDescriptor(description = "Check Utility", isStable = false)
 @RunWith(AllTests.class)
@@ -67,7 +67,9 @@ public class DockerUtilitiesTest extends ToolsTestBase {
         TestSuite testSuite = new TestSuite();
 
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "doSetup"));
-        testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testSSLCertificate"));
+        // testSSLCertificate is used for generating keystore for the following test cases
+        // websphere-liberty image has pre-existing keystore after 19.0.0.3, so testSSLCertificate is not needed
+        // testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testSSLCertificate"));
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testServerDump"));
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testJavaDump"));
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "doTearDown"));
