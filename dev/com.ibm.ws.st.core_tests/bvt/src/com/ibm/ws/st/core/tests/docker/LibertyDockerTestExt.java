@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2016, 2018 IBM Corporation and others.
+ * Copyright (c) 2016, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -200,6 +200,7 @@ public class LibertyDockerTestExt extends StandaloneLibertyTestExt {
 
     /* Create a docker server using product code */
     private static void dockerServerSetup(IRuntime runtime, Map<String, String> serviceInfo, BaseDockerContainer container) {
+
         WLPCommonUtil.print("Starting setup of docker server...");
         AbstractServerSetup serverSetup = null;
         try {
@@ -216,7 +217,7 @@ public class LibertyDockerTestExt extends StandaloneLibertyTestExt {
             int attempt = 0;
             while (attempt <= 3) {
                 String logs = container.getLogs();
-                boolean containerReady = logs.contains("The server installed the following features: [restConnector-1.0].");
+                boolean containerReady = logs.contains("The server installed the following features") && logs.contains("restConnector");
                 if (containerReady)
                     break;
                 WLPCommonUtil.wait("Wait an additional second...", 1000);
