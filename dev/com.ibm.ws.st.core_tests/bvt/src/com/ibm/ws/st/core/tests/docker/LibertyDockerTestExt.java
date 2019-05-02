@@ -200,6 +200,7 @@ public class LibertyDockerTestExt extends StandaloneLibertyTestExt {
 
     /* Create a docker server using product code */
     private static void dockerServerSetup(IRuntime runtime, Map<String, String> serviceInfo, BaseDockerContainer container) {
+
         WLPCommonUtil.print("Starting setup of docker server...");
         AbstractServerSetup serverSetup = null;
         try {
@@ -216,7 +217,7 @@ public class LibertyDockerTestExt extends StandaloneLibertyTestExt {
             int attempt = 0;
             while (attempt <= 3) {
                 String logs = container.getLogs();
-                boolean containerReady = logs.contains("The server installed the following features: [restConnector-1.0].");
+                boolean containerReady = logs.contains("The server installed the following features") && logs.contains("restConnector");
                 if (containerReady)
                     break;
                 WLPCommonUtil.wait("Wait an additional second...", 1000);
