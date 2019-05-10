@@ -68,6 +68,7 @@ def eclipseTempFolder  = file(projDir + project.properties['eclipse.temp.folder'
 def toolsImageFolder  = file(projDir + project.properties['tools.image.folder'])
 def toolsImagePluginsFolder  = file(projDir + project.properties['tools.image.plugins.folder'])
 def artifactsFolder = file(projDir + '/' + project.properties['ant.artifacts.folder'])
+def ivyCacheFolder  = file(System.getProperty("user.home") + '/.ivy2/cache')
 
 // Download an Eclipse TargetPlatform
 task downloadEclipseTargetPlatform {
@@ -378,6 +379,8 @@ task cleanPrereqs(type: Delete) {
         file(eclipseSdkFolder).deleteDir()
         println 'Delete ' + eclipseTargetPlatformFolder
         file(eclipseTargetPlatformFolder).deleteDir()
+        println 'Delete ' + ivyCacheFolder
+        file(ivyCacheFolder).deleteDir()
         
         def prereqslibFolder  = file(projDir + project.properties['ant.prereqslib.folder'])
         println 'Delete ' + prereqslibFolder
