@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,6 +17,8 @@ import java.util.List;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.jface.viewers.ColumnWeightData;
+import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -30,6 +32,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.dialogs.PropertyPage;
 import org.eclipse.wst.server.core.IModule;
@@ -40,6 +43,8 @@ import org.eclipse.wst.server.core.internal.Server;
 import com.ibm.ws.st.core.internal.APIVisibility;
 import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.core.internal.WebSphereServerBehaviour;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibRef;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibraryRefType;
 import com.ibm.ws.st.jee.core.internal.JEEServerExtConstants;
 import com.ibm.ws.st.jee.core.internal.SharedLibRefInfo;
 import com.ibm.ws.st.jee.core.internal.SharedLibertyUtils;
@@ -48,7 +53,7 @@ import com.ibm.ws.st.jee.core.internal.SharedLibertyUtils;
 public class SharedLibPropertiesPage extends PropertyPage {
     protected IProject project;
     protected SharedLibRefInfo settings = new SharedLibRefInfo();
-    protected List<String> libRefIds, defaultLibRefIds;
+    protected List<LibRef> libRefs, defaultLibRefs;
     protected Table libTable;
     protected Button apiVisibilityCheckboxAPI;
     protected Button apiVisibilityCheckboxIBMAPI;
@@ -84,19 +89,33 @@ public class SharedLibPropertiesPage extends PropertyPage {
         data.verticalSpan = 2;
         libTable.setLayoutData(data);
 
+        TableColumn idColumn = new TableColumn(libTable, SWT.NONE);
+        idColumn.setText(Messages.sharedLibIdColumn);
+        idColumn.setResizable(true);
+
+        TableColumn typeColumn = new TableColumn(libTable, SWT.NONE);
+        typeColumn.setText(Messages.sharedLibTypeColumn);
+        typeColumn.setResizable(true);
+
+        libTable.setHeaderVisible(true);
+
         resetTable();
+
+        resizeColumns(libTable);
 
         final Button add = SWTUtil.createButton(composite, Messages.add);
         add.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent event) {
-                SharedLibSelectionDialog dialog = new SharedLibSelectionDialog(getShell(), libRefIds);
+                SharedLibSelectionDialog dialog = new SharedLibSelectionDialog(getShell(), libRefs);
                 if (dialog.open() == Window.OK) {
                     String id = dialog.getId();
-                    libRefIds.add(id);
+                    boolean isPrivate = dialog.getIsPrivate();
+                    LibRef ref = new LibRef(id, isPrivate ? LibraryRefType.PRIVATE : LibraryRefType.COMMON);
+                    libRefs.add(ref);
                     TableItem item = new TableItem(libTable, SWT.NONE);
-                    item.setText(id);
-                    item.setData(id);
+                    item.setText(new String[] { ref.id, ref.type.getName() });
+                    item.setData(ref);
                     item.setImage(Activator.getImage(Activator.IMG_LIBRARY));
                 }
             }
@@ -114,7 +133,7 @@ public class SharedLibPropertiesPage extends PropertyPage {
 
                 for (int ind : indices) {
                     final TableItem item = libTable.getItem(ind);
-                    libRefIds.remove(item.getData());
+                    libRefs.remove(item.getData());
                 }
                 libTable.remove(indices);
                 remove.setEnabled(false);
@@ -181,8 +200,8 @@ public class SharedLibPropertiesPage extends PropertyPage {
 
         settings = SharedLibertyUtils.getSharedLibRefInfo(project);
 
-        libRefIds = settings.getLibRefIds();
-        defaultLibRefIds = new ArrayList<String>(libRefIds);
+        libRefs = settings.getLibRefs();
+        defaultLibRefs = new ArrayList<LibRef>(libRefs);
 
         apiVisibility = APIVisibility.getAPIVisibilityFromProperties(settings);
 
@@ -223,12 +242,27 @@ public class SharedLibPropertiesPage extends PropertyPage {
     protected void resetTable() {
         libTable.select(-1);
         libTable.removeAll();
-        for (String s : libRefIds) {
+        for (LibRef ref : libRefs) {
             TableItem item = new TableItem(libTable, SWT.NONE);
-            item.setText(s);
-            item.setData(s);
+            item.setText(new String[] { ref.id, ref.type.getName() });
+            item.setData(ref);
             item.setImage(Activator.getImage(Activator.IMG_LIBRARY));
         }
+    }
+
+    protected void resizeColumns(Table table) {
+        TableLayout tableLayout = new TableLayout();
+
+        int numColumns = table.getColumnCount();
+        for (int i = 0; i < numColumns; i++)
+            table.getColumn(i).pack();
+
+        for (int i = 0; i < numColumns; i++) {
+            int w = Math.max(75, table.getColumn(i).getWidth());
+            tableLayout.addColumnData(new ColumnWeightData(w, w, true));
+        }
+
+        table.setLayout(tableLayout);
     }
 
     @Override
@@ -241,7 +275,7 @@ public class SharedLibPropertiesPage extends PropertyPage {
     public boolean performOk() {
 
         boolean apiVisibilityChanged = apiVisibilityChanged();
-        boolean sharedLibraryChanged = !libRefIds.equals(defaultLibRefIds);
+        boolean sharedLibraryChanged = !libRefs.equals(defaultLibRefs);
 
         if (apiVisibilityChanged) {
             settings.setProperty(Constants.SHARED_LIBRARY_SETTING_API_VISIBILITY_API_KEY, Boolean.toString(apiVisibilityCheckboxAPI.getSelection()));
@@ -252,7 +286,7 @@ public class SharedLibPropertiesPage extends PropertyPage {
         }
 
         if (sharedLibraryChanged) {
-            settings.setLibRefIds(libRefIds);
+            settings.setLibRefs(libRefs);
         }
 
         if (sharedLibraryChanged || apiVisibilityChanged) {
@@ -282,8 +316,8 @@ public class SharedLibPropertiesPage extends PropertyPage {
 
     @Override
     public void performDefaults() {
-        libRefIds = defaultLibRefIds;
-        defaultLibRefIds = new ArrayList<String>(libRefIds);
+        libRefs = defaultLibRefs;
+        defaultLibRefs = new ArrayList<LibRef>(libRefs);
         resetTable();
         updateAPIVisibilityCheckboxeValues(APIVisibility.getDefaults());
     }

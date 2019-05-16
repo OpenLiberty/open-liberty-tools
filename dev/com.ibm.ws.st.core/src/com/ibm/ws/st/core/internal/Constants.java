@@ -149,6 +149,7 @@ public class Constants {
     public static final String LIB_INCLUDES = "includes";
     public static final String LIB_CLASSLOADER = "classloader";
     public static final String LIB_COMMON_LIBREF = "commonLibraryRef";
+    public static final String LIB_PRIVATE_LIBREF = "privateLibraryRef";
     public static final String FILE = "file";
     public static final String FOLDER = "folder";
     public static final String API_VISIBILITY_ATTRIBUTE_NAME = "apiTypeVisibility";
@@ -235,5 +236,4 @@ public class Constants {
     public static final String RUNTIME_PROP_PRODUCT_EDITION = "com.ibm.websphere.productEdition";
     public static final String RUNTIME_PROP_PRODUCT_INSTALL_TYPE = "com.ibm.websphere.productInstallType";
     public static final String RUNTIME_PROP_PRODUCT_LICENSE_TYPE = "com.ibm.websphere.productLicenseType";
-
 }

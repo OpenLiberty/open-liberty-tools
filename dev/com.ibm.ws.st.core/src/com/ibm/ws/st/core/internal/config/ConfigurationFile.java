@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -101,11 +101,11 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
         private final String type;
         private final String location;
         private final String autoStart;
-        private final String[] sharedLibRefs;
+        private final List<LibRef> sharedLibRefs;
         EnumSet<APIVisibility> apiVisibility;
         private final String contextRoot;
 
-        public Application(String name, String type, String location, String autoStart, String[] sharedLibRefs, EnumSet<APIVisibility> apiVisibility, String contextRoot) {
+        public Application(String name, String type, String location, String autoStart, List<LibRef> sharedLibRefs, EnumSet<APIVisibility> apiVisibility, String contextRoot) {
             this.name = name;
             this.type = type;
             this.location = location;
@@ -131,7 +131,7 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
             return autoStart;
         }
 
-        public String[] getSharedLibRefs() {
+        public List<LibRef> getSharedLibRefs() {
             return sharedLibRefs;
         }
 
@@ -146,6 +146,84 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
         @Override
         public String toString() {
             return "Application[" + getName() + "]";
+        }
+    }
+
+    public enum LibraryRefType {
+        COMMON("common", Constants.LIB_COMMON_LIBREF),
+        PRIVATE("private", Constants.LIB_PRIVATE_LIBREF);
+
+        private final String name;
+        private final String elementName;
+
+        private LibraryRefType(String name, String elementName) {
+            this.name = name;
+            this.elementName = elementName;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getElementName() {
+            return elementName;
+        }
+
+        public static LibraryRefType getLibraryRefType(String name) {
+            for (LibraryRefType type : LibraryRefType.values()) {
+                if (type.name.equals(name)) {
+                    return type;
+                }
+            }
+            return COMMON;
+        }
+    }
+
+    public static class LibRef {
+        public final String id;
+        public final LibraryRefType type;
+
+        public LibRef(String id, LibraryRefType type) {
+            this.id = id;
+            this.type = type;
+        }
+
+        public static int getListIndex(List<LibRef> refs, String id) {
+            if (refs == null || id == null) {
+                return -1;
+            }
+            for (int i = 0; i < refs.size(); i++) {
+                if (id.equals(refs.get(i).id)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public static boolean listContains(List<LibRef> refs, String id) {
+            return getListIndex(refs, id) >= 0;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof LibRef)) {
+                return false;
+            }
+            LibRef ref = (LibRef) obj;
+            return id.equals(ref.id) && (type == ref.type);
+        }
+
+        @Override
+        public int hashCode() {
+            return (id + "_" + type.getElementName()).hashCode();
+        }
+
+        @Override
+        public String toString() {
+            return id + " (" + type + ")";
         }
     }
 
@@ -760,27 +838,39 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
         return app;
     }
 
-    private String[] getSharedLibRefs(Element appElem) {
-        List<String> libRefIds = new ArrayList<String>(2);
+    private List<LibRef> getSharedLibRefs(Element appElem) {
+        List<LibRef> libRefs = new ArrayList<LibRef>(2);
+        addLibRefs(getSharedLibIds(appElem, LibraryRefType.COMMON), LibraryRefType.COMMON, libRefs);
+        addLibRefs(getSharedLibIds(appElem, LibraryRefType.PRIVATE), LibraryRefType.PRIVATE, libRefs);
 
+        if (libRefs.isEmpty())
+            return null;
+
+        return libRefs;
+    }
+
+    private void addLibRefs(List<String> ids, LibraryRefType type, List<LibRef> libRefs) {
+        for (String id : ids) {
+            libRefs.add(new LibRef(id, type));
+        }
+    }
+
+    private List<String> getSharedLibIds(Element appElem, LibraryRefType type) {
+        List<String> idList = new ArrayList<String>();
         for (Element child = getFirstChildElement(appElem, Constants.LIB_CLASSLOADER); child != null; child = getNextElement(child, Constants.LIB_CLASSLOADER)) {
-            String ids = child.getAttribute(Constants.LIB_COMMON_LIBREF);
+            String ids = child.getAttribute(type.getElementName());
             if (ids != null && !ids.isEmpty()) {
                 ids = resolveValue(ids);
                 StringTokenizer st = new StringTokenizer(ids, ",");
                 while (st.hasMoreTokens()) {
-                    String s = st.nextToken().trim();
-                    if (!s.isEmpty() && !libRefIds.contains(s))
-                        libRefIds.add(s);
+                    String id = st.nextToken().trim();
+                    if (!id.isEmpty() && !idList.contains(id)) {
+                        idList.add(id);
+                    }
                 }
             }
         }
-
-        if (libRefIds.isEmpty())
-            return null;
-
-        String[] result = new String[libRefIds.size()];
-        return libRefIds.toArray(result);
+        return idList;
     }
 
     /**
@@ -792,7 +882,7 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
      * @param location
      * @param apiVisibility
      */
-    public void addApplication(String name, String applicationElement, String location, Map<String, String> attributes, List<String> sharedLibRefs,
+    public void addApplication(String name, String applicationElement, String location, Map<String, String> attributes, List<LibRef> sharedLibRefs,
                                EnumSet<APIVisibility> apiVisibility) {
         Map<String, Boolean> appLabelMap = getAppLabelMap();
         synchronized (configLock) {
@@ -910,21 +1000,20 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
         }
     }
 
-    private void addSharedLibRefs(Element parent, List<String> refIds, EnumSet<APIVisibility> apiVisibility) {
+    private void addSharedLibRefs(Element parent, List<String> refIds, LibraryRefType type) {
         if (parent == null)
             return;
 
-        String[] currentIds = getSharedLibRefs(parent);
+        List<String> currentIds = getSharedLibIds(parent, type);
         List<String> newIds = new ArrayList<String>();
         List<String> oldIds = new ArrayList<String>();
 
         if (refIds == null || refIds.isEmpty()) {
             // nothing to do
-            if (currentIds == null || currentIds.length == 0)
+            if (currentIds == null || currentIds.isEmpty())
                 return;
 
-            for (String id : currentIds)
-                oldIds.add(id);
+            oldIds.addAll(currentIds);
         } else {
             newIds.addAll(refIds);
             if (currentIds != null) {
@@ -938,20 +1027,8 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
             }
         }
 
-        EnumSet<APIVisibility> currentAPIVisibility = APIVisibility.getDefaults();
-
-        Element classLoaderElement = getFirstChildElement(parent, Constants.LIB_CLASSLOADER);
-        if (classLoaderElement != null) {
-            String apiVisibilityAttributeValue = classLoaderElement.getAttribute(Constants.API_VISIBILITY_ATTRIBUTE_NAME);
-            if (apiVisibilityAttributeValue != null && apiVisibilityAttributeValue.trim().length() > 0) {
-                currentAPIVisibility = APIVisibility.parseFromAttribute(classLoaderElement.getAttribute(Constants.API_VISIBILITY_ATTRIBUTE_NAME));
-            }
-        }
-
-        boolean apiVisibilityChanged = !currentAPIVisibility.equals(apiVisibility);
-
         // No ids to add or remove
-        if (newIds.isEmpty() && oldIds.isEmpty() && !apiVisibilityChanged)
+        if (newIds.isEmpty() && oldIds.isEmpty())
             return;
 
         synchronized (configLock) {
@@ -959,23 +1036,22 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
                 Element child = getFirstChildElement(parent, Constants.LIB_CLASSLOADER);
                 if (child == null) {
                     child = addElement(parent, Constants.LIB_CLASSLOADER);
-                    child.setAttribute(Constants.LIB_COMMON_LIBREF, listToString(newIds));
+                    child.setAttribute(type.getElementName(), listToString(newIds));
                 } else {
-                    String ids = child.getAttribute(Constants.LIB_COMMON_LIBREF);
+                    String ids = child.getAttribute(type.getElementName());
                     StringBuilder sb = new StringBuilder();
                     if (ids != null && ids.length() > 0) {
                         sb.append(ids);
                         sb.append(',');
                     }
                     sb.append(listToString(newIds));
-                    child.setAttribute(Constants.LIB_COMMON_LIBREF, sb.toString());
+                    child.setAttribute(type.getElementName(), sb.toString());
                 }
             }
 
             if (!oldIds.isEmpty()) {
-                List<Element> removeList = new ArrayList<Element>();
                 for (Element child = getFirstChildElement(parent, Constants.LIB_CLASSLOADER); child != null; child = getNextElement(child, Constants.LIB_CLASSLOADER)) {
-                    String ids = child.getAttribute(Constants.LIB_COMMON_LIBREF);
+                    String ids = child.getAttribute(type.getElementName());
                     if (ids != null && !ids.isEmpty()) {
                         List<String> libRefIds = new ArrayList<String>();
                         StringTokenizer st = new StringTokenizer(ids, ",");
@@ -985,25 +1061,62 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
                                 libRefIds.add(s);
                         }
                         if (!libRefIds.isEmpty())
-                            child.setAttribute(Constants.LIB_COMMON_LIBREF, listToString(libRefIds));
+                            child.setAttribute(type.getElementName(), listToString(libRefIds));
                         else {
-                            // Remove child if it only has LIB_COMMON_LIBREF
-                            if (child.getAttributes().getLength() > 1)
-                                child.removeAttribute(Constants.LIB_COMMON_LIBREF);
-                            else
-                                removeList.add(child);
+                            child.removeAttribute(type.getElementName());
                         }
                     }
                 }
-
-                for (Element child : removeList)
-                    removeElement(child);
             }
+        }
+    }
 
+    private void addSharedLibRefs(Element parent, List<LibRef> refs, EnumSet<APIVisibility> apiVisibility) {
+        if (parent == null)
+            return;
+
+        List<String> commonRefIds = new ArrayList<String>();
+        List<String> privateRefIds = new ArrayList<String>();
+
+        if (refs != null) {
+            for (LibRef ref : refs) {
+                switch (ref.type) {
+                    case COMMON:
+                        commonRefIds.add(ref.id);
+                        break;
+                    case PRIVATE:
+                        privateRefIds.add(ref.id);
+                        break;
+                }
+            }
+        }
+
+        addSharedLibRefs(parent, commonRefIds, LibraryRefType.COMMON);
+        addSharedLibRefs(parent, privateRefIds, LibraryRefType.PRIVATE);
+
+        EnumSet<APIVisibility> currentAPIVisibility = APIVisibility.getDefaults();
+
+        Element classLoaderElement = getFirstChildElement(parent, Constants.LIB_CLASSLOADER);
+        if (classLoaderElement != null) {
+            String apiVisibilityAttributeValue = classLoaderElement.getAttribute(Constants.API_VISIBILITY_ATTRIBUTE_NAME);
+            if (apiVisibilityAttributeValue != null && apiVisibilityAttributeValue.trim().length() > 0) {
+                currentAPIVisibility = APIVisibility.parseFromAttribute(classLoaderElement.getAttribute(Constants.API_VISIBILITY_ATTRIBUTE_NAME));
+            }
+        }
+        boolean apiVisibilityChanged = !currentAPIVisibility.equals(apiVisibility);
+
+        synchronized (configLock) {
             if (apiVisibilityChanged) {
                 Element child = getFirstChildElement(parent, Constants.LIB_CLASSLOADER);
                 if (child != null) {
                     child.setAttribute(Constants.API_VISIBILITY_ATTRIBUTE_NAME, APIVisibility.generateAttributeValue(apiVisibility));
+                }
+            }
+
+            // Check if any classloader elements are now empty
+            for (Element child = getFirstChildElement(parent, Constants.LIB_CLASSLOADER); child != null; child = getNextElement(child, Constants.LIB_CLASSLOADER)) {
+                if (child.getAttributes().getLength() == 0) {
+                    removeElement(child);
                 }
             }
         }

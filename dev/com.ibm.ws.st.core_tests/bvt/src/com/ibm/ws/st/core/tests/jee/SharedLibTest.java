@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2016 IBM Corporation and others.
+ * Copyright (c) 2016, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 
 package com.ibm.ws.st.core.tests.jee;
@@ -28,6 +28,8 @@ import org.junit.runners.AllTests;
 import com.ibm.ws.st.core.internal.APIVisibility;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile.Application;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibRef;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibraryRefType;
 import com.ibm.ws.st.core.tests.util.TestUtil;
 import com.ibm.ws.st.core.tests.util.WLPCommonUtil;
 import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
@@ -168,15 +170,13 @@ public class SharedLibTest extends JEETestBase {
         Application[] apps = rootConfig.getApplications();
         for (Application app : apps) {
             if (app.getName().equals("SharedEAR1")) {
-                String[] sharedLibRefIds = app.getSharedLibRefs();
-                List<String> idList = new ArrayList<String>();
-                if (sharedLibRefIds != null) {
-                    for (String id : sharedLibRefIds) {
-                        idList.add(id);
-                    }
+                List<LibRef> sharedLibRefs = app.getSharedLibRefs();
+                List<LibRef> refsList = new ArrayList<LibRef>();
+                if (sharedLibRefs != null) {
+                    refsList.addAll(sharedLibRefs);
                 }
-                idList.add("SharedId1");
-                rootConfig.addApplication(app.getName(), "enterpriseApplication", app.getLocation(), null, idList, APIVisibility.getDefaults());
+                refsList.add(new LibRef("SharedId1", LibraryRefType.COMMON));
+                rootConfig.addApplication(app.getName(), "enterpriseApplication", app.getLocation(), null, refsList, APIVisibility.getDefaults());
                 isUpdated = true;
                 break;
             }

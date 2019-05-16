@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,6 +47,7 @@ import com.ibm.ws.st.core.internal.WebSphereServerBehaviour;
 import com.ibm.ws.st.core.internal.WebSphereServerInfo;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile.Application;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibRef;
 
 @SuppressWarnings("restriction")
 public class JEEServerExtension extends ServerExtension {
@@ -259,7 +260,7 @@ public class JEEServerExtension extends ServerExtension {
                 if (SharedLibertyUtils.isWebRefSharedLibrary(module)) {
                     SharedLibRefInfo settings = SharedLibertyUtils.getSharedLibRefInfo(module.getProject());
 
-                    config.addApplication(module.getName(), WEB_APPLICATION, getModuleDeployName(module), attributes, settings.getLibRefIds(),
+                    config.addApplication(module.getName(), WEB_APPLICATION, getModuleDeployName(module), attributes, settings.getLibRefs(),
                                           APIVisibility.getAPIVisibilityFromProperties(settings));
                 } else
                     config.addApplication(module.getName(), WEB_APPLICATION, getModuleDeployName(module), attributes, null, APIVisibility.getDefaults());
@@ -267,7 +268,7 @@ public class JEEServerExtension extends ServerExtension {
                 handleExistingAppEntryInConfigAndDropins(module, appsInConfig);
                 if (SharedLibertyUtils.isEJBRefSharedLibrary(module)) {
                     SharedLibRefInfo settings = SharedLibertyUtils.getSharedLibRefInfo(module.getProject());
-                    config.addApplication(module.getName(), EJB_APPLICATION, getModuleDeployName(module), null, settings.getLibRefIds(),
+                    config.addApplication(module.getName(), EJB_APPLICATION, getModuleDeployName(module), null, settings.getLibRefs(),
                                           APIVisibility.getAPIVisibilityFromProperties(settings));
                 } else
                     config.addApplication(module.getName(), EJB_APPLICATION, getModuleDeployName(module), null, null, APIVisibility.getDefaults());
@@ -275,7 +276,7 @@ public class JEEServerExtension extends ServerExtension {
                 handleExistingAppEntryInConfigAndDropins(module, appsInConfig);
                 if (SharedLibertyUtils.isEARRefSharedLibrary(module)) {
                     SharedLibRefInfo settings = SharedLibertyUtils.getSharedLibRefInfo(module.getProject());
-                    config.addApplication(module.getName(), EAR_APPLICATION, getModuleDeployName(module), null, settings.getLibRefIds(),
+                    config.addApplication(module.getName(), EAR_APPLICATION, getModuleDeployName(module), null, settings.getLibRefs(),
                                           APIVisibility.getAPIVisibilityFromProperties(settings));
                 } else {
                     config.addApplication(module.getName(), EAR_APPLICATION, getModuleDeployName(module), null, null, APIVisibility.getDefaults());
@@ -535,8 +536,9 @@ public class JEEServerExtension extends ServerExtension {
         if (info != null)
             return info;
 
-        final List<String> addRefIds = new ArrayList<String>(2);
-        final List<String> removeRefIds = new ArrayList<String>(2);
+        final List<LibRef> addRefs = new ArrayList<LibRef>(2);
+        final List<LibRef> removeRefs = new ArrayList<LibRef>(2);
+        final List<LibRef> changeRefs = new ArrayList<LibRef>(2);
         boolean apiVisibilityMismatch = false;
         String apiVisibility = null;
         if (isSharedLibUsed(module)) {
@@ -559,8 +561,8 @@ public class JEEServerExtension extends ServerExtension {
             }
 
             SharedLibRefInfo settings = SharedLibertyUtils.getSharedLibRefInfo(module.getProject());
-            List<String> moduleLibRefIds = settings.getLibRefIds();
-            String[] appLibRefIds = matchedApp.getSharedLibRefs();
+            List<LibRef> moduleLibRefs = settings.getLibRefs();
+            List<LibRef> appLibRefs = matchedApp.getSharedLibRefs();
             List<String> configSharedLibIds = idArrayToList(configFile.getSharedLibraryIds());
 
             EnumSet<APIVisibility> matchedAppAPIVisibility = matchedApp.getAPIVisibility();
@@ -572,27 +574,30 @@ public class JEEServerExtension extends ServerExtension {
                 apiVisibility = APIVisibility.generateAttributeValue(settingsAPIVisibility);
             }
 
-            if (appLibRefIds == null || appLibRefIds.length == 0) {
-                // nothing to do
-                if (moduleLibRefIds.isEmpty())
-                    return null;
-
-                addRefIds.addAll(moduleLibRefIds);
+            if (appLibRefs == null || appLibRefs.isEmpty()) {
+                if (!moduleLibRefs.isEmpty()) {
+                    addRefs.addAll(moduleLibRefs);
+                }
             } else {
-                addRefIds.addAll(moduleLibRefIds);
-                for (String id : appLibRefIds) {
-                    if (moduleLibRefIds.contains(id))
-                        addRefIds.remove(id);
-                    else if (!configSharedLibIds.contains(id))
-                        removeRefIds.add(id);
+                addRefs.addAll(moduleLibRefs);
+                for (LibRef ref : appLibRefs) {
+                    int index = LibRef.getListIndex(moduleLibRefs, ref.id);
+                    if (index >= 0) {
+                        addRefs.remove(moduleLibRefs.get(index));
+                        if (ref.type != moduleLibRefs.get(index).type) {
+                            changeRefs.add(ref);
+                        }
+                    } else if (!configSharedLibIds.contains(ref.id)) {
+                        removeRefs.add(ref);
+                    }
                 }
             }
         }
 
-        if (addRefIds.isEmpty() && removeRefIds.isEmpty() && !apiVisibilityMismatch)
+        if (addRefs.isEmpty() && removeRefs.isEmpty() && changeRefs.isEmpty() && !apiVisibilityMismatch)
             return null;
 
-        return new OutOfSyncModuleLibRefInfo(idListToString(addRefIds), idListToString(removeRefIds), apiVisibility);
+        return new OutOfSyncModuleLibRefInfo(refListToString(addRefs), refListToString(removeRefs), refListToString(changeRefs), apiVisibility);
     }
 
     private List<String> idArrayToList(String[] ids) {
@@ -620,17 +625,18 @@ public class JEEServerExtension extends ServerExtension {
         return false;
     }
 
-    private String idListToString(List<String> idList) {
+    private String refListToString(List<LibRef> refList) {
         StringBuilder sb = new StringBuilder();
         boolean first = true;
-        for (String id : idList) {
-            if (id.trim().isEmpty())
+        for (LibRef ref : refList) {
+            if (ref.id.trim().isEmpty()) {
                 continue;
+            }
             if (first) {
-                sb.append(id);
+                sb.append(ref.id);
                 first = false;
             } else
-                sb.append(',').append(id);
+                sb.append(',').append(ref.id);
         }
 
         return sb.toString();
@@ -704,12 +710,14 @@ public class JEEServerExtension extends ServerExtension {
     static class OutOfSyncModuleLibRefInfo extends OutOfSyncModuleInfo {
         private final String addIds;
         private final String removeIds;
+        private final String changeIds;
         private final String apiVisibility;
 
-        OutOfSyncModuleLibRefInfo(String addIds, String removeIds, String apiVisibility) {
+        OutOfSyncModuleLibRefInfo(String addIds, String removeIds, String changeIds, String apiVisibility) {
             super(Type.SHARED_LIB_REF_MISMATCH);
             this.addIds = addIds;
             this.removeIds = removeIds;
+            this.changeIds = changeIds;
             this.apiVisibility = apiVisibility;
         }
 
@@ -720,6 +728,9 @@ public class JEEServerExtension extends ServerExtension {
 
             if (key == Property.LIB_REF_IDS_REMOVE)
                 return removeIds;
+
+            if (key == Property.LIB_REF_IDS_CHANGE)
+                return changeIds;
 
             if (key == Property.LIB_REF_API_VISIBILITY)
                 return apiVisibility;

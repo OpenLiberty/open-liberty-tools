@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,6 +9,9 @@
  * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests;
+
+import java.util.Collections;
+import java.util.List;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
@@ -29,6 +32,7 @@ import org.junit.runners.AllTests;
 import com.ibm.ws.st.core.internal.APIVisibility;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile;
 import com.ibm.ws.st.core.internal.config.ConfigurationFile.Application;
+import com.ibm.ws.st.core.internal.config.ConfigurationFile.LibRef;
 import com.ibm.ws.st.core.internal.config.validation.AbstractConfigurationValidator;
 import com.ibm.ws.st.core.tests.module.ModuleHelper;
 import com.ibm.ws.st.core.tests.util.WLPCommonUtil;
@@ -262,14 +266,14 @@ public class OutOfSyncTest extends ToolsTestBase {
         wait("Waiting for server configuration refresh", 3000);
 
         apps = rootConfig.getApplications();
-        String[] sharedLibRefIds = new String[0];
+        List<LibRef> sharedLibRefs = Collections.emptyList();
         for (Application app : apps) {
             if (app.getName().equals(WEB_PROJ_NAME)) {
-                sharedLibRefIds = app.getSharedLibRefs();
+                sharedLibRefs = app.getSharedLibRefs();
                 break;
             }
         }
-        assertNull("Could not remove shared library reference for application '" + WEB_PROJ_NAME + "' from configuration", sharedLibRefIds);
+        assertNull("Could not remove shared library reference for application '" + WEB_PROJ_NAME + "' from configuration", sharedLibRefs);
     }
 
     @Test

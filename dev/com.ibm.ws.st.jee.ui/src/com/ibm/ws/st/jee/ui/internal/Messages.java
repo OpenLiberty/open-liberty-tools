@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,11 +25,15 @@ public class Messages extends NLS {
     public static String sharedLibBrowseMessage;
     public static String sharedLibTitle;
     public static String sharedLibReferences;
+    public static String sharedLibIdColumn;
+    public static String sharedLibTypeColumn;
     public static String sharedLibExisting;
     public static String sharedLibWorkspace;
     public static String sharedLibProject;
     public static String sharedLibServer;
     public static String sharedLibNone;
+    public static String sharedLibPrivateLabel;
+    public static String sharedLibPrivateTooltip;
     public static String sharedLibConfirmRemoveTitle;
     public static String sharedLibConfirmRemoveMessage;
     public static String sharedLibServerUpdateFailedTitle;
