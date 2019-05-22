@@ -780,7 +780,11 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
             return null;
 
         String[] result = new String[libRefIds.size()];
-        return libRefIds.toArray(result);
+        
+        for (int i = 0; i < libRefIds.size(); i++) {
+        	result[i] = libRefIds.get(i);
+        }
+        return result;
     }
 
     /**
