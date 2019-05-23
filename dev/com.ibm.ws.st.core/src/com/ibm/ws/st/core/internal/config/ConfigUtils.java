@@ -740,7 +740,7 @@ public class ConfigUtils {
         final URI includeURI = resolve(uri, mappedLocation != null ? mappedLocation : location, serverInfo, userDir);
         // We process the include configuration, if the URI exists and we have not seen it before
         if (includeURI != null && !includeFilter.contains(includeURI) && new File(includeURI).exists()) {
-            final Document document = getDOM(includeURI);
+            final Document document = getDOM(includeURI, userDir.getWebSphereRuntime());
             if (document != null) {
                 // Get the onConflict setting for the include and save it in the varsContext
                 String attrValue = DOMUtils.getAttributeValue(elem, Constants.ONCONFLICT_ATTRIBUTE);
@@ -870,7 +870,18 @@ public class ConfigUtils {
     }
 
     public static Document getDOM(URI uri) {
-        final WebSphereServerInfo[] servers = WebSphereUtil.getWebSphereServerInfos();
+        return getDOM(uri, null);
+    }
+
+    public static Document getDOM(URI uri, WebSphereRuntime runtime) {
+        WebSphereServerInfo[] servers = null;
+        if (runtime != null) {
+            List<WebSphereServerInfo> serverList = runtime.getWebSphereServerInfos();
+            servers = serverList.toArray(new WebSphereServerInfo[serverList.size()]);
+        } else {
+            servers = WebSphereUtil.getWebSphereServerInfos();
+        }
+
         for (WebSphereServerInfo server : servers) {
             final ConfigurationFile configFile = server.getConfigurationFileFromURI(uri);
             if (configFile != null)
@@ -1460,7 +1471,7 @@ public class ConfigUtils {
                 URI includeURI = resolve(uri, location, serverInfo, userDir);
                 if (includeURI == null || !(new File(includeURI)).exists())
                     continue;
-                final Document includeDoc = getDOM(includeURI);
+                final Document includeDoc = getDOM(includeURI, userDir != null ? userDir.getWebSphereRuntime() : null);
                 if (includeDoc == null)
                     continue;
                 Document mergeDoc = getResolvedElements(includeDoc, includeURI, serverInfo, userDir, elementName, idAttr, includeFilter, saveLocations);

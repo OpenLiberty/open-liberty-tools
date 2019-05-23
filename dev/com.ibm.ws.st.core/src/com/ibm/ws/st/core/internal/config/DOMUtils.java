@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -242,7 +242,7 @@ public class DOMUtils {
      * the expression evaluates to more than one node, the first node
      * in document order is returned.
      *
-     * @param doc The DOM document.
+     * @param doc      The DOM document.
      * @param xpathStr The XPath expression.
      * @return The first matching node in document order or null if there
      *         are no matching nodes.
@@ -256,7 +256,7 @@ public class DOMUtils {
      * the expression evaluates to more than one node, the first node
      * in document order is returned.
      *
-     * @param doc The DOM document of the schema.
+     * @param doc      The DOM document of the schema.
      * @param xpathStr The XPath expression.
      * @return The first matching node in document order or null if there
      *         are no matching nodes.
@@ -289,7 +289,7 @@ public class DOMUtils {
      * attribute, the parent element is returned. Otherwise the root
      * element is returned.
      *
-     * @param doc The DOM document.
+     * @param doc      The DOM document.
      * @param xpathStr The XPath expression.
      * @return The most appropriate element for the XPath expression.
      */
@@ -309,9 +309,9 @@ public class DOMUtils {
      * Get all available factory ids for the given element in the given document.
      * Searches includes as well as long as the uri and the context are not null.
      *
-     * @param doc The DOM document.
-     * @param uri The URI of the document. Used as the base URI for resolving includes.
-     * @param context The resolution context to use for resolving includes.
+     * @param doc      The DOM document.
+     * @param uri      The URI of the document. Used as the base URI for resolving includes.
+     * @param context  The resolution context to use for resolving includes.
      * @param elemName The name of the factory element from which to collect the ids.
      */
     public static String[] getIds(Document doc, URI uri, WebSphereServerInfo serverInfo, UserDirectory context, String elemName) {
@@ -324,10 +324,10 @@ public class DOMUtils {
      * Add all available factory elements to the map of Id -> URILocation.
      * Searches includes as well as long as the uri and the context are not null.
      *
-     * @param idMap The map to update with the id/location pairs.
-     * @param doc The DOM document.
-     * @param uri The URI of the document. Used as the base URI for resolving includes.
-     * @param context The resolution context to use for resolving includes.
+     * @param idMap    The map to update with the id/location pairs.
+     * @param doc      The DOM document.
+     * @param uri      The URI of the document. Used as the base URI for resolving includes.
+     * @param context  The resolution context to use for resolving includes.
      * @param elemName The name of the factory element for which to collect ids.
      */
     public static void addIds(Map<String, URILocation> idMap, Document doc, URI uri, WebSphereServerInfo serverInfo, UserDirectory context, String elemName) {
@@ -345,8 +345,8 @@ public class DOMUtils {
      * Get the full set of available factory ids grouped by element.
      * Searches includes as well as long as the uri and the context are not null.
      *
-     * @param doc The DOM document.
-     * @param uri The URI of the document. Used as the base URI for resolving includes.
+     * @param doc     The DOM document.
+     * @param uri     The URI of the document. Used as the base URI for resolving includes.
      * @param context The resolution context to use for resolving includes.
      */
     public static Map<String, Set<String>> getAllIds(Document doc, URI uri, UserDirectory context) {
@@ -378,7 +378,7 @@ public class DOMUtils {
                     URI includeURI = ConfigUtils.resolve(uri, includePath, context);
                     // process include if it's the first time we have seen it
                     if (includeURI != null && includeFilter.accept(includeURI)) {
-                        Document include = ConfigUtils.getDOM(includeURI);
+                        Document include = ConfigUtils.getDOM(includeURI, context.getWebSphereRuntime());
                         if (include != null) {
                             getIds(ids, include, includeURI, context, includeFilter);
                         }
@@ -407,8 +407,8 @@ public class DOMUtils {
     /**
      * Get the full set of features. Searches includes as well as long as the uri and the context are not null.
      *
-     * @param doc The DOM document
-     * @param uri The URI of the document. Used as the base URI for resolving includes
+     * @param doc     The DOM document
+     * @param uri     The URI of the document. Used as the base URI for resolving includes
      * @param context The resolution context to use for resolving includes
      */
     public static List<String> getAllFeatures(Document doc, URI uri, WebSphereServerInfo serverInfo, UserDirectory context) {
@@ -428,8 +428,8 @@ public class DOMUtils {
      * Get the full set of features mapped to the elements that define them. The elements will contain location
      * information.
      *
-     * @param doc The DOM document
-     * @param uri The URI of the document. Used as the base URI for resolving includes.
+     * @param doc     The DOM document
+     * @param uri     The URI of the document. Used as the base URI for resolving includes.
      * @param context The resolution context to use for resolving includes
      * @return
      */
