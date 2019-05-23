@@ -8,27 +8,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -96,29 +96,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -279,6 +279,14 @@
                 <xsd:documentation>Allow an interceptor to fall back to the application authentication mechanism.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allow fall back to application authentication</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="continueAfterUnprotectedURI" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Continues authentication after TAI for an unprotectedURI</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Continue after TAI for an unprotected URI</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -631,29 +639,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -983,6 +991,21 @@
                                     <xsd:documentation>Audit record for any JMS auhorization events.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_SAF_AUTHZ_DETAILS"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for SAF Authorization event when the SAF authorization service is configured to report additional information about authorization failures and a SAFAuthorizationException is thrown.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="APPLICATION_TOKEN_MANAGEMENT"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for OAuth application token and password management</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SECURITY_SAF_AUTHZ"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Audit record for SAF Authorization event.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                         </xsd:restriction> 
                     </xsd:simpleType> 
                 </xsd:union> 
@@ -1221,9 +1244,9 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="value" use="required" type="xsd:string"> 
+        <xsd:attribute name="value" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies the value.</xsd:documentation> 
+                <xsd:documentation>The value attribute specifies the HTTP request header value. If the value is not specified, then matching is done with the name attribute, not the value attribute.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Value</ext:label> 
                 </xsd:appinfo> 
@@ -4819,9 +4842,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
-            </xsd:element> 
             <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
+            </xsd:element> 
+            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -4951,19 +4974,19 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -6257,7 +6280,7 @@
         </xsd:attribute> 
         <xsd:attribute name="removeServerHeader" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Removes server implementation information from HTTP headers and also disables the default Liberty profile welcome page.</xsd:documentation> 
+                <xsd:documentation>Removes server implementation information from HTTP headers.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Remove server header</ext:label> 
                 </xsd:appinfo> 
@@ -6355,6 +6378,14 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="ThrowIOEForInboundConnections" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the HTTP channel creates an I/O exception when an inbound connection is closed while still in use by the servlet. The default value is set according to the configured servlet feature. Prior to Servlet 4.0, the default value is false; starting with Servlet 4.0, the default value is true.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Throw I/O exception for inbound connections</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="http2ConnectionIdleTimeout" use="optional" default="0" type="secondDuration"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the amount of time, in seconds, that an HTTP/2 connection will be allowed to remain idle between socket IO operations. If not specified, or set to a value of 0, there is no connection timeout set. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
@@ -6418,7 +6449,7 @@
         <xsd:sequence> 
             <xsd:sequence/> 
         </xsd:sequence> 
-        <xsd:attribute name="proxies" use="optional" default="10.\d{1,3}.\d{1,3}.\d{1,3}|192.168.\d{1,3}.\d{1,3}|169.254.\d{1,3}.\d{1,3}|127.\d{1,3}.\d{1,3}.\d{1,3}|172.1[6-9]{1}.\d{1,3}.\d{1,3}|172.2[0-9]{1}.\d{1,3}.\d{1,3}|172.3[0-1]{1}.\d{1,3}.\d{1,3}|0:0:0:0:0:0:0:1|::1" type="xsd:string"> 
+        <xsd:attribute name="proxies" use="optional" default="10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.1[6-9]{1}\.\d{1,3}\.\d{1,3}|172\.2[0-9]{1}\.\d{1,3}\.\d{1,3}|172\.3[0-1]{1}\.\d{1,3}\.\d{1,3}|0:0:0:0:0:0:0:1|::1" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>A regular expression that defines trusted proxies.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -6850,11 +6881,11 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
-            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -12829,6 +12860,348 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jdbc.dataSource.properties.oracle.ucp"> 
+        <xsd:annotation> 
+            <xsd:documentation>Data source properties for Oracle Universal Connection Pooling.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Oracle UCP Properties</ext:label> 
+                <ext:extraProperties/> 
+                <ext:groupDecl id="Advanced" label="Advanced Properties">Additional properties for more advanced usage.</ext:groupDecl> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="connectionFactoryClassName" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: connectionFactoryClassName.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Connection factory class name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="oracle.jdbc.pool.OracleDataSource"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>oracle.jdbc.pool.OracleDataSource</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="oracle.jdbc.pool.OracleConnectionPoolDataSource"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>oracle.jdbc.pool.OracleConnectionPoolDataSource</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="oracle.jdbc.xa.client.OracleXADataSource"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>oracle.jdbc.xa.client.OracleXADataSource</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="connectionPoolName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: connectionPoolName.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Connection pool name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Database name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="serverName" use="optional" default="localhost" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Server where the database is running.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Server name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="portNumber" use="optional" default="1521" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Port on which to obtain database connections.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Port number</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="URL" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>URL for connecting to the database. Examples: jdbc:oracle:thin:@//localhost:1521/sample or jdbc:oracle:oci:@//localhost:1521/sample.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="abandonedConnectionTimeout" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: abandonedConnectionTimeout. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Abandoned connection timeout</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="connectionFactoryProperties" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: connectionFactoryProperties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Connection factory properties</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="connectionHarvestMaxCount" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: connectionHarvestMaxCount.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Connection harvest maximum count</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="connectionHarvestTriggerCount" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: connectionHarvestTriggerCount.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Connection harvest trigger count</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="connectionProperties" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: connectionProperties.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Connection properties</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="connectionWaitTimeout" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: connectionWaitTimeout. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Connection wait timeout</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="fastConnectionFailoverEnabled" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: fastConnectionFailoverEnabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Fast connection failover enabled</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="initialPoolSize" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: initialPoolSize.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Initial pool size</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="loginTimeout" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: loginTimeout. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Login timeout</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxConnectionReuseCount" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: maxConnectionReuseCount.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum connection reuse count</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxConnectionReuseTime" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: maxConnectionReuseTime. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum connection reuse time</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxConnectionsPerShard" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: maxConnectionsPerShard.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum connections per shard</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxIdleTime" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: maxIdleTime. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum idle time</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxPoolSize" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: maxPoolSize.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum pool size</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxStatements" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: maxStatements.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum statements</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="minPoolSize" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: minPoolSize.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Minimum pool size</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="networkProtocol" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: networkProtocol.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Network protocol</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ONSConfiguration" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: ONSConfiguration.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ONS configuration</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>It is recommended to use a container managed authentication alias instead of configuring this property.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Password</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="roleName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: roleName.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Role name</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="SQLForValidateConnection" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: SQLForValidateConnection.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SQL for validate connection</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="secondsToTrustIdleConnection" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: secondsToTrustIdleConnection. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Seconds to trust idle connection</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="timeoutCheckInterval" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: timeoutCheckInterval. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Timeout check interval</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="timeToLiveConnectionTimeout" use="optional" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: timeToLiveConnectionTimeout. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Time to live connection timeout</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="user" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>It is recommended to use a container managed authentication alias instead of configuring this property.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="validateConnectionOnBorrow" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: validateConnectionOnBorrow.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Validate connection on borrow</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Additional JDBC vendor properties for the data source.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Additional properties</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jdbc.dataSource.properties.oracle.ucp-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.jdbc.dataSource.properties.oracle.ucp"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.jdbc.dataSource.properties.derby.embedded"> 
         <xsd:annotation> 
             <xsd:documentation>Data source properties for Derby Embedded JDBC driver.</xsd:documentation> 
@@ -13091,7 +13464,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="accessToken" use="optional" type="xsd:string"> 
+        <xsd:attribute name="accessToken" use="optional" type="password"> 
             <xsd:annotation> 
                 <xsd:documentation>JDBC driver property: accessToken.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -15701,6 +16074,15 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="accessToken" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: accessToken.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Access token</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="accountingInterval" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>JDBC driver property: accountingInterval.</xsd:documentation> 
@@ -15805,6 +16187,15 @@
                 <xsd:documentation>JDBC driver property: alternateGroupServerName.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Alternate group server name</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="apiKey" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: apiKey.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>API key</ext:label> 
                     <ext:group id="Advanced"/> 
                 </xsd:appinfo> 
             </xsd:annotation> 
@@ -17629,6 +18020,33 @@
                 <xsd:documentation>JDBC driver property: sslTrustStoreType.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>SSL trust store type</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslKeyStoreLocation" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: sslKeyStoreLocation.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL key store location</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslKeyStorePassword" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: sslKeyStorePassword.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL key store password</ext:label> 
+                    <ext:group id="Advanced"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslKeyStoreType" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JDBC driver property: sslKeyStoreType.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL key store type</ext:label> 
                     <ext:group id="Advanced"/> 
                 </xsd:appinfo> 
             </xsd:annotation> 
@@ -19864,6 +20282,8 @@
             <xsd:element name="properties.informix" type="com.ibm.ws.jdbc.dataSource.properties.informix"> 
             </xsd:element> 
             <xsd:element name="properties.db2.i.native" type="com.ibm.ws.jdbc.dataSource.properties.db2.i.native"> 
+            </xsd:element> 
+            <xsd:element name="properties.oracle.ucp" type="com.ibm.ws.jdbc.dataSource.properties.oracle.ucp"> 
             </xsd:element> 
             <xsd:element name="properties.derby.embedded" type="com.ibm.ws.jdbc.dataSource.properties.derby.embedded"> 
             </xsd:element> 
@@ -28135,6 +28555,14 @@
                 <xsd:documentation>Specifies a custom list of ciphers. Separate each cipher in the list with a space. The supported cipher will depend on the underlying JRE used.  Please check the JRE for valid ciphers.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Enabled ciphers</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="verifyHostname" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether host name verification for outbound connections using a specific SSL configuration is enabled. If set to true, then all outbound SSL connections that use the specified SSL configuration undergo verification of the target server host name against that server's certificate. The attribute is set to false by default.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Host name verification</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
