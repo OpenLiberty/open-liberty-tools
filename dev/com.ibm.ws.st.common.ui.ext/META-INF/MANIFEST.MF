@@ -7,7 +7,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.core.runtime
 Bundle-Vendor: IBM
-Bundle-Version: 1.0.3.qualifier
+Bundle-Version: 1.0.4.qualifier
 Bundle-ManifestVersion: 2
 Bundle-Activator: com.ibm.ws.st.common.ui.ext.internal.Activator
 Import-Package: com.ibm.ws.st.common.core.ext.internal,
