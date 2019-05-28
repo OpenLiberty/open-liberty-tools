@@ -14,6 +14,6 @@
   <runtime name="Liberty_Tools_Runtime"/>
   <fixed facet="java"/>
   <fixed facet="jst.utility"/>
-  <installed facet="java" version="1.7"/>
+  <installed facet="java" version="1.8"/>
   <installed facet="jst.utility" version="1.0"/>
 </faceted-project>
