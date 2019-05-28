@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test utility common plugin
 Bundle-SymbolicName: com.ibm.ws.st.tests.common.util
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-Vendor: IBM
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
