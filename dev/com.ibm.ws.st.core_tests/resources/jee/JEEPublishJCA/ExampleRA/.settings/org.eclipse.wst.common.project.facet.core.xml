@@ -14,6 +14,6 @@
   <runtime name="Liberty_Tools_Runtime"/>
   <fixed facet="jst.connector"/>
   <fixed facet="java"/>
-  <installed facet="java" version="1.7"/>
-  <installed facet="jst.connector" version="1.7"/>
+  <installed facet="java" version="1.8"/>
+  <installed facet="jst.connector" version="1.8"/>
 </faceted-project>
