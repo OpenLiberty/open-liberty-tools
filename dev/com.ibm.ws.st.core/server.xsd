@@ -10,23 +10,23 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
@@ -98,25 +98,25 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
@@ -641,25 +641,25 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
@@ -4842,9 +4842,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
-            </xsd:element> 
             <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
+            </xsd:element> 
+            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -4976,15 +4976,15 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
@@ -6881,11 +6881,11 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
+            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -24020,7 +24020,7 @@
         </xsd:sequence> 
         <xsd:attribute name="maxFileSize" use="optional" default="20"> 
             <xsd:annotation> 
-                <xsd:documentation>Maximum size of a log file, in megabytes, before being rolled over; a value of 0 means no limit.</xsd:documentation> 
+                <xsd:documentation>The maximum size (in MB) that a log file can reach before it is rolled. The Liberty runtime does only size-based log rolling. To disable this attribute, set the value to 0. The maximum file size is approximate. By default, the value is 20. Note: maxFileSize does not apply to the console.log file.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Maximum log file size</ext:label> 
                     <ext:variable>com.ibm.ws.logging.max.file.size</ext:variable> 
@@ -24039,7 +24039,7 @@
         </xsd:attribute> 
         <xsd:attribute name="maxFiles" use="optional" default="2"> 
             <xsd:annotation> 
-                <xsd:documentation>Maximum number of log files that will be kept, before the oldest file is removed; a value of 0 means no limit.</xsd:documentation> 
+                <xsd:documentation>Maximum number of log files that are kept before the oldest file is removed; a value of 0 means no limit. If an enforced maximum file size exists, this setting is used to determine how many of each of the log files are kept. This setting also applies to the number of exception logs that summarize exceptions that occurred on a particular day. So if this number is 10, you might have 10 message logs, 10 trace logs, and 10 exception summaries in the ffdc/directory. By default, the value is 2. Note: maxFiles does not apply to the console.log file.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Maximum log files</ext:label> 
                     <ext:variable>com.ibm.ws.logging.max.files</ext:variable> 
@@ -24058,7 +24058,7 @@
         </xsd:attribute> 
         <xsd:attribute name="logDirectory" use="optional" default="${server.output.dir}/logs" type="dirLocation"> 
             <xsd:annotation> 
-                <xsd:documentation>Location of the directory for log files. The default value is ${server.output.dir}/logs.</xsd:documentation> 
+                <xsd:documentation>You can use this attribute to set a directory for all log files, excluding the console.log file, but including FFDC. By default, logDirectory is set to the LOG_DIR environment variable. The default LOG_DIR environment variable path is WLP_OUTPUT_DIR/serverName/logs. Avoid trouble: Use the LOG_DIR environment variable or the com.ibm.ws.logging.log.directory property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Log directory</ext:label> 
                     <ext:variable>com.ibm.ws.logging.log.directory</ext:variable> 
@@ -24067,7 +24067,7 @@
         </xsd:attribute> 
         <xsd:attribute name="messageFileName" use="optional" default="messages.log" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Name of the file to which message output will be written relative to the configured log directory. The default value is messages.log.</xsd:documentation> 
+                <xsd:documentation>Name of the file to which message output is written relative to the configured log directory. The default value is messages.log. This file always exists and contains INFO and other (AUDIT, WARNING, ERROR, FAILURE) messages, in addition to System.out and System.err. This log also contains time stamps and the issuing thread ID. If the log file is rolled over, the names of earlier log files have the format messages_timestamp.log. Avoid trouble: Use the com.ibm.ws.logging.message.file.name property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Message file name</ext:label> 
                     <ext:variable>com.ibm.ws.logging.message.file.name</ext:variable> 
@@ -24076,7 +24076,7 @@
         </xsd:attribute> 
         <xsd:attribute name="traceFileName" use="optional" default="trace.log" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Name of the file to which trace output will be written relative to the configured log directory. The default value is trace.log.</xsd:documentation> 
+                <xsd:documentation>Name of the file to which trace output is written relative to the configured log directory. The default value is trace.log. The trace.log file is only created if a traceSpecification is set including log levels below INFO. stdout is recognized as a special value and causes trace to be directed to the original standard out stream. Avoid trouble: Use the com.ibm.ws.logging.trace.file.name property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Trace file name</ext:label> 
                     <ext:variable>com.ibm.ws.logging.trace.file.name</ext:variable> 
@@ -24085,7 +24085,7 @@
         </xsd:attribute> 
         <xsd:attribute name="traceSpecification" use="optional" default="*=info" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>A trace specification that conforms to the trace specification grammar and specifies the initial state for various trace components. An empty value is allowed and treated as 'disable all trace'. Any component that is not specified is initialized to a default state of *=info.</xsd:documentation> 
+                <xsd:documentation>A trace specification that conforms to the trace specification grammar and specifies the initial state for various trace components. The trace specification is used to selectively enable trace. An empty value is allowed and treated as 'disable all trace'. Any component that is not specified is initialized to a default state of *=info.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Trace specification</ext:label> 
                     <ext:variable>com.ibm.ws.logging.trace.specification</ext:variable> 
@@ -24094,7 +24094,7 @@
         </xsd:attribute> 
         <xsd:attribute name="hideMessage" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The list of messages, separated by a comma, that are configured to be hidden from the console.log and message.log files. If the messages are configured to be hidden, then they are redirected to the trace.log file.</xsd:documentation> 
+                <xsd:documentation>The list of messages, which are separated by a comma, that are configured to be hidden from the console.log and messages.log files. If the messages are configured to be hidden, then they are redirected to the trace.log file. Avoid trouble: Use the com.ibm.ws.logging.hide.messages property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Messages to be hidden</ext:label> 
                     <ext:variable>com.ibm.ws.logging.hideMessage</ext:variable> 
@@ -24103,7 +24103,7 @@
         </xsd:attribute> 
         <xsd:attribute name="messageSource" use="optional" default="message" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The list of sources to route to messages.log</xsd:documentation> 
+                <xsd:documentation>The list of comma-separated sources that route to the messages.log file. This property applies only when messageFormat=json. Valid values are message, trace, accessLog, ffdc, and audit. By default, messageSource is set to the environment variable WLP_LOGGING_MESSAGE_SOURCE (if set), or message. Note: To use the audit source, enable the Liberty audit feature. Avoid trouble: Use the WLP_LOGGING_MESSAGE_SOURCE environment variable or the com.ibm.ws.logging.message.source property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Message source</ext:label> 
                     <ext:variable>com.ibm.ws.logging.message.source</ext:variable> 
@@ -24112,7 +24112,7 @@
         </xsd:attribute> 
         <xsd:attribute name="messageFormat" use="optional" default="basic" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The format to use for messages.log</xsd:documentation> 
+                <xsd:documentation>The required format for the messages.log file. Valid values are basic or JSON format. By default, messageFormat is set to the environment variable WLP_LOGGING_MESSAGE_FORMAT (if set), or basic. Avoid trouble: Use the WLP_LOGGING_MESSAGE_FORMAT environment variable or the com.ibm.ws.logging.message.format property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Message format</ext:label> 
                     <ext:variable>com.ibm.ws.logging.message.format</ext:variable> 
@@ -24121,7 +24121,7 @@
         </xsd:attribute> 
         <xsd:attribute name="consoleSource" use="optional" default="message" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The list of sources to route to console.log / console</xsd:documentation> 
+                <xsd:documentation>The list of comma-separated sources that route to the console/console.log. This property applies only when consoleFormat=json. Valid values are message, trace, accessLog, ffdc, and audit. By default, consoleSource is set to the environment variable WLP_LOGGING_CONSOLE_SOURCE (if set), or message. Note: To use the audit source, enable the Liberty audit feature. Avoid trouble: Use the WLP_LOGGING_CONSOLE_SOURCE environment variable or the com.ibm.ws.logging.console.source property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Console source</ext:label> 
                     <ext:variable>com.ibm.ws.logging.console.source</ext:variable> 
@@ -24130,7 +24130,7 @@
         </xsd:attribute> 
         <xsd:attribute name="consoleFormat" use="optional" default="basic" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The format to use for console.log / console</xsd:documentation> 
+                <xsd:documentation>The required format for the console. Valid values are basic or JSON format. By default, consoleFormat is set to the environment variable WLP_LOGGING_CONSOLE_FORMAT (if set), or basic. Avoid trouble: Use the WLP_LOGGING_CONSOLE_FORMAT environment variable or the com.ibm.ws.logging.console.format property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Console format</ext:label> 
                     <ext:variable>com.ibm.ws.logging.console.format</ext:variable> 
@@ -24139,7 +24139,7 @@
         </xsd:attribute> 
         <xsd:attribute name="traceFormat" use="optional" default="ENHANCED"> 
             <xsd:annotation> 
-                <xsd:documentation>This format is used for the trace log.</xsd:documentation> 
+                <xsd:documentation>This format is used for the trace log. Avoid trouble: Use the com.ibm.ws.logging.trace.format property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Trace format</ext:label> 
                     <ext:variable>com.ibm.ws.logging.trace.format</ext:variable> 
@@ -24171,7 +24171,7 @@
         </xsd:attribute> 
         <xsd:attribute name="isoDateFormat" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>If this attribute is set to true, log entries in the messages.log, trace.log, and FFDC log files will use the ISO 8601 date and time format. The default value is false.</xsd:documentation> 
+                <xsd:documentation>The date and time use a locale-specific format or the ISO-8601 format. You can specify true or false for the value of the attribute or the value of the equivalent property. The default value is false. Avoid trouble: Use the com.ibm.ws.logging.isoDateFormat property, except in cases where you are trying to change the configuration dynamically after startup. If you specify a value of true, the ISO-8601 format is used in the messages.log file, the trace.log file, and the FFDC logs. The format is yyyy-MM-dd'T'HH:mm:ss.SSSZ. If you specify a value of false, the date and time are formatted according to the default locale set in the system. If the default locale is not found, the format is dd/MMM/yyyy HH:mm:ss:SSS z.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Use the ISO 8601 date format</ext:label> 
                     <ext:variable>com.ibm.ws.logging.isoDateFormat</ext:variable> 
@@ -24180,7 +24180,7 @@
         </xsd:attribute> 
         <xsd:attribute name="consoleLogLevel" use="optional" default="AUDIT"> 
             <xsd:annotation> 
-                <xsd:documentation>The logging level used to filter messages written to system streams. The default value is audit.</xsd:documentation> 
+                <xsd:documentation>The logging level used to filter messages written to system streams. The valid values are INFO, AUDIT, WARNING, ERROR, and OFF. By default, the consoleLogLevel is set to the WLP_LOGGING_CONSOLE_LOGLEVEL environment variable (if set), or AUDIT. Note: Before you change this value, consider the information in the section "Unable to interact with the Liberty server after modifying the console log level settings" in the topic Developer Tools known restrictions. Avoid trouble: Use the WLP_LOGGING_CONSOLE_LOGLEVEL environment variable or the com.ibm.ws.logging.console.level property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Console log level</ext:label> 
                     <ext:variable>com.ibm.ws.logging.console.log.level</ext:variable> 
@@ -24212,7 +24212,7 @@
                             </xsd:enumeration> 
                             <xsd:enumeration value="OFF"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>No server output will be written to system streams.  Only JVM output will be written to system streams.</xsd:documentation> 
+                                    <xsd:documentation>No server output is written to system streams. Only JVM output is written to system streams.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -24222,7 +24222,7 @@
         </xsd:attribute> 
         <xsd:attribute name="copySystemStreams" use="optional" default="true" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>If true, write System.out to the system output stream and System.err to the system error stream. If false, System.out and System.err will write to configured logs like messages.log or trace.log, but not to the system streams. The default value is true.</xsd:documentation> 
+                <xsd:documentation>If true, messages that are written to the System.out and System.err streams are copied to console.log. If false, those messages are written to configured logs such as messages.log or trace.log, but they are not copied to console.log. The default value is true. Avoid trouble: Use the com.ibm.ws.logging.console.copySystemStreams property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Copy System.out and System.err to system streams</ext:label> 
                     <ext:variable>com.ibm.ws.logging.copy.system.streams</ext:variable> 
@@ -24231,7 +24231,7 @@
         </xsd:attribute> 
         <xsd:attribute name="suppressSensitiveTrace" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>The server trace can expose sensitive data when tracing untyped data, such as bytes received over a network connection. If true, prevent potentially sensitive information from being exposed in log and trace files. The default value is false.</xsd:documentation> 
+                <xsd:documentation>The server trace can expose sensitive data when tracing untyped data, such as bytes received over a network connection. If true, prevent potentially sensitive information from being exposed in log and trace files. The default value is false. Avoid trouble: Use the com.ibm.ws.logging.filter.sensitive property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Suppress sensitive trace</ext:label> 
                 </xsd:appinfo> 
@@ -31861,7 +31861,7 @@
         </xsd:sequence> 
         <xsd:attribute name="inputProperty" use="optional" default="principalName" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry input property</ext:label> 
                 </xsd:appinfo> 
@@ -31869,7 +31869,7 @@
         </xsd:attribute> 
         <xsd:attribute name="outputProperty" use="optional" default="principalName" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry output property</ext:label> 
                 </xsd:appinfo> 
@@ -32079,7 +32079,7 @@
         </xsd:sequence> 
         <xsd:attribute name="inputProperty" use="optional" default="principalName" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry input property</ext:label> 
                 </xsd:appinfo> 
@@ -32087,7 +32087,7 @@
         </xsd:attribute> 
         <xsd:attribute name="outputProperty" use="optional" default="uniqueName" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry output property</ext:label> 
                 </xsd:appinfo> 
@@ -32157,7 +32157,7 @@
         </xsd:sequence> 
         <xsd:attribute name="inputProperty" use="optional" default="cn" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of Group entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry input property</ext:label> 
                 </xsd:appinfo> 
@@ -32165,7 +32165,7 @@
         </xsd:attribute> 
         <xsd:attribute name="outputProperty" use="optional" default="uniqueName" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of Group entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry output property</ext:label> 
                 </xsd:appinfo> 
@@ -32200,7 +32200,7 @@
         </xsd:sequence> 
         <xsd:attribute name="inputProperty" use="optional" default="uniqueName" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry input property</ext:label> 
                 </xsd:appinfo> 
@@ -32208,7 +32208,7 @@
         </xsd:attribute> 
         <xsd:attribute name="outputProperty" use="optional" default="uniqueName" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry output property</ext:label> 
                 </xsd:appinfo> 
@@ -32243,7 +32243,7 @@
         </xsd:sequence> 
         <xsd:attribute name="inputProperty" use="optional" default="cn" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of Group entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry input property</ext:label> 
                 </xsd:appinfo> 
@@ -32251,7 +32251,7 @@
         </xsd:attribute> 
         <xsd:attribute name="outputProperty" use="optional" default="cn" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of Group entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry output property</ext:label> 
                 </xsd:appinfo> 
@@ -32286,7 +32286,7 @@
         </xsd:sequence> 
         <xsd:attribute name="inputProperty" use="optional" default="cn" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for input. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of Group entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry input property</ext:label> 
                 </xsd:appinfo> 
@@ -32294,7 +32294,7 @@
         </xsd:attribute> 
         <xsd:attribute name="outputProperty" use="optional" default="cn" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of PersonAccount and Group entity types.</xsd:documentation> 
+                <xsd:documentation>The property that maps to the user registry attribute for output. The valid values are: uniqueId, uniqueName, externalId, externalName and the attributes of Group entity type.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>User registry output property</ext:label> 
                 </xsd:appinfo> 
