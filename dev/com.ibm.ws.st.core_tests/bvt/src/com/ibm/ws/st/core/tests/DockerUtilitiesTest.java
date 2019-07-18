@@ -62,9 +62,9 @@ public class DockerUtilitiesTest extends ToolsTestBase {
         TestSuite testSuite = new TestSuite();
 
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "doSetup"));
+        testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testSSLCertificate"));
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testServerDump"));
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testJavaDump"));
-        testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "testSSLCertificate"));
         testSuite.addTest(TestSuite.createTest(DockerUtilitiesTest.class, "doTearDown"));
 
         return testSuite;
@@ -83,6 +83,57 @@ public class DockerUtilitiesTest extends ToolsTestBase {
         assertNotNull(wsServerInfo);
         assertNotNull(wsServerInfo.getUserDirectory());
         wait("wait 3 seconds before packaging server.", 3000);
+    }
+
+    @Test
+    public void testSSLCertificate() {
+        assertNotNull("Server is null. Cannot runt the test.", wsServer);
+
+        String includeName = Constants.GENERATED_SSL_INCLUDE;
+        String password = "sslTest";
+        File generatedSSLIncludeFile = wsServer.getServerInfo().getServerOutputPath().append(includeName).toFile();
+        boolean includeExists = false;
+        long timeStamp = 0;
+        if (generatedSSLIncludeFile.exists()) {
+            includeExists = true;
+            timeStamp = generatedSSLIncludeFile.lastModified();
+            print("Server has an existing " + includeName + " with timestamp:" + timeStamp);
+        }
+
+        try {
+            WebSphereRuntime wsRuntime = getWebSphereRuntime();
+            assertNotNull("Websphere Runtime is null, cannot run the test", wsRuntime);
+
+            String containerName = DockerTestUtil.getContainerName(server);
+            assertNotNull("The container name for the " + server.getName() + " server should not be null.", containerName);
+            BaseDockerContainer container = DockerTestUtil.getExistingContainer(DockerTestUtil.getDockerMachine(), containerName);
+            String remoteOutputPath = wsServer.getServerInfo().getUserDirectory().getRemoteUserPath().toString().replace("usr", "output");
+            IPath keystoreName = new Path(remoteOutputPath + "/" + wsServer.getServerInfo().getServerName()).append("/resources/security/key.p12");
+
+            if (container.fileExists(keystoreName.toOSString())) {
+                print("Certificate exists.");
+            } else {
+                print("Certificate doesn't exist, generating the certificate.");
+                wsRuntime.createSSLCertificate(wsServer.getServerInfo(), password, "xor", null, -1, null, includeName, null);
+
+                // if runtime is 8.5.5.2 or higher then it supports generating include files instead of having to copy and paste config into server.xml
+                if (WebSphereUtil.isGreaterOrEqualVersion("8.5.5.2", wsRuntime.getRuntimeVersion())) {
+                    assertTrue("Could not find SSL include file in " + generatedSSLIncludeFile.getAbsolutePath(), generatedSSLIncludeFile.exists());
+                }
+
+                //test if file is included in the server.xml only if the file didn't exist already
+                if (!includeExists)
+                    assertTrue("The " + includeName + " file was not automatically included in server config file", configFileHasInclude(includeName));
+                else
+                    print("New timestamp on " + includeName + ":" + generatedSSLIncludeFile.lastModified());
+
+                assertTrue("Timestamps on the old " + includeName + " file and new file are same, whereas a new file should have a new timestamp",
+                           timeStamp != generatedSSLIncludeFile.lastModified());
+                assertTrue("Couldn't connect to the server", jmxConnection.isConnected());
+            }
+        } catch (Exception e) {
+            Assert.fail(e.getMessage());
+        }
     }
 
     @Test
@@ -163,57 +214,6 @@ public class DockerUtilitiesTest extends ToolsTestBase {
             }
         }
         return fileNames;
-    }
-
-    @Test
-    public void testSSLCertificate() {
-        assertNotNull("Server is null. Cannot runt the test.", wsServer);
-
-        String includeName = Constants.GENERATED_SSL_INCLUDE;
-        String password = "sslTest";
-        File generatedSSLIncludeFile = wsServer.getServerInfo().getServerOutputPath().append(includeName).toFile();
-        boolean includeExists = false;
-        long timeStamp = 0;
-        if (generatedSSLIncludeFile.exists()) {
-            includeExists = true;
-            timeStamp = generatedSSLIncludeFile.lastModified();
-            print("Server has an existing " + includeName + " with timestamp:" + timeStamp);
-        }
-
-        try {
-            WebSphereRuntime wsRuntime = getWebSphereRuntime();
-            assertNotNull("Websphere Runtime is null, cannot run the test", wsRuntime);
-
-            String containerName = DockerTestUtil.getContainerName(server);
-            assertNotNull("The container name for the " + server.getName() + " server should not be null.", containerName);
-            BaseDockerContainer container = DockerTestUtil.getExistingContainer(DockerTestUtil.getDockerMachine(), containerName);
-            String remoteOutputPath = wsServer.getServerInfo().getUserDirectory().getRemoteUserPath().toString().replace("usr", "output");
-            IPath keystoreName = new Path(remoteOutputPath + "/" + wsServer.getServerInfo().getServerName()).append("/resources/security/key.p12");
-
-            if (container.fileExists(keystoreName.toOSString())) {
-                print("Keystore exists, delete keystore for testing the utility of generating keystore");
-                container.deleteFile(keystoreName.toOSString());
-            }
-
-            wsRuntime.createSSLCertificate(wsServer.getServerInfo(), password, "xor", null, -1, null, includeName, null);
-
-            // if runtime is 8.5.5.2 or higher then it supports generating include files instead of having to copy and paste config into server.xml
-            if (WebSphereUtil.isGreaterOrEqualVersion("8.5.5.2", wsRuntime.getRuntimeVersion())) {
-                assertTrue("Could not find SSL include file in " + generatedSSLIncludeFile.getAbsolutePath(), generatedSSLIncludeFile.exists());
-            }
-
-            //test if file is included in the server.xml only if the file didn't exist already
-            if (!includeExists)
-                assertTrue("The " + includeName + " file was not automatically included in server config file", configFileHasInclude(includeName));
-            else
-                print("New timestamp on " + includeName + ":" + generatedSSLIncludeFile.lastModified());
-
-            assertTrue("Timestamps on the old " + includeName + " file and new file are same, whereas a new file should have a new timestamp",
-                       timeStamp != generatedSSLIncludeFile.lastModified());
-            assertTrue("Couldn't connect to the server", jmxConnection.isConnected());
-        } catch (Exception e) {
-            Assert.fail(e.getMessage());
-        }
     }
 
     @Test
