@@ -30,7 +30,11 @@ dependencies {
     antcp 'asm:asm-all:3.3.1'
     antcp 'org.apache.aries:org.apache.aries.util:1.1.3'
 
+<<<<<<< HEAD
     antScp 'org.apache.ant:ant-jsch:1.10.6', 'com.jsch:jsch:0.1.55'
+=======
+    antScp 'org.apache.ant:ant-jsch:1.10.6', 'jsch:jsch:0.1.55'
+>>>>>>> 7c93ef060f1a2a4c5e68c9634e5f168d544086d4
 }
 
 defaultTasks 'clean', 'compile', 'generateOpenLTUpdateSite', 'deployDHE'
