@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2015 IBM Corporation and others.
+ * Copyright (c) 2015, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,6 +31,7 @@ import org.osgi.framework.VersionRange;
 import com.ibm.ws.kernel.feature.AppForceRestart;
 import com.ibm.ws.kernel.feature.ProcessType;
 import com.ibm.ws.kernel.feature.Visibility;
+import com.ibm.ws.kernel.feature.provisioning.ActivationType;
 import com.ibm.ws.kernel.feature.provisioning.FeatureResource;
 import com.ibm.ws.kernel.feature.provisioning.HeaderElementDefinition;
 import com.ibm.ws.kernel.feature.provisioning.ProvisioningFeatureDefinition;
@@ -355,6 +356,11 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
         @Override
         public Integer getRequireJava() {
             return null;
+        }
+
+        @Override
+        public ActivationType getActivationType() {
+            throw new UnsupportedOperationException();
         }
 
     }
