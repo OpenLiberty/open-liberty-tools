@@ -10,25 +10,25 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -98,27 +98,27 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -641,27 +641,27 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -4924,9 +4924,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
-            </xsd:element> 
             <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
+            </xsd:element> 
+            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -5056,7 +5056,7 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
@@ -5064,11 +5064,11 @@
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -7050,11 +7050,11 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -26101,6 +26101,22 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="proofKeyForCodeExchange" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Proof key for code exchange support for OAuth clients.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Proof key for code exchange</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="publicClient" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specify whether OAuth client is public.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Public OAuth client</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -26583,6 +26599,32 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="accessTokenEncoding" use="optional" default="plain"> 
+            <xsd:annotation> 
+                <xsd:documentation>The encoding type for the stored access token. The default is set to plain, for compatibility with earlier versions. PBKDF2WithHmacSHA512 is recommended. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Access token encoding</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="plain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>plain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="PBKDF2WithHmacSHA512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>PBKDF2WithHmacSHA512</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="logoutRedirectURL" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Optional URL that the client is redirected to after successfully invoking the logout endpoint. If a URL is not supplied, then a minimal default logout page is used.</xsd:documentation> 
@@ -26622,6 +26664,48 @@
                     <ext:label>Application token or password limit</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internalClientId" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The ID of an existing client that will be used to generate tokens for PersonalTokenManagement and UsersTokenManagement UI pages.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Client ID used to generate tokens</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internalClientSecret" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The secret of an existing client that will be used to generate tokens for PersonalTokenManagement and UsersTokenManagement UI pages.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Client secret used to generate tokens</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientSecretEncoding" use="optional" default="xor"> 
+            <xsd:annotation> 
+                <xsd:documentation>The encoding type for the stored client secret. The default is set to XOR, for compatibility with earlier versions. PBKDF2WithHmacSHA512 is recommended. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Client secret encoding</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="xor"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>xor</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="PBKDF2WithHmacSHA512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>PBKDF2WithHmacSHA512</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
@@ -31407,7 +31491,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="userApi" use="optional" default="https://api.linkedin.com/v1/people/~:(firstName,id,lastName,email-address)" type="xsd:string"> 
+        <xsd:attribute name="userApi" use="optional" default="https://api.linkedin.com/v2/emailAddress?q=members&amp;projection=(elements*(handle~))" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>The URL of retrieving the user information.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -31415,7 +31499,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="scope" use="optional" default="r_emailaddress r_basicprofile" type="xsd:string"> 
+        <xsd:attribute name="scope" use="optional" default="r_emailaddress r_liteprofile" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies required scope.</xsd:documentation> 
                 <xsd:appinfo> 
