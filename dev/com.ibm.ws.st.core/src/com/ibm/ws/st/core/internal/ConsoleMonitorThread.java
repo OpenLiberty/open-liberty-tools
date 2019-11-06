@@ -60,8 +60,14 @@ public class ConsoleMonitorThread extends AbstractMonitorThread {
             try {
                 int state = server.getServerState();
                 WebSphereRuntime wsRuntime = getWebSphereRuntime();
-                // server process is running, but we aren't tracking the state yet so need to add the process listener to listen for console messages
-                if (wsRuntime != null && wsServer.getUserDirectory() != null && wsRuntime.isServerStarted(wsServer.getServerInfo(), null)) {
+                int serverStatus = -2; // Set to some value not returned by WebSphereRuntime.getServerStatus so can differentiate
+                if (wsRuntime != null && wsServer.getUserDirectory() != null) {
+                    // getServerStatus returns -1 if timeout; 0 if the server is running; 1 if the server is stopped; 2 if the status is unknown.
+                    serverStatus = wsRuntime.getServerStatus(wsServer.getServerInfo(), 20f, new NullProgressMonitor());
+                }
+                if (serverStatus == 0) {
+                    // Server process is running (0 status means running), but we aren't tracking the state yet so need to add the
+                    // process listener to listen for console messages
                     if (state != IServer.STATE_STARTED && state != IServer.STATE_STARTING && state != IServer.STATE_STOPPING && !wsBehaviour.isServerCmdStopProcessRunning()) {
                         if (Trace.ENABLED)
                             Trace.trace(Trace.SSM, "Detected externally started server. Changing server state to STARTING");
@@ -126,17 +132,32 @@ public class ConsoleMonitorThread extends AbstractMonitorThread {
                     synchronized (serverStateSyncObj) {
                         wsBehaviour.stopImpl();
                     }
-                }
-                // At this point we know the server is not started based on the status from
-                // WebSphereRuntime.isServerStarted() called in the first "if" block.
-                // If the server state is started we should terminate the launch which will change
-                // the server to STOPPED state.
-                else if (state == IServer.STATE_STARTED) {
+                } else if (state == IServer.STATE_STARTED) {
                     if (Trace.ENABLED)
-                        Trace.trace(Trace.SSM, "Server process is stopped, terminate the launch");
+                        Trace.trace(Trace.SSM, "Server state is started but the status is: " + serverStatus);
                     ILaunch launch = server.getLaunch();
-                    if (launch != null)
-                        launch.terminate();
+                    // serverStatus value: -1 if timeout; 0 if the server is running; 1 if the server is stopped; 2 if the status is unknown.
+                    if (serverStatus == -1) {
+                        // If there was a timeout getting the status and the process is still running, loop around.
+                        // Otherwise terminate the launch.
+                        if (launch != null && !launch.isTerminated()) {
+                            IProcess[] processes = launch.getProcesses();
+                            for (IProcess process : processes) {
+                                if (process.isTerminated()) {
+                                    if (Trace.ENABLED)
+                                        Trace.trace(Trace.SSM, "Terminating launch since the process is stopped: " + serverStatus);
+                                    launch.terminate();
+                                    break;
+                                }
+                            }
+                        }
+                    } else {
+                        // The server is not running so terminate the launch which will update the state to stopped
+                        if (Trace.ENABLED)
+                            Trace.trace(Trace.SSM, "Server process is stopped, terminate the launch");
+                        if (launch != null)
+                            launch.terminate();
+                    }
                 }
             } catch (Throwable t) {
                 if (Trace.ENABLED)
@@ -148,6 +169,7 @@ public class ConsoleMonitorThread extends AbstractMonitorThread {
                 // ignore
             }
         }
+
     } // end of run
 
     public void addProcessListeners(final IProcess newProcess) {
