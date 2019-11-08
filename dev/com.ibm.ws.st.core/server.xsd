@@ -8,27 +8,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -96,29 +96,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -639,29 +639,29 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1604,6 +1604,140 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.request.timing.jdbc.metatype"> 
+        <xsd:annotation> 
+            <xsd:documentation>Overrides defaults that are specified in the root attributes of requestTiming for JDBC requests.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>JDBC Timing</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="dataSourceName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the datasource that is being monitored. The datasource name is provided by the context information in the eventLogging-1.0 service. If this attribute is not provided, all datasource names are monitored.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Datasource name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="query" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The SQL statement that is being monitored. The SQL statement is provided by the context information in the eventLogging-1.0 service. If this attribute is not provided, all SQL statements are monitored.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Query name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="slowRequestThreshold" use="optional" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Duration of time that a JDBC request can run before being considered slow. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Slow request threshold</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="hungRequestThreshold" use="optional" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Duration of time that a JDBC request can run before being considered hung. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Hung request threshold</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="interruptHungRequests" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether a JDBC request that is hung is to be interrupted. A value of true causes the requestTiming-1.0 feature to attempt to interrupt the hung request. A value of false allows the request to continue to run.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Interrupt hung requests</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.request.timing.jdbc.metatype-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.request.timing.jdbc.metatype"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.request.timing.servlet.metatype"> 
+        <xsd:annotation> 
+            <xsd:documentation>Overrides defaults that are specified in the root attributes of requestTiming for servlet requests.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Servlet Timing</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="appName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the application that is being monitored. The application name is provided by the context information in the eventLogging-1.0 service. If this attribute is not provided, all applications are monitored.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Application name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="servletName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the servlet that is being monitored. The servlet name is provided by the context information in the eventLogging-1.0 service. If this attribute is not provided, all servlets are monitored.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Servlet name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="slowRequestThreshold" use="optional" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Duration of time that a servlet request can run before being considered slow. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Slow request threshold</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="hungRequestThreshold" use="optional" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Duration of time that a servlet request can run before being considered hung. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Hung request threshold</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="interruptHungRequests" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether a servlet request that is hung is to be interrupted. A value of true causes the requestTiming-1.0 feature to attempt to interrupt the hung request. A value of false allows the request to continue to run.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Interrupt hung requests</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.request.timing.servlet.metatype-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.request.timing.servlet.metatype"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.registry.basic.config.group.member"> 
         <xsd:annotation> 
             <xsd:documentation>A member of a Basic User Registry group.</xsd:documentation> 
@@ -1910,6 +2044,202 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jbatch.jms.dispatcher"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configures the Batch JMS dispatcher.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Batch JMS Dispatcher</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="connectionFactory" type="com.ibm.ws.jca.jmsConnectionFactory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The identifier of the JMS connection factory that the Batch dispatcher should use to obtain JMS connections.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JMS Connection Factory</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="queue" type="com.ibm.ws.jca.jmsQueue"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The identifier of the JMS queue that the Batch JMS dispatcher uses to send JMS messages.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JMS Queue</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="connectionFactoryRef" use="optional" default="batchConnectionFactory" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The identifier of the JMS connection factory that the Batch dispatcher should use to obtain JMS connections.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Batch dispatcher connection factory reference</ext:label> 
+                    <ext:reference>jmsConnectionFactory</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="queueRef" use="optional" default="batchJobSubmissionQueue" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The identifier of the JMS queue that the Batch JMS dispatcher uses to send JMS messages.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Batch dispatcher queue reference</ext:label> 
+                    <ext:reference>jmsQueue</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jbatch.jms.dispatcher-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.jbatch.jms.dispatcher"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jbatch.jms.executor"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configures the Batch JMS executor.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Batch JMS Executor</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="activationSpec" type="com.ibm.ws.jca.jmsActivationSpec"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The identifier of the JMS activation specification that the Batch executor uses to create JMS listeners.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JMS Activation Specification</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="queue" type="com.ibm.ws.jca.jmsQueue"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The identifier of the JMS queue that the Batch activation specification uses to listen for batch JMS messages.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JMS Queue</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="replyConnectionFactory" type="com.ibm.ws.jca.jmsConnectionFactory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The identifier of the JMS connection factory that the Batch executor should user to obtain JMS connections.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JMS Connection Factory</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="operationGroup" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The name of the operation group</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Group name</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="activationSpecRef" use="optional" default="batchActivationSpec" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The identifier of the JMS activation specification that the Batch executor uses to create JMS listeners.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Batch activation specification reference</ext:label> 
+                    <ext:reference>jmsActivationSpec</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="queueRef" use="optional" default="batchJobSubmissionQueue" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The identifier of the JMS queue that the Batch activation specification uses to listen for batch JMS messages.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Batch executor queue reference</ext:label> 
+                    <ext:reference>jmsQueue</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="replyConnectionFactoryRef" use="optional" default="batchConnectionFactory" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The identifier of the JMS connection factory that the Batch executor should user to obtain JMS connections.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Batch executor reply connection factory reference</ext:label> 
+                    <ext:reference>jmsConnectionFactory</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jbatch.jms.executor-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.jbatch.jms.executor"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jbatch.jms.events"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configure the Batch JMS events.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Batch JMS Events</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="connectionFactory" minOccurs="0" maxOccurs="1" type="com.ibm.ws.jca.jmsConnectionFactory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The identifier of the JMS connection factory.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JMS Connection Factory</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="connectionFactoryRef" use="optional" default="batchConnectionFactory" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The identifier of the JMS connection factory.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Batch events connection factory reference</ext:label> 
+                    <ext:reference>jmsConnectionFactory</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="topicRoot" use="optional" default="batch" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The root of the batch JMS event topic tree. The default topic tree root value is 'batch'.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JMS event topic root</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jbatch.jms.events-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.jbatch.jms.events"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.classloading.bell"> 
         <xsd:annotation> 
@@ -4924,9 +5254,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
-            </xsd:element> 
             <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
+            </xsd:element> 
+            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="jndiName" use="optional" default="${id}" type="xsd:string"> 
@@ -5056,19 +5386,19 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -6325,6 +6655,14 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="protocolVersion" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>When Servlet 4.0 API is enabled as a feature, set this attribute to http/1.1 to disable HTTP/2 processing for the ports that were defined for the httpEndpoint element. When Servlet 3.1 API is enabled as a feature, set this attribute to http/2 to enable HTTP/2 processing for the ports that are defined for the httpEndpoint element.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Protocol version</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="httpOptionsRef" use="optional" default="defaultHttpOptions" type="pidType"> 
             <xsd:annotation> 
                 <xsd:documentation>HTTP protocol options for the endpoint.</xsd:documentation> 
@@ -7050,11 +7388,11 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -7283,6 +7621,14 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="jaasLoginContextEntry" type="com.ibm.ws.security.authentication.internal.jaas.jaasLoginContextEntry"> 
+                <xsd:annotation> 
+                    <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JAAS Login Context Entry</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="recoveryAuthData" type="com.ibm.ws.security.jca.internal.authdata.config"> 
                 <xsd:annotation> 
                     <xsd:documentation>Authentication data for transaction recovery.</xsd:documentation> 
@@ -7308,6 +7654,15 @@
                 <xsd:appinfo> 
                     <ext:label>Container managed authentication data reference</ext:label> 
                     <ext:reference>authData</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jaasLoginContextEntryRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JAAS login context entry reference</ext:label> 
+                    <ext:reference>jaasLoginContextEntry</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -7493,6 +7848,14 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="jaasLoginContextEntry" type="com.ibm.ws.security.authentication.internal.jaas.jaasLoginContextEntry"> 
+                <xsd:annotation> 
+                    <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JAAS Login Context Entry</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="recoveryAuthData" type="com.ibm.ws.security.jca.internal.authdata.config"> 
                 <xsd:annotation> 
                     <xsd:documentation>Authentication data for transaction recovery.</xsd:documentation> 
@@ -7520,6 +7883,15 @@
                 <xsd:appinfo> 
                     <ext:label>Container managed authentication data reference</ext:label> 
                     <ext:reference>authData</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jaasLoginContextEntryRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JAAS login context entry reference</ext:label> 
+                    <ext:reference>jaasLoginContextEntry</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -7620,6 +7992,14 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="jaasLoginContextEntry" type="com.ibm.ws.security.authentication.internal.jaas.jaasLoginContextEntry"> 
+                <xsd:annotation> 
+                    <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JAAS Login Context Entry</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="recoveryAuthData" type="com.ibm.ws.security.jca.internal.authdata.config"> 
                 <xsd:annotation> 
                     <xsd:documentation>Authentication data for transaction recovery.</xsd:documentation> 
@@ -7647,6 +8027,15 @@
                 <xsd:appinfo> 
                     <ext:label>Container managed authentication data reference</ext:label> 
                     <ext:reference>authData</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jaasLoginContextEntryRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JAAS login context entry reference</ext:label> 
+                    <ext:reference>jaasLoginContextEntry</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -7783,6 +8172,14 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="jaasLoginContextEntry" type="com.ibm.ws.security.authentication.internal.jaas.jaasLoginContextEntry"> 
+                <xsd:annotation> 
+                    <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JAAS Login Context Entry</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="recoveryAuthData" type="com.ibm.ws.security.jca.internal.authdata.config"> 
                 <xsd:annotation> 
                     <xsd:documentation>Authentication data for transaction recovery.</xsd:documentation> 
@@ -7810,6 +8207,15 @@
                 <xsd:appinfo> 
                     <ext:label>Container managed authentication data reference</ext:label> 
                     <ext:reference>authData</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jaasLoginContextEntryRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>JAAS login context entry for authentication. If updated while the server is running, the update is applied with new connection requests; in-use connections are not impacted.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JAAS login context entry reference</ext:label> 
+                    <ext:reference>jaasLoginContextEntry</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -23197,6 +23603,14 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="primaryServerQueryTimeInterval" use="optional" default="15" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The interval, in minutes, at which the virtual member manager tests the primary server for availability.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Primary server query time interval</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="returnToPrimaryServer" use="optional" default="true" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>A boolean value that indicates if the search should be done against the Primary Server.</xsd:documentation> 
@@ -24751,6 +25165,118 @@
                 <xsd:documentation>The server trace can expose sensitive data when tracing untyped data, such as bytes received over a network connection. If true, prevent potentially sensitive information from being exposed in log and trace files. The default value is false. Avoid trouble: Use the com.ibm.ws.logging.filter.sensitive property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Suppress sensitive trace</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jsonFieldMappings" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>When logs are in JSON format, use this attribute to replace default field names with new field names. Configure the new field name by using the following format: defaultFieldName:newFieldName. For field names that are associated with logs of a specified source, use the following format: [source:]?defaultFieldName:newFieldName, where [source] is the source you want to specify (such as message, trace, or accessLog). To rename multiple fields, specify a comma-separated list of field name mappings.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JSON field names that are being replaced</ext:label> 
+                    <ext:variable>com.ibm.ws.logging.json.field.mappings</ext:variable> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.logstash.collector.internal.LogstashCollector"> 
+        <xsd:annotation> 
+            <xsd:documentation>Logstash collector gathers data from various sources and forwards the data to a logstash server using Lumberjack protocol.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Logstash Collector</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="source" default="message" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a source to be used by the logstash collector.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Source</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="tag" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the tags that are associated with the events from various sources.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Tag</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="hostName" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Host name of the logstash server.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Host name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="port" use="required"> 
+            <xsd:annotation> 
+                <xsd:documentation>Port number of the logstash server.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Port</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="1"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="65535"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxFieldLength" use="optional" default="2048"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies maximum number of characters for the message field associated with the events for various sources. If you specify a value of 0 or -1, the maximum number of characters is unlimited.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum field length</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="-1"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxEvents" use="optional" default="0"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of events to be sent per second. If you specify a value greater than zero, then it will be used for throttling the events.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum events per second</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="2147483647"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies an ID of the SSL repertoire that is used to connect to the logstash server.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -27052,7 +27578,7 @@
         </xsd:attribute> 
         <xsd:attribute name="grantType" use="optional" default="authorization_code"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies the grant type to use for this client.</xsd:documentation> 
+                <xsd:documentation>Specifies the grant type to use for this client. Use of the responseType attribute is preferred instead.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Grant type</ext:label> 
                 </xsd:appinfo> 
@@ -27313,7 +27839,7 @@
         </xsd:attribute> 
         <xsd:attribute name="responseType" use="optional"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies the required response type for this client.</xsd:documentation> 
+                <xsd:documentation>Specifies the response requested from the provider, either an authorization code or implicit flow tokens.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Response type</ext:label> 
                 </xsd:appinfo> 
@@ -28397,10 +28923,13 @@
             <xsd:appinfo> 
                 <ext:label>Request Timing</ext:label> 
             </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
+            </xsd:element> 
+            <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
+            </xsd:element> 
+        </xsd:choice> 
         <xsd:attribute name="slowRequestThreshold" use="optional" default="10s" type="duration"> 
             <xsd:annotation> 
                 <xsd:documentation>Duration of time that a request can run before being considered slow. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
@@ -33740,6 +34269,14 @@
                 </xsd:annotation> 
             </xsd:element> 
         </xsd:sequence> 
+        <xsd:attribute name="OnePCOptimization" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the transaction manager optimizes when all resources but one vote read only.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable 1PC optimization</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="recoverOnStartup" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies whether the server should begin transaction recovery at server startup.</xsd:documentation> 
@@ -38339,6 +38876,9 @@
             <xsd:element name="basicRegistry" type="com.ibm.ws.security.registry.basic.config-factory"/> 
             <xsd:element name="batchPersistence" type="com.ibm.ws.jbatch.container.persistence"/> 
             <xsd:element name="batchJobLogging" type="com.ibm.ws.jbatch.joblog"/> 
+            <xsd:element name="batchJmsDispatcher" type="com.ibm.ws.jbatch.jms.dispatcher-factory"/> 
+            <xsd:element name="batchJmsExecutor" type="com.ibm.ws.jbatch.jms.executor-factory"/> 
+            <xsd:element name="batchJmsEvents" type="com.ibm.ws.jbatch.jms.events-factory"/> 
             <xsd:element name="bell" type="com.ibm.ws.classloading.bell-factory"/> 
             <xsd:element name="authentication" type="com.ibm.ws.security.authentication"/> 
             <xsd:element name="authCache" type="com.ibm.ws.security.authentication.cache"/> 
@@ -38412,6 +38952,7 @@
             <xsd:element name="customLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.custom-factory"/> 
             <xsd:element name="netscapeLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.netscape-factory"/> 
             <xsd:element name="logging" type="com.ibm.ws.logging"/> 
+            <xsd:element name="logstashCollector" type="com.ibm.ws.logstash.collector.internal.LogstashCollector"/> 
             <xsd:element name="ltpa" type="com.ibm.ws.security.token.ltpa.LTPAConfiguration"/> 
             <xsd:element name="ejbContainer" type="com.ibm.ws.ejbcontainer.runtime"/> 
             <xsd:element name="mongo" type="com.ibm.ws.mongo.mongo-factory"/> 
