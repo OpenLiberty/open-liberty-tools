@@ -750,7 +750,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      * Create a process builder for launching "wlp/bin/server [option] serverName" with the given arguments.
      *
      * @param option
-     * @param server a server
+     * @param server  a server
      * @param command command arguments
      * @return the process builder, ready for launch
      */
@@ -968,7 +968,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     /**
      * Returns <code>true</code> if the given server is started, and <code>false</code> otherwise.
      *
-     * @param server a server
+     * @param server  a server
      * @param monitor a progress monitor, or <code>null</code>
      * @return <code>true</code> if the server is started, and <code>false</code> otherwise
      * @throws CoreException if the server state could not be determined
@@ -978,14 +978,14 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     }
 
     /**
-     * @param server the server
-     * @param iter number of times to loop
+     * @param server  the server
+     * @param iter    number of times to loop
      * @param timeout the timeout, in seconds
      * @param monitor a progress monitor
      * @return the exit value. -1 if timeout; 0 if the server is running; 1 if the server is stopped; 2 if the status is unknown.
      * @throws CoreException
      */
-    protected int getServerStatus(WebSphereServerInfo server, float timeout, IProgressMonitor monitor) throws CoreException {
+    public int getServerStatus(WebSphereServerInfo server, float timeout, IProgressMonitor monitor) throws CoreException {
         IProgressMonitor monitor2 = monitor;
         if (monitor2 == null)
             monitor2 = new NullProgressMonitor();
@@ -1069,9 +1069,9 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      * The server must exist and be stopped.
      *
      * @param serverName the server name
-     * @param zipFile the file to output to
-     * @param include "all", "usr", or <code>null</code> to leave the default
-     * @param monitor a progress monitor, or <code>null</code>
+     * @param zipFile    the file to output to
+     * @param include    "all", "usr", or <code>null</code> to leave the default
+     * @param monitor    a progress monitor, or <code>null</code>
      * @throws CoreException
      */
     public void callPackageServerCommand(final WebSphereServerInfo server, final File zipFile, final String include, IProgressMonitor monitor) throws CoreException {
@@ -1099,10 +1099,10 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      * Launches a utility process to package up the given server.
      * The server must exist and be stopped.
      *
-     * @param serverName the server name
+     * @param serverName  the server name
      * @param archiveFile the file to output to
-     * @param include "all", "usr", or <code>null</code> to leave the default
-     * @param monitor a progress monitor, or <code>null</code>
+     * @param include     "all", "usr", or <code>null</code> to leave the default
+     * @param monitor     a progress monitor, or <code>null</code>
      * @throws CoreException
      */
 
@@ -1307,10 +1307,10 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      * Launches a utility process to generate a server dump.
      * The server must exist.
      *
-     * @param server the server
+     * @param server      the server
      * @param archiveFile the archive file, or <code>null</code>
-     * @param include include options, or <code>null</code>
-     * @param monitor a progress monitor, or <code>null</code>
+     * @param include     include options, or <code>null</code>
+     * @param monitor     a progress monitor, or <code>null</code>
      * @throws CoreException
      */
     public ILaunch dumpServer(WebSphereServerInfo server, File archiveFile, String include, IProgressMonitor monitor) throws CoreException {
@@ -1334,7 +1334,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      * Launches a utility process to generate a server javadump.
      * The server must exist.
      *
-     * @param server the server
+     * @param server  the server
      * @param include include options, or <code>null</code>
      * @param monitor a progress monitor, or <code>null</code>
      * @throws CoreException
@@ -1359,13 +1359,13 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      *
      * (Command line: securityUtility createSSLCertificate --server=name --password[=pwd] [--validity=days] [--subject=dn])
      *
-     * @param serverName the server name
-     * @param password a password
+     * @param serverName       the server name
+     * @param password         a password
      * @param passwordEncoding a password encoding, e.g. "xor" or "aes"
-     * @param passwordKey a password key (if required by the encoding) or <code>null</code>
-     * @param validity # of days the certificate should be valid, or -1 for default
-     * @param subject the subject, or <code>null</code> for default
-     * @param monitor a progress monitor, or <code>null</code>
+     * @param passwordKey      a password key (if required by the encoding) or <code>null</code>
+     * @param validity         # of days the certificate should be valid, or -1 for default
+     * @param subject          the subject, or <code>null</code> for default
+     * @param monitor          a progress monitor, or <code>null</code>
      * @throws CoreException
      */
     public ILaunch createSSLCertificate(WebSphereServerInfo serverInfo, String password, String passwordEncoding, String passwordKey, int validity, String subject,
@@ -1397,7 +1397,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      * (Command line: securityUtility encode [plainText])
      *
      * @param password a plain text password
-     * @param monitor a progress monitor, or <code>null</code>
+     * @param monitor  a progress monitor, or <code>null</code>
      * @return the encoded password
      * @throws CoreException
      */
@@ -1410,10 +1410,10 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      *
      * (Command line: securityUtility encode --encoding=[algorithm] --key=[key] plainText)
      *
-     * @param method the encryption algorithm
-     * @param key an encoding key
+     * @param method   the encryption algorithm
+     * @param key      an encoding key
      * @param password a plain text password
-     * @param monitor a progress monitor, or <code>null</code>
+     * @param monitor  a progress monitor, or <code>null</code>
      * @return the encrypted password
      * @throws CoreException
      */
@@ -1427,9 +1427,9 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      * (Command line: securityUtility encode --encoding=[encoding] --key=[key] [plainText])
      *
      * @param encoding an encoding, e.g. "xor", "aes" or "hash"
-     * @param key a key (optional, only needed for AES or hash)
+     * @param key      a key (optional, only needed for AES or hash)
      * @param password a password
-     * @param monitor a progress monitor, or <code>null</code>
+     * @param monitor  a progress monitor, or <code>null</code>
      * @return the encoded password
      * @throws CoreException
      */
@@ -1552,7 +1552,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      *
      * (Command line: java -jar ws-schemagen.jar [file])
      *
-     * @param file the file to generate to
+     * @param file    the file to generate to
      * @param monitor a progress monitor, or <code>null</code>
      * @param timeout the timeout in seconds
      * @throws CoreException
@@ -1605,7 +1605,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
      *
      * (Command line: java -jar ws-featurelist.jar [file])
      *
-     * @param file the file to generate to
+     * @param file    the file to generate to
      * @param monitor a progress monitor, or <code>null</code>
      * @param timeout the timeout in seconds
      * @throws CoreException
