@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -25,13 +25,26 @@ import com.ibm.ws.st.core.internal.launch.WebSphereLaunchConfigurationDelegate;
  */
 public abstract class AbstractMonitorThread extends Thread {
 
-    protected static final int POLLING_DELAY = 3500;
+    public static final String SERVER_STATUS_POLLING_DELAY_PROPERTY = "com.ibm.ws.st.serverStatusPollingDelaySeconds";
+
+    protected static int POLLING_DELAY = 3500;
     protected boolean stopMonitor = false;
 
     protected WebSphereServerBehaviour wsBehaviour;
     protected IServer server;
     protected WebSphereServer wsServer;
     protected Object serverStateSyncObj;
+
+    static {
+        String pollingDelay = System.getProperty(SERVER_STATUS_POLLING_DELAY_PROPERTY);
+        if (pollingDelay != null && !pollingDelay.isEmpty()) {
+            try {
+                POLLING_DELAY = Integer.parseInt(pollingDelay) * 1000;
+            } catch (NumberFormatException e) {
+                Trace.logError("The server status polling delay specified is not valid: " + pollingDelay + ". The default will be used: " + POLLING_DELAY, e);
+            }
+        }
+    }
 
     public AbstractMonitorThread(WebSphereServerBehaviour wsBehaviour, Object serverStateSyncObj, String name) {
         super(name);
@@ -85,7 +98,7 @@ public abstract class AbstractMonitorThread extends Thread {
 
             if (isDebugMode) {
                 try {
-                    // Check if we're already in debug mode 
+                    // Check if we're already in debug mode
                     if (!ILaunchManager.DEBUG_MODE.equals(serverMode)) {
                         /************************************************************************************************************
                          * It's important to avoid synchronizing around the call to server.start() with serverStateSyncObj because
@@ -110,7 +123,7 @@ public abstract class AbstractMonitorThread extends Thread {
                 }
             } else if (isProfileMode) {
                 try {
-                    // Check if we're already in profiling mode 
+                    // Check if we're already in profiling mode
                     if (!ILaunchManager.PROFILE_MODE.equals(serverMode)) {
                         /************************************************************************************************************
                          * It's important to avoid synchronizing around the call to server.start() with serverStateSyncObj because
