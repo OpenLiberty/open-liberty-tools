@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2017 IBM Corporation and others.
+ * Copyright (c) 2014, 2019 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.launch;
 
@@ -232,6 +232,7 @@ public class LibertyRemoteUtilityExecutionDelegate implements IUtilityExecutionD
                 envMap.put("WLP_USER_DIR", remoteUserDir.removeLastSegments(2).toString());
             if (ILaunchManager.DEBUG_MODE.equals(launchMode)) {
                 String debugPort = wsServer.getRemoteServerStartDebugPort();
+                envMap.put("WLP_DEBUG_REMOTE", "y");
                 envMap.put("WLP_DEBUG_ADDRESS", debugPort);
             }
 
@@ -415,7 +416,7 @@ public class LibertyRemoteUtilityExecutionDelegate implements IUtilityExecutionD
      * if its a large file, this method periodically checks for the size of file and return true when size is stable
      *
      * @param remoteFilePath Path to the remote file/dir for which status is checked
-     * @param isLargeFile if the file has a large size e.g. 10 Mb
+     * @param isLargeFile    if the file has a large size e.g. 10 Mb
      * @throws CoreException
      */
     public boolean checkFileStatus(IPath remoteFilePath, boolean isLargeFile) throws CoreException {
