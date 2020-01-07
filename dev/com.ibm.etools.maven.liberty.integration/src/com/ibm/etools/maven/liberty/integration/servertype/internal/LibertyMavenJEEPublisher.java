@@ -207,7 +207,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
 
                                     int publishUnitKind = publishUnit.getDeltaKind();
                                     if (ServerBehaviourDelegate.ADDED == publishUnitKind || ServerBehaviourDelegate.CHANGED == publishUnitKind) {
-                                        final String mvnRepublishCmd = "war:war liberty:install-apps";
+                                        final String mvnRepublishCmd = "war:war liberty:deploy";
 
                                         // In the unlikely event that any of these values are null, it should be handled
                                         // It is possible the user removes some entries from the liberty plugin config to reach this state
@@ -217,7 +217,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                                         } else {
                                             LibertyMaven.runMavenGoal(moduleProject.getLocation(), mvnRepublishCmd, config.getActiveBuildProfiles(), monitor);
 
-                                            // Calling the mvn goal "war:war liberty:install-apps" will reset the server.xml, so the
+                                            // Calling the mvn goal "war:war liberty:deploy" will reset the server.xml, so the
                                             // local connector and mbean have to be added back
                                             wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
 
@@ -246,7 +246,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                             else if (getBuildPluginImpl().isDependencyModule(moduleProject, wsServer.getServer())) {
                                 /*
                                  * The module project isn't mapped directly but it could be a dependency project.
-                                 * In that case we should call install-apps on the parent for the non-loose config case and for loose config call the JEEPublisher.
+                                 * In that case we should call deploy on the parent for the non-loose config case and for loose config call the JEEPublisher.
                                  */
                                 if (wsServer.isLooseConfigEnabled()) {
                                     // In the loose config case, call the JEEPublisher implementation
@@ -266,7 +266,7 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                                         LibertyMaven.runMavenGoal(moduleProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
                                     }
 
-                                    String installGoal = "liberty:install-apps";
+                                    String installGoal = "liberty:deploy";
                                     Trace.trace(Trace.INFO, "Running " + installGoal + " goal on project: " + mappedProject.getName());
                                     LibertyMaven.runMavenGoal(mappedProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
                                     wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
