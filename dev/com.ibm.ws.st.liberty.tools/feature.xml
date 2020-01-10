@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature
-      id="com.ibm.ws.st.liberty.tools"
-      label="%featureName"
-      version="20.0.3.qualifier"
-      provider-name="%providerName">
+<feature id="com.ibm.ws.st.liberty.tools" label="%featureName" version="20.0.3.qualifier" provider-name="%providerName">
 
    <description>
       %description
@@ -17,12 +13,8 @@
       %license
    </license>
 
-   <includes
-         id="com.ibm.ws.st.liberty.tools.base"
-         version="0.0.0"/>
+   <includes id="com.ibm.ws.st.liberty.tools.base" version="0.0.0"/>
 
-   <includes
-         id="com.ibm.ws.st.docker.base"
-         version="0.0.0"/>
+   <includes id="com.ibm.ws.st.docker.base" version="0.0.0"/>
 
 </feature>

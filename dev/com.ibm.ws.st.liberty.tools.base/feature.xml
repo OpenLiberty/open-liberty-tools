@@ -1,90 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature
-      id="com.ibm.ws.st.liberty.tools.base"
-      label="%featureName"
-      version="1.0.7.qualifier"
-      provider-name="%providerName"
-      plugin="com.ibm.ws.st.core">
+<feature id="com.ibm.ws.st.liberty.tools.base" label="%featureName" version="1.0.8.qualifier" provider-name="%providerName" plugin="com.ibm.ws.st.core">
 
-   <description>
+      <description>
       %description
-   </description>
+      </description>
 
-   <copyright>
+      <copyright>
       %copyright
-   </copyright>
+      </copyright>
 
-   <license url="%licenseURL">
+      <license url="%licenseURL">
       %license
-   </license>
+      </license>
 
-   <requires>
-      <import feature="com.ibm.xwt.dde.feature" version="1.0.600" match="greaterOrEqual"/>
-      <import feature="com.ibm.ws.st.was.tools.common.core" version="1.0.2" match="greaterOrEqual"/>
-      <import feature="com.ibm.ws.st.was.tools.common.ui" version="1.0.0" match="greaterOrEqual"/>
-   </requires>
+      <requires>
+            <import feature="com.ibm.xwt.dde.feature" version="1.0.600" match="greaterOrEqual"/>
+            <import feature="com.ibm.ws.st.was.tools.common.core" version="1.0.2" match="greaterOrEqual"/>
+            <import feature="com.ibm.ws.st.was.tools.common.ui" version="1.0.0" match="greaterOrEqual"/>
+      </requires>
 
-   <plugin
-         id="com.ibm.ws.st.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.st.core" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.ws.st.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.st.ui" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.ws.st.jee.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.st.jee.core" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.ws.st.jee.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.st.jee.ui" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.ws.st.was.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.st.was.core" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.ws.kernel.feature.resolver"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.kernel.feature.resolver" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.etools.maven.liberty.integration"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.etools.maven.liberty.integration" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.ws.st.liberty.buildplugin.integration"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.st.liberty.buildplugin.integration" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
-   <plugin
-         id="com.ibm.ws.st.liberty.gradle"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+      <plugin id="com.ibm.ws.st.liberty.gradle" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
 
 </feature>

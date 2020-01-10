@@ -32,7 +32,8 @@ public enum ConfigurationType {
     configDirectory,
     configFile,
     install,
-    installAppPackages,
+    // replaced 'installAppPackages' since 'liberty-maven-plugin' v3.0
+    deployPackages,  
     installAppsConfigDropins,
     jvmOptions,
     jvmOptionsFile,
