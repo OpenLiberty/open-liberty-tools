@@ -147,7 +147,7 @@ public abstract class AbstractLibertyRuntimeProvider extends LibertyRuntimeProvi
                             @Override
                             protected File getServerEnvFile() {
                                 File serverEnvFileFromServer = super.getServerEnvFile();
-                                String value = config.getConfigValue(ConfigurationType.serverEnv);
+                                String value = config.getConfigValue(ConfigurationType.serverEnvFile);
                                 if (value != null) {
                                     File serverEnvFile = new File(value);
                                     if (serverEnvFile.exists()) {

@@ -111,7 +111,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
         if (config.getConfigValue(ConfigurationType.installDirectory) == null) {
             Trace.logError("A runtime installation directory is not configured. Ensure the liberty build plugin configuration is coorrect.", null);
             return false;
-        } else if (config.getConfigValue(ConfigurationType.configFile) == null) {
+        } else if (config.getConfigValue(ConfigurationType.serverXmlFile) == null) {
             Trace.logError("A server configuration file is not configured. Ensure the liberty build plugin configuration is correct.", null);
             return false;
         }
@@ -186,7 +186,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                             IProjectInspector pi = getBuildPluginImpl().getProjectInspector(project);
                             LibertyBuildPluginConfiguration config = pi.getBuildPluginConfiguration(null);
                             if (config != null) {
-                                String configVal = config.getConfigValue(ConfigurationType.configFile);
+                                String configVal = config.getConfigValue(ConfigurationType.serverXmlFile);
                                 if (configVal != null) {
                                     IPath srcConfigPath = new Path(configVal);
                                     if (srcConfigPath.toFile().exists() && project.getLocation().isPrefixOf(srcConfigPath)) {
@@ -333,7 +333,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
             LibertyBuildPluginConfiguration config = pi.getBuildPluginConfiguration(null);
             if (config == null)
                 return false;
-            String configVal = config.getConfigValue(ConfigurationType.configFile);
+            String configVal = config.getConfigValue(ConfigurationType.serverXmlFile);
             if (configVal == null)
                 return false;
 
@@ -763,7 +763,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
 
                 // Trigger configuration validation on the src config file otherwise
                 // the file will have a validation error that will cause problems during publish
-                String configVal = config.getConfigValue(ConfigurationType.configFile);
+                String configVal = config.getConfigValue(ConfigurationType.serverXmlFile);
                 if (configVal != null) {
                     Path path = new Path(configVal);
                     IFile configFile = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(path);

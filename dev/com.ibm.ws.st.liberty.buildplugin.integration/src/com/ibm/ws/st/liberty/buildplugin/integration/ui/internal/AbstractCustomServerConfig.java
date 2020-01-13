@@ -59,7 +59,7 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
             LibertyBuildPluginConfiguration libertyBuildPluginProjectConfiguration = getBuildPluginImpl().getLibertyBuildPluginConfiguration(mappedProject,
                                                                                                                                              new NullProgressMonitor());
             if (libertyBuildPluginProjectConfiguration != null) {
-                String configValue = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.configFile);
+                String configValue = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.serverXmlFile);
                 if (configValue != null) {
                     try {
 
@@ -84,7 +84,7 @@ public abstract class AbstractCustomServerConfig implements ICustomServerConfig,
                         }
 
                         // server.env in source
-                        String serverEnvFile = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.serverEnv);
+                        String serverEnvFile = libertyBuildPluginProjectConfiguration.getConfigValue(ConfigurationType.serverEnvFile);
                         if (serverEnvFile != null) {
                             URI serverEnvFileURI = PathUtil.getURIForFilePath(serverEnvFile);
                             if (serverEnvFileURI != null) {
