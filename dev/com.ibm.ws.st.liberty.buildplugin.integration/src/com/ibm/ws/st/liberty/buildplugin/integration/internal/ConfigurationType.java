@@ -30,7 +30,8 @@ public enum ConfigurationType {
     bootstrapProperties,
     bootstrapPropertiesFile,
     configDirectory,
-    configFile,
+    // replaced 'configFile' since 'liberty-maven-plugin' v3.0
+    serverXmlFile,
     install,
     // replaced 'installAppPackages' since 'liberty-maven-plugin' v3.0
     deployPackages,  
@@ -44,7 +45,8 @@ public enum ConfigurationType {
     refresh,
     server,
     serverDirectory,
-    serverEnv,
+    // replaced 'serverEnv' since 'liberty-maven-plugin' v3.0
+    serverEnvFile,
     serverOutputDirectory,
     serverName,
     servers, // v2
