@@ -66,7 +66,7 @@ public enum ConfigurationType {
     }
 
     public static List<ConfigurationType> getServerUpdateTriggers() {
-        return Arrays.asList(new ConfigurationType[] { serverDirectory, serverOutputDirectory, appsDirectory, serverName, configFile, looseApplication, applicationFilename,
+        return Arrays.asList(new ConfigurationType[] { serverDirectory, serverOutputDirectory, appsDirectory, serverName, serverXmlFile, looseApplication, applicationFilename,
                                                        stripVersion });
     }
 }
