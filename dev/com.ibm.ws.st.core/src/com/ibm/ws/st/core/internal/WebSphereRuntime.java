@@ -1961,7 +1961,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     static public boolean rename(File fromFile, File toFile) {
         // File renaming proved to be unreliable because the file would still be locked sometimes.
         // Since it was discovered to be a timing issue we now have a retry mechanism to mitigate the problem.
-        final int retryLimit = 4;
+        final int retryLimit = 10;
         int count = 1;
         while (!fromFile.renameTo(toFile) && count < retryLimit) {
             if (Trace.ENABLED) {
@@ -1972,7 +1972,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
             }
             count++;
             try {
-                Thread.sleep(200);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 // do nothing
             }
