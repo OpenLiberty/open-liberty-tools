@@ -8,27 +8,27 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -96,17 +96,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
@@ -114,11 +106,19 @@
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -639,17 +639,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
@@ -657,11 +649,19 @@
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -2726,13 +2726,25 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="waitToAccept" use="optional" default="false" type="booleanType"> 
+        <xsd:attribute name="portOpenRetries" use="optional" default="0"> 
             <xsd:annotation> 
-                <xsd:documentation>Queries whether this TCP Channel will delay accepting connections until the server starts. If false, connections are closed until the server starts. If true, the value for the acceptThread tcpOption is also set to true, and connections are delayed until the server starts.</xsd:documentation> 
+                <xsd:documentation>Number of retries to open a TCP/IP port during server startup.  There will be a one second delay between retries, until the opening is successful or the port open retry number is reached. </xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>Wait to accept</ext:label> 
+                    <ext:label>Port open retries</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="100000"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
         </xsd:attribute> 
         <xsd:attribute name="acceptThread" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
@@ -2747,6 +2759,14 @@
                 <xsd:documentation>Defines the maximum number of connections allowed to be open on this endpoint.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Max open connections</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="waitToAccept" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Queries whether this TCP Channel will delay accepting connections until the server starts. If false, connections are closed until the server starts. If true, the value for the acceptThread tcpOption is also set to true, and connections are delayed until the server starts.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Wait to accept</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -5386,19 +5406,19 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -5532,10 +5552,11 @@
             <xsd:documentation>Defines the behavior of the EJB timer service.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>EJB Timer Service</ext:label> 
+                <ext:groupDecl id="Advanced"/> 
             </xsd:appinfo> 
         </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="persistentExecutor" minOccurs="0" maxOccurs="1" type="com.ibm.ws.concurrent.persistent.executor"> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="persistentExecutor" type="com.ibm.ws.concurrent.persistent.executor"> 
                 <xsd:annotation> 
                     <xsd:documentation>Schedules and runs EJB persistent timer tasks.</xsd:documentation> 
                     <xsd:appinfo> 
@@ -5543,7 +5564,16 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-        </xsd:sequence> 
+            <xsd:element name="nonPersistentContextService" type="com.ibm.ws.context.service"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The context service is used to manage context propagation to non-persistent timer method threads.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Non-persistent Timer Thread Context Propagation</ext:label> 
+                        <ext:group id="Advanced"/> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
         <xsd:attribute name="lateTimerThreshold" use="optional" default="5m" type="minuteDuration"> 
             <xsd:annotation> 
                 <xsd:documentation>Number of minutes after the scheduled expiration of a timer that the start of the timer will be considered late. When a timer does start late, a warning message will be logged indicating that the timer has started later than scheduled. The default threshold is 5 minutes and a value of 0 minutes turns off the warning message feature. Specify a positive integer followed by a unit of time, which can be hours (h) or minutes (m). For example, specify 30 minutes as 30m. You can include multiple values in a single entry. For example, 1h30m is equivalent to 90 minutes.</xsd:documentation> 
@@ -5584,6 +5614,16 @@
                 <xsd:appinfo> 
                     <ext:label>EJB persistent timers executor reference</ext:label> 
                     <ext:reference>persistentExecutor</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="nonPersistentContextServiceRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The context service is used to manage context propagation to non-persistent timer method threads.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Thread context propagation reference</ext:label> 
+                    <ext:group id="Advanced"/> 
+                    <ext:reference>contextService</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -6893,6 +6933,42 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="decompressionRatioLimit" use="optional" default="200"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum ratio of decompressed to compressed request body payload. The HTTP channel reads the request body and verifies the ratio as the body decompresses. The channel stops decompression of the request body if the decompression ratio remains above the configured value and the decompressionTolerance is reached.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Decompression ratio limit</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="1"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="decompressionTolerance" use="optional" default="3"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of times the HTTP channel tolerates a decompression ratio above the configured ratio, depicted by the decompressionRatioLimit httpOption attribute. If this number reaches, and the next decompression cycle still contains a decompression ratio above the ratio limit, then the HTTP channel stops decompressing the request body.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Decompression tolerance</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="http2ConnectionIdleTimeout" use="optional" default="0" type="secondDuration"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the amount of time, in seconds, that an HTTP/2 connection will be allowed to remain idle between socket IO operations. If not specified, or set to a value of 0, there is no connection timeout set. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
@@ -7388,9 +7464,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
@@ -27093,6 +27169,14 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="ropcPreferUserSecurityName" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>If the user security name differs from the username that is supplied in the ROPC (Resource Owner Password Credentials) request, then the username is set to the user security name for all tokens that are created by the ROPC grant type. The default is false.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ROPC grant prefers user security name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -28688,22 +28772,6 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="pollInterval" use="optional" default="-1" type="duration"> 
-            <xsd:annotation> 
-                <xsd:documentation>Interval between polling for tasks to run. A value of -1 disables all polling after the initial poll. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Poll interval</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="retryInterval" use="optional" default="1m" type="duration"> 
-            <xsd:annotation> 
-                <xsd:documentation>The amount of time that must pass between the second and subsequent consecutive retries of a failed task.  The first retry occurs immediately, regardless of the value of this attribute. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Retry interval</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
         <xsd:attribute name="retryLimit" use="optional" default="10"> 
             <xsd:annotation> 
                 <xsd:documentation>Limit of consecutive retries for a task that has failed or rolled back, after which the task is considered permanently failed and does not attempt further retries. A value of -1 allows for unlimited retries.</xsd:documentation> 
@@ -28742,6 +28810,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="pollInterval" use="optional" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Interval at which the executor looks for tasks in the persistent store to run. If unspecified and fail over is enabled, a poll interval is automatically computed. If fail over is not enabled, the default is -1, which disables all polling after the initial poll. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Poll interval</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="pollSize" use="optional"> 
             <xsd:annotation> 
                 <xsd:documentation>The maximum number of task entries to find when polling the persistent store for tasks to run. If unspecified, there is no limit.</xsd:documentation> 
@@ -28759,6 +28835,14 @@
                     </xsd:simpleType> 
                 </xsd:union> 
             </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="retryInterval" use="optional" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>The amount of time that must pass between consecutive retries of a failed task. The retry interval applies only when failover is disabled. When failover is enabled, servers retry at their next poll. When failover is not enabled, the first retry occurs immediately on the same server, and at the retry interval thereafter. The default retry interval is 1 minute. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Retry interval</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
@@ -28785,9 +28869,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
-            </xsd:element> 
             <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
+            </xsd:element> 
+            <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="slowRequestThreshold" use="optional" default="10s" type="duration"> 
@@ -33516,6 +33600,69 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="userApiType" use="optional" default="basic"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates which specification to use for the user API.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User API specification</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="basic"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Indicates that the user API can be directly started with an HTTP GET request.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="kube"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Indicates that the user API is a Kubernetes TokenReview API.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="introspect"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>internal</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="userApiToken" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the access token that has permission to call the user API. For OpenShift, the token is from a service account with permission to call the TokenReview API, which usually requires the system:auth-delegator role.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Access token for user API calls</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="accessTokenRequired" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Determines whether the access token that is provided in the request is used for authentication. If true, the client must provide a valid access token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Access token authentication required</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="accessTokenSupported" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Determines whether to support access token authentication if an access token is provided in the request. If true, and an access token is provided in the request, the access token is used as an authentication token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Access token authentication supported</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="accessTokenHeaderName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Name of the header to use when an OAuth access token is forwarded.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>OAuth access token header name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -37637,6 +37784,52 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wsat.service.wsatconfigservice"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration properties for the Web Services Atomic Transaction feature.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>WS-AtomicTransaction</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="sslEnabled" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When set to true, WS-AtomicTransaction internal event messages sent between the WS-AT coordinator and participant are encrypted using SSL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL enabled</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" default="defaultSSLConfig" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the SSL configuration to be used for the WS-AtomicTransaction protocol when SSL is enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientAuth" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether additional client authentication is enabled for the WS-AtomicTransaction protocol when SSL is enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL client authentication enabled</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="externalURLPrefix" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optionally specifies the host and port address of a proxy server used to route the WS-AtomicTransaction protocol.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Proxy server address</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.wssecurity.config"> 
         <xsd:annotation> 
             <xsd:documentation>Web Services Security default configuration for provider.</xsd:documentation> 
@@ -38909,6 +39102,7 @@
             <xsd:element name="webAppSecurity" type="com.ibm.ws.webcontainer.security.WebAppSecurityCollaboratorImpl"/> 
             <xsd:element name="wsocOutbound" type="com.ibm.ws.wsoc.outbound.wsocOutbound"/> 
             <xsd:element name="federatedRepository" type="com.ibm.ws.security.wim.core.config-factory"/> 
+            <xsd:element name="wsAtomicTransaction" type="com.ibm.ws.wsat.service.wsatconfigservice"/> 
             <xsd:element name="wsSecurityProvider" type="com.ibm.ws.wssecurity.config"/> 
             <xsd:element name="wsSecurityClient" type="com.ibm.ws.wssecurity.client.config"/> 
             <xsd:element name="databaseStore" type="com.ibm.ws.persistence.databaseStore-factory"/> 
