@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017 IBM Corporation and others.
+ * Copyright (c) 2017, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -24,15 +24,17 @@ public enum ConfigurationType {
     applications,
     application,
     appsDirectory,
-    assemblyArchive,
-    assemblyArtifact,
+    runtimeArchive,
+    runtimeArtifact,
     assemblyInstallDirectory,
     bootstrapProperties,
     bootstrapPropertiesFile,
     configDirectory,
-    configFile,
+    // replaced 'configFile' since 'liberty-maven-plugin' v3.0
+    serverXmlFile,
     install,
-    installAppPackages,
+    // replaced 'installAppPackages' since 'liberty-maven-plugin' v3.0
+    deployPackages,  
     installAppsConfigDropins,
     jvmOptions,
     jvmOptionsFile,
@@ -43,7 +45,8 @@ public enum ConfigurationType {
     refresh,
     server,
     serverDirectory,
-    serverEnv,
+    // replaced 'serverEnv' since 'liberty-maven-plugin' v3.0
+    serverEnvFile,
     serverOutputDirectory,
     serverName,
     servers, // v2
@@ -63,7 +66,7 @@ public enum ConfigurationType {
     }
 
     public static List<ConfigurationType> getServerUpdateTriggers() {
-        return Arrays.asList(new ConfigurationType[] { serverDirectory, serverOutputDirectory, appsDirectory, serverName, configFile, looseApplication, applicationFilename,
+        return Arrays.asList(new ConfigurationType[] { serverDirectory, serverOutputDirectory, appsDirectory, serverName, serverXmlFile, looseApplication, applicationFilename,
                                                        stripVersion });
     }
 }

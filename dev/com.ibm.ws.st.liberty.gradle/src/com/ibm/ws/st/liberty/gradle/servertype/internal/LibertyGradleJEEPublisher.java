@@ -218,6 +218,9 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
 
                                             // Calling the mvn goal "war:war liberty:install-apps" will reset the server.xml, so the
                                             // local connector and mbean have to be added back
+                                            // Note: 'deploy' goal replaced 'install-apps' since 'liberty-maven-plugin' v3.0
+                                            //   more detail : https://github.com/OpenLiberty/ci.maven/releases#changed-deploy-goal-and-removed-install-apps-goal
+                                 
                                             wsServer.ensureLocalConnectorAndAppMBeanConfig(monitor);
 
                                             // Add the delta to the change list. Since the entire file is copied over
@@ -246,6 +249,8 @@ public class LibertyGradleJEEPublisher extends AbstractLibertyBuildPluginJEEPubl
                                 /*
                                  * The module project isn't mapped directly but it could be a dependency project.
                                  * In that case we should call install-apps on the parent for the non-loose config case and for loose config call the JEEPublisher.
+                                 * Note: 'deploy' goal replaced 'install-apps' since 'liberty-maven-plugin' v3.0
+                                 *   more detail : https://github.com/OpenLiberty/ci.maven/releases#changed-deploy-goal-and-removed-install-apps-goal
                                  */
                                 if (wsServer.isLooseConfigEnabled()) {
                                     // In the loose config case, call the JEEPublisher implementation

@@ -66,7 +66,7 @@ public abstract class AbstractCustomServerVariablesHandler implements ICustomSer
         if (libertyBuildProjectConfiguration != null) {
 
             // Load variables from server.env file (when applicable)
-            String serverEnvFile = libertyBuildProjectConfiguration.getConfigValue(ConfigurationType.serverEnv);
+            String serverEnvFile = libertyBuildProjectConfiguration.getConfigValue(ConfigurationType.serverEnvFile);
             if (serverEnvFile != null) {
                 try {
                     ServerEnv serverEnv = new ServerEnv(new File(serverEnvFile), null);

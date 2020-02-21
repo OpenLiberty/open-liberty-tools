@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017, 2018 IBM Corporation and others.
+ * Copyright (c) 2017, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -187,7 +187,7 @@ public class LibertyMaven implements ILibertyBuildPluginImpl {
     /** {@inheritDoc} */
     @Override
     public void updateSrcConfig(IPath location, LibertyBuildPluginConfiguration config, IProgressMonitor monitor) {
-        String goal = "package liberty:install-apps";
+        String goal = "package liberty:deploy";
         runMavenGoal(location, goal, config.getActiveBuildProfiles(), monitor);
     }
 
@@ -225,7 +225,7 @@ public class LibertyMaven implements ILibertyBuildPluginImpl {
         // Check if the server directory exists in the user directory before attempting to create it
         if (!serverPath.toFile().exists()) {
             // if the path doesn't exist then run the maven goal to create the server files
-            String goal = "package liberty:install-apps";
+            String goal = "package liberty:deploy";
             Trace.trace(Trace.INFO, "Running " + goal + " goal on project: " + project.getName());
             runMavenGoal(project.getLocation(), goal, profiles, monitor);
         }
