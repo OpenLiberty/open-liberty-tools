@@ -40,7 +40,7 @@ To install the Open Liberty Tools and other WebSphere Developer Tools features:
 
 To install the Open Liberty Tools only from Open Liberty site, follow [this instruction](https://github.com/OpenLiberty/open-liberty-tools/blob/master/INSTALL_OPENLIBERTYTOOLS.md).
 
-Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentation and tutorials.
+Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentation and tutorials. [Here](https://developer.ibm.com/wasdev/docs/category/tools/) are a few related to the tools:
 
 ## Contribute to Open Liberty Tools
 1. Clone the repository to your system.
