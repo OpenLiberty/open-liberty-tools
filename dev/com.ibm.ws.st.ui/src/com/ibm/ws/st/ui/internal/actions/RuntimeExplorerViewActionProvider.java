@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,9 +47,10 @@ public class RuntimeExplorerViewActionProvider extends CommonActionProvider {
     protected NewQuickServerAction newQuickServerAction;
     protected ShowInServersAction showInServersAction;
     protected PropertiesAction propertiesAction;
-    protected NewExtendedConfigAction[] createConfigActions = new NewExtendedConfigAction[2];
-    protected NewConfigDropinAction[] newConfigDropinActions = new NewConfigDropinAction[2];
+    protected NewExtendedConfigAction[] createConfigActions = new NewExtendedConfigAction[1];
+    protected NewExtendedConfigAction[] newServerEnvActions = new NewExtendedConfigAction[2];
     protected NewExtendedConfigAction[] newJVMOptionsActions = new NewExtendedConfigAction[4];
+    protected NewConfigDropinAction[] newConfigDropinActions = new NewConfigDropinAction[2];
     protected AddOnRuntimeAction addOnRuntimeAction;
 
     @Override
@@ -74,16 +75,15 @@ public class RuntimeExplorerViewActionProvider extends CommonActionProvider {
 
         showInServersAction = new ShowInServersAction(selProvider);
         propertiesAction = new PropertiesAction(selProvider, shell);
-        //propertiesAction.runtime.
-        createConfigActions[0] = new NewExtendedConfigAction(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE, selProvider, viewer);
-        createConfigActions[1] = new NewExtendedConfigAction(ExtendedConfigFile.SERVER_ENV_FILE, selProvider, viewer);
 
-        newConfigDropinActions[0] = new NewConfigDropinAction(NewConfigDropinAction.DropinType.DEFAULTS, selProvider, viewer);
-        newConfigDropinActions[1] = new NewConfigDropinAction(NewConfigDropinAction.DropinType.OVERRIDES, selProvider, viewer);
+        createConfigActions[0] = new NewExtendedConfigAction(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE, selProvider, viewer);
+
+        newServerEnvActions[0] = new NewExtendedConfigAction(ExtendedConfigFile.SERVER_ENV_FILE, selProvider, viewer, Constants.SERVER_CONFIG_VAR);
+        newServerEnvActions[1] = new NewExtendedConfigAction(ExtendedConfigFile.SERVER_ENV_FILE, selProvider, viewer, Constants.WLP_USER_DIR_VAR + "/"
+                                                                                                                      + Constants.SHARED_FOLDER);
 
         newJVMOptionsActions[0] = new NewExtendedConfigAction(ExtendedConfigFile.JVM_OPTIONS_FILE, selProvider, viewer, Constants.SERVER_CONFIG_VAR);
-        newJVMOptionsActions[1] = new NewExtendedConfigAction(ExtendedConfigFile.JVM_OPTIONS_FILE, selProvider, viewer, Constants.WLP_INSTALL_VAR + "/"
-                                                                                                                        + Constants.USER_FOLDER + "/"
+        newJVMOptionsActions[1] = new NewExtendedConfigAction(ExtendedConfigFile.JVM_OPTIONS_FILE, selProvider, viewer, Constants.WLP_USER_DIR_VAR + "/"
                                                                                                                         + Constants.SHARED_FOLDER);
         newJVMOptionsActions[2] = new NewExtendedConfigAction(ExtendedConfigFile.JVM_OPTIONS_FILE, selProvider, viewer, Constants.SERVER_CONFIG_VAR + "/"
                                                                                                                         + Constants.CONFIG_DROPINS_FOLDER + "/"
@@ -91,6 +91,10 @@ public class RuntimeExplorerViewActionProvider extends CommonActionProvider {
         newJVMOptionsActions[3] = new NewExtendedConfigAction(ExtendedConfigFile.JVM_OPTIONS_FILE, selProvider, viewer, Constants.SERVER_CONFIG_VAR + "/"
                                                                                                                         + Constants.CONFIG_DROPINS_FOLDER + "/"
                                                                                                                         + Constants.CONFIG_OVERRIDE_DROPINS_FOLDER);
+
+        newConfigDropinActions[0] = new NewConfigDropinAction(NewConfigDropinAction.DropinType.DEFAULTS, selProvider, viewer);
+        newConfigDropinActions[1] = new NewConfigDropinAction(NewConfigDropinAction.DropinType.OVERRIDES, selProvider, viewer);
+
         addOnRuntimeAction = new AddOnRuntimeAction(shell, selProvider);
     }
 
@@ -108,8 +112,13 @@ public class RuntimeExplorerViewActionProvider extends CommonActionProvider {
         MenuManager configMenu = new MenuManager(Messages.menuNewExtendedConfig, Activator.getImageDescriptor(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE), "extendedConfig");
         for (int i = 0; i < createConfigActions.length; i++)
             configMenu.add(createConfigActions[i]);
+        // Add the submenu for server.env
+        MenuManager subConfigMenu = new MenuManager(ExtendedConfigFile.SERVER_ENV_FILE, Activator.getImageDescriptor(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE), ExtendedConfigFile.SERVER_ENV_FILE);
+        for (int i = 0; i < newServerEnvActions.length; i++)
+            subConfigMenu.add(newServerEnvActions[i]);
+        configMenu.add(subConfigMenu);
         // Add the submenu for jvm.options
-        MenuManager subConfigMenu = new MenuManager(ExtendedConfigFile.JVM_OPTIONS_FILE, Activator.getImageDescriptor(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE), ExtendedConfigFile.JVM_OPTIONS_FILE);
+        subConfigMenu = new MenuManager(ExtendedConfigFile.JVM_OPTIONS_FILE, Activator.getImageDescriptor(ExtendedConfigFile.BOOTSTRAP_PROPS_FILE), ExtendedConfigFile.JVM_OPTIONS_FILE);
         for (int i = 0; i < newJVMOptionsActions.length; i++)
             subConfigMenu.add(newJVMOptionsActions[i]);
         configMenu.add(subConfigMenu);

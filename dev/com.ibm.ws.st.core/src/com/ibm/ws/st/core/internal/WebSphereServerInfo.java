@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -63,6 +63,7 @@ public class WebSphereServerInfo implements IMetadataGenerator {
     private Bootstrap bootstrap;
     private final Map<IPath, JVMOptions> jvmOptionsFiles;
     private ServerEnv serverEnv;
+    private ServerEnv sharedServerEnv;
     private ServerEnv etcServerEnv;
 
     private final UserDirectory userDir;
@@ -114,12 +115,11 @@ public class WebSphereServerInfo implements IMetadataGenerator {
     public IPath getServerOutputPath() {
         if (serverName == null)
             return null;
-        ServerEnv env = null;
-        if ((env = (ServerEnv) getServerEnv()) != null) {
-            String wlpOutputDir = env.getValue(Constants.WLP_OUTPUT_DIR);
-            if (wlpOutputDir != null) {
-                return new Path(wlpOutputDir).append(serverName);
-            }
+        ConfigVars v = new ConfigVars();
+        addServerEnvVars(v);
+        String wlpOutputDir = v.getValue(Constants.ENV_VAR_PREFIX + Constants.WLP_OUTPUT_DIR);
+        if (wlpOutputDir != null && !wlpOutputDir.isEmpty()) {
+            return new Path(wlpOutputDir).append(serverName);
         }
         return userDir.getOutputPath().append(serverName);
     }
@@ -159,6 +159,14 @@ public class WebSphereServerInfo implements IMetadataGenerator {
 
     public ExtendedConfigFile getServerEnv() {
         return serverEnv;
+    }
+
+    public ExtendedConfigFile getSharedServerEnv() {
+        return sharedServerEnv;
+    }
+
+    public ExtendedConfigFile getEtcServerEnv() {
+        return etcServerEnv;
     }
 
     public ConfigurationFile getConfigRoot() {
@@ -345,6 +353,17 @@ public class WebSphereServerInfo implements IMetadataGenerator {
                     serverEnv = null;
                 }
 
+                File sharedServerEnvFile = getUserDirectory().getSharedPath().append(ExtendedConfigFile.SERVER_ENV_FILE).toFile();
+                if (sharedServerEnvFile.exists()) {
+                    if (sharedServerEnv == null || sharedServerEnv.hasChanged()) {
+                        changed = true;
+                        sharedServerEnv = new ServerEnv(sharedServerEnvFile, null);
+                    }
+                } else if (sharedServerEnv != null) {
+                    changed = true;
+                    sharedServerEnv = null;
+                }
+
                 File etcServerEnvFile = runtime.getRuntimeLocation().append(ExtendedConfigFile.ETC_DIR).append(ExtendedConfigFile.SERVER_ENV_FILE).toFile();
                 if (etcServerEnvFile.exists()) {
                     if (etcServerEnv == null || etcServerEnv.hasChanged()) {
@@ -437,12 +456,22 @@ public class WebSphereServerInfo implements IMetadataGenerator {
             }
         }
 
+        addServerEnvVars(vars);
+    }
+
+    private void addServerEnvVars(ConfigVars vars) {
         // Do the env vars from the <runtime install dir>/etc directory first
-        // since those from the server directory should override.
+        // since it is the lowest priority server.env file
         if (etcServerEnv != null) {
             etcServerEnv.getVariables(vars);
         }
 
+        // Followed by env vars from the <user dir>/shared directory
+        if (sharedServerEnv != null) {
+            sharedServerEnv.getVariables(vars);
+        }
+
+        // And finally the env vars from the config dir
         if (serverEnv != null) {
             serverEnv.getVariables(vars);
         }
@@ -1032,26 +1061,23 @@ public class WebSphereServerInfo implements IMetadataGenerator {
                 return new Path(messageloc);
         }
         String logDir = null;
-        ServerEnv env = (ServerEnv) getServerEnv();
-        if (env != null) {
-            ConfigVars v = new ConfigVars();
-            env.getVariables(v);
-            //When both LOG_DIR and WLP_OUTPUT_DIR are specified . Logs will be created under LOG_DIR.
-            logDir = v.getValue(Constants.ENV_VAR_PREFIX + Constants.ENV_LOG_DIR);
-            if (logDir != null) {
-                return new Path(logDir);
-            }
-            logDir = v.getValue(Constants.ENV_VAR_PREFIX + Constants.WLP_OUTPUT_DIR);
-            if (logDir != null) {
-                return new Path(logDir).append(getServerName()).append("logs");
-            }
+        ConfigVars v = new ConfigVars();
+        addServerEnvVars(v);
+        //When both LOG_DIR and WLP_OUTPUT_DIR are specified . Logs will be created under LOG_DIR.
+        logDir = v.getValue(Constants.ENV_VAR_PREFIX + Constants.ENV_LOG_DIR);
+        if (logDir != null && !logDir.isEmpty()) {
+            return new Path(logDir);
+        }
+        logDir = v.getValue(Constants.ENV_VAR_PREFIX + Constants.WLP_OUTPUT_DIR);
+        if (logDir != null && !logDir.isEmpty()) {
+            return new Path(logDir).append(getServerName()).append("logs");
         }
         logDir = System.getenv(Constants.ENV_LOG_DIR);
-        if (logDir != null) {
+        if (logDir != null && !logDir.isEmpty()) {
             return new Path(logDir);
         }
         logDir = System.getenv(Constants.WLP_OUTPUT_DIR);
-        if (logDir != null) {
+        if (logDir != null && !logDir.isEmpty()) {
             return new Path(logDir).append(getServerName()).append("logs");
         }
         return null;

@@ -20,4 +20,7 @@
                   httpPort="${env.PORT}"
                   httpsPort="${env.SECURE_PORT}" />
                   
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="${env.AUTO_EXPAND}"/>
+                  
 </server>
