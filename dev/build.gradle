@@ -25,7 +25,6 @@ repositories {
 }
 configurations {
     antcp
-    antScp
 }
 dependencies {
     antcp 'org.apache.ivy:ivy:2.4.0'
@@ -33,8 +32,6 @@ dependencies {
     antcp 'org.osgi:org.osgi.core:4.3.0'
     antcp 'asm:asm-all:3.3.1'
     antcp 'org.apache.aries:org.apache.aries.util:1.1.3'
-
-    antScp 'org.apache.ant:ant-jsch:1.10.6', 'com.jcraft:jsch:0.1.55'
 }
 
 defaultTasks 'clean', 'compile', 'generateOpenLTUpdateSite', 'deployDHE'
@@ -285,6 +282,23 @@ task deployDHE {
             throw new GradleException("dhe_server is not set!")
         }
 
+        remotes {
+            dhe {
+                host = System.getenv("dhe_server")
+                user = System.getenv("intranet.user")
+                password = System.getenv("intranet.password")
+                knownHosts = allowAnyHosts
+            }
+        }
+
+        ssh.settings {
+            jschLog = true
+            logging = "stdout"
+            fileTransfer = "scp"
+            retryCount = 3
+            retryWaitSec = 5
+        }
+
         def userAtHost = user + "@" + host
         def dir = "/www/stage/export/pub/software/openliberty/tools"
         def destDHEStaging = userAtHost + ':' + dir
@@ -307,11 +321,13 @@ task deployDHE {
             session(remotes.dhe) {
                 // Execute a command
                 def result = execute 'sudo service httpd status'
-                put from: "${rootDir}/${version}/*", into: "${destDHEStaging}/${buildType}/"
+                put from: "${rootDir}/${version}", into: "${dir}/${buildType}/"
 
                 println result
             }
         }
+
+        println "Completed upload of artifacts"
 
         file(toPublishDir).deleteDir()
 
@@ -376,8 +392,7 @@ task deployDHE {
                     failOnError: "true",
                     verbose: "true")
             file("${rootDir}/${infoJson}").delete()
-        }        
-        
+        }          
     }
     
     onlyIf {
