@@ -1,5 +1,5 @@
 /***********************************************************************
- * Copyright (c) 2017, 2018 IBM Corporation and others.
+ * Copyright (c) 2017, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,22 +15,42 @@ buildscript {
     }
 }
 
+plugins {
+  id "org.hidetake.ssh" version "2.10.1"
+}
+
 // Declare ant deps and classpath separately
 repositories {
     mavenCentral()
 }
+
 configurations {
     antcp
-    antScp
 }
+
 dependencies {
     antcp 'org.apache.ivy:ivy:2.4.0'
     antcp 'ant-contrib:ant-contrib:1.0b3'
     antcp 'org.osgi:org.osgi.core:4.3.0'
     antcp 'asm:asm-all:3.3.1'
     antcp 'org.apache.aries:org.apache.aries.util:1.1.3'
+}
 
-    antScp 'org.apache.ant:ant-jsch:1.10.6', 'com.jcraft:jsch:0.1.55'
+remotes {
+    dhe {
+        host = System.getenv("dhe_server")
+        user = System.getenv("intranet.user")
+        password = System.getenv("intranet.password")
+        knownHosts = allowAnyHosts
+    }
+}
+
+ssh.settings {
+    jschLog = true
+    logging = "stdout"
+    fileTransfer = "scp"
+    retryCount = 3
+    retryWaitSec = 5
 }
 
 defaultTasks 'clean', 'compile', 'generateOpenLTUpdateSite', 'deployDHE'
@@ -229,44 +249,6 @@ task deployDHE {
 
     doLast {
 
-        def version = getBuildLabelFromArtifact()
-        def buildType = System.getenv("olt_build_type")
-        def buildLog = System.getenv("BUILD_LOG")
-        
-        println "Publishing ${buildType} build: ${version}"
-        
-        def infoJson = System.getenv("INFO_JSON")
-        
-        def toPublishDir = "${rootDir}/${version}"
-        mkdir(toPublishDir)
-
-        if (buildType == "release") {
-               createJSONForBuild("${version}")
-        }
-
-        // Put all files to be published into a directory
-        def toPublish = ant.path {
-             fileset(dir: 'ant_build/artifacts/', includes: "openlibertytools-*.zip")
-        }
-        
-        toPublish.list().each { file ->
-            println "Publishing " + file + " to DHE"
-            copy {
-                from file
-                into toPublishDir
-            }
-        }
-        
-        def toPublish_buildlog = ant.path {
-             fileset(dir: '.', includes: "${buildLog}")
-        }
-        
-        println "Publishing " + toPublish_buildlog + " to DHE"
-        copy {
-            from toPublish_buildlog
-            into toPublishDir
-        }
-
         def user = System.getenv("intranet.user")
         def host = System.getenv("dhe_server")
         def pw = System.getenv("intranet.password")
@@ -281,23 +263,57 @@ task deployDHE {
             throw new GradleException("dhe_server is not set!")
         }
 
+        def version = getBuildLabelFromArtifact()
+        def buildType = System.getenv("olt_build_type")
+        def buildLog = System.getenv("BUILD_LOG")
+        
+        println "Publishing ${buildType} build: ${version}"
+        
+        def infoJson = System.getenv("INFO_JSON")
+        
+        def toPublishDir = "${rootDir}/${version}"
+        mkdir(toPublishDir)
+
+        // Put all files to be published into a directory
+        def toPublish = ant.path {
+             fileset(dir: 'ant_build/artifacts/', includes: "openlibertytools-*.zip")
+        }
+        
+        toPublish.list().each { file ->
+            println "Publishing " + file + " to DHE"
+            copy {
+                from file
+                into toPublishDir
+            }
+        }
+        
+        if (buildType == "release") {
+            createJSONForBuild("${version}")
+
+            def toPublish_buildlog = ant.path {
+                fileset(dir: '.', includes: "${buildLog}")
+            }
+            
+            println "Publishing " + toPublish_buildlog + " to DHE"
+            copy {
+                from toPublish_buildlog
+                into toPublishDir
+            }
+        }
+
         def userAtHost = user + "@" + host
         def dir = "/www/stage/export/pub/software/openliberty/tools"
         def destDHEStaging = userAtHost + ':' + dir
 
         println "Publishing build: ${version}"
 
-        ant.taskdef(name: 'scp', classname: 'org.apache.tools.ant.taskdefs.optional.ssh.Scp',
-            classpath: configurations.antScp.asPath)
+        ssh.run {
+            session(remotes.dhe) {
+                put from: "${rootDir}/${version}", into: "${dir}/${buildType}/"
+            }
+        }
 
-        ant.scp(todir: "${destDHEStaging}/${buildType}/",
-                password: "${pw}",
-                trust: "yes",
-                sftp: "true",
-                failOnError: "true",
-                verbose: "true") {
-                    fileset(dir: "${rootDir}", includes: "${version}/*")
-                }
+        println "Completed upload of artifacts"
 
         file(toPublishDir).deleteDir()
 
@@ -309,13 +325,11 @@ task deployDHE {
             // Download ${infoJson} from destDHEStaging and use it if it's not emptied.
             println "Downloading ${destDHEStaging}/${buildType}/${infoJson}..."
 
-            ant.scp(file: "${destDHEStaging}/${buildType}/${infoJson}",
-                    todir: "${rootDir}",
-                    password: "${pw}",
-                    trust: "yes",
-                    sftp: "true",
-                    failOnError: "false",
-                    verbose: "true")
+            ssh.run {
+                session(remotes.dhe) {
+                    put from: "${dir}/${buildType}/${infoJson}", into: "${rootDir}/"
+                }
+            }
 
             File json = new File("${rootDir}/${infoJson}")
 
@@ -354,16 +368,15 @@ task deployDHE {
             json.text = JsonOutput.prettyPrint(JsonOutput.toJson(object))
 
             println "Publishing build list ${infoJson}"
-            ant.scp(file: "${rootDir}/${infoJson}",
-                    todir: "${destDHEStaging}/${buildType}/${infoJson}",
-                    password: "${pw}",
-                    trust: "yes",
-                    sftp: "true",
-                    failOnError: "true",
-                    verbose: "true")
+
+            ssh.run {
+                session(remotes.dhe) {
+                    put from: "${rootDir}/${infoJson}", into: "${dir}/${buildType}/${infoJson}"
+                }
+            }
+                    
             file("${rootDir}/${infoJson}").delete()
-        }        
-        
+        }          
     }
     
     onlyIf {
