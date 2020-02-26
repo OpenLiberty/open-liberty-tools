@@ -319,11 +319,7 @@ task deployDHE {
 
         ssh.run {
             session(remotes.dhe) {
-                // Execute a command
-                def result = execute 'sudo service httpd status'
                 put from: "${rootDir}/${version}", into: "${dir}/${buildType}/"
-
-                println result
             }
         }
 
