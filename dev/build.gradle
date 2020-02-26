@@ -34,6 +34,23 @@ dependencies {
     antcp 'org.apache.aries:org.apache.aries.util:1.1.3'
 }
 
+remotes {
+    dhe {
+        host = System.getenv("dhe_server")
+        user = System.getenv("intranet.user")
+        password = System.getenv("intranet.password")
+        knownHosts = allowAnyHosts
+    }
+}
+
+ssh.settings {
+    jschLog = true
+    logging = "stdout"
+    fileTransfer = "scp"
+    retryCount = 3
+    retryWaitSec = 5
+}
+
 defaultTasks 'clean', 'compile', 'generateOpenLTUpdateSite', 'deployDHE'
 
 task importAnt {
@@ -280,23 +297,6 @@ task deployDHE {
         }
         if(host == null || host.isEmpty()) {
             throw new GradleException("dhe_server is not set!")
-        }
-
-        remotes {
-            dhe {
-                host = System.getenv("dhe_server")
-                user = System.getenv("intranet.user")
-                password = System.getenv("intranet.password")
-                knownHosts = allowAnyHosts
-            }
-        }
-
-        ssh.settings {
-            jschLog = true
-            logging = "stdout"
-            fileTransfer = "scp"
-            retryCount = 3
-            retryWaitSec = 5
         }
 
         def userAtHost = user + "@" + host
