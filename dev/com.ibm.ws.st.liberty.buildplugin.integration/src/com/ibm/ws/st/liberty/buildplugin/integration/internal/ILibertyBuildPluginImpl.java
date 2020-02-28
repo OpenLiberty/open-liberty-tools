@@ -51,11 +51,11 @@ public interface ILibertyBuildPluginImpl {
     /**
      * Updates the source configuration using a build plugin goal or task execution.
      *
-     * @param projectLocation <code>IPath</code> of the project's location
+     * @param project The <code>IProject</code>
      * @param config The build plugin configuration
      * @param monitor
      */
-    void updateSrcConfig(IPath projectLocation, LibertyBuildPluginConfiguration config, IProgressMonitor monitor);
+    void updateSrcConfig(IProject project, LibertyBuildPluginConfiguration config, IProgressMonitor monitor);
 
     /**
      * Get the liberty build plugin configuration for the given project.
@@ -95,7 +95,7 @@ public interface ILibertyBuildPluginImpl {
      * Validates whether the project is a dependency module that should be deployed to the server.
      *
      * @param moduleProject the project to check
-     * @param server the server that it could be deployed to
+     * @param server        the server that it could be deployed to
      * @return
      */
     public boolean isDependencyModule(IProject moduleProject, IServer server);

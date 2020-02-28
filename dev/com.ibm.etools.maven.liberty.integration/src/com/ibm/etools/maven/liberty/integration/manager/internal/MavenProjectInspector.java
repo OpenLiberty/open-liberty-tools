@@ -21,6 +21,7 @@ import java.util.Set;
 
 import org.apache.maven.model.Build;
 import org.apache.maven.model.Model;
+import org.apache.maven.model.Plugin;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
@@ -214,6 +215,30 @@ public class MavenProjectInspector implements IProjectInspector {
             return null;
 
         return MavenPlugin.getMaven().readProject(location.toFile(), monitor);
+    }
+
+    @Override
+    public String getLibertyPluginVersion(IProgressMonitor monitor) throws CoreException {
+        for (Plugin plugin : getMavenProject(monitor).getBuildPlugins()) {
+            if ("liberty-maven-plugin".equals(plugin.getArtifactId())) {
+                return plugin.getVersion();
+            }
+        }
+        return "";
+    }
+
+    @Override
+    public boolean useLegacyMvnGoal(IProgressMonitor monitor) {
+        try {
+            String libertyPluginVersion = getLibertyPluginVersion(monitor);
+            if (libertyPluginVersion.indexOf('.') > 0) {
+                String majorVersion = libertyPluginVersion.substring(0, libertyPluginVersion.indexOf('.'));
+                return Integer.parseInt(majorVersion) < 3;
+            }
+        } catch (Exception e) {
+            // default to false
+        }
+        return false;
     }
 
     /** {@inheritDoc} */

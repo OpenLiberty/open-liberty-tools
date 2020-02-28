@@ -368,8 +368,7 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
                 return false;
 
             // Delegate to the build plugin to copy the source file to the output directory
-            IPath location = project.getLocation();
-            buildPluginHelper.updateSrcConfig(location, config, monitor);
+            buildPluginHelper.updateSrcConfig(project, config, monitor);
 
             // Change the server to republish state so it will process the changed file on the next publish operation
             WebSphereServerBehaviour wsb = wsServer.getWebSphereServerBehaviour();
