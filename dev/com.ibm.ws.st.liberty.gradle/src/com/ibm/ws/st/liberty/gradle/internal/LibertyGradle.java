@@ -204,8 +204,9 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
 
     /** {@inheritDoc} */
     @Override
-    public void updateSrcConfig(IPath location, LibertyBuildPluginConfiguration config, IProgressMonitor monitor) {
+    public void updateSrcConfig(IProject project, LibertyBuildPluginConfiguration config, IProgressMonitor monitor) {
         String[] tasks = new String[] {LibertyGradleConstants.LIBERTY_CREATE_TASK};
+        IPath location = project.getLocation();
         runGradleTask(location, tasks, null, monitor);
     }
 
