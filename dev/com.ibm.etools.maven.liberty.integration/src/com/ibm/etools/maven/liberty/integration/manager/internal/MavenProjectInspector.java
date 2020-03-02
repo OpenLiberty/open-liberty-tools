@@ -217,7 +217,13 @@ public class MavenProjectInspector implements IProjectInspector {
         return MavenPlugin.getMaven().readProject(location.toFile(), monitor);
     }
 
-    @Override
+    /**
+     * Gets the liberty-maven-plugin version.
+     *
+     * @param monitor
+     * @return the version of the plugin
+     * @throws CoreException
+     */
     public String getLibertyPluginVersion(IProgressMonitor monitor) throws CoreException {
         for (Plugin plugin : getMavenProject(monitor).getBuildPlugins()) {
             if ("liberty-maven-plugin".equals(plugin.getArtifactId())) {
@@ -227,7 +233,13 @@ public class MavenProjectInspector implements IProjectInspector {
         return "";
     }
 
-    @Override
+    /**
+     * Determine whether the legacy liberty maven plugin goal for installing the app should be used.
+     *
+     * @param project
+     * @param monitor
+     * @return
+     */
     public boolean useLegacyMvnGoal(IProgressMonitor monitor) {
         try {
             String libertyPluginVersion = getLibertyPluginVersion(monitor);

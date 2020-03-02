@@ -86,22 +86,4 @@ public interface IProjectInspector {
      */
     public IModule[] getProjectModules();
 
-    /**
-     * Gets the liberty-maven-plugin version.
-     *
-     * @param monitor
-     * @return the version of the plugin
-     * @throws CoreException
-     */
-    public String getLibertyPluginVersion(IProgressMonitor monitor) throws CoreException;
-
-    /**
-     * Determine whether the legacy liberty maven plugin goal for installing the app should be used.
-     *
-     * @param project
-     * @param monitor
-     * @return
-     */
-    public boolean useLegacyMvnGoal(IProgressMonitor monitor);
-
 }

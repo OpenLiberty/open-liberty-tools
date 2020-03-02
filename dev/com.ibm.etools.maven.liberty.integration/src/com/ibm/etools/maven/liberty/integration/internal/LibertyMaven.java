@@ -188,7 +188,9 @@ public class LibertyMaven implements ILibertyBuildPluginImpl {
     @Override
     public void updateSrcConfig(IProject project, LibertyBuildPluginConfiguration config, IProgressMonitor monitor) {
         IPath location = project.getLocation();
-        boolean useLegacyRepublishCmd = LibertyMaven.getInstance().getProjectInspector(project).useLegacyMvnGoal(monitor);
+        MavenProjectInspector mavenProjectInspector = (MavenProjectInspector) LibertyMaven.getInstance().getProjectInspector(project);
+        boolean useLegacyRepublishCmd = mavenProjectInspector.useLegacyMvnGoal(monitor);
+
         String goal = useLegacyRepublishCmd ? "package liberty:install-apps" : "package liberty:deploy";
 
         runMavenGoal(location, goal, config.getActiveBuildProfiles(), monitor);
@@ -228,7 +230,8 @@ public class LibertyMaven implements ILibertyBuildPluginImpl {
         // Check if the server directory exists in the user directory before attempting to create it
         if (!serverPath.toFile().exists()) {
             // if the path doesn't exist then run the maven goal to create the server files
-            boolean useLegacyRepublishCmd = LibertyMaven.getInstance().getProjectInspector(project).useLegacyMvnGoal(monitor);
+            MavenProjectInspector mavenProjectInspector = (MavenProjectInspector) LibertyMaven.getInstance().getProjectInspector(project);
+            boolean useLegacyRepublishCmd = mavenProjectInspector.useLegacyMvnGoal(monitor);
             String goal = useLegacyRepublishCmd ? "package liberty:install-apps" : "package liberty:deploy";
             Trace.trace(Trace.INFO, "Running " + goal + " goal on project: " + project.getName());
             runMavenGoal(project.getLocation(), goal, profiles, monitor);

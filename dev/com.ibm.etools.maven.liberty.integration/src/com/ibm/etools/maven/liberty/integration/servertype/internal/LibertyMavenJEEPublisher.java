@@ -28,6 +28,7 @@ import com.ibm.etools.maven.liberty.integration.internal.Activator;
 import com.ibm.etools.maven.liberty.integration.internal.LibertyMaven;
 import com.ibm.etools.maven.liberty.integration.internal.Trace;
 import com.ibm.etools.maven.liberty.integration.manager.internal.LibertyMavenProjectMapping;
+import com.ibm.etools.maven.liberty.integration.manager.internal.MavenProjectInspector;
 import com.ibm.ws.st.core.internal.Constants;
 import com.ibm.ws.st.core.internal.PublishUnit;
 import com.ibm.ws.st.core.internal.WebSphereServer;
@@ -207,7 +208,8 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
 
                                     int publishUnitKind = publishUnit.getDeltaKind();
                                     if (ServerBehaviourDelegate.ADDED == publishUnitKind || ServerBehaviourDelegate.CHANGED == publishUnitKind) {
-                                        boolean useLegacyRepublishCmd = LibertyMaven.getInstance().getProjectInspector(moduleProject).useLegacyMvnGoal(monitor);
+                                        MavenProjectInspector mavenProjectInspector = (MavenProjectInspector) LibertyMaven.getInstance().getProjectInspector(moduleProject);
+                                        boolean useLegacyRepublishCmd = mavenProjectInspector.useLegacyMvnGoal(monitor);
 
                                         final String mvnRepublishCmd = useLegacyRepublishCmd ? "war:war liberty:install-apps" : "war:war liberty:deploy";
 
@@ -267,8 +269,9 @@ public class LibertyMavenJEEPublisher extends AbstractLibertyBuildPluginJEEPubli
                                         String installGoal = "install";
                                         LibertyMaven.runMavenGoal(moduleProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
                                     }
-                                    
-                                    boolean useLegacyRepublishCmd = LibertyMaven.getInstance().getProjectInspector(moduleProject).useLegacyMvnGoal(monitor);
+
+                                    MavenProjectInspector mavenProjectInspector = (MavenProjectInspector) LibertyMaven.getInstance().getProjectInspector(moduleProject);
+                                    boolean useLegacyRepublishCmd = mavenProjectInspector.useLegacyMvnGoal(monitor);
                                     final String installGoal = useLegacyRepublishCmd ? "liberty:install-apps" : "liberty:deploy";
                                     Trace.trace(Trace.INFO, "Running " + installGoal + " goal on project: " + mappedProject.getName());
                                     LibertyMaven.runMavenGoal(mappedProject.getLocation(), installGoal, config.getActiveBuildProfiles(), monitor);
