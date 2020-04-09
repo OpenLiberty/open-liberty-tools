@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014, 2018 IBM Corporation and others.
+ * Copyright (c) 2014, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -97,8 +97,8 @@ class WebSphereRuntimeClasspathHelper {
                     @Override
                     public int compare(String featureA, String featureB) {
                         //Sort from lower to higher version. Assume the features have same name
-                        int indexA = featureA.indexOf("-");
-                        int indexB = featureB.indexOf("-");
+                        int indexA = featureA.lastIndexOf("-");
+                        int indexB = featureB.lastIndexOf("-");
 
                         if (indexA == -1 && indexB == -1)
                             return 0;
