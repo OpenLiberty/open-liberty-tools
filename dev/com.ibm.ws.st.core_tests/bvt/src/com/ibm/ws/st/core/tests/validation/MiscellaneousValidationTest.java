@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -235,10 +235,10 @@ public class MiscellaneousValidationTest extends ValidationTestBase {
         IFile file = getServerFile(serverName, "server.xml");
         ValidatorMessage[] messages = TestUtil.validate(file);
         checkMessageCount(messages, 2);
-        checkMessage(messages[0], NLS.bind(Messages.unavailableElement, "dataSource"),
-                     serverName + "/" + file.getName(), 34);
-        checkMessage(messages[1], NLS.bind(Messages.unavailableElement, "jdbcDriver"),
-                     serverName + "/" + file.getName(), 44);
+        checkMessage(messages[0], NLS.bind(Messages.unavailableElement, "keyStore"),
+                     serverName + "/" + file.getName(), 17);
+        checkMessage(messages[1], NLS.bind(Messages.unavailableElement, "basicRegistry"),
+                     serverName + "/" + file.getName(), 19);
         deleteRuntimeServer(serverName);
     }
 
