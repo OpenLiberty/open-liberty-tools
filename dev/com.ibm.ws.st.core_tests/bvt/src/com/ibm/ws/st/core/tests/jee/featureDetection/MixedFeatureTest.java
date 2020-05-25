@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2018 IBM Corporation and others.
+ * Copyright (c) 2018, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -129,6 +129,8 @@ public class MixedFeatureTest extends BaseFeatureTest {
 
     @Test
     public void test08_testJsonB10() throws Exception {
+        if (hasJakartaFeatures())
+            return;
         try {
             addApps(JSONB10_PROJECT);
             checkFeatures("jsonb-1.0");
@@ -140,6 +142,8 @@ public class MixedFeatureTest extends BaseFeatureTest {
 
     @Test
     public void test09_testJsonP11() throws Exception {
+        if (hasJakartaFeatures())
+            return;
         try {
             addApps(JSONP11_PROJECT);
             checkFeatures("jsonp-1.1");
@@ -151,6 +155,8 @@ public class MixedFeatureTest extends BaseFeatureTest {
 
     @Test
     public void test10_testJsonAll() throws Exception {
+        if (hasJakartaFeatures())
+            return;
         try {
             addApps(JSONB10_PROJECT, JSONP11_PROJECT);
             checkFeatures("jsonb-1.0");

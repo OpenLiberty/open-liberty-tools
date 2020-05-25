@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2018 IBM Corporation and others.
+ * Copyright (c) 2012, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -422,7 +422,7 @@ public abstract class ToolsTestBase extends TestCase {
     /**
      * Import existing projects into the workspace
      *
-     * @param srcWS The source location of the project (all projects must be located in the same folder)
+     * @param srcWS        The source location of the project (all projects must be located in the same folder)
      * @param projectNames The names of the projects to import
      * @param copyProjects Whether project contents should be copied into the workspace or not
      * @throws CoreException
@@ -509,9 +509,9 @@ public abstract class ToolsTestBase extends TestCase {
     /**
      * A convenience utility that will make the current thread wait for a condition to be satisfied.
      *
-     * @param msg message to be printed to system.out prior to waiting
-     * @param interval the amount of time to sleep in between checking the condition
-     * @param timeout the maximum amount of time to wait for the condition to be satisfied
+     * @param msg       message to be printed to system.out prior to waiting
+     * @param interval  the amount of time to sleep in between checking the condition
+     * @param timeout   the maximum amount of time to wait for the condition to be satisfied
      * @param condition a condition that can be defined with an implementation of {@link com.ibm.ws.st.core.tests.util.ICondition}
      */
     protected static boolean waitOnCondition(String msg, int interval, int timeout, ICondition condition) {
@@ -949,5 +949,11 @@ public abstract class ToolsTestBase extends TestCase {
         } catch (Exception e2) {
             Trace.logError("Failed to reset environment variables on Windows.", e2);
         }
+    }
+
+    protected boolean hasJakartaFeatures() {
+        WebSphereRuntime wr = (WebSphereRuntime) runtime.loadAdapter(WebSphereRuntime.class, null);
+        FeatureSet set = wr.getInstalledFeatures();
+        return set.isFeatureSupported("servlet-5.0");
     }
 }

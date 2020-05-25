@@ -1,24 +1,25 @@
 /*******************************************************************************
- * Copyright (c) 2015 IBM Corporation and others.
+ * Copyright (c) 2015, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.samples;
-
-import junit.framework.TestSuite;
 
 import org.eclipse.core.runtime.Path;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.AllTests;
 
+import com.ibm.ws.st.core.tests.util.FeatureUtil;
 import com.ibm.ws.st.core.tests.util.WLPCommonUtil;
 import com.ibm.ws.st.tests.common.util.TestCaseDescriptor;
+
+import junit.framework.TestSuite;
 
 /**
  *
@@ -67,6 +68,9 @@ public class CDISample extends SampleTestBase {
 
         //Not sure why we need to create vm ?????
         createVM(JDK_NAME);
+
+        // Add jsp feature (no facet so add explicitly to get the right version)
+        FeatureUtil.addFeature(server, "jsp-2.3");
 
         importProjects(new Path("sampleTesting" + "/" + SAMPLE_TEST_NAME + "/ws"), new String[] { "cdiApp", "cdiAppEAR" });
 
