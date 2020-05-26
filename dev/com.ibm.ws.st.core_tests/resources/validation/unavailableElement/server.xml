@@ -30,19 +30,4 @@
     
     <application id="Sample" location="${server.config.dir}/myAppDir/Sample2.war" name="Sample2" type="war"/>
 
-    <dataSource jndiName="jdbc/exampleDS" id="ds1">
-        <jdbcDriver>
-            <library>
-                <fileset dir="C:\db-derby-10.8.2.2-bin\lib" includes="derby.jar"></fileset>
-            </library>
-        </jdbcDriver>
-        <properties.derby.embedded createDatabase="create" databaseName="${shared.resource.dir}/data/exampleDB"/>
-    </dataSource>
-    
-    
-    <jdbcDriver id="jdbcDriver">
-        <library>
-            <fileset dir="D:\derby\lib" includes="derby.jar"></fileset>
-        </library>
-    </jdbcDriver>
 </server>
