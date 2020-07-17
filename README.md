@@ -57,6 +57,6 @@ Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentatio
 
 ## Community
 1. [Open Liberty group.io](https://groups.io/g/openliberty)
-2. [OpenLibertyAS on Twitter](https://twitter.com/OpenLibertyAS)
+2. [OpenLibertyIO on Twitter](https://twitter.com/OpenLibertyIO)
 3. [ibm-wdt tag on stackoverflow](https://stackoverflow.com/questions/tagged/ibm-wdt)
 
