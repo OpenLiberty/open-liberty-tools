@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.generation;
 
@@ -29,6 +29,10 @@ public class Feature implements Cloneable {
     private final String featureInfoName;
 
     private final FeatureType featureType;
+
+    private static final String JAKARTA_EE9_FEATURE_DIRECT_DEPENDENCY = "com.ibm.websphere.appserver.eeCompatible-9.0";
+    private static final String JAKARTA_EE9_CONVENIENCE_FEATURE_NAME = "jakartaee-9.0";
+    private static final String JAKARTA_EE9_JSP_FEATURE_NAME = "jsp-3.0";
 
     private final Set<String> enables = new HashSet<String>(8);
     private final Set<String> apiJars = new HashSet<String>(8);
@@ -76,9 +80,9 @@ public class Feature implements Cloneable {
      * @return the process type
      */
     public ProcessType getProcessType() {
-        if(processTypes.size() == 1 && processTypes.contains("CLIENT")) 
-        	return ProcessType.CLIENT;
-        	
+        if (processTypes.size() == 1 && processTypes.contains("CLIENT"))
+            return ProcessType.CLIENT;
+
         return ProcessType.SERVER;
     }
 
@@ -188,10 +192,23 @@ public class Feature implements Cloneable {
     }
 
     /**
+     * @return if the feature is Jakarta EE9 feature
+     */
+    public boolean isJakartaEE9Feature() {
+        if (includes.containsKey(JAKARTA_EE9_FEATURE_DIRECT_DEPENDENCY)
+            || name.equals(JAKARTA_EE9_CONVENIENCE_FEATURE_NAME)
+            || name.equals(JAKARTA_EE9_JSP_FEATURE_NAME)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * A feature can be a public feature and still have auto provisions
      * making it an auto feature as well so a separate method is needed
      * since checking the type is not sufficient.
-     * 
+     *
      * @return If this feature is an auto feature
      */
     public boolean isAutoFeature() {

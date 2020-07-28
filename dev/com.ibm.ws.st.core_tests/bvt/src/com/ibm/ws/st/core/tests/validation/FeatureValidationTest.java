@@ -104,6 +104,20 @@ public class FeatureValidationTest extends ValidationTestBase {
     }
 
     @Test
+    public void test7_jakartaEE9Feature() throws Exception {
+        // Test that there is an warning message if a feature
+        // is Jakarta EE9 feature.
+        String serverName = "jakartaEE9Feature";
+        setupRuntimeServer(RESOURCE_PATH, serverName);
+        IFile file = getServerFile(serverName, "server.xml");
+        ValidatorMessage[] messages = TestUtil.validate(file);
+        checkMessageCount(messages, 1);
+        checkMessage(messages[0], NLS.bind(Messages.unrecognizedFeature, "jsp-3.0"),
+                     serverName + "/" + file.getName(), 17);
+        deleteRuntimeServer(serverName);
+    }
+
+    @Test
     public void test99_doTearDown() {
         cleanUp();
         print("Ending test: ValidationTestCase\n");

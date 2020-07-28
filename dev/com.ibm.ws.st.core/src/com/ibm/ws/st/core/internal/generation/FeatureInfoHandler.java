@@ -198,8 +198,8 @@ public class FeatureInfoHandler extends DefaultHandler {
             }
             chars = null;
         } else if (qname.equals(FEATURE)) {
-            //don't add the client only features to the map. For Client only features, processType is set to CLIENT
-            if (!current.getProcessType().equals(ProcessType.CLIENT)) {
+            // Don't add the client only features and Jakarta EE9 features to the map. For Client only features, processType is set to CLIENT
+            if (!current.getProcessType().equals(ProcessType.CLIENT) && !current.isJakartaEE9Feature()) {
                 featureMaps.get(FeatureMapType.PUBLIC_FEATURES_KEYED_BY_NAME).put(current.getName(), current);
                 // Older feature lists may not have a symbolic name
                 if (current.getSymbolicName() != null) {

@@ -277,7 +277,7 @@ public class FeatureInstaller extends AbstractInstaller {
                     jvmArgs += " -D" + REPOSITORIES_LOCATION_OVERRIDE_PROP_NAME + "=" + repoPropsURL;
             }
 
-            if (jvmArgs != null && jvmArgs.length() > 0) {
+            if (jvmArgs.length() > 0) {
                 env.put("JVM_ARGS", jvmArgs);
             }
         }

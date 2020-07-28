@@ -39,6 +39,7 @@ public class AllFeatureTests {
             testsuites.add(AlternativeFeatureTest.class);
             testsuites.add(MixedFeatureTest.class);
             testsuites.add(ImportFeatureTest.class);
+            testsuites.add(JakartaEE9FeatureTest.class);
         }
         return testsuites;
     }
