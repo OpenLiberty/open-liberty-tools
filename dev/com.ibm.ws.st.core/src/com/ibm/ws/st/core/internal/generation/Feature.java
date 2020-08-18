@@ -32,7 +32,6 @@ public class Feature implements Cloneable {
 
     private static final String JAKARTA_EE9_FEATURE_DIRECT_DEPENDENCY = "com.ibm.websphere.appserver.eeCompatible-9.0";
     private static final String JAKARTA_EE9_CONVENIENCE_FEATURE_NAME = "jakartaee-9.0";
-    private static final String JAKARTA_EE9_JSP_FEATURE_NAME = "jsp-3.0";
 
     private final Set<String> enables = new HashSet<String>(8);
     private final Set<String> apiJars = new HashSet<String>(8);
@@ -196,8 +195,7 @@ public class Feature implements Cloneable {
      */
     public boolean isJakartaEE9Feature() {
         if (includes.containsKey(JAKARTA_EE9_FEATURE_DIRECT_DEPENDENCY)
-            || name.equals(JAKARTA_EE9_CONVENIENCE_FEATURE_NAME)
-            || name.equals(JAKARTA_EE9_JSP_FEATURE_NAME)) {
+            || name.equals(JAKARTA_EE9_CONVENIENCE_FEATURE_NAME)) {
             return true;
         }
 
