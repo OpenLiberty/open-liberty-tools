@@ -29,6 +29,8 @@ Export-Package: com.ibm.websphere.crypto,
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Bundle-Activator: com.ibm.ws.st.core.internal.Activator
+Require-Bundle: org.eclipse.jdt.debug,
+ org.eclipse.core.runtime
 Import-Package: com.ibm.ws.kernel.feature,
  com.ibm.ws.kernel.feature.provisioning,
  com.ibm.ws.kernel.feature.resolver,
@@ -38,8 +40,6 @@ Import-Package: com.ibm.ws.kernel.feature,
  com.ibm.ws.st.common.core.ext.internal.setuphandlers,
  com.ibm.ws.st.common.core.ext.internal.util,
  com.ibm.ws.st.common.core.internal,
- com.sun.jdi;bundle-symbolic-name="org.eclipse.jdt.debug",
- com.sun.jdi.connect;bundle-symbolic-name="org.eclipse.jdt.debug",
  javax.json;bundle-symbolic-name="com.ibm.ws.st.common.core",
  javax.json.spi;bundle-symbolic-name="com.ibm.ws.st.common.core",
  javax.json.stream;bundle-symbolic-name="com.ibm.ws.st.common.core",
