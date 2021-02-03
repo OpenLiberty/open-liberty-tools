@@ -43,6 +43,94 @@
   <node path="/server/variable">
     <item path="@name"/>
   </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
   <node path="/server/webApplication/classloader/privateLibrary/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -63,6 +151,116 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/webApplication/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webApplication/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webApplication/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webApplication/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/startAfter/classloader/classProvider/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/enterpriseApplication/classloader/privateLibrary/fileset">
@@ -87,6 +285,28 @@
   <node path="/server/enterpriseApplication/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
+  <node path="/server/enterpriseApplication/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/enterpriseApplication/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/enterpriseApplication/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/enterpriseApplication/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
   <node path="/server/trustAssociation/interceptors/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -96,17 +316,6 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/trustAssociation/interceptors/library/file">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
-  </node>
-  <node path="/server/jaasLoginModule/library/fileset">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
-  </node>
-  <node path="/server/jaasLoginModule/library/folder">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
-  </node>
-  <node path="/server/jaasLoginModule/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/applicationMonitor">
@@ -122,6 +331,50 @@
         <suggest value="ejb"/>
       </suggestedValues>
     </item>
+  </node>
+  <node path="/server/application/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/application/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/application/classloader/privateLibrary/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
@@ -145,6 +398,127 @@
   <node path="/server/application/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
+  <node path="/server/application/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/application/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/application/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/application/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/application/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/application/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/classProvider/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/jaasLoginModule/library/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/jaasLoginModule/library/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/jaasLoginModule/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
   <node path="/server/batchPersistence/jobStore/dataSource/jdbcDriver/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -165,6 +539,50 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/bell/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/classloader/classProvider/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/library/fileset">
@@ -217,15 +635,92 @@
   <node path="/server/couchdb/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
-  <node path="/server/distributedMap/library/fileset">
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/privateLibrary/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
   </node>
-  <node path="/server/distributedMap/library/folder">
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/privateLibrary/folder">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
-  <node path="/server/distributedMap/library/file">
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/startAfter/classloader/classProvider/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/ejbApplication/classloader/privateLibrary/fileset">
@@ -248,6 +743,28 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/ejbApplication/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/ejbApplication/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/ejbApplication/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/ejbApplication/classloader/classProvider/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/resourceAdapter/classloader/privateLibrary/fileset">
@@ -429,18 +946,227 @@
   <node path="/server/osgiLibrary/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
-  <node path="/server/productInsights/ssl/keyStore">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
-  </node>
-  <node path="/server/httpSessionCache/library/fileset">
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/privateLibrary/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
   </node>
-  <node path="/server/httpSessionCache/library/folder">
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/privateLibrary/folder">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
-  <node path="/server/httpSessionCache/library/file">
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/osgiApplication/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/productInsights/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/startAfter/classloader/classProvider/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/startAfter/classloader/classProvider/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/springBootApplication/classloader/privateLibrary/fileset">
@@ -463,6 +1189,28 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/springBootApplication/classloader/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/classProvider/classloader/privateLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/classProvider/classloader/privateLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/classProvider/classloader/privateLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/classProvider/classloader/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/classProvider/classloader/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/springBootApplication/classloader/classProvider/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/ssl/keyStore">
@@ -497,6 +1245,31 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/databaseStore/dataSource/jdbcDriver/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/distributedMap/library/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/distributedMap/library/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/distributedMap/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/grpcClient/ssl/keyStore">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
+  </node>
+  <node path="/server/httpSessionCache/library/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/httpSessionCache/library/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/httpSessionCache/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
 </customization>
