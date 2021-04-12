@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<featureInfo name="core" location="C:\_DoNotBkup\_WDT\openliberty-20.0.0.12\wlp"> 
+<featureInfo name="core" location="/Users/billydawson/Documents/WDT-schema-feature-list/wlp"> 
     <privateFeature> 
         <symbolicName>com.ibm.websphere.appclient.appClient-1.0</symbolicName> 
         <include symbolicName="com.ibm.websphere.appserver.appmanager-1.0"></include> 
@@ -7439,6 +7439,111 @@
         <configElement>authFilter</configElement> 
     </autoFeature> 
 <defaultConfiguration> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.constrainedDelegation-1.0"> 
+        <spnegoHelper kerberosExtService="defaultConstrainedDelegation"> 
+        </spnegoHelper> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.constrainedDelegation-1.0"> 
+        <constrainedDelegation id="defaultConstrainedDelegation"> 
+        </constrainedDelegation> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.classloading-1.0"> 
+        <library apiTypeVisibility="spec, ibm-api, api, stable" id="global"> 
+            <fileset includes="*" dir="${shared.config.dir}/lib/global/"> 
+            </fileset> 
+            <fileset includes="*" dir="${server.config.dir}/lib/global/"> 
+            </fileset> 
+            <folder dir="${server.config.dir}/lib/global/"> 
+            </folder> 
+            <folder dir="${shared.config.dir}/lib/global/"> 
+            </folder>
+     
+        </library> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.basicRegistry-1.0,com.ibm.websphere.appserver.federatedRegistry-1.0,com.ibm.websphere.appserver.appSecurityClient-1.0,com.ibm.websphere.appserver.securityInfrastructure-1.0"> 
+        <com.ibm.ws.security.registry.internal.UserRegistryRefConfig> 
+        </com.ibm.ws.security.registry.internal.UserRegistryRefConfig> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.ws.persistence-1.0"> 
+        <databaseStore dataSourceRef="DefaultDataSource" id="defaultDatabaseStore"> 
+        </databaseStore> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.federatedRegistry-1.0"> 
+        <com.ibm.ws.security.wim.registry.WIMUserRegistry> 
+        </com.ibm.ws.security.wim.registry.WIMUserRegistry> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-1.0"> 
+        <com.ibm.ws.beanvalidation.service.ValidationReleasableFactory type="CDIValidationReleasableFactory"> 
+        </com.ibm.ws.beanvalidation.service.ValidationReleasableFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-1.0"> 
+        <com.ibm.ws.beanvalidation.v11.config.internal.ValidationConfigurationV11FactoryImpl> 
+        </com.ibm.ws.beanvalidation.v11.config.internal.ValidationConfigurationV11FactoryImpl> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jwtSsoToken-1.0,com.ibm.websphere.appserver.jwtSso-1.0"> 
+        <jwtSso id="defaultJwtSso"> 
+        </jwtSso> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.securityContext-1.0"> 
+        <contextService id="DefaultContextService"> 
+            <securityContext> 
+            </securityContext>
+     
+        </contextService> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsfContainer-2.3"> 
+        <library id="com.ibm.ws.jsfContainer.2.3"> 
+            <fileset includes="com.ibm.ws.jsfContainer_1.0.*.jar" dir="${wlp.install.dir}/lib/"> 
+            </fileset>
+    	 
+        </library> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsfContainer-2.2"> 
+        <library id="com.ibm.ws.jsfContainer.2.2"> 
+            <fileset includes="com.ibm.ws.jsfContainer_1.0.*.jar" dir="${wlp.install.dir}/lib/"> 
+            </fileset>
+    	 
+        </library> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jms.defaultresource-1.0"> 
+        <jmsConnectionFactory javaCompDefaultName="DefaultJMSConnectionFactory" id="DefaultJMSConnectionFactory"> 
+            <properties.wasJms> 
+            </properties.wasJms>
+		 
+        </jmsConnectionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-2.0"> 
+        <com.ibm.ws.beanvalidation.service.BvalManagedObjectBuilder type="BvalMOBuilder"> 
+        </com.ibm.ws.beanvalidation.service.BvalManagedObjectBuilder> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-2.0"> 
+        <com.ibm.ws.beanvalidation.v20.ValidatorFactoryBuilderImpl> 
+        </com.ibm.ws.beanvalidation.v20.ValidatorFactoryBuilderImpl> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.csiv2-1.0,com.ibm.websphere.appserver.csiv2Client-1.0" addIfMissing="true"> 
+        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="SSL"> 
+        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.concurrencyPolicy-1.0"> 
+        <concurrencyPolicy id="defaultConcurrencyPolicy" service.ranking="100"> 
+        </concurrencyPolicy> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="io.openliberty.app.manager.wab-1.0"> 
+        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="WAB"> 
+        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.internal.jaxrs-2.0,com.ibm.websphere.appserver.internal.jaxrs-2.1"> 
+        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="JaxRS-2"> 
+        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="io.openliberty.distributedMapInternal-1.0"> 
+        <distributedMap cacheProviderName="default" id="baseCache" memorySizeInEntries="2000" createCacheAtServerStartup="true" jndiName="services/cache/basecache"> 
+        </distributedMap> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="io.openliberty.distributedMapInternal-1.0"> 
+        <distributedMap cacheProviderName="default" id="defaultCache" memorySizeInEntries="2000" jndiName="services/cache/distributedmap"> 
+        </distributedMap> 
+    </defaultInstance> 
     <defaultInstance providingFeatures="com.ibm.websphere.appserver.csiv2-1.0" addIfMissing="true"> 
         <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="CSIv2"> 
         </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
@@ -7472,6 +7577,324 @@
          
         </orb> 
     </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.csiv2Client-1.0"> 
+        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="CSIv2Client"> 
+        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.csiv2Client-1.0"> 
+        <orb id="defaultOrb"> 
+            <clientPolicy.clientContainerCsiv2> 
+                <layers> 
+                    <authenticationLayer establishTrustInClient="Supported" mechanisms="GSSUP"> 
+                    </authenticationLayer> 
+                    <transportLayer> 
+                    </transportLayer>
+                 
+                </layers>
+             
+            </clientPolicy.clientContainerCsiv2>
+         
+        </orb> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-1.1"> 
+        <com.ibm.ws.beanvalidation.service.ConstrainedHelper type="ConstrainedHelperV11"> 
+        </com.ibm.ws.beanvalidation.service.ConstrainedHelper> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-1.1"> 
+        <com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
+        </com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsf.beanValidation-2.3,com.ibm.websphere.appserver.jsf.beanValidation-2.2"> 
+        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="Jsf-beanvalidation"> 
+        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.javaee-jdbc-4.3,com.ibm.websphere.appserver.javaee-jdbc-4.2,com.ibm.websphere.appserver.javaee-jdbc-4.1,com.ibm.websphere.appserver.javaee-jdbc-4.0"> 
+        <dataSource javaCompDefaultName="DefaultDataSource" id="DefaultDataSource" service.ranking="100">
+     
+        </dataSource> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsf-2.2"> 
+        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="Jsf-2.2"> 
+        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jcaSecurity-1.0,com.ibm.websphere.appserver.builtinAuthentication-1.0"> 
+        <kerberos> 
+        </kerberos> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
+        <com.ibm.ws.beanvalidation.service.ValidatorFactoryBuilder type="ValidatorFactoryBuilderV20"> 
+        </com.ibm.ws.beanvalidation.service.ValidatorFactoryBuilder> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
+        <com.ibm.ws.beanvalidation.service.ConstrainedHelper type="ConstrainedHelperV20"> 
+        </com.ibm.ws.beanvalidation.service.ConstrainedHelper> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
+        <com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
+        </com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
+        <javaPermission name="accessPrivateMembers" className="org.hibernate.validator.HibernateValidatorPermission" id="org.hibernate.validator.HibernateValidatorPermission"> 
+        </javaPermission> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.spnego-1.0"> 
+        <spnego id="defaultSpnego"> 
+        </spnego> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.binary.logging-1.0"> 
+        <logging> 
+            <binaryLog> 
+            </binaryLog> 
+            <binaryTrace> 
+            </binaryTrace>
+		 
+        </logging> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.channelfw-1.0"> 
+        <variable name="defaultHostName" value="localhost"> 
+        </variable> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.channelfw-1.0"> 
+        <tcpOptions id="defaultTCPOptions" service.ranking="-1"> 
+        </tcpOptions> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.channelfw-1.0"> 
+        <udpOptions id="defaultUDPOptions" service.ranking="-1"> 
+        </udpOptions> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appmanager-1.0"> 
+        <com.ibm.ws.app.startbarrier> 
+        </com.ibm.ws.app.startbarrier> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appmanager-1.0"> 
+        <com.ibm.ws.app.prereqmonitor> 
+        </com.ibm.ws.app.prereqmonitor> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsonbContainer-1.0,com.ibm.websphere.appserver.jsonb-1.0"> 
+        <com.ibm.ws.org.eclipse.yasson.ResourceProvider> 
+        </com.ibm.ws.org.eclipse.yasson.ResourceProvider> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iiopclient-1.0"> 
+        <orb nameService="corbaloc:iiop:localhost:2809/NameService" id="defaultOrb"> 
+        </orb> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsClient-2.0,com.ibm.websphere.appserver.wasJmsServer-1.0"> 
+        <wasJmsOutbound id="BootstrapBasicMessaging"> 
+        </wasJmsOutbound> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsClient-2.0,com.ibm.websphere.appserver.wasJmsServer-1.0"> 
+        <wasJmsOutbound id="BootstrapSecureMessaging" useSSL="true"> 
+        </wasJmsOutbound> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jwt-1.0,com.ibm.websphere.appserver.oauth-2.0"> 
+        <jwtBuilder id="defaultJWT"> 
+        </jwtBuilder> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jwt-1.0,com.ibm.websphere.appserver.oauth-2.0"> 
+        <jwtConsumer id="defaultJwtConsumer"> 
+        </jwtConsumer> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jms-2.0"> 
+        <jmsConnectionFactory javaCompDefaultName="DefaultJMSConnectionFactory" id="DefaultJMSConnectionFactory"> 
+        </jmsConnectionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.mpJwt-1.1,com.ibm.websphere.appserver.mpJwt-1.0,com.ibm.websphere.appserver.jwtSso-1.0"> 
+        <mpJwt id="defaultMpJwt"> 
+        </mpJwt> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
+        <sslOptions id="defaultSSLOptions" service.ranking="-1"> 
+        </sslOptions> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
+        <variable name="defaultSSLVar" value="defaultSSLOptions"> 
+        </variable> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
+        <httpOptions id="defaultHttpOptions" service.ranking="-1"> 
+        </httpOptions> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
+        <remoteIp id="defaultRemoteIp" service.ranking="-1"> 
+        </remoteIp> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
+        <compression id="defaultCompression" service.ranking="-1"> 
+        </compression> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
+        <samesite id="defaultSameSite" service.ranking="-1"> 
+        </samesite> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
+        <httpEndpoint httpPort="9080" id="defaultHttpEndpoint" httpsPort="9443"> 
+        </httpEndpoint> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
+        <virtualHost id="default_host"> 
+        </virtualHost> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
+        <variable name="defaultHTTPVar" value="defaultHttpOptions"> 
+        </variable> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jaxwsweb-2.2"> 
+        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="JaxWS"> 
+        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsp-2.2,com.ibm.websphere.appserver.jsp-2.3"> 
+        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="Jsp"> 
+        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.builtinAuthorization-1.0,com.ibm.wsspi.appserver.webBundleSecurity-1.0"> 
+        <authorization id="defaultAuthorization" useRoleAsGroupName="true"> 
+        </authorization> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.servlet-3.1,com.ibm.websphere.appserver.servlet-4.0"> 
+        <webContainer> 
+        </webContainer> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.sipServlet-1.1"> 
+        <sipApplicationRouter> 
+        </sipApplicationRouter> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.sipServlet-1.1"> 
+        <sipEndpoint sipUDPPort="5060" sipTLSPort="5061" host="*" sipTCPPort="5060" id="defaultSipEndpoint"> 
+        </sipEndpoint> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
+        <iiopEndpoint iiopPort="2809" id="defaultIiopEndpoint"> 
+            <iiopsOptions iiopsPort="9402"> 
+            </iiopsOptions>
+     
+        </iiopEndpoint> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
+        <orb iiopEndpointRef="defaultIiopEndpoint" id="defaultOrb"> 
+        </orb> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
+        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="Dispatch"> 
+        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
+        <namingServiceAdapterActivator id="defaultNamingServiceAdapterActivator"> 
+        </namingServiceAdapterActivator> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iiopcommon-1.0"> 
+        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="Naming"> 
+        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iiopcommon-1.0"> 
+        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="DefaultSocketFactory"> 
+        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.kernelCore-1.0"> 
+        <org.apache.felix.scr.ScrService ds.info.service="true" ds.cache.metadata="true"> 
+        </org.apache.felix.scr.ScrService> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
+        <jaasLoginModule libraryRef="jaasSharedLib" controlFlag="REQUIRED" className="com.ibm.ws.security.jaas.common.modules.WSLoginModuleProxy" id="proxy"> 
+            <options delegate="com.ibm.ws.security.client.jaas.modules.WSClientLoginModuleImpl"> 
+            </options>
+         
+        </jaasLoginModule> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
+        <jaasLoginContextEntry name="ClientContainer" id="ClientContainer" loginModuleRef="proxy"> 
+        </jaasLoginContextEntry> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
+        <jaasLoginContextEntry name="WSLogin" id="WSLogin" loginModuleRef="proxy"> 
+        </jaasLoginContextEntry> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
+        <library apiTypeVisibility="spec, ibm-api, api" id="jaasSharedLib"> 
+            <fileset includes="*" dir="${client.config.dir}/lib/global/"> 
+            </fileset>
+         
+        </library> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
+        <library apiTypeVisibility="spec, ibm-api, api" id="jaasDefaultSharedLib"> 
+            <fileset includes="*" dir="${client.config.dir}/resources/security/jaas/"> 
+            </fileset> 
+            <fileset includes="*" dir="${shared.config.dir}/resources/security/jaas/"> 
+            </fileset> 
+            <fileset dir="${client.config.dir}/resources/security/jaas/"> 
+            </fileset> 
+            <fileset dir="${shared.config.dir}/resources/security/jaas/"> 
+            </fileset>
+         
+        </library> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wsAtomicTransaction-1.2"> 
+        <wsAtomicTransaction SSLRef="defaultSSLConfig" SSLEnabled="false" externalURLPrefix="" clientAuth="false"> 
+        </wsAtomicTransaction> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
+        <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore"> 
+        </ssl> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
+        <keyStore id="defaultKeyStore"> 
+        </keyStore> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.authData-1.0"> 
+        <jaasLoginModule libraryRef="jaasSharedLib" controlFlag="REQUIRED" className="com.ibm.websphere.security.jca.WSPrincipalMappingLoginModule" id="wsPrincipalMappingLoginModule"> 
+        </jaasLoginModule> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.authData-1.0"> 
+        <jaasLoginContextEntry name="DefaultPrincipalMapping" id="DefaultPrincipalMapping" loginModuleRef="wsPrincipalMappingLoginModule"> 
+        </jaasLoginContextEntry> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.openid-2.0"> 
+        <userInfo uriType="http://axschema.org/contact/email" count="1" alias="email" id="email" required="true"> 
+        </userInfo> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.springBootHandler-1.0"> 
+        <classloading useJarUrls="true"> 
+        </classloading> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wimcore-1.0"> 
+        <com.ibm.ws.security.wim.VMMService name="singleton"> 
+        </com.ibm.ws.security.wim.VMMService> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ejbPersistentTimer-3.2"> 
+        <contextService id="defaultEJBPersistentTimerContextService"> 
+        </contextService> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ejbPersistentTimer-3.2"> 
+        <persistentExecutor initialPollDelay="-1" enableTaskExecution="true" retryInterval="300s" id="defaultEJBPersistentTimerExecutor" retryLimit="-1" contextServiceRef="defaultEJBPersistentTimerContextService"> 
+        </persistentExecutor> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsClient-2.0"> 
+        <bundleResourceAdapter location="location-of-rar-file" id="wasJms"> 
+            <properties.wasJms> 
+            </properties.wasJms>
+       
+        </bundleResourceAdapter> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport.transaction-1.0"> 
+        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="Transaction"> 
+        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
+        <wasJmsEndpoint> 
+        </wasJmsEndpoint> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
+        <com.ibm.ws.sib.queue id="Default.Queue"> 
+        </com.ibm.ws.sib.queue> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
+        <com.ibm.ws.sib.topicSpace id="Default.Topic.Space"> 
+        </com.ibm.ws.sib.topicSpace> 
+    </defaultInstance> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
+        <com.ibm.ws.sib.fileStore id="defaultFileStore"> 
+        </com.ibm.ws.sib.fileStore> 
+    </defaultInstance> 
     <defaultInstance providingFeatures="com.ibm.websphere.appserver.concurrent-1.0"> 
         <concurrencyService> 
         </concurrencyService> 
@@ -7497,16 +7920,13 @@
         <managedThreadFactory javaCompDefaultName="DefaultManagedThreadFactory" id="DefaultManagedThreadFactory" service.ranking="-100"> 
         </managedThreadFactory> 
     </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wsAtomicTransaction-1.2"> 
-        <wsAtomicTransaction SSLRef="defaultSSLConfig" SSLEnabled="false" externalURLPrefix="" clientAuth="false"> 
-        </wsAtomicTransaction> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.logging-1.0"> 
+        <logging> 
+        </logging> 
     </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.securityContext-1.0"> 
-        <contextService id="DefaultContextService"> 
-            <securityContext> 
-            </securityContext>
-     
-        </contextService> 
+    <defaultInstance providingFeatures="com.ibm.websphere.appserver.samlWeb-2.0"> 
+        <samlWebSso20 id="defaultSP"> 
+        </samlWebSso20> 
     </defaultInstance> 
     <defaultInstance providingFeatures="com.ibm.websphere.appserver.builtinAuthentication-1.0"> 
         <jaasLoginModule libraryRef="jaasSharedLib" controlFlag="REQUIRED" className="com.ibm.ws.security.authentication.jaas.modules.HashtableLoginModule" id="hashtable"> 
@@ -7583,425 +8003,5 @@
         <variable name="wlp.collective.auth.plugin" value="NullCollectiveAuthenticationPlugin"> 
         </variable> 
     </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jms.defaultresource-1.0"> 
-        <jmsConnectionFactory javaCompDefaultName="DefaultJMSConnectionFactory" id="DefaultJMSConnectionFactory"> 
-            <properties.wasJms> 
-            </properties.wasJms>
-		 
-        </jmsConnectionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.samlWeb-2.0"> 
-        <samlWebSso20 id="defaultSP"> 
-        </samlWebSso20> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
-        <com.ibm.ws.sib.queue id="Default.Queue"> 
-        </com.ibm.ws.sib.queue> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
-        <com.ibm.ws.sib.topicSpace id="Default.Topic.Space"> 
-        </com.ibm.ws.sib.topicSpace> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
-        <com.ibm.ws.sib.fileStore id="defaultFileStore"> 
-        </com.ibm.ws.sib.fileStore> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsf-2.2"> 
-        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="Jsf-2.2"> 
-        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.classloading-1.0"> 
-        <library apiTypeVisibility="spec, ibm-api, api, stable" id="global"> 
-            <fileset includes="*" dir="${shared.config.dir}/lib/global/"> 
-            </fileset> 
-            <fileset includes="*" dir="${server.config.dir}/lib/global/"> 
-            </fileset> 
-            <folder dir="${server.config.dir}/lib/global/"> 
-            </folder> 
-            <folder dir="${shared.config.dir}/lib/global/"> 
-            </folder>
-     
-        </library> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.ws.persistence-1.0"> 
-        <databaseStore dataSourceRef="DefaultDataSource" id="defaultDatabaseStore"> 
-        </databaseStore> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.constrainedDelegation-1.0"> 
-        <spnegoHelper kerberosExtService="defaultConstrainedDelegation"> 
-        </spnegoHelper> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.constrainedDelegation-1.0"> 
-        <constrainedDelegation id="defaultConstrainedDelegation"> 
-        </constrainedDelegation> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.javaee-jdbc-4.3,com.ibm.websphere.appserver.javaee-jdbc-4.2,com.ibm.websphere.appserver.javaee-jdbc-4.1,com.ibm.websphere.appserver.javaee-jdbc-4.0"> 
-        <dataSource javaCompDefaultName="DefaultDataSource" id="DefaultDataSource" service.ranking="100">
-     
-        </dataSource> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="io.openliberty.app.manager.wab-1.0"> 
-        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="WAB"> 
-        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
-        <sslOptions id="defaultSSLOptions" service.ranking="-1"> 
-        </sslOptions> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
-        <variable name="defaultSSLVar" value="defaultSSLOptions"> 
-        </variable> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.internal.jaxrs-2.0,com.ibm.websphere.appserver.internal.jaxrs-2.1"> 
-        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="JaxRS-2"> 
-        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.mpJwt-1.1,com.ibm.websphere.appserver.mpJwt-1.0,com.ibm.websphere.appserver.jwtSso-1.0"> 
-        <mpJwt id="defaultMpJwt"> 
-        </mpJwt> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
-        <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore"> 
-        </ssl> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ssl-1.0"> 
-        <keyStore id="defaultKeyStore"> 
-        </keyStore> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jaxwsweb-2.2"> 
-        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="JaxWS"> 
-        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.authData-1.0"> 
-        <jaasLoginModule libraryRef="jaasSharedLib" controlFlag="REQUIRED" className="com.ibm.websphere.security.jca.WSPrincipalMappingLoginModule" id="wsPrincipalMappingLoginModule"> 
-        </jaasLoginModule> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.authData-1.0"> 
-        <jaasLoginContextEntry name="DefaultPrincipalMapping" id="DefaultPrincipalMapping" loginModuleRef="wsPrincipalMappingLoginModule"> 
-        </jaasLoginContextEntry> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.csiv2-1.0,com.ibm.websphere.appserver.csiv2Client-1.0" addIfMissing="true"> 
-        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="SSL"> 
-        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jwtSsoToken-1.0,com.ibm.websphere.appserver.jwtSso-1.0"> 
-        <jwtSso id="defaultJwtSso"> 
-        </jwtSso> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
-        <iiopEndpoint iiopPort="2809" id="defaultIiopEndpoint"> 
-            <iiopsOptions iiopsPort="9402"> 
-            </iiopsOptions>
-     
-        </iiopEndpoint> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
-        <orb iiopEndpointRef="defaultIiopEndpoint" id="defaultOrb"> 
-        </orb> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
-        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="Dispatch"> 
-        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport-1.0" addIfMissing="true"> 
-        <namingServiceAdapterActivator id="defaultNamingServiceAdapterActivator"> 
-        </namingServiceAdapterActivator> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsServer-1.0"> 
-        <wasJmsEndpoint> 
-        </wasJmsEndpoint> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsp-2.2,com.ibm.websphere.appserver.jsp-2.3"> 
-        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="Jsp"> 
-        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.builtinAuthorization-1.0,com.ibm.wsspi.appserver.webBundleSecurity-1.0"> 
-        <authorization id="defaultAuthorization" useRoleAsGroupName="true"> 
-        </authorization> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wimcore-1.0"> 
-        <com.ibm.ws.security.wim.VMMService name="singleton"> 
-        </com.ibm.ws.security.wim.VMMService> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iioptransport.transaction-1.0"> 
-        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="Transaction"> 
-        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.logging-1.0"> 
-        <logging> 
-        </logging> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ejbPersistentTimer-3.2"> 
-        <contextService id="defaultEJBPersistentTimerContextService"> 
-        </contextService> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.ejbPersistentTimer-3.2"> 
-        <persistentExecutor initialPollDelay="-1" enableTaskExecution="true" retryInterval="300s" id="defaultEJBPersistentTimerExecutor" retryLimit="-1" contextServiceRef="defaultEJBPersistentTimerContextService"> 
-        </persistentExecutor> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsClient-2.0"> 
-        <bundleResourceAdapter location="location-of-rar-file" id="wasJms"> 
-            <properties.wasJms> 
-            </properties.wasJms>
-       
-        </bundleResourceAdapter> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="io.openliberty.distributedMapInternal-1.0"> 
-        <distributedMap cacheProviderName="default" id="baseCache" memorySizeInEntries="2000" createCacheAtServerStartup="true" jndiName="services/cache/basecache"> 
-        </distributedMap> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="io.openliberty.distributedMapInternal-1.0"> 
-        <distributedMap cacheProviderName="default" id="defaultCache" memorySizeInEntries="2000" jndiName="services/cache/distributedmap"> 
-        </distributedMap> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-1.1"> 
-        <com.ibm.ws.beanvalidation.service.ConstrainedHelper type="ConstrainedHelperV11"> 
-        </com.ibm.ws.beanvalidation.service.ConstrainedHelper> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-1.1"> 
-        <com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
-        </com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.springBootHandler-1.0"> 
-        <classloading useJarUrls="true"> 
-        </classloading> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appmanager-1.0"> 
-        <com.ibm.ws.app.startbarrier> 
-        </com.ibm.ws.app.startbarrier> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appmanager-1.0"> 
-        <com.ibm.ws.app.prereqmonitor> 
-        </com.ibm.ws.app.prereqmonitor> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.concurrencyPolicy-1.0"> 
-        <concurrencyPolicy id="defaultConcurrencyPolicy" service.ranking="100"> 
-        </concurrencyPolicy> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-2.0"> 
-        <com.ibm.ws.beanvalidation.service.BvalManagedObjectBuilder type="BvalMOBuilder"> 
-        </com.ibm.ws.beanvalidation.service.BvalManagedObjectBuilder> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-2.0"> 
-        <com.ibm.ws.beanvalidation.v20.ValidatorFactoryBuilderImpl> 
-        </com.ibm.ws.beanvalidation.v20.ValidatorFactoryBuilderImpl> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsfContainer-2.2"> 
-        <library id="com.ibm.ws.jsfContainer.2.2"> 
-            <fileset includes="com.ibm.ws.jsfContainer_1.0.*.jar" dir="${wlp.install.dir}/lib/"> 
-            </fileset>
-    	 
-        </library> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.servlet-3.1,com.ibm.websphere.appserver.servlet-4.0"> 
-        <webContainer> 
-        </webContainer> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.csiv2Client-1.0"> 
-        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="CSIv2Client"> 
-        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.csiv2Client-1.0"> 
-        <orb id="defaultOrb"> 
-            <clientPolicy.clientContainerCsiv2> 
-                <layers> 
-                    <authenticationLayer establishTrustInClient="Supported" mechanisms="GSSUP"> 
-                    </authenticationLayer> 
-                    <transportLayer> 
-                    </transportLayer>
-                 
-                </layers>
-             
-            </clientPolicy.clientContainerCsiv2>
-         
-        </orb> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.openid-2.0"> 
-        <userInfo uriType="http://axschema.org/contact/email" count="1" alias="email" id="email" required="true"> 
-        </userInfo> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
-        <jaasLoginModule libraryRef="jaasSharedLib" controlFlag="REQUIRED" className="com.ibm.ws.security.jaas.common.modules.WSLoginModuleProxy" id="proxy"> 
-            <options delegate="com.ibm.ws.security.client.jaas.modules.WSClientLoginModuleImpl"> 
-            </options>
-         
-        </jaasLoginModule> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
-        <jaasLoginContextEntry name="ClientContainer" id="ClientContainer" loginModuleRef="proxy"> 
-        </jaasLoginContextEntry> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
-        <jaasLoginContextEntry name="WSLogin" id="WSLogin" loginModuleRef="proxy"> 
-        </jaasLoginContextEntry> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
-        <library apiTypeVisibility="spec, ibm-api, api" id="jaasSharedLib"> 
-            <fileset includes="*" dir="${client.config.dir}/lib/global/"> 
-            </fileset>
-         
-        </library> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.appSecurityClient-1.0"> 
-        <library apiTypeVisibility="spec, ibm-api, api" id="jaasDefaultSharedLib"> 
-            <fileset includes="*" dir="${client.config.dir}/resources/security/jaas/"> 
-            </fileset> 
-            <fileset includes="*" dir="${shared.config.dir}/resources/security/jaas/"> 
-            </fileset> 
-            <fileset dir="${client.config.dir}/resources/security/jaas/"> 
-            </fileset> 
-            <fileset dir="${shared.config.dir}/resources/security/jaas/"> 
-            </fileset>
-         
-        </library> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jms-2.0"> 
-        <jmsConnectionFactory javaCompDefaultName="DefaultJMSConnectionFactory" id="DefaultJMSConnectionFactory"> 
-        </jmsConnectionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iiopcommon-1.0"> 
-        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="Naming"> 
-        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iiopcommon-1.0"> 
-        <com.ibm.ws.transport.iiop.spi.SubsystemFactory type="DefaultSocketFactory"> 
-        </com.ibm.ws.transport.iiop.spi.SubsystemFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsfContainer-2.3"> 
-        <library id="com.ibm.ws.jsfContainer.2.3"> 
-            <fileset includes="com.ibm.ws.jsfContainer_1.0.*.jar" dir="${wlp.install.dir}/lib/"> 
-            </fileset>
-    	 
-        </library> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-1.0"> 
-        <com.ibm.ws.beanvalidation.service.ValidationReleasableFactory type="CDIValidationReleasableFactory"> 
-        </com.ibm.ws.beanvalidation.service.ValidationReleasableFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidationCDI-1.0"> 
-        <com.ibm.ws.beanvalidation.v11.config.internal.ValidationConfigurationV11FactoryImpl> 
-        </com.ibm.ws.beanvalidation.v11.config.internal.ValidationConfigurationV11FactoryImpl> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
-        <httpOptions id="defaultHttpOptions" service.ranking="-1"> 
-        </httpOptions> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
-        <remoteIp id="defaultRemoteIp" service.ranking="-1"> 
-        </remoteIp> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
-        <compression id="defaultCompression" service.ranking="-1"> 
-        </compression> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
-        <samesite id="defaultSameSite" service.ranking="-1"> 
-        </samesite> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
-        <httpEndpoint httpPort="9080" id="defaultHttpEndpoint" httpsPort="9443"> 
-        </httpEndpoint> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
-        <virtualHost id="default_host"> 
-        </virtualHost> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.httptransport-1.0"> 
-        <variable name="defaultHTTPVar" value="defaultHttpOptions"> 
-        </variable> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.binary.logging-1.0"> 
-        <logging> 
-            <binaryLog> 
-            </binaryLog> 
-            <binaryTrace> 
-            </binaryTrace>
-		 
-        </logging> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jwt-1.0,com.ibm.websphere.appserver.oauth-2.0"> 
-        <jwtBuilder id="defaultJWT"> 
-        </jwtBuilder> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jwt-1.0,com.ibm.websphere.appserver.oauth-2.0"> 
-        <jwtConsumer id="defaultJwtConsumer"> 
-        </jwtConsumer> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.federatedRegistry-1.0"> 
-        <com.ibm.ws.security.wim.registry.WIMUserRegistry> 
-        </com.ibm.ws.security.wim.registry.WIMUserRegistry> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.iiopclient-1.0"> 
-        <orb nameService="corbaloc:iiop:localhost:2809/NameService" id="defaultOrb"> 
-        </orb> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsClient-2.0,com.ibm.websphere.appserver.wasJmsServer-1.0"> 
-        <wasJmsOutbound id="BootstrapBasicMessaging"> 
-        </wasJmsOutbound> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.wasJmsClient-2.0,com.ibm.websphere.appserver.wasJmsServer-1.0"> 
-        <wasJmsOutbound id="BootstrapSecureMessaging" useSSL="true"> 
-        </wasJmsOutbound> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.spnego-1.0"> 
-        <spnego id="defaultSpnego"> 
-        </spnego> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.kernelCore-1.0"> 
-        <org.apache.felix.scr.ScrService ds.info.service="true" ds.cache.metadata="true"> 
-        </org.apache.felix.scr.ScrService> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
-        <com.ibm.ws.beanvalidation.service.ValidatorFactoryBuilder type="ValidatorFactoryBuilderV20"> 
-        </com.ibm.ws.beanvalidation.service.ValidatorFactoryBuilder> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
-        <com.ibm.ws.beanvalidation.service.ConstrainedHelper type="ConstrainedHelperV20"> 
-        </com.ibm.ws.beanvalidation.service.ConstrainedHelper> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
-        <com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
-        </com.ibm.ws.beanvalidation.OSGiBeanValidationImpl> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.beanValidation-2.0"> 
-        <javaPermission name="accessPrivateMembers" className="org.hibernate.validator.HibernateValidatorPermission" id="org.hibernate.validator.HibernateValidatorPermission"> 
-        </javaPermission> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsonbContainer-1.0,com.ibm.websphere.appserver.jsonb-1.0"> 
-        <com.ibm.ws.org.eclipse.yasson.ResourceProvider> 
-        </com.ibm.ws.org.eclipse.yasson.ResourceProvider> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.channelfw-1.0"> 
-        <variable name="defaultHostName" value="localhost"> 
-        </variable> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.channelfw-1.0"> 
-        <tcpOptions id="defaultTCPOptions" service.ranking="-1"> 
-        </tcpOptions> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.channelfw-1.0"> 
-        <udpOptions id="defaultUDPOptions" service.ranking="-1"> 
-        </udpOptions> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.basicRegistry-1.0,com.ibm.websphere.appserver.federatedRegistry-1.0,com.ibm.websphere.appserver.appSecurityClient-1.0,com.ibm.websphere.appserver.securityInfrastructure-1.0"> 
-        <com.ibm.ws.security.registry.internal.UserRegistryRefConfig> 
-        </com.ibm.ws.security.registry.internal.UserRegistryRefConfig> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jcaSecurity-1.0,com.ibm.websphere.appserver.builtinAuthentication-1.0"> 
-        <kerberos> 
-        </kerberos> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.jsf.beanValidation-2.3,com.ibm.websphere.appserver.jsf.beanValidation-2.2"> 
-        <com.ibm.wsspi.webcontainer.extension.ExtensionFactory type="Jsf-beanvalidation"> 
-        </com.ibm.wsspi.webcontainer.extension.ExtensionFactory> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.sipServlet-1.1"> 
-        <sipApplicationRouter> 
-        </sipApplicationRouter> 
-    </defaultInstance> 
-    <defaultInstance providingFeatures="com.ibm.websphere.appserver.sipServlet-1.1"> 
-        <sipEndpoint sipUDPPort="5060" sipTLSPort="5061" host="*" sipTCPPort="5060" id="defaultSipEndpoint"> 
-        </sipEndpoint> 
-    </defaultInstance> 
 </defaultConfiguration> 
-</featureInfo> 
+</featureInfo>
