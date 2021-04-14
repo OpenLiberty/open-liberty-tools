@@ -8,10 +8,14 @@
 Open Liberty Tools are lightweight tools for developing, assembling, and deploying apps to [Open Liberty](https://github.com/OpenLiberty/open-liberty).
 
 # Table of Contents
+* [Prereqs](https://github.com/OpenLiberty/open-liberty-tools#prereqs)
 * [Known Issues](https://github.com/OpenLiberty/open-liberty-tools#known-issues)
 * [Getting Started](https://github.com/OpenLiberty/open-liberty-tools#getting-started)
 * [Contribute to Open Liberty Tools](https://github.com/OpenLiberty/open-liberty-tools#contribute-to-open-liberty-tools)
 * [Community](https://github.com/OpenLiberty/open-liberty-tools#community)
+
+## Prereqs
+Java 11 is now required as of version 21.0.0.3 of the tools.
 
 ## Known Issues
 21.0.0.3 has a [known issue](https://github.com/OpenLiberty/open-liberty-tools/issues/419) relating to starting a server using the Gradle plugin. A workaround is detailed in the issue.
