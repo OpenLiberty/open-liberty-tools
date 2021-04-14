@@ -18,7 +18,7 @@ Open Liberty Tools are lightweight tools for developing, assembling, and deployi
 
 ## Getting Started 
 To install the Open Liberty Tools and other WebSphere Developer Tools features:
-1. If you don’t already have Eclipse, install [Eclipse Oxygen for Java EE Developers ( 4.7 )](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen1a)
+1. If you don’t already have Eclipse, install [Eclipse 2021-03 for Enterprise Java and Web Developers ( 4.19 )](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers)
 2. Start your Eclipse workbench.
 3. Start the installation using either of the following methods.
     * Locate the installation files from your Eclipse workbench:
