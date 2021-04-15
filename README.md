@@ -8,24 +8,33 @@
 Open Liberty Tools are lightweight tools for developing, assembling, and deploying apps to [Open Liberty](https://github.com/OpenLiberty/open-liberty).
 
 # Table of Contents
+* [Prereqs](https://github.com/OpenLiberty/open-liberty-tools#prereqs)
+* [Known Issues](https://github.com/OpenLiberty/open-liberty-tools#known-issues)
 * [Getting Started](https://github.com/OpenLiberty/open-liberty-tools#getting-started)
 * [Contribute to Open Liberty Tools](https://github.com/OpenLiberty/open-liberty-tools#contribute-to-open-liberty-tools)
 * [Community](https://github.com/OpenLiberty/open-liberty-tools#community)
 
+## Prereqs
+Java 11 is now required as of version 21.0.0.3 of the tools.
+
+The 21.0.0.3 release supports Eclipse versions [2021-03](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers), [2020-12](https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-enterprise-java-developers) and [2020-09](https://www.eclipse.org/downloads/packages/release/2020-09/r/eclipse-ide-enterprise-java-developers).
+
+## Known Issues
+Please see the [Liberty Tools 21.0.0.3 known issues](https://github.com/OpenLiberty/open-liberty-tools/wiki/Liberty-Tools-21.0.0.3-known-issues) page for known issues and workarounds.
+
 ## Getting Started 
 To install the Open Liberty Tools and other WebSphere Developer Tools features:
-1. If you don’t already have Eclipse, install [Eclipse Oxygen for Java EE Developers ( 4.7 )](https://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/oxygen1a)
+1. If you don’t already have Eclipse, install [Eclipse 2021-03 for Enterprise Java and Web Developers ( 4.19 )](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers)
 2. Start your Eclipse workbench.
 3. Start the installation using either of the following methods.
     * Locate the installation files from your Eclipse workbench:
       1. Click **Help** > **Eclipse Marketplace.**
       2. In the Find field, type Liberty.
-      3. In the list of results, locate **IBM Liberty Developer Tools for Eclipse Oxygen** (and later) and then click **Install**. The Confirm Selected Features page opens.
+      3. In the list of results, locate **IBM Liberty Developer Tools** and then click **Install**. The Confirm Selected Features page opens.
     * Drag an Install icon from a web page to your Eclipse workbench:
       1. Click [download Liberty page](https://developer.ibm.com/wasdev/downloads/)
-      2. Select **IBM Liberty Developer Tools for Eclipse Oxygen** (and later) from the asset list.
-      3. Locate the **Install** icon for **WebSphere Application Server Liberty**. 
-      4. Select and drag the **Install** icon to your Eclipse workbench, and drop it on the Eclipse toolbar. The **Confirm Selected Features page** opens.
+      2. Locate the **Install** icon for **WebSphere Application Server Liberty**. 
+      3. Select and drag the **Install** icon to your Eclipse workbench, and drop it on the Eclipse toolbar. The **Confirm Selected Features page** opens.
 4. On the **Confirm Selected Features** page, expand the parent nodes and select the **WebSphere Application Server Liberty Tools** feature and any other feature that are needed. When you are finished, click **Confirm**.
 5. On the **Review Licenses** page, review the license text. If you agree to the terms, click **I accept the terms of the license agreements** and then click **Finish**. The installation process starts.
    
