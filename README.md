@@ -17,8 +17,10 @@ Open Liberty Tools are lightweight tools for developing, assembling, and deployi
 ## Prereqs
 Java 11 is now required as of version 21.0.0.3 of the tools.
 
+The 21.0.0.3 release supports Eclipse versions [2021-03](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers), [2020-12](https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-enterprise-java-developers) and [2020-09](https://www.eclipse.org/downloads/packages/release/2020-09/r/eclipse-ide-enterprise-java-developers).
+
 ## Known Issues
-21.0.0.3 has a [known issue](https://github.com/OpenLiberty/open-liberty-tools/issues/419) relating to starting a server using the Gradle plugin. A workaround is detailed in the issue.
+Please see the [Liberty Tools 21.0.0.3 known issues](https://github.com/OpenLiberty/open-liberty-tools/wiki/Liberty-Tools-21.0.0.3-known-issues) page for known issues and workarounds.
 
 ## Getting Started 
 To install the Open Liberty Tools and other WebSphere Developer Tools features:
