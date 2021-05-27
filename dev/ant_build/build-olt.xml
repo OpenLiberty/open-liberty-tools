@@ -10,7 +10,7 @@
 -->
 
 <project name="olt_build" default="generateOpenLTUpdateSite">
-    <property name="level_tag" value="21.0.0.3"/>
+    <property name="level_tag" value="21.0.0.6"/>
     <property name="delegate.build.dir" location="${basedir}/../" />
     <property name="disable.run.executeMetatypeValidation" value="true"/>
     <property name="disable.run.unzipIfixReleaseZip" value="true"/>
