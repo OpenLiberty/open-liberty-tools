@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!--WARNING: THIS FILE IS GENERATED - DO NOT EDIT DIRECTLY--><!--WebSphere Server Configuration Editor Customization File--><customization addButtonClass="com.ibm.ws.st.ui.internal.config.AddConfigElemCustomObject" addChildElementHelper="true" customizationNamespace="" customizationSchemaLocation="" detailSectionTitleClass="com.ibm.ws.st.ui.internal.config.DetailSectionTitleCustomObject" detailsSortingPreference="sortBySchemaDefinition" emptyElementCustomControlClass="com.ibm.ws.st.ui.internal.config.EmptyElementCustomControl" enableSchemaGroups="true" globalDetectSchemaLabel="true" headerIcon="/icons/obj16/serverConfiguration.gif" headerLabel="%serverLabel" headerLabelClass="com.ibm.ws.st.ui.internal.config.HeaderLabelObject" helpContextId="" iconClass="com.ibm.ws.st.ui.internal.config.IconCustomObject" overviewSectionHeaderText="%overviewDescription" overviewSectionTitle="%overviewTitle" preSelectedTreeElementClass="com.ibm.ws.st.ui.internal.config.PreSelectedTreeObject" treeLabelClass="com.ibm.ws.st.ui.internal.config.TreeLabelCustomObject" treeSortingPreference="unsorted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://com.ibm.xwt.dde/CustomizationFile CustomizationFile.xsd " xmlns="http//com.ibm.xwt.dde/CustomizationFile">
+<?xml version="1.0" encoding="UTF-8"?><!--WARNING: THIS FILE IS GENERATED - DO NOT EDIT DIRECTLY--><!--WebSphere Server Configuration Editor Customization File--><customization xmlns="http//com.ibm.xwt.dde/CustomizationFile" addButtonClass="com.ibm.ws.st.ui.internal.config.AddConfigElemCustomObject" addChildElementHelper="true" customizationNamespace="" customizationSchemaLocation="" detailSectionTitleClass="com.ibm.ws.st.ui.internal.config.DetailSectionTitleCustomObject" detailsSortingPreference="sortBySchemaDefinition" emptyElementCustomControlClass="com.ibm.ws.st.ui.internal.config.EmptyElementCustomControl" enableSchemaGroups="true" globalDetectSchemaLabel="true" headerIcon="/icons/obj16/serverConfiguration.gif" headerLabel="%serverLabel" headerLabelClass="com.ibm.ws.st.ui.internal.config.HeaderLabelObject" helpContextId="" iconClass="com.ibm.ws.st.ui.internal.config.IconCustomObject" overviewSectionHeaderText="%overviewDescription" overviewSectionTitle="%overviewTitle" preSelectedTreeElementClass="com.ibm.ws.st.ui.internal.config.PreSelectedTreeObject" treeLabelClass="com.ibm.ws.st.ui.internal.config.TreeLabelCustomObject" treeSortingPreference="unsorted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://com.ibm.xwt.dde/CustomizationFile CustomizationFile.xsd ">
   <itemType hideLabel="true" name="booleanType" style="checkBox"/>
   <itemType hideLabel="true" name="boolean" namespace="http://www.w3.org/2001/XMLSchema" style="checkBox"/>
   <itemType customControlClass="com.ibm.ws.st.ui.internal.config.VariableTextCustomObject" name="shortType"/>
@@ -876,28 +875,6 @@
   <node path="/server/mongoDB/mongo/ssl/keyStore">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
   </node>
-  <node path="/server/openidConnectProvider/oauthProvider/databaseStore/dataSource/jdbcDriver/library/fileset">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
-  </node>
-  <node path="/server/openidConnectProvider/oauthProvider/databaseStore/dataSource/jdbcDriver/library/folder">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
-  </node>
-  <node path="/server/openidConnectProvider/oauthProvider/databaseStore/dataSource/jdbcDriver/library/file">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
-  </node>
-  <node path="/server/openidConnectProvider/oauthProvider/library/fileset">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
-  </node>
-  <node path="/server/openidConnectProvider/oauthProvider/library/folder">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
-  </node>
-  <node path="/server/openidConnectProvider/oauthProvider/library/file">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
-  </node>
   <node path="/server/bundleRepository/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -1249,6 +1226,28 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/oauthProvider/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/openidConnectProvider/oauthProvider/databaseStore/dataSource/jdbcDriver/library/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/openidConnectProvider/oauthProvider/databaseStore/dataSource/jdbcDriver/library/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/openidConnectProvider/oauthProvider/databaseStore/dataSource/jdbcDriver/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/openidConnectProvider/oauthProvider/library/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/openidConnectProvider/oauthProvider/library/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/openidConnectProvider/oauthProvider/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/httpSessionCache/library/fileset">
