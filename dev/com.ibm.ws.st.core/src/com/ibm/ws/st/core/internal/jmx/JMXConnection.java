@@ -16,6 +16,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.ConnectException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,8 +44,6 @@ import com.ibm.ws.st.core.internal.FileUtil;
 import com.ibm.ws.st.core.internal.Trace;
 import com.ibm.ws.st.core.internal.security.LibertySecurityHelper;
 import com.ibm.ws.st.core.internal.security.LibertyX509TrustManager;
-
-import sun.net.util.IPAddressUtil;
 
 /**
  * JMX connection helper class.
@@ -89,9 +89,15 @@ public class JMXConnection {
         String hostName = FileUtil.getStringWithoutBrackets(host);
 
         // isIpv6LiteralAddress don't accept [] brackets. so remove the brackets first.
-        if (IPAddressUtil.isIPv6LiteralAddress(hostName)) {
+        try {
+            InetAddress.getAllByName(hostName);
             hostName = "[" + hostName + "]";
+        } catch (UnknownHostException uhe) {
+            // Not a valid ip address
         }
+//        if (IPAddressUtil.isIPv6LiteralAddress(hostName)) {
+//            hostName = "[" + hostName + "]";
+//        }
 
         this.host = hostName;
         this.port = port;
