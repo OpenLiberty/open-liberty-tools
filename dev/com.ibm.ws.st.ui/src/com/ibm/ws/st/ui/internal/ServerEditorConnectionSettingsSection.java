@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal;
 
@@ -226,18 +226,20 @@ public class ServerEditorConnectionSettingsSection extends ServerEditorSection {
                     }
                 };
                 ProgressMonitorDialog dialog = new ProgressMonitorDialog(comp.getShell());
+                Exception exc = null;
                 try {
                     dialog.run(true, true, runnable);
                 } catch (Exception ex) {
                     validity = STATE.CONNECTION_FAILED;
                     Trace.logError("An unexpected exception occured while connecting to the server", ex);
+                    exc = ex;
                 }
                 //display connection successful message
                 if (validity.equals(STATE.COMPLETE))
                     MessageDialog.openInformation(getShell(), Messages.editorVerifyConnection, Messages.editorConnectionSuccessful);
                 //display error message
                 else if (validity.equals(STATE.CONNECTION_FAILED) || validity.equals(STATE.NOT_STARTED))
-                    MessageDialog.openError(getShell(), Messages.editorVerifyConnectionError, com.ibm.ws.st.core.internal.Messages.remoteJMXConnectionFailure);
+                    MessageDialog.openError(getShell(), Messages.editorVerifyConnectionError, com.ibm.ws.st.core.internal.Messages.remoteJMXConnectionFailure + exc);
             }
         });
         initialize();

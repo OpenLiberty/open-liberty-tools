@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.wizard;
 
@@ -177,7 +177,7 @@ public abstract class AbstractRemoteServerComposite extends AbstractWebSphereSer
                 try {
                     jmxConnection = connect(user, passw, host, port);
                 } catch (JMXConnectionException e) {
-                    multiStatus.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, com.ibm.ws.st.core.internal.Messages.remoteJMXConnectionFailure));
+                    multiStatus.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, com.ibm.ws.st.core.internal.Messages.remoteJMXConnectionFailure + e));
                     serverConfigDir = null;
                     if (Trace.ENABLED) {
                         Trace.trace(Trace.INFO, "Failed to establish JMX connection with server", e);
