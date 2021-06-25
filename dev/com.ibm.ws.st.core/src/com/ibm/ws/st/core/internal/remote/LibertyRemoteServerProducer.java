@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 
 package com.ibm.ws.st.core.internal.remote;
@@ -80,7 +80,8 @@ public class LibertyRemoteServerProducer extends AbstractServerProducer {
         try {
             jmxConnection.connect();
         } catch (JMXConnectionException e) {
-            throw new ServerCreationException(Messages.remoteJMXConnectionFailure, e);
+            throw new ServerCreationException(Messages.remoteJMXConnectionFailure + "host: " + hostname +
+                                              "port:" + libertyHTTPSPort + e);
         }
 
         try {
@@ -202,5 +203,15 @@ public class LibertyRemoteServerProducer extends AbstractServerProducer {
         }
 
         return keys.size() > 0;
+    }
+
+    public static void main(String[] args) {
+        JMXConnection jmxConnection = new JMXConnection("localthost", "9443", "admin", "admin");
+        try {
+            jmxConnection.connect();
+        } catch (JMXConnectionException e) {
+            e.printStackTrace();
+        }
+
     }
 }
