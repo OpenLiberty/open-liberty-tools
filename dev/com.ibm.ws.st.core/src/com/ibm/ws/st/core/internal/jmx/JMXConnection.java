@@ -16,6 +16,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.net.ConnectException;
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.SecureRandom;
@@ -90,15 +91,16 @@ public class JMXConnection {
 
         // isIpv6LiteralAddress don't accept [] brackets. so remove the brackets first.
         try {
-            InetAddress.getAllByName(hostName);
-            hostName = "[" + hostName + "]";
+            InetAddress addr = InetAddress.getByName(hostName);
+            if (addr instanceof Inet6Address) {
+                hostName = "[" + hostName + "]";
+            }
         } catch (UnknownHostException uhe) {
             // Not a valid ip address
         }
 //        if (IPAddressUtil.isIPv6LiteralAddress(hostName)) {
 //            hostName = "[" + hostName + "]";
 //        }
-
         this.host = hostName;
         this.port = port;
         this.user = user;
