@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.jmx;
 
@@ -19,16 +19,26 @@ public class JMXConnectionException extends Exception {
 
     private static final long serialVersionUID = -5632639632836543882L;
 
+    private String hostName;
+
     public JMXConnectionException() {
         super(Messages.jmxConnectionFailure);
     }
 
     /**
      * @param message - the failure message
-     * @param cause - the exception that caused the failure
+     * @param cause   - the exception that caused the failure
      */
     public JMXConnectionException(Throwable cause) {
         super(Messages.jmxConnectionFailure, cause);
     }
 
+    public void setHostName(String hostName) {
+        this.hostName = hostName;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " on host " + hostName;
+    }
 }

@@ -26,6 +26,7 @@ import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.wst.server.ui.wizard.IWizardHandle;
@@ -177,6 +178,7 @@ public abstract class AbstractRemoteServerComposite extends AbstractWebSphereSer
                 try {
                     jmxConnection = connect(user, passw, host, port);
                 } catch (JMXConnectionException e) {
+                    MessageDialog.openError(getShell(), Messages.editorVerifyConnectionError, com.ibm.ws.st.core.internal.Messages.remoteJMXConnectionFailure + e.getStackTrace());
                     multiStatus.add(new Status(IStatus.ERROR, Activator.PLUGIN_ID, com.ibm.ws.st.core.internal.Messages.remoteJMXConnectionFailure + e));
                     serverConfigDir = null;
                     if (Trace.ENABLED) {
