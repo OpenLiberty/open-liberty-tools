@@ -65,10 +65,10 @@ public class BaseDockerContainer implements IPlatformHandler {
     /**
      * Constructor for DockerContainer.
      *
-     * @param containerName The name of the container
-     * @param machineName The docker machine name. May be null if there
-     *            is no docker machine (such as on Linux)
-     * @param osName The operating system name
+     * @param containerName   The name of the container
+     * @param machineName     The docker machine name. May be null if there
+     *                            is no docker machine (such as on Linux)
+     * @param osName          The operating system name
      * @param platformHandler The protocol to use when executing commands
      */
     public BaseDockerContainer(String containerName, String machineType, String machineName, IPlatformHandler platformHandler) {
@@ -80,8 +80,8 @@ public class BaseDockerContainer implements IPlatformHandler {
     /**
      * Constructor for DockerContainer.
      *
-     * @param containerName The name of the container
-     * @param dockerMachine The docker machine
+     * @param containerName   The name of the container
+     * @param dockerMachine   The docker machine
      * @param platformHandler The protocol to use when executing commands
      */
     BaseDockerContainer(String containerName, AbstractDockerMachine dockerMachine, IPlatformHandler platformHandler) {
@@ -111,7 +111,7 @@ public class BaseDockerContainer implements IPlatformHandler {
     /**
      * Copy a file from the host to the docker container
      *
-     * @param file Host file
+     * @param file            Host file
      * @param destinationPath Destination path in docker container
      * @throws ConnectException
      * @throws IOException
@@ -128,7 +128,7 @@ public class BaseDockerContainer implements IPlatformHandler {
     /**
      * Copy a file from the docker container to the host
      *
-     * @param sourcePath The path within the docker container
+     * @param sourcePath      The path within the docker container
      * @param destinationPath The destination path on the host
      * @throws ConnectException
      */
@@ -139,9 +139,9 @@ public class BaseDockerContainer implements IPlatformHandler {
     /**
      * Copy a file from the docker container to the host
      *
-     * @param sourcePath The path within the docker container
+     * @param sourcePath      The path within the docker container
      * @param destinationPath The destination path on the host
-     * @param timeout the timeout from running the command
+     * @param timeout         the timeout from running the command
      * @throws ConnectException
      * @return ProcessResult the result of running the copy out
      */
@@ -314,6 +314,9 @@ public class BaseDockerContainer implements IPlatformHandler {
 
     public String getHostMappedIP(String containerPort) throws Exception {
         String mapping = getPortMapping(containerPort);
+        if (mapping.contains("\n")) {
+            mapping = mapping.substring(0, mapping.indexOf("\n"));
+        }
         String host = getHostFromMapping(mapping);
         if (host == null) {
             host = getDockerMachine().getHost();
