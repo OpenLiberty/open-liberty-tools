@@ -822,14 +822,14 @@
   <node path="/server/jndiReferenceEntry/factory/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
-  <node detailsSortingPreference="default" path="/server/featureManager" sectionHeaderText="%featureManager_description">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FeatureCustomObject" path="feature"/>
-    <item path="@onError"/>
-  </node>
   <node path="/server/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node detailsSortingPreference="default" path="/server/featureManager" sectionHeaderText="%featureManager_description">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FeatureCustomObject" path="feature"/>
+    <item path="@onError"/>
   </node>
   <node path="/server/ldapRegistry">
     <item hide="true" path="@activedFiltersRef"/>
@@ -874,11 +874,6 @@
   </node>
   <node path="/server/mongoDB/mongo/ssl/keyStore">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
-  </node>
-  <node path="/server/bundleRepository/fileset">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
   </node>
   <node path="/server/osgiLibrary/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
@@ -1022,6 +1017,11 @@
   </node>
   <node path="/server/osgiApplication/classloader/classProvider/classloader/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/bundleRepository/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
   </node>
   <node path="/server/productInsights/ssl/keyStore">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
