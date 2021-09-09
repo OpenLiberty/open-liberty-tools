@@ -24,25 +24,25 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -149,27 +149,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -578,27 +578,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1299,67 +1299,6 @@
                     <ext:reference>databaseStore</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.jbatch.joblog"> 
-        <xsd:annotation> 
-            <xsd:documentation>Configures Batch job logging.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Batch Job Logging</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="enabled" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Enables or disables batch job logging.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Enable batch job logging</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="maxRecords" use="optional" default="1000"> 
-            <xsd:annotation> 
-                <xsd:documentation>The maximum number of log records per job log file before rolling over to the next file.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Maximum log records per file</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:int"> 
-                            <xsd:minInclusive value="0"> 
-                            </xsd:minInclusive> 
-                            <xsd:maxInclusive value="2147483647"> 
-                            </xsd:maxInclusive> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:attribute name="maxTime" use="optional" default="0"> 
-            <xsd:annotation> 
-                <xsd:documentation>The maximum number of seconds allowed to elapse between publishes of job log events.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Maximum number of seconds between log publishes</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:int"> 
-                            <xsd:minInclusive value="0"> 
-                            </xsd:minInclusive> 
-                            <xsd:maxInclusive value="2147483647"> 
-                            </xsd:maxInclusive> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
@@ -2250,7 +2189,7 @@
         </xsd:attribute> 
         <xsd:attribute name="apiTypeVisibility" use="optional" default="spec,ibm-api,api,stable" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The types of API packages that this class loader supports. This value is a comma-separated list of any combination of the following API packages: spec, ibm-api, api, stable, third-party.  If a prefix of + or - is added to API types, those API types are added or removed, respectively, from the default set of API types. Common usage for the prefix, +third-party, results in "spec, ibm-api, api, stable, third-party". The prefix, -api, results in "spec, ibm-api, stable". </xsd:documentation> 
+                <xsd:documentation>The types of API packages that this class loader supports. This value is a comma-separated list of any combination of the following API packages: spec, ibm-api, api, stable, third-party.  If a prefix of pass:[+] or - is added to API types, those API types are added or removed, respectively, from the default set of API types. Common usage for the prefix, pass:[+]third-party, results in "spec, ibm-api, api, stable, third-party". The prefix, -api, results in "spec, ibm-api, stable".</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allowed API types</ext:label> 
                 </xsd:appinfo> 
@@ -2415,65 +2354,6 @@
     <xsd:complexType name="com.ibm.ws.classloading.sharedlibrary-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.classloading.sharedlibrary"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.jca.internal.authdata.config"> 
-        <xsd:annotation> 
-            <xsd:documentation>Authentication alias for a connection to an Enterprise Information System (EIS) or database.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Authentication Data</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="user" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Name of the user to use when connecting to the EIS.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>User name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>Password of the user to use when connecting to the EIS. The value can be stored in clear text or encoded form. It is recommended that you encode the password. To do so, use the securityUtility tool with the encode option.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="krb5Principal" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The name of the Kerberos principal name or Kerberos service name to be used.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Kerberos principal name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="krb5TicketCache" use="optional" type="fileLocation"> 
-            <xsd:annotation> 
-                <xsd:documentation>The file location where Kerberos credentials for the Kerberos principal name or service name will be stored. Also known as the Kerberos credential cache (ccache)</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Kerberos ticket cache</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.jca.internal.authdata.config-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.security.jca.internal.authdata.config"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -2738,6 +2618,65 @@
     <xsd:complexType name="com.ibm.ws.cloudant.cloudant-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.cloudant.cloudant"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.jca.internal.authdata.config"> 
+        <xsd:annotation> 
+            <xsd:documentation>Authentication alias for a connection to an Enterprise Information System (EIS) or database.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Authentication Data</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="user" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Name of the user to use when connecting to the EIS.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Password of the user to use when connecting to the EIS. The value can be stored in clear text or encoded form. It is recommended that you encode the password. To do so, use the securityUtility tool with the encode option.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="krb5Principal" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the Kerberos principal name or Kerberos service name to be used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Kerberos principal name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="krb5TicketCache" use="optional" type="fileLocation"> 
+            <xsd:annotation> 
+                <xsd:documentation>The file location where Kerberos credentials for the Kerberos principal name or service name will be stored. Also known as the Kerberos credential cache (ccache)</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Kerberos ticket cache</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.jca.internal.authdata.config-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.jca.internal.authdata.config"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -4266,17 +4205,17 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -4348,75 +4287,6 @@
     <xsd:complexType name="com.ibm.ws.app.manager.ejbappcfg-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.app.manager.ejbappcfg"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.ejbcontainer.asynchronous.runtime"> 
-        <xsd:annotation> 
-            <xsd:documentation>Defines the behavior of EJB asynchronous methods.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>EJB Asynchronous Methods</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="contextService" minOccurs="0" maxOccurs="1" type="com.ibm.ws.context.service"> 
-                <xsd:annotation> 
-                    <xsd:documentation>The context service used to manage context propagation to asynchronous EJB method threads.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Asynchronous Method Context Propagation</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:sequence> 
-        <xsd:attribute name="maxUnclaimedRemoteResults" use="optional" default="1000"> 
-            <xsd:annotation> 
-                <xsd:documentation>The maximum number of unclaimed results that the server retains from all remote asynchronous method calls that return a Future object. If the maximum is exceeded, the server purges the result of the method call that completed the longest ago to prevent memory leakage.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Maximum remote method results</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:int"> 
-                            <xsd:minInclusive value="1"> 
-                            </xsd:minInclusive> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:attribute name="unclaimedRemoteResultTimeout" use="optional" default="24h" type="secondDuration"> 
-            <xsd:annotation> 
-                <xsd:documentation>The amount of time that the server retains the result for each remote asynchronous method call that returns a Future object. If an application does not claim the result within the specified period of time, the server purges the result of that method call to prevent memory leakage. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Remote method result timeout</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="contextServiceRef" use="optional" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>The context service used to manage context propagation to asynchronous EJB method threads.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Asynchronous method context propagation reference</ext:label> 
-                    <ext:reference>contextService</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.ejbcontainer.asynchronous.runtime-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.ejbcontainer.asynchronous.runtime"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -4540,6 +4410,75 @@
     <xsd:complexType name="com.ibm.ws.ejbcontainer.timer.runtime-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.ejbcontainer.timer.runtime"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.ejbcontainer.asynchronous.runtime"> 
+        <xsd:annotation> 
+            <xsd:documentation>Defines the behavior of EJB asynchronous methods.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>EJB Asynchronous Methods</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="contextService" minOccurs="0" maxOccurs="1" type="com.ibm.ws.context.service"> 
+                <xsd:annotation> 
+                    <xsd:documentation>The context service used to manage context propagation to asynchronous EJB method threads.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Asynchronous Method Context Propagation</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="maxUnclaimedRemoteResults" use="optional" default="1000"> 
+            <xsd:annotation> 
+                <xsd:documentation>The maximum number of unclaimed results that the server retains from all remote asynchronous method calls that return a Future object. If the maximum is exceeded, the server purges the result of the method call that completed the longest ago to prevent memory leakage.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum remote method results</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="1"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="unclaimedRemoteResultTimeout" use="optional" default="24h" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>The amount of time that the server retains the result for each remote asynchronous method call that returns a Future object. If an application does not claim the result within the specified period of time, the server purges the result of that method call to prevent memory leakage. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Remote method result timeout</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="contextServiceRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The context service used to manage context propagation to asynchronous EJB method threads.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Asynchronous method context propagation reference</ext:label> 
+                    <ext:reference>contextService</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.ejbcontainer.asynchronous.runtime-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.ejbcontainer.asynchronous.runtime"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -6505,13 +6444,13 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -13079,57 +13018,6 @@
     <xsd:complexType name="com.ibm.ws.jdbc.dataSource.properties.derby.embedded-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.jdbc.dataSource.properties.derby.embedded"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.jdbc.dataSource.identifyException"> 
-        <xsd:annotation> 
-            <xsd:documentation>Identify a specific SQL error code or SQL state on a SQLException. This enables the server to take appropriate action based on the error condition. For example, closing a stale connection instead of returning it to the connection pool.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Identify Exception</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="as" use="required" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Identifies the error condition that the SQL error code or SQL state represents. Allowed values are: None or StaleConnection. None removes a mapping. StaleConnection causes connections that are stale to be evicted from the connection pool once they are closed.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Identify exception as</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="sqlState" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>A string that follows either the XOPEN SQL state conventions or the SQL:2003 conventions.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>SQL state</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="errorCode" use="optional" type="intType"> 
-            <xsd:annotation> 
-                <xsd:documentation>An error code specific to the backend database. Normally, this is the actual error code that is returned by the underlying database.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>SQL error code</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.jdbc.dataSource.identifyException-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.jdbc.dataSource.identifyException"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -21720,95 +21608,6 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.kernel.feature"> 
-        <xsd:annotation> 
-            <xsd:documentation>Defines how the server loads features.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Feature Manager</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="feature" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Specifies a feature to be used when the server runs.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Feature</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:sequence> 
-        <xsd:attribute name="onError" use="optional" default="WARN"> 
-            <xsd:annotation> 
-                <xsd:documentation>Action to take after a failure to load a feature. </xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>On error</ext:label> 
-                    <ext:variable>onError</ext:variable> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="WARN"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Server will issue warning and error messages when it incurs a configuration error. </xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="FAIL"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Server will issue a warning or error message on the first error occurrence and then stop the server.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="IGNORE"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Server will not issue any warning and error messages when it incurs a configuration error.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.threading"> 
-        <xsd:annotation> 
-            <xsd:documentation>Defines settings for the Liberty kernel default executor.  Note that there is always one and exactly one default executor, for use by the Liberty runtime only and not directly accessible by applications.  Applications that need to configure and utilize executors should instead use Managed Executors.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Executor Management</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="name" use="optional" default="Default Executor" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The name of the Liberty kernel default executor.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="maxThreads" use="optional" default="-1" type="intType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Maximum number of threads that can be associated with the executor. If greater than 0, maxThreads can be a minimum of 4, and should be at least as large as coreThreads; if maxThreads is set less than coreThreads, Liberty will reduce coreThreads to the maxThreads value.  If the value of maxThreads is less than or equal to 0, the maximum number of threads is unbounded, which lets the Liberty kernel decide how many threads to associate with the executor without having a defined upper boundary.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Maximum threads</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="coreThreads" use="optional" default="-1" type="intType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Baseline or minimum number of threads to associate with the executor. The number of threads associated with the executor will quickly grow to this number. If this value is less than 0, a default value is used, calculated based on the number of hardware threads on the system. If the value is a positive number less than 4, then a default value of 4 is used.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Core threads</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.config"> 
         <xsd:annotation> 
             <xsd:documentation>Defines how the server processes configuration information.</xsd:documentation> 
@@ -21959,6 +21758,95 @@
                 </xsd:attribute> 
             </xsd:extension> 
         </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.threading"> 
+        <xsd:annotation> 
+            <xsd:documentation>Defines settings for the Liberty kernel default executor.  Note that there is always one and exactly one default executor, for use by the Liberty runtime only and not directly accessible by applications.  Applications that need to configure and utilize executors should instead use Managed Executors.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Executor Management</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="optional" default="Default Executor" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the Liberty kernel default executor.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxThreads" use="optional" default="-1" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Maximum number of threads that can be associated with the executor. If greater than 0, maxThreads can be a minimum of 4, and should be at least as large as coreThreads; if maxThreads is set less than coreThreads, Liberty will reduce coreThreads to the maxThreads value.  If the value of maxThreads is less than or equal to 0, the maximum number of threads is unbounded, which lets the Liberty kernel decide how many threads to associate with the executor without having a defined upper boundary.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum threads</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="coreThreads" use="optional" default="-1" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Baseline or minimum number of threads to associate with the executor. The number of threads associated with the executor will quickly grow to this number. If this value is less than 0, a default value is used, calculated based on the number of hardware threads on the system. If the value is a positive number less than 4, then a default value of 4 is used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Core threads</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.kernel.feature"> 
+        <xsd:annotation> 
+            <xsd:documentation>Defines how the server loads features.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Feature Manager</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="feature" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a feature to be used when the server runs.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Feature</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="onError" use="optional" default="WARN"> 
+            <xsd:annotation> 
+                <xsd:documentation>Action to take after a failure to load a feature. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>On error</ext:label> 
+                    <ext:variable>onError</ext:variable> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="WARN"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Server will issue warning and error messages when it incurs a configuration error. </xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="FAIL"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Server will issue a warning or error message on the first error occurrence and then stop the server.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="IGNORE"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Server will not issue any warning and error messages when it incurs a configuration error.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.registry.ldap.internal.filters.secureway"> 
         <xsd:annotation> 
@@ -24095,6 +23983,11 @@
                                     <xsd:documentation>Use the simple logging format.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
+                            <xsd:enumeration value="TBASIC"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the tbasic logging format.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                             <xsd:enumeration value="JSON"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Use the JSON logging format.</xsd:documentation> 
@@ -24136,6 +24029,11 @@
                                     <xsd:documentation>Use the simple logging format.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
+                            <xsd:enumeration value="TBASIC"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the tbasic logging format.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                             <xsd:enumeration value="JSON"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Use the JSON logging format.</xsd:documentation> 
@@ -24161,6 +24059,11 @@
                             <xsd:enumeration value="BASIC"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Use the basic trace format.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="TBASIC"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Alias for the basic trace format.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="ENHANCED"> 
@@ -25793,89 +25696,6 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.webcontainer.cors"> 
-        <xsd:annotation> 
-            <xsd:documentation>Configuration for the Cross-Origin Resource Sharing (CORS).</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Cross-Origin Resource Sharing</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="domain" use="required" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The domain name represents the URL being setup with these CORS settings.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Domain name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="allowedOrigins" use="optional" default="null" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>A comma-separated list of origins that are allowed to access the configured domain. If this is set to "*", it indicates the resource is publicly accessible, with no access control checks. Also, the value of "null" indicates the domain must not be accessible.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Allowed origins</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="allowedMethods" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>A comma-separated list of HTTP methods allowed to be used by the origin domain when making requests to the configured domain.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Allowed methods</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="allowedHeaders" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>A comma-separated list of HTTP headers that are allowed to be used by the origin domain when making requests to the configured domain. If this is set to "*", it indicates the request can include any HTTP headers.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Allowed headers</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="exposeHeaders" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>A comma-separated list of HTTP headers that are safe to expose to the calling API.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Expose headers</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="maxAge" use="optional" type="longType"> 
-            <xsd:annotation> 
-                <xsd:documentation>A long that indicates how many seconds a response to a preflight request can be cached in the browser.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Max age</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="allowCredentials" use="optional" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>A boolean that indicates if the user credentials can be included in the request.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Allow credentials</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.webcontainer.cors-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.webcontainer.cors"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.session"> 
         <xsd:annotation> 
             <xsd:documentation>Configuration for HTTP session management.</xsd:documentation> 
@@ -26236,7 +26056,7 @@
             </xsd:element> 
             <xsd:element name="extraConfigProperties" type="com.ibm.ws.generatePluginConfig.properties"> 
                 <xsd:annotation> 
-                    <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file.  These properties can be specified by IBM support to modify behavior of the web server plug-in.  They can be found at https://www.ibm.com/support/knowledgecenter/en/SSAW57_9.0.0/com.ibm.websphere.nd.multiplatform.doc/ae/rwsv_plugin_propstable.html</xsd:documentation> 
+                    <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file. These properties can be specified by IBM support to modify behavior of the web server plug-in. For more information, see https://www.ibm.com/support/knowledgecenter/en/SSAW57_9.0.0/com.ibm.websphere.nd.multiplatform.doc/ae/rwsv_plugin_propstable.html</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Additional Properties</ext:label> 
                     </xsd:appinfo> 
@@ -26607,14 +26427,6 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="suppressHtmlRecursiveErrorOutput" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Suppresses the exception information from appearing in the HTML output when there is a recursive error that cannot be handled by an application's configured error page. The equivalent custom property in the full application server profile is com.ibm.ws.webcontainer.suppressHtmlRecursiveErrorOutput.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Suppress recursive exception in the HTML response</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
         <xsd:attribute name="fileWrapperEvents" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Web container will generate SMF and PMI data when  serving the static files. The equivalent custom property in the full application server profile is com.ibm.ws.webcontainer.fileWrapperEvents.</xsd:documentation> 
@@ -26935,7 +26747,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="excludeAllHandledTypesClasses" use="optional" default="false" type="booleanType"> 
+        <xsd:attribute name="excludeAllHandledTypesClasses" use="optional" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>When this property is set to true, during startup, ServletContainerInitializer implementors that use the HandlesTypes annotation do not receive classes that are specified as HandlesTypes parameters.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -26948,7 +26760,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.generatePluginConfig.properties"> 
         <xsd:annotation> 
-            <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file.  These properties can be specified by IBM support to modify behavior of the web server plug-in.  They can be found at https://www.ibm.com/support/knowledgecenter/en/SSAW57_9.0.0/com.ibm.websphere.nd.multiplatform.doc/ae/rwsv_plugin_propstable.html</xsd:documentation> 
+            <xsd:documentation>Additional properties to be added to the Config element in the generated plug-in configuration file. These properties can be specified by IBM support to modify behavior of the web server plug-in. For more information, see https://www.ibm.com/support/knowledgecenter/en/SSAW57_9.0.0/com.ibm.websphere.nd.multiplatform.doc/ae/rwsv_plugin_propstable.html</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>Additional Properties</ext:label> 
                 <ext:extraProperties/> 
@@ -26971,6 +26783,89 @@
     <xsd:complexType name="com.ibm.ws.generatePluginConfig.properties-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.generatePluginConfig.properties"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.webcontainer.cors"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration for the Cross-Origin Resource Sharing (CORS).</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Cross-Origin Resource Sharing</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="domain" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The domain name represents the URL being setup with these CORS settings.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Domain name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="allowedOrigins" use="optional" default="null" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of origins that are allowed to access the configured domain. If this is set to "*", it indicates the resource is publicly accessible, with no access control checks. Also, the value of "null" indicates the domain must not be accessible.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Allowed origins</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="allowedMethods" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of HTTP methods allowed to be used by the origin domain when making requests to the configured domain.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Allowed methods</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="allowedHeaders" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of HTTP headers that are allowed to be used by the origin domain when making requests to the configured domain. If this is set to "*", it indicates the request can include any HTTP headers.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Allowed headers</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="exposeHeaders" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of HTTP headers that are safe to expose to the calling API.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Expose headers</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxAge" use="optional" type="longType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A long that indicates how many seconds a response to a preflight request can be cached in the browser.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Max age</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="allowCredentials" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A boolean that indicates if the user credentials can be included in the request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Allow credentials</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.webcontainer.cors-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.webcontainer.cors"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -28417,6 +28312,42 @@
                 <xsd:documentation>A directory for this server where the transaction service stores log files for recovery.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Transaction log directory</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="leaseCheckInterval" use="optional" default="60s" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>The interval after which the lease check strategy is implemented. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Lease check interval</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="leaseRenewalThreshold" use="optional" default="90"> 
+            <xsd:annotation> 
+                <xsd:documentation>The percentage of the duration of the recovery log lease that passes before the lease is renewed</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Lease renewal threshold</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="1"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="100"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="leaseLength" use="optional" default="60s" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>The length of time before a recovery log lease expires. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Lease length</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -31840,52 +31771,6 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wsat.service.wsatconfigservice"> 
-        <xsd:annotation> 
-            <xsd:documentation>Configuration properties for the Web Services Atomic Transaction feature.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>WS-AtomicTransaction</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="sslEnabled" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>When set to true, WS-AtomicTransaction internal event messages sent between the WS-AT coordinator and participant are encrypted using SSL.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>SSL enabled</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="sslRef" use="optional" default="defaultSSLConfig" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the SSL configuration to be used for the WS-AtomicTransaction protocol when SSL is enabled.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>SSL reference</ext:label> 
-                    <ext:reference>ssl</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="clientAuth" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies whether additional client authentication is enabled for the WS-AtomicTransaction protocol when SSL is enabled.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>SSL client authentication enabled</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="externalURLPrefix" use="optional" default="" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Optionally specifies the host and port address of a proxy server used to route the WS-AtomicTransaction protocol.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Proxy server address</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.persistence.databaseStore"> 
         <xsd:annotation> 
             <xsd:documentation>Specifies a relational database as a persistent store for server features.</xsd:documentation> 
@@ -33310,6 +33195,67 @@
                 </xsd:attribute> 
             </xsd:extension> 
         </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jbatch.joblog"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configures Batch job logging.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Batch Job Logging</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="enabled" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Enables or disables batch job logging.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable batch job logging</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxRecords" use="optional" default="1000"> 
+            <xsd:annotation> 
+                <xsd:documentation>The maximum number of log records per job log file before rolling over to the next file.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum log records per file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="2147483647"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxTime" use="optional" default="0"> 
+            <xsd:annotation> 
+                <xsd:documentation>The maximum number of seconds allowed to elapse between publishes of job log events.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum number of seconds between log publishes</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                            <xsd:maxInclusive value="2147483647"> 
+                            </xsd:maxInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.jca.connectionManager"> 
         <xsd:annotation> 
@@ -36004,7 +35950,7 @@
         </xsd:attribute> 
         <xsd:attribute name="isClientSideRedirectSupported" use="optional" default="true" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies whether the client supports redirect at client side.</xsd:documentation> 
+                <xsd:documentation>Set this property to false if you do not want to use JavaScript to redirect to the OpenID Connect Provider for the initial authentication request. If JavaScript is not used, any URI fragments that are present in the original inbound request are lost.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Client side redirect</ext:label> 
                 </xsd:appinfo> 
@@ -36089,9 +36035,44 @@
                                     <xsd:documentation>Use the RS256 signature algorithm to sign and verify tokens</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
+                            <xsd:enumeration value="RS384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS384 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="RS512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS512 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                             <xsd:enumeration value="HS256"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Use the HS256 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="HS384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the HS384 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="HS512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the HS512 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES256 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES384 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES512 signature algorithm to sign and verify tokens</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -36374,7 +36355,7 @@
         </xsd:attribute> 
         <xsd:attribute name="disableIssChecking" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Require the issuer claim to be absent when validating the OAuth token introspection response for inbound token propagation.</xsd:documentation> 
+                <xsd:documentation>Require the issuer claim to be absent when the OpenID Connect client validates a JWT access token for inbound propagation or when it performs token introspection for inbound propagation.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Disable issuer checking</ext:label> 
                 </xsd:appinfo> 
@@ -38248,6 +38229,15 @@
                 <xsd:documentation>Set this property to "true" to create the database table using the Binary Large Object (BLOB) data type for the medium column. This value increases performance of persistent sessions when Oracle databases are used. Due to an Oracle restriction, BLOB support requires use of the Oracle Call Interface (OCI) database driver for more than 4000 bytes of data. You must also ensure that a new sessions table is created before the server is restarted by dropping your old sessions table or by changing the datasource definition to reference a database that does not contain a sessions table.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Use Binary Large Object (BLOB) for medium column</ext:label> 
+                    <ext:group id="oracle"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="rowSizeLimit" use="optional" default="2" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set the limit of stored data per record, in megabytes. The default is 2 megabytes.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Oracle row size limit</ext:label> 
                     <ext:group id="oracle"/> 
                 </xsd:appinfo> 
             </xsd:annotation> 
@@ -40177,11 +40167,65 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="includeCustomCacheKeyInSubject" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the custom cache key is stored in a client subject and LTPA cookie. If this property is set to true and the cache key for a user is not found in the authentication cache, the user is required to log in again. Set this property to false when you use the SPNEGO feature to allow the security subject to be constructed from the LTPA cookie and the user registry. If the security subject is reconstructed from the LTPA cookie and the user registry, no Kerberos or GSS credentials are included in the subject. If more than one server uses your LTPA cookie, consider setting this property to false.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Add the custom cache key to subject</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="disableLtpaCookie" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Do not create an LTPA cookie during processing of the SPNEGO token. No LTPA cookie is added to the HTTP response.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Disable LTPA cookie</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wsat.service.wsatconfigservice"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration properties for the Web Services Atomic Transaction feature.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>WS-AtomicTransaction</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="sslEnabled" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When set to true, WS-AtomicTransaction internal event messages sent between the WS-AT coordinator and participant are encrypted using SSL.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL enabled</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sslRef" use="optional" default="defaultSSLConfig" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the SSL configuration to be used for the WS-AtomicTransaction protocol when SSL is enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL reference</ext:label> 
+                    <ext:reference>ssl</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clientAuth" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether additional client authentication is enabled for the WS-AtomicTransaction protocol when SSL is enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SSL client authentication enabled</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="externalURLPrefix" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Optionally specifies the host and port address of a proxy server used to route the WS-AtomicTransaction protocol.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Proxy server address</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -41000,7 +41044,6 @@
             <xsd:element name="jaasLoginModule" type="com.ibm.ws.security.authentication.internal.jaas.jaasLoginModuleConfig-factory"/> 
             <xsd:element name="basicRegistry" type="com.ibm.ws.security.registry.basic.config-factory"/> 
             <xsd:element name="batchPersistence" type="com.ibm.ws.jbatch.container.persistence"/> 
-            <xsd:element name="batchJobLogging" type="com.ibm.ws.jbatch.joblog"/> 
             <xsd:element name="batchJmsDispatcher" type="com.ibm.ws.jbatch.jms.dispatcher-factory"/> 
             <xsd:element name="batchJmsExecutor" type="com.ibm.ws.jbatch.jms.executor-factory"/> 
             <xsd:element name="batchJmsEvents" type="com.ibm.ws.jbatch.jms.events-factory"/> 
@@ -41013,9 +41056,9 @@
             <xsd:element name="tcpOptions" type="com.ibm.ws.tcpchannel.options-factory"/> 
             <xsd:element name="classloader" type="com.ibm.ws.classloading.classloader-factory"/> 
             <xsd:element name="library" type="com.ibm.ws.classloading.sharedlibrary-factory"/> 
-            <xsd:element name="authData" type="com.ibm.ws.security.jca.internal.authdata.config-factory"/> 
             <xsd:element name="cloudantDatabase" type="com.ibm.ws.cloudant.cloudantDatabase-factory"/> 
             <xsd:element name="cloudant" type="com.ibm.ws.cloudant.cloudant-factory"/> 
+            <xsd:element name="authData" type="com.ibm.ws.security.jca.internal.authdata.config-factory"/> 
             <xsd:element name="concurrencyPolicy" type="com.ibm.ws.concurrency.policy.concurrencyPolicy-factory"/> 
             <xsd:element name="managedExecutorService" type="com.ibm.ws.concurrent.managedExecutorService-factory"/> 
             <xsd:element name="managedThreadFactory" type="com.ibm.ws.concurrent.managedThreadFactory-factory"/> 
@@ -41053,7 +41096,6 @@
             <xsd:element name="jmsConnectionFactory" type="com.ibm.ws.jca.jmsConnectionFactory-factory"/> 
             <xsd:element name="mailSession" type="com.ibm.ws.javamail.mailSession-factory"/> 
             <xsd:element name="javaPermission" type="com.ibm.ws.security.java2sec.policyConfig-factory"/> 
-            <xsd:element name="identifyException" type="com.ibm.ws.jdbc.dataSource.identifyException-factory"/> 
             <xsd:element name="jdbcDriver" type="com.ibm.ws.jdbc.jdbcDriver-factory"/> 
             <xsd:element name="dataSource" type="com.ibm.ws.jdbc.dataSource-factory"/> 
             <xsd:element name="jndiEntry" type="com.ibm.ws.jndi.internal.JNDIEntry-factory"/> 
@@ -41064,10 +41106,10 @@
             <xsd:element name="jspEngine" type="com.ibm.ws.jsp.2.2"/> 
             <xsd:element name="jwtSso" type="com.ibm.ws.security.jwtsso"/> 
             <xsd:element name="mpJwt" type="com.ibm.ws.security.mp.jwt-factory"/> 
-            <xsd:element name="featureManager" type="com.ibm.ws.kernel.feature"/> 
-            <xsd:element name="executor" type="com.ibm.ws.threading"/> 
             <xsd:element name="config" type="com.ibm.ws.config"/> 
             <xsd:element name="fileset" type="com.ibm.ws.kernel.metatype.helper.fileset-factory"/> 
+            <xsd:element name="executor" type="com.ibm.ws.threading"/> 
+            <xsd:element name="featureManager" type="com.ibm.ws.kernel.feature"/> 
             <xsd:element name="securewayLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.secureway-factory"/> 
             <xsd:element name="ldapRegistry" type="com.ibm.ws.security.registry.ldap.config-factory"/> 
             <xsd:element name="edirectoryLdapFilterProperties" type="com.ibm.ws.security.registry.ldap.internal.filters.eDirectory-factory"/> 
@@ -41093,10 +41135,10 @@
             <xsd:element name="reader-role" type="com.ibm.ws.management.security.role.reader"/> 
             <xsd:element name="administrator-role" type="com.ibm.ws.management.security.role.administrator"/> 
             <xsd:element name="quickStartSecurity" type="com.ibm.ws.security.quickStartSecurity"/> 
-            <xsd:element name="cors" type="com.ibm.ws.webcontainer.cors-factory"/> 
             <xsd:element name="httpSession" type="com.ibm.ws.session"/> 
             <xsd:element name="pluginConfiguration" type="com.ibm.ws.generatePluginConfig"/> 
             <xsd:element name="webContainer" type="com.ibm.ws.webcontainer"/> 
+            <xsd:element name="cors" type="com.ibm.ws.webcontainer.cors-factory"/> 
             <xsd:element name="sipStack" type="com.ibm.ws.jain.protocol.ip.sip"/> 
             <xsd:element name="sipApplicationRouter" type="com.ibm.ws.sip.ar"/> 
             <xsd:element name="domainResolver" type="com.ibm.ws.sip.container.resolver.DomainResolverImpl"/> 
@@ -41114,7 +41156,6 @@
             <xsd:element name="webAppSecurity" type="com.ibm.ws.webcontainer.security.WebAppSecurityCollaboratorImpl"/> 
             <xsd:element name="wsocOutbound" type="com.ibm.ws.wsoc.outbound.wsocOutbound"/> 
             <xsd:element name="federatedRepository" type="com.ibm.ws.security.wim.core.config-factory"/> 
-            <xsd:element name="wsAtomicTransaction" type="com.ibm.ws.wsat.service.wsatconfigservice"/> 
             <xsd:element name="databaseStore" type="com.ibm.ws.persistence.databaseStore-factory"/> 
             <xsd:element name="authorization-roles" type="com.ibm.ws.webcontainer.security.feature.authorizationConfig-factory"/> 
             <xsd:element name="acmeCA" type="com.ibm.ws.security.acme.config"/> 
@@ -41123,6 +41164,7 @@
             <xsd:element name="auditFileHandler" type="com.ibm.ws.security.audit.file.handler-factory"/> 
             <xsd:element name="auditEvent" type="com.ibm.ws.security.audit.event-factory"/> 
             <xsd:element name="authFilter" type="com.ibm.ws.security.authentication.filter-factory"/> 
+            <xsd:element name="batchJobLogging" type="com.ibm.ws.jbatch.joblog"/> 
             <xsd:element name="connectionManager" type="com.ibm.ws.jca.connectionManager-factory"/> 
             <xsd:element name="distributedMap" type="com.ibm.ws.cache-factory"/> 
             <xsd:element name="grpc" type="io.openliberty.grpc.serverConfig-factory"/> 
@@ -41147,6 +41189,7 @@
             <xsd:element name="okdServiceLogin" type="com.ibm.ws.security.social.okdServiceLogin-factory"/> 
             <xsd:element name="oauth2Login" type="com.ibm.ws.security.social.oauth2login-factory"/> 
             <xsd:element name="spnego" type="com.ibm.ws.security.spnego"/> 
+            <xsd:element name="wsAtomicTransaction" type="com.ibm.ws.wsat.service.wsatconfigservice"/> 
             <xsd:element name="wsSecurityProvider" type="com.ibm.ws.wssecurity.config"/> 
             <xsd:element name="wsSecurityClient" type="com.ibm.ws.wssecurity.client.config"/> 
         </xsd:choice> 
