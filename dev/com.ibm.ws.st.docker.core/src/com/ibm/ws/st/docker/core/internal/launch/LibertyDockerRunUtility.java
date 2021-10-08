@@ -124,6 +124,7 @@ public class LibertyDockerRunUtility {
 
     public static String getDebugPort(BaseDockerContainer container) throws Exception {
         List<String> env = container.getEnv();
+
         String debugPort = "7777";
         for (String envDef : env) {
             // Check if WLP_DEBUG_ADDRESS is set
@@ -170,9 +171,18 @@ public class LibertyDockerRunUtility {
         newCmd.add("run");
 
         for (String envDef : env) {
+            // Don't include debug flag
+            if (envDef.equals("WLP_DEBUG_REMOTE=y") && (!"debug".equals(newMode))) {
+                continue;
+            }
             newCmd.add("-e");
             newCmd.add("\"" + envDef + "\"");
         }
+
+        if ("debug".equals(newMode)) {
+            newCmd.add("-e WLP_DEBUG_REMOTE=y");
+        }
+
         // If -P was set before or in local debug mode then add it to the command.  It is
         // quicker and easier to let -P find a free port on the VM to map the debug
         // port to.
