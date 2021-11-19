@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.tests.module;
 
@@ -97,7 +97,7 @@ public class ModuleHelper {
 
     public static void createWebContent(String name, int i) throws Exception {
         IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(name);
-        IFile file = project.getFile(new Path("WebContent").append("test" + i + ".html"));
+        IFile file = project.getFile(new Path("src/main/webapp").append("test" + i + ".html"));
         String content = "Hello!";
         ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes());
         file.create(in, true, null);
