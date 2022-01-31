@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -76,7 +76,7 @@ public class RuntimeFeatureResolver {
 
         // Resolve (the feature resolver only handles canonical names)
         List<String> canonicalFeatures = FeatureList.getCanonicalFeatures(features, wsRuntime);
-        Result result = featureResolver.resolveFeatures(repository, canonicalFeatures, Collections.<String> emptySet(), false);
+        Result result = featureResolver.resolveFeatures(repository, canonicalFeatures, Collections.<String> emptySet(), true);
 
         // Process conflicts
         Set<FeatureConflict> featureConflicts = new HashSet<FeatureConflict>();
