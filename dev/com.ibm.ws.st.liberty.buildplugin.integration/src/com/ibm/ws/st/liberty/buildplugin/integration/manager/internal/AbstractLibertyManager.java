@@ -370,6 +370,18 @@ public abstract class AbstractLibertyManager implements IResourceChangeListener,
             // Delegate to the build plugin to copy the source file to the output directory
             buildPluginHelper.updateSrcConfig(project, config, monitor);
 
+            // Any changes to the src server config have been copied over to the
+            // user directory so make sure it is refreshed
+            UserDirectory userDir = wsServer.getServerInfo().getUserDirectory();
+            final IProject userDirProject = userDir.getProject();
+            if (userDirProject != null && userDirProject.isAccessible()) {
+                try {
+                    userDirProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+                } catch (Exception e) {
+                    Trace.logError("Refreshing user directory project failed", e);
+                }
+            }
+
             // Change the server to republish state so it will process the changed file on the next publish operation
             WebSphereServerBehaviour wsb = wsServer.getWebSphereServerBehaviour();
             wsb.setWebSphereServerPublishState(IServer.PUBLISH_STATE_INCREMENTAL);
