@@ -184,6 +184,10 @@ public class GradleProjectInspector implements IProjectInspector {
 		ProjectConnection connection = null;
 		try {
 			GradleConnector gradleConnector = GradleConnector.newConnector();
+			String override = System.getProperty("GRADLE_VERSION_OVERRIDE");
+			if (override != null) {
+				gradleConnector.useGradleVersion(override);
+			}
 			// The workspace project could be deleted so getLocation is null.
 			// If we can't get GradleProject for any other reason, then log the error.
 			if (project.getLocation() != null) {
