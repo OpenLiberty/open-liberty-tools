@@ -34,6 +34,7 @@ dependencies {
     antcp 'org.osgi:org.osgi.core:4.3.0'
     antcp 'asm:asm-all:3.3.1'
     antcp 'org.apache.aries:org.apache.aries.util:1.1.3'
+    antcp 'com.jcraft:jsch:0.1.54'
 }
 
 remotes {
