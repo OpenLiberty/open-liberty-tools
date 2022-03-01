@@ -91,6 +91,7 @@
         	<!-- Unlike the others, this file goes into ant_build/lib. It contains tasks used by some build scripts in public_imports --> 
         	<copy todir="${prereqs.basedir}/../lib" verbose="true">
         		<fileset dir="${prereqs.lib.dir}" includes="infra.buildtasks*.jar"/>
+			<fileset dir="${prereqs.lib.dir}" includes="jsch*.jar"/>
         	</copy>
         	
         	<!-- the following file is required for the compile of OLT -->
