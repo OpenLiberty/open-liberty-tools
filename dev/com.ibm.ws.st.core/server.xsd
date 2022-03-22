@@ -24,25 +24,25 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -149,27 +149,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1098,27 +1098,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -2317,7 +2317,7 @@
         </xsd:sequence> 
         <xsd:attribute name="initialSize" use="optional" default="50"> 
             <xsd:annotation> 
-                <xsd:documentation>Initial number of entries supported by the authentication cache.</xsd:documentation> 
+                <xsd:documentation>The initial number of entries that are supported by the in-memory authentication cache. This setting does not apply to the JCache cache.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Initial cache size</ext:label> 
                 </xsd:appinfo> 
@@ -2335,7 +2335,7 @@
         </xsd:attribute> 
         <xsd:attribute name="maxSize" use="optional" default="25000"> 
             <xsd:annotation> 
-                <xsd:documentation>Maximum number of entries supported by the authentication cache.</xsd:documentation> 
+                <xsd:documentation>The maximum number of entries that are supported by the in-memory authentication cache. This setting does not apply to the JCache cache.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Maximum cache size</ext:label> 
                 </xsd:appinfo> 
@@ -2353,7 +2353,7 @@
         </xsd:attribute> 
         <xsd:attribute name="timeout" use="optional" default="600s" type="duration"> 
             <xsd:annotation> 
-                <xsd:documentation>Amount of time after which an entry in the cache will be removed. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:documentation>The duration until an entry in the in-memory authentication cache is removed. This setting does not apply to the JCache cache. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Cache eviction timeout</ext:label> 
                 </xsd:appinfo> 
@@ -4727,15 +4727,15 @@
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -7039,13 +7039,13 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
-            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -13613,6 +13613,57 @@
     <xsd:complexType name="com.ibm.ws.jdbc.dataSource.properties.derby.embedded-factory"> 
         <xsd:complexContent> 
             <xsd:extension base="com.ibm.ws.jdbc.dataSource.properties.derby.embedded"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jdbc.dataSource.identifyException"> 
+        <xsd:annotation> 
+            <xsd:documentation>Identify a specific SQL error code or SQL state on a SQLException. This enables the server to take appropriate action based on the error condition. For example, closing a stale connection instead of returning it to the connection pool.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Identify Exception</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="as" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Identifies the error condition that the SQL error code or SQL state represents. Allowed values are: None, StaleConnection, StaleStatement, Unsupported. None removes the identification of the exception. StaleConnection causes connections to be evicted from the connection pool per the purge policy. StaleStatement causes statements to be evicted from the statement cache. Unsupported indicates an operation that is not supported by the JDBC driver.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Identify exception as</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sqlState" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A string that follows either the XOPEN SQL state conventions or the SQL:2003 conventions.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SQL state</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="errorCode" use="optional" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>An error code specific to the backend database. Normally, this is the actual error code that is returned by the underlying database.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SQL error code</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jdbc.dataSource.identifyException-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.jdbc.dataSource.identifyException"> 
                 <xsd:attribute name="id" type="factoryIdType" use="optional"> 
                     <xsd:annotation> 
                         <xsd:documentation>A unique configuration ID.</xsd:documentation> 
@@ -20616,6 +20667,15 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="identifyException" type="com.ibm.ws.jdbc.dataSource.identifyException-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Identify a specific SQL error code or SQL state on a SQLException. This enables the server to take appropriate action based on the error condition. For example, closing a stale connection instead of returning it to the connection pool.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Identify Exception</ext:label> 
+                        <ext:group id="Advanced"/> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="onConnect" type="xsd:string"> 
                 <xsd:annotation> 
                     <xsd:documentation>SQL command to execute once on each new connection that is established to the database. The SQL statement applies only to newly created connections, not to existing connections that are reused from the connection pool. If updated while the server is running, existing connections are destroyed.</xsd:documentation> 
@@ -21671,10 +21731,11 @@
             <xsd:documentation>Configuration properties for the Java Persistence API container.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>JPA Container</ext:label> 
+                <ext:groupDecl id="Advanced"/> 
             </xsd:appinfo> 
         </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="excludedApplication" minOccurs="0" maxOccurs="unbounded" default="" type="xsd:string"> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="excludedApplication" default="" type="xsd:string"> 
                 <xsd:annotation> 
                     <xsd:documentation>An application to be excluded from JPA processing.</xsd:documentation> 
                     <xsd:appinfo> 
@@ -21682,7 +21743,16 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-        </xsd:sequence> 
+            <xsd:element name="defaultProperties" type="com.ibm.ws.jpacomponent.defaultProperties"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Default integration-level persistence properties for use by the persistence provider when a container-managed entity manager factory is created. Specified default persistence properties are included when the PersistenceProvider.createContainerEntityManagerFactory method is called. If the same default persistence property name is specified within a persistence.xml file, this configuration overrides that property value in the persistence.xml file.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Default Persistence Properties</ext:label> 
+                        <ext:group id="Advanced"/> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
         <xsd:attribute name="defaultJtaDataSourceJndiName" use="optional" default="" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Default Java™ Transaction API (JTA) data source JNDI name to be used by applications running in this server. By default, data sources are JTA. Only data sources that are transactional are allowed in this field.</xsd:documentation> 
@@ -21725,6 +21795,83 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jpacomponent.defaultProperties"> 
+        <xsd:annotation> 
+            <xsd:documentation>Default integration-level persistence properties for use by the persistence provider when a container-managed entity manager factory is created. Specified default persistence properties are included when the PersistenceProvider.createContainerEntityManagerFactory method is called. If the same default persistence property name is specified within a persistence.xml file, this configuration overrides that property value in the persistence.xml file.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Default Persistence Properties</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="property" minOccurs="0" maxOccurs="unbounded" type="com.ibm.ws.jpacomponent.defaultProperties.property-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Provides a specific persistence property to all container-managed entity manager factories.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Name/value Pair Describing A Persistence Property</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jpacomponent.defaultProperties-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.jpacomponent.defaultProperties"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jpacomponent.defaultProperties.property"> 
+        <xsd:annotation> 
+            <xsd:documentation>Provides a specific persistence property to all container-managed entity manager factories.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Name/value Pair Describing A Persistence Property</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Provides the name of the integration-level persistence property.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Persistence property name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="value" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Provides the value of the integration-level persistence property.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Persistence property value</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.jpacomponent.defaultProperties.property-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.jpacomponent.defaultProperties.property"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.jsp.2.2"> 
         <xsd:annotation> 
@@ -24408,9 +24555,10 @@
         </xsd:attribute> 
         <xsd:attribute name="suppressSensitiveTrace" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>The server trace can expose sensitive data when tracing untyped data, such as bytes received over a network connection. If true, prevent potentially sensitive information from being exposed in log and trace files. The default value is false. Avoid trouble: Use the com.ibm.ws.logging.filter.sensitive property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
+                <xsd:documentation>When this attribute is set to true, it prevents potentially sensitive information from being exposed in log and trace files. The default value is false. Avoid trouble: Use the com.ibm.ws.logging.suppress.sensitive.trace property, except in cases where you are trying to change the configuration dynamically after startup.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Suppress sensitive trace</ext:label> 
+                    <ext:variable>com.ibm.ws.logging.suppress.sensitive.trace</ext:variable> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -25975,9 +26123,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
-            </xsd:element> 
             <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
+            </xsd:element> 
+            <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="slowRequestThreshold" use="optional" default="10s" type="duration"> 
@@ -26840,6 +26988,14 @@
                 <xsd:documentation>A comma-separated list of trusted proxies. When specified, this property overrides the value in the web server plug-in configuration file.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Override the TrustedProxyGroup property</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ignoreAffinityRequests" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether the webserver plug-in ignores affinity requests when it is tracking runtime weight for round-robin load balancing.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Ignore affinity requests</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -28881,6 +29037,14 @@
                 <xsd:documentation>Name of the recovery group that this server belongs too. Members of a recovery group can recover the transaction logs of other servers in the group.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Name of the recovery group</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="enableLogRetries" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When recovery logs are stored in an RDBMS table, this property allows SQL operations that fail to be retried.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable retries on database transaction logs</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -33838,14 +34002,6 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="httpEndpoints" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The list of HTTP endpoints on which to handle gRPC requests.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>HTTP endpoints</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
         <xsd:attribute name="maxInboundMessageSize" use="optional" type="intType"> 
             <xsd:annotation> 
                 <xsd:documentation>The maximum inbound message size.</xsd:documentation> 
@@ -36412,6 +36568,37 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="jwtAccessTokenRemoteValidation" use="optional" default="none"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether a JWT access token that is received for inbound propagation is validated locally by the OpenID Connect client or by using the validation method that is configured by the OpenID Connect client.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWT access token remote validation</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="none"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>A JWT access token that is received for inbound propagation is parsed and validated locally by the OpenID Connect client. If validation fails, the access token is not validated by using the validation method that is configured by the OpenID Connect client.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="allow"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>A JWT access token that is received for inbound propagation is parsed and validated locally by the OpenID Connect client. If validation fails, the access token is validated by using the validation method that is configured by the OpenID Connect client.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="require"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>A JWT access token that is received for inbound propagation is validated by using the validation method that is configured by the OpenID Connect client. The access token is not parsed or validated locally by the OpenID Connect client.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="headerName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>The name of the header which carries the inbound token in the request.</xsd:documentation> 
@@ -36530,6 +36717,30 @@
                 <xsd:documentation>Specifies whether JSON Web Tokens can be reused. Tokens must contain a jti claim for this attribute to be effective. The jti claim is a token identifier that is used along with the iss claim to uniquely identify a token and associate it with a specific issuer. A request is rejected when this attribute is set to false and the request contains a JWT with a jti and iss value combination that has already been used within the lifetime of the token.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allow re-use of JSON web tokens (JWT)</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyManagementKeyAlias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Private key alias of the key management key that is used to decrypt the Content Encryption Key of a JSON Web Encryption (JWE) token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Key management key alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="accessTokenCacheEnabled" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether authenticated subjects that are created by using a propagated access tokens are cached.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable access token cache</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="accessTokenCacheTimeout" use="optional" default="5m" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies how long an authenticated subject that is created by using a propagated access token is cached. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Access token cache timeout</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -36808,7 +37019,7 @@
             </xsd:element> 
             <xsd:element name="customClaims" type="xsd:string"> 
                 <xsd:annotation> 
-                    <xsd:documentation>The extra claims to be put in the payloads of the ID Token, in addition to the default realmName, uniqueSecurityName and groupIds claims.</xsd:documentation> 
+                    <xsd:documentation>The extra claims to be put in the payloads of the ID token, in addition to the default realmName, uniqueSecurityName, and groupIds claims.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Extra claims of ID token</ext:label> 
                     </xsd:appinfo> 
@@ -37988,7 +38199,7 @@
         </xsd:attribute> 
         <xsd:attribute name="uri" use="optional" type="location"> 
             <xsd:annotation> 
-                <xsd:documentation>Vendor specific JCache configuration URI, which is passed to the JCache provider when obtaining the CacheManager.</xsd:documentation> 
+                <xsd:documentation>Vendor-specific JCache configuration URI, which is passed to the JCache provider when the CacheManager is obtained. This setting is ignored when cacheManagerRef is used.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>JCache configuration URI</ext:label> 
                 </xsd:appinfo> 
@@ -38041,7 +38252,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.session.cache.properties"> 
         <xsd:annotation> 
-            <xsd:documentation>List of vendor specific JCache configuration properties, which are passed to the JCache provider when obtaining the CacheManager.</xsd:documentation> 
+            <xsd:documentation>List of vendor-specific JCache configuration properties, which are passed to the JCache provider when the CacheManager is obtained. This setting is ignored when cacheManagerRef is used.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>JCache Configuration Properties</ext:label> 
                 <ext:extraProperties/> 
@@ -38052,7 +38263,7 @@
         </xsd:sequence> 
         <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
             <xsd:annotation> 
-                <xsd:documentation>List of vendor specific JCache configuration properties, which are passed to the JCache provider when obtaining the CacheManager.</xsd:documentation> 
+                <xsd:documentation>List of vendor-specific JCache configuration properties, which are passed to the JCache provider when the CacheManager is obtained. This setting is ignored when cacheManagerRef is used.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Vendor specific properties</ext:label> 
                 </xsd:appinfo> 
@@ -39661,6 +39872,14 @@
                 <xsd:documentation>Specifies whether to create an HttpSession if the current HttpSession does not exist.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Create session</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyManagementKeyAlias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Private key alias of the key management key that is used to decrypt the Content Encryption Key of a JSON Web Encryption (JWE) token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Key management key alias</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
