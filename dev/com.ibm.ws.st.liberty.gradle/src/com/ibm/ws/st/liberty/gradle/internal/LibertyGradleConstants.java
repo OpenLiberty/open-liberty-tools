@@ -34,7 +34,7 @@ public class LibertyGradleConstants {
     // tasks
     public static final String LIBERTY_CREATE_TASK = "libertyCreate";
     public static final String ASSEMBLE_TASK = "assemble";
-    public static final String INSTALL_APPS_TASK = "installApps";
+    public static final String INSTALL_APPS_TASK = "deploy";
     public static final String[] ASSEMBLE_INSTALL_APPS_TASKS = new String[] {ASSEMBLE_TASK, INSTALL_APPS_TASK};
     
     // arguments
