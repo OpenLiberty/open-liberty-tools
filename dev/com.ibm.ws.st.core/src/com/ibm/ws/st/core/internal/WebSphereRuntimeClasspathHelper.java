@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,6 +19,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import com.ibm.ws.st.core.internal.config.FeatureList;
 
@@ -191,109 +193,69 @@ class WebSphereRuntimeClasspathHelper {
     }
 
     private void findFeaturesWithConflicts() {
-        //TODO: Need a smart way to get this info.
-
         featuresWithConflicts = new HashMap<String, Set<String>>();
-        Set<String> features;
 
-        // JPA features
-        features = new HashSet<String>();
-        features.add("jpa-2.0");
-        features.add("jpa-2.1");
-        featuresWithConflicts.put("jpa-2.2", features);
-        features = new HashSet<String>();
-        features.add("jpa-2.0");
-        features.add("jpa-2.2");
-        featuresWithConflicts.put("jpa-2.1", features);
-        features = new HashSet<String>();
-        features.add("jpa-2.1");
-        features.add("jpa-2.2");
-        featuresWithConflicts.put("jpa-2.0", features);
+        Map<String, List<FeatureName>> features = FeatureList.getFeatures(false, runtime)
+                                                             .stream()
+                                                             .map(FeatureName::new)
+                                                             .collect(Collectors.groupingBy(f -> f.prefix));
 
-        // EJB features
-        features = new HashSet<String>();
-        features.add("ejbLite-3.2");
-        features.add("mdb-3.2");
-        featuresWithConflicts.put("ejbLite-3.1", features);
-        features = new HashSet<String>();
-        features.add("ejbLite-3.1");
-        features.add("mdb-3.1");
-        featuresWithConflicts.put("ejbLite-3.2", features);
+        addConflictingFeatures(features, "servlet");
+        addConflictingFeatures(features, "jpa");
+        addConflictingFeatures(features, "ejbLite", "mdb", "enterpriseBeansLite");
+        addConflictingFeatures(features, "jaxrs", "jaxrsClient", "restfulWS", "restfulWSClient");
+        addConflictingFeatures(features, "beanValidation");
+        addConflictingFeatures(features, "cdi");
+        addConflictingFeatures(features, "jsf", "faces");
+        addConflictingFeatures(features, "jsp", "pages");
+    }
 
-        //Servlets
-        features = new HashSet<String>();
-        features.add("servlet-3.0");
-        features.add("servlet-3.1");
-        featuresWithConflicts.put("servlet-4.0", features);
-        features = new HashSet<String>();
-        features.add("servlet-3.0");
-        features.add("servlet-4.0");
-        featuresWithConflicts.put("servlet-3.1", features);
-        features = new HashSet<String>();
-        features.add("servlet-3.1");
-        features.add("servlet-4.0");
-        featuresWithConflicts.put("servlet-3.0", features);
+    /**
+     * Find all the features which start with a conflicting prefix and mark all features from the runtime with different versions as conflicting with each other.
+     * <p>
+     * Examples:
+     * <ul>
+     * <li>{@code addConflictingFeatures(features, "servlet")} - different versions of the servlet feature conflict with each other
+     * <li>{@code addConflictingFeatures(features, "jsf", "faces")} - any version of jsf or faces conflicts with any different version of jsf or faces
+     * This includes e.g. {@code jsf-2.2} conflicting with {@code jsf-2.3} and also {@code jsf-2.2} conflicting with {@code jsf-2.3}
+     * </ul>
+     *
+     * @param featuresByPrefix    map from feature name prefix to a list of feature names with that prefix
+     * @param conflictingPrefixes
+     */
+    private void addConflictingFeatures(Map<String, List<FeatureName>> featuresByPrefix, String... conflictingPrefixes) {
+        List<FeatureName> conflictingNames = Arrays.stream(conflictingPrefixes)
+                                                   .flatMap(x -> featuresByPrefix.get(x).stream())
+                                                   .collect(Collectors.toList());
 
-        //jax-rs
-        features = new HashSet<String>();
-        features.add("jaxrs-1.1");
-        features.add("jaxrs-2.0");
-        features.add("jaxrsClient-2.0");
-        featuresWithConflicts.put("jaxrs-2.1", features);
-        features = new HashSet<String>();
-        features.add("jaxrs-1.1");
-        features.add("jaxrs-2.1");
-        features.add("jaxrsClient-2.1");
-        featuresWithConflicts.put("jaxrs-2.0", features);
-        features = new HashSet<String>();
-        features.add("jaxrs-2.0");
-        features.add("jaxrsClient-2.0");
-        features.add("jaxrs-2.1");
-        features.add("jaxrsClient-2.1");
-        featuresWithConflicts.put("jaxrs-1.1", features);
+        for (FeatureName name : conflictingNames) {
+            Set<String> conflictsWith = conflictingNames.stream()
+                                                        .filter(f -> !f.version.equals(name.version))
+                                                        .map(f -> f.fullname)
+                                                        .collect(Collectors.toSet());
+            featuresWithConflicts.put(name.fullname, conflictsWith);
+        }
+    }
 
-        //Bean Validation
-        features = new HashSet<String>();
-        features.add("beanValidation-1.0");
-        features.add("beanValidation-1.1");
-        featuresWithConflicts.put("beanValidation-2.0", features);
-        features = new HashSet<String>();
-        features.add("beanValidation-1.0");
-        features.add("beanValidation-2.0");
-        featuresWithConflicts.put("beanValidation-1.1", features);
-        features = new HashSet<String>();
-        features.add("beanValidation-1.1");
-        features.add("beanValidation-2.0");
-        featuresWithConflicts.put("beanValidation-1.0", features);
+    /**
+     * Parses a feature name (e.g. {@code servlet-4.0}) into its prefix ({@code servlet}) and its version ({@code 4.0})
+     */
+    private static class FeatureName {
+        final String fullname;
+        final String prefix;
+        final String version;
 
-        //CDI
-        features = new HashSet<String>();
-        features.add("cdi-1.0");
-        features.add("cdi-1.2");
-        featuresWithConflicts.put("cdi-2.0", features);
-        features = new HashSet<String>();
-        features.add("cdi-1.0");
-        features.add("cdi-2.0");
-        featuresWithConflicts.put("cdi-1.2", features);
-        features = new HashSet<String>();
-        features.add("cdi-1.2");
-        features.add("cdi-2.0");
-        featuresWithConflicts.put("cdi-1.0", features);
-
-        //JSF
-        features = new HashSet<String>();
-        features.add("jsf-2.0");
-        features.add("jsf-2.2");
-        featuresWithConflicts.put("jsf-2.3", features);
-        features = new HashSet<String>();
-        features.add("jsf-2.0");
-        features.add("jsf-2.3");
-        featuresWithConflicts.put("jsf-2.2", features);
-        features = new HashSet<String>();
-        features.add("jsf-2.2");
-        features.add("jsf-2.3");
-        featuresWithConflicts.put("jsf-2.0", features);
-
+        public FeatureName(String name) {
+            this.fullname = name;
+            int separator = name.lastIndexOf("-");
+            if (separator == -1) {
+                prefix = name;
+                version = "";
+            } else {
+                prefix = name.substring(0, separator - 1);
+                version = name.substring(separator);
+            }
+        }
     }
 
     /**
