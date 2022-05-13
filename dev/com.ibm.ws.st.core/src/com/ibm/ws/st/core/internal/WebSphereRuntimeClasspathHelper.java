@@ -252,9 +252,14 @@ class WebSphereRuntimeClasspathHelper {
                 prefix = name;
                 version = "";
             } else {
-                prefix = name.substring(0, separator - 1);
-                version = name.substring(separator);
+                prefix = name.substring(0, separator);
+                version = name.substring(separator + 1);
             }
+        }
+
+        @Override
+        public String toString() {
+            return prefix + "-" + version;
         }
     }
 
