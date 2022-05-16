@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -225,7 +226,9 @@ class WebSphereRuntimeClasspathHelper {
      */
     private void addConflictingFeatures(Map<String, List<FeatureName>> featuresByPrefix, String... conflictingPrefixes) {
         List<FeatureName> conflictingNames = Arrays.stream(conflictingPrefixes)
-                                                   .flatMap(x -> featuresByPrefix.get(x).stream())
+                                                   .map(featuresByPrefix::get)
+                                                   .filter(Objects::nonNull)
+                                                   .flatMap(l -> l.stream())
                                                    .collect(Collectors.toList());
 
         for (FeatureName name : conflictingNames) {
