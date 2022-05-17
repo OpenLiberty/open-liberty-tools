@@ -47,7 +47,7 @@ To install the Open Liberty Tools and other WebSphere Developer Tools features:
 
 6. When the installation process completes, restart the workbench.
 
-To install the Open Liberty Tools only from Open Liberty site, follow [this instruction](https://github.com/OpenLiberty/open-liberty-tools/blob/master/INSTALL_OPENLIBERTYTOOLS.md).
+To install the Open Liberty Tools only from Open Liberty site, follow [this instruction](https://github.com/OpenLiberty/open-liberty-tools/blob/main/INSTALL_OPENLIBERTYTOOLS.md).
 
 Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentation and tutorials. [Here](https://developer.ibm.com/wasdev/docs/category/tools/) are a few related to the tools:
 
@@ -62,7 +62,7 @@ Visit the [WASdev Community](https://developer.ibm.com/wasdev/) for documentatio
     
     ```./gradlew```
  
-3. Go [Open issues](https://github.com/OpenLiberty/open-liberty-tools/issues), [Review existing contributions](https://github.com/OpenLiberty/open-liberty-tools/pulls), or [Submit fixes](https://github.com/OpenLiberty/open-liberty-tools/blob/master/CONTRIBUTING.md).
+3. Go [Open issues](https://github.com/OpenLiberty/open-liberty-tools/issues), [Review existing contributions](https://github.com/OpenLiberty/open-liberty-tools/pulls), or [Submit fixes](https://github.com/OpenLiberty/open-liberty-tools/blob/main/CONTRIBUTING.md).
 
 ## Community
 1. [Open Liberty group.io](https://groups.io/g/openliberty)
