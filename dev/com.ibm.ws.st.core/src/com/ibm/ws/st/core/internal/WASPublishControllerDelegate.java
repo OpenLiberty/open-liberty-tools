@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
@@ -27,7 +27,19 @@ public class WASPublishControllerDelegate extends PublishControllerDelegate {
         WebSphereServer wsServer = (WebSphereServer) server.loadAdapter(WebSphereServer.class, null);
         if (wsServer == null)
             return true;
-
+        // 0 = unknown whether this value is used but if it is then treat it as disabled 
+        // 1 = autopublishing disabled
+        // 2 = autopublishing enabled
+        int autoPublishSettings = server.getAttribute("auto-publish-setting", 1);
+        if (Trace.ENABLED) {
+            Trace.trace(Trace.INFO, "WASPublishControllerDelegate.isPublishRequired autoPublishSettings=" + autoPublishSettings);
+        }
+        if (autoPublishSettings < 2) {
+            if (Trace.ENABLED) {
+                Trace.trace(Trace.INFO, "WASPublishControllerDelegate returning false as autopublish is disabled" + autoPublishSettings);
+            }
+            return false;
+        }
         WebSphereServerBehaviour behaviour = (WebSphereServerBehaviour) server.loadAdapter(WebSphereServerBehaviour.class, null);
         if (behaviour == null) // We should be able to load it
             return true;
