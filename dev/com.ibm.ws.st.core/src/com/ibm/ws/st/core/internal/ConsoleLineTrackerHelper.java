@@ -58,7 +58,6 @@ public class ConsoleLineTrackerHelper {
         // get latest feature version from runtime
         resolvedFeature = installedFeatures.resolve(feature);
 
-        // sanity check
         if (resolvedFeature == null) {
             return UNRESOLVED_STATUS;
         }

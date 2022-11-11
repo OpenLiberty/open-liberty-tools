@@ -312,7 +312,7 @@ public class ConsoleLineTracker implements IConsoleLineTracker {
             Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
             if (MessageDialog.openConfirm(shell, Messages.title, Messages.taskFixJSP)) {
                 WebSphereServer server = getServer();
-                // sanity check
+                // check we got a server
                 if (server == null) {
                     Trace.logError("Failed to get server", null);
                     return;
@@ -344,7 +344,7 @@ public class ConsoleLineTracker implements IConsoleLineTracker {
             Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
             if (MessageDialog.openConfirm(shell, Messages.title, Messages.taskFixJNDI)) {
                 WebSphereServer server = getServer();
-                // sanity check
+                // check we got a server
                 if (server == null) {
                     Trace.logError("Failed to get server", null);
                     return;
@@ -375,7 +375,7 @@ public class ConsoleLineTracker implements IConsoleLineTracker {
         try {
             Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
             WebSphereServer server = getServer();
-            // sanity check
+            // check we got a server
             if (server == null) {
                 Trace.logError("Failed to get server", null);
                 return;

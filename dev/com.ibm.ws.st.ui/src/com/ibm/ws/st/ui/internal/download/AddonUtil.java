@@ -124,8 +124,8 @@ public class AddonUtil {
     }
 
     public static void showResult(final Shell shell, Map<IProduct, IStatus> statusMap) {
-        // Sanity check - statusList should not be empty and at least the first
-        //                item should have been installed successfully.
+        // Check statusList is not empty and at least the first
+        // item should have been installed successfully.
         if (statusMap.isEmpty()) {
             if (Trace.ENABLED)
                 Trace.trace(Trace.WARNING, "The install status is either empty or there was no successful install");
