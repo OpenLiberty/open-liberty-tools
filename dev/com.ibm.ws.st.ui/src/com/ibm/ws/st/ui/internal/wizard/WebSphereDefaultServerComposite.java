@@ -113,8 +113,7 @@ public class WebSphereDefaultServerComposite extends AbstractWebSphereServerComp
                 final List<IProduct> selectedList = (List<IProduct>) taskModel.getObject(AbstractDownloadComposite.SELECTED_DOWNLOADERS);
                 @SuppressWarnings("unchecked")
                 final List<IStatus> result = (List<IStatus>) taskModel.getObject(AbstractDownloadComposite.INSTALL_RESULT);
-                // sanity check (should not be null)
-
+                
                 Map<IProduct, IStatus> installResult = new LinkedHashMap<IProduct, IStatus>(selectedList.size());
 
                 //Put the Products and their install status into a map
