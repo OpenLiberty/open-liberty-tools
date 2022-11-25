@@ -11,6 +11,9 @@
 
 package com.ibm.ws.st.liberty.buildplugin.integration.ui.actions.internal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
@@ -19,10 +22,9 @@ import org.eclipse.ui.actions.SelectionProviderAction;
 
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImplProvider;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Messages;
-import com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode;
 
 public abstract class AbstractRefreshAction extends SelectionProviderAction implements ILibertyBuildPluginImplProvider {
-    protected Object objectToRefresh;
+    protected List<Object> objectsToRefresh;
     private final StructuredViewer viewer;
 
     public AbstractRefreshAction(ISelectionProvider selectionProvider, StructuredViewer viewer) {
@@ -33,28 +35,35 @@ public abstract class AbstractRefreshAction extends SelectionProviderAction impl
         selectionChanged(getStructuredSelection());
     }
 
+    /**
+     * Extenders must determine the enablement state of the action given the selections
+     * eg. if the selections are homogeneous (same object type) then the action can be enabled, but if mixed,
+     * it should be disabled. Cannot allow mixed, otherwise there will be duplicate actions
+     * in the context menu.
+     *
+     * @param selection
+     */
+    protected abstract void determineEnablementState(IStructuredSelection selection);
+
     @Override
-    public void selectionChanged(IStructuredSelection sel) {
-        if (sel.size() != 1) {
-            setEnabled(false);
-            return;
-        }
-        Object obj = sel.getFirstElement();
-        if (obj instanceof LibertyBuildPluginProjectNode) {
-            objectToRefresh = obj;
-            setEnabled(true);
+    public void selectionChanged(IStructuredSelection selection) {
+        if (objectsToRefresh == null) {
+            objectsToRefresh = new ArrayList<Object>();
         } else {
-            setEnabled(false);
+            objectsToRefresh.clear();
         }
+        determineEnablementState(selection);
     }
 
     @Override
     public void run() {
-        if (objectToRefresh == null) {
+        if (objectsToRefresh == null || objectsToRefresh.isEmpty()) {
             viewer.refresh(); // no item selected so just refresh the view
             return;
         }
 
-        viewer.refresh(objectToRefresh);
+        for (Object object : objectsToRefresh) {
+            viewer.refresh(object);
+        }
     }
 }
