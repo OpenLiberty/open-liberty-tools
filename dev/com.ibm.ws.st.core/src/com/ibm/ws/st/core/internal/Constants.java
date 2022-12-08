@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2019 IBM Corporation and others.
+ * Copyright (c) 2011, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -196,6 +196,7 @@ public class Constants {
     // configuration variables
     public static final String SERVER_CONFIG_VAR = "${server.config.dir}";
     public static final String SERVER_OUTPUT_VAR = "${server.output.dir}";
+    public static final String WLP_USER_DIR_VAR = "${wlp.user.dir}";
     public static final String WLP_INSTALL_VAR = "${wlp.install.dir}";
     public static final String LOGGING_DIR_VAR = "${com.ibm.ws.logging.log.directory}";
     public static final String MESSAGES_FILENAME_VAR = "${com.ibm.ws.logging.message.file.name}";
