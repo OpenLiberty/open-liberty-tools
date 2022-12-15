@@ -85,7 +85,7 @@ Import-Package: com.ibm.ws.st.liberty.buildplugin.integration.internal,
  org.eclipse.wst.validation,
  org.eclipse.wst.xml.core.internal.provisional.document,
  org.osgi.framework;version="[1.5.0,2.0.0)"
-Require-Bundle: org.eclipse.m2e.maven.runtime
+Require-Bundle: org.eclipse.m2e.maven.runtime,
  com.ibm.ws.st.ui,
  com.ibm.ws.st.core
 Export-Package: com.ibm.etools.maven.liberty.integration.internal,
