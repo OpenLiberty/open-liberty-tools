@@ -340,7 +340,7 @@ task deployDHE {
             if (json.getText() != null && json.getText() != "") {
                 object = new JsonSlurper().parseText(json.getText())
             } else {
-                  def infoJsonDHEPublicUrl = "http://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/${buildType}/${infoJson}"
+                  def infoJsonDHEPublicUrl = "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/${buildType}/${infoJson}"
 
                   // if ${infoJson} in staging server is empty then download ${infoJson} from DHEPublic
                   println "${destDHEStaging}/${buildType}/${infoJson} is already published."
