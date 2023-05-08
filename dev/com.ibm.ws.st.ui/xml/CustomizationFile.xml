@@ -530,6 +530,28 @@
   <node path="/server/bell/library/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
+  <node path="/server/authCache/cache/cacheManager/cachingProvider/jCacheLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/authCache/cache/cacheManager/cachingProvider/jCacheLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/authCache/cache/cacheManager/cachingProvider/jCacheLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/authCache/cache/cacheManager/cachingProvider/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/authCache/cache/cacheManager/cachingProvider/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/authCache/cache/cacheManager/cachingProvider/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
   <node path="/server/classloader/privateLibrary/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -875,6 +897,17 @@
   <node path="/server/mongoDB/mongo/ssl/keyStore">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
   </node>
+  <node path="/server/mpMetrics/library/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/mpMetrics/library/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/mpMetrics/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
   <node path="/server/osgiLibrary/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -1181,6 +1214,28 @@
   <node path="/server/usageMetering/ssl/keyStore">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
   </node>
+  <node path="/server/webAppSecurity/loggedOutCookieCache/cacheManager/cachingProvider/jCacheLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webAppSecurity/loggedOutCookieCache/cacheManager/cachingProvider/jCacheLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webAppSecurity/loggedOutCookieCache/cacheManager/cachingProvider/jCacheLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/webAppSecurity/loggedOutCookieCache/cacheManager/cachingProvider/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/webAppSecurity/loggedOutCookieCache/cacheManager/cachingProvider/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/webAppSecurity/loggedOutCookieCache/cacheManager/cachingProvider/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
   <node path="/server/databaseStore/dataSource/jdbcDriver/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
@@ -1205,6 +1260,72 @@
   </node>
   <node path="/server/grpcClient/ssl/keyStore">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@location"/>
+  </node>
+  <node path="/server/cacheManager/cachingProvider/jCacheLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/cacheManager/cachingProvider/jCacheLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/cacheManager/cachingProvider/jCacheLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/cacheManager/cachingProvider/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/cacheManager/cachingProvider/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/cacheManager/cachingProvider/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/cache/cacheManager/cachingProvider/jCacheLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/cache/cacheManager/cachingProvider/jCacheLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/cache/cacheManager/cachingProvider/jCacheLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/cache/cacheManager/cachingProvider/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/cache/cacheManager/cachingProvider/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/cache/cacheManager/cachingProvider/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/cachingProvider/jCacheLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/cachingProvider/jCacheLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/cachingProvider/jCacheLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/cachingProvider/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/cachingProvider/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/cachingProvider/commonLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
   <node path="/server/oauthProvider/databaseStore/dataSource/jdbcDriver/library/fileset">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
@@ -1259,6 +1380,28 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
   </node>
   <node path="/server/httpSessionCache/library/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/httpSessionCache/cacheManager/cachingProvider/jCacheLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/httpSessionCache/cacheManager/cachingProvider/jCacheLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/httpSessionCache/cacheManager/cachingProvider/jCacheLibrary/file">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
+  </node>
+  <node path="/server/httpSessionCache/cacheManager/cachingProvider/commonLibrary/fileset">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetIncludesCustomObject" path="@includes"/>
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
+  </node>
+  <node path="/server/httpSessionCache/cacheManager/cachingProvider/commonLibrary/folder">
+    <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@dir"/>
+  </node>
+  <node path="/server/httpSessionCache/cacheManager/cachingProvider/commonLibrary/file">
     <item customControlClass="com.ibm.ws.st.ui.internal.config.LocationTextCustomObject" path="@name"/>
   </node>
 </customization>
