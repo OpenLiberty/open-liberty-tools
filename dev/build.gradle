@@ -29,7 +29,7 @@ configurations {
 }
 
 dependencies {
-    antcp 'org.apache.ivy:ivy:2.4.0'
+    antcp 'org.apache.ivy:ivy:2.5.1'
     antcp 'ant-contrib:ant-contrib:1.0b3'
     antcp 'org.osgi:org.osgi.core:4.3.0'
     antcp 'asm:asm-all:3.3.1'
