@@ -20,6 +20,7 @@ import javax.net.ssl.SSLContext;
 
 import com.ibm.ws.st.core.internal.Activator;
 import com.ibm.ws.st.core.internal.Trace;
+import java.util.Arrays;
 
 public class LibertySecurityHelper {
 
