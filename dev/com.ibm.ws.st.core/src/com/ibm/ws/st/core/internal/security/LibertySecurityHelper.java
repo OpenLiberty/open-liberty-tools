@@ -24,6 +24,17 @@ import com.ibm.ws.st.core.internal.Trace;
 public class LibertySecurityHelper {
 
     public static boolean validateSocketProtocol(final String protocol) {
+        
+        // we will not support TLS 1.0, TLS 1.1 etc
+        String[] invalidProtocols = new String[] {"SSL","SSLv2","SSLv3","TLS","TLSv1","TLSv1.1","SSL_TLS","SSL_TLSv2","SSLv2Hello"};
+        if (Arrays.asList(invalidProtocols).contains(protocol)) {
+            // trace
+            if (Trace.ENABLED) {
+                Trace.trace(Trace.SECURITY, "The protocol: '" + protocol + "' is not supported."); //$NON-NLS-1$ //$NON-NLS-2$)
+            }
+            return false;
+        }
+        
         Provider[] providers = Security.getProviders();
         for (Provider provider : providers) {
             // see if this provider supports the provided security protocol
@@ -41,33 +52,35 @@ public class LibertySecurityHelper {
     }
 
     public static SSLContext getSSLContext() throws NoSuchAlgorithmException {
-        /*
-         * The SSL_TLSv2 protocol label is being used here only for IBM JVMs because TLS would
-         * only enable TLS v1.0 and not newer versions.
-         *
-         * SSL_TLSv2 will not enable SSL by default due to the POODLE vulnerability.
-         *
-         * The TLS protocol label should be used by default for non-IBM JVMs.
+        /* 
+         * This is the order of preference we will use to determine the SSL protocol 
+         * - User provided from system property "SECURITY_SOCKET_PROTOCOL"
+         * - Activator preference "socket.protocol"
+         * - default TLSv1.2
          */
-        boolean isIBMJRE = System.getProperty("java.vendor").indexOf("IBM") > -1;
-        String defaultProtocol = isIBMJRE ? "SSL_TLSv2" : "TLS";
+        String defaultProtocol = "TLSv1.2";
+        String protocol = null;
 
-        String protocol = Activator.getPreference("socket.protocol", defaultProtocol);
+        String activatorProtocol = Activator.getPreference("socket.protocol", null);
 
         String userProvidedProtocol = System.getProperty("SECURITY_SOCKET_PROTOCOL"); //$NON-NLS-1$
-// comment it out, if user specified an unsupported protocol, we should make it aware
-//		if(userProvidedProtocol != null && validateSocketProtocol(userProvidedProtocol))
-        if (userProvidedProtocol != null) {
-            // trace
-            if (Trace.ENABLED) {
-                validateSocketProtocol(userProvidedProtocol);
-            }
+        // comment it out, if user specified an unsupported protocol, we should make it aware 
+        // if(userProvidedProtocol != null && validateSocketProtocol(userProvidedProtocol))
+        if ((userProvidedProtocol != null) && (validateSocketProtocol(userProvidedProtocol))) {
             protocol = userProvidedProtocol;
-        } else if (isIBMJRE && !validateSocketProtocol(defaultProtocol)) {
-            if (Trace.ENABLED)
-                Trace.trace(Trace.SECURITY, "IBM JRE detected but protocol " + defaultProtocol + " is invalid.");
-            // if we're using an IBM JRE and SSL_TLSv2 isn't supported then default back to TLS
-            protocol = "TLS";
+        } 
+        
+        if ((protocol == null) && (activatorProtocol != null) && (validateSocketProtocol(activatorProtocol))) {
+            protocol = activatorProtocol;
+        }
+        
+        if (protocol == null) {
+            if (Trace.ENABLED) {
+                // we don't actually use the rc from validate as we are just setting 
+                // defaultProtocol, this is just for trace purposes
+                validateSocketProtocol(defaultProtocol);
+            }
+            protocol = defaultProtocol;
         }
 
         return SSLContext.getInstance(protocol);
