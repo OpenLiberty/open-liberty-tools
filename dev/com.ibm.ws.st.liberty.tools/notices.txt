@@ -1,138 +1,228 @@
+NOTICES AND INFORMATION
 
-Begin NOTICES AND INFORMATION FOR Open Liberty Eclipse Developer Tools 22.2
-Copyright (c) 2017-2022 IBM Corporation and others.
-This product includes software developed at
-The Open Liberty Eclipse Developer Tools 22.2 Project (https://openliberty.io/start/#eclipse_developer_tools).
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+IBM WebSphere Application Server Developer Tools for Eclipse 23.1
+
+The IBM license agreement and any applicable information on the web
+download page for IBM products refers Licensee to this file for details
+concerning notices applicable to code included in the products listed
+above ("the Program").
+
+Notwithstanding the terms and conditions of any other agreement Licensee
+may have with IBM or any of its related or affiliated entities
+(collectively "IBM"), the third party code identified below is subject
+to the terms and conditions of the IBM license agreement for the Program
+and not the license terms that may be contained in the notices below.
+The notices are provided for informational purposes.
+
+Please note: This Notices file may identify information that is not used
+by, or that was not shipped with, the Program as Licensee installed it.
+
+IMPORTANT: IBM does not represent or warrant that the information in this
+NOTICES file is accurate. Third party websites are independent of IBM and
+IBM does not represent or warrant that the information on any third party
+website referenced in this NOTICES file is accurate. IBM disclaims any
+and all liability for errors and omissions or for any damages accruing
+from the use of this NOTICES file or its contents, including without
+limitation URLs or references to any third party websites.
 
 TABLE OF CONTENTS
 
 THIS IBM NOTICES FILE CONSISTS OF THE FOLLOWING SECTIONS:
 
-APACHE V1.1
-APACHE V2
-BSD  
-BSD-2-CLAUSE  
-BSD-3-CLAUSE  
-CDDL V1.1  
-EPL V2  
-ICU
-JDOM
-MIT  
-MIT-EQUIVALENT  
-MPL V1  
-UNICODE  
-W3C
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+BSD-2-Clause
+CDDL-1.0
+Apache-2.0
+MIT
+EPL-2.0
+CPL-1.0
+EPL-1.0
+BSD-3-Clause
 
 
-APACHE SOFTWARE LICENSE 1.1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The Program includes some or all of the following that IBM obtained
-under the Apache License Version 1.1:
+BSD-2-CLAUSE LICENSE
 
-ANT-CONTRIB:ANT-CONTRIB
+The Program includes some or all of the following packages that IBM 
+obtained under the BSD-2-Clause License:
+
+com.brsanthu:migbase64 | Copyright (c) 2018, Mikael Grev
+org.dojotoolkit.dojotoolkit | Copyright (c) 2005-2009, The Dojo Foundation
+org.owasp.esapi:esapi | Copyright (c) 2007 - The OWASP Foundation
 
 
-Apache Software License
-Version 1.1
-
-Copyright (c) 2000 The Apache Software Foundation.  All rights reserved.
- 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are 
-met:
- 
-1. Redistributions of source code must retain the above copyright 
-notice, this list of conditions and the following disclaimer.
- 
-2. Redistributions in binary form must reproduce the above copyright 
-notice, this list of conditions and the following disclaimer in the 
-documentation and/or other materials provided with the distribution.
+met: 
 
-3. The end-user documentation included with the redistribution,
-if any, must include the following acknowledgment:
-"This product includes software developed by the
-Apache Software Foundation (http://www.apache.org/)."
-Alternately, this acknowledgment may appear in the software itself,
-if and wherever such third-party acknowledgments normally appear.
+* Redistributions of source code must retain the above copyright notice, 
+  this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright 
+  notice, this list of conditions and the following disclaimer in the 
+  documentation and/or other materials provided with the distribution. 
 
-4. The names "Apache" and "Apache Software Foundation" must 
-not be used to endorse or promote products derived from this
-software without prior written permission. For written
-permission, please contact apache@apache.org.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS 
+IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED 
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT 
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED 
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-5. Products derived from this software may not be called "Apache",
-nor may "Apache" appear in their name, without prior written
-permission of the Apache Software Foundation.
+END OF BSD-2-CLAUSE LICENSE NOTICES AND INFORMATION
 
-THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED.  IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR
-ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON 
-ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-=================================================================
-
-This software consists of voluntary contributions made by many
-individuals on behalf of the Apache Software Foundation.  For more
-information on the Apache Software Foundation, please see
-<http://www.apache.org/>.
-
-Portions of this software are based upon public domain software
-originally written at the National Center for Supercomputing 
-Applications, University of Illinois, Urbana-Champaign.
-
-END OF APACHE SOFTWARE LICENSE 1.1 NOTICES AND INFORMATION
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+COMMON DEVELOPMENT AND DISTRIBUTION LICENSE V1
+
+The Program includes some or all of the following that IBM obtained
+under the Common Development and Distribution License V1
+(source code available via the indicated URL):
+
+activation.jar | https://mvnrepository.com/artifact/javax.activation/activation/1.1.1
+javax.xml.bind:jaxb-api | https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-sources.jar
+mail.jar | https://mvnrepository.com/artifact/javax.mail/mail/1.4.2
+
+END OF COMMON DEVELOPMENT AND DISTRIBUTION V1 LICENSE NOTICES AND INFORMATION
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 APACHE SOFTWARE LICENSE 2.0
 
 The Program includes some or all of the following that IBM obtained
 under the Apache License Version 2.0:
 
-XML-APIS, BIZ.AQUTE:BNDLIB, COMMONS-LANG,
-ORG.CODEHAUS.PLEXUS:PLEXUS-ARCHIVER, ORG.OSGI:OSGI.CORE,
-ORG.APACHE.AXIS2:MEX, XERCES ENCODEINGMAP.JAVA [com.lowagie.text],
-WODEN-IMPL-COMMONS, ORG.OSGI.SERVICE.OBR, ORG.OSGI:ORG.OSGI.CORE,
-COMMONS-POOL, HYPHENATION [com.lowagie.text], XMLSEC, TOMCAT-JASPER,
-JODA-TIME, ORG.APACHE.GERONIMO.SPECS:GERONIMO-WS-METADATA_2.0_SPEC,
-MAVEN-DEPENDENCY-TREE, WOODSTOX-CORE-ASL, RAMPART-POLICY, JAVABEANS
-ACTIVATION FRAMEWORK (JAF), IO.AIRLIFT:AIRLINE,
-ORG.APACHE.AXIS2:ADDRESSING, LUCENE, BOOTSTRAP [swagger-codegen-cli],
-OPENSAML, IO.SWAGGER:SWAGGER-COMPAT-SPEC-PARSER, COMMONS-CODEC, NEETHI,
-OSGI ALLIANCE, SPRING-CORE, AXIOM-API, APACHEDS-KERBEROS-SHARED,
-ORG.APACHE.GERONIMO.SPECS:GERONIMO-JMS_1.1_SPEC, GLOBUS TOOLKIT PUBLIC 3
-[XML-APIs], LIBPHONENUMBER,
-ORG.APACHE.GERONIMO.SPECS:GERONIMO-JPA_2.0_SPEC,
-JAVAX.INJECT:JAVAX.INJECT, SPRING-BEANS, OAI / OPENAPI-SPECIFICATION,
-ORG.OSGI:ORG.OSGI.SERVICE.HTTP.WHITEBOARD,
-ORG.APACHE.HTTPCOMPONENTS:HTTPCLIENT, OPENWS, SWAGGER-CODEGEN-CLI,
-ELEXCEPTION.JAVA [javax.servlet.jsp], GRADLE, JAVAX.SERVLET,
-ORG.JBOSS.WELD:WELD-OSGI-BUNDLE, XMLSCHEMA-CORE,
-ORG.OSGI:ORG.OSGI.SERVICE.CM, ORG.OSGI:ORG.OSGI.SERVICE.HTTP,
-JETTY-UTIL, FINAGLE/FINCH, IO.SWAGGER:SWAGGER-MODELS, COMMONS-CLI,
-BASE64 [Commons-Codec], MAVEN-ARCHIVER, APACHE CXF, HTTPCOMPONENTS
-HTTPCORE, JAXEN, ORG.APACHE.ANT:ANT-LAUNCHER,
-ORG.CODEHAUS.PLEXUS:PLEXUS-CONTAINER-DEFAULT, XEGER, XMLSCHEMA,
-APACHE.ORG.HARMONY [retroweaver-rt], RAMPART-TRUST,
-IO.SWAGGER:SWAGGER-CORE, COMMONS-LOGGING, AXIOM-IMPL, ROME, XALAN
-SERIALIZER [Apache Abdera], WEB FONT LOADER [swagger-codegen-cli],
-WAGON-PROVIDER-API, INTHASHTABLE.JAVA [com.lowagie.text],
-COMMONS-COLLECTIONS, JODA-TIME:JODA-TIME, ORG.APACHE.AXIS2:MTOMPOLICY,
-JANSI, MAVEN-BUNDLE-PLUGIN,
-APACHE MAVEN, ORG.ECLIPSE.JETTY:JETTY-UTIL,
-IO.SWAGGER:SWAGGER-ANNOTATIONS, COM.GOOGLECODE.LAMBDAJ:LAMBDAJ, AXIOM,
-Unix-crypt.java [Jetty-Util], UnixCrypt.java, 
-ORG.APACHE.ARIES:ORG.APACHE.ARIES.UTIL, ORG.APACHE.IVY:IVY,
-ORG.OSGI:ORG.OSGI.CORE
+Jansi
+ant-antlr.jar
+ant-apache-bcel.jar
+ant-apache-bsf.jar
+ant-apache-log4j.jar
+ant-apache-oro.jar
+ant-apache-regexp.jar
+ant-apache-resolver.jar
+ant-apache-xalan2.jar
+ant-bootstrap.jar
+ant-commons-logging.jar
+ant-commons-net.jar
+ant-jai.jar
+ant-javamail.jar
+ant-jdepend.jar
+ant-jmf.jar
+ant-jsch.jar
+ant-junit.jar
+ant-junit4.jar
+ant-launcher.jar
+ant-netrexx.jar
+ant-swing.jar
+ant-testutil.jar
+ant.jar
+axiom.jar
+axis.jar
+axis2-kernel-1.6.2.jar
+com.fasterxml.jackson.core:jackson-annotations
+commons-codec:commons-codec
+commons-discovery:commons-discovery
+commons-httpclient:commons-httpclient
+commons-lang-2.6.jar
+commons-lang:commons-lang
+commons-logging:commons-logging
+cxf-core-3.0.3.jar
+cxf-rt-ws-addr-3.0.3.jar
+cxf-rt-ws-security-3.0.3.jar
+cxf-rt-wsdl-3.0.3.jar
+gradle-wrapper.jar
+httpclient-4.3.1.jar
+httpcore-4.3.jar
+io.swagger:swagger-codegen-cli
+io.swagger:swagger-parser
+javax.servlet.jsp_2.0.0.v201101211617.jar
+joda-time:joda-time
+neethi-3.0.3.jar
+nl.flotsam:xeger
+org.apache.axis2:addressing
+org.apache.axis2:axis2-kernel
+org.apache.axis2:axis2-mtompolicy
+org.apache.axis2:mex
+org.apache.axis2:mtompolicy
+org.apache.commons.el_1.0.0.v201101211617.jar
+org.apache.commons.httpclient_3.1.0.v201012070820.jar
+org.apache.cxf:cxf-core
+org.apache.cxf:cxf-rt-bindings-soap
+org.apache.cxf:cxf-rt-databinding-jaxb
+org.apache.cxf:cxf-rt-frontend-jaxws
+org.apache.cxf:cxf-rt-frontend-simple
+org.apache.cxf:cxf-rt-security
+org.apache.cxf:cxf-rt-transports-http
+org.apache.cxf:cxf-rt-ws-addr
+org.apache.cxf:cxf-rt-ws-mex
+org.apache.cxf:cxf-rt-ws-policy
+org.apache.cxf:cxf-rt-ws-security
+org.apache.cxf:cxf-rt-wsdl
+org.apache.directory.server:apacheds-kerberos-shared
+org.apache.httpcomponents:httpclient
+org.apache.httpcomponents:httpcore
+org.apache.jasper_5.5.17.v201101211617.jar
+org.apache.lucene.analysis_2.9.1.v201101211721.jar
+org.apache.lucene.core_2.9.1.v201101211721.jar
+org.apache.lucene.highlighter_2.9.1.v20100421-0704.jar
+org.apache.lucene.memory_2.9.1.v20100421-0704.jar
+org.apache.lucene.misc_2.9.1.v20100421-0704.jar
+org.apache.lucene.queries_2.9.1.v20100421-0704.jar
+org.apache.lucene.snowball_2.9.1.v20100421-0704.jar
+org.apache.lucene.spellchecker_2.9.1.v20100421-0704.jar
+org.apache.lucene_2.9.1.v201101211721.jar
+org.apache.maven.wagon:wagon-file
+org.apache.neethi:neethi
+org.apache.rampart:rampart
+org.apache.rampart:rampart-core
+org.apache.rampart:rampart-policy
+org.apache.rampart:rampart-trust
+org.apache.santuario:xmlsec
+org.apache.woden:woden-api
+org.apache.woden:woden-impl-commons
+org.apache.woden:woden-impl-dom
+org.apache.woden:woden-qname
+org.apache.woden:woden-tool
+org.apache.ws.commons.schema:XmlSchema
+org.apache.ws.security:wss4j
+org.apache.ws.xmlschema:xmlschema-core
+org.apache.wss4j:wss4j-bindings
+org.apache.wss4j:wss4j-policy
+org.apache.wss4j:wss4j-ws-security-common
+org.apache.wss4j:wss4j-ws-security-dom
+org.apache.wss4j:wss4j-ws-security-policy-stax
+org.apache.wss4j:wss4j-ws-security-stax
+org.codehaus.woodstox:woodstox-core-asl
+org.eclipse.jetty.orbit:javax.servlet
+org.eclipse.jetty:jetty-util
+org.jasypt:jasypt
+org.jdom:jdom
+org.mortbay.jetty.server_6.1.23.v201012071420.jar
+org.mortbay.jetty.util_6.1.23.v201012071420.jar
+org.opensaml:opensaml
+org.opensaml:openws
+org.opensaml:xmltooling
+org.springframework:spring-context
+org.springframework:spring-core
+rampart-core-1.6.2.jar
+rampart-policy-1.6.2.jar
+rome-1.0.jar
+woden-api-1.0M9.jar
+woden-impl-commons-1.0M9.jar
+woden-impl-dom-1.0M9.jar
+woden-qname-1.0M9.jar
+woden-tool-1.0M9.jar
+wss4j-1.6.14.jar
+wss4j-policy-2.0.2.jar
+wss4j-ws-security-dom-2.0.2.jar
+xalan:serializer
+xeger-1.0-SNAPSHOT.jar
 
 Apache License
 Version 2.0, January 2004
@@ -153,7 +243,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
    control with that entity. For the purposes of this definition,
    "control" means (i) the power, direct or indirect, to cause the
    direction or management of such entity, whether by contract or
-   otherwise, or (ii) ownership of fifty percent (50%) or more of the
+   otherwise, or (ii) ownership of fifty percent (50%%) or more of the
    outstanding shares, or (iii) beneficial ownership of such entity.
 
    "You" (or "Your") shall mean an individual or Legal Entity
@@ -312,143 +402,200 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 END OF TERMS AND CONDITIONS
 
 END OF APACHE LICENSE 2.0 NOTICES AND INFORMATION
+
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-BSD LICENSE
+MIT LICENSE
 
-The Program includes some or all of the following packages that IBM 
-obtained under the BSD License:
+The Program includes some or all of the following that IBM obtained
+under the MIT License:
 
-XMLSCHEMA-CORE-2.1.0-0/META-INF/NOTICE [XMLSchema-core] (World Wide Web
-Consortium 2006, 2007), ASM-2.2.3 [spring-core] (Copyright (c) 2000-2005
-INRIA, France Telecom All rights reserved.)
+bcpkix-jdk13-154.jar | Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc
+jbuilder | Copyright (c) 2011-2014 David Heinemeier Hansson, 37signals
+jce-jdk13-154.jar | Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
+jquery-1.8.3.min.js | Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
+mysql2 | Copyright (c) 2014 Brian Lopez
+org.slf4j:jcl-over-slf4j | Copyright (c) 2004-2007 QOS.ch
+org.slf4j:slf4j-api | Copyright (c) 2004-2007 QOS.ch
+org.slf4j:slf4j-jdk14 | Copyright (c) 2004-2007 QOS.ch
+rails | No Copyright Found
+sinatra | Copyright (c) 2007, 2008, 2009 Blake Mizerany, Copyright (c) 2010-2017 Konstantin Haase, Copyright (c) 2015-2017 Zachary Scott
+sinatra-cross_origin | Copyright (c) 2007, 2008, 2009 Brit Gardner
+spring | Copyright (c) 2017-2021 Rafael Mendonça Franca, Copyright (c) 2012-2017 Jon Leighton
+tzinfo-data | Copyright (c) 2005-2023 Philip Ross
 
+Permission is hereby granted, free of charge, to any person obtaining a 
+copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so, subject to 
+the following conditions: 
 
-BSD-2-CLAUSE
+The above copyright notice and this permission notice shall be included 
+in all copies or substantial portions of the Software. 
 
-Redistribution and use in source and binary forms, with or without 
-modification, are permitted provided that the following conditions are 
-met: 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 
-* Redistributions of source code must retain the above copyright notice, 
-  this list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright 
-  notice, this list of conditions and the following disclaimer in the 
-  documentation and/or other materials provided with the distribution. 
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS 
-IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED 
-TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
-PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT 
-HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED 
-TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
-
-END OF BSD-2-CLAUSE LICENSE NOTICES AND INFORMATION
-
-
-BSD-3-CLAUSE
-
-Redistribution and use in source and binary forms, with or without 
-modification, are permitted provided that the following conditions are 
-met: 
-
-* Redistributions of source code must retain the above copyright notice, 
-  this list of conditions and the following disclaimer. 
-* Redistributions in binary form must reproduce the above copyright 
-  notice, this list of conditions and the following disclaimer in the 
-  documentation and/or other materials provided with the distribution. 
-* Neither the name of the <ORGANIZATION> nor the names of its 
-  contributors may be used to endorse or promote products derived from 
-  this software without specific prior written permission. 
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS 
-IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED 
-TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
-PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER 
-OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
-
-END OF BSD-3-CLAUSE LICENSE NOTICES AND INFORMATION
+END OF MIT LICENSE NOTICES AND INFORMATION
 
 
-BSD-4-CLAUSE
-
-Redistribution and use in source and binary forms, with or without 
-modification, is permitted provided that the following conditions are 
-met:
-
-* Redistributions of source code must retain the above copyright notice,
-  this list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright 
-  notice, this list of conditions and the following disclaimer in the 
-  documentation and/or other materials provided with the distribution.
-* All advertising materials mentioning features or use of this software 
-  must display the following acknowledgement:
-  This product includes software developed by the <ORGANIZATION>.
-* Neither the name of the <ORGANIZATION> nor the names of its 
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-  
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS 
-IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED 
-TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
-PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
-OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
-PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-END OF BSD-4-CLAUSE LICENSE NOTICES AND INFORMATION
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-BSD-2-CLAUSE LICENSE
+ECLIPSE PUBLIC LICENSE, VERSION 2
 
-The Program includes some or all of the following packages that IBM 
-obtained under the BSD-2-Clause License:
+The Program includes some or all of the following that IBM obtained
+under the Eclipse Public License (source code available via the
+indicated URL):
 
-KXML.SOURCEFORGE.NET (Copyright (c) 2002,2003, Stefan Haustein,
-Oberhausen, Rhld., Germany.), SERP (Copyright (c) 2002-2007, A. Abram
-White), BASE64IO.JAVA (No Copyright Found), 
-FEEDPARSER [Apache Abdera] (Copyright (c) 2002-2005, Mark Pilgrim All
-rights reserved.)
+org.eclipse.equinox.p2.artifact.repository.nl1_1.1.101.v201109221431.jar | https://git.eclipse.org/c/equinox/rt.equinox.p2.git/tree/bundles/org.eclipse.equinox.p2.artifact.repository/src/org/eclipse/equinox/internal/p2/artifact/repository/simple/SimpleArtifactRepository.java
+org.eclipse.equinox.p2.artifact.repository.nl2_1.1.101.v201109221431.jar | https://git.eclipse.org/c/equinox/rt.equinox.p2.git/tree/bundles/org.eclipse.equinox.p2.artifact.repository/src/org/eclipse/equinox/internal/p2/artifact/repository/simple/SimpleArtifactRepository.java
+org.eclipse.equinox.p2.artifact.repository.nl2a_1.1.101.v201109221431.jar | https://git.eclipse.org/c/equinox/rt.equinox.p2.git/tree/bundles/org.eclipse.equinox.p2.artifact.repository/src/org/eclipse/equinox/internal/p2/artifact/repository/simple/SimpleArtifactRepository.java
+org.eclipse.equinox.p2.artifact.repository.nlBidi_1.1.101.v201109221431.jar | https://git.eclipse.org/c/equinox/rt.equinox.p2.git/tree/bundles/org.eclipse.equinox.p2.artifact.repository/src/org/eclipse/equinox/internal/p2/artifact/repository/simple/SimpleArtifactRepository.java
+org.eclipse.equinox.p2.artifact.repository_1.1.101.201205181451.jar | https://git.eclipse.org/c/equinox/rt.equinox.p2.git/tree/bundles/org.eclipse.equinox.p2.artifact.repository/src/org/eclipse/equinox/internal/p2/artifact/repository/simple/SimpleArtifactRepository.java
+org.eclipse.equinox.p2.console_1.0.300.v20110502-1955.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.console_1.0.300.v20110502-1955.jar
+org.eclipse.equinox.p2.core.nl1_2.1.0.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.p2.core/2.1.0/org.eclipse.equinox.p2.core-2.1.0-sources.jar
+org.eclipse.equinox.p2.core.nl2_2.1.0.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.p2.core/2.1.0/org.eclipse.equinox.p2.core-2.1.0-sources.jar
+org.eclipse.equinox.p2.core.nl2a_2.1.0.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.p2.core/2.1.0/org.eclipse.equinox.p2.core-2.1.0-sources.jar
+org.eclipse.help.base.nl1_3.6.1.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
+org.eclipse.help.base.nl2_3.6.1.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
+org.eclipse.help.base.nl2a_3.6.1.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
+org.eclipse.help.base.nlBidi_3.6.1.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
+org.eclipse.help.base_3.6.1.201205181451.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
+
+END OF ECLIPSE PUBLIC LICENSE, VERSION 2 NOTICES AND INFORMATION
 
 
-Redistribution and use in source and binary forms, with or without 
-modification, are permitted provided that the following conditions are 
-met: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-* Redistributions of source code must retain the above copyright notice, 
-  this list of conditions and the following disclaimer.
-* Redistributions in binary form must reproduce the above copyright 
-  notice, this list of conditions and the following disclaimer in the 
-  documentation and/or other materials provided with the distribution. 
+COMMON PUBLIC LICENSE
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS 
-IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED 
-TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
-PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT 
-HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
-SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED 
-TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+The Program includes some or all of the following that IBM obtained
+under the Common Public License (source code available via the indicated
+URL):
 
-END OF BSD-2-CLAUSE LICENSE NOTICES AND INFORMATION
+wsdl4j:wsdl4j | https://repo1.maven.org/maven2/wsdl4j/wsdl4j/1.6.2/wsdl4j-1.6.2-sources.jar
+
+END OF COMMON PUBLIC LICENSE NOTICES AND INFORMATION
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ECLIPSE PUBLIC LICENSE, VERSION 1
+
+The Program includes some or all of the following that IBM obtained
+under the Eclipse Public License (source code available via the
+indicated URL):
+
+com.ibm.icu_4.4.2.v20110208.jar | https://mvnrepository.com/artifact/org.eclipse.birt.runtime/com.ibm.icu
+com.lowagie.text_2.1.7.v201004222200.jar | https://mvnrepository.com/artifact/com.innoventsolutions.birt.runtime/com.lowagie.text_2.1.7.v201004222200
+org.eclipse.ant.core_3.2.300.v20110511.jar | https://mvnrepository.com/artifact/org.eclipse.ant/org.eclipse.ant.core
+org.eclipse.birt.runtime.3_7_1:org.apache.commons.codec | https://mvnrepository.com/artifact/org.eclipse.birt.runtime.3_7_1/org.apache.commons.codec/1.3.0
+org.eclipse.birt.runtime:org.apache.commons.logging | https://repo1.maven.org/maven2/org/eclipse/birt/runtime/org.apache.commons.logging/1.0.4.v201101211617/org.apache.commons.logging-1.0.4.v201101211617-sources.jar
+org.eclipse.core.commands_3.6.0.I20110111-0800.jar | https://mvnrepository.com/artifact/org.eclipse.core/commands/3.6.0-I20110111-0800
+org.eclipse.core.contenttype_3.4.100.v20110423-0524.jar | https://mvnrepository.com/artifact/org.eclipse.core/contenttype/3.4.100-v20110423-0524
+org.eclipse.core.databinding.observable_1.4.0.I20110222-0800.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.core.databinding.observable_1.4.0.I20110222-0800.jar
+org.eclipse.core.databinding.property_1.4.0.I20110222-0800.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.core.databinding.property_1.4.0.I20110222-0800.jar
+org.eclipse.core.databinding_1.4.0.I20110111-0800.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.core.databinding_1.4.0.I20110111-0800.jar
+org.eclipse.core.filesystem_1.3.100.v20110423-0524.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.core.filesystem_1.3.100.v20110423-0524.jar
+org.eclipse.core.jobs_3.5.100.v20110404.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M1/plugins/org.eclipse.core.jobs_3.5.100.v20110404.jar
+org.eclipse.core.net_1.2.100.I20110511-0800.jar | https://archive.eclipse.org/koneki/releases/stable/ldt/0.8.1/plugins/org.eclipse.core.net_1.2.100.I20110511-0800.jar
+org.eclipse.core.resources_3.7.100.v20110510-0712.jar | https://mvnrepository.com/artifact/org.jibx.config.3rdparty.org.eclipse/org.eclipse.core.resources/3.7.100.v20110510-0712
+org.eclipse.core.runtime_3.7.0.v20110110.jar | https://mvnrepository.com/artifact/org.eclipse.core/org.eclipse.core.runtime/3.7.0.v20110110
+org.eclipse.core.variables_3.2.500.v20110511.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M1/plugins/org.eclipse.core.variables_3.2.500.v20110511.jar
+org.eclipse.ecf.filetransfer_5.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.filetransfer_5.0.0.v20110531-2218.jar
+org.eclipse.ecf.identity_3.1.100.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.identity_3.1.100.v20110531-2218.jar
+org.eclipse.ecf.provider.filetransfer.httpclient.ssl_1.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer.httpclient.ssl_1.0.0.v20110531-2218.jar
+org.eclipse.ecf.provider.filetransfer.httpclient_4.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer.httpclient_4.0.0.v20110531-2218.jar
+org.eclipse.ecf.provider.filetransfer.ssl_1.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer.ssl_1.0.0.v20110531-2218.jar
+org.eclipse.ecf.provider.filetransfer_3.2.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer_3.2.0.v20110531-2218.jar
+org.eclipse.ecf.ssl_1.0.100.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.ssl_1.0.100.v20110531-2218.jar
+org.eclipse.ecf_3.1.300.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf_3.1.300.v20110531-2218.jar
+org.eclipse.equinox.app_1.3.100.v20110321.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8RC2/plugins/org.eclipse.equinox.app_1.3.100.v20110321.jar
+org.eclipse.equinox.common_3.6.0.v20110523.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8RC2/plugins/org.eclipse.equinox.common_3.6.0.v20110523.jar
+org.eclipse.equinox.concurrent_1.0.200.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.concurrent_1.0.200.v20110502.jar
+org.eclipse.equinox.ds_1.3.0.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.ds_1.3.0.v20110502.jar
+org.eclipse.equinox.frameworkadmin.equinox_1.0.300.v20110506.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.frameworkadmin.equinox_1.0.300.v20110506.jar
+org.eclipse.equinox.frameworkadmin_2.0.0.v20110502-1955.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.frameworkadmin_2.0.0.v20110502-1955.jar
+org.eclipse.equinox.http.jetty_2.0.100.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.http.jetty_2.0.100.v20110502.jar
+org.eclipse.equinox.http.registry_1.1.100.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.http.registry_1.1.100.v20110502.jar
+org.eclipse.equinox.http.servlet_1.1.200.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.http.servlet_1.1.200.v20110502.jar
+org.eclipse.equinox.http.servletbridge_1.0.200.v20100503.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.http.servletbridge_1.0.200.v20100503.jar
+org.eclipse.equinox.jsp.jasper.registry_1.0.200.v20100503.jar | http://www.java2s.com/Code/JarDownload/org.eclipse.equinox/org.eclipse.equinox.jsp.jasper_1.0.200.jar.zip
+org.eclipse.equinox.jsp.jasper_1.0.300.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.jsp.jasper_1.0.300.v20110502.jar
+org.eclipse.equinox.launcher_1.2.0.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7.2-201202080800/download.php?dropFile=org.eclipse.equinox.launcher_1.2.0.v20110502.jar
+org.eclipse.equinox.p2.core.nlBidi_2.1.0.v201109221431.jar | http://www.java2s.com/example/jar/o/download-orgeclipseequinoxp2core02jar-file.html
+org.eclipse.equinox.p2.core_2.1.0.v20110502-1955.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.core_2.1.0.v20110502-1955.jar
+org.eclipse.equinox.p2.director.nl1_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.director_2.1.0.v20110504-1715.jar
+org.eclipse.equinox.p2.director.nl2_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.director_2.1.0.v20110504-1715.jar
+org.eclipse.equinox.p2.director.nl2a_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.director_2.1.0.v20110504-1715.jar
+org.eclipse.equinox.p2.director.nlBidi_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.director_2.1.0.v20110504-1715.jar
+org.eclipse.equinox.p2.director_2.1.0.v20110504-1715.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.director_2.1.0.v20110504-1715.jar
+org.eclipse.equinox.p2.engine.nl1_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.engine_2.1.0.v20110511.jar
+org.eclipse.equinox.p2.engine.nl2_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.engine_2.1.0.v20110511.jar
+org.eclipse.equinox.p2.engine.nl2a_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.engine_2.1.0.v20110511.jar
+org.eclipse.equinox.p2.engine.nlBidi_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.engine_2.1.0.v20110511.jar
+org.eclipse.equinox.p2.engine_2.1.0.v20110511.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.engine_2.1.0.v20110511.jar
+org.eclipse.equinox.p2.garbagecollector_1.0.200.v20110510.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.garbagecollector_1.0.200.v20110510.jar
+org.eclipse.equinox.p2.jarprocessor_1.0.200.v20110502-1955.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.jarprocessor_1.0.200.v20110502-1955.jar
+org.eclipse.equinox.p2.metadata.nl1_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata_2.1.0.v20110510.jar
+org.eclipse.equinox.p2.metadata.nl2_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata_2.1.0.v20110510.jar
+org.eclipse.equinox.p2.metadata.nl2a_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata_2.1.0.v20110510.jar
+org.eclipse.equinox.p2.metadata.nlBidi_2.1.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata_2.1.0.v20110510.jar
+org.eclipse.equinox.p2.metadata.repository.nl1_1.2.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata.repository_1.2.0.v20110511-1359.jar
+org.eclipse.equinox.p2.metadata.repository.nl2_1.2.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata.repository_1.2.0.v20110511-1359.jar
+org.eclipse.equinox.p2.metadata.repository.nl2a_1.2.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata.repository_1.2.0.v20110511-1359.jar
+org.eclipse.equinox.p2.metadata.repository.nlBidi_1.2.0.v201109221431.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata.repository_1.2.0.v20110511-1359.jar
+org.eclipse.equinox.p2.metadata.repository_1.2.0.v20110511-1359.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata.repository_1.2.0.v20110511-1359.jar
+org.eclipse.equinox.p2.metadata_2.1.0.v20110510.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.metadata_2.1.0.v20110510.jar
+org.eclipse.equinox.p2.publisher_1.2.0.v20110511.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.publisher_1.2.0.v20110511.jar
+org.eclipse.equinox.p2.ql_2.0.100.v20110510.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.ql_2.0.100.v20110510.jar
+org.eclipse.equinox.p2.repository_2.1.0.v20110601.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.repository_2.1.0.v20110601.jar
+org.eclipse.equinox.p2.touchpoint.eclipse_2.1.0.v20110511.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.touchpoint.eclipse_2.1.0.v20110511.jar
+org.eclipse.equinox.p2.touchpoint.natives_1.0.300.v20110502-1955.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.touchpoint.natives_1.0.300.v20110502-1955.jar
+org.eclipse.equinox.p2.transport.ecf_1.0.0.v20110510.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.transport.ecf_1.0.0.v20110510.jar
+org.eclipse.equinox.p2.updatesite_1.0.300.v20110510.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.updatesite_1.0.300.v20110510.jar
+org.eclipse.equinox.preferences_3.4.0.v20110502.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.preferences/3.4.0/
+org.eclipse.equinox.security_1.1.100.jar | https://archive.eclipse.org/equinox/drops/R-3.8.2-201302041200/org.eclipse.equinox.security_1.1.100.v20120522-1841.jar
+org.eclipse.equinox.server.core | https://mvnrepository.com/artifact/com.github.adedayo.eclipse.sdk/org.eclipse.equinox.server.core
+org.eclipse.equinox.servletbridge.extensionbundle_1.2.0.v20100503.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.servletbridge.extensionbundle_1.2.0.v20100503.jar
+org.eclipse.equinox.servletbridge_1.2.0.v20091026.jar | https://git.eclipse.org/c/equinox/rt.equinox.bundles.git/tree/bundles/org.eclipse.equinox.servletbridge
+org.eclipse.equinox.servletbridge_1.2.100.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.servletbridge_1.2.100.v20110502.jar
+org.eclipse.equinox.simpleconfigurator.manipulator_2.0.0.v20110502-1955.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.simpleconfigurator.manipulator_2.0.0.v20110502-1955.jar
+org.eclipse.equinox.simpleconfigurator_1.0.200.v20110502-1955.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.simpleconfigurator_1.0.200.v20110502-1955.jar
+org.eclipse.equinox.useradmin_1.1.300.v20110413.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.useradmin_1.1.300.v20110413.jar
+org.eclipse.equinox.util_1.0.300.v20110502.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.util_1.0.300.v20110502.jar
+org.eclipse.help.appserver_3.1.400.v20110425.jar | https://archive.eclipse.org/koneki/releases/stable/ldt/0.8.1/plugins/org.eclipse.help.appserver_3.1.400.v20110425.jar
+org.eclipse.help.webapp.nl1_3.6.0.v201109221431.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
+org.eclipse.help.webapp.nl2_3.6.0.v201109221431.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
+org.eclipse.help.webapp.nl2a_3.6.0.v201109221431.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
+org.eclipse.help.webapp.nlBidi_3.6.0.v201109221431.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
+org.eclipse.help.webapp_3.6.1.201205181451.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
+org.eclipse.help_3.5.100.v20110426.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.help_3.5.100.v20110426.jar
+org.eclipse.jface.databinding_1.5.0.I20100907-0800.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.jface.databinding_1.5.0.I20100907-0800.jar
+org.eclipse.jface.nl_1.0.0.v20140523_1402.jar | https://mvnrepository.com/artifact/org.eclipse.jface
+org.eclipse.jface_3.7.0.I20110522-1430.jar | https://download.eclipse.org/eclipse/updates/4.1/R-4.1-201106201631/plugins/org.eclipse.jface_3.7.0.I20110522-1430.jar
+org.eclipse.osgi.services_3.3.0.v20110513.jar | https://download.eclipse.org/eclipse/updates/4.1/R-4.1-201106201631/plugins/org.eclipse.osgi.services_3.3.0.v20110513.jar
+org.eclipse.osgi_3.7.0.v20110613.jar | https://download.eclipse.org/eclipse/updates/4.1/R-4.1-201106201631/plugins/org.eclipse.osgi_3.7.0.v20110613.jar
+org.eclipse.swt_3.7.0.v3735b.jar | https://download.eclipse.org/eclipse/updates/4.1/R-4.1-201106201631/plugins/org.eclipse.swt_3.7.0.v3735b.jar
+org.eclipse.ui.workbench_3.7.0.I20110519-0100.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M1/plugins/org.eclipse.ui.workbench_3.7.0.I20110519-0100.jar
+org.eclipse.ui_3.7.0.I20110602-0100.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M1/plugins/org.eclipse.ui_3.7.0.I20110602-0100.jar
+org.ow2.orchestra.eclipse.core:org.ow2.orchestra.eclipse.core.expressions | https://mvnrepository.com/artifact/org.ow2.orchestra.eclipse.core/org.ow2.orchestra.eclipse.core.expressions/3.4.300
+org.ow2.orchestra.eclipse.core:org.ow2.orchestra.eclipse.core.runtime.compatibility.auth | https://mvnrepository.com/artifact/org.eclipse.core/org.eclipse.core.runtime.compatibility.auth/3.2.200.v20100517
+org.ow2.orchestra.eclipse.equinox:org.ow2.orchestra.eclipse.equinox.registry | https://mvnrepository.com/artifact/org.ow2.orchestra.eclipse.equinox/org.ow2.orchestra.eclipse.equinox.registry/3.5.100
+org.sat4j.core_2.3.0.v20110329.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.sat4j.core_2.3.0.v20110329.jar
+org.sat4j.pb_2.3.0.v20110329.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.sat4j.pb_2.3.0.v20110329.jar
+
+END OF ECLIPSE PUBLIC LICENSE, VERSION 1 NOTICES AND INFORMATION
+
+
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 BSD-3-Clause LICENSE
@@ -456,12 +603,9 @@ BSD-3-Clause LICENSE
 The Program includes some or all of the following packages that IBM 
 obtained under the BSD-3-Clause License:
 
-CODEC [com.lowagie.text] (Copyright (c) 2005 Sun Microsystems, Inc. All
-Rights Reserved.), COM.BRSANTHU:MIGBASE64 (Copyright (c) 2004 Mikael
-Grev MiG InfoCom AB. (base64 @ miginfocom . com)), MIGBASE64 (Copyright
-(c) 2004, Mikael Grev, MiG InfoCom AB. (base64 @ miginfocom . com)  All
-rights reserved.), COM.JCRAFT:JSCH (Copyright (c) 2002-2015 Atsuhiko Yamanaka, JCraft,Inc.
-), ASM:ASM-ALL (Copyright (c) 2000-2011 INRIA, France Telecom)
+org.antlr:stringtemplate | Copyright (c) 2011 Terence Parr.
+org.codehaus.woodstox:stax2-api | Copyright (c) 2005- Tatu Saloranta
+puma | Copyright (c) 2005, Zed Shaw, Copyright (c) 2011, Evan Phoenix
 
 
 Redistribution and use in source and binary forms, with or without 
@@ -492,716 +636,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 END OF BSD 3-CLAUSE LICENSE NOTICES AND INFORMATION
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-COMMON DEVELOPMENT AND DISTRIBUTION LICENSE V1
-
-The Program includes some or all of the following that IBM obtained
-under the Common Development and Distribution License V1
-(source code available via the indicated URL):
-
-ORD_2_0-XSD [OpenJPA] (No download location), JAVAMAIL
-(http://repo1.maven.org/maven2/javax/mail/mail/1.4.2/),
-ANNOTATION/DOCUMENTATION [javax.servlet.jsp]
-(repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet.jsp/2.2.0.v201112011158/javax.servlet.jsp-2.2.0.v201112011158-sources.jar)
-
-END OF COMMON DEVELOPMENT AND DISTRIBUTION V1 LICENSE NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-COMMON DEVELOPMENT AND DISTRIBUTION LICENSE V1.1
-
-The Program includes some or all of the following that IBM obtained
-under the Common Development and Distribution License V1.1
-(source code available via the indicated URL):
-
-JAVAX.SERVLET.JSP
-(repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet.jsp)
-
-END OF COMMON DEVELOPMENT AND DISTRIBUTION V1.1 LICENSE NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-ECLIPSE PUBLIC LICENSE, VERSION 2
-
-The Program includes some or all of the following that IBM obtained
-under the Eclipse Public License (source code available via the
-indicated URL):
-
-ECLIPSE EQUINOX P2
-(https://git.eclipse.org/c/equinox/rt.equinox.p2.git/snapshot/rt.equinox.p2-R4_21.zip)
-
-END OF ECLIPSE PUBLIC LICENSE, VERSION 2 NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-INTERNATIONAL COMPONENTS FOR UNICODE LICENSE
-
-The Program includes some or all of the following that IBM obtained under
-the INTERNATIONAL COMPONENTS FOR UNICODE LICENSE.
-
-ICU [Jasypt]
-
-ICU License - ICU 1.8.1 and later 
-
-COPYRIGHT AND PERMISSION NOTICE 
-
-Copyright (c) 1995-2014 International Business Machines Corporation and 
-others 
-
-All rights reserved. 
-
-Permission is hereby granted, free of charge, to any person obtaining a 
-copy of this software and associated documentation files (the 
-"Software"), to deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, merge, publish, 
-distribute, and/or sell copies of the Software, and to permit persons to 
-whom the Software is furnished to do so, provided that the above 
-copyright notice(s) and this permission notice appear in all copies of 
-the Software and that both the above copyright notice(s) and this 
-permission notice appear in supporting documentation. 
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF 
-THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS 
-INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT 
-OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS 
-OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR 
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR 
-PERFORMANCE OF THIS SOFTWARE. 
-
-Except as contained in this notice, the name of a copyright holder shall 
-not be used in advertising or otherwise to promote the sale, use or 
-other dealings in this Software without prior written authorization of 
-the copyright holder. 
-
-All trademarks and registered trademarks mentioned herein are the 
-property of their respective owners. 
-
-Third-Party Software Licenses
-
-This section contains third-party software notices and/or additional 
-terms for licensed third-party software components included within ICU 
-libraries. 
-
-1. Unicode Data Files and Software
-   
-   EXHIBIT 1
-   
-   UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE
-   
-   Unicode Data Files include all data files under the directories 
-   http://www.unicode.org/Public/, http://www.unicode.org/reports/, and 
-   http://www.unicode.org/cldr/data/. Unicode Data Files do not include 
-   PDF online code charts under the directory 
-   http://www.unicode.org/Public/. Software includes any source code 
-   published in the Unicode Standard or under the directories 
-   http://www.unicode.org/Public/, http://www.unicode.org/reports/, and 
-   http://www.unicode.org/cldr/data/. 
-   
-   NOTICE TO USER: Carefully read the following legal agreement. BY 
-   DOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING UNICODE INC.'S 
-   DATA FILES ("DATA FILES"), AND/OR SOFTWARE ("SOFTWARE"), YOU 
-   UNEQUIVOCALLY ACCEPT, AND AGREE TO BE BOUND BY, ALL OF THE TERMS AND 
-   CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT DOWNLOAD, 
-   INSTALL, COPY, DISTRIBUTE OR USE THE DATA FILES OR SOFTWARE. 
-   
-   COPYRIGHT AND PERMISSION NOTICE 
-   
-   Copyright © 1991-2014 Unicode, Inc. All rights reserved. Distributed 
-   under the Terms of Use in http://www.unicode.org/copyright.html. 
-   
-   Permission is hereby granted, free of charge, to any person obtaining 
-   a copy of the Unicode data files and any associated documentation 
-   (the "Data Files") or Unicode software and any associated 
-   documentation (the "Software") to deal in the Data Files or Software 
-   without restriction, including without limitation the rights to use, 
-   copy, modify, merge, publish, distribute, and/or sell copies of the 
-   Data Files or Software, and to permit persons to whom the Data Files 
-   or Software are furnished to do so, provided that (a) the above 
-   copyright notice(s) and this permission notice appear with all copies 
-   of the Data Files or Software, (b) both the above copyright notice(s) 
-   and this permission notice appear in associated documentation, and 
-   (c) there is clear notice in each modified Data File or in the 
-   Software as well as in the documentation associated with the Data 
-   File(s) or Software that the data or software has been modified. 
-   
-   THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF 
-   ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
-   WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
-   NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE 
-   COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY 
-   CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY 
-   DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, 
-   WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS 
-   ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE 
-   OF THE DATA FILES OR SOFTWARE. 
-   
-   Except as contained in this notice, the name of a copyright holder 
-   shall not be used in advertising or otherwise to promote the sale, 
-   use or other dealings in these Data Files or Software without prior 
-   written authorization of the copyright holder. 
-   
-   Unicode and the Unicode logo are trademarks of Unicode, Inc. in the 
-   United States and other countries. All third party trademarks 
-   referenced herein are the property of their respective owners. 
-   
-
-2. Chinese/Japanese Word Break Dictionary Data (cjdict.txt)
-
- #  The Google Chrome software developed by Google is licensed under
- #  the BSD license. Other software included in this distribution is 
- #  provided under other licenses, as set forth below.
- #
- #  The BSD License
- #  http://opensource.org/licenses/bsd-license.php 
- #  Copyright (C) 2006-2008, Google Inc.
- #
- #  All rights reserved.
- #
- #  Redistribution and use in source and binary forms, with or without
- #  modification, are permitted provided that the following conditions
- #  are met:
- #
- #  Redistributions of source code must retain the above copyright 
- #  notice, this list of conditions and the following disclaimer.
- #  Redistributions in binary form must reproduce the above copyright
- #  notice, this list of conditions and the following disclaimer in the
- #  documentation and/or other materials provided with the distribution.
- # Neither the name of  Google Inc. nor the names of its contributors
- #  may be used to endorse or promote products derived from this
- #  software without specific prior written permission.
- #
- #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- #  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- #  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- #  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- #  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- #  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- #  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
- #  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- #  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- #  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
- #  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- #  POSSIBILITY OF SUCH DAMAGE.
- #
- #  The word list in cjdict.txt are generated by combining three word
- #  lists listed below with further processing for compound word
- #  breaking. The frequency is generated with an iterative training
- #  against Google web corpora. 
- #
- #  * Libtabe (Chinese)
- #    - https://sourceforge.net/project/?group_id=1519
- #    - Its license terms and conditions are shown below.
- #
- #  * IPADIC (Japanese)
- #    - http://chasen.aist-nara.ac.jp/chasen/distribution.html
- #    - Its license terms and conditions are shown below.
- #
- #  ---------COPYING.libtabe ---- BEGIN--------------------
- #
- #  /*
- #   * Copyrighy (c) 1999 TaBE Project.
- #   * Copyright (c) 1999 Pai-Hsiang Hsiao.
- #   * All rights reserved.
- #   *
- #   * Redistribution and use in source and binary forms, with or 
- #   * without modification, are permitted provided that the following
- #   * conditions are met:
- #   *
- #   * . Redistributions of source code must retain the above copyright
- #   *   notice, this list of conditions and the following disclaimer.
- #   * . Redistributions in binary form must reproduce the above 
- #   *   copyright notice, this list of conditions and the following 
- #   *   disclaimer in the documentation and/or other materials provided 
- #   *   with the distribution.
- #   * . Neither the name of the TaBE Project nor the names of its
- #   *   contributors may be used to endorse or promote products derived
- #   *   from this software without specific prior written permission.
- #   *
- #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
- #   * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
- #   * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
- #   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
- #   * DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE 
- #   * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
- #   * OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
- #   * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
- #   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY 
- #   * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR 
- #   * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
- #   * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
- #   * OF SUCH DAMAGE. 
- #   */
- #  
- #  /*
- #   * Copyright (c) 1999 Computer Systems and Communication Lab,
- #   *                    Institute of Information Science, Academia
- #   *                    Sinica.
- #   * All rights reserved.
- #   *
- #   * Redistribution and use in source and binary forms, with or 
- #   * without modification, are permitted provided that the following 
- #   * conditions are met:
- #   *
- #   * . Redistributions of source code must retain the above copyright
- #   *   notice, this list of conditions and the following disclaimer.
- #   * . Redistributions in binary form must reproduce the above 
- #   *   copyright notice, this list of conditions and the following 
- #   *   disclaimer in the documentation and/or other materials provided 
- #   *   with the distribution.
- #   * . Neither the name of the Computer Systems and Communication Lab
- #   *   nor the names of its contributors may be used to endorse or
- #   *   promote products derived from this software without specific
- #   *   prior written permission.
- #   *
- #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
- #   * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
- #   * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
- #   * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
- #   * DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE 
- #   * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
- #   * OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
- #   * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
- #   * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY 
- #   * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR 
- #   * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
- #   * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
- #   * OF SUCH DAMAGE. 
- #   */
- #  
- #  Copyright 1996 Chih-Hao Tsai @ Beckman Institute, University of 
- #  Illinois c-tsai4@uiuc.edu  http://casper.beckman.uiuc.edu/~c-tsai4
- #  
- #  ---------------COPYING.libtabe-----END------------------------------
- #  
- #  
- #  ---------------COPYING.ipadic-----BEGIN-----------------------------
- #  
- #  Copyright 2000, 2001, 2002, 2003 Nara Institute of Science
- #  and Technology.  All Rights Reserved.
- #  
- #  Use, reproduction, and distribution of this software is permitted.
- #  Any copy of this software, whether in its original form or modified,
- #  must include both the above copyright notice and the following
- #  paragraphs.
- #  
- #  Nara Institute of Science and Technology (NAIST),
- #  the copyright holders, disclaims all warranties with regard to this
- #  software, including all implied warranties of merchantability and
- #  fitness, in no event shall NAIST be liable for
- #  any special, indirect or consequential damages or any damages
- #  whatsoever resulting from loss of use, data or profits, whether in 
- #  an action of contract, negligence or other tortuous action, arising 
- #  out of or in connection with the use or performance of this 
- #  software. 
- #
- #  A large portion of the dictionary entries originate from ICOT Free 
- #  Software. The following conditions for ICOT Free Software applies to 
- #  the current dictionary as well. 
- #
- #  Each User may also freely distribute the Program, whether in its
- #  original form or modified, to any third party or parties, PROVIDED
- #  that the provisions of Section 3 ("NO WARRANTY") will ALWAYS appear
- #  on, or be attached to, the Program, which is distributed 
- #  substantially in the same form as set out herein and that such 
- #  intended distribution, if actually made, will neither violate or 
- #  otherwise contravene any of the laws and regulations of the 
- #  countries having jurisdiction over the User or the intended 
- #  distribution itself. 
- #
- #  NO WARRANTY
- #  
- #  The program was produced on an experimental basis in the course of 
- #  the research and development conducted during the project and is 
- #  provided to users as so produced on an experimental basis.  
- #  Accordingly, the program is provided without any warranty 
- #  whatsoever, whether express, implied, statutory or otherwise.  
- #  The term "warranty" used herein includes, but is not limited to, any 
- #  warranty of the quality, performance, merchantability and fitness 
- #  for a particular purpose of the program and the nonexistence of any 
- #  infringement or violation of any right of any third party.
- #  
- #  Each user of the program will agree and understand, and be deemed to
- #  have agreed and understood, that there is no warranty whatsoever for
- #  the program and, accordingly, the entire risk arising from or
- #  otherwise connected with the program is assumed by the user.
- #  
- #  Therefore, neither ICOT, the copyright holder, or any other
- #  organization that participated in or was otherwise related to the
- #  development of the program and their respective officials, 
- #  directors, officers and other employees shall be held liable for any 
- #  and all damages, including, without limitation, general, special, 
- #  incidental and consequential damages, arising out of or otherwise in 
- #  connection with the use or inability to use the program or any 
- #  product, material or result produced or otherwise obtained by using 
- #  the program, regardless of whether they have been advised of, or 
- #  otherwise had knowledge of, the possibility of such damages at any 
- #  time during the project or thereafter.  Each user will be deemed to 
- #  have agreed to the foregoing by his or her commencement of use of 
- #  the program.  The term "use" as used herein includes, but is not 
- #  limited to, the use, modification, copying and distribution of the 
- #  program and the production of secondary products from the program.
- #  
- #  In the case where the program, whether in its original form or
- #  modified, was distributed or delivered to or received by a user from
- #  any person, organization or entity other than ICOT, unless it makes 
- #  or grants independently of ICOT any specific warranty to the user in
- #  writing, such person, organization or entity, will also be exempted
- #  from and not be held liable to the user for any such damages as 
- #  noted above as far as the program is concerned.
- #  
- #  ---------------COPYING.ipadic-----END-------------------------------
-
-3. Lao Word Break Dictionary Data (laodict.txt)
-
- #  Copyright (c) 2013 International Business Machines Corporation
- #  and others. All Rights Reserved.
- #
- #  Project:    http://code.google.com/p/lao-dictionary/
- #  Dictionary: http://lao-dictionary.googlecode.com/git/Lao-Dictionary.txt
- #  License:    http://lao-dictionary.googlecode.com/git/Lao-Dictionary-LICENSE.txt
- #              (copied below)
- #
- #  This file is derived from the above dictionary, with slight 
- #  modifications. 
- #  --------------------------------------------------------------------
- #  Copyright (C) 2013 Brian Eugene Wilson, Robert Martin Campbell.
- #  All rights reserved.
- #
- #  Redistribution and use in source and binary forms, with or without 
- #  modification, are permitted provided that the following conditions 
- #  are met:
- #
- #      Redistributions of source code must retain the above copyright 
- #      notice, this list of conditions and the following disclaimer. 
- #      Redistributions in binary form must reproduce the above 
- #      copyright notice, this list of conditions and the following 
- #      disclaimer in the documentation and/or other materials provided 
- #      with the distribution.
- #
- #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
- #  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT 
- #  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS 
- #  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE 
- #  COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
- #  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
- #  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; 
- #  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
- #  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
- #  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
- #  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
- #  POSSIBILITY OF SUCH DAMAGE.
- #  --------------------------------------------------------------------
-
-4. Time Zone Database
-
-  ICU uses the public domain data and code derived from Time Zone 
-  Database for its time zone support. The ownership of the TZ database 
-  is explained in BCP 175: Procedure for Maintaining the Time Zone 
-  Database section 7.
-
-  7.  Database Ownership
-
-    The TZ database itself is not an IETF Contribution or an IETF
-    document. Rather it is a pre-existing and regularly updated work
-    that is in the public domain, and is intended to remain in the 
-    public domain. Therefore, BCPs 78 [RFC5378] and 79 [RFC3979] do not 
-    apply to the TZ Database or contributions that individuals make to 
-    it. Should any claims be made and substantiated against the TZ 
-    Database, the organization that is providing the IANA Considerations 
-    defined in this RFC, under the memorandum of understanding with the 
-    IETF, currently ICANN, may act in accordance with all competent 
-    court orders. No ownership claims will be made by ICANN or the IETF 
-    Trust on the database or the code.  Any person making a contribution
-    to the database or code waives all rights to future claims in that
-    contribution or in the TZ Database.
-
-END OF INTERNATIONAL COMPONENTS FOR UNICODE LICENSE NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-JDOM LICENSE
-
-The Program includes some or all of the following that IBM obtained
-under the JDOM License:
-
-JDOM
-
-JDOM license
-
-Copyright (C) 2000-2004 Jason Hunter & Brett McLaughlin.
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without 
-modification, are permitted provided that the following conditions are 
-met: 
-
-1. Redistributions of source code must retain the above copyright 
-   notice, this list of conditions, and the following disclaimer. 
-
-2. Redistributions in binary form must reproduce the above copyright 
-   notice, this list of conditions, and the disclaimer that follows these 
-   conditions in the documentation and/or other materials provided with the 
-   distribution. 
-
-3. The name "JDOM" must not be used to endorse or promote products 
-   derived from this software without prior written permission. For written 
-   permission, please contact <request_AT_jdom_DOT_org>. 
-
-4. Products derived from this software may not be called "JDOM", nor may 
-   "JDOM" appear in their name, without prior written permission from the 
-   JDOM Project Management <request_AT_jdom_DOT_org>. 
-
-In addition, we request (but do not require) that you include in the 
-end-user documentation provided with the redistribution and/or in the 
-software itself an acknowledgement equivalent to the following: 
-
-"This product includes software developed by the JDOM Project 
-(http://www.jdom.org/)." 
-
-Alternatively, the acknowledgment may be graphical using the logos 
-available at http://www.jdom.org/images/logos . 
-
-THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED 
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN 
-NO EVENT SHALL THE JDOM AUTHORS OR THE PROJECT CONTRIBUTORS BE LIABLE 
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
-THE POSSIBILITY OF SUCH DAMAGE. 
-
-This software consists of voluntary contributions made by many 
-individuals on behalf of the JDOM Project and was originally created by 
-Jason Hunter <jhunter_AT_jdom_DOT_org> and Brett McLaughlin 
-<brett_AT_jdom_DOT_org>. For more information on the JDOM Project, 
-please see http://www.jdom.org/. 
-
-END OF JDOM LICENSE NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-MIT LICENSE
-
-The Program includes some or all of the following that IBM obtained
-under the MIT License:
-
-MARKED [swagger-codegen-cli] (Copyright (c) 2011-2014, Christopher
-Jeffrey. (MIT Licensed)), JSON-SCHEMA-VIEW-JS [swagger-codegen-cli]
-(Copyright (c) 2015 Mohsen Azimi), SLF4J ((c) 2004-2013 QOS.ch  All
-rights reserved. ), INTEUCLIDEANTEST.JAVA [bcprov-jdk13] (Copyright (c)
-2011 Tim Buktu (tbuktu@hotmail.com)),
-ORG.CODEHAUS.PLEXUS.COMPONENT.COMPOSITION (Copyright (c) 2004, The
-Codehaus), ORG.EASYMOCK:EASYMOCK (Copyright (c) 2001-2008 OFFIS Tammo
-Freese.), 
-ORG.EASYMOCK.INTERNAL.MATCHERS (Copyright (c) 2003-2008 OFFIS, Henri
-Tremblay), UTF-8 (Copyright (c) 2008-2009 Bjoern Hoehrmann
-<bjoern@hoehrmann.de>), REFLECTOR [Plexus-Utils] (Copyright (c) 2004
-John Dennis Casey), GRUNTJS [swagger-codegen-cli] (No copyright),
-TOOLBOX [com.lowagie.text] (Copyright (c) 2005-2007 Bruno Lowagie,
-Carsten Hammer), UNICODE (BIDIORDER.JAVA) [com.lowagie.text] (Copyright
-(C) 1991-2007 Unicode), KXML2 [maven-bundle-plugin] (Copyright (c)
-2002,2003, Stefan Haustein, Oberhausen, Rhld., Germany),
-CH.QOS.CAL10N:CAL10N-API (Copyright (c) 2009 QOS.ch All rights
-reserved.), CLASSIMPOSTERIZER.JAVA (Copyright (c) 2007 Mockito
-contributors), JQUERY.COOKIES.2.2.0.JS [SLF4J] (Copyright (c) 2005 -
-2010, James Auldridge)
-
-Permission is hereby granted, free of charge, to any person obtaining a 
-copy of this software and associated documentation files (the 
-"Software"), to deal in the Software without restriction, including 
-without limitation the rights to use, copy, modify, merge, publish, 
-distribute, sublicense, and/or sell copies of the Software, and to 
-permit persons to whom the Software is furnished to do so, subject to 
-the following conditions: 
-
-The above copyright notice and this permission notice shall be included 
-in all copies or substantial portions of the Software. 
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
-
-END OF MIT LICENSE NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-MIT-EQUIVALENT
-
-The Program includes some or all of the following that IBM obtained
-under a MIT-EQUIVALENT license:
-
-
-bcprov-jdk13 (Copyright (c) 2000-2015 The Legion Of The Bouncy Castle Inc. (http://www.bouncycastle.org))
-
-Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc. (https://www.bouncycastle.org)
-<p>
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
-and associated documentation files (the "Software"), to deal in the Software without restriction, 
-including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
-<p>
-The above copyright notice and this permission notice shall be included in all copies or substantial
-portions of the Software.
-<p>
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
-
-WSSecurity [OpenWS] (© OASIS Open 2002-2004. All Rights Reserved.)
-
-Copyright (c) 2012-2015 Mikaël DELSOL
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is furnished
-to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-
-END OF MIT-EQUIVALENT NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-MOZILLA PUBLIC LICENSE, VERSION 1.0
-
-The Program includes some or all of the following that IBM obtained 
-under the Mozilla Public License, Version 1.0 (source code available via 
-the indicated URL): 
-
-COM.LOWAGIE.TEXT
-(https://repo1.maven.org/maven2/com/lowagie/itext/2.1.7/)
-
-END OF MOZILLA PUBLIC LICENSE, VERSION 1.0 NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-UNICODE
-
-The Program includes some or all of the following works licensed under
-the UNICODE
-
-UNICODE-DFS-2015 [Apache Abdera] (Copyright (c) 2002-2005, Mark
-Pilgrim.)
-
-
-    A. Unicode Copyright.
-        1. Copyright © 1991-2014 Unicode, Inc. All rights reserved.
-        2. Certain documents and files on this website contain a legend indicating that "Modification is permitted." Any person is hereby authorized, without fee, to modify such documents and files to create derivative works conforming to the Unicode® Standard, subject to Terms and Conditions herein.
-        3. Any person is hereby authorized, without fee, to view, use, reproduce, and distribute all documents and files solely for informational purposes in the creation of products supporting the Unicode Standard, subject to the Terms and Conditions herein.
-        4. Further specifications of rights and restrictions pertaining to the use of the particular set of data files known as the "Unicode Character Database" can be found in Exhibit 1.
-        5. Each version of the Unicode Standard has further specifications of rights and restrictions of use. For the book editions (Unicode 5.0 and earlier), these are found on the back of the title page. The online code charts carry specific restrictions. All other files, including online documentation of the core specification for Unicode 6.0 and later, are covered under these general Terms of Use.
-        6. No license is granted to "mirror" the Unicode website where a fee is charged for access to the "mirror" site.
-        7. Modification is not permitted with respect to this document. All copies of this document must be verbatim.
-    B. Restricted Rights Legend. Any technical data or software which is licensed to the United States of America, its agencies and/or instrumentalities under this Agreement is commercial technical data or commercial computer software developed exclusively at private expense as defined in FAR 2.101, or DFARS 252.227-7014 (June 1995), as applicable. For technical data, use, duplication, or disclosure by the Government is subject to restrictions as set forth in DFARS 202.227-7015 Technical Data, Commercial and Items (Nov 1995) and this Agreement. For Software, in accordance with FAR 12-212 or DFARS 227-7202, as applicable, use, duplication or disclosure by the Government is subject to the restrictions set forth in this Agreement.
-    C. Warranties and Disclaimers.
-        1. This publication and/or website may include technical or typographical errors or other inaccuracies . Changes are periodically added to the information herein; these changes will be incorporated in new editions of the publication and/or website. Unicode may make improvements and/or changes in the product(s) and/or program(s) described in this publication and/or website at any time.
-        2. If this file has been purchased on magnetic or optical media from Unicode, Inc. the sole and exclusive remedy for any claim will be exchange of the defective media within ninety (90) days of original purchase.
-        3. EXCEPT AS PROVIDED IN SECTION C.2, THIS PUBLICATION AND/OR SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND EITHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. UNICODE AND ITS LICENSORS ASSUME NO RESPONSIBILITY FOR ERRORS OR OMISSIONS IN THIS PUBLICATION AND/OR SOFTWARE OR OTHER DOCUMENTS WHICH ARE REFERENCED BY OR LINKED TO THIS PUBLICATION OR THE UNICODE WEBSITE.
-    D. Waiver of Damages. In no event shall Unicode or its licensors be liable for any special, incidental, indirect or consequential damages of any kind, or any damages whatsoever, whether or not Unicode was advised of the possibility of the damage, including, without limitation, those resulting from the following: loss of use, data or profits, in connection with the use, modification or distribution of this information or its derivatives.
-    E. Trademarks & Logos.
-        1. The Unicode Word Mark and the Unicode Logo are trademarks of Unicode, Inc. "The Unicode Consortium" and "Unicode, Inc." are trade names of Unicode, Inc. Use of the information and materials found on this website indicates your acknowledgement of Unicode, Inc.'s exclusive worldwide rights in the Unicode Word Mark, the Unicode Logo, and the Unicode trade names.
-        2. The Unicode Consortium Name and Trademark Usage Policy ("Trademark Policy") are incorporated herein by reference and you agree to abide by the provisions of the Trademark Policy, which may be changed from time to time in the sole discretion of Unicode, Inc.
-        3. All third party trademarks referenced herein are the property of their respective owners.
-    F. Miscellaneous.
-        1. Jurisdiction and Venue. This server is operated from a location in the State of California, United States of America. Unicode makes no representation that the materials are appropriate for use in other locations. If you access this server from other locations, you are responsible for compliance with local laws. This Agreement, all use of this site and any claims and damages resulting from use of this site are governed solely by the laws of the State of California without regard to any principles which would apply the laws of a different jurisdiction. The user agrees that any disputes regarding this site shall be resolved solely in the courts located in Santa Clara County, California. The user agrees said courts have personal jurisdiction and agree to waive any right to transfer the dispute to any other forum.
-        2. Modification by Unicode Unicode shall have the right to modify this Agreement at any time by posting it to this site. The user may not assign any part of this Agreement without Unicode's prior written consent.
-        3. Taxes. The user agrees to pay any taxes arising from access to this website or use of the information herein, except for those based on Unicode's net income.
-        4. Severability. If any provision of this Agreement is declared invalid or unenforceable, the remaining provisions of this Agreement shall remain in effect.
-        5. Entire Agreement. This Agreement constitutes the entire agreement between the parties.
-
-
-
-END OF UNICODE NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-W3C SOFTWARE LICENSE
-
-The Program includes some or all of the following that IBM obtained
-under the W3C Software Notice and License:
-
-README.DOM.TXT [XML-APIs], ABOUT.HTML [Eclipse Equinox P2], DOM [Ant],
-XMLDSIG-CORE-SCHEMA.XSD [XMLTooling], SOAP-ENVELOPE [OpenWS], WC,
-XPATHSTYLESHEETDOM3EXCEPTION. [serializer],
-XPATHSTYLESHEETDOM3EXCEPTION.JAVA [serializer], XPATH [serializer], WSDL
-[Apache Woden], XENC11-SCHEMA.XSD [XMLTooling], W3C XML SCHEMA [OpenWS],
-XPATHSTYLESHEETDOM3EXCEPTION [serializer], ANT-LICENSE.DOM 1.7.1 [NESTED
-OSS [Ant], XML SCHEMA [xmlsec]
-
-W3C® SOFTWARE NOTICE AND LICENSE
-
-Copyright © 1994-2001 World Wide Web Consortium, (Massachusetts 
-Institute of Technology, Institut National de Recherche en Informatique 
-et en Automatique, Keio University). All Rights Reserved. 
-http://www.w3.org/Consortium/Legal/ 
-
-This W3C work (including software, documents, or other related items) is 
-being provided by the copyright holders under the following license. By 
-obtaining, using and/or copying this work, you (the licensee) agree that 
-you have read, understood, and will comply with the following terms and 
-conditions: 
-
-Permission to use, copy, modify, and distribute this software and its 
-documentation, with or without modification, for any purpose and without 
-fee or royalty is hereby granted, provided that you include the 
-following on ALL copies of the software and documentation or portions 
-thereof, including modifications, that you make: 
-
-
-    1. The full text of this NOTICE in a location viewable to users of
-       the redistributed or derivative work.
-
-    2. Any pre-existing intellectual property disclaimers, notices, or
-       terms and conditions. If none exist, a short notice of the
-       following form (hypertext is preferred, text is permitted) should
-       be used within the body of any redistributed or derivative code:
-       "Copyright © [$date-of-software] World Wide Web Consortium,
-       (Massachusetts Institute of Technology, Institut National de
-       Recherche en Informatique et en Automatique, Keio University).
-       All Rights Reserved. http://www.w3.org/Consortium/Legal/"
-
-    3. Notice of any changes or modifications to the W3C files,
-       including the date changes were made. (We recommend you provide
-       URIs to the location from which the code is derived.)
-
-THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT 
-HOLDERS MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, 
-INCLUDING BUT NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS 
-FOR ANY PARTICULAR PURPOSE OR THAT THE USE OF THE SOFTWARE OR 
-DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS, COPYRIGHTS, 
-TRADEMARKS OR OTHER RIGHTS. 
-
-COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL 
-OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR 
-DOCUMENTATION. 
-
-The name and trademarks of copyright holders may NOT be used in 
-advertising or publicity pertaining to the software without specific, 
-written prior permission. Title to copyright in this software and any 
-associated documentation will at all times remain with copyright 
-holders. 
-
-END OF W3C SOFTWARE LICENSE NOTICES AND INFORMATION
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-END OF OPEN LIBERTY ECLIPSE DEVELOPER TOOLS 22.2 NOTICES AND INFORMATION
+END OF IBM WEBSPHERE APPLICATION SERVER DEVELOPER TOOLS FOR ECLIPSE NOTICES AND INFORMATION
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 END OF NOTICES AND INFORMATION FILE
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+L/N: L-MTTN-6QCUEM
+D/N: L-MTTN-6QCUEM
+P/N: L-MTTN-6QCUEM
