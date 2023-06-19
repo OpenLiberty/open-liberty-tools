@@ -30,8 +30,8 @@ configurations {
 
 dependencies {
     antcp 'org.apache.ivy:ivy:2.5.1'
-    antcp 'ant-contrib:ant-contrib:1.0b3'
     antcp 'org.osgi:org.osgi.core:4.3.0'
+    antcp ('ant-contrib:ant-contrib:1.0b3') { transitive = false }
     antcp 'asm:asm-all:3.3.1'
     antcp 'org.apache.aries:org.apache.aries.util:1.1.3'
     antcp 'com.jcraft:jsch:0.1.54'
@@ -62,7 +62,6 @@ task importAnt {
             File f ->
         antClassLoader.addURL(f.toURI().toURL())
     }
-
     // The below taskdefs are only used in prereqs.xml. build-olt.xml has its taskdefs loaded in the ant code.
     ant.taskdef(resource:'net/sf/antcontrib/antlib.xml',classpath:configurations.antcp.asPath)
     ant.taskdef(uri:'antlib:org.apache.ivy.ant', resource:'org/apache/ivy/ant/antlib.xml',classpath: configurations.antcp.asPath)
