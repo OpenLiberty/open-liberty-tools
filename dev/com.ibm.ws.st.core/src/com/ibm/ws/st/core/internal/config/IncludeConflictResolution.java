@@ -6,9 +6,11 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.config;
+
+import java.io.ObjectInputStream;
 
 import com.ibm.ws.st.core.internal.Constants;
 
@@ -41,5 +43,9 @@ public enum IncludeConflictResolution {
         }
 
         return IncludeConflictResolution.MERGE;
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 }

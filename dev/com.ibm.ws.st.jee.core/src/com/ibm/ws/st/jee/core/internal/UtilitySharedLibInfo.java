@@ -6,10 +6,11 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.jee.core.internal;
 
+import java.io.ObjectInputStream;
 import java.util.Properties;
 
 public class UtilitySharedLibInfo extends Properties {
@@ -21,5 +22,9 @@ public class UtilitySharedLibInfo extends Properties {
 
     public String getLibDir() {
         return getProperty(JEEServerExtConstants.SHARED_LIBRARY_SETTING_LIB_DIR_KEY, "");
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 }

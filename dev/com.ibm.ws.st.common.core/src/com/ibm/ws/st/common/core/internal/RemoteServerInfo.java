@@ -6,12 +6,13 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.common.core.internal;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -71,9 +72,9 @@ public class RemoteServerInfo extends HashMap<String, Object> {
 
     /**
      * Add a property change listener
-     * 
+     *
      * @param listener
-     *            java.beans.PropertyChangeListener
+     *                     java.beans.PropertyChangeListener
      */
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         if (propertyListeners == null)
@@ -202,5 +203,9 @@ public class RemoteServerInfo extends HashMap<String, Object> {
         } catch (Exception e) {
             // Do nothing
         }
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 }

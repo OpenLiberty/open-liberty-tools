@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.ibm.ws.st.jee.core.internal;
 
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -63,5 +64,9 @@ public class SharedLibRefInfo extends Properties {
         }
         setProperty(JEEServerExtConstants.SHARED_LIBRARY_SETTING_LIB_REF_ID_KEY, sbIds.toString());
         setProperty(JEEServerExtConstants.SHARED_LIBRARY_SETTING_LIB_REF_TYPE_KEY, sbTypes.toString());
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 }

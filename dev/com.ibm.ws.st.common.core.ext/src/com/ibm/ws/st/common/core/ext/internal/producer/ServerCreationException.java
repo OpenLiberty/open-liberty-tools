@@ -6,10 +6,12 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 
 package com.ibm.ws.st.common.core.ext.internal.producer;
+
+import java.io.ObjectInputStream;
 
 public class ServerCreationException extends Exception {
 
@@ -21,5 +23,9 @@ public class ServerCreationException extends Exception {
 
     public ServerCreationException(String message, Throwable cause) {
         super(message, cause);
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 }
