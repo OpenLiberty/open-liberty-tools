@@ -6,10 +6,11 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -75,6 +76,10 @@ public class ConfigurationListener implements NotificationListener, java.io.Seri
 
     public NotificationFilter getFilter() {
         return filter;
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 
 }

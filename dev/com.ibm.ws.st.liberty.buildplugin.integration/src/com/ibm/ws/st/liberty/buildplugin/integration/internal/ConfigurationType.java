@@ -11,6 +11,7 @@
 
 package com.ibm.ws.st.liberty.buildplugin.integration.internal;
 
+import java.io.ObjectInputStream;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -65,5 +66,9 @@ public enum ConfigurationType {
     public static List<ConfigurationType> getServerUpdateTriggers() {
         return Arrays.asList(new ConfigurationType[] { serverDirectory, serverOutputDirectory, appsDirectory, serverName, configFile, looseApplication, applicationFilename,
                                                        stripVersion });
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 }

@@ -6,9 +6,11 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal.jmx;
+
+import java.io.ObjectInputStream;
 
 import com.ibm.ws.st.core.internal.Messages;
 
@@ -25,10 +27,14 @@ public class JMXConnectionException extends Exception {
 
     /**
      * @param message - the failure message
-     * @param cause - the exception that caused the failure
+     * @param cause   - the exception that caused the failure
      */
     public JMXConnectionException(Throwable cause) {
         super(Messages.jmxConnectionFailure, cause);
+    }
+
+    private final void readObject(ObjectInputStream in) throws java.io.IOException {
+        throw new java.io.IOException("Cannot be deserialized");
     }
 
 }
