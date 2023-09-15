@@ -25,18 +25,15 @@ Please see the [Liberty Tools known issues](https://github.com/OpenLiberty/open-
 ## Getting Started 
 To install the Open Liberty Tools and other WebSphere Developer Tools features:
 1. If you don’t already have Eclipse, install [Eclipse 2021-03 for Enterprise Java and Web Developers ( 4.19 )](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers)
-2. Start your Eclipse workbench.
-3. Start the installation using either of the following methods.
+2. Download Open Liberty tools by going to the [Open Liberty Tools list of repositories](https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/release/?C=N;O=D), choosing a folder that is close in time to your Open Liberty release date and downloading the openlibertytools-*.zip file therein. 
+3. Start your Eclipse workbench.
+4. Start the installation using the following method.
     * Locate the installation files from your Eclipse workbench:
-      1. Click **Help** > **Eclipse Marketplace.**
-      2. In the Find field, type Liberty.
-      3. In the list of results, locate **IBM Liberty Developer Tools** and then click **Install**. The Confirm Selected Features page opens.
-    * Drag an Install icon from a web page to your Eclipse workbench:
-      1. Click [download Liberty page](https://developer.ibm.com/wasdev/downloads/)
-      2. Locate the **Install** icon for **WebSphere Application Server Liberty**. 
-      3. Select and drag the **Install** icon to your Eclipse workbench, and drop it on the Eclipse toolbar. The **Confirm Selected Features page** opens.
-4. On the **Confirm Selected Features** page, expand the parent nodes and select the **WebSphere Application Server Liberty Tools** feature and any other feature that are needed. When you are finished, click **Confirm**.
-5. On the **Review Licenses** page, review the license text. If you agree to the terms, click **I accept the terms of the license agreements** and then click **Finish**. The installation process starts.
+      1. Click **Help** > **Install New Software.**
+      2. Click **Add**, click **Archive.**
+      3. Select the archive downloaded in step 2 and click **Open**. Give your repository a name and click **Add**.
+5. In the list of available software, expand the parent nodes and select the **WebSphere Application Server Liberty Tools** feature and any other feature that are needed. When you are finished, click **Confirm**.
+6. On the **Review Licenses** page, review the license text. If you agree to the terms, click **I accept the terms of the license agreements** and then click **Finish**. The installation process starts.
    
 ```
   Note:
