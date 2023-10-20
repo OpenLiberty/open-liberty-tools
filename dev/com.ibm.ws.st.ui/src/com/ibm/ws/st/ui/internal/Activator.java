@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal;
 
@@ -374,7 +374,7 @@ public class Activator extends AbstractUIPlugin {
     /**
      * Register an image with the registry.
      *
-     * @param key java.lang.String
+     * @param key        java.lang.String
      * @param partialURL java.lang.String
      */
     private void registerImage(ImageRegistry registry, String key, String partialURL) {
@@ -390,7 +390,14 @@ public class Activator extends AbstractUIPlugin {
 
     @Override
     protected ImageRegistry createImageRegistry() {
-        ImageRegistry registry = new ImageRegistry();
+        final ImageRegistry[] tempRegistryArray = new ImageRegistry[1];
+        Display.getDefault().syncExec(new Runnable() {
+            @Override
+            public void run() {
+                tempRegistryArray[0] = new ImageRegistry();
+            }
+        });
+        ImageRegistry registry = tempRegistryArray[0];
         if (ICON_BASE_URL == null)
             ICON_BASE_URL = instance.getBundle().getEntry("icons/");
 
