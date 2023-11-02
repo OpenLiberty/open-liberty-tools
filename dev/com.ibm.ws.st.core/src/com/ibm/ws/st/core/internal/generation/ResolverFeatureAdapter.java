@@ -354,13 +354,13 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
         }
 
         @Override
-        public Integer getRequireJava() {
-            return null;
+        public ActivationType getActivationType() {
+            throw new UnsupportedOperationException();
         }
 
         @Override
-        public ActivationType getActivationType() {
-            throw new UnsupportedOperationException();
+        public VersionRange getJavaRange() {
+            return null;
         }
 
     }
