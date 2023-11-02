@@ -26,23 +26,23 @@
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -151,25 +151,25 @@
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1100,25 +1100,25 @@
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -4993,13 +4993,13 @@
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
@@ -6836,7 +6836,7 @@
         </xsd:attribute> 
         <xsd:attribute name="maxFrameSize" use="optional" default="57344"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies the maximum allowed size of a frame payload the server will advertise in the SETTINGS_MAS_FRAME_SIZE HTTP/2 settings frame. This can be configured to any size within the range of 16,384 to 16,777,215 bytes, inclusive. If not specified, the default is set to 57,344 bytes.</xsd:documentation> 
+                <xsd:documentation>Specifies the maximum allowed size of a frame payload the server will advertise in the SETTINGS_MAX_FRAME_SIZE HTTP/2 settings frame. This can be configured to any size within the range of 16,384 to 16,777,215 bytes, inclusive. If not specified, the default is set to 57,344 bytes.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Max frame size</ext:label> 
                 </xsd:appinfo> 
@@ -7369,13 +7369,13 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -13531,7 +13531,7 @@
         </xsd:attribute> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
@@ -13539,7 +13539,7 @@
         </xsd:attribute> 
         <xsd:attribute name="serverName" use="optional" default="localhost" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Server where the database is running.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -13547,7 +13547,7 @@
         </xsd:attribute> 
         <xsd:attribute name="portNumber" use="optional" default="1521" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Port on which to obtain database connections.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: portNumber. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Port number</ext:label> 
                 </xsd:appinfo> 
@@ -13860,7 +13860,7 @@
         </xsd:attribute> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
@@ -14103,7 +14103,7 @@
         </xsd:sequence> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. This property overrides the databaseName specified in the URL if one was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
@@ -14111,15 +14111,15 @@
         </xsd:attribute> 
         <xsd:attribute name="instanceName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: instanceName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: instanceName. This property overrides the instanceName specified in the URL if one was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Instance name</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="serverName" use="optional" default="localhost" type="xsd:string"> 
+        <xsd:attribute name="serverName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Server where the database is running.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. This property overrides the serverName specified in the URL if one was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -14127,7 +14127,7 @@
         </xsd:attribute> 
         <xsd:attribute name="portNumber" use="optional" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Port on which to obtain database connections.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: portNumber. This property overrides the portNumber specified in the URL if one was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Port number</ext:label> 
                 </xsd:appinfo> 
@@ -14190,6 +14190,11 @@
                 <xsd:union memberTypes="variableType"> 
                     <xsd:simpleType> 
                         <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="ActiveDirectoryDefault"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>ActiveDirectoryDefault</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                             <xsd:enumeration value="ActiveDirectoryMSI"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>ActiveDirectoryMSI</xsd:documentation> 
@@ -14648,7 +14653,7 @@
         </xsd:attribute> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
@@ -14656,7 +14661,7 @@
         </xsd:attribute> 
         <xsd:attribute name="serverName" use="optional" default="localhost" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Server where the database is running.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -14664,7 +14669,7 @@
         </xsd:attribute> 
         <xsd:attribute name="portNumber" use="optional" default="1521" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Port on which to obtain database connections.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: portNumber. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Port number</ext:label> 
                 </xsd:appinfo> 
@@ -14734,7 +14739,7 @@
         </xsd:attribute> 
         <xsd:attribute name="serviceName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: serviceName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serviceName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Service name</ext:label> 
                     <ext:group id="Advanced"/> 
@@ -14824,7 +14829,7 @@
         </xsd:attribute> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
@@ -14832,7 +14837,7 @@
         </xsd:attribute> 
         <xsd:attribute name="serverName" use="optional" default="localhost" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Server where the database is running.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -14840,7 +14845,7 @@
         </xsd:attribute> 
         <xsd:attribute name="portNumber" use="optional" default="1527" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Port on which to obtain database connections.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: portNumber. This property is ignored by the driver if a URL is configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Port number</ext:label> 
                 </xsd:appinfo> 
@@ -16731,15 +16736,15 @@
         </xsd:attribute> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. This property overrides the databaseName specified in the URL if one was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="serverName" use="optional" default="localhost" type="xsd:string"> 
+        <xsd:attribute name="serverName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Server where the database is running.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. This property overrides the serverName specified in the URL if one was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -16747,7 +16752,7 @@
         </xsd:attribute> 
         <xsd:attribute name="portNumber" use="optional" default="50000" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Port on which to obtain database connections.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: portNumber. This property overrides the portNumber specified in the URL if one was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Port number</ext:label> 
                 </xsd:appinfo> 
@@ -21301,7 +21306,7 @@
         </xsd:attribute> 
         <xsd:attribute name="validationTimeout" use="optional" type="secondDuration"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies a timeout for validation of pooled connections. When specified, pooled connections are validated before being reused from the connection pool. The validation timeout is also used when the connection manager validates connections in response to a stale connection for PurgePolicy=ValidateAllConnections. A value of 0 means that connections are validated without applying any timeout. Validation timeout requires a JDBC driver that complies with the JDBC 4.0 specification or higher. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:documentation>When specified, pooled connections are validated before being reused from the connection pool. The validation timeout is also used when the connection manager validates connections in response to a stale connection for PurgePolicy=ValidateAllConnections. The full amount of the validation timeout applies to each connection that is validated, which is done via the Connection.isValid(timeout) JDBC API operation. A value of 0 means that connections are validated without applying any timeout. Validation timeout requires a JDBC driver that complies with the JDBC 4.0 specification or higher. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Validation timeout</ext:label> 
                     <ext:group id="Advanced"/> 
@@ -21508,7 +21513,7 @@
         </xsd:sequence> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. When the PostgreSQL driver uses type java.sql.Driver and a URL and this property are configured, the PostgreSQL driver ignores this property. When the PostgreSQL driver uses type javax.sql.DataSource, and a URL and this property are configured, the PostgreSQL driver ignores the databaseName property.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
@@ -21516,7 +21521,7 @@
         </xsd:attribute> 
         <xsd:attribute name="serverName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Server where the database is running.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. When the PostgreSQL driver uses type java.sql.Driver and a URL and this property are configured, the PostgreSQL driver ignores this property. When the PostgreSQL driver uses type javax.sql.DataSource, and a URL and this property are configured, the PostgreSQL driver ignores the serverName property.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -21524,7 +21529,7 @@
         </xsd:attribute> 
         <xsd:attribute name="portNumber" use="optional" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Port on which to obtain database connections.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: portNumber. When the PostgreSQL driver uses type java.sql.Driver and a URL and this property are configured, the PostgreSQL driver ignores this property. When the PostgreSQL driver uses type javax.sql.DataSource, and a URL and this property are configured, the PostgreSQL driver ignores the portNumber property.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Port number</ext:label> 
                 </xsd:appinfo> 
@@ -25129,17 +25134,17 @@
         </xsd:sequence> 
         <xsd:attribute name="keysFileName" use="optional" default="${server.output.dir}/resources/security/ltpa.keys" type="fileLocation"> 
             <xsd:annotation> 
-                <xsd:documentation>Path of the file containing the token keys.</xsd:documentation> 
+                <xsd:documentation>The path to the file that contains the LTPA primary keys, which are used to create and validate LTPA tokens.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>LTPA token keys file</ext:label> 
+                    <ext:label>The LTPA primary keys file</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
         <xsd:attribute name="keysPassword" use="optional" default="{xor}CDo9Hgw=" type="password"> 
             <xsd:annotation> 
-                <xsd:documentation>Password for the token keys. The value can be stored in clear text or encoded form. It is recommended to encode the password, use the securityUtility tool with the encode option.</xsd:documentation> 
+                <xsd:documentation>Password for the LTPA primary keys. The best practice is to encrypt the password by using the securityUtility tool.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>LTPA token keys password</ext:label> 
+                    <ext:label>LTPA primary keys password</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -25153,9 +25158,9 @@
         </xsd:attribute> 
         <xsd:attribute name="monitorInterval" use="optional" default="0ms" type="duration"> 
             <xsd:annotation> 
-                <xsd:documentation>Rate at which the server checks for updates to the LTPA token keys file. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:documentation>Rate at which the server checks for updates to the LTPA keys file. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
-                    <ext:label>LTPA token keys file polling rate</ext:label> 
+                    <ext:label>LTPA keys file polling rate</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -25170,6 +25175,57 @@
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.token.ltpa.validationKeys"> 
+        <xsd:annotation> 
+            <xsd:documentation>The LTPA keys that are used only for validating existing LTPA tokens, not for creating new LTPA tokens.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>LTPA Validation Keys</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="fileName" use="required" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the file that contains the LTPA validation keys. The path must be the same as the LTPA primary keys file.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>LTPA validation keys file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="password" use="required" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The password for the LTPA validation keys. The best practice is to encrypt the password by using the securityUtility tool.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>LTPA validation keys password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="notUseAfterDate" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A date and time value in ISO date format, after which the LTPA validation keys are no longer used. The following example shows the ISO date format: "2023-04-18T18:08:35Z". If the value is not specified, the LTPA validation keys can be used forever.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Not use after date</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.token.ltpa.validationKeys-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.token.ltpa.validationKeys"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.ejbcontainer.runtime"> 
         <xsd:annotation> 
@@ -26534,9 +26590,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
-            </xsd:element> 
             <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
+            </xsd:element> 
+            <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="slowRequestThreshold" use="optional" default="10s" type="duration"> 
@@ -27268,14 +27324,6 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="extendedHandshake" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>If true, the web server plugin uses an extended handshake to determine if the application server is running.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Use extended handshake</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
         <xsd:attribute name="waitForContinue" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>If false (the default value), the web server plugin sends the "Expect: 100-continue" header with HTTP requests that have a message body. When set to true, the web server plugin sends the "Expect: 100-continue" header with every HTTP request. Consider setting this value to true if you have a firewall between the web server and the application server, and are sensitive to requests retries with no request body.</xsd:documentation> 
@@ -27852,6 +27900,22 @@
                 <xsd:documentation>The maximum number of files that can be uploaded by a multipart/form-data request. The default value is 5000. For unlimited file upload, set the value to -1.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>The maximum uploaded files in a single request</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="set400SCOnTooManyParentDirs" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When this property is set to true, a request with an invalid path traversal is returned with a 400 status code instead of 500. The default is false. You can use this property with servlet-5.0 and earlier. For servlet-6.0 and later, the 400 response code is returned by default and this property has no effect.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Set 400 for invalid path traversal request</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="donotCloseOutputOnForwardForServletError" use="optional" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When this property is set to true, if a servlet called from dispatch forward throws an exception other than IOException and ServletException, the output is not automatically closed.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Do not close output on forwarded servlet error</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -29407,6 +29471,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="backendURL" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>When backend routing is active, the URL is used by peer servers to contact this server.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Backend URL</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="leaseCheckInterval" use="optional" default="60s" type="secondDuration"> 
             <xsd:annotation> 
                 <xsd:documentation>The interval after which the lease check strategy is implemented. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
@@ -29464,6 +29536,30 @@
                 <xsd:documentation>Name of the recovery group that this server belongs too. Members of a recovery group can recover the transaction logs of other servers in the group.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Name of the recovery group</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="shutdownOnLogFailure" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether the transaction manager will stop an application server that is part of a recoveryGroup if an unrecoverable error occurs accessing its own transaction service logs.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Shutdown server on transaction log failure</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="logRetryInterval" use="optional" default="10" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the interval in seconds between attempts to recover from a transient error accessing the transaction service logs.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Interval between tran log retries on failure</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="logRetryLimit" use="optional" default="180" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of attempts to recover from a transient error accessing the transaction service logs for an unrecoverable error condition.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Max number of tran log retries on failure</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -32097,6 +32193,14 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="useContextRootForSSOCookiePath" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies that the cookie path equals the context root of the web module instead of the backslash character (/).</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use the context root for the SSO cookie path</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="loggedOutCookieCacheRef" use="optional" type="pidType"> 
             <xsd:annotation> 
                 <xsd:documentation>The JCache cache reference that is used as the logged-out-cookie cache.</xsd:documentation> 
@@ -33950,9 +34054,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
-            </xsd:element> 
             <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
+            </xsd:element> 
+            <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="id" use="required" type="xsd:string"> 
@@ -34538,7 +34642,7 @@
         </xsd:attribute> 
         <xsd:attribute name="expiresInSeconds" use="optional" default="-1" type="secondDuration"> 
             <xsd:annotation> 
-                <xsd:documentation>Indicates the token expiration time in seconds. Takes precedence over expiry. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:documentation>Indicates the token expiration time in seconds. Takes precedence over expiry. When this attribute is set to a negative number, the value of the expiry attribute is used. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Token expiration time in seconds</ext:label> 
                 </xsd:appinfo> 
@@ -36791,10 +36895,69 @@
                                     <xsd:documentation>post</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
+                            <xsd:enumeration value="private_key_jwt"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Private key JWT client authentication.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                         </xsd:restriction> 
                     </xsd:simpleType> 
                 </xsd:union> 
             </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthSigningAlgorithm" use="optional" default="RS256"> 
+            <xsd:annotation> 
+                <xsd:documentation>The signature algorithm to use to sign tokens that are used for client authentication.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token endpoint authentication signing algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="RS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS256 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="RS384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS384 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="RS512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS512 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES256 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES384 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES512 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyAliasName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The alias for the private key that is used for signing client authentication tokens. The public key that corresponds to the private key must also use this alias. The private key must be in the keystore that is specified by the SSL configuration that is referenced by the sslRef attribute. The public key must be in one of the following locations: the truststore that is specified by the trustStoreRef attribute, the truststore that is specified by the SSL configuration that is referenced by the sslRef attribute, or the keystore that is specified by the SSL configuration that is referenced by the sslRef attribute.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Key alias name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
         </xsd:attribute> 
         <xsd:attribute name="inboundPropagation" use="optional" default="none"> 
             <xsd:annotation> 
@@ -37026,6 +37189,45 @@
                 <xsd:documentation>Specifies how long an authenticated subject that is created by using a propagated access token is cached. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Access token cache timeout</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="pkceCodeChallengeMethod" use="optional" default="disabled"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the challenge method to use for Proof Key for Code Exchange (PKCE).</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Proof key for code exchange challenge method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="disabled"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Disabled</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="plain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Plain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="S256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>S256</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenRequestOriginHeader" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the value to use in the Origin HTTP header that is included in the HTTP POST request to the token endpoint of the OpenID Connect provider. If not specified, an Origin HTTP header is not included in the request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token request origin header</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -37360,7 +37562,7 @@
         </xsd:attribute> 
         <xsd:attribute name="jwkRotationTime" use="optional" default="720m" type="minuteDuration"> 
             <xsd:annotation> 
-                <xsd:documentation>Amount of time after which a new JWK will be generated. Specify a positive integer followed by a unit of time, which can be hours (h) or minutes (m). For example, specify 30 minutes as 30m. You can include multiple values in a single entry. For example, 1h30m is equivalent to 90 minutes.</xsd:documentation> 
+                <xsd:documentation>Amount of time after which a new JWK is generated (minutes). For example, specify 90 minutes as 90 or 90m. Minimum value is 60 minutes. Specify a positive integer followed by a unit of time, which can be hours (h) or minutes (m). For example, specify 30 minutes as 30m. You can include multiple values in a single entry. For example, 1h30m is equivalent to 90 minutes.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>JWK rotation time</ext:label> 
                 </xsd:appinfo> 
@@ -37464,7 +37666,7 @@
         </xsd:attribute> 
         <xsd:attribute name="idTokenLifetime" use="optional" default="2h" type="secondDuration"> 
             <xsd:annotation> 
-                <xsd:documentation>Time that ID token is valid (seconds). Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:documentation>Time that ID token is valid (seconds). You can also specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30 or 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>ID token lifetime</ext:label> 
                 </xsd:appinfo> 
@@ -38791,6 +38993,15 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="connectionRetryCount" use="optional" default="2" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Use this property to select the number of retry attempts on a database connection. The default value for this property is 2. For example, when ConnectionRetryCount set to 0, the session manager attempts a database connection once only, with no retry attempt.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Database connection retry attempt</ext:label> 
+                    <ext:group id="advanced.performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="db2RowSize" use="optional" default="4KB"> 
             <xsd:annotation> 
                 <xsd:documentation>Table space page size configured for the sessions table, if using a DB2 database. Increasing this value can improve database performance in some environments.</xsd:documentation> 
@@ -39093,7 +39304,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="clientSecret" use="required" type="password"> 
+        <xsd:attribute name="clientSecret" use="optional" type="password"> 
             <xsd:annotation> 
                 <xsd:documentation>The secret of the application or client.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -39925,7 +40136,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="clientSecret" use="required" type="password"> 
+        <xsd:attribute name="clientSecret" use="optional" type="password"> 
             <xsd:annotation> 
                 <xsd:documentation>The secret of the application or client.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -40116,10 +40327,69 @@
                                     <xsd:documentation>client_secret_post</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
+                            <xsd:enumeration value="private_key_jwt"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Private key JWT client authentication.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                         </xsd:restriction> 
                     </xsd:simpleType> 
                 </xsd:union> 
             </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenEndpointAuthSigningAlgorithm" use="optional" default="RS256"> 
+            <xsd:annotation> 
+                <xsd:documentation>The signature algorithm to use to sign tokens that are used for client authentication.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token endpoint authentication signing algorithm</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="RS256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS256 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="RS384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS384 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="RS512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the RS512 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES256 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES384 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ES512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ES512 signature algorithm to sign tokens that are used for client authentication</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="keyAliasName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The alias for the private key that is used for signing client authentication tokens. The public key that corresponds to the private key must also use this alias. The private key must be in the keystore that is specified by the SSL configuration that is referenced by the sslRef attribute. The public key must be in one of the following locations: the truststore that is specified by the trustStoreRef attribute, the truststore that is specified by the SSL configuration that is referenced by the sslRef attribute, or the keystore that is specified by the SSL configuration that is referenced by the sslRef attribute.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Key alias name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
         </xsd:attribute> 
         <xsd:attribute name="redirectToRPHostAndPort" use="optional" type="xsd:string"> 
             <xsd:annotation> 
@@ -40216,6 +40486,45 @@
                 <xsd:documentation>Private key alias of the key management key that is used to decrypt the Content Encryption Key of a JSON Web Encryption (JWE) token.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Key management key alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="pkceCodeChallengeMethod" use="optional" default="disabled"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the code challenge method to use for Proof Key for Code Exchange (PKCE).</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Proof key for code exchange challenge method</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="disabled"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Disabled</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="plain"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Plain</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="S256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>S256</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="tokenRequestOriginHeader" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the value to use in the Origin HTTP header that is included in the HTTP POST request to the token endpoint of the OpenID Connect provider. If not specified, an Origin HTTP header is not included in the request.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Token request origin header</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
