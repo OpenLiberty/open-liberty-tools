@@ -66,7 +66,7 @@
       hasConfiguration="false"
       launchModes="run,debug"
       startTimeout="60000"
-      stopTimeout="15000"
+      stopTimeout="30000"
       initialState="stopped"
       supportsRemoteHosts="true"
       launchConfigId="com.ibm.ws.st.core.launchConfigurationType"
