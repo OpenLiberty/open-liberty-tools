@@ -1,6 +1,6 @@
 NOTICES AND INFORMATION
 
-IBM WebSphere Application Server Developer Tools for Eclipse 23.1
+IBM WebSphere Application Server Developer Tools for Eclipse 23.2
 
 The IBM license agreement and any applicable information on the web
 download page for IBM products refers Licensee to this file for details
@@ -642,6 +642,6 @@ END OF IBM WEBSPHERE APPLICATION SERVER DEVELOPER TOOLS FOR ECLIPSE NOTICES AND 
 END OF NOTICES AND INFORMATION FILE
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-L/N: L-MTTN-6QCUEM
-D/N: L-MTTN-6QCUEM
-P/N: L-MTTN-6QCUEM
+L/N: L-CAUE-2X9MVQ
+D/N: L-CAUE-2X9MVQ
+P/N: L-CAUE-2X9MVQ
