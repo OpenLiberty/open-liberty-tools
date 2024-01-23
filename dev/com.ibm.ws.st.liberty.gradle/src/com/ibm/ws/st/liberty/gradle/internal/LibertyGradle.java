@@ -99,6 +99,10 @@ public class LibertyGradle implements ILibertyBuildPluginImpl {
             CancellationTokenSource cancelTokenSrc = GradleConnector.newCancellationTokenSource();
             
             GradleConnector connector = GradleConnector.newConnector();
+            String override = System.getProperty("GRADLE_VERSION_OVERRIDE");
+            if (override != null) {
+                connector.useGradleVersion(override);
+            }
             connector = connector.forProjectDirectory(new File(workingDir.toOSString()));
             connection = connector.connect();
 
