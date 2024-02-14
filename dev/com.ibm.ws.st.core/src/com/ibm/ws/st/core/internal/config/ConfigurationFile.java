@@ -834,7 +834,8 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
             contextRoot = null;
         }
 
-        Application app = new Application(appName, ServerExtensionWrapper.getAppTypeFromAppElement(appLabel), appLocation, appAutostart, getSharedLibRefs(appElem), apiVisibility, contextRoot);
+        Application app = new Application(appName, ServerExtensionWrapper.getAppTypeFromAppElement(appLabel), appLocation, appAutostart, getSharedLibRefs(appElem), apiVisibility,
+                        contextRoot);
         return app;
     }
 
@@ -1639,6 +1640,11 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
             return value;
         }
         ConfigVars vars = getConfigVars();
+        String envValue = value.replace("${", "${env.");
+        String resolvedEnvValue = vars.resolve(envValue);
+        if (resolvedEnvValue != null) {
+            return resolvedEnvValue;
+        }
         return vars.resolve(value.trim());
     }
 
