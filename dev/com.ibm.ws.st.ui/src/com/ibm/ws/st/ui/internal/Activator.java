@@ -166,6 +166,8 @@ public class Activator extends AbstractUIPlugin {
     public static final String IMG_SSL_ELEM = "sslElem";
     public static final String IMG_HTTP_ELEM = "httpElem";
 
+    private boolean initComplete = false;
+
     public Activator() {
         // do nothing
     }
@@ -186,8 +188,6 @@ public class Activator extends AbstractUIPlugin {
 
         addRequiredFeatureListener();
         MergedConfigResourceListener.start();
-
-        PlatformUI.getWorkbench().getProgressService().registerIconForFamily(getImageDescriptor(IMG_RUNTIME), com.ibm.ws.st.core.internal.Constants.JOB_FAMILY);
     }
 
     private static void addRequiredFeatureListener() {
@@ -368,6 +368,12 @@ public class Activator extends AbstractUIPlugin {
      * @return the shared instance
      */
     public static Activator getInstance() {
+        synchronized (instance) {
+            if (!instance.initComplete) {
+                instance.initComplete = true;
+                PlatformUI.getWorkbench().getProgressService().registerIconForFamily(getImageDescriptor(IMG_RUNTIME), com.ibm.ws.st.core.internal.Constants.JOB_FAMILY);
+            }
+        }
         return instance;
     }
 
@@ -398,6 +404,7 @@ public class Activator extends AbstractUIPlugin {
             }
         });
         ImageRegistry registry = tempRegistryArray[0];
+
         if (ICON_BASE_URL == null)
             ICON_BASE_URL = instance.getBundle().getEntry("icons/");
 
