@@ -6,15 +6,17 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.core.internal;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 import java.util.List;
+import java.util.Properties;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -22,6 +24,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 
 import com.ibm.ws.st.core.internal.config.ConfigVars;
@@ -62,13 +65,43 @@ public class UserDirectory {
         if (userPath == null)
             throw new IllegalArgumentException("User path (WLP_USER_DIR) cannot be null");
         this.runtime = runtime;
-        this.userPath = userPath;
         this.userProject = userProject;
         this.remoteUserPath = remoteUserPath;
-        if (outputPath == null)
-            this.outputPath = userPath.append(Constants.SERVERS_FOLDER);
-        else
-            this.outputPath = outputPath;
+
+        // load <wlp>/etc/server.env as a Properties object if it exists
+        String envPath = runtime.getRuntimeLocation() + "/etc/server.env";
+        File envFile = new File(envPath);
+        Properties envProps = new Properties();
+        if (envFile.exists() && !envFile.isDirectory()) {
+            try {
+                envProps.load(new FileInputStream(envFile));
+            } catch (IOException ex) {
+                // thrown as an IllegalArgumentException so that all callers already handle it
+                throw new IllegalArgumentException(envPath + " was found but could not be read");
+            }
+        } else {
+            envProps = null;
+        }
+
+        // set the userPath from <wlp>/etc/server.env is available, or from the parameter otherwise.
+        String tempUserPath = null;
+        if (envProps != null) {
+            tempUserPath = envProps.getProperty("WLP_USER_DIR");
+        }
+        this.userPath = (tempUserPath != null) ? new Path(tempUserPath) : userPath;
+
+        // set the outputPath from <wlp>/etc/server.env is available, from the parameter if specified,
+        // or default it to <userPath>/servers
+        String tempOutputPath = null;
+        if (envProps != null) {
+            tempOutputPath = envProps.getProperty("WLP_OUTPUT_DIR");
+        }
+        if (tempOutputPath != null) {
+            this.outputPath = new Path(tempOutputPath);
+        } else {
+            this.outputPath = (outputPath == null) ? userPath.append(Constants.SERVERS_FOLDER) : outputPath;
+        }
+
         configVars = new ConfigVars();
         getVariables(configVars);
     }
@@ -186,8 +219,8 @@ public class UserDirectory {
     /**
      * Copy the file at the given URL into the shared configuration folder.
      *
-     * @param folder the configuration folder to add the shared file to, or
-     *            <code>null</code> to add it to the root.
+     * @param folder    the configuration folder to add the shared file to, or
+     *                      <code>null</code> to add it to the root.
      * @param configURL the config file to copy
      * @return a status indicating success or failure
      */
