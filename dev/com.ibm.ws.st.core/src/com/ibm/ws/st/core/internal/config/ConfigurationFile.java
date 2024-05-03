@@ -1641,8 +1641,9 @@ public class ConfigurationFile implements IAdaptable, IConfigurationElement {
         }
         ConfigVars vars = getConfigVars();
         String envValue = value.replace("${", "${env.");
+        // If not found then resolve will return the property name being requested and not null.
         String resolvedEnvValue = vars.resolve(envValue);
-        if (resolvedEnvValue != null) {
+        if (resolvedEnvValue != null && (!resolvedEnvValue.equals(envValue))) {
             return resolvedEnvValue;
         }
         return vars.resolve(value.trim());
