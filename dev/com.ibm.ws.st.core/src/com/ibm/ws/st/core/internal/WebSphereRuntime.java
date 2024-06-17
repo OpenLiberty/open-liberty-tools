@@ -133,7 +133,9 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     enum JAVAEESUPPORT {
         JAVAEE6(6.0f),
         JAVAEE7(7.0f),
-        JAVAEE8(8.0f);
+        JAVAEE8(8.0f),
+        JAVAEE9(9.0f),
+        JAVAEE10(10.0f);
 
         private final float version;
 
@@ -2375,10 +2377,16 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
         for (String feature : features) {
             Set<String> categoryElements = FeatureList.getFeatureCategory(feature, this);
             if (categoryElements != null && !categoryElements.isEmpty()) {
-                if (categoryElements.contains("JavaEE8Application")) {
-                    earSupported = JAVAEESUPPORT.JAVAEE8;
+                if (categoryElements.contains("JavaEE10Application")) {
+                    earSupported = JAVAEESUPPORT.JAVAEE10;
                     // Currently the latest version so break out of the loop
                     break;
+                }
+                if (categoryElements.contains("JavaEE9Application")) {
+                    earSupported = JAVAEESUPPORT.JAVAEE9;
+                }
+                if (categoryElements.contains("JavaEE8Application")) {
+                    earSupported = JAVAEESUPPORT.JAVAEE8;
                 }
                 if (categoryElements.contains("JavaEE7Application")) {
                     earSupported = JAVAEESUPPORT.JAVAEE7;

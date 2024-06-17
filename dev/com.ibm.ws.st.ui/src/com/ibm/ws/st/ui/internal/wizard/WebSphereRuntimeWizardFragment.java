@@ -180,6 +180,7 @@ public class WebSphereRuntimeWizardFragment extends WizardFragment {
             return;
 
         IRuntimeWorkingCopy runtime = (IRuntimeWorkingCopy) getTaskModel().getObject(TaskModel.TASK_RUNTIME);
+        System.out.println("New runtime = " + runtime.getLocation());
         if (runtime.getOriginal() != null)
             return;
 

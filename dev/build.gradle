@@ -253,6 +253,8 @@ task deployDHE {
         def user = System.getenv("intranet.user")
         def host = System.getenv("dhe_server")
         def pw = System.getenv("intranet.password")
+	println("user="+user)
+	println("server="+host)
 
         if(user == null || user.isEmpty()) {
             throw new GradleException("dhe user id is not set!")

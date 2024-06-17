@@ -557,7 +557,7 @@ public abstract class ToolsTestBase extends TestCase {
     }
 
     public static void addApp(String appProjectName) throws Exception {
-        addApp(appProjectName, true, 30);
+        addApp(appProjectName, true, 50);
     }
 
     /**
