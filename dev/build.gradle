@@ -255,6 +255,10 @@ task deployDHE {
         def pw = System.getenv("intranet.password")
 
         if(user == null || user.isEmpty()) {
+	    // If we hit this exception it maybe because the field has not been set (it comes from intranet.user env)
+            // It could also be a problem with some bash shells not allowing dots in the environment variables.
+            // To test if this is the case you can run the following command. If it finds a match all is good, if not then it's a problem
+            // env "intranet.user=mike" sh -c 'env'  | grep intranet
             throw new GradleException("dhe user id is not set!")
         }
         if(pw == null || pw.isEmpty()) {
