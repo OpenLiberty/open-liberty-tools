@@ -358,10 +358,8 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
             throw new UnsupportedOperationException();
         }
 
-        /** {@inheritDoc} */
         @Override
-        public Integer getRequireJava() {
-            // TODO Auto-generated method stub
+        public VersionRange getJavaRange() {
             return null;
         }
 
