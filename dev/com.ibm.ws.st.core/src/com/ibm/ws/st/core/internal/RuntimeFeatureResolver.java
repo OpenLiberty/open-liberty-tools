@@ -45,6 +45,16 @@ public class RuntimeFeatureResolver {
         Repository repository = new Repository() {
 
             @Override
+            public List<ProvisioningFeatureDefinition> getFeatures() {
+                List<ProvisioningFeatureDefinition> allFeatures = new ArrayList<ProvisioningFeatureDefinition>();
+                for (Feature feature : allFeaturesKeyedBySymbolicName.values()) {
+                    ResolverFeatureAdapter resolverFeatureAdapter = new ResolverFeatureAdapter(feature);
+                    allFeatures.add(resolverFeatureAdapter);
+                }
+                return allFeatures;
+            }
+
+            @Override
             public ProvisioningFeatureDefinition getFeature(String featureNameOrSymbolicName) { // either feature name or symbolic
                 Feature feature = featureMap.get(featureNameOrSymbolicName);
                 if (feature == null) {
