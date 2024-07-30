@@ -1,6 +1,6 @@
 NOTICES AND INFORMATION
 
-IBM WebSphere Application Server Developer Tools for Eclipse 23.2
+IBM WebSphere Application Server Developer Tools for Eclipse 24.1
 
 The IBM license agreement and any applicable information on the web
 download page for IBM products refers Licensee to this file for details
@@ -25,12 +25,14 @@ and all liability for errors and omissions or for any damages accruing
 from the use of this NOTICES file or its contents, including without
 limitation URLs or references to any third party websites.
 
+
 TABLE OF CONTENTS
 
 THIS IBM NOTICES FILE CONSISTS OF THE FOLLOWING SECTIONS:
 
 BSD-2-Clause
 CDDL-1.0
+Apache-1.1
 Apache-2.0
 MIT
 EPL-2.0
@@ -84,7 +86,6 @@ under the Common Development and Distribution License V1
 (source code available via the indicated URL):
 
 activation.jar | https://mvnrepository.com/artifact/javax.activation/activation/1.1.1
-javax.xml.bind:jaxb-api | https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-sources.jar
 mail.jar | https://mvnrepository.com/artifact/javax.mail/mail/1.4.2
 
 END OF COMMON DEVELOPMENT AND DISTRIBUTION V1 LICENSE NOTICES AND INFORMATION
@@ -93,12 +94,77 @@ END OF COMMON DEVELOPMENT AND DISTRIBUTION V1 LICENSE NOTICES AND INFORMATION
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+APACHE SOFTWARE LICENSE 1.1
+
+The Program includes some or all of the following that IBM obtained
+under the Apache License Version 1.1:
+
+commons-discovery:commons-discovery
+
+ ====================================================================
+
+ The Apache Software License, Version 1.1
+
+ Copyright (c) 1999-2001 The Apache Software Foundation.  All rights
+  reserved.
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution. 
+
+ 3. The end-user documentation included with the redistribution, if
+    any, must include the following acknowlegement:
+       "This product includes software developed by the
+        Apache Software Foundation (http://www.apache.org/)."
+    Alternately, this acknowlegement may appear in the software itself,
+    if and wherever such third-party acknowlegements normally appear.
+
+ 4. The names "The Jakarta Project", "Commons", and "Apache Software
+    Foundation" must not be used to endorse or promote products derived
+    from this software without prior written permission. For written
+    permission, please contact apache@apache.org.
+
+ 5. Products derived from this software may not be called "Apache"
+    nor may "Apache" appear in their names without prior written
+    permission of the Apache Group.
+
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED.  IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR
+ ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+ ====================================================================
+ *
+ * This software consists of voluntary contributions made by many
+ * individuals on behalf of the Apache Software Foundation.  For more
+ * information on the Apache Software Foundation, please see
+ * <http://www.apache.org/>.
+ *
+
+ END OF APACHE LICENSE 1.1 NOTICES AND INFORMATION
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 APACHE SOFTWARE LICENSE 2.0
 
 The Program includes some or all of the following that IBM obtained
 under the Apache License Version 2.0:
 
-Jansi
+jansi.dll
 ant-antlr.jar
 ant-apache-bcel.jar
 ant-apache-bsf.jar
@@ -124,13 +190,12 @@ ant-testutil.jar
 ant.jar
 axiom.jar
 axis.jar
+axis2.jar
 axis2-kernel-1.6.2.jar
 com.fasterxml.jackson.core:jackson-annotations
 commons-codec:commons-codec
-commons-discovery:commons-discovery
 commons-httpclient:commons-httpclient
-commons-lang-2.6.jar
-commons-lang:commons-lang
+commons-lang:commons-lang 
 commons-logging:commons-logging
 cxf-core-3.0.3.jar
 cxf-rt-ws-addr-3.0.3.jar
@@ -138,16 +203,16 @@ cxf-rt-ws-security-3.0.3.jar
 cxf-rt-wsdl-3.0.3.jar
 gradle-wrapper.jar
 httpclient-4.3.1.jar
+httpclient-3.1.0-v201012070820.jar
 httpcore-4.3.jar
 io.swagger:swagger-codegen-cli
-io.swagger:swagger-parser
+io.swagger:swagger-codegen
 javax.servlet.jsp_2.0.0.v201101211617.jar
 joda-time:joda-time
 neethi-3.0.3.jar
-nl.flotsam:xeger
+org.apache.aries.util
 org.apache.axis2:addressing
 org.apache.axis2:axis2-kernel
-org.apache.axis2:axis2-mtompolicy
 org.apache.axis2:mex
 org.apache.axis2:mtompolicy
 org.apache.commons.el_1.0.0.v201101211617.jar
@@ -177,8 +242,6 @@ org.apache.lucene.queries_2.9.1.v20100421-0704.jar
 org.apache.lucene.snowball_2.9.1.v20100421-0704.jar
 org.apache.lucene.spellchecker_2.9.1.v20100421-0704.jar
 org.apache.lucene_2.9.1.v201101211721.jar
-org.apache.maven.wagon:wagon-file
-org.apache.neethi:neethi
 org.apache.rampart:rampart
 org.apache.rampart:rampart-core
 org.apache.rampart:rampart-policy
@@ -415,15 +478,11 @@ bcpkix-jdk13-154.jar | Copyright (c) 2000-2021 The Legion of the Bouncy Castle I
 jbuilder | Copyright (c) 2011-2014 David Heinemeier Hansson, 37signals
 jce-jdk13-154.jar | Copyright (c) 2000-2021 The Legion of the Bouncy Castle Inc.
 jquery-1.8.3.min.js | Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
-mysql2 | Copyright (c) 2014 Brian Lopez
 org.slf4j:jcl-over-slf4j | Copyright (c) 2004-2007 QOS.ch
 org.slf4j:slf4j-api | Copyright (c) 2004-2007 QOS.ch
 org.slf4j:slf4j-jdk14 | Copyright (c) 2004-2007 QOS.ch
 rails | No Copyright Found
-sinatra | Copyright (c) 2007, 2008, 2009 Blake Mizerany, Copyright (c) 2010-2017 Konstantin Haase, Copyright (c) 2015-2017 Zachary Scott
-sinatra-cross_origin | Copyright (c) 2007, 2008, 2009 Brit Gardner
-spring | Copyright (c) 2017-2021 Rafael Mendonça Franca, Copyright (c) 2012-2017 Jon Leighton
-tzinfo-data | Copyright (c) 2005-2023 Philip Ross
+spring | Copyright (c) 2017-2021 Rafael Mendon a Franca, Copyright (c) 2012-2017 Jon Leighton
 
 Permission is hereby granted, free of charge, to any person obtaining a 
 copy of this software and associated documentation files (the 
@@ -469,6 +528,8 @@ org.eclipse.help.base.nl2_3.6.1.v201109221431.jar | https://repo1.maven.org/mave
 org.eclipse.help.base.nl2a_3.6.1.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
 org.eclipse.help.base.nlBidi_3.6.1.v201109221431.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
 org.eclipse.help.base_3.6.1.201205181451.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.base/3.6.1/org.eclipse.help.base-3.6.1-sources.jar
+org.eclipse.help.webapp_3.11.100.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.help.webapp/3.11.100/
+
 
 END OF ECLIPSE PUBLIC LICENSE, VERSION 2 NOTICES AND INFORMATION
 
@@ -512,7 +573,7 @@ org.eclipse.core.runtime_3.7.0.v20110110.jar | https://mvnrepository.com/artifac
 org.eclipse.core.variables_3.2.500.v20110511.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M1/plugins/org.eclipse.core.variables_3.2.500.v20110511.jar
 org.eclipse.ecf.filetransfer_5.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.filetransfer_5.0.0.v20110531-2218.jar
 org.eclipse.ecf.identity_3.1.100.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.identity_3.1.100.v20110531-2218.jar
-org.eclipse.ecf.provider.filetransfer.httpclient.ssl_1.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer.httpclient.ssl_1.0.0.v20110531-2218.jar
+org.eclipse.ecf.provider.filetransfer.httpclient.ssl_1.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/
 org.eclipse.ecf.provider.filetransfer.httpclient_4.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer.httpclient_4.0.0.v20110531-2218.jar
 org.eclipse.ecf.provider.filetransfer.ssl_1.0.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer.ssl_1.0.0.v20110531-2218.jar
 org.eclipse.ecf.provider.filetransfer_3.2.0.v20110531-2218.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.eclipse.ecf.provider.filetransfer_3.2.0.v20110531-2218.jar
@@ -563,6 +624,7 @@ org.eclipse.equinox.p2.touchpoint.natives_1.0.300.v20110502-1955.jar | https://a
 org.eclipse.equinox.p2.transport.ecf_1.0.0.v20110510.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.transport.ecf_1.0.0.v20110510.jar
 org.eclipse.equinox.p2.updatesite_1.0.300.v20110510.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.p2.updatesite_1.0.300.v20110510.jar
 org.eclipse.equinox.preferences_3.4.0.v20110502.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.preferences/3.4.0/
+org.eclipse.equinox.registry-3.5.100.v20110502.jar | https://repo1.maven.org/maven2/org/eclipse/platform/org.eclipse.equinox.preferences/3.5.100/
 org.eclipse.equinox.security_1.1.100.jar | https://archive.eclipse.org/equinox/drops/R-3.8.2-201302041200/org.eclipse.equinox.security_1.1.100.v20120522-1841.jar
 org.eclipse.equinox.server.core | https://mvnrepository.com/artifact/com.github.adedayo.eclipse.sdk/org.eclipse.equinox.server.core
 org.eclipse.equinox.servletbridge.extensionbundle_1.2.0.v20100503.jar | https://archive.eclipse.org/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.servletbridge.extensionbundle_1.2.0.v20100503.jar
@@ -577,7 +639,6 @@ org.eclipse.help.webapp.nl1_3.6.0.v201109221431.jar | https://git.eclipse.org/r/
 org.eclipse.help.webapp.nl2_3.6.0.v201109221431.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
 org.eclipse.help.webapp.nl2a_3.6.0.v201109221431.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
 org.eclipse.help.webapp.nlBidi_3.6.0.v201109221431.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
-org.eclipse.help.webapp_3.6.1.201205181451.jar | https://git.eclipse.org/r/plugins/gitiles/platform/eclipse.platform.ua/+/a5c5bb2b5e013e8891a3343ea00557c9098df8a7/org.eclipse.help.webapp/
 org.eclipse.help_3.5.100.v20110426.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.help_3.5.100.v20110426.jar
 org.eclipse.jface.databinding_1.5.0.I20100907-0800.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M2/plugins/org.eclipse.jface.databinding_1.5.0.I20100907-0800.jar
 org.eclipse.jface.nl_1.0.0.v20140523_1402.jar | https://mvnrepository.com/artifact/org.eclipse.jface
@@ -587,9 +648,9 @@ org.eclipse.osgi_3.7.0.v20110613.jar | https://download.eclipse.org/eclipse/upda
 org.eclipse.swt_3.7.0.v3735b.jar | https://download.eclipse.org/eclipse/updates/4.1/R-4.1-201106201631/plugins/org.eclipse.swt_3.7.0.v3735b.jar
 org.eclipse.ui.workbench_3.7.0.I20110519-0100.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M1/plugins/org.eclipse.ui.workbench_3.7.0.I20110519-0100.jar
 org.eclipse.ui_3.7.0.I20110602-0100.jar | https://archive.eclipse.org/koneki/releases/milestones/ldt/0.8M1/plugins/org.eclipse.ui_3.7.0.I20110602-0100.jar
-org.ow2.orchestra.eclipse.core:org.ow2.orchestra.eclipse.core.expressions | https://mvnrepository.com/artifact/org.ow2.orchestra.eclipse.core/org.ow2.orchestra.eclipse.core.expressions/3.4.300
-org.ow2.orchestra.eclipse.core:org.ow2.orchestra.eclipse.core.runtime.compatibility.auth | https://mvnrepository.com/artifact/org.eclipse.core/org.eclipse.core.runtime.compatibility.auth/3.2.200.v20100517
-org.ow2.orchestra.eclipse.equinox:org.ow2.orchestra.eclipse.equinox.registry | https://mvnrepository.com/artifact/org.ow2.orchestra.eclipse.equinox/org.ow2.orchestra.eclipse.equinox.registry/3.5.100
+org.eclipse.core.expressions_3.4.300.v20110228.jar | https://download.eclipse.org/eclipse/updates/4.1/R-4.1-201106201631/plugins/org.eclipse.core.expressions_3.4.300.v20110228.jar
+org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110.jar | https://download.eclipse.org/eclipse/updates/4.1/R-4.1-201106201631/plugins/org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110.jar
+org.eclipse.equinox.registry_3.5.100.v20110502.jar | http://www.eclipse.org/downloads/download.php?file=/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.registry_3.5.100.v20110502.jar
 org.sat4j.core_2.3.0.v20110329.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.sat4j.core_2.3.0.v20110329.jar
 org.sat4j.pb_2.3.0.v20110329.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.sat4j.pb_2.3.0.v20110329.jar
 
@@ -645,3 +706,8 @@ END OF NOTICES AND INFORMATION FILE
 L/N: L-CAUE-2X9MVQ
 D/N: L-CAUE-2X9MVQ
 P/N: L-CAUE-2X9MVQ
+
+
+L/N: L-LAAY-6AA88B
+D/N: L-LAAY-6AA88B
+P/N: L-LAAY-6AA88B
