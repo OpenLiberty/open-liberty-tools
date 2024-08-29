@@ -15,16 +15,16 @@ Open Liberty Tools are lightweight tools for developing, assembling, and deployi
 * [Community](https://github.com/OpenLiberty/open-liberty-tools#community)
 
 ## Prereqs
-Java 11 is now required as of version 21.0.0.3 of the tools.
+Java 21 is now required as of version 24.1 of the tools.
 
-The 21.0.0.3 release supports Eclipse versions [2021-03](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers), [2020-12](https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-enterprise-java-developers) and [2020-09](https://www.eclipse.org/downloads/packages/release/2020-09/r/eclipse-ide-enterprise-java-developers).
+The 24.1 release supports Eclipse versions [2024-06](https://www.eclipse.org/downloads/packages/release/2024-06/r/eclipse-ide-enterprise-java-and-web-developers) and [2023-12](https://www.eclipse.org/downloads/packages/release/2023-12/r/eclipse-ide-enterprise-java-and-web-developers).
 
 ## Known Issues
 Please see the [Liberty Tools known issues](https://github.com/OpenLiberty/open-liberty-tools/wiki/Liberty-Tools-known-issues) page for known issues and workarounds.
 
 ## Getting Started 
 To install the Open Liberty Tools and other WebSphere Developer Tools features:
-1. If you don’t already have Eclipse, install [Eclipse 2021-03 for Enterprise Java and Web Developers ( 4.19 )](https://www.eclipse.org/downloads/packages/release/2021-03/r/eclipse-ide-enterprise-java-and-web-developers)
+1. If you don’t already have Eclipse, install [Eclipse 2024-06 for Enterprise Java and Web Developers ( 4.32 )](https://www.eclipse.org/downloads/packages/release/2024-06/r/eclipse-ide-enterprise-java-and-web-developers)
 2. Download Open Liberty tools by going to the [Open Liberty Tools list of repositories](https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/tools/release/?C=N;O=D), choosing a folder that is close in time to your Open Liberty release date and downloading the openlibertytools-*.zip file therein. 
 3. Start your Eclipse workbench.
 4. Start the installation using the following method.
