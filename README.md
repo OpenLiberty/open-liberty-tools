@@ -20,7 +20,7 @@ Java 21 is now required as of version 24.1 of the tools.
 The 24.1 release supports Eclipse versions [2024-06](https://www.eclipse.org/downloads/packages/release/2024-06/r/eclipse-ide-enterprise-java-and-web-developers) and [2023-12](https://www.eclipse.org/downloads/packages/release/2023-12/r/eclipse-ide-enterprise-java-and-web-developers).
 
 ## Known Issues
-Please see the [Liberty Tools known issues](https://github.com/OpenLiberty/open-liberty-tools/wiki/Liberty-Tools-known-issues) page for known issues and workarounds.
+Please see the [Liberty Tools known issues](https://www.ibm.com/support/pages/node/6841611) page for known issues and workarounds.
 
 ## Getting Started 
 To install the Open Liberty Tools and other WebSphere Developer Tools features:
