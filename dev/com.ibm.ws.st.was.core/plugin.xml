@@ -65,7 +65,7 @@
       runtime="true"
       hasConfiguration="false"
       launchModes="run,debug"
-      startTimeout="60000"
+      startTimeout="300000"
       stopTimeout="30000"
       initialState="stopped"
       supportsRemoteHosts="true"
