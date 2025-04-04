@@ -850,7 +850,6 @@
     <item customControlClass="com.ibm.ws.st.ui.internal.config.FilesetExcludesCustomObject" path="@excludes"/>
   </node>
   <node detailsSortingPreference="default" path="/server/featureManager" sectionHeaderText="%featureManager_description">
-    <item customControlClass="com.ibm.ws.st.ui.internal.config.FeatureCustomObject" path="feature"/>
     <item path="@onError"/>
   </node>
   <node path="/server/ldapRegistry">
