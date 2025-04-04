@@ -238,6 +238,11 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
     }
 
     @Override
+    public boolean isCompatibility() {
+        return false;
+    }
+
+    @Override
     public boolean isSingleton() {
         return feature.isSingleton();
     }
