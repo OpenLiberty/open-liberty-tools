@@ -51,6 +51,8 @@
 		<echo message="Suppliers target at ${suppliersUpdateSiteDir}" />
 		<property name="suppliersSourceDir" value="${sourceDir}/suppliers" />
 		<echo message="Suppliers source at ${suppliersSourceDir}" />
+		<echo message="Using Target JVM: ${target.jvm}" />
+		<echo message="Eclipse path is ${eclipse.path}" />
 		  	
 		<java classname="org.eclipse.equinox.launcher.Main" dir="../../"
 			  fork="true" jvm="${target.jvm}" spawn="false" failonerror="true">
