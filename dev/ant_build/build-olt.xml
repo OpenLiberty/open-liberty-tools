@@ -45,6 +45,7 @@
     </target>
 
     <target name="compile" depends="getOLTBuildLabel, preparePrereqsIvy" unless="${env.skip_compile_olt}">
+		<property name="jvm.properties.file.location" value="${delegate.build.dir}/ant_build/resources/jvmlevel-properties/${controlled.jvm.level}/${os.name}-${wlp.os.arch}-olt.properties" />
         <echo message="Build label is ${buildLabel}"/>
         <antcall target="liberty-all.compile" /> 
         <echo message="olt_imports.generateOLTSuppliersUpdateSite call"/>
