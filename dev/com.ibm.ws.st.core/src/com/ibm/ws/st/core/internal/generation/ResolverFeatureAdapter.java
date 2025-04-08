@@ -237,10 +237,46 @@ public class ResolverFeatureAdapter implements ProvisioningFeatureDefinition {
         return isCapabilitySatisfied;
     }
 
+    /**
+     * New methods introduced for versionless features, stubs only as I don't think we ened them to tolerate (but not support) versionless features
+     */
+    /** {@inheritDoc} */
     @Override
     public boolean isCompatibility() {
         return false;
     }
+
+    /** {@inheritDoc} */
+    @Override
+    public String getPlatformName() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public List<String> getPlatformNames() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isConvenience() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public boolean isVersionless() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    /**
+     * End of versionless features methods
+     */
 
     @Override
     public boolean isSingleton() {
