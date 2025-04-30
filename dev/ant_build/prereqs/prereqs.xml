@@ -76,10 +76,6 @@
     	
       	<ivy:retrieve inline="true" organisation="commons-logging" module="commons-logging" pattern="${prereqs.lib.dir}/[type]/[artifact].[ext]"/>
       	<copy file="${prereqs.lib.dir}/jar/commons-logging.jar" todir="${prereqs.lib.dir}"/>
-        <ivy:retrieve inline="true" organisation="commons-codec" module="commons-codec" pattern="${prereqs.lib.dir}/[type]/[artifact].[ext]"/>
-    	    <copy file="${prereqs.lib.dir}/jar/commons-codec.jar" todir="${prereqs.lib.dir}"/>
-         <ivy:retrieve inline="true" organisation="commons-httpclient" module="commons-httpclient" pattern="${prereqs.lib.dir}/[type]/[artifact].[ext]"/>
-    	     <copy file="${prereqs.lib.dir}/jar/commons-httpclient.jar" todir="${prereqs.lib.dir}"/>
     	   
         <!-- pattern attribute removes version info from artifacts, but it's still available in jar manifests -->
         <ivy:retrieve file="${prereqs.basedir}/product-prereqs.xml" settingsRef="ivy.remote.settings" pattern="${prereqs.lib.dir}/[artifact].[ext]"/>
