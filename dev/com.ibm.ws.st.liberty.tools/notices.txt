@@ -194,7 +194,7 @@ axis2.jar
 axis2-kernel-1.6.2.jar
 com.fasterxml.jackson.core:jackson-annotations
 commons-codec:commons-codec
-commons-httpclient:commons-httpclient
+org.apache.httpcomponents:httpclient
 commons-lang:commons-lang 
 commons-logging:commons-logging
 cxf-core-3.0.3.jar
