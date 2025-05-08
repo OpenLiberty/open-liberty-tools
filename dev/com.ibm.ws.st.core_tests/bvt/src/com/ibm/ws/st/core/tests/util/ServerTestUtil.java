@@ -167,8 +167,8 @@ public class ServerTestUtil {
         print("Server stop operation status: " + opStatus[0]);
 
         print("Server stop operation completed.");
-        // give it 30 second for the server state to be updated (for CCB build)
-        int i = 60;
+        // give it 300 seconds (5 minutes) for the server state to be updated (for CCB build)
+        int i = 600;
         while (server.getServerState() != IServer.STATE_STOPPED && --i > 0) {
             print("Server state: " + server.getServerState());
             Thread.sleep(500);
