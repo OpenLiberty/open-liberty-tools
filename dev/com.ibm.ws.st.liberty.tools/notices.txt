@@ -1,6 +1,6 @@
 NOTICES AND INFORMATION
 
-IBM WebSphere Application Server Developer Tools for Eclipse 24.1
+IBM WebSphere Application Server Developer Tools for Eclipse 25.1
 
 The IBM license agreement and any applicable information on the web
 download page for IBM products refers Licensee to this file for details
@@ -24,7 +24,6 @@ website referenced in this NOTICES file is accurate. IBM disclaims any
 and all liability for errors and omissions or for any damages accruing
 from the use of this NOTICES file or its contents, including without
 limitation URLs or references to any third party websites.
-
 
 TABLE OF CONTENTS
 
@@ -194,7 +193,6 @@ axis2.jar
 axis2-kernel-1.6.2.jar
 com.fasterxml.jackson.core:jackson-annotations
 commons-codec:commons-codec
-commons-httpclient:commons-httpclient
 commons-lang:commons-lang 
 commons-logging:commons-logging
 cxf-core-3.0.3.jar
@@ -203,20 +201,21 @@ cxf-rt-ws-security-3.0.3.jar
 cxf-rt-wsdl-3.0.3.jar
 gradle-wrapper.jar
 httpclient-4.3.1.jar
-httpclient-3.1.0-v201012070820.jar
+httpclient-4.5.14.jar
+httpclient-osgi-4.5.14.jar
 httpcore-4.3.jar
 io.swagger:swagger-codegen-cli
 io.swagger:swagger-codegen
 javax.servlet.jsp_2.0.0.v201101211617.jar
 joda-time:joda-time
 neethi-3.0.3.jar
+openapi-generator-v7.13.0
 org.apache.aries.util
 org.apache.axis2:addressing
 org.apache.axis2:axis2-kernel
 org.apache.axis2:mex
 org.apache.axis2:mtompolicy
 org.apache.commons.el_1.0.0.v201101211617.jar
-org.apache.commons.httpclient_3.1.0.v201012070820.jar
 org.apache.cxf:cxf-core
 org.apache.cxf:cxf-rt-bindings-soap
 org.apache.cxf:cxf-rt-databinding-jaxb
@@ -482,7 +481,7 @@ org.slf4j:jcl-over-slf4j | Copyright (c) 2004-2007 QOS.ch
 org.slf4j:slf4j-api | Copyright (c) 2004-2007 QOS.ch
 org.slf4j:slf4j-jdk14 | Copyright (c) 2004-2007 QOS.ch
 rails | No Copyright Found
-spring | Copyright (c) 2017-2021 Rafael Mendon a Franca, Copyright (c) 2012-2017 Jon Leighton
+spring | Copyright (c) 2017-2021 Rafael Mendon  a Franca, Copyright (c) 2012-2017 Jon Leighton
 
 Permission is hereby granted, free of charge, to any person obtaining a 
 copy of this software and associated documentation files (the 
@@ -653,6 +652,7 @@ org.eclipse.core.runtime.compatibility.auth_3.2.200.v20110110.jar | https://down
 org.eclipse.equinox.registry_3.5.100.v20110502.jar | http://www.eclipse.org/downloads/download.php?file=/equinox/drops/R-3.7-201106131736/org.eclipse.equinox.registry_3.5.100.v20110502.jar
 org.sat4j.core_2.3.0.v20110329.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.sat4j.core_2.3.0.v20110329.jar
 org.sat4j.pb_2.3.0.v20110329.jar | https://download.eclipse.org/tycho/p2_364221_364222_364475/plugins/org.sat4j.pb_2.3.0.v20110329.jar
+javax.xml_1.3.4.v201005080400.jar | https://www.eclipse.org/downloads/download.php?file=/releases/2024-09/202409111000/plugins/javax.xml_1.3.4.v201005080400.jar
 
 END OF ECLIPSE PUBLIC LICENSE, VERSION 1 NOTICES AND INFORMATION
 
@@ -711,3 +711,8 @@ P/N: L-CAUE-2X9MVQ
 L/N: L-LAAY-6AA88B
 D/N: L-LAAY-6AA88B
 P/N: L-LAAY-6AA88B
+
+
+L/N: L-AZMN-Y7LC7V
+D/N: L-AZMN-Y7LC7V
+P/N: L-AZMN-Y7LC7V
