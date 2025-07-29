@@ -319,6 +319,14 @@
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.connectors"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.connectors" version="2.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.connectors" version="2.0"/>
+      <facet id="jst.connector" version="1.0,1.5,1.6,1.7,2.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.jms"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.jms" version="1.1"/>
   </extension>
