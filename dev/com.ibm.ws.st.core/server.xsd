@@ -24,25 +24,25 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -149,27 +149,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -260,6 +260,14 @@
                     </xsd:simpleType> 
                 </xsd:union> 
             </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="annotationScanLibrary" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Configure which libraries are going to be scanned for Web Application annotations in a comma seperated list. Valid options are earLibraries, manifestClassPath, or all.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Annotation scan libraries</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
         </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
@@ -842,7 +850,7 @@
         </xsd:attribute> 
         <xsd:attribute name="expandLocation" use="optional" default="${server.config.dir}/apps/expanded/" type="dirLocation"> 
             <xsd:annotation> 
-                <xsd:documentation>The expandLocation attribute enables a user to set the location where the autoExpanded application is located. The default location is ${server.config.dir}/apps/expanded/.</xsd:documentation> 
+                <xsd:documentation>The expandLocation attribute enables a user to set the location where the autoExpanded application is located. The default location is ${server.config.dir}/apps/expanded/. The same expandLocation location cannot be shared among multiple servers.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Expand location</ext:label> 
                 </xsd:appinfo> 
@@ -943,27 +951,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -2935,7 +2943,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.classloading.sharedlibrary.path"> 
         <xsd:annotation> 
-            <xsd:documentation>Add a JAR file, ZIP file or folder to include in the class path for this library</xsd:documentation> 
+            <xsd:documentation>Add a JAR file, ZIP file or folder to include in the class path for this library. If the specified path is a JAR or ZIP file, then classes and resources that are contained in the specified JAR or ZIP file are available to load for this library. If the specified path is a folder, then classes and resources that are contained in the specified folder and its subfolders are available to load for this library. JAR and ZIP files contained in the specified folder are not added to the class path for this library.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>Path</ext:label> 
             </xsd:appinfo> 
@@ -2978,7 +2986,7 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="privateLibrary" type="com.ibm.ws.classloading.sharedlibrary-factory"> 
                 <xsd:annotation> 
-                    <xsd:documentation>List of library references. Library class instances are unique to this classloader, independent of class instances from other classloaders.</xsd:documentation> 
+                    <xsd:documentation>List of library references. Library class instances are unique to this class loader, independent of class instances from other class loaders. The referenced library class path is searched after searching the class path of this class loader.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Library</ext:label> 
                     </xsd:appinfo> 
@@ -2986,7 +2994,7 @@
             </xsd:element> 
             <xsd:element name="commonLibrary" type="com.ibm.ws.classloading.sharedlibrary-factory"> 
                 <xsd:annotation> 
-                    <xsd:documentation>List of library references. Library class instances are shared with other classloaders.</xsd:documentation> 
+                    <xsd:documentation>List of library references. Library class instances are shared with other class loaders.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Shared Library</ext:label> 
                     </xsd:appinfo> 
@@ -3003,7 +3011,7 @@
         </xsd:choice> 
         <xsd:attribute name="delegation" use="optional" default="parentFirst"> 
             <xsd:annotation> 
-                <xsd:documentation>Controls whether parent classloader is used before or after this classloader. If parent first is selected then delegate to immediate parent before searching the classpath. If parent last is selected then search the classpath before delegating to the immediate parent.</xsd:documentation> 
+                <xsd:documentation>Controls whether parent classloader is used before or after this class loader. If parent first is selected then delegate to immediate parent before searching the classpath. If parent last is selected then search the classpath before delegating to the immediate parent.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Delegation</ext:label> 
                 </xsd:appinfo> 
@@ -3029,7 +3037,7 @@
         </xsd:attribute> 
         <xsd:attribute name="privateLibraryRef" use="optional" type="pidListType"> 
             <xsd:annotation> 
-                <xsd:documentation>List of library references. Library class instances are unique to this classloader, independent of class instances from other classloaders.</xsd:documentation> 
+                <xsd:documentation>List of library references. Library class instances are unique to this class loader, independent of class instances from other class loaders. The referenced library class path is searched after searching the class path of this class loader.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Library references</ext:label> 
                     <ext:reference>library</ext:reference> 
@@ -3038,7 +3046,7 @@
         </xsd:attribute> 
         <xsd:attribute name="commonLibraryRef" use="optional" type="pidListType"> 
             <xsd:annotation> 
-                <xsd:documentation>List of library references. Library class instances are shared with other classloaders.</xsd:documentation> 
+                <xsd:documentation>List of library references. Library class instances are shared with other class loaders.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Shared library references</ext:label> 
                     <ext:reference>library</ext:reference> 
@@ -3081,7 +3089,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.classloading.sharedlibrary.folder"> 
         <xsd:annotation> 
-            <xsd:documentation>Add a folder to include in the class path for this library</xsd:documentation> 
+            <xsd:documentation>Add a folder to include in the class path for this library. Classes and resources that are contained in the specified folder and its subfolders are available to load for this library. JAR and ZIP files that are contained in the specified folder are not added to the class path for this library.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>Folder</ext:label> 
             </xsd:appinfo> 
@@ -3116,7 +3124,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.classloading.sharedlibrary.file"> 
         <xsd:annotation> 
-            <xsd:documentation>Add a JAR or ZIP file to include in the class path for this library</xsd:documentation> 
+            <xsd:documentation>Add a JAR or ZIP file to include in the class path for this library. Classes and resources that are contained in the specified JAR or ZIP are available to load for this library.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>File</ext:label> 
             </xsd:appinfo> 
@@ -3159,7 +3167,7 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="fileset" type="com.ibm.ws.kernel.metatype.helper.fileset-factory"> 
                 <xsd:annotation> 
-                    <xsd:documentation>Id of referenced Fileset</xsd:documentation> 
+                    <xsd:documentation>Specifies a set of JAR or ZIP files to include in the class path for this library</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Fileset</ext:label> 
                     </xsd:appinfo> 
@@ -3167,7 +3175,7 @@
             </xsd:element> 
             <xsd:element name="folder" type="com.ibm.ws.classloading.sharedlibrary.folder-factory"> 
                 <xsd:annotation> 
-                    <xsd:documentation>Id of referenced folder</xsd:documentation> 
+                    <xsd:documentation>Add a folder to include in the class path for this library. Classes and resources that are contained in the specified folder and its subfolders are available to load for this library. JAR and ZIP files that are contained in the specified folder are not added to the class path for this library.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Folder</ext:label> 
                     </xsd:appinfo> 
@@ -3175,7 +3183,7 @@
             </xsd:element> 
             <xsd:element name="file" type="com.ibm.ws.classloading.sharedlibrary.file-factory"> 
                 <xsd:annotation> 
-                    <xsd:documentation>Id of referenced File</xsd:documentation> 
+                    <xsd:documentation>Add a JAR or ZIP file to include in the class path for this library. Classes and resources that are contained in the specified JAR or ZIP are available to load for this library.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>File</ext:label> 
                     </xsd:appinfo> 
@@ -3183,7 +3191,7 @@
             </xsd:element> 
             <xsd:element name="path" type="com.ibm.ws.classloading.sharedlibrary.path-factory"> 
                 <xsd:annotation> 
-                    <xsd:documentation>Id of referenced path</xsd:documentation> 
+                    <xsd:documentation>Add a JAR file, ZIP file or folder to include in the class path for this library. If the specified path is a JAR or ZIP file, then classes and resources that are contained in the specified JAR or ZIP file are available to load for this library. If the specified path is a folder, then classes and resources that are contained in the specified folder and its subfolders are available to load for this library. JAR and ZIP files contained in the specified folder are not added to the class path for this library.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Path</ext:label> 
                     </xsd:appinfo> 
@@ -3208,7 +3216,7 @@
         </xsd:attribute> 
         <xsd:attribute name="filesetRef" use="optional" type="pidListType"> 
             <xsd:annotation> 
-                <xsd:documentation>Id of referenced Fileset</xsd:documentation> 
+                <xsd:documentation>Specifies a set of JAR or ZIP files to include in the class path for this library</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Fileset reference</ext:label> 
                     <ext:reference>fileset</ext:reference> 
@@ -5088,17 +5096,17 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -6941,7 +6949,7 @@
         </xsd:attribute> 
         <xsd:attribute name="maxConcurrentStreams" use="optional" default="100" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies the maximum number of streams that an HTTP/2 connection can have active at any given point. Opening streams over the limit, will result on a REFUSED_STREAM (0x7). If not specified, the default value of concurrent streams will be set to 200.</xsd:documentation> 
+                <xsd:documentation>Specifies the maximum number of streams that an HTTP/2 connection can have active at any given point. Opening streams over the limit, will result on a REFUSED_STREAM (0x7). If not specified, the default value of concurrent streams will be set to 100.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Max concurrent streams</ext:label> 
                 </xsd:appinfo> 
@@ -7544,13 +7552,13 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
             <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -26988,9 +26996,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
-            </xsd:element> 
             <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
+            </xsd:element> 
+            <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="slowRequestThreshold" use="optional" default="10s" type="duration"> 
@@ -27082,6 +27090,33 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.context"> 
+        <xsd:annotation> 
+            <xsd:documentation>When specified, the security context of the work initiator is propagated to the unit of work. </xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Security Context</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.context-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.security.context"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.management.security.role.reader"> 
         <xsd:annotation> 
             <xsd:documentation>A collection of users, groups, or both that are assigned the server reader role.</xsd:documentation> 
@@ -27169,62 +27204,6 @@
         </xsd:choice> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.quickStartSecurity"> 
-        <xsd:annotation> 
-            <xsd:documentation>Simple administrative security configuration.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Quick Start Security</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="userName" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Single user defined as part of the quick start security configuration.  This user is granted the Administrator role.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>User name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="userPassword" use="optional" type="passwordHash"> 
-            <xsd:annotation> 
-                <xsd:documentation>Password for the single user defined as part of the quick start security configuration. It is recommended that you encode or hash this password. To do so, use the securityUtility tool with the encode option.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>User password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.context"> 
-        <xsd:annotation> 
-            <xsd:documentation>When specified, the security context of the work initiator is propagated to the unit of work. </xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>Security Context</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.context-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.security.context"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.session"> 
         <xsd:annotation> 
@@ -28128,7 +28107,7 @@
         </xsd:attribute> 
         <xsd:attribute name="metaInfResourcesCacheSize" use="optional" default="20" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>Initial size (number of entries) of the meta-inf resource cache. The equivalent custom property in the full application server profile is com.ibm.ws.webcontainer.metainfresourcescachesize.name.</xsd:documentation> 
+                <xsd:documentation>Initial size (number of entries) of the meta-inf resource cache. The equivalent custom property in the full application server profile is com.ibm.ws.webcontainer.metainfresourcescachesize.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Meta-inf resources cache size</ext:label> 
                 </xsd:appinfo> 
@@ -28216,7 +28195,7 @@
         </xsd:attribute> 
         <xsd:attribute name="allowExpressionFactoryPerApp" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Enable this property to load the ExpressionFactory that is set by the application. Enable this custom property if you use a custom EL implementation (for example, JUEL) that needs to set its own ExpressionFactory.</xsd:documentation> 
+                <xsd:documentation>Enable this property to load the ExpressionFactory that is set by the application. Enable this custom property if you use a custom EL implementation (for example, JUEL) that needs to set its own ExpressionFactory. The equivalent custom property in the full profile application server is com.ibm.ws.jsp.allowExpressionFactoryPerApp.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allow expression factory per application</ext:label> 
                 </xsd:appinfo> 
@@ -28256,7 +28235,7 @@
         </xsd:attribute> 
         <xsd:attribute name="throwExceptionWhenUnableToCompleteOrDispatch" use="optional" default="true" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Throw an illegal state exception when an asynchronous request cannot be completed or dispatched. The default is true. If the asynchronous request must complete or the dispatch method must return, even if the call does not succeed, set the property to false.</xsd:documentation> 
+                <xsd:documentation>Throw an illegal state exception when an asynchronous request cannot be completed or dispatched. The default is true. If the asynchronous request must complete or the dispatch method must return, even if the call does not succeed, set the property to false. The equivalent custom property in the full profile application server is com.ibm.ws.webcontainer.throwexceptionwhenunabletocompleteordispatch.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Throw an exception for a failed async request</ext:label> 
                 </xsd:appinfo> 
@@ -28272,7 +28251,7 @@
         </xsd:attribute> 
         <xsd:attribute name="stopAppStartUponListenerException" use="optional" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Some web applications depend on context listeners for setup before the web application starts. When this property is set to true, the application stops starting up when an unhandled exception is thrown from the context listeners. For servlet-5.0 and newer Servlet features, the default value is true. </xsd:documentation> 
+                <xsd:documentation>Some web applications depend on context listeners for setup before the web application starts. When this property is set to true, the application stops starting up when an unhandled exception is thrown from the context listeners. For servlet-5.0 and newer Servlet features, the default value is true. The equivalent custom property in the full profile application server is com.ibm.ws.webcontainer.stopappstartuponlistenerexception.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Stop application for unhandled listener exception</ext:label> 
                 </xsd:appinfo> 
@@ -28296,7 +28275,7 @@
         </xsd:attribute> 
         <xsd:attribute name="allowQueryParamWithNoEqual" use="optional" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>This property determines how the server responds when the query parameter in a URL contains only the string name. When it is set to true, the server returns an empty string as the value for the request.getParameter(name) query. When it is set to false, the server returns null as the value for the request.getParameter(name) query. In servlet-5.0 and later, the default value is true. In servlet-4.0 and earlier, the default is false.</xsd:documentation> 
+                <xsd:documentation>This property determines how the server responds when the query parameter in a URL contains only the string name. When it is set to true, the server returns an empty string as the value for the request.getParameter(name) query. When it is set to false, the server returns null as the value for the request.getParameter(name) query. In servlet-5.0 and later, the default value is true. In servlet-4.0 and earlier, the default is false. The equivalent custom property in the full profile application server is com.ibm.ws.webcontainer.AllowQueryParamWithNoEqual.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Allow query parameters with no value</ext:label> 
                 </xsd:appinfo> 
@@ -28355,6 +28334,14 @@
                 <xsd:documentation>When this property is set to true, the runtime treats the filename argument on the part.write method call as an absolute location, rather than saving the filename argument under the temporary location. In servlet-6.1 and later, the default value is true. In servlet-6.0 and earlier, the default value is false. </xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Write part files to absolute file locations</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxPartHeaderSize" use="optional" default="512" type="intType"> 
+            <xsd:annotation> 
+                <xsd:documentation>The maximum size of the headers for a single part in bytes. The default value is 512. For unlimited size, set the value to -1.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>The maximum size of the single part headers</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -29859,6 +29846,14 @@
                 <xsd:documentation>Specifies whether the transaction manager optimizes when all resources but one vote read only.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Enable 1PC optimization</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="enableUserTransactionAsSpecified" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether UserTransaction methods should be enabled in NOT_SUPPORTED and NEVER @Transactional annotated methods.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable UserTransaction in @Transactional methods</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -34590,9 +34585,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
-            </xsd:element> 
             <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
+            </xsd:element> 
+            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="id" use="required" type="xsd:string"> 
@@ -35288,7 +35283,7 @@
         </xsd:attribute> 
         <xsd:attribute name="trustStoreRef" use="optional" type="pidType"> 
             <xsd:annotation> 
-                <xsd:documentation>A keystore that contains the key management key that is used to encrypt the Content Encryption Key of a JWE.</xsd:documentation> 
+                <xsd:documentation>A keystore that contains the key management key that is used to encrypt or derive the Content Encryption Key of a JWE.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Trust keystore</ext:label> 
                     <ext:reference>keyStore</ext:reference> 
@@ -35305,7 +35300,7 @@
         </xsd:attribute> 
         <xsd:attribute name="keyManagementKeyAlgorithm" use="optional"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies the encryption algorithm that is used to encrypt the Content Encryption Key of a JWE.</xsd:documentation> 
+                <xsd:documentation>Specifies the key management algorithm that is used to encrypt or derive the Content Encryption Key of a JWE.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Key management key algorithm</ext:label> 
                 </xsd:appinfo> 
@@ -35317,6 +35312,11 @@
                             <xsd:enumeration value="RSA-OAEP"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Use the RSAES OAEP algorithm to encrypt the Content Encryption Key of a JWE.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ECDH-ES"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the ECDH-ES algorithm to derive the Content Encryption Key of a JWE.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -35611,6 +35611,35 @@
                 <xsd:appinfo> 
                     <ext:label>Authentication filter reference</ext:label> 
                     <ext:reference>authFilter</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="io.openliberty.microprofile.health"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration for MicroProfile Health.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>MicroProfile Health</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="checkInterval" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value that you specify sets the interval at which the health checks are queried for the file-based health checks. The value is a number followed by an optional time unit of ms for milliseconds or s for seconds. If no time unit is specified, the value is in seconds by default. If the value is 0, 0s, 0ms or is empty, then the file-based health check function is disabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>File-based health check update interval</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="startupCheckInterval" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The value that you specify sets the interval at which the health checks are queried until an UP status is resolved and the health check file is created. The value is a number followed by an optional time unit of ms for milliseconds or s for seconds. If no time unit is specified for a value, the value is in milliseconds by default. If no value is specified, the default value is 100 ms.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>File-based health check startup interval</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -39195,6 +39224,35 @@
                 </xsd:attribute> 
             </xsd:extension> 
         </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.quickStartSecurity"> 
+        <xsd:annotation> 
+            <xsd:documentation>Simple administrative security configuration.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Quick Start Security</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="userName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Single user defined as part of the quick start security configuration.  This user is granted the Administrator role.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userPassword" use="optional" type="passwordHash"> 
+            <xsd:annotation> 
+                <xsd:documentation>Password for the single user defined as part of the quick start security configuration. It is recommended that you encode or hash this password. To do so, use the securityUtility tool with the encode option.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.session.cache"> 
         <xsd:annotation> 
@@ -42890,7 +42948,6 @@
             <xsd:element name="remoteFileAccess" type="com.ibm.ws.management.filetransfer"/> 
             <xsd:element name="reader-role" type="com.ibm.ws.management.security.role.reader"/> 
             <xsd:element name="administrator-role" type="com.ibm.ws.management.security.role.administrator"/> 
-            <xsd:element name="quickStartSecurity" type="com.ibm.ws.security.quickStartSecurity"/> 
             <xsd:element name="httpSession" type="com.ibm.ws.session"/> 
             <xsd:element name="pluginConfiguration" type="com.ibm.ws.generatePluginConfig"/> 
             <xsd:element name="webContainer" type="com.ibm.ws.webcontainer"/> 
@@ -42928,6 +42985,7 @@
             <xsd:element name="jwtBuilder" type="com.ibm.ws.security.jwt.builder-factory"/> 
             <xsd:element name="jwtConsumer" type="com.ibm.ws.security.jwt.consumer-factory"/> 
             <xsd:element name="jwtSso" type="com.ibm.ws.security.jwtsso"/> 
+            <xsd:element name="mpHealth" type="io.openliberty.microprofile.health"/> 
             <xsd:element name="mpTelemetry" type="io.openliberty.microprofile.telemetry20.logging.internal.OpenTelemetryLogHandler"/> 
             <xsd:element name="oauth-roles" type="com.ibm.ws.security.oauth20.roles-factory"/> 
             <xsd:element name="oauthProvider" type="com.ibm.ws.security.oauth20.provider-factory"/> 
@@ -42935,6 +42993,7 @@
             <xsd:element name="openidConnectClient" type="com.ibm.ws.security.openidconnect.client.oidcClientConfig-factory"/> 
             <xsd:element name="openidConnectProvider" type="com.ibm.ws.security.openidconnect.server.oidcServerConfig-factory"/> 
             <xsd:element name="samlWebSso20" type="com.ibm.ws.security.saml.sso20-factory"/> 
+            <xsd:element name="quickStartSecurity" type="com.ibm.ws.security.quickStartSecurity"/> 
             <xsd:element name="httpSessionCache" type="com.ibm.ws.session.cache"/> 
             <xsd:element name="httpSessionDatabase" type="com.ibm.ws.session.db"/> 
             <xsd:element name="linkedinLogin" type="com.ibm.ws.security.social.linkedin"/> 
