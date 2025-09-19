@@ -1,0 +1,31 @@
+type: pipeline_definition
+product: Liberty
+name: Open Liberty Tools Official Release Build
+description: A scheduled build run to release Open Liberty Tools
+triggers:
+- type: manual
+  description: "Monitored trigger to run the release build. Used to run the Open Liberty Tools release build ahead of schedule"
+  triggerName: "Manual"
+  triggerRank: 100
+  groups: ["WDT"]
+
+#- type: schedule
+#  description: "Scheduled Open Liberty Tools release build."
+#  triggerName: "Scheduled"
+#  triggerRank: 100
+#  groups: ["WDT"]
+#  triggerThreshold: 100
+#  at:
+#    - Sun Mon Tue Wed Thu Fri Sat 00:00
+#  propertyDefinitions:
+#  - name: run.reporting
+#    defaultValue: true
+#    steps:
+#    - stepName: Report Last Good Release
+
+steps:
+- stepName: RTC-Parent
+  coreStep: true
+  workType: RTC
+  projectName: "OLT GHE Release Build"
+  timeoutInMinutes: 180
