@@ -1,0 +1,26 @@
+type: pipeline_definition
+product: Liberty
+name: Open Liberty Tools Personal Build
+description: Run a personal Pipeline against an Open Liberty Tools branch
+triggers:
+- type: manual
+  description: "Monitored trigger to run the personal build"
+  triggerName: "Manual"
+  triggerRank: 100
+  groups: ["WDT"]
+  propertyDefinitions:
+  - name: git.clone.olt.checkout.branch
+    isRequired: true
+    defaultValue: ""
+    description: ""
+  - name: level_tag
+    isRequired: true
+    defaultValue: ""
+    description: "e.g. 25.2"
+
+steps:
+- stepName: RTC-Parent
+  coreStep: true
+  workType: RTC
+  projectName: "OLT GHE Personal Build"
+  timeoutInMinutes: 180
