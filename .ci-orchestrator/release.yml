@@ -9,19 +9,14 @@ triggers:
   triggerRank: 100
   groups: ["WDT"]
 
-#- type: schedule
-#  description: "Scheduled Open Liberty Tools release build."
-#  triggerName: "Scheduled"
-#  triggerRank: 100
-#  groups: ["WDT"]
-#  triggerThreshold: 100
-#  at:
-#    - Sun Mon Tue Wed Thu Fri Sat 00:00
-#  propertyDefinitions:
-#  - name: run.reporting
-#    defaultValue: true
-#    steps:
-#    - stepName: Report Last Good Release
+# - type: schedule
+#   description: "Scheduled Open Liberty Tools release build."
+#   triggerName: "Scheduled"
+#   triggerRank: 100
+#   groups: ["WDT"]
+#   triggerThreshold: 100
+#   at:
+#     - Sun Mon Tue Wed Thu Fri Sat 00:00
 
 steps:
 - stepName: RTC-Parent
@@ -29,3 +24,4 @@ steps:
   workType: RTC
   projectName: "OLT GHE Release Build"
   timeoutInMinutes: 180
+  
