@@ -9,14 +9,84 @@ triggers:
   triggerRank: 100
   groups: ["WDT"]
   propertyDefinitions:
+  - name: base_targetPlatform
+    isRequired: true
+    defaultValue: "target_platform_oxygen_3"
+    description: "e.g. target_platform_oxygen_3"
+    steps:
+    - stepName: RTC-Parent
+  - name: git.clone.download.server
+    isRequired: true
+    defaultValue: "libfsfe06.hursley.ibm.com"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: git.clone.liberty.checkout.branch
+    isRequired: true
+    defaultValue: "development"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: git.clone.liberty.repository.sshUrl
+    isRequired: true
+    defaultValue: "git@github.ibm.com:was-liberty/wdt-clone-of-liberty.git"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
   - name: git.clone.olt.checkout.branch
     isRequired: true
-    defaultValue: ""
+    defaultValue: "integration"
     description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: git.clone.olt.remote.branch
+    isRequired: true
+    defaultValue: "main"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: git.clone.olt.repository.sshUrl
+    isRequired: true
+    defaultValue: "git@github.com:OpenLiberty/open-liberty-tools.git"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: git.launcher.clone.branch
+    isRequired: true
+    defaultValue: "integration"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: git.launcher.clone.sshUrl
+    isRequired: true
+    defaultValue: "git@github.ibm.com:${git.launcher.clone.username}/rtc-build-launcher.git"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: git.launcher.clone.username
+    isRequired: true
+    defaultValue: "websphere"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
+  - name: gsa.base.dir
+    isRequired: true
+    defaultValue: "/wdt/dev/openlibertytools_personal"
+    description: "Output build directory"
+    steps:
+    - stepName: RTC-Parent
+  - name: gsa.server
+    isRequired: true
+    defaultValue: "libfsfe06.hursley.ibm.com"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
   - name: level_tag
     isRequired: true
-    defaultValue: ""
-    description: "e.g. 25.2"
+    defaultValue: "personal"
+    description: "level that is used for output file e.g. 25.2"
+    steps:
+    - stepName: RTC-Parent
 
 steps:
 - stepName: RTC-Parent
