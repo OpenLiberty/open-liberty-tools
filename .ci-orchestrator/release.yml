@@ -15,6 +15,12 @@ triggers:
     description: "e.g. target_platform_oxygen_3"
     steps:
     - stepName: RTC-Parent
+  - name: disable.run.signjar
+    isRequired: true
+    defaultValue: "false"
+    description: ""
+    steps:
+    - stepName: RTC-Parent
   - name: git.clone.checkout.branch
     isRequired: true
     defaultValue: "integration"
