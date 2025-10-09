@@ -53,7 +53,7 @@ triggers:
     - stepName: RTC-Parent
   - name: git.clone.olt.remote.branch
     isRequired: true
-    defaultValue: main"
+    defaultValue: "main"
     description: ""
     steps:
     - stepName: RTC-Parent
@@ -95,7 +95,7 @@ triggers:
     - stepName: RTC-Parent
   - name: level_tag
     isRequired: true
-    defaultValue: ""
+    defaultValue: "25.2"
     description: "level that is used for output file e.g. 25.2"
     steps:
     - stepName: RTC-Parent  
