@@ -133,7 +133,9 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     enum JAVAEESUPPORT {
         JAVAEE6(6.0f),
         JAVAEE7(7.0f),
-        JAVAEE8(8.0f);
+        JAVAEE8(8.0f),
+        JAKARTAEE9(9.0f),
+        JAKARTAEE10(10.0f);
 
         private final float version;
 
@@ -2372,23 +2374,31 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
 
     public void setJAVAEESupportLevel() {
         List<String> features = FeatureList.getFeatures(true, this);
+        // Initialize with the lowest supported level
+        earSupported = JAVAEESUPPORT.JAVAEE6;
+        
         for (String feature : features) {
             Set<String> categoryElements = FeatureList.getFeatureCategory(feature, this);
             if (categoryElements != null && !categoryElements.isEmpty()) {
-                if (categoryElements.contains("JavaEE8Application")) {
-                    earSupported = JAVAEESUPPORT.JAVAEE8;
-                    // Currently the latest version so break out of the loop
+                // Check for each version and set to the highest found
+                if (categoryElements.contains("JakartaEE10Application")) {
+                    earSupported = JAVAEESUPPORT.JAKARTAEE10;
+                    // No need to check for lower versions once we find the highest
                     break;
                 }
-                if (categoryElements.contains("JavaEE7Application")) {
+                if (categoryElements.contains("JakartaEE9Application") &&
+                    earSupported.getVersion() < JAVAEESUPPORT.JAKARTAEE9.getVersion()) {
+                    earSupported = JAVAEESUPPORT.JAKARTAEE9;
+                }
+                if (categoryElements.contains("JavaEE8Application") &&
+                    earSupported.getVersion() < JAVAEESUPPORT.JAVAEE8.getVersion()) {
+                    earSupported = JAVAEESUPPORT.JAVAEE8;
+                }
+                if (categoryElements.contains("JavaEE7Application") &&
+                    earSupported.getVersion() < JAVAEESUPPORT.JAVAEE7.getVersion()) {
                     earSupported = JAVAEESUPPORT.JAVAEE7;
-                    // Keep looking for later version
                 }
             }
-        }
-
-        if (earSupported == null) {
-            earSupported = JAVAEESUPPORT.JAVAEE6;
         }
     }
 

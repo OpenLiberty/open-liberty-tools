@@ -18,22 +18,22 @@
       runtimeTypes="com.ibm.ws.st.runtime.*">
       <moduleType
         types="jst.ear"
-        versions="1.2,1.3,1.4,5.0,6.0,7.0,8.0"/>
+        versions="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0,10.0"/>
       <moduleType
         types="jst.web"
-        versions="2.2,2.3,2.4,2.5,3.0,3.1,4.0"/>
+        versions="2.2,2.3,2.4,2.5,3.0,3.1,4.0,5.0,6.0"/>
       <moduleType
         types="jst.ejb"
-        versions="1.1,2.0,2.1,3.0,3.1,3.2"/>
+        versions="1.1,2.0,2.1,3.0,3.1,3.2,4.0"/>
       <moduleType
          types="jst.webfragment"
-         versions="3.0,3.1,4.0"/>
+         versions="3.0,3.1,4.0,5.0,6.0"/>
       <moduleType
         types="jst.utility"
         versions="1.0"/>
       <moduleType
         types="jst.connector"
-        versions="1.0,1.5,1.6,1.7"/>
+        versions="1.0,1.5,1.6,1.7,2.1"/>
     </runtimeModuleType>
   </extension>
 
@@ -58,7 +58,7 @@
         version="1.0"/>
       <facet
         id="jst.ear"
-        version="1.2,1.3,1.4,5.0,6.0"/>
+        version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0,10.0"/>
       <facet
         id="jst.utility"
         version="1.0"/>
@@ -97,6 +97,22 @@
       <facet id="jst.ear" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0"/>
     </supported>
   </extension>
+   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.enterpriseApplication"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.enterpriseApplication" version="9.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.enterpriseApplication" version="9.0"/>
+      <facet id="jst.ear" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0"/>
+    </supported>
+  </extension>
+     <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.enterpriseApplication"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.enterpriseApplication" version="10.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.enterpriseApplication" version="10.0"/>
+      <facet id="jst.ear" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0,10.0"/>
+    </supported>
+  </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="7.0"/>
@@ -109,6 +125,20 @@
     <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="8.0"/>
     <supported>
       <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0"/>
+    </supported>
+  </extension>
+    <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="9.0"/>
+    <supported>
+      <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="10.0"/>
+    <supported>
+      <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0,10.0"/>
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
@@ -136,6 +166,24 @@
       <runtime-component id="com.ibm.ws.st.runtime.servlet" version="4.0"/>
       <facet id="jst.web" version="2.2,2.3,2.4,2.5,3.0,3.1,4.0"/>
       <facet id="jst.webfragment" version="3.0,3.1,4.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.servlet"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.servlet" version="5.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.servlet" version="5.0"/>
+      <facet id="jst.web" version="2.2,2.3,2.4,2.5,3.0,3.1,4.0,5.0"/>
+      <facet id="jst.webfragment" version="3.0,3.1,4.0,5.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.servlet"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.servlet" version="6.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.servlet" version="6.0"/>
+      <facet id="jst.web" version="2.2,2.3,2.4,2.5,3.0,3.1,4.0,5.0,6.0"/>
+      <facet id="jst.webfragment" version="3.0,3.1,4.0,5.0,6.0"/>
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
@@ -239,6 +287,14 @@
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.enterprisebeanslite"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.enterprisebeanslite" version="4.0"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.enterprisebeanslite" version="4.0"/>
+      <facet id="jst.ejb" version="1.1,2.0,2.1,3.0,3.1,3.2,4.0"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
     <runtime-component-type id="com.ibm.ws.st.runtime.jndi"/>
     <runtime-component-version type="com.ibm.ws.st.runtime.jndi" version="1.0"/>
   </extension>
@@ -292,6 +348,14 @@
     <supported>
       <runtime-component id="com.ibm.ws.st.runtime.jca" version="1.7"/>
       <facet id="jst.connector" version="1.0,1.5,1.6,1.7"/>
+    </supported>
+  </extension>
+  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
+    <runtime-component-type id="com.ibm.ws.st.runtime.connectors"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.connectors" version="2.1"/>
+    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.connectors" version="2.1"/>
+      <facet id="jst.connector" version="1.0,1.5,1.6,1.7,2.0,2.1"/>
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">

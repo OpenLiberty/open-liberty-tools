@@ -81,6 +81,12 @@ public class WebSphereRuntimeComponentProvider extends RuntimeFacetComponentProv
                     if (wr.isEARSupported("8.0") && rct.hasVersion("8.0")) {
                         list.add(RuntimeManager.createRuntimeComponent(rct.getVersion("8.0"), new HashMap<String, String>(0)));
                     }
+                    if (wr.isEARSupported("9.0") && rct.hasVersion("9.0")) {
+                        list.add(RuntimeManager.createRuntimeComponent(rct.getVersion("9.0"), new HashMap<String, String>(0)));
+                    }
+                    if (wr.isEARSupported("10.0") && rct.hasVersion("10.0")) {
+                        list.add(RuntimeManager.createRuntimeComponent(rct.getVersion("10.0"), new HashMap<String, String>(0)));
+                    }
                 }
             }
 
