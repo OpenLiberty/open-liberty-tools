@@ -87,6 +87,12 @@ triggers:
     description: "level that is used for output file e.g. 25.2"
     steps:
     - stepName: RTC-Parent
+  - name: post.activity.events
+    isRequired: true
+    defaultValue: "true"
+    description: "Post CI Orchestrator activity events"
+    steps:
+    - stepName: RTC-Parent
 
 steps:
 - stepName: RTC-Parent
