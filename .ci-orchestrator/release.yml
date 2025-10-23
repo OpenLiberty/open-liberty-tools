@@ -121,4 +121,6 @@ steps:
   workType: RTC
   projectName: "OLT GHE Release Build"
   timeoutInMinutes: 180
-  
+  includeProperties:
+    - file: compileCommonPropertiesPersonalRelease.properties
+    - file: compileRelease.properties
