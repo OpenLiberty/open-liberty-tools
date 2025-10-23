@@ -100,3 +100,6 @@ steps:
   workType: RTC
   projectName: "OLT GHE Personal Build"
   timeoutInMinutes: 180
+  includeProperties:
+    - file: compileCommonPropertiesPersonalRelease.properties
+    - file: compilePersonal.properties
