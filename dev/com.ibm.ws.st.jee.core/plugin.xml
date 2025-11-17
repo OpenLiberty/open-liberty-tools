@@ -58,7 +58,7 @@
         version="1.0"/>
       <facet
         id="jst.ear"
-        version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0,10.0"/>
+        version="1.2,1.3,1.4,5.0,6.0"/>
       <facet
         id="jst.utility"
         version="1.0"/>
@@ -114,30 +114,18 @@
     </supported>
   </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
-    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
-    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="7.0"/>
+    <runtime-component-type id="com.ibm.ws.st.runtime.appclientsupport"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.appclientsupport" version="1.0"/>
     <supported>
-      <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0"/>
-    </supported>
-  </extension>
-  <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
-    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
-    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="8.0"/>
-    <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.appclientsupport" version="1.0"/>
       <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0"/>
     </supported>
   </extension>
-    <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
-    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
-    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="9.0"/>
-    <supported>
-      <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0"/>
-    </supported>
-  </extension>
   <extension point="org.eclipse.wst.common.project.facet.core.runtimes">
-    <runtime-component-type id="com.ibm.ws.st.runtime.appclient"/>
-    <runtime-component-version type="com.ibm.ws.st.runtime.appclient" version="10.0"/>
+    <runtime-component-type id="com.ibm.ws.st.runtime.appclientsupport"/>
+    <runtime-component-version type="com.ibm.ws.st.runtime.appclientsupport" version="2.0"/>
     <supported>
+      <runtime-component id="com.ibm.ws.st.runtime.appclientsupport" version="2.0"/>
       <facet id="jst.appclient" version="1.2,1.3,1.4,5.0,6.0,7.0,8.0,9.0,10.0"/>
     </supported>
   </extension>
