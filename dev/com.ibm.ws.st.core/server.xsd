@@ -24,25 +24,25 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -149,27 +149,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -235,7 +235,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="webModuleClassPathLoader" use="optional"> 
+        <xsd:attribute name="webModuleClassPathLoader" use="optional" default="war"> 
             <xsd:annotation> 
                 <xsd:documentation>This attribute defines the class loader that is used for JARs that are referenced by web application Class-Path headers.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -951,27 +951,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
             <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
-            </xsd:element> 
-            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
-            </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
             </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
+            </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -2376,6 +2376,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="ignoreCustomCacheKey" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to ignore the custom cache key that is used when looking up the authentication cache.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Ignore the custom cache key in the SSO cookie</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -2992,6 +3000,14 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="overrideLibrary" type="com.ibm.ws.classloading.sharedlibrary-factory"> 
+                <xsd:annotation> 
+                    <xsd:documentation>List of library references. Library class instances are unique to this class loader, independent of class instances from other class loaders. The referenced library class path is searched before searching the class path of this class loader.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Override Library</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
             <xsd:element name="commonLibrary" type="com.ibm.ws.classloading.sharedlibrary-factory"> 
                 <xsd:annotation> 
                     <xsd:documentation>List of library references. Library class instances are shared with other class loaders.</xsd:documentation> 
@@ -3040,6 +3056,15 @@
                 <xsd:documentation>List of library references. Library class instances are unique to this class loader, independent of class instances from other class loaders. The referenced library class path is searched after searching the class path of this class loader.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Library references</ext:label> 
+                    <ext:reference>library</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="overrideLibraryRef" use="optional" type="pidListType"> 
+            <xsd:annotation> 
+                <xsd:documentation>List of library references. Library class instances are unique to this class loader, independent of class instances from other class loaders. The referenced library class path is searched before searching the class path of this class loader.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Override library references</ext:label> 
                     <ext:reference>library</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
@@ -3581,32 +3606,6 @@
         <xsd:sequence> 
             <xsd:sequence/> 
         </xsd:sequence> 
-        <xsd:attribute name="maxPolicy" use="optional" default="loose"> 
-            <xsd:annotation> 
-                <xsd:documentation>Indicates whether to loosely or strictly enforce maximum concurrency for tasks that run on the task submitter's thread. If the concurrency policy is not configured to run tasks on virtual threads, the invokeAll and invokeAny methods can sometimes run tasks on the task submitter's thread. This situation happens when you use the untimed invokeAll method, or, if you only supply a single task, when you use the untimed invokeAny method. If the run-if-queue-full attribute is configured, tasks can also run on the task submitter's thread when you use the execute and submit methods. In all of these cases, this attribute determines whether running on the submitter's thread counts against the maximum concurrency. Completion stage tasks that run inline do not count against the maximum concurrency, regardless of the maximum policy.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Maximum policy</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="loose"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Maximum concurrency is loosely enforced. Tasks are allowed to run on the task submitter's thread without counting against maximum concurrency.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="strict"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Maximum concurrency is strictly enforced. Tasks that run on the task submitter's thread count towards maximum concurrency. This policy does not allow tasks to run on the task submitter's thread when already at maximum concurrency.</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
         <xsd:attribute name="maxWaitForEnqueue" use="optional" default="0" type="duration"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the maximum duration of time to wait for enqueuing a task. If unable to enqueue the task within this interval, the task submission is subject to the run-if-queue-full policy. When the maximum wait for enqueue is updated, the update applies only to tasks submitted after that point. Tasks submissions that were already waiting for a queue position continue to wait per the previously configured value. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
@@ -3636,6 +3635,32 @@
                         <xsd:restriction base="xsd:int"> 
                             <xsd:minInclusive value="1"> 
                             </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxPolicy" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates whether to loosely or strictly enforce maximum concurrency for tasks that run on the task submitter's thread. If the concurrency policy is not configured to run tasks on virtual threads, the invokeAll and invokeAny methods can sometimes run tasks on the task submitter's thread. This situation happens when you use the untimed invokeAll method, or, if you only supply a single task, when you use the untimed invokeAny method. If the run-if-queue-full attribute is configured, tasks can also run on the task submitter's thread when you use the execute and submit methods. In all of these cases, this attribute determines whether running on the submitter's thread counts against the maximum concurrency. Completion stage tasks that run inline do not count against the maximum concurrency, regardless of the maximum policy.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum policy</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="loose"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Maximum concurrency is loosely enforced. Tasks are allowed to run on the task submitter's thread without counting against maximum concurrency. Loose is the default when the concurrency policy uses platform threads.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="strict"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Maximum concurrency is strictly enforced. Tasks that run on the task submitter's thread count towards maximum concurrency. This policy does not allow tasks to run on the task submitter's thread when they are already at maximum concurrency. Strict is the default when the concurrency policy uses virtual threads.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                         </xsd:restriction> 
                     </xsd:simpleType> 
                 </xsd:union> 
@@ -5096,17 +5121,17 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
             <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            </xsd:element> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -7425,7 +7450,7 @@
         </xsd:attribute> 
         <xsd:attribute name="disableCNCheck" use="optional" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Disables the Common Name Check.  Valid values are true or false.   This is equivalent to the com.ibm.ws.jaxrs.client.disableCNCheck programmatic property .</xsd:documentation> 
+                <xsd:documentation>Disables the Common Name Check. Valid values are true or false. It functions identically to the com.ibm.ws.jaxrs.client.disableCNCheck programmatic property. As of Liberty 24.0.0.9 APAR PH58796, this only disables JAX-RS layer verification. To fully disable hostname verification, configure both: disableCNCheck="true" on webTarget, and either verifyHostname="false" or skipHostnameVerificationForHosts="hostNameList" in the ssl configuration that is referenced by sslConfig. For more information, see the sslConfig parameter and IBM Doc 7163230.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Disable common name check</ext:label> 
                 </xsd:appinfo> 
@@ -7552,11 +7577,11 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
             <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
@@ -16942,7 +16967,7 @@
         </xsd:attribute> 
         <xsd:attribute name="serverName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: serverName. This property overrides the serverName specified in the URL if one was configured.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. This property previously defaulted to localhost, but that default was removed to support valid use cases where no serverName property is provided. Examples include when the DB2 driver uses type java.sql.Driver with a URL, or when a client catalog is used with the driverType property set to 2. In all other cases, if this property is unset, a default value of localhost is added programmatically. This property overrides the server name that is specified in the URL and in the client catalog if either was configured.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -21711,7 +21736,7 @@
         </xsd:sequence> 
         <xsd:attribute name="databaseName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: databaseName. When the PostgreSQL driver uses type java.sql.Driver and a URL and this property are configured, the PostgreSQL driver ignores this property. When the PostgreSQL driver uses type javax.sql.DataSource, and a URL and this property are configured, the PostgreSQL driver ignores the databaseName property.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: databaseName. When the PostgreSQL driver uses type java.sql.Driver, and both a URL and the databaseName property are configured, the PostgreSQL driver ignores the databaseName property. When the PostgreSQL driver uses type javax.sql.DataSource, and both a URL and the databaseName property are configured, the PostgreSQL driver ignores the database name that is embedded in the URL.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Database name</ext:label> 
                 </xsd:appinfo> 
@@ -21719,7 +21744,7 @@
         </xsd:attribute> 
         <xsd:attribute name="serverName" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: serverName. When the PostgreSQL driver uses type java.sql.Driver and a URL and this property are configured, the PostgreSQL driver ignores this property. When the PostgreSQL driver uses type javax.sql.DataSource, and a URL and this property are configured, the PostgreSQL driver ignores the serverName property.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: serverName. When the PostgreSQL driver uses type java.sql.Driver, and both a URL and the serverName property are configured, the PostgreSQL driver ignores the serverName property. When the PostgreSQL driver uses type javax.sql.DataSource, and both a URL and the serverName property are configured, the PostgreSQL driver ignores the server name that is embedded in the URL.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Server name</ext:label> 
                 </xsd:appinfo> 
@@ -21727,7 +21752,7 @@
         </xsd:attribute> 
         <xsd:attribute name="portNumber" use="optional" type="intType"> 
             <xsd:annotation> 
-                <xsd:documentation>JDBC driver property: portNumber. When the PostgreSQL driver uses type java.sql.Driver and a URL and this property are configured, the PostgreSQL driver ignores this property. When the PostgreSQL driver uses type javax.sql.DataSource, and a URL and this property are configured, the PostgreSQL driver ignores the portNumber property.</xsd:documentation> 
+                <xsd:documentation>JDBC driver property: portNumber. When the PostgreSQL driver uses type java.sql.Driver, and both a URL and the portNumber property are configured, the PostgreSQL driver ignores the portNumber property. When the PostgreSQL driver uses type javax.sql.DataSource, and both a URL and the portNumber property are configured, the PostgreSQL driver ignores the port number that is embedded in the URL.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Port number</ext:label> 
                 </xsd:appinfo> 
@@ -22534,6 +22559,84 @@
                 <xsd:documentation>When prepareJSPs is enabled, this configuration specifies the number of threads used.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Number of threads used if prepareJSPs is enabled</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.jwtsso"> 
+        <xsd:annotation> 
+            <xsd:documentation>Information about configuring JWT Single Sign On.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>JWT SSO</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="authFilter" minOccurs="0" maxOccurs="1" type="com.ibm.ws.security.authentication.filter"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Authentication Filter Reference</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="cookieName" use="optional" default="JWT" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Name of the cookie that is used to store the JWT token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Name of cookie</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="setCookieSecureFlag" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Set the secure flag on the JWT cookie to send it only over a secured connection.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Set secure flag on JWT cookie</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="includeLtpaCookie" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>After successful authentication with a JWT token, include an LTPA cookie in addition to the JWT cookie.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Include LTPA cookie</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="useLtpaIfJwtAbsent" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>If the JWT cookie is missing, attempt to process an LTPA cookie if it is present. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use LTPA cookie if JWT cookie is not present</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="disableJwtCookie" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Do not create the JWT cookie.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Disable JWT cookie</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwtBuilderRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A reference to the JWT Builder configuration element in server.xml that describes how to build the JWT token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWT builder reference</ext:label> 
+                    <ext:reference>jwtBuilder</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Authentication filter reference</ext:label> 
+                    <ext:reference>authFilter</ext:reference> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -25171,6 +25274,52 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="throttleMaxMessagesPerWindow" use="optional" default="1000"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of log messages permitted within a 5-minute period before throttling begins. When the limit is exceeded, additional messages are suppressed until the count is within the threshold. The default value is 1000. You can specify a positive integer or set the value to 0 to disable throttling.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum number of log messages before throttling</ext:label> 
+                    <ext:variable>com.ibm.ws.logging.throttle.max.messages.per.window</ext:variable> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="throttleType" use="optional" default="messageID"> 
+            <xsd:annotation> 
+                <xsd:documentation>Tracks log entries that match either the messageID or the full message content. Specify a string to configure this attribute. The only valid values are message and messageID.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Tracks logs by messageID or full message</ext:label> 
+                    <ext:variable>com.ibm.ws.logging.throttle.type</ext:variable> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="messageID"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Specifies throttling of log entries based on the messageID.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="message"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Specifies throttling of log entries based on the message content.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -25330,9 +25479,9 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="keysPassword" use="optional" default="{xor}CDo9Hgw=" type="password"> 
+        <xsd:attribute name="keysPassword" use="optional" type="password"> 
             <xsd:annotation> 
-                <xsd:documentation>Password for the LTPA primary keys. The best practice is to encrypt the password by using the securityUtility tool.</xsd:documentation> 
+                <xsd:documentation>Password for the LTPA primary keys. If no value is specified, the 'ltpa_keys_password' or 'keystore_password' value from the ${server.config.dir}/server.env file is used if they are set. If both are set, the 'ltpa_keys_password' takes precedence over the 'keystore_password'. A password must be specified in this attribute, or in the 'ltpa_keys_password' or 'keystore_password' environment variables. The best practice is to encrypt the password by using the securityUtility tool.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>LTPA primary keys password</ext:label> 
                 </xsd:appinfo> 
@@ -26168,6 +26317,67 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="allowedSignatureAlgorithms" default="RS256"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a list of signature algorithms that are allowed when the software is validating JWTs. The signature algorithm from the JWT header must be in this allowed list for the token to be accepted. This attribute applies only when the signatureAlgorithm attribute is set to FROM_HEADER.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Allowed signature algorithms for JWT validation</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+                <xsd:simpleType> 
+                    <xsd:union memberTypes="variableType"> 
+                        <xsd:simpleType> 
+                            <xsd:restriction base="xsd:string"> 
+                                <xsd:enumeration value="RS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS384 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS384 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES384 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                            </xsd:restriction> 
+                        </xsd:simpleType> 
+                    </xsd:union> 
+                </xsd:simpleType> 
+            </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="id" use="required" type="xsd:string"> 
             <xsd:annotation> 
@@ -26363,47 +26573,52 @@
                         <xsd:restriction base="xsd:string"> 
                             <xsd:enumeration value="RS256"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.RS256</xsd:documentation> 
+                                    <xsd:documentation>Use the RS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="RS384"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.RS384</xsd:documentation> 
+                                    <xsd:documentation>Use the RS384 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="RS512"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.RS512</xsd:documentation> 
+                                    <xsd:documentation>Use the RS512 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="HS256"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.HS256</xsd:documentation> 
+                                    <xsd:documentation>Use the HS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="HS384"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.HS384</xsd:documentation> 
+                                    <xsd:documentation>Use the HS384 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="HS512"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.HS512</xsd:documentation> 
+                                    <xsd:documentation>Use the HS512 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="ES256"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.ES256</xsd:documentation> 
+                                    <xsd:documentation>Use the ES256 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="ES384"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.ES384</xsd:documentation> 
+                                    <xsd:documentation>Use the ES384 signature algorithm to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="ES512"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>%tokenSignAlgorithm.ES512</xsd:documentation> 
+                                    <xsd:documentation>Use the ES512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="FROM_HEADER"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the signature algorithm from the JWT header to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -26996,9 +27211,9 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
-            </xsd:element> 
             <xsd:element name="jdbcTiming" type="com.ibm.ws.request.timing.jdbc.metatype"> 
+            </xsd:element> 
+            <xsd:element name="servletTiming" type="com.ibm.ws.request.timing.servlet.metatype"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="slowRequestThreshold" use="optional" default="10s" type="duration"> 
@@ -27053,7 +27268,7 @@
         </xsd:attribute> 
         <xsd:attribute name="interruptHungRequests" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>Indicates whether a request that is hung is to be interrupted. A value of true causes the requestTiming-1.0 feature to attempt to interrupt the hung request. A value of false allows the request to continue to run.</xsd:documentation> 
+                <xsd:documentation>Specifies whether a hung request is to be interrupted. When set to true, the requestTiming-1.0 feature attempts to interrupt the hung request. When set to false, the request continues to run. This feature is supported only on IBM JRE 8 and is not supported on IBM Semeru 8.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Interrupt hung requests</ext:label> 
                 </xsd:appinfo> 
@@ -27072,7 +27287,7 @@
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
             <xsd:element name="readDir" type="dirLocation"> 
                 <xsd:annotation> 
-                    <xsd:documentation>A directory that remote clients are allowed to read from. There can be multiple readDir elements, and each represents a single directory that may refer to variables or absolute paths.  Default is ${wlp.install.dir}, ${wlp.user.dir} and ${server.output.dir}</xsd:documentation> 
+                    <xsd:documentation>A directory that remote clients are allowed to read from. There can be multiple readDir elements, and each represents a single directory that may refer to variables or absolute paths. Default is ${wlp.install.dir}, ${wlp.user.dir} and ${server.output.dir}</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Read access directory</ext:label> 
                     </xsd:appinfo> 
@@ -27086,7 +27301,23 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
+            <xsd:element name="blockDir" type="dirLocation"> 
+                <xsd:annotation> 
+                    <xsd:documentation>A directory that clients are not allowed to read from or write to, regardless of readDir or writeDir configuration. There can be multiple blockDir elements, and each represents a single directory that may refer to variables or absolute paths. Default is ${server.output.dir}/resources/security.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Block read and write access to directory</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
         </xsd:choice> 
+        <xsd:attribute name="disableBlockList" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>A boolean flag to disable the block list. Default is false. If set to true then any blockDir config will be ignored.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Disable block list</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -28291,7 +28522,7 @@
         </xsd:attribute> 
         <xsd:attribute name="excludeAllHandledTypesClasses" use="optional" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>When this property is set to true, during startup, ServletContainerInitializer implementors that use the HandlesTypes annotation do not receive classes that are specified as HandlesTypes parameters.</xsd:documentation> 
+                <xsd:documentation>When this property is set to true, during startup, ServletContainerInitializer implementors that use the HandlesTypes annotation do not receive classes that are specified as HandlesTypes parameters. In servlet-5.0 and later, the default value is true. In servlet-4.0 and earlier, the default value is false.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Disable returning handlesTypes parameters</ext:label> 
                 </xsd:appinfo> 
@@ -28342,6 +28573,14 @@
                 <xsd:documentation>The maximum size of the headers for a single part in bytes. The default value is 512. For unlimited size, set the value to -1.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>The maximum size of the single part headers</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="displayCustomizedExceptionText" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the customized text that is displayed when certain server exceptions occur, such as "SRVE0232E: Internal Server Error" or "SRVE0218E: Forbidden: Web Security Exception". If this property is not set, the default system-generated error message is used.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Display customized exception text</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -29854,6 +30093,14 @@
                 <xsd:documentation>Specifies whether UserTransaction methods should be enabled in NOT_SUPPORTED and NEVER @Transactional annotated methods.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Enable UserTransaction in @Transactional methods</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="correctUOWScopeCallbacks" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether UOWScopeCallback methods should be called for UOWScope END events.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable UOWScopeCallbacks for UOWScope END events</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -33538,6 +33785,644 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.config"> 
+        <xsd:annotation> 
+            <xsd:documentation>Web Services Security default configuration for provider.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>WS-Security Provider</ext:label> 
+                <ext:extraProperties/> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="callerToken" type="com.ibm.ws.wssecurity.caller.config"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Caller token.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>WebSphere Caller</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="signatureProperties" type="com.ibm.ws.wssecurity.sig.config"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Required signature configuration.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Signature Properties</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="encryptionProperties" type="com.ibm.ws.wssecurity.enc.config"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Required encryption configuration.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Encryption Properties</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="samlToken" type="com.ibm.ws.wssecurity.config.samltoken"> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="ws-security.username" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>User information to create Username Token. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.callback-handler" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Password callback handler implementation class.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Password callback handler</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.encryption.username" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Alias used for accessing encryption keystore.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Encryption alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.signature.username" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Alias used for accessing signature keystore.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Signature alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.enable.nonce.cache" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Whether to cache UsernameToken nonces.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Nonce cache</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Additional properties</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.client.config"> 
+        <xsd:annotation> 
+            <xsd:documentation>Web Services Security default configuration for client.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>WS-Security Client</ext:label> 
+                <ext:extraProperties/> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="signatureProperties" type="com.ibm.ws.wssecurity.sig.config"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Required signature configuration.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Signature Properties</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="encryptionProperties" type="com.ibm.ws.wssecurity.enc.config"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Required encryption configuration.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Encryption Properties</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:choice> 
+        <xsd:attribute name="ws-security.username" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>User information to create Username Token. </xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>User name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>User password information needed to create Username Token.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.callback-handler" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Password callback handler implementation class.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Password callback handler</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.encryption.username" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Alias used for accessing encryption keystore.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Encryption alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="ws-security.signature.username" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Alias used for accessing signature keystore.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Signature alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Additional properties</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.enc.config"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration information such as keystore type, keystore password</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>WS-Security Encryption</ext:label> 
+                <ext:extraProperties/> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.type" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JKS, JCEKS or PKCS11</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.alias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The default keystore alias to use, if none is specified.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Password to access keystore file.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.provider" use="optional" default="org.apache.ws.security.components.crypto.Merlin" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Provider used to create Crypto instances. Defaults to "org.apache.ws.security.components.crypto.Merlin".</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>WSS4J provider</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.file" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The location of the keystore</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.provider" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The provider used to load keystores. Defaults to installed provider.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore provider</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.cert.provider" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The provider used to load certificates. Defaults to keystore provider.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Certificate provider</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.x509crl.file" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The location of an (X509) CRL file to use.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>X509 CRL file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.private.password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The default password used to load the private key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Key password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.file" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The location of the truststore</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Truststore file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The truststore password.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Truststore password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.type" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The truststore type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Truststore type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Additional properties</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.enc.config-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.wssecurity.enc.config"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.caller.config"> 
+        <xsd:annotation> 
+            <xsd:documentation>Required configuration for caller processing.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>WebSphere Caller</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specify token name. The options are Usernametoken, X509token, Samltoken.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Caller token</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userIdentifier" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a SAML attribute that is used as the user principal name in the subject. The default is NameID assertion.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Principal identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="groupIdentifier" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a SAML attribute that is used as the name of the group that the authenticated principal is a member of. There is no default value.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Group identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="userUniqueIdentifier" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a SAML attribute that is used as the unique user name as it applies to the WSCredential in the subject. The default is the same as the userIdentifier attribute value.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Unique identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="realmIdentifier" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a SAML attribute that is used as the realm name. The default is issuer.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Realm identifier</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="includeTokenInSubject" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies whether to include a SAML assertion in the subject.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Include SAML assertion in the subject</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="mapToUserRegistry" use="optional" default="No"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies how to map an identity to a registry user. The options are No, User, and Group. The default is No, and the user registry is not used to create the user subject.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Map a SAML identity to a registry user</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="No"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Do not map a SAML identity to a user or group in the registry</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="User"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Map a SAML identity to a user defined in the registry</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="Group"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Map a SAML identity to a group defined in the user registry</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="realmName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a realm name when mapToUserRegistry is set to No or Group.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Realm name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="allowCustomCacheKey" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Allow the generation of a custom cache key to access the authentication cache and get the subject.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Customized cache key</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.caller.config-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.wssecurity.caller.config"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.sig.config"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration information such as keystore type, keystore password</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>WS-Security Signature</ext:label> 
+                <ext:extraProperties/> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.type" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>JKS, JCEKS or PKCS11</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.alias" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The default keystore alias to use, if none is specified.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore alias</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>Password to access keystore file.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.file" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The location of the keystore</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.file" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The location of the truststore</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Truststore file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The truststore password.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Truststore password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.type" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The truststore type.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Truststore type</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.provider" use="optional" default="org.apache.ws.security.components.crypto.Merlin" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Provider used to create Crypto instances. Defaults to "org.apache.ws.security.components.crypto.Merlin".</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>WSS4J provider</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.provider" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The provider used to load keystores. Defaults to installed provider.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Keystore provider</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.cert.provider" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The provider used to load certificates. Defaults to keystore provider.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Certificate provider</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.x509crl.file" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The location of an (X509) CRL file to use.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>X509 CRL file</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.private.password" use="optional" type="password"> 
+            <xsd:annotation> 
+                <xsd:documentation>The default password used to load the private key.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Key password</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Additional properties</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.sig.config-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.wssecurity.sig.config"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.config.samltoken"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the properties that are used to evaluate the trustworthiness and validity of a SAML Assertion.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>SAML Token Properties</ext:label> 
+                <ext:extraProperties/> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="audienceRestrictions" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specify the allowed audiences of the SAML Assertion. Default is all audiences allowed. </xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>The audience restrictions</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="wantAssertionsSigned" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Indicates a requirement for the &lt;saml:Assertion&gt; elements received by this service provider to be signed.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Sign SAML assertion</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the SAML token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>The time difference allowed between systems</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="requiredSubjectConfirmationMethod" use="optional" default="bearer"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specify whether the Subject Confirmation Method is required in the SAML Assertion. Default is true.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Subject confirmation method required</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="bearer"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>bearer</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="timeToLive" use="optional" default="30m" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specify the default life time of a SAML Assertion in the case it does not define the NoOnOrAfter condition. Default is 30 minutes. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Default life time</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
+            <xsd:annotation> 
+                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Additional properties</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.wssecurity.config.samltoken-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="com.ibm.ws.wssecurity.config.samltoken"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.persistence.databaseStore"> 
         <xsd:annotation> 
             <xsd:documentation>Specifies a relational database as a persistent store for server features.</xsd:documentation> 
@@ -34585,9 +35470,9 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
-            </xsd:element> 
             <xsd:element name="diskCache" type="com.ibm.ws.cache.disk"> 
+            </xsd:element> 
+            <xsd:element name="cacheGroup" type="com.ibm.ws.cache.cacheGroup"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="id" use="required" type="xsd:string"> 
@@ -35369,8 +36254,8 @@
                 <ext:label>JWT Consumer</ext:label> 
             </xsd:appinfo> 
         </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="audiences" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
+        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="audiences" type="xsd:string"> 
                 <xsd:annotation> 
                     <xsd:documentation>The trusted audience list to be included in the aud claim in the JSON web token.</xsd:documentation> 
                     <xsd:appinfo> 
@@ -35378,7 +36263,68 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-        </xsd:sequence> 
+            <xsd:element name="allowedSignatureAlgorithms" default="RS256"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a list of signature algorithms that are allowed when the software is validating JWTs. The signature algorithm from the JWT header must be in this allowed list for the token to be accepted. This attribute applies only when the signatureAlgorithm attribute is set to FROM_HEADER.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Allowed signature algorithms for JWT validation</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+                <xsd:simpleType> 
+                    <xsd:union memberTypes="variableType"> 
+                        <xsd:simpleType> 
+                            <xsd:restriction base="xsd:string"> 
+                                <xsd:enumeration value="RS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS384 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS384 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES256 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES384 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                            </xsd:restriction> 
+                        </xsd:simpleType> 
+                    </xsd:union> 
+                </xsd:simpleType> 
+            </xsd:element> 
+        </xsd:choice> 
         <xsd:attribute name="id" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>This ID is used to identify the JWT consumer. If an ID value is not specified, the consumer is not processed. The ID must be a URL-safe string. The JwtConsumer API uses this ID to determine which consumer configuration to use to consume JWTs.</xsd:documentation> 
@@ -35403,7 +36349,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="signatureAlgorithm" use="optional"> 
+        <xsd:attribute name="signatureAlgorithm" use="optional" default="RS256"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the signature algorithm that will be used to sign the JWT token.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -35457,6 +36403,11 @@
                             <xsd:enumeration value="ES512"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Use the ES512 signature algorithm to sign and verify tokens.</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="FROM_HEADER"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the signature algorithm from the JWT header to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -35538,84 +36489,6 @@
             <xsd:extension base="com.ibm.ws.security.jwt.consumer"> 
             </xsd:extension> 
         </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.security.jwtsso"> 
-        <xsd:annotation> 
-            <xsd:documentation>Information about configuring JWT Single Sign On.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>JWT SSO</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="authFilter" minOccurs="0" maxOccurs="1" type="com.ibm.ws.security.authentication.filter"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Authentication Filter Reference</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:sequence> 
-        <xsd:attribute name="cookieName" use="optional" default="JWT" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Name of the cookie that is used to store the JWT token.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Name of cookie</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="setCookieSecureFlag" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Set the secure flag on the JWT cookie to send it only over a secured connection.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Set secure flag on JWT cookie</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="includeLtpaCookie" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>After successful authentication with a JWT token, include an LTPA cookie in addition to the JWT cookie.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Include LTPA cookie</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="useLtpaIfJwtAbsent" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>If the JWT cookie is missing, attempt to process an LTPA cookie if it is present. </xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Use LTPA cookie if JWT cookie is not present</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="disableJwtCookie" use="optional" default="false" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Do not create the JWT cookie.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Disable JWT cookie</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="jwtBuilderRef" use="optional" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>A reference to the JWT Builder configuration element in server.xml that describes how to build the JWT token.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>JWT builder reference</ext:label> 
-                    <ext:reference>jwtBuilder</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="authFilterRef" use="optional" type="pidType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the authentication filter reference.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Authentication filter reference</ext:label> 
-                    <ext:reference>authFilter</ext:reference> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
     </xsd:complexType> 
     <xsd:complexType name="io.openliberty.microprofile.health"> 
         <xsd:annotation> 
@@ -37030,6 +37903,67 @@
             </xsd:appinfo> 
         </xsd:annotation> 
         <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
+            <xsd:element name="allowedSignatureAlgorithms" default="RS256"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a list of signature algorithms that are allowed when the software is validating ID tokens. The signature algorithm from the JWT header must be in this allowed list for the token to be accepted. This attribute applies only when the signatureAlgorithm attribute is set to FROM_HEADER.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Allowed signature algorithms for token validation</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+                <xsd:simpleType> 
+                    <xsd:union memberTypes="variableType"> 
+                        <xsd:simpleType> 
+                            <xsd:restriction base="xsd:string"> 
+                                <xsd:enumeration value="RS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS256 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS384 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the RS512 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS256 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS384 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the HS512 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES256 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES384 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>Use the ES512 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                            </xsd:restriction> 
+                        </xsd:simpleType> 
+                    </xsd:union> 
+                </xsd:simpleType> 
+            </xsd:element> 
             <xsd:element name="authzParameter" type="com.ibm.ws.security.openidconnect.client.param-factory"> 
                 <xsd:annotation> 
                     <xsd:documentation>Specifies custom parameters to send to authorization endpoint of the OpenID Connect provider.</xsd:documentation> 
@@ -37286,6 +38220,11 @@
                             <xsd:enumeration value="ES512"> 
                                 <xsd:annotation> 
                                     <xsd:documentation>Use the ES512 signature algorithm to sign and verify tokens</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="FROM_HEADER"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>Use the signature algorithm from the JWT header to sign and verify tokens.</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -38181,7 +39120,7 @@
         </xsd:attribute> 
         <xsd:attribute name="jwkRotationTime" use="optional" default="720m" type="minuteDuration"> 
             <xsd:annotation> 
-                <xsd:documentation>Amount of time after which a new JWK is generated (minutes). For example, specify 90 minutes as 90 or 90m. Minimum value is 60 minutes. Specify a positive integer followed by a unit of time, which can be hours (h) or minutes (m). For example, specify 30 minutes as 30m. You can include multiple values in a single entry. For example, 1h30m is equivalent to 90 minutes.</xsd:documentation> 
+                <xsd:documentation>The amount of time after which a new JWK is generated in minutes. For example, specify 90 minutes as 90 or 90m. The minimum value is 0 minutes, where 0 minutes disables key rotation. Specify a positive integer followed by a unit of time, which can be hours (h) or minutes (m). For example, specify 30 minutes as 30m. You can include multiple values in a single entry. For example, 1h30m is equivalent to 90 minutes.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>JWK rotation time</ext:label> 
                 </xsd:appinfo> 
@@ -38729,7 +39668,7 @@
         </xsd:attribute> 
         <xsd:attribute name="signatureMethodAlgorithm" use="optional" default="SHA256"> 
             <xsd:annotation> 
-                <xsd:documentation>Indicates the required algorithm by this service provider.</xsd:documentation> 
+                <xsd:documentation>Indicates the minimum signature algorithm that is required by this service provider.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Signature algorithm</ext:label> 
                 </xsd:appinfo> 
@@ -38738,9 +39677,34 @@
                 <xsd:union memberTypes="variableType"> 
                     <xsd:simpleType> 
                         <xsd:restriction base="xsd:string"> 
+                            <xsd:enumeration value="ECDSAwithSHA512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>ECDSA with SHA-512 signature algorithm</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ECDSAwithSHA384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>ECDSA with SHA-384 signature algorithm</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="ECDSAwithSHA256"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>ECDSA with SHA-256 signature algorithm</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SHA512"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>RSA with SHA-512 signature algorithm</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
+                            <xsd:enumeration value="SHA384"> 
+                                <xsd:annotation> 
+                                    <xsd:documentation>RSA with SHA-384 signature algorithm</xsd:documentation> 
+                                </xsd:annotation> 
+                            </xsd:enumeration> 
                             <xsd:enumeration value="SHA256"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>SHA-256 signature algorithm</xsd:documentation> 
+                                    <xsd:documentation>RSA with SHA-256 signature algorithm</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                             <xsd:enumeration value="SHA128"> 
@@ -38750,7 +39714,7 @@
                             </xsd:enumeration> 
                             <xsd:enumeration value="SHA1"> 
                                 <xsd:annotation> 
-                                    <xsd:documentation>SHA-1 signature algorithm</xsd:documentation> 
+                                    <xsd:documentation>RSA with SHA-1 signature algorithm</xsd:documentation> 
                                 </xsd:annotation> 
                             </xsd:enumeration> 
                         </xsd:restriction> 
@@ -38763,6 +39727,14 @@
                 <xsd:documentation>Specifies whether to create an HttpSession if the current HttpSession does not exist.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Create session</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="contentSecurityPolicy" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>If you want a Content-Security-Policy HTTP header to be included in the initial login request that is sent to your IdP, set the contentSecurityPolicy attribute to the value that you want to use for the Content-Security-Policy HTTP header. If your Content-Security-Policy value requires a nonce, you can use the "%NONCE%" keyword to indicate where the nonce should be placed in the text, as shown in the following example: "script-src 'self' 'nonce-%NONCE%' ; object-src 'self'; frame-src 'self'"</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Value for the Content-Security-Policy HTTP header</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -40758,6 +41730,67 @@
             </xsd:element> 
             <xsd:element name="jwt" type="com.ibm.ws.security.social.login.jwt"> 
             </xsd:element> 
+            <xsd:element name="allowedSignatureAlgorithms" default="RS256"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a list of signature algorithms that are allowed when the software is validating tokens. The signature algorithm from the JWT header must be in this allowed list for the token to be accepted. This attribute applies only when the signatureAlgorithm attribute is set to FROM_HEADER.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Allowed signature algorithms for token validation</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+                <xsd:simpleType> 
+                    <xsd:union memberTypes="variableType"> 
+                        <xsd:simpleType> 
+                            <xsd:restriction base="xsd:string"> 
+                                <xsd:enumeration value="RS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.RS256</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.RS384</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="RS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.RS512</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.HS256</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.HS384</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="HS512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.HS512</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES256"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.ES256</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES384"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.ES384</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                                <xsd:enumeration value="ES512"> 
+                                    <xsd:annotation> 
+                                        <xsd:documentation>%tokenSignAlgorithm.ES512</xsd:documentation> 
+                                    </xsd:annotation> 
+                                </xsd:enumeration> 
+                            </xsd:restriction> 
+                        </xsd:simpleType> 
+                    </xsd:union> 
+                </xsd:simpleType> 
+            </xsd:element> 
             <xsd:element name="authzParameter" type="com.ibm.ws.security.social.client.param-factory"> 
                 <xsd:annotation> 
                     <xsd:documentation>Specifies custom parameters to send to the authorization endpoint of the OpenID Connect provider.</xsd:documentation> 
@@ -42042,644 +43075,6 @@
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.config"> 
-        <xsd:annotation> 
-            <xsd:documentation>Web Services Security default configuration for provider.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>WS-Security Provider</ext:label> 
-                <ext:extraProperties/> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="callerToken" type="com.ibm.ws.wssecurity.caller.config"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Caller token.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>WebSphere Caller</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="signatureProperties" type="com.ibm.ws.wssecurity.sig.config"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Required signature configuration.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Signature Properties</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="encryptionProperties" type="com.ibm.ws.wssecurity.enc.config"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Required encryption configuration.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Encryption Properties</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="samlToken" type="com.ibm.ws.wssecurity.config.samltoken"> 
-            </xsd:element> 
-        </xsd:choice> 
-        <xsd:attribute name="ws-security.username" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>User information to create Username Token. </xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>User name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.callback-handler" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Password callback handler implementation class.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Password callback handler</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.encryption.username" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Alias used for accessing encryption keystore.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Encryption alias</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.signature.username" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Alias used for accessing signature keystore.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Signature alias</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.enable.nonce.cache" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Whether to cache UsernameToken nonces.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Nonce cache</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
-            <xsd:annotation> 
-                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Additional properties</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.client.config"> 
-        <xsd:annotation> 
-            <xsd:documentation>Web Services Security default configuration for client.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>WS-Security Client</ext:label> 
-                <ext:extraProperties/> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:choice minOccurs="0" maxOccurs="unbounded"> 
-            <xsd:element name="signatureProperties" type="com.ibm.ws.wssecurity.sig.config"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Required signature configuration.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Signature Properties</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-            <xsd:element name="encryptionProperties" type="com.ibm.ws.wssecurity.enc.config"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Required encryption configuration.</xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>Encryption Properties</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:choice> 
-        <xsd:attribute name="ws-security.username" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>User information to create Username Token. </xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>User name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>User password information needed to create Username Token.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.callback-handler" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Password callback handler implementation class.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Password callback handler</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.encryption.username" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Alias used for accessing encryption keystore.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Encryption alias</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="ws-security.signature.username" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Alias used for accessing signature keystore.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Signature alias</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
-            <xsd:annotation> 
-                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Additional properties</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.enc.config"> 
-        <xsd:annotation> 
-            <xsd:documentation>Configuration information such as keystore type, keystore password</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>WS-Security Encryption</ext:label> 
-                <ext:extraProperties/> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.type" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>JKS, JCEKS or PKCS11</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore type</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.alias" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The default keystore alias to use, if none is specified.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore alias</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>Password to access keystore file.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.provider" use="optional" default="org.apache.ws.security.components.crypto.Merlin" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Provider used to create Crypto instances. Defaults to "org.apache.ws.security.components.crypto.Merlin".</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>WSS4J provider</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.file" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The location of the keystore</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore file</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.provider" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The provider used to load keystores. Defaults to installed provider.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore provider</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.cert.provider" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The provider used to load certificates. Defaults to keystore provider.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Certificate provider</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.x509crl.file" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The location of an (X509) CRL file to use.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>X509 CRL file</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.private.password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>The default password used to load the private key.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Key password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.file" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The location of the truststore</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Truststore file</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>The truststore password.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Truststore password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.type" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The truststore type.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Truststore type</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
-            <xsd:annotation> 
-                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Additional properties</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.enc.config-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.wssecurity.enc.config"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.caller.config"> 
-        <xsd:annotation> 
-            <xsd:documentation>Required configuration for caller processing.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>WebSphere Caller</ext:label> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="name" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specify token name. The options are Usernametoken, X509token, Samltoken.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Caller token</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="userIdentifier" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a SAML attribute that is used as the user principal name in the subject. The default is NameID assertion.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Principal identifier</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="groupIdentifier" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a SAML attribute that is used as the name of the group that the authenticated principal is a member of. There is no default value.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Group identifier</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="userUniqueIdentifier" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a SAML attribute that is used as the unique user name as it applies to the WSCredential in the subject. The default is the same as the userIdentifier attribute value.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Unique identifier</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="realmIdentifier" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a SAML attribute that is used as the realm name. The default is issuer.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Realm identifier</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="includeTokenInSubject" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies whether to include a SAML assertion in the subject.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Include SAML assertion in the subject</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="mapToUserRegistry" use="optional" default="No"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies how to map an identity to a registry user. The options are No, User, and Group. The default is No, and the user registry is not used to create the user subject.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Map a SAML identity to a registry user</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="No"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Do not map a SAML identity to a user or group in the registry</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="User"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Map a SAML identity to a user defined in the registry</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="Group"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Map a SAML identity to a group defined in the user registry</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:attribute name="realmName" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies a realm name when mapToUserRegistry is set to No or Group.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Realm name</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="allowCustomCacheKey" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Allow the generation of a custom cache key to access the authentication cache and get the subject.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Customized cache key</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.caller.config-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.wssecurity.caller.config"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.sig.config"> 
-        <xsd:annotation> 
-            <xsd:documentation>Configuration information such as keystore type, keystore password</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>WS-Security Signature</ext:label> 
-                <ext:extraProperties/> 
-            </xsd:appinfo> 
-        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
-        <xsd:sequence> 
-            <xsd:sequence/> 
-        </xsd:sequence> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.type" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>JKS, JCEKS or PKCS11</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore type</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.alias" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The default keystore alias to use, if none is specified.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore alias</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>Password to access keystore file.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.file" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The location of the keystore</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore file</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.file" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The location of the truststore</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Truststore file</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>The truststore password.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Truststore password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.truststore.type" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The truststore type.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Truststore type</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.provider" use="optional" default="org.apache.ws.security.components.crypto.Merlin" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>Provider used to create Crypto instances. Defaults to "org.apache.ws.security.components.crypto.Merlin".</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>WSS4J provider</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.provider" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The provider used to load keystores. Defaults to installed provider.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Keystore provider</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.cert.provider" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The provider used to load certificates. Defaults to keystore provider.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Certificate provider</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.x509crl.file" use="optional" type="xsd:string"> 
-            <xsd:annotation> 
-                <xsd:documentation>The location of an (X509) CRL file to use.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>X509 CRL file</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="org.apache.ws.security.crypto.merlin.keystore.private.password" use="optional" type="password"> 
-            <xsd:annotation> 
-                <xsd:documentation>The default password used to load the private key.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Key password</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
-            <xsd:annotation> 
-                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Additional properties</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.sig.config-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.wssecurity.sig.config"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.config.samltoken"> 
-        <xsd:annotation> 
-            <xsd:documentation>Specifies the properties that are used to evaluate the trustworthiness and validity of a SAML Assertion.</xsd:documentation> 
-            <xsd:appinfo> 
-                <ext:label>SAML Token Properties</ext:label> 
-                <ext:extraProperties/> 
-            </xsd:appinfo> 
-        </xsd:annotation> 
-        <xsd:sequence> 
-            <xsd:element name="audienceRestrictions" minOccurs="0" maxOccurs="unbounded" type="xsd:string"> 
-                <xsd:annotation> 
-                    <xsd:documentation>Specify the allowed audiences of the SAML Assertion. Default is all audiences allowed. </xsd:documentation> 
-                    <xsd:appinfo> 
-                        <ext:label>The audience restrictions</ext:label> 
-                    </xsd:appinfo> 
-                </xsd:annotation> 
-            </xsd:element> 
-        </xsd:sequence> 
-        <xsd:attribute name="wantAssertionsSigned" use="optional" default="true" type="booleanType"> 
-            <xsd:annotation> 
-                <xsd:documentation>Indicates a requirement for the &lt;saml:Assertion&gt; elements received by this service provider to be signed.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Sign SAML assertion</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="clockSkew" use="optional" default="5m" type="duration"> 
-            <xsd:annotation> 
-                <xsd:documentation>This is used to specify the allowed clock skew in minutes when validating the SAML token. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>The time difference allowed between systems</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="requiredSubjectConfirmationMethod" use="optional" default="bearer"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specify whether the Subject Confirmation Method is required in the SAML Assertion. Default is true.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Subject confirmation method required</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="bearer"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>bearer</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
-        <xsd:attribute name="timeToLive" use="optional" default="30m" type="duration"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specify the default life time of a SAML Assertion in the case it does not define the NoOnOrAfter condition. Default is 30 minutes. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Default life time</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:attribute name="internal.properties" type="internalPropertiesType" use="optional"> 
-            <xsd:annotation> 
-                <xsd:documentation>Collection of additional properties for web services security.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Additional properties</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-        </xsd:attribute> 
-        <xsd:anyAttribute processContents="skip"> 
-        </xsd:anyAttribute> 
-    </xsd:complexType> 
-    <xsd:complexType name="com.ibm.ws.wssecurity.config.samltoken-factory"> 
-        <xsd:complexContent> 
-            <xsd:extension base="com.ibm.ws.wssecurity.config.samltoken"> 
-                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
-                    <xsd:annotation> 
-                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
-                        <xsd:appinfo> 
-                            <ext:label>ID</ext:label> 
-                        </xsd:appinfo> 
-                    </xsd:annotation> 
-                </xsd:attribute> 
-            </xsd:extension> 
-        </xsd:complexContent> 
-    </xsd:complexType> 
     <xsd:simpleType name="variableType"> 
         <xsd:restriction base="xsd:string"> 
             <xsd:pattern value=".*$\{[^\s\}]*\}.*"/> 
@@ -42918,6 +43313,7 @@
             <xsd:element name="jndiReferenceEntry" type="com.ibm.ws.jndi.referenceEntry-factory"/> 
             <xsd:element name="jpa" type="com.ibm.ws.jpacomponent"/> 
             <xsd:element name="jspEngine" type="com.ibm.ws.jsp.2.2"/> 
+            <xsd:element name="jwtSso" type="com.ibm.ws.security.jwtsso"/> 
             <xsd:element name="config" type="com.ibm.ws.config"/> 
             <xsd:element name="fileset" type="com.ibm.ws.kernel.metatype.helper.fileset-factory"/> 
             <xsd:element name="executor" type="com.ibm.ws.threading"/> 
@@ -42969,6 +43365,8 @@
             <xsd:element name="webAppSecurity" type="com.ibm.ws.webcontainer.security.WebAppSecurityCollaboratorImpl"/> 
             <xsd:element name="wsocOutbound" type="com.ibm.ws.wsoc.outbound.wsocOutbound"/> 
             <xsd:element name="federatedRepository" type="com.ibm.ws.security.wim.core.config-factory"/> 
+            <xsd:element name="wsSecurityProvider" type="com.ibm.ws.wssecurity.config"/> 
+            <xsd:element name="wsSecurityClient" type="com.ibm.ws.wssecurity.client.config"/> 
             <xsd:element name="databaseStore" type="com.ibm.ws.persistence.databaseStore-factory"/> 
             <xsd:element name="acmeCA" type="com.ibm.ws.security.acme.config"/> 
             <xsd:element name="acmeTransportConfig" type="com.ibm.ws.security.acme.transport-factory"/> 
@@ -42984,7 +43382,6 @@
             <xsd:element name="cachingProvider" type="io.openliberty.jcache.cachingprovider-factory"/> 
             <xsd:element name="jwtBuilder" type="com.ibm.ws.security.jwt.builder-factory"/> 
             <xsd:element name="jwtConsumer" type="com.ibm.ws.security.jwt.consumer-factory"/> 
-            <xsd:element name="jwtSso" type="com.ibm.ws.security.jwtsso"/> 
             <xsd:element name="mpHealth" type="io.openliberty.microprofile.health"/> 
             <xsd:element name="mpTelemetry" type="io.openliberty.microprofile.telemetry20.logging.internal.OpenTelemetryLogHandler"/> 
             <xsd:element name="oauth-roles" type="com.ibm.ws.security.oauth20.roles-factory"/> 
@@ -43008,8 +43405,6 @@
             <xsd:element name="spnego" type="com.ibm.ws.security.spnego"/> 
             <xsd:element name="authorization-roles" type="com.ibm.ws.webcontainer.security.feature.authorizationConfig-factory"/> 
             <xsd:element name="wsAtomicTransaction" type="com.ibm.ws.wsat.service.wsatconfigservice"/> 
-            <xsd:element name="wsSecurityProvider" type="com.ibm.ws.wssecurity.config"/> 
-            <xsd:element name="wsSecurityClient" type="com.ibm.ws.wssecurity.client.config"/> 
         </xsd:choice> 
         <xsd:attribute name="description" type="xsd:string" use="optional"/> 
         <xsd:anyAttribute processContents="skip"> 
