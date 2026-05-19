@@ -1,6 +1,6 @@
 NOTICES AND INFORMATION
 
-IBM WebSphere Application Server Developer Tools for Eclipse 25.2
+IBM WebSphere Application Server Developer Tools for Eclipse 26.1
 
 The IBM license agreement and any applicable information on the web
 download page for IBM products refers Licensee to this file for details
@@ -24,7 +24,6 @@ website referenced in this NOTICES file is accurate. IBM disclaims any
 and all liability for errors and omissions or for any damages accruing
 from the use of this NOTICES file or its contents, including without
 limitation URLs or references to any third party websites.
-
 
 TABLE OF CONTENTS
 
@@ -203,13 +202,15 @@ cxf-rt-wsdl-3.0.3.jar
 gradle-wrapper.jar
 httpcomponents-client-4.3.1.jar
 httpclient-osgi-4.5.14.jar
+httpclient5-5.5.1.jar
 httpcore-4.3.jar
+httpcore5-5.3.6.jar
 io.swagger:swagger-codegen-cli
 io.swagger:swagger-codegen
 javax.servlet.jsp_2.0.0.v201101211617.jar
 joda-time:joda-time
 neethi-3.0.3.jar
-openapi-generator-v7.17.0
+openapi-generator-v7.22.0
 org.apache.aries.util
 org.apache.axis2:addressing
 org.apache.axis2:axis2-kernel
@@ -703,6 +704,6 @@ END OF IBM WEBSPHERE APPLICATION SERVER DEVELOPER TOOLS FOR ECLIPSE NOTICES AND 
 END OF NOTICES AND INFORMATION FILE
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-L/N: L-LVSU-NR8VEA
-D/N: L-LVSU-NR8VEA
-P/N: L-LVSU-NR8VEA
+L/N: L-NMZX-E5DY7T
+D/N: L-NMZX-E5DY7T
+P/N: L-NMZX-E5DY7T
