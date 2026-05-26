@@ -15,9 +15,9 @@ Open Liberty Tools are lightweight tools for developing, assembling, and deployi
 * [Community](https://github.com/OpenLiberty/open-liberty-tools#community)
 
 ## Prereqs
-Java 21 is now required as of version 25.2 of the tools.
+Java 21 is now required as of version 26.1 of the tools.
 
-The 25.2 release supports Eclipse versions [2025-12](https://www.eclipse.org/downloads/packages/release/2025-12/r/eclipse-ide-enterprise-java-and-web-developers) and [2026-03](https://www.eclipse.org/downloads/packages/release/2026-03/r/eclipse-ide-enterprise-java-and-web-developers).
+The 26.1 release supports Eclipse versions [2025-12](https://www.eclipse.org/downloads/packages/release/2025-12/r/eclipse-ide-enterprise-java-and-web-developers) and [2026-03](https://www.eclipse.org/downloads/packages/release/2026-03/r/eclipse-ide-enterprise-java-and-web-developers).
 
 ## Known Issues
 Please see the [Liberty Tools known issues](https://www.ibm.com/support/pages/node/6841611) page for known issues and workarounds.
