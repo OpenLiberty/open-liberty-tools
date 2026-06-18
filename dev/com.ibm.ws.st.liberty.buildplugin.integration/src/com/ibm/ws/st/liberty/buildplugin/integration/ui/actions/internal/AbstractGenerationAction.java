@@ -11,6 +11,9 @@
 
 package com.ibm.ws.st.liberty.buildplugin.integration.ui.actions.internal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -19,10 +22,9 @@ import org.eclipse.ui.actions.SelectionProviderAction;
 
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.ILibertyBuildPluginImplProvider;
 import com.ibm.ws.st.liberty.buildplugin.integration.internal.Messages;
-import com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal.LibertyBuildPluginProjectNode;
 
 public abstract class AbstractGenerationAction extends SelectionProviderAction implements ILibertyBuildPluginImplProvider {
-    private IProject project = null;
+    protected List<IProject> projects = new ArrayList<IProject>();
 
     public AbstractGenerationAction(ISelectionProvider selectionProvider, StructuredViewer viewer) {
         super(selectionProvider, Messages.createServerAction);
@@ -30,28 +32,33 @@ public abstract class AbstractGenerationAction extends SelectionProviderAction i
         selectionChanged(getStructuredSelection());
     }
 
+    /**
+     * Extenders must determine the enablement state of the action given the selections
+     * eg. if the selections are homogeneous (same object type) then the action can be enabled, but if mixed,
+     * it should be disabled. Cannot allow mixed, otherwise there will be duplicate actions
+     * in the context menu.
+     *
+     * @param selection
+     */
+    protected abstract void determineEnablementState(IStructuredSelection selection);
+
     @Override
-    public void selectionChanged(IStructuredSelection sel) {
-        if (sel.size() != 1) {
-            setEnabled(false);
-            return;
-        }
-
-        Object obj = sel.getFirstElement();
-        if (obj instanceof LibertyBuildPluginProjectNode) {
-            project = ((LibertyBuildPluginProjectNode) obj).getProject();
+    public void selectionChanged(IStructuredSelection selection) {
+        if (projects == null) {
+            projects = new ArrayList<IProject>();
         } else {
-            setEnabled(false);
-            return;
+            projects.clear();
         }
-
-        setEnabled(true);
+        determineEnablementState(selection);
     }
 
     @Override
     public void run() {
-        if (project == null)
+        if (projects == null) {
             return;
-        getBuildPluginImpl().triggerAddRuntimeAndServer(project, null);
+        }
+        for (IProject project : projects) {
+            getBuildPluginImpl().triggerAddRuntimeAndServer(project, null);
+        }
     }
 }

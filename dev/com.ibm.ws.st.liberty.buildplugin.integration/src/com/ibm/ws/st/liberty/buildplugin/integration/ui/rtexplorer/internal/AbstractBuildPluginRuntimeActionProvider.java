@@ -12,10 +12,7 @@
 package com.ibm.ws.st.liberty.buildplugin.integration.ui.rtexplorer.internal;
 
 import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionBars;
-import org.eclipse.ui.actions.ActionContext;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.navigator.CommonActionProvider;
 
@@ -31,27 +28,10 @@ public abstract class AbstractBuildPluginRuntimeActionProvider extends CommonAct
 
     @Override
     public void fillContextMenu(IMenuManager menu) {
-        // Get the extension id that contributed this action provider
-        String extensionId = getActionSite().getExtensionId();
-        ActionContext context = getContext();
-        if (context != null) {
-            ISelection selection = context.getSelection();
-            if (selection instanceof IStructuredSelection) {
-                IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-                Object firstElement = structuredSelection.getFirstElement();
-                if (firstElement instanceof LibertyBuildPluginProjectNode) {
-                    LibertyBuildPluginProjectNode node = (LibertyBuildPluginProjectNode) firstElement;
-                    String runtimeContentId = node.getRuntimeContentId();
-                    // If the node id matches the extension id, then we have a match.  Show the menu actions
-                    if (runtimeContentId.equals(extensionId)) {
-                        if (generationAction.isEnabled())
-                            menu.add(generationAction);
-                        if (refreshAction.isEnabled())
-                            menu.add(refreshAction);
-                    }
-                }
-            }
-        }
+        if (generationAction.isEnabled())
+            menu.add(generationAction);
+        if (refreshAction.isEnabled())
+            menu.add(refreshAction);
     }
 
     @Override
