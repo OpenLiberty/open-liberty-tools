@@ -5,7 +5,9 @@
 [![License](https://img.shields.io/badge/License-EPL%201.0-green.svg)](https://opensource.org/licenses/EPL-1.0)
 
 # Summary
-Open Liberty Tools are lightweight tools for developing, assembling, and deploying apps to [Open Liberty](https://github.com/OpenLiberty/open-liberty).
+Open Liberty Tools are (classic) lightweight tools for developing, assembling, and deploying apps to [Open Liberty](https://github.com/OpenLiberty/open-liberty) in Eclipse IDE.
+
+Alternatively, try out [Liberty Tools](https://marketplace.eclipse.org/content/liberty-tools), our next-generation open source development tools for Liberty. You can also help shape the future of these tools by providing feedback or contributing through this [GitHub repository](https://github.com/OpenLiberty/liberty-tools-eclipse).
 
 # Table of Contents
 * [Prereqs](https://github.com/OpenLiberty/open-liberty-tools#prereqs)
