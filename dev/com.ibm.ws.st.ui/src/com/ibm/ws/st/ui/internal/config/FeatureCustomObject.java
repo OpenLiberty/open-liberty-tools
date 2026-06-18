@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2016 IBM Corporation and others.
+ * Copyright (c) 2012, 2018 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     IBM Corporation - initial API and implementation
+ * IBM Corporation - initial API and implementation
  *******************************************************************************/
 package com.ibm.ws.st.ui.internal.config;
 
@@ -69,6 +69,7 @@ public class FeatureCustomObject extends BaseCustomObject {
     protected static final String PREFERENCES_IMPLICIT_FEATURES = "ImplicitFeatures";
 
     protected WebSphereRuntime wsRuntime;
+    protected Color gray;
 
     /** {@inheritDoc} */
     @Override
@@ -125,6 +126,16 @@ public class FeatureCustomObject extends BaseCustomObject {
         data.verticalIndent = LEFT_INDENT;
         data.verticalSpan = 2;
         featureTable.setLayoutData(data);
+
+        Color bg = featureTable.getBackground();
+        Color fg = featureTable.getForeground();
+        gray = new Color(bg.getDevice(), (bg.getRed() + fg.getRed()) / 2, (bg.getGreen() + fg.getGreen()) / 2, (bg.getBlue() + fg.getBlue()) / 2);
+        featureTable.addDisposeListener(new DisposeListener() {
+            @Override
+            public void widgetDisposed(DisposeEvent event) {
+                gray.dispose();
+            }
+        });
 
         FeatureUI.createColumns(featureTable);
 
@@ -334,7 +345,6 @@ public class FeatureCustomObject extends BaseCustomObject {
         Collections.sort(featureList);
         table.removeAll();
 
-        Color gray = table.getShell().getDisplay().getSystemColor(SWT.COLOR_DARK_GRAY);
         for (String feature : featureList) {
             TableItem item = new TableItem(table, SWT.NONE);
             item.setText(0, feature);
