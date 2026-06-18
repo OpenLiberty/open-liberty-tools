@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2017 IBM Corporation and others.
+ * Copyright (c) 2011, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -693,9 +693,9 @@ public class WebSphereServerBehaviour extends ServerBehaviourDelegate implements
     /**
      * Setup for starting the server.
      *
-     * @param launch ILaunch
+     * @param launch     ILaunch
      * @param launchMode String
-     * @param monitor IProgressMonitor
+     * @param monitor    IProgressMonitor
      * @throws CoreException if anything goes wrong
      */
     public void preLaunch(ILaunch launch, String launchMode, IProgressMonitor monitor) throws CoreException {
@@ -1337,7 +1337,7 @@ public class WebSphereServerBehaviour extends ServerBehaviourDelegate implements
      * reset to <code>false</code> during every launch.
      *
      * @param clean <code>true</code> if the server should be cleaned on next startup,
-     *            and <code>false</code> otherwise.
+     *                  and <code>false</code> otherwise.
      */
     public void setCleanOnStartup(boolean clean) {
         cleanOnStartup = clean;
@@ -1708,6 +1708,12 @@ public class WebSphereServerBehaviour extends ServerBehaviourDelegate implements
 
             if (serverInfo.getServerEnv() != null) {
                 URI fileLocation = serverInfo.getServerEnv().getURI();
+                if (fileLocation != null)
+                    fileLocations.add(new File(fileLocation).toString().replace("\\", "/"));
+            }
+
+            if (serverInfo.getSharedServerEnv() != null) {
+                URI fileLocation = serverInfo.getSharedServerEnv().getURI();
                 if (fileLocation != null)
                     fileLocations.add(new File(fileLocation).toString().replace("\\", "/"));
             }

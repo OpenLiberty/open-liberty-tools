@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2018 IBM Corporation and others.
+ * Copyright (c) 2011, 2020 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -229,17 +229,24 @@ public class VariableValidationTest extends ValidationTestBase {
             assertTrue("Creating runtime etc directory: " + runtimeEtcPath.toOSString(), etcDir.mkdirs());
             FileUtil.copyFile(etcServerEnv.toOSString(), runtimeEtcPath.append("server.env").toOSString());
 
+            // Copy the shared server.env file over to the <user dir>/shared directory
+            IPath sharedServerEnv = serverEnvFiles.append("shared/server.env");
+            IPath sharedPath = project.getLocation().append("shared");
+            FileUtil.copyFile(sharedServerEnv.toOSString(), sharedPath.append("server.env").toOSString());
+
             // Validate the server.xml file - there should be two messages for invalid type of
             // variable reference
             String serverName = "serverEnv";
             setupRuntimeServer(RESOURCE_PATH, serverName);
             IFile file = getServerFile(serverName, "server.xml");
             ValidatorMessage[] messages = TestUtil.validate(file);
-            checkMessageCount(messages, 2);
+            checkMessageCount(messages, 3);
             checkMessage(messages[0], NLS.bind(Messages.incorrectVariableReferenceType, new String[] { "${env.PORT}", "httpPort", "httpEndpoint", "int" }),
                          serverName + "/" + file.getName(), 20);
             checkMessage(messages[1], NLS.bind(Messages.incorrectVariableReferenceType, new String[] { "${env.SECURE_PORT}", "httpsPort", "httpEndpoint", "int" }),
                          serverName + "/" + file.getName(), 21);
+            checkMessage(messages[2], NLS.bind(Messages.incorrectVariableReferenceType, new String[] { "${env.AUTO_EXPAND}", "autoExpand", "applicationManager", "boolean" }),
+                         serverName + "/" + file.getName(), 24);
 
             // Copy the config server.env file over to the server config directory
             IPath configServerEnv = serverEnvFiles.append("config/server.env");
@@ -247,7 +254,7 @@ public class VariableValidationTest extends ValidationTestBase {
             IPath serverPath = serverFolder.getLocation();
             FileUtil.copyFile(configServerEnv.toOSString(), serverPath.append("server.env").toOSString());
 
-            // Validate the server.xml file - the config server.env overrides one of the variables
+            // Validate the server.xml file - the config server.env overrides two of the variables
             // with a correct value so there should only be one message now
             messages = TestUtil.validate(file);
             checkMessageCount(messages, 1);
