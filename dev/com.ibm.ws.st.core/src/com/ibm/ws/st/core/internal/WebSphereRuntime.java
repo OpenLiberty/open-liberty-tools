@@ -346,6 +346,41 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
             setAttribute(PROP_VM_INSTALL_ID, id);
     }
 
+    /**
+     * Helper method to read WLP_USER_DIR from ${WLP_INSTALL_DIR}/etc/server.env
+     *
+     * @param runtimeLocation The Liberty runtime installation directory
+     * @return The WLP_USER_DIR path from server.env, or null if not found or file doesn't exist
+     */
+    private IPath readWlpUserDirFromServerEnv(IPath runtimeLocation) {
+        if (runtimeLocation == null)
+            return null;
+
+        File serverEnvFile = runtimeLocation.append("etc").append("server.env").toFile();
+        if (!serverEnvFile.exists() || serverEnvFile.isDirectory())
+            return null;
+
+        try {
+            Properties envProps = new Properties();
+            java.io.FileInputStream fis = new java.io.FileInputStream(serverEnvFile);
+            try {
+                envProps.load(fis);
+                String wlpUserDir = envProps.getProperty("WLP_USER_DIR");
+                System.out.println("DEBUG: Read WLP_USER_DIR = " + wlpUserDir);
+                if (wlpUserDir != null && !wlpUserDir.trim().isEmpty()) {
+                    return new Path(wlpUserDir.trim());
+                }
+            } finally {
+                fis.close();
+            }
+        } catch (Exception e) {
+            if (Trace.ENABLED)
+                Trace.trace(Trace.WARNING, "Could not read WLP_USER_DIR from " + serverEnvFile.getAbsolutePath(), e);
+        }
+
+        return null;
+    }
+
     public synchronized List<UserDirectory> getUserDirectories() {
         int hash = getRuntimeHash();
         if (userDirCache != null && hash == userDirHash)
@@ -361,7 +396,13 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
         if (runtimeLocation == null)
             return userDirs;
 
-        IPath runtimeUserPath = runtimeLocation.append(Constants.USER_FOLDER);
+        // read WLP_USER_DIR from ${WLP_INSTALL_DIR}/etc/server.env
+        IPath wlpUserDirFromEnv = readWlpUserDirFromServerEnv(runtimeLocation);
+
+        // Use the WLP_USER_DIR from server.env if available, otherwise default to ${WLP_INSTALL_DIR}/usr
+        IPath runtimeUserPath = (wlpUserDirFromEnv != null) ? wlpUserDirFromEnv : runtimeLocation.append(Constants.USER_FOLDER);
+        System.out.println("DEBUG: Using runtimeUserPath = " + runtimeUserPath);
+
         if (runtimeUserPath.toFile().exists()) {
             IProject project = null;
 
@@ -2376,7 +2417,7 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
         List<String> features = FeatureList.getFeatures(true, this);
         // Initialize with the lowest supported level
         earSupported = JAVAEESUPPORT.JAVAEE6;
-        
+
         for (String feature : features) {
             Set<String> categoryElements = FeatureList.getFeatureCategory(feature, this);
             if (categoryElements != null && !categoryElements.isEmpty()) {
