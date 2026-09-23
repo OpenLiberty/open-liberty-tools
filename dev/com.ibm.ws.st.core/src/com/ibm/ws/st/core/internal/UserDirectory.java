@@ -99,7 +99,7 @@ public class UserDirectory {
         if (tempOutputPath != null) {
             this.outputPath = new Path(tempOutputPath);
         } else {
-            this.outputPath = (outputPath == null) ? userPath.append(Constants.SERVERS_FOLDER) : outputPath;
+            this.outputPath = (outputPath == null) ? this.userPath.append(Constants.SERVERS_FOLDER) : outputPath;
         }
 
         configVars = new ConfigVars();

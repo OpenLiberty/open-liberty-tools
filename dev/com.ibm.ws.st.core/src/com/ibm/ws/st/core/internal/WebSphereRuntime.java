@@ -2044,6 +2044,9 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
     }
 
     public IPath getDefaultUserDirPath() {
+        IPath wlpUserDirFromEnv = readWlpUserDirFromServerEnv(getRuntimeLocation());
+        if (wlpUserDirFromEnv != null)
+            return wlpUserDirFromEnv;
         return getRuntimePath(Constants.USER_FOLDER);
     }
 
