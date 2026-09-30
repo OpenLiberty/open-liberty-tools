@@ -364,8 +364,38 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
             Properties envProps = new Properties();
             envProps.load(fis);
             String wlpUserDir = envProps.getProperty("WLP_USER_DIR");
-            if (wlpUserDir != null && !wlpUserDir.trim().isEmpty()) {
-                return new Path(wlpUserDir.trim());
+
+            // Handle export prefix (e.g. "export WLP_USER_DIR=/path")
+            if (wlpUserDir == null) {
+                for (String key : envProps.stringPropertyNames()) {
+                    if (key.startsWith("export ") && key.trim().endsWith("WLP_USER_DIR")) {
+                        wlpUserDir = envProps.getProperty(key);
+                        break;
+                    }
+                }
+            }
+
+            if (wlpUserDir != null) {
+                // Strip surrounding quotes (e.g. WLP_USER_DIR="/path/to/dir")
+                wlpUserDir = wlpUserDir.trim();
+                if ((wlpUserDir.startsWith("\"") && wlpUserDir.endsWith("\"")) ||
+                    (wlpUserDir.startsWith("'") && wlpUserDir.endsWith("'"))) {
+                    wlpUserDir = wlpUserDir.substring(1, wlpUserDir.length() - 1).trim();
+                }
+
+                if (!wlpUserDir.isEmpty()) {
+                    IPath resolvedPath = new Path(wlpUserDir);
+
+                    // Log a warning if path doesn't exist yet — the caller will create it if needed
+                    if (!resolvedPath.toFile().exists()) {
+                        if (Trace.ENABLED)
+                            Trace.trace(Trace.WARNING, "WLP_USER_DIR path does not exist yet, will be created: " + wlpUserDir);
+                    }
+
+                    if (Trace.ENABLED)
+                        Trace.trace(Trace.INFO, "Using WLP_USER_DIR from server.env: " + wlpUserDir);
+                    return resolvedPath;
+                }
             }
         } catch (Exception e) {
             if (Trace.ENABLED)
@@ -395,6 +425,8 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
 
         // Use the WLP_USER_DIR from server.env if available, otherwise default to ${WLP_INSTALL_DIR}/usr
         IPath runtimeUserPath = (wlpUserDirFromEnv != null) ? wlpUserDirFromEnv : runtimeLocation.append(Constants.USER_FOLDER);
+        if (Trace.ENABLED)
+            Trace.trace(Trace.INFO, "getUserDirectories using runtimeUserPath: " + runtimeUserPath);
 
         if (runtimeUserPath.toFile().exists()) {
             IProject project = null;
