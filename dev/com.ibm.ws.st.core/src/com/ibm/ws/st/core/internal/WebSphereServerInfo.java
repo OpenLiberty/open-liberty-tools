@@ -221,7 +221,6 @@ public class WebSphereServerInfo implements IMetadataGenerator {
                 IPath jvmOptionsPath = path.append(ExtendedConfigFile.JVM_OPTIONS_FILE);
                 File jvmOptionsFile = jvmOptionsPath.toFile();
                 JVMOptions currJvmOptions = (JVMOptions) getJVMOptions(path);
-                System.out.println("DEBUG: Looking for jvm.options at: " + jvmOptionsPath);
 
                 if (jvmOptionsFile.exists()) {
                     boolean flag = false;

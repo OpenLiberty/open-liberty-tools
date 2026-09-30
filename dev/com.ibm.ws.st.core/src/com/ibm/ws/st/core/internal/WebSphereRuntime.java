@@ -360,18 +360,12 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
         if (!serverEnvFile.exists() || serverEnvFile.isDirectory())
             return null;
 
-        try {
+        try (java.io.FileInputStream fis = new java.io.FileInputStream(serverEnvFile)) {
             Properties envProps = new Properties();
-            java.io.FileInputStream fis = new java.io.FileInputStream(serverEnvFile);
-            try {
-                envProps.load(fis);
-                String wlpUserDir = envProps.getProperty("WLP_USER_DIR");
-                System.out.println("DEBUG: Read WLP_USER_DIR = " + wlpUserDir);
-                if (wlpUserDir != null && !wlpUserDir.trim().isEmpty()) {
-                    return new Path(wlpUserDir.trim());
-                }
-            } finally {
-                fis.close();
+            envProps.load(fis);
+            String wlpUserDir = envProps.getProperty("WLP_USER_DIR");
+            if (wlpUserDir != null && !wlpUserDir.trim().isEmpty()) {
+                return new Path(wlpUserDir.trim());
             }
         } catch (Exception e) {
             if (Trace.ENABLED)
@@ -401,7 +395,6 @@ public class WebSphereRuntime extends RuntimeDelegate implements IJavaRuntime, I
 
         // Use the WLP_USER_DIR from server.env if available, otherwise default to ${WLP_INSTALL_DIR}/usr
         IPath runtimeUserPath = (wlpUserDirFromEnv != null) ? wlpUserDirFromEnv : runtimeLocation.append(Constants.USER_FOLDER);
-        System.out.println("DEBUG: Using runtimeUserPath = " + runtimeUserPath);
 
         if (runtimeUserPath.toFile().exists()) {
             IProject project = null;
