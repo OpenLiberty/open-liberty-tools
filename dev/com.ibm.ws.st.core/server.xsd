@@ -24,25 +24,27 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="mcp" type="io.openliberty.mcp.internal.config.McpConfigurationComponent"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -149,27 +151,29 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="mcp" type="io.openliberty.mcp.internal.config.McpConfigurationComponent"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -951,27 +955,29 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
-            </xsd:element> 
-            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
-            </xsd:element> 
-            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
-            </xsd:element> 
-            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
-            </xsd:element> 
             <xsd:element name="resourceAdapter" type="com.ibm.ws.jca.embeddedResourceAdapter"> 
             </xsd:element> 
             <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
+            <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
+            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
+            </xsd:element> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="web-bnd" type="com.ibm.ws.javaee.dd.webbnd.WebBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="mcp" type="io.openliberty.mcp.internal.config.McpConfigurationComponent"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
+            </xsd:element> 
+            <xsd:element name="application-client-bnd" type="com.ibm.ws.javaee.dd.clientbnd.ApplicationClientBnd"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -1628,7 +1634,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.registry.basic.config"> 
         <xsd:annotation> 
-            <xsd:documentation>A simple XML-based user registry.</xsd:documentation> 
+            <xsd:documentation>A simple XML-based user registry. This registry is not recommended for use in a production environment.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>Basic User Registry</ext:label> 
             </xsd:appinfo> 
@@ -3622,6 +3628,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="virtual" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Requests the use of virtual threads for tasks that do not run inline. Java 21 or higher is a prerequisite of configuring this value to true.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use virtual threads</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="max" use="optional"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the maximum number of tasks that can run simultaneously. The default is Integer.MAX_VALUE. Maximum concurrency can be updated while tasks are in progress. If the maximum concurrency is reduced below the number of concurrently running tasks, the update goes into effect gradually as in-progress tasks complete, rather than canceling them.</xsd:documentation> 
@@ -3826,6 +3840,14 @@
                 <xsd:documentation>Configures whether or not threads created by the managed thread factory should be daemon threads.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Create daemon threads</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="virtual" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Determines whether the ManagedThreadFactory creates virtual threads. Java 21 or higher is a prerequisite of configuring this value to true.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Use virtual threads</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -5121,17 +5143,17 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
-            </xsd:element> 
-            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
-            </xsd:element> 
-            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
             </xsd:element> 
             <xsd:element name="application-ext" type="com.ibm.ws.javaee.dd.appext.ApplicationExt"> 
             </xsd:element> 
-            <xsd:element name="application-bnd" type="com.ibm.ws.javaee.dd.appbnd.ApplicationBnd"> 
-            </xsd:element> 
             <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-bnd" type="com.ibm.ws.javaee.dd.ejbbnd.EJBJarBnd"> 
+            </xsd:element> 
+            <xsd:element name="managed-bean-bnd" type="com.ibm.ws.javaee.dd.managedbean.ManagedBeanBnd"> 
+            </xsd:element> 
+            <xsd:element name="ejb-jar-ext" type="com.ibm.ws.javaee.dd.ejbext.EJBJarExt"> 
             </xsd:element> 
         </xsd:choice> 
         <xsd:attribute name="location" use="required" type="location"> 
@@ -6956,6 +6978,24 @@
                 </xsd:union> 
             </xsd:simpleType> 
         </xsd:attribute> 
+        <xsd:attribute name="websocketBufferSize" use="optional" default="65536"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the default buffer size maximum in bytes for websocket messages. This value applies to both binary and text messages. A value of -1 means unlimited.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Websocket buffer size</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="-1"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
         <xsd:attribute name="ignoreWriteAfterCommit" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>When this attribute is set to true, the HTTP channel ignores write attempts if the message is already committed. If it is set to false, which is the default, any attempt to write after the message is committed results in a MessageSentException exception.</xsd:documentation> 
@@ -7097,6 +7137,60 @@
                 <xsd:documentation>Specifies the maximum size in bytes for the header block of individual HTTP2 streams. If this value is exceeded, the connection is closed with an error. Set this parameter to 0 to disable the check.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Maximum header block size</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:long"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxLowWindowStreams" use="optional" default="20"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of streams that can have a low window size at the same time. If this value is exceeded, the connection is closed. Set this parameter to 0 to disable the check.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum low window streams</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="lowWindowLimit" use="optional" default="16384"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the window size threshold in bytes below which a stream is considered to have a low window. Streams with window sizes below this limit are tracked and counted against the maximum low window streams limit.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Low window limit</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+            <xsd:simpleType> 
+                <xsd:union memberTypes="variableType"> 
+                    <xsd:simpleType> 
+                        <xsd:restriction base="xsd:int"> 
+                            <xsd:minInclusive value="0"> 
+                            </xsd:minInclusive> 
+                        </xsd:restriction> 
+                    </xsd:simpleType> 
+                </xsd:union> 
+            </xsd:simpleType> 
+        </xsd:attribute> 
+        <xsd:attribute name="maxQueuedBytes" use="optional" default="2097152"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies the maximum number of bytes that can be queued across all streams for a connection. If this value is exceeded, the connection is closed. Set this parameter to 0 to disable the check.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Maximum queued bytes</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
             <xsd:simpleType> 
@@ -7577,13 +7671,13 @@
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
-            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
-            </xsd:element> 
-            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
             </xsd:element> 
             <xsd:element name="webservices-bnd" type="com.ibm.ws.javaee.ddmodel.wsbnd.WebservicesBnd"> 
             </xsd:element> 
-            <xsd:element name="appProperties" type="com.ibm.ws.appconfig.appProperties"> 
+            <xsd:element name="web-ext" type="com.ibm.ws.javaee.dd.webext.WebExt"> 
+            </xsd:element> 
+            <xsd:element name="customize" type="com.ibm.ws.jca.resourceAdapter.customize"> 
             </xsd:element> 
             <xsd:any processContents="skip" minOccurs="0" maxOccurs="1"/> 
         </xsd:choice> 
@@ -27303,7 +27397,7 @@
             </xsd:element> 
             <xsd:element name="blockDir" type="dirLocation"> 
                 <xsd:annotation> 
-                    <xsd:documentation>A directory that clients are not allowed to read from or write to, regardless of readDir or writeDir configuration. There can be multiple blockDir elements, and each represents a single directory that may refer to variables or absolute paths. Default is ${server.output.dir}/resources/security.</xsd:documentation> 
+                    <xsd:documentation>A directory that clients are not allowed to read from or write to, regardless of readDir or writeDir configuration. There can be multiple blockDir elements, and each represents a single directory that may refer to variables or absolute paths. Default is ${server.output.dir}/resources/security and ${server.output.dir}/resources/collective.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Block read and write access to directory</ext:label> 
                     </xsd:appinfo> 
@@ -27949,6 +28043,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="serverIOTimeoutMarksDown" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When set to true, the application server is marked as down immediately after the ServerIOTimeout is exceeded. The default value is false.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>ServerIOTimeout marks server down</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="wsServerIOTimeout" use="optional" type="secondDuration"> 
             <xsd:annotation> 
                 <xsd:documentation>Identifies the maximum amount of time that the web server plugin waits to send a request or receive a websocket response from the application server. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
@@ -28096,6 +28198,22 @@
                 <xsd:documentation>Indicates whether the webserver plug-in ignores affinity requests when it is tracking runtime weight for round-robin load balancing.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Ignore affinity requests</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="outboundInterfacesList" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of IP addresses or interface names to use for outbound connections from the web server plug-in to the application server.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Outbound interfaces list</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="outboundBindStrict" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When this parameter is set to true, the web server plug-in strictly binds outbound connections to the interfaces that are specified in the outbound interfaces list. When this parameter is set to false (the default), the plug-in uses the specified interfaces as preferences, but can fall back to other interfaces if necessary.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Strict outbound binding</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -29264,6 +29382,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="sipProxyAllowList" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A comma-separated list of permitted forwarding destinations used when the SIP container acts as a transparent proxy (routeWhenNoApp=true and no application matches the incoming request). Each entry is a host name or IP address, optionally followed by a colon and port number, for example proxy.example.com:5060 or 10.0.0.1. A host-only entry matches any port on that host. When this property is empty (the default), all transparent forwarding is blocked and the container returns the error code defined by sipNoRouteErrorCode. Configure this property to the minimum set of SIP destinations that the container is legitimately permitted to proxy to.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>SIP proxy allow list</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:anyAttribute processContents="skip"> 
         </xsd:anyAttribute> 
     </xsd:complexType> 
@@ -29669,42 +29795,6 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="securityLevel" use="optional" default="HIGH"> 
-            <xsd:annotation> 
-                <xsd:documentation>Specifies the cipher suite group used by the SSL handshake.  HIGH are 3DES and 128 bit and higher ciphers, MEDIUM are DES and 40 bit ciphers, LOW are ciphers without encryption.  If the enabledCiphers attribute is used the securityLevel list is ignored.</xsd:documentation> 
-                <xsd:appinfo> 
-                    <ext:label>Security level</ext:label> 
-                </xsd:appinfo> 
-            </xsd:annotation> 
-            <xsd:simpleType> 
-                <xsd:union memberTypes="variableType"> 
-                    <xsd:simpleType> 
-                        <xsd:restriction base="xsd:string"> 
-                            <xsd:enumeration value="HIGH"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Cipher suites 3DES and 128 bit and higher</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="MEDIUM"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Cipher suites DES and 40 bit</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="LOW"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Cipher suites without encryption</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                            <xsd:enumeration value="CUSTOM"> 
-                                <xsd:annotation> 
-                                    <xsd:documentation>Custom list of cipher suites</xsd:documentation> 
-                                </xsd:annotation> 
-                            </xsd:enumeration> 
-                        </xsd:restriction> 
-                    </xsd:simpleType> 
-                </xsd:union> 
-            </xsd:simpleType> 
-        </xsd:attribute> 
         <xsd:attribute name="clientKeyAlias" use="optional" type="xsd:string"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies the alias of the certificate in the keystore that is used as the key to send to a server that has client authentication enabled.  This attribute is only needed if the keystore has more than one key entry.</xsd:documentation> 
@@ -29723,7 +29813,7 @@
         </xsd:attribute> 
         <xsd:attribute name="enabledCiphers" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>Specifies a custom list of ciphers. Separate each cipher in the list with a space. The supported cipher will depend on the underlying JRE used.  Please check the JRE for valid ciphers.</xsd:documentation> 
+                <xsd:documentation>Two mutually exclusive modes: (1) Specify a custom list of ciphers separated by spaces, or (2) Specify filter criteria to add (+) or remove (-) cipher suites from the effective JDK cipher suites. In filter mode, prefix cipher suite names with + to add them or - to remove them. You can use the * wildcard with - to remove multiple cipher suites that share a prefix (for example, -TLS_RSA_*); place the wildcard only at the end of the list item. Do not use the wildcard when adding cipher suites. The underlying JRE determines which cipher suites are supported.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Enabled ciphers</ext:label> 
                 </xsd:appinfo> 
@@ -31234,7 +31324,7 @@
         </xsd:attribute> 
         <xsd:attribute name="destinationType" use="optional" default="javax.jms.Queue"> 
             <xsd:annotation> 
-                <xsd:documentation>The type of the destination, which is javax.jms.Queue or javax.jms.Topic.</xsd:documentation> 
+                <xsd:documentation>The type of the destination, which is javax.jms.Queue or javax.jms.Topic, and Jakarta EE levels use jakarta instead of javax</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Destination type</ext:label> 
                 </xsd:appinfo> 
@@ -32849,7 +32939,7 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
-        <xsd:attribute name="trackLoggedOutSSOCookies" use="optional" default="false" type="booleanType"> 
+        <xsd:attribute name="trackLoggedOutSSOCookies" use="optional" default="true" type="booleanType"> 
             <xsd:annotation> 
                 <xsd:documentation>Specifies whether to track LTPA single signon tokens that are logged out on a server so that it can not be reused on the same server.</xsd:documentation> 
                 <xsd:appinfo> 
@@ -32985,6 +33075,14 @@
                 <xsd:appinfo> 
                     <ext:label>JCache cache reference</ext:label> 
                     <ext:reference>cache</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="allowInMemoryIdentityStores" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When explicitly set to true and an in-memory identity store is defined within an application, the in-memory identity store is used during the authentication process.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Allow the usage of an in-memory identity store</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -34465,6 +34563,14 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="dropTables" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>When this property is set to true, database tables are removed. When both the createTables and dropTables properties are set to true, existing tables are removed first, and then new tables are created. This configuration property is intended for use with the beta of Jakarta Data, to provide a way to remove old tables from the database when changes are made to entity classes. At a minimum, you must restart the application for changes to this property to go into effect.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Drop database tables</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="keyGenerationStrategy" use="optional" default="AUTO"> 
             <xsd:annotation> 
                 <xsd:documentation>The preferred strategy for generating unique primary keys. If the selected strategy is not supported for the database, a different strategy might be used.</xsd:documentation> 
@@ -35212,6 +35318,42 @@
                 </xsd:attribute> 
             </xsd:extension> 
         </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="io.openliberty.data"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configures the built-in Jakarta Data provider</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Built-in Jakarta Data Provider</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="logValues" minOccurs="0" maxOccurs="100" type="xsd:string"> 
+                <xsd:annotation> 
+                    <xsd:documentation>List of fully qualified repository interface, method, orpackage names for which to log data that is supplied to the repository.Alternatively, the value * indicates to log values for all methods ofall repositories.The default is to never log values. This setting supports opting in for eachrepository, repository method, or package.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Log values</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="createTables" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Establishes the default behavior of whether toattempt to create tables for entities of Jakarta Data repositoriesif the repository dataStore attribute points to a DataSource.This setting is ignored when the dataStore is a persistence unit reference,in which case table creation is determined by persistence unit properties.This setting is also ignored when the dataStore is the id of a databaseStore,in which case table creation is determined by the databaseStore configuration.The default for this setting is to attempt to create tables.Disable this setting for performance reasons after the tables are created.If the database user does not have authority to create tables, theddlGen tool can be used to obtain DDL for the database administrator to run.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Create tables</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="dropTables" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Establishes the default behavior of whether toremove tables for entities of Jakarta Data repositoriesif the repository dataStore attribute points to a DataSource.This setting is ignored when the dataStore is a persistence unit reference,in which case table removal is determined by persistence unit properties.This setting is also ignored when the dataStore is the id of a databaseStore,in which case table removal is determined by the databaseStore configuration.The default for this setting is to not remove tables.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Drop tables</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.cache.cacheGroup.member"> 
         <xsd:annotation> 
@@ -36490,6 +36632,139 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="io.openliberty.mcp.internal.config.McpConfigurationComponent"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configure the MCP feature.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Model Context Protocol (MCP) Server</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="info" minOccurs="0" maxOccurs="1" type="io.openliberty.mcp.internal.config.info"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Configuration for MCP server metadata that is returned to clients during initialization.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>MCP Server Information</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="stateless" use="optional" default="false" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Stateless mode disables MCP session tracking by the server. This mode removes the need for session affinity in a clustered environment. Otherwise, the same server handles requests from the same MCP session. Because no session data is stored on the servers, any server instance can handle any request, which simplifies load balancing and horizontal scaling. However, the stateless mode also disables MCP features that rely on session tracking or linking separate HTTP requests together, such as canceling a tool call.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Stateless mode</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="moduleName" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name of the module in an EAR. Selects the module to which the configuration applies.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Module name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="path" use="optional" default="/mcp" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The URL path for this MCP endpoint, relative to the module context root. Sets the MCP endpoint path within that module.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Endpoint path</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="sessionTimeout" use="optional" default="600s" type="secondDuration"> 
+            <xsd:annotation> 
+                <xsd:documentation>The timeout duration for MCP sessions. After this period of inactivity, the session expires and is removed from the server. Specify a positive integer followed by a unit of time. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), or seconds (s). For example, specify 30 seconds as 30s. You can include multiple values in a single entry. For example, 1m30s is equivalent to 90 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Session timeout</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="asyncTimeout" use="optional" default="30s" type="duration"> 
+            <xsd:annotation> 
+                <xsd:documentation>The timeout duration for asynchronous MCP tool calls. If an asynchronous tool call does not complete within this time, it will be cancelled. Specify a positive integer followed by a unit of time. Specify a positive integer followed by a unit of time, which can be hours (h), minutes (m), seconds (s), or milliseconds (ms). For example, specify 500 milliseconds as 500ms. You can include multiple values in a single entry. For example, 1s500ms is equivalent to 1.5 seconds.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Asynchronous request timeout</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="io.openliberty.mcp.internal.config.McpConfigurationComponent-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="io.openliberty.mcp.internal.config.McpConfigurationComponent"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
+    <xsd:complexType name="io.openliberty.mcp.internal.config.info"> 
+        <xsd:annotation> 
+            <xsd:documentation>Configuration for MCP server metadata that is returned to clients during initialization.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>MCP Server Information</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation><!--Idiom for "empty element context" (whitespace accepted and ignored)--> 
+        <xsd:sequence> 
+            <xsd:sequence/> 
+        </xsd:sequence> 
+        <xsd:attribute name="name" use="optional" default="mcp-server" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The name identifier for this MCP server. This display name is used by MCP clients to identify the server.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Server name</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="title" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>A human-readable title for this MCP server, intended for UI and user contexts.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Server title</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="version" use="optional" default="1.0.0" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The version string for this MCP server. This value is used to track the server version.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Server version</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="description" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>The description string for this MCP server. This value describes the purpose and capabilities of the implementation for clients or servers.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Server description</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
+    <xsd:complexType name="io.openliberty.mcp.internal.config.info-factory"> 
+        <xsd:complexContent> 
+            <xsd:extension base="io.openliberty.mcp.internal.config.info"> 
+                <xsd:attribute name="id" type="factoryIdType" use="optional"> 
+                    <xsd:annotation> 
+                        <xsd:documentation>A unique configuration ID.</xsd:documentation> 
+                        <xsd:appinfo> 
+                            <ext:label>ID</ext:label> 
+                        </xsd:appinfo> 
+                    </xsd:annotation> 
+                </xsd:attribute> 
+            </xsd:extension> 
+        </xsd:complexContent> 
+    </xsd:complexType> 
     <xsd:complexType name="io.openliberty.microprofile.health"> 
         <xsd:annotation> 
             <xsd:documentation>Configuration for MicroProfile Health.</xsd:documentation> 
@@ -36510,9 +36785,17 @@
         </xsd:attribute> 
         <xsd:attribute name="startupCheckInterval" use="optional" type="xsd:string"> 
             <xsd:annotation> 
-                <xsd:documentation>The value that you specify sets the interval at which the health checks are queried until an UP status is resolved and the health check file is created. The value is a number followed by an optional time unit of ms for milliseconds or s for seconds. If no time unit is specified for a value, the value is in milliseconds by default. If no value is specified, the default value is 100 ms.</xsd:documentation> 
+                <xsd:documentation>The specified value sets the interval at which health checks are queried until an UP status is resolved and the health check file is created. Specify the value as a number, optionally followed by a time unit: ms (milliseconds) or s (seconds). If you omit the time unit, the value defaults to milliseconds. If you omit the value entirely, the default interval is 100 ms.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>File-based health check startup interval</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="enableEndpoints" use="optional" default="true" type="booleanType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Controls whether health check endpoints are enabled. This setting takes effect only when file-based health checks are enabled. The default value is true. Set this value to false to disable the endpoints if file-based health checks are enabled.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Enable health check endpoints</ext:label> 
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
@@ -37874,6 +38157,43 @@
             </xsd:extension> 
         </xsd:complexContent> 
     </xsd:complexType> 
+    <xsd:complexType name="com.ibm.ws.security.openidconnect.client.protectedResourceMetadata"> 
+        <xsd:annotation> 
+            <xsd:documentation>Specifies the configuration for serving OAuth 2.0 protected resource metadata (RFC 9728). When configured, the OpenID Connect client can provide metadata to direct clients on where to authenticate for protected resources.</xsd:documentation> 
+            <xsd:appinfo> 
+                <ext:label>Protected Resource Metadata</ext:label> 
+            </xsd:appinfo> 
+        </xsd:annotation> 
+        <xsd:sequence> 
+            <xsd:element name="jwtBuilder" minOccurs="0" maxOccurs="1" type="com.ibm.ws.security.jwt.builder"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies a reference to a JSON Web Token (JWT) builder configuration. Use the builder to create JSON web tokens for the protected resource metadata endpoint.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>JWT Builder</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+        </xsd:sequence> 
+        <xsd:attribute name="advertisedScopes" use="optional" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a comma-separated list of scopes to publish in the protected resource metadata. Clients can use the list to discover which scopes are available for this protected resource.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Advertised scopes</ext:label> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:attribute name="jwtBuilderRef" use="optional" type="pidType"> 
+            <xsd:annotation> 
+                <xsd:documentation>Specifies a reference to a JSON Web Token (JWT) builder configuration. Use the builder to create JSON web tokens for the protected resource metadata endpoint.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>JWT builder reference</ext:label> 
+                    <ext:reference>jwtBuilder</ext:reference> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
+        <xsd:anyAttribute processContents="skip"> 
+        </xsd:anyAttribute> 
+    </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.openidconnect.client.webapp"> 
         <xsd:annotation> 
             <xsd:documentation>Description of service</xsd:documentation> 
@@ -38009,6 +38329,14 @@
                     <xsd:documentation>Specifies a comma-separated list of parameter names to forward to the OpenID Connect provider. If a protected resource request includes one or more of the specified parameters, the OpenID Connect client will include those parameters and their values in the authorization endpoint request to the OpenID Connect provider.</xsd:documentation> 
                     <xsd:appinfo> 
                         <ext:label>Forward login parameter</ext:label> 
+                    </xsd:appinfo> 
+                </xsd:annotation> 
+            </xsd:element> 
+            <xsd:element name="protectedResourceMetadata" type="com.ibm.ws.security.openidconnect.client.protectedResourceMetadata"> 
+                <xsd:annotation> 
+                    <xsd:documentation>Specifies the configuration for serving OAuth 2.0 protected resource metadata (RFC 9728). When configured, the OpenID Connect client can provide metadata to direct clients on where to authenticate for protected resources.</xsd:documentation> 
+                    <xsd:appinfo> 
+                        <ext:label>Protected Resource Metadata</ext:label> 
                     </xsd:appinfo> 
                 </xsd:annotation> 
             </xsd:element> 
@@ -40199,7 +40527,7 @@
     </xsd:complexType> 
     <xsd:complexType name="com.ibm.ws.security.quickStartSecurity"> 
         <xsd:annotation> 
-            <xsd:documentation>Simple administrative security configuration.</xsd:documentation> 
+            <xsd:documentation>Simple administrative security configuration. This configuration is not recommended for use in a production environment.</xsd:documentation> 
             <xsd:appinfo> 
                 <ext:label>Quick Start Security</ext:label> 
             </xsd:appinfo> 
@@ -40395,9 +40723,18 @@
                 </xsd:appinfo> 
             </xsd:annotation> 
         </xsd:attribute> 
+        <xsd:attribute name="cacheNamePrefix" use="optional" default="" type="xsd:string"> 
+            <xsd:annotation> 
+                <xsd:documentation>An optional prefix for Liberty-generated cache names, useful for preventing conflicts when multiple Liberty instances share a cache store. If not specified, the prefix defaults to the standard com.ibm.ws.session value.</xsd:documentation> 
+                <xsd:appinfo> 
+                    <ext:label>Cache name prefix</ext:label> 
+                    <ext:group id="performance"/> 
+                </xsd:appinfo> 
+            </xsd:annotation> 
+        </xsd:attribute> 
         <xsd:attribute name="appInCacheName" use="optional" default="false" type="booleanType"> 
             <xsd:annotation> 
-                <xsd:documentation>By default, per-application JCache session cache names are generated by using the context root. When the JCache session caches are distributed across multiple servers, multiple applications with the same context root might exist that must not share a session cache. When this option is enabled, application names are included in JCache cache names to help avoid conflicting JCache cache names. The default value is false. </xsd:documentation> 
+                <xsd:documentation>By default, JCache session cache names are generated by using the application context root. In distributed environments with multiple servers, conflicts can occur when different applications share the context root but require separate session caches. Enabling this option appends the application name to the JCache cache name, preventing such conflicts. The default value is false.</xsd:documentation> 
                 <xsd:appinfo> 
                     <ext:label>Use the application name in the cache names</ext:label> 
                     <ext:group id="performance"/> 
@@ -43374,6 +43711,7 @@
             <xsd:element name="auditEvent" type="com.ibm.ws.security.audit.event-factory"/> 
             <xsd:element name="batchJobLogging" type="com.ibm.ws.jbatch.joblog"/> 
             <xsd:element name="connectionManager" type="com.ibm.ws.jca.connectionManager-factory"/> 
+            <xsd:element name="data" type="io.openliberty.data"/> 
             <xsd:element name="distributedMap" type="com.ibm.ws.cache-factory"/> 
             <xsd:element name="grpc" type="io.openliberty.grpc.serverConfig-factory"/> 
             <xsd:element name="grpcClient" type="io.openliberty.grpc.clientConfig-factory"/> 
